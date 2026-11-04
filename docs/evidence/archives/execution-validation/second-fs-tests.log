@@ -1,0 +1,26 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+warning: unused import: `Path`
+   --> crates/core/src/archive_extract_fs.rs:255:117
+    |
+255 |     use std::{ffi::{OsStr,OsString},fs,os::unix::{ffi::OsStringExt,fs::{symlink,MetadataExt,PermissionsExt}},path::{Path,PathBuf},s...
+    |                                                                                                                     ^^^^
+    |
+    = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0509]: cannot move out of type `archive_extract_fs::linux::tests::Case`, which implements the `Drop` trait
+   --> crates/core/src/archive_extract_fs.rs:356:156
+    |
+356 | ...s::read(c.source).unwrap(),source);assert!(c.stages().is_empty());
+    |            ^^^^^^^^
+    |            |
+    |            cannot move out of here
+    |            move occurs because `c.source` has type `std::path::PathBuf`, which does not implement the `Copy` trait
+    |
+help: consider cloning the value if the performance cost is acceptable
+    |
+356 |         let done=error.retry_sync().unwrap();assert_eq!(done.bytes,13);assert_eq!(fs::metadata(c.dest.join("out")).unwrap().ino(),ino);assert_eq!(fs::read(c.source.clone()).unwrap(),source);assert!(c.stages().is_empty());
+    |                                                                                                                                                                    ++++++++
+
+For more information about this error, try `rustc --explain E0509`.
+warning: `files-core` (lib test) generated 1 warning
+error: could not compile `files-core` (lib test) due to 1 previous error; 1 warning emitted

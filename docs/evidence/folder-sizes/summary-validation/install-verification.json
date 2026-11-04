@@ -1,0 +1,35 @@
+{
+  "gate": "PASS",
+  "record": "docs/evidence/0.0.4/installed-checkpoint-1793494152752973446.json",
+  "source": "7983c0f56e398236d4350132846f8267f6779895",
+  "method": "independent SHA256 of5installed and5backup files",
+  "files": [
+    {
+      "name": "files",
+      "installed_sha256": "43a09343ee995de0fdb8127a2a692e70970e88d1a59ebd9398d1c1af942805f3",
+      "backup_sha256": "7e264dd0c3c927cecd5116e3547fd477e7e96acab94c73944a8865e356570170"
+    },
+    {
+      "name": "files-helper",
+      "installed_sha256": "63a05ffd3fcd12b364fc5d980fa32eeb2b38924bd62cfa4448e0b4ad822ee439",
+      "backup_sha256": "63a05ffd3fcd12b364fc5d980fa32eeb2b38924bd62cfa4448e0b4ad822ee439"
+    },
+    {
+      "name": "files-html-helper",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "backup_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "backup_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "backup_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

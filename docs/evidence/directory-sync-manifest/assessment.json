@@ -1,0 +1,59 @@
+{
+  "source_commit": "a1cdead27db49f25059a6ef337446030216b24a9",
+  "scope": "SOURCE ONLY read-only pinned manifest evidence; not a canonical sealed operation manifest, new approval authority, helper/UI, Apply, staging/backup, retirement, journal, queue or recovery",
+  "validation": {
+    "workspace_passed": 1409,
+    "core": 502,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 13,
+    "manifest_tests": 12,
+    "opt_in_legacy_mount_test": 1,
+    "rust_concurrency": "normal; one Cargo build job through existing idle snapshot gate, no competitors controlled",
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "release_helper_ui_build": "NOT_RUN; no installation"
+  },
+  "proofs": [
+    "fresh Intent only, no old report/choice conversion or public Prepared constructor/Deserialize",
+    "two pinned parent/root pairs; original parent alias canonicalization and fresh current-path Source reopens with mount/root/ancestry/revision checks",
+    "complete EXDEV revision/content/full bounded metadata including real xattr digest evidence; literal symlink digest without target traversal",
+    "opt-in per-entry statx mount proof checks held FD and current name, revalidates namespace/content/metadata/topology",
+    "8192descendants plus root per side,1MiB relative-name budget/root-prefix separately accounted; actual two full namespaces pass16386 total entries",
+    "regular payload limit includes initial capture and final rehash across roots; later verify has independent per-call shared cap; EOF/link/metadata I/O additional",
+    "hardlink groups inside/across roots and known external-link count without external name or mutation authority",
+    "directory physical aliases rejected; legitimate different-filesystem roots supported with real /dev/shm fixture",
+    "changed same-size data/permissions/namespace/link/root/parent, ancestor retarget, captured IDs, special FIFO, cancel, one-shot sink failure and terminal root swap reject",
+    "legacy EXDEV has no opt-in mount dependency or bound/FLMOVE/Entry wire-format change"
+  ],
+  "retained_failure": {
+    "log": "initial-1408-pass-clippy-fail.log",
+    "result": "1408 workspace tests passed;1 collapsible_if Clippy failure",
+    "fix": "equivalent condition collapsed without suppression; parent current-path binding audit then added ancestor support/reopen test; final1409 workspace and Clippy/fmt PASS"
+  },
+  "installation": "unchanged; installed-unchanged.json verifies five dry-run artifacts289db327/helper170f995",
+  "limits": [
+    "not atomic snapshot/hostile-writer isolation; roots/parents held, leaves reacquired during walks and must be checked per effect",
+    "metadata digest cannot reconstruct old ACL/xattr; need actual rollback values or whole preserved inode",
+    "inherited owned/O_NOATIME/attribute backend constraints; unsupported files/foreign-owner capability need further work",
+    "numeric mount-proof mismatch and real separate filesystem tested; no privileged live bind/unmount scenario run",
+    "no canonical encoding/seal/new approval/transport/recoverable effects/journal/queue/crashundo yet",
+    "no native input/clipboard/AT-SPI/2x/otherOS/global FD or helper lifetime/offline syscall proof",
+    "absolute PSS/Swap/CPU/startup and new-preview freeze retained; logical counts/read caps not performance measurements"
+  ],
+  "next": "Canonical evidence encoding/seal plus fresh explicit manifest review and journal binding; never use installed dry-run choices as Apply tokens. Then recoverable no-clobber replace/remove/metadata effects and durable barriers/queue/recovery; owned fixtures only.",
+  "full_goal": "ACTIVE; original full scope unchanged",
+  "source_sha256": {
+    "crates/core/src/directory_sync_manifest.rs": "9451357017f48a7cb259712ad84c05176f7d78c3fa4800b4b604cb230e9f58fb",
+    "crates/core/src/exdev_source.rs": "3d1ca94a543d50f23ea367e8657efa47b5298b8091037b796fec4358bcac36fb",
+    "crates/core/src/selection_source.rs": "8f5db558afefb21b25cb1da5b4ad07339aa9a5a09f08f18bdbf8d65bfe81acaa",
+    "crates/core/src/lib.rs": "ab081d9ac96c819414e58ff3e723196349c53f2fecf50df35e93d50fd88ee7cb"
+  },
+  "artifact_note": {
+    "log": "initial-focused-11-pass.log",
+    "normalization": "trailing empty line removed for git whitespace check; no content changes",
+    "exact_raw_archive": "initial-focused-11-pass.raw.gz",
+    "raw_sha256": "58086ae45086099804aeec1a62aa279c7327531fb0febb32a8f336fea69d06ec"
+  }
+}

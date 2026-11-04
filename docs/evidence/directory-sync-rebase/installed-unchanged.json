@@ -1,0 +1,26 @@
+{
+  "receipt": "docs/evidence/0.0.4/installed-checkpoint-1793574522897173033.json",
+  "files": [
+    {
+      "path": "/home/node/.local/bin/files",
+      "sha256": "289db327a121ffb8eed49f0386443fa7fbc4b0dc3b07b99cf8207d096bfce2f9"
+    },
+    {
+      "path": "/home/node/.local/bin/files-helper",
+      "sha256": "170f995dc6d4f86e6deeb5ef47257aef91fda3654e42f0254c3bc9d485a0ef0f"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper",
+      "sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper.LICENSES",
+      "sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper.build.json",
+      "sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee"
+    }
+  ],
+  "installation": "UNCHANGED; no release/helper/UI build or installation"
+}

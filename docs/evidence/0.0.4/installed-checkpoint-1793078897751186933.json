@@ -1,0 +1,40 @@
+{
+  "checkpoint": "488b45095530c786b8a78ef0668eba9ced3998ef",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg-large-ui-1793078251643976150.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793078897687909121",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "3c6f0c78ee808d759581e0718cdc2d88abbe0c217d4d2ade26aece9db9ddef1e",
+      "release_sha256": "9748f0c0996c77a5b1e7f9f41aa5aafb20c868786d595618a6aa5c267137809e",
+      "installed_sha256": "9748f0c0996c77a5b1e7f9f41aa5aafb20c868786d595618a6aa5c267137809e"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "fcf3a913c39b5173137a904d435a166bb7ae3c39052c17e382905786e3ca9fa7",
+      "release_sha256": "3872dd9dae0bab4eb06f659dc33b595f45d4029134dd85a7d24e4298f7f55d5a",
+      "installed_sha256": "3872dd9dae0bab4eb06f659dc33b595f45d4029134dd85a7d24e4298f7f55d5a"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "release_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "installed_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "release_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "installed_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

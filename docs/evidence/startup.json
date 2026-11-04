@@ -1,0 +1,48 @@
+{
+  "runs": [
+    {
+      "main_to_paint_ms": 38.81,
+      "spawn_to_paint_ms": 44.025
+    },
+    {
+      "main_to_paint_ms": 98.154,
+      "spawn_to_paint_ms": 111.849
+    },
+    {
+      "main_to_paint_ms": 50.078,
+      "spawn_to_paint_ms": 54.448
+    },
+    {
+      "main_to_paint_ms": 79.638,
+      "spawn_to_paint_ms": 86.169
+    },
+    {
+      "main_to_paint_ms": 57.156,
+      "spawn_to_paint_ms": 62.48
+    },
+    {
+      "main_to_paint_ms": 83.293,
+      "spawn_to_paint_ms": 89.193
+    },
+    {
+      "main_to_paint_ms": 75.438,
+      "spawn_to_paint_ms": 83.014
+    },
+    {
+      "main_to_paint_ms": 96.279,
+      "spawn_to_paint_ms": 104.395
+    },
+    {
+      "main_to_paint_ms": 83.89,
+      "spawn_to_paint_ms": 93.954
+    },
+    {
+      "main_to_paint_ms": 73.684,
+      "spawn_to_paint_ms": 80.386
+    }
+  ],
+  "median_spawn_to_paint_ms": 84.591,
+  "max_spawn_to_paint_ms": 111.849,
+  "under_100ms": 8,
+  "method": "fresh process; POSIX_FADV_DONTNEED requested for executable only; system/font/shared-library caches are not globally evicted; ends at completed first draw callback, not compositor presentation"
+}

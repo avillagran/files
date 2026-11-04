@@ -1,0 +1,144 @@
+{
+  "scope": "Actual GPU fixture rendering; not file-manager UI or performance measurement",
+  "dimensions": [
+    384,
+    128
+  ],
+  "texture": "synthetic gradient/checker, not app text or content",
+  "context": {
+    "egl": "1.5",
+    "vendor": "Mesa",
+    "renderer": "Apple M2 Pro (G14S B1)",
+    "version": "OpenGL ES 3.2 Mesa 26.2.5-arch1.1",
+    "glsl": "OpenGL ES GLSL ES 3.20"
+  },
+  "shaders": {
+    "threadaura": {
+      "passed": true,
+      "stage": "link",
+      "logs": [
+        {
+          "file": "quad.vert",
+          "log": ""
+        },
+        {
+          "file": "threadaura.frag",
+          "log": ""
+        }
+      ],
+      "link_log": "",
+      "sha256": "4794aa6bf33511d63cb802ee1649a37e7f33168c3aa57da8ea5d552e14205b5c",
+      "render": {
+        "passed": true,
+        "checks": [
+          "nonconstant visible output",
+          "premultiplied RGBA",
+          "state changes pixels",
+          "zero opacity transparent",
+          "attention: visible output",
+          "burst: visible output"
+        ],
+        "rgba_sha256": "79e21a8f29fd43f3cab5c845166e778bb88cf4d3e1f1828b4995125719b5b4a6",
+        "captures": [
+          "docs/evidence/shaders/threadaura.png",
+          "docs/evidence/shaders/aura-attention.png",
+          "docs/evidence/shaders/aura-burst.png"
+        ]
+      }
+    },
+    "reveal": {
+      "passed": true,
+      "stage": "link",
+      "logs": [
+        {
+          "file": "quad.vert",
+          "log": ""
+        },
+        {
+          "file": "reveal.frag",
+          "log": ""
+        }
+      ],
+      "link_log": "",
+      "sha256": "e1c1d6415c51fe9cd47ed9c9de0add439043ed4847b9e64c0ef52368aaeecec0",
+      "render": {
+        "passed": true,
+        "checks": [
+          "nonconstant visible output",
+          "premultiplied RGBA",
+          "state changes pixels",
+          "zero opacity transparent",
+          "style 0: full extent matches source within 2/255",
+          "style 1: full extent matches source within 2/255",
+          "style 2: full extent matches source within 2/255"
+        ],
+        "rgba_sha256": "c5bf51848e056f490ef217b24af7566ae0dcc0f111897c1b2e22ee74933ea0e6",
+        "captures": [
+          "docs/evidence/shaders/reveal.png",
+          "docs/evidence/shaders/reveal-style-0.png",
+          "docs/evidence/shaders/reveal-style-1.png",
+          "docs/evidence/shaders/reveal-style-2.png"
+        ]
+      }
+    },
+    "starfield": {
+      "passed": true,
+      "stage": "link",
+      "logs": [
+        {
+          "file": "quad.vert",
+          "log": ""
+        },
+        {
+          "file": "starfield.frag",
+          "log": ""
+        }
+      ],
+      "link_log": "",
+      "sha256": "d18c803d1483c77c7e0a635dcb6e946f7b29db3ecdd291f0993c4ded71786b42",
+      "render": {
+        "passed": true,
+        "checks": [
+          "nonconstant visible output",
+          "premultiplied RGBA",
+          "state changes pixels",
+          "zero opacity transparent"
+        ],
+        "rgba_sha256": "58792d4e24d0f5e9b9f128f1290016a29699598d4882b8b855bb8321bf6a5c56",
+        "captures": [
+          "docs/evidence/shaders/starfield.png"
+        ]
+      }
+    },
+    "activity": {
+      "passed": true,
+      "stage": "link",
+      "logs": [
+        {
+          "file": "quad.vert",
+          "log": ""
+        },
+        {
+          "file": "activity.frag",
+          "log": ""
+        }
+      ],
+      "link_log": "",
+      "sha256": "684e9ed2b2f7235e344a18c4040f573390b4cd7a8754723176dac38aa728a62c",
+      "render": {
+        "passed": true,
+        "checks": [
+          "nonconstant visible output",
+          "premultiplied RGBA",
+          "state changes pixels",
+          "zero opacity transparent"
+        ],
+        "rgba_sha256": "52a5ff385fcf46949860a584ae9b9e85e0f13c9e5d931fc5a38da578395fe101",
+        "captures": [
+          "docs/evidence/shaders/activity.png"
+        ]
+      }
+    }
+  },
+  "passed": true
+}

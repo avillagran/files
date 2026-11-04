@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-26",
+  "test": "Linux TreeSampler live child allocation and release",
+  "result": "passed",
+  "fixture": "Python parent with Python child holding a touched 16 MiB bytearray; pipe handshakes before sampling and after child exit",
+  "active_processes": 2,
+  "active_pss_plus_swap_kib": 29435,
+  "released_processes": 1,
+  "released_pss_plus_swap_kib": 8008,
+  "released_delta_kib": 21427,
+  "both_samples_complete": true,
+  "limitations": [
+    "Validates the measuring instrument, not files application memory consumption",
+    "Point samples do not prove maximum memory between samples",
+    "GPU memory is not included"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "status": "SOURCE_WATCH_ALIAS_ACCEPTED_MODEL_BRIDGE_PENDING",
+  "installed_changed": false,
+  "before": "Positive root symlink replacement regression failed on foundation: no rearm notice within fixture deadline; retained log.",
+  "repair": "Resolved directory device/inode reconciliation every2s on existing worker; before/after registration identity checks; per-native-arm stale callback rejection. No directory-content polling.",
+  "workspace": {
+    "passed": 1267,
+    "core": 443,
+    "helper": 105,
+    "ui": 719,
+    "historical_ignored": 3,
+    "normal_harness_concurrency": true
+  },
+  "final_current_watcher_tests": 9,
+  "clippy": "PASS after collapsing nested if; initial lint failure retained",
+  "recursive_ui_rustfmt": "PASS",
+  "new_cases": [
+    "Root symlink atomic replacement followed by new-target file event",
+    "Ancestor alias with raw0xFF path replacement",
+    "Directory-to-file Failed and directory recreation Ready",
+    "Child writes keep directory device/inode identity unchanged",
+    "Retired native callbacks rejected within same epoch"
+  ],
+  "limits": [
+    "No Model construction/automatic-refresh UI yet",
+    "Identity is live/best-effort, not namespace snapshot or proof of every transient change",
+    "Cooperative2s reconciliation schedule, no hard syscall deadline",
+    "Non-Unix identity adapter returns failure; non-Linux functional acceptance pending",
+    "No directory entry names retained in callback slots or operation authority",
+    "No new previews/PSS/Swap/CPU/startup experiments or native input/global lifecycle acceptance",
+    "Historical folder-view WouldBlock and X11 missing names remain unconfirmed/open"
+  ],
+  "installed_files_verified_unchanged": [
+    {
+      "name": "files",
+      "sha256": "b9941ab1acfb49f29ae5ad220f399ae425ace5d2739c96c8ac410bce653c28c9"
+    },
+    {
+      "name": "files-helper",
+      "sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd"
+    },
+    {
+      "name": "files-html-helper",
+      "sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee"
+    }
+  ]
+}

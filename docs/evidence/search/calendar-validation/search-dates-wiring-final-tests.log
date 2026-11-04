@@ -1,0 +1,49 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+warning: method `date_busy` is never used
+   --> crates/ui/src/search_state.rs:185:12
+    |
+184 | impl State {
+    | ---------- method in this implementation
+185 |     pub fn date_busy(&self) -> bool {
+    |            ^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `files-ui` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.36s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57718b5e1c1473cd)
+
+running 29 tests
+test search_order::tests::lossy_display_equal_raw_names_keep_byte_tiebreak_and_population_cap ... ok
+test search_order::tests::natural_name_kind_and_path_have_deterministic_ties_without_changing_hits ... ok
+test search_state::order_tests::order_changes_keep_selected_path_and_keyboard_follows_visual_positions ... ok
+test search_state::tests::editing_content_cancels_and_replacement_waits_for_old_ack ... ok
+test search_state::tests::invalidation_hides_before_ack_and_edit_cannot_restore_old_candidates ... ok
+test search_state::tests::guided_fields_compose_before_unfinished_name_quote_and_keep_advanced_terms ... ok
+test search_state::tests::latest_intent_waits_for_cancel_ack_and_does_not_publish_old_results ... ok
+test search_state::tests::moving_field_does_not_invalidate_running_search_but_editing_cancels_it ... ok
+test search_state::tests::mouse_content_field_keeps_name_fields_cursor_undo_and_preflight ... ok
+test search_state::tests::blocked_gate_keeps_one_pending_intent_and_input_is_bounded ... ok
+test search_state::tests::provisional_selection_follows_raw_path_into_final_sorted_report ... ok
+test search_state::tests::provisional_counters_never_survive_cancel_or_publish_before_final_ack ... ok
+test search_state::tests::cursor_motion_preserves_live_job_and_noop_delete_keeps_final_report ... ok
+test search_stream::tests::content_reply_must_match_requested_mode ... ok
+test search_stream::tests::batches_fragmented_discovery_order_reconcile_exact_sorted_final ... ok
+test search_stream::tests::fragmented_progress_is_latest_only_and_final_matches_after_complete_frame ... ok
+test search_stream::tests::batches_require_opt_in_version_initial_progress_and_exact_counts ... ok
+test search_stream::tests::terminal_error_discards_candidates_and_never_returns_a_partial_success ... ok
+test search_ui::snippet_tests::snippet_highlight_stays_visible_in_compact_unicode_context_and_is_literal ... ok
+test search_stream::tests::rejects_regression_wrong_id_missing_final_and_inconsistent_summary ... ok
+test navigation_tests::search_caret_and_result_focus_reject_late_text_paste_without_file_actions ... ok
+test navigation_tests::guided_search_focus_rejects_late_paste_without_redirecting_text ... ok
+test path_edit::tests::switching_to_search_releases_path_geometry_and_invalidates_pending_paste ... ok
+test navigation_tests::enter_during_current_search_does_not_restart_but_enter_after_cancel_does ... ok
+test navigation_tests::search_modal_blocks_underlying_file_actions_and_stale_text_paste ... ok
+test search_state::tests::rejected_query_paste_keeps_selection_epoch_capacity_and_undo_history ... ok
+test search_stream::tests::terminal_error_and_protocol_caps_are_strict ... ok
+test search_state::tests::scalar_middle_edit_selection_undo_and_field_limits_preserve_drafts ... ok
+test search_state::tests::invalid_or_oversized_composition_never_admits_helper_and_retains_draft ... ok
+
+test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 492 filtered out; finished in 0.03s
+

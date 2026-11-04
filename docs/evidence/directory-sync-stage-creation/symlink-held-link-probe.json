@@ -1,0 +1,11 @@
+{
+  "machine": "NODE",
+  "kernel": "7.2.8-9-omarchy",
+  "owned_fixture_only": true,
+  "syscall": "linkat(proc-held-O_PATH-symlink, AT_SYMLINK_FOLLOW)",
+  "return": 0,
+  "errno": 0,
+  "alias_same_symlink_inode": true,
+  "target_links": 1,
+  "performance_experiment": false
+}

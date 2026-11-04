@@ -1,0 +1,208 @@
+{
+  "method": "visible Open hit handlers + FLTK framebuffer; internal win.do_callback through registered close callback",
+  "native_input_gate": "NOT_ATTEMPTED",
+  "native_close_gate": "PENDING_OS_INPUT",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "cleanup_scope": "root exit0 plus close drain markers; no descendant sampler in this functional phase",
+  "runs": [
+    {
+      "case": "host-unavailable",
+      "functional_gate": "PASS",
+      "command_scope": "real absent host command under inherited PATH; no fallback",
+      "native_presence": {
+        "method": "read-only inventory; no native action",
+        "native_input_gate": "PENDING_DRIVER_TARGET",
+        "cua": {
+          "method": "jev Driver/list_windows read-only",
+          "status": "OBSERVED",
+          "count": 0,
+          "matching_windows": []
+        },
+        "compositor": {
+          "method": "hyprctl clients -j read-only; no dispatch",
+          "matching_clients": [
+            {
+              "pid": 2230780,
+              "address": "0xaaab0d1b0be0"
+            }
+          ]
+        }
+      },
+      "actions": [
+        {
+          "action": "file",
+          "menu_seq": 1,
+          "seq": 2,
+          "outcome": "unavailable",
+          "state": {
+            "seq": 2,
+            "path": "/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files",
+            "error": "open ausente · alternativa PENDIENTE",
+            "line": "FILES_OPEN_READY seq=2 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files\" error=\"open ausente · alternativa PENDIENTE\""
+          },
+          "literal_argv_verified": false
+        },
+        {
+          "action": "link",
+          "menu_seq": 3,
+          "seq": 4,
+          "outcome": "unavailable",
+          "state": {
+            "seq": 4,
+            "path": "/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files",
+            "error": "open ausente · alternativa PENDIENTE",
+            "line": "FILES_OPEN_READY seq=4 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files\" error=\"open ausente · alternativa PENDIENTE\""
+          },
+          "literal_argv_verified": false
+        }
+      ],
+      "folder_navigation_without_launcher": true,
+      "root_exit": 0,
+      "registered_callback_exit": true,
+      "callback_sequence": 7,
+      "callback_request_drained_order": true,
+      "fixture_bytes_names_links_preserved": true,
+      "viewer_opened": "NOT_CLAIMED",
+      "cleanup": "normal root exit plus app-owned drain markers; launcher already acknowledged",
+      "log_before_cleanup": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=72840\nFILES_UI_SMOKE_OK entries=3\nFILES_OPEN_READY seq=0 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files\" error=\"\"\nFILES_OPEN_COMMAND seq=1 action=actions\nFILES_OPEN_READY seq=1 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files\" error=\"\"\nFILES_OPEN_COMMAND seq=2 action=file\nFILES_OPEN_OUTCOME=unavailable\nFILES_OPEN_READY seq=2 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files\" error=\"open ausente · alternativa PENDIENTE\"\nFILES_CAPTURE_OK\nFILES_OPEN_COMMAND seq=3 action=actions\nFILES_OPEN_READY seq=3 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files\" error=\"open ausente · alternativa PENDIENTE\"\nFILES_OPEN_COMMAND seq=4 action=link\nFILES_OPEN_OUTCOME=unavailable\nFILES_OPEN_READY seq=4 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files\" error=\"open ausente · alternativa PENDIENTE\"\nFILES_CAPTURE_OK\nFILES_OPEN_COMMAND seq=5 action=actions\nFILES_OPEN_READY seq=5 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files\" error=\"open ausente · alternativa PENDIENTE\"\nFILES_OPEN_COMMAND seq=6 action=folder\nFILES_OPEN_READY seq=6 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files/childdir\" error=\"\"\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_OPEN_COMMAND seq=7 action=callback\nFILES_OPEN_READY seq=7 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/host-unavailable/files/childdir\" error=\"\"\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true notice=false\nFILES_CLOSE_DRAINED\n"
+    },
+    {
+      "case": "fake-open",
+      "functional_gate": "PASS",
+      "command_scope": "fixture fake executable; PATH changed only for app child; no actual viewer",
+      "actions": [
+        {
+          "action": "file",
+          "menu_seq": 1,
+          "seq": 2,
+          "outcome": "opened",
+          "state": {
+            "seq": 2,
+            "path": "/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files",
+            "error": "",
+            "line": "FILES_OPEN_READY seq=2 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files\" error=\"\""
+          },
+          "literal_argv_verified": true
+        },
+        {
+          "action": "link",
+          "menu_seq": 3,
+          "seq": 4,
+          "outcome": "opened",
+          "state": {
+            "seq": 4,
+            "path": "/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files",
+            "error": "",
+            "line": "FILES_OPEN_READY seq=4 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files\" error=\"\""
+          },
+          "literal_argv_verified": true
+        }
+      ],
+      "folder_navigation_without_launcher": true,
+      "root_exit": 0,
+      "registered_callback_exit": true,
+      "callback_sequence": 7,
+      "callback_request_drained_order": true,
+      "fixture_bytes_names_links_preserved": true,
+      "viewer_opened": "NOT_CLAIMED",
+      "cleanup": "normal root exit plus app-owned drain markers; launcher already acknowledged",
+      "log_before_cleanup": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=117782\nFILES_UI_SMOKE_OK entries=3\nFILES_OPEN_READY seq=0 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files\" error=\"\"\nFILES_OPEN_COMMAND seq=1 action=actions\nFILES_OPEN_READY seq=1 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files\" error=\"\"\nFILES_OPEN_COMMAND seq=2 action=file\nFILES_OPEN_OUTCOME=opened\nFILES_OPEN_READY seq=2 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files\" error=\"\"\nFILES_CAPTURE_OK\nFILES_OPEN_COMMAND seq=3 action=actions\nFILES_OPEN_READY seq=3 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files\" error=\"\"\nFILES_OPEN_COMMAND seq=4 action=link\nFILES_OPEN_OUTCOME=opened\nFILES_OPEN_READY seq=4 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files\" error=\"\"\nFILES_OPEN_COMMAND seq=5 action=actions\nFILES_OPEN_READY seq=5 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files\" error=\"\"\nFILES_OPEN_COMMAND seq=6 action=folder\nFILES_OPEN_READY seq=6 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files/childdir\" error=\"\"\nFILES_CAPTURE_OK\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_OPEN_COMMAND seq=7 action=callback\nFILES_OPEN_READY seq=7 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-open/files/childdir\" error=\"\"\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true notice=false\nFILES_CLOSE_DRAINED\n"
+    },
+    {
+      "case": "fake-exit7",
+      "functional_gate": "PASS",
+      "command_scope": "fixture fake executable; PATH changed only for app child; no actual viewer",
+      "actions": [
+        {
+          "action": "file",
+          "menu_seq": 1,
+          "seq": 2,
+          "outcome": "failed",
+          "state": {
+            "seq": 2,
+            "path": "/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files",
+            "error": "open falló · código 7",
+            "line": "FILES_OPEN_READY seq=2 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files\" error=\"open falló · código 7\""
+          },
+          "literal_argv_verified": true
+        },
+        {
+          "action": "link",
+          "menu_seq": 3,
+          "seq": 4,
+          "outcome": "failed",
+          "state": {
+            "seq": 4,
+            "path": "/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files",
+            "error": "open falló · código 7",
+            "line": "FILES_OPEN_READY seq=4 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files\" error=\"open falló · código 7\""
+          },
+          "literal_argv_verified": true
+        }
+      ],
+      "folder_navigation_without_launcher": true,
+      "root_exit": 0,
+      "registered_callback_exit": true,
+      "callback_sequence": 7,
+      "callback_request_drained_order": true,
+      "fixture_bytes_names_links_preserved": true,
+      "viewer_opened": "NOT_CLAIMED",
+      "cleanup": "normal root exit plus app-owned drain markers; launcher already acknowledged",
+      "log_before_cleanup": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=98688\nFILES_UI_SMOKE_OK entries=3\nFILES_OPEN_READY seq=0 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files\" error=\"\"\nFILES_OPEN_COMMAND seq=1 action=actions\nFILES_OPEN_READY seq=1 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files\" error=\"\"\nFILES_OPEN_COMMAND seq=2 action=file\nFILES_OPEN_OUTCOME=failed\nFILES_OPEN_READY seq=2 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files\" error=\"open falló · código 7\"\nFILES_CAPTURE_OK\nFILES_OPEN_COMMAND seq=3 action=actions\nFILES_OPEN_READY seq=3 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files\" error=\"open falló · código 7\"\nFILES_OPEN_COMMAND seq=4 action=link\nFILES_OPEN_OUTCOME=failed\nFILES_OPEN_READY seq=4 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files\" error=\"open falló · código 7\"\nFILES_OPEN_COMMAND seq=5 action=actions\nFILES_OPEN_READY seq=5 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files\" error=\"open falló · código 7\"\nFILES_OPEN_COMMAND seq=6 action=folder\nFILES_OPEN_READY seq=6 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files/childdir\" error=\"\"\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_OPEN_COMMAND seq=7 action=callback\nFILES_OPEN_READY seq=7 path=\"/home/avillagran/.cache/files-test/open-close-ui-ioog6svu/fake-exit7/files/childdir\" error=\"\"\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true notice=false\nFILES_CLOSE_DRAINED\n"
+    }
+  ],
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/open-host-unavailable-file-1793056977603306994.png",
+      "framebuffer_dimensions": [
+        845,
+        523
+      ],
+      "method": "FLTK framebuffer; compositor placement/geometry not controlled"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/open-host-unavailable-link-1793056977729722945.png",
+      "framebuffer_dimensions": [
+        845,
+        523
+      ],
+      "method": "FLTK framebuffer; compositor placement/geometry not controlled"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/open-fake-open-file-1793056978048760509.png",
+      "framebuffer_dimensions": [
+        845,
+        523
+      ],
+      "method": "FLTK framebuffer; compositor placement/geometry not controlled"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/open-folder-navigation-1793056978214808373.png",
+      "framebuffer_dimensions": [
+        845,
+        523
+      ],
+      "method": "FLTK framebuffer; compositor placement/geometry not controlled"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/open-fake-exit7-file-1793056978491071547.png",
+      "framebuffer_dimensions": [
+        845,
+        523
+      ],
+      "method": "FLTK framebuffer; compositor placement/geometry not controlled"
+    }
+  ],
+  "functional_gate": "PASS",
+  "known_pending": [
+    "actual installed system open/viewer success",
+    "native compositor close shortcut/event",
+    "resource/startup phase frozen"
+  ],
+  "host_open": {
+    "available": false,
+    "path": null
+  },
+  "binary_sha256": "81c53b8add62fa941fac3fc9f11f30f9af8441e5d31f6a885dc1db3ad9f186b7"
+}

@@ -1,0 +1,33 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+error: the borrowed expression implements the required traits
+   --> crates/core/src/folder_views.rs:302:52
+    |
+302 |         (None, None) => match fs::symlink_metadata(&file_path) {
+    |                                                    ^^^^^^^^^^ help: change this to: `file_path`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_borrows_for_generic_args
+    = note: `-D clippy::needless-borrows-for-generic-args` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::needless_borrows_for_generic_args)]`
+
+error: this `if` statement can be collapsed
+   --> crates/core/src/folder_views.rs:324:5
+    |
+324 | /     if let Op::Save(e) | Op::Forget(e) = op {
+325 | |         if !path_valid(&e.path) || !e.settings.valid() {
+326 | |             return Err(invalid());
+327 | |         }
+328 | |     }
+    | |_____^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+324 ~     if let Op::Save(e) | Op::Forget(e) = op
+325 ~         && (!path_valid(&e.path) || !e.settings.valid()) {
+326 |             return Err(invalid());
+327 ~         }
+    |
+
+error: could not compile `files-core` (lib) due to 2 previous errors

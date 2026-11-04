@@ -1,0 +1,10 @@
+{
+  "scope": "fixture started audio, route assertion stopped it before PCM collection/capture",
+  "failure": "initial actual sink ID was not recorded; cause of mismatch is NOT established",
+  "followup": "record requested/actual sink IDs and target.object; PA_INVALID_INDEX treated as pending, real other sink still rejects; crosscheck private short/JSON index and zero-PCM route probe before further tones",
+  "physical_speaker_audibility": "NOT_VALIDATED; do not infer prior mismatch was PA_INVALID_INDEX",
+  "private_module_removed": true,
+  "default_sink_unchanged": true,
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

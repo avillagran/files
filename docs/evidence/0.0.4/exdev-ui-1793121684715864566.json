@@ -1,0 +1,32 @@
+{
+  "functional_gate": "FAIL",
+  "resource_gate": "NOT_MEASURED_FREEZE",
+  "startup_gate": "NOT_MEASURED_FREEZE",
+  "captures": [],
+  "cases": [
+    {
+      "name": "normal",
+      "source_st_dev": 63,
+      "destination_st_dev": 75,
+      "states": [],
+      "original": {
+        "mode": 33184,
+        "uid": 1001,
+        "gid": 1001,
+        "mtime_ns": 1700000000000000000,
+        "atime_ns": 1700000000000000000,
+        "sha256": "1d08fe1950525eff0602ba26a59bc7eedcbdb37bc2600a57b5c91483b47a2edc",
+        "xattrs": {
+          "user.files-exdev": "70726573657276652d6578616374"
+        }
+      },
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=103222\nFILES_UI_SMOKE_OK entries=2\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=2 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-t0w428nx/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":0}\n"
+    }
+  ],
+  "scope": "single regular file nlink1, real EXDEV and explicit recovery in app after process exit73",
+  "method": "existing internal Actions/handlers + real FLTK framebuffer; no native OS input; no powerloss/SIGKILL/failed fsync syscall",
+  "error": "CalledProcessError(4, ['hyprctl', 'clients', '-j'])",
+  "binary_sha256": "c4d35e65c235e7a8f0cceb19c5f4593b372e6f673d90fe98436bb86f26b1d26d",
+  "helper_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

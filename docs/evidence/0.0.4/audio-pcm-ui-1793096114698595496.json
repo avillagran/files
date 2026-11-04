@@ -1,0 +1,53 @@
+{
+  "functional_gate": "FAIL",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "shared UI handlers, actual FLTK framebuffer and private Pulse monitor PCM; no native input/clipboard or physical speaker audibility",
+  "captures": [],
+  "checks": [],
+  "pcm": [],
+  "server_transport": "local user Unix socket, fixture-only environment",
+  "created_module": {
+    "name": "files_test_514018_1793096113848922131",
+    "id": 536870916
+  },
+  "private_sink": {
+    "name": "files_test_514018_1793096113848922131",
+    "module_id": 536870916,
+    "sink_index": 56132,
+    "explicit_device": true,
+    "global_default_changed": false
+  },
+  "compositor_binding": {
+    "selected": {
+      "instance": "unknown_1793084545_122682092",
+      "time": 1793084545,
+      "pid": 3154625,
+      "wl_socket": "wayland-1"
+    },
+    "previous_signature": "unknown_1792557238_2092186919",
+    "scope": "fixture parent and child only, unique Wayland socket, no focus/global configuration"
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab34a6ec40"
+  },
+  "error": "AssertionError('own audio routed outside private sink')",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=84838\nFILES_UI_SMOKE_OK entries=2\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=2\nFILES_PREVIEW_HELPER pid=514169 start=53888657 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-pcm-oqmog_fp/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=154 revision=2 stamp=Some(Revision { device: 63, inode: 282246026, bytes: 144183, modified_seconds: 1793096114, modified_nanoseconds: 85839583, changed_seconds: 1793096114, changed_nanoseconds: 85839583 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_PREVIEW_COMMAND_OK audio-play\nFILES_PREVIEW_COMMAND_REV action=audio-play revision=3\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-pcm-oqmog_fp/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=154 revision=3 stamp=Some(Revision { device: 63, inode: 282246026, bytes: 144183, modified_seconds: 1793096114, modified_nanoseconds: 85839583, changed_seconds: 1793096114, changed_nanoseconds: 85839583 }) audio_requested=true audio_running=false position=0.0 drained=false audio_error=None\nFILES_PREVIEW_HELPER pid=514178 start=53888670 command=preview_audio_playback\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-pcm-oqmog_fp/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=154 revision=3 stamp=Some(Revision { device: 63, inode: 282246026, bytes: 144183, modified_seconds: 1793096114, modified_nanoseconds: 85839583, changed_seconds: 1793096114, changed_nanoseconds: 85839583 }) audio_requested=true audio_running=true position=0.0 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-pcm-oqmog_fp/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=154 revision=3 stamp=Some(Revision { device: 63, inode: 282246026, bytes: 144183, modified_seconds: 1793096114, modified_nanoseconds: 85839583, changed_seconds: 1793096114, changed_nanoseconds: 85839583 }) audio_requested=true audio_running=true position=0.1 drained=false audio_error=None\n",
+  "recorder_reaped": true,
+  "private_module_removed": true,
+  "default_sink_unchanged": true,
+  "cleanup_errors": [],
+  "binary_sha256": "b76ecfdb6c4f3d76d93f4ca6e02bbb8e14b044212cc570123bf70502e899749d",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

@@ -1,0 +1,22 @@
+{
+  "status": "SOURCE_ONLY",
+  "installed": false,
+  "workspace_tests": {
+    "core": 435,
+    "helper": 105,
+    "ui": 702,
+    "ignored": 3,
+    "total_passed": 1242
+  },
+  "strengthened_helper_tests": 105,
+  "clippy": "PASS",
+  "fmt": "PASS",
+  "scope": "Optional same-walker regular-file blocks by name/by bounded device-inode identity; sparse, hardlinks, empty, path/entry rejection, overflow, cap and conflicting observations tested. No wire or UI integration.",
+  "limits": [
+    "No allocation CLI or X11/Wayland acceptance yet",
+    "No installed change",
+    "No resource/startup experiment",
+    "Not physical ownership, freeable bytes or cross-root identity union",
+    "Live traversal cannot detect same-block mutations or inode reuse"
+  ]
+}

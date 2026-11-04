@@ -1,0 +1,9 @@
+{
+  "failed": "docs/evidence/duplicates/node-functional-1793521636758884081/receipt.json",
+  "cause": "Stale initial report-state buttons inspected after later page navigation. New state had Copy hit and actual Copy had succeeded.",
+  "fix": "Assert Copy hit on first state returned by previous-page action; no production change.",
+  "retries": [
+    "1793521657826812292 PASS X11",
+    "1793521673759801336 PASS Wayland"
+  ]
+}

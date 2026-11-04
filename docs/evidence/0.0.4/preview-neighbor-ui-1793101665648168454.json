@@ -1,0 +1,71 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-neighbor-first-1793101664745476374.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-neighbor-next-webp-1793101664977423132.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-neighbor-raw-name-1793101665145567736.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-neighbor-error-controls-1793101665267895801.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-neighbor-latest-wins-1793101665537397629.png"
+  ],
+  "method": "shared UI Action and drawn hit targets; actual FLTK framebuffer, no native OS input/clipboard or resource sampling",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab35046900"
+  },
+  "boundary_no_decode": true,
+  "hidden_excluded": true,
+  "raw_name_and_effective_source": true,
+  "drawn_buttons_and_names": true,
+  "latest_wins_and_error_recovery": true,
+  "normal_callback_exit0_after_ack": true,
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        1044296,
+        54443674
+      ],
+      [
+        1044303,
+        54443679
+      ],
+      [
+        1044325,
+        54443702
+      ],
+      [
+        1044434,
+        54443719
+      ],
+      [
+        1044447,
+        54443736
+      ],
+      [
+        1044458,
+        54443749
+      ],
+      [
+        1044464,
+        54443757
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start identities after exit, not lifetime coverage"
+  },
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=103108\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_HELPER pid=1044296 start=54443674 command=preview_thumbnail\nFILES_PREVIEW_COMMAND_OK neighbor-first\nFILES_PREVIEW_COMMAND_REV action=neighbor-first revision=3\nFILES_PREVIEW_HELPER pid=1044303 start=54443679 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-eddc5g4l/files/a.png\") revision=3 stamp=Some(Revision { device: 63, inode: 282448347, bytes: 1950, modified_seconds: 1793101664, modified_nanoseconds: 422862627, changed_seconds: 1793101664, changed_nanoseconds: 422862627 })\nFILES_PREVIEW_NEIGHBOR_OK name=\"a.png\" raw=false source=Some(Revision { device: 63, inode: 282448347, bytes: 1950, modified_seconds: 1793101664, modified_nanoseconds: 422862627, changed_seconds: 1793101664, changed_nanoseconds: 422862627 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-red\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-red revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK neighbor-back\nFILES_PREVIEW_COMMAND_REV action=neighbor-back revision=3\nFILES_PREVIEW_NEIGHBOR_OK name=\"a.png\" raw=false source=Some(Revision { device: 63, inode: 282448347, bytes: 1950, modified_seconds: 1793101664, modified_nanoseconds: 422862627, changed_seconds: 1793101664, changed_nanoseconds: 422862627 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-red\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-red revision=3\nFILES_PREVIEW_COMMAND_OK neighbor-next\nFILES_PREVIEW_COMMAND_REV action=neighbor-next revision=5\nFILES_PREVIEW_HELPER pid=1044325 start=54443702 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=webp zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-eddc5g4l/files/b.webp\") revision=5 stamp=Some(Revision { device: 63, inode: 282448349, bytes: 56, modified_seconds: 1793101664, modified_nanoseconds: 451862810, changed_seconds: 1793101664, changed_nanoseconds: 451862810 })\nFILES_PREVIEW_NEIGHBOR_OK name=\"b.webp\" raw=false source=Some(Revision { device: 63, inode: 282448349, bytes: 56, modified_seconds: 1793101664, modified_nanoseconds: 451862810, changed_seconds: 1793101664, changed_nanoseconds: 451862810 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-blue\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-blue revision=5\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK neighbor-next\nFILES_PREVIEW_COMMAND_REV action=neighbor-next revision=7\nFILES_PREVIEW_HELPER pid=1044434 start=54443719 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-eddc5g4l/files/c-\\xFF.png\") revision=7 stamp=Some(Revision { device: 63, inode: 282448350, bytes: 1950, modified_seconds: 1793101664, modified_nanoseconds: 464524265, changed_seconds: 1793101664, changed_nanoseconds: 464524265 })\nFILES_PREVIEW_NEIGHBOR_OK name=\"c-\\xFF.png\" raw=true source=Some(Revision { device: 63, inode: 282448350, bytes: 1950, modified_seconds: 1793101664, modified_nanoseconds: 464524265, changed_seconds: 1793101664, changed_nanoseconds: 464524265 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-raw-green\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-raw-green revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK neighbor-next\nFILES_PREVIEW_COMMAND_REV action=neighbor-next revision=9\nFILES_PREVIEW_HELPER pid=1044447 start=54443736 command=preview_image_checked\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-eddc5g4l/files/d-bad.png\") message=Formato no admitido: PNG, JPEG o WebP est\u00e1tico\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK neighbor-back\nFILES_PREVIEW_COMMAND_REV action=neighbor-back revision=11\nFILES_PREVIEW_HELPER pid=1044458 start=54443749 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-eddc5g4l/files/c-\\xFF.png\") revision=11 stamp=Some(Revision { device: 63, inode: 282448350, bytes: 1950, modified_seconds: 1793101664, modified_nanoseconds: 464524265, changed_seconds: 1793101664, changed_nanoseconds: 464524265 })\nFILES_PREVIEW_NEIGHBOR_OK name=\"c-\\xFF.png\" raw=true source=Some(Revision { device: 63, inode: 282448350, bytes: 1950, modified_seconds: 1793101664, modified_nanoseconds: 464524265, changed_seconds: 1793101664, changed_nanoseconds: 464524265 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-raw-green\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-raw-green revision=11\nFILES_PREVIEW_COMMAND_OK neighbor-rapid\nFILES_PREVIEW_COMMAND_REV action=neighbor-rapid revision=17\nFILES_PREVIEW_HELPER pid=1044464 start=54443757 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=webp zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-eddc5g4l/files/b.webp\") revision=17 stamp=Some(Revision { device: 63, inode: 282448349, bytes: 56, modified_seconds: 1793101664, modified_nanoseconds: 451862810, changed_seconds: 1793101664, changed_nanoseconds: 451862810 })\nFILES_PREVIEW_NEIGHBOR_OK name=\"b.webp\" raw=false source=Some(Revision { device: 63, inode: 282448349, bytes: 56, modified_seconds: 1793101664, modified_nanoseconds: 451862810, changed_seconds: 1793101664, changed_nanoseconds: 451862810 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-blue\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-blue revision=17\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK callback\nFILES_PREVIEW_COMMAND_REV action=callback revision=17\nFILES_MEDIA_PROBE_STOPPED=false scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "3a59002aa2935a715e09a24c29fddd0cf0b267c9ba70e9f07c49eac0d9097340",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

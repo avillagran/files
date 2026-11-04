@@ -1,0 +1,11 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.39s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 4 tests
+test directory_sync_store::linux::tests::owned_namespace_add_refuses_occupied_target_and_publishes_only_after_intent ... ok
+test directory_sync_store::linux::tests::owned_namespace_race_collision_and_source_replacement_do_not_overwrite_or_retry ... ok
+test directory_sync_store::linux::tests::owned_namespace_faults_poison_owner_preserve_objects_and_never_advance_snapshots ... ok
+test directory_sync_store::linux::tests::owned_namespace_preserve_publish_file_and_directory_are_durable_before_receipt ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 0.27s

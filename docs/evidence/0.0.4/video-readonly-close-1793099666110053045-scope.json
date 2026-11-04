@@ -1,0 +1,14 @@
+{
+  "scope": "two shared UI callback cases under fixture-only readonly worker hold before child admission; no normal worker ACK",
+  "worker_drained": false,
+  "exit_permission": true,
+  "not_proven": [
+    "kernelD/FUSE offline syscall interruption",
+    "helper-phase filesystem blocking recovery",
+    "native OS close/SuperW/input/clipboard",
+    "native2xsharpness",
+    "lifetime/resource coverage"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

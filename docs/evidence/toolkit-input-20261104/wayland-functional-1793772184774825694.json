@@ -1,0 +1,46 @@
+{
+  "functional_gate": "PASS",
+  "method": "Mapped Files framebuffer, internal Released/controller/catalog fixture; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    "/home/node/Work/files/docs/evidence/toolkit-input-20261104/wayland-sidebar-1793772183594113712.png",
+    "/home/node/Work/files/docs/evidence/toolkit-input-20261104/wayland-menu-before-release-1793772183700621727.png",
+    "/home/node/Work/files/docs/evidence/toolkit-input-20261104/wayland-menu-after-release-1793772183773686548.png",
+    "/home/node/Work/files/docs/evidence/toolkit-input-20261104/wayland-scrolled-1793772184158074950.png",
+    "/home/node/Work/files/docs/evidence/toolkit-input-20261104/wayland-trash-start-1793772184541560694.png",
+    "/home/node/Work/files/docs/evidence/toolkit-input-20261104/wayland-trash-end-1793772184614670361.png"
+  ],
+  "backend": "wayland",
+  "native_window": {
+    "pid": 1325772,
+    "class": "files",
+    "xwayland": false,
+    "size": [
+      800,
+      440
+    ],
+    "workspace": {
+      "id": -98,
+      "name": "special:files-toolkit-regression"
+    }
+  },
+  "viewport": [
+    800,
+    440
+  ],
+  "release_menu_pixels_preserved": true,
+  "wheel_three_units_pixels": 114,
+  "trash_catalog": {
+    "count": 122,
+    "reload": true,
+    "last_row_revealed": true,
+    "read_only": true
+  },
+  "fixture_files_and_metadata_unchanged": true,
+  "normal_exit": true,
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=300\nFILES_FIRST_PAINT_US=50984\nFILES_CAPTURE_OK id=0 redraw=false before=2 paint=2 width=800 height=440\nFILES_TOOLKIT_FIXTURE action=context\nFILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((475, 2, 323, 433))\nFILES_CAPTURE_OK id=0 redraw=false before=4 paint=4 width=800 height=440\nFILES_TOOLKIT_FIXTURE action=release-redraw\nFILES_CAPTURE_OK id=0 redraw=false before=5 paint=5 width=800 height=440\nFILES_TOOLKIT_FIXTURE action=escape\nFILES_TOOLKIT_POPUP_DISMISS kind=Context reason=Escape valid=true focus_returned=true rename_open=false\nFILES_WHEEL scroll=0\nFILES_TOOLKIT_FIXTURE action=wheel-state\nFILES_WHEEL scroll=0\nFILES_TOOLKIT_FIXTURE action=wheel-down\nFILES_WHEEL scroll=114\nFILES_TOOLKIT_FIXTURE action=wheel-state\nFILES_CAPTURE_OK id=0 redraw=false before=20 paint=20 width=800 height=440\nFILES_WHEEL scroll=114\nFILES_TOOLKIT_FIXTURE action=wheel-up\nFILES_WHEEL scroll=0\nFILES_TOOLKIT_FIXTURE action=wheel-state\nFILES_TRASH_BROWSER open=true count=0 ready=false\nFILES_TOOLKIT_FIXTURE action=trash-open\nFILES_TRASH_BROWSER open=true count=122 ready=true\nFILES_TOOLKIT_FIXTURE action=trash-state\nFILES_CAPTURE_OK id=0 redraw=false before=32 paint=32 width=800 height=440\nFILES_TRASH_BROWSER open=true count=122 ready=true\nFILES_TOOLKIT_FIXTURE action=trash-end\nFILES_CAPTURE_OK id=0 redraw=false before=33 paint=33 width=800 height=440\nFILES_TRASH_BROWSER open=true count=0 ready=false\nFILES_TOOLKIT_FIXTURE action=trash-reload\nFILES_TRASH_BROWSER open=true count=122 ready=true\nFILES_TOOLKIT_FIXTURE action=trash-state\nFILES_TRASH_BROWSER open=false count=0 ready=false\nFILES_TOOLKIT_FIXTURE action=trash-close\nFILES_TRASH_BROWSER open=false count=0 ready=false\nFILES_TOOLKIT_FIXTURE action=trash-state\nFILES_TOOLKIT_FIXTURE action=close\nFILES_CLOSE_WAIT saves_ready=false mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_CLOSE_DRAINED\n",
+  "binary_sha256": "1d2569a82f856954d0b219cd1147afbdf9f5f30a8e3365ac1f4508c505e17081",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

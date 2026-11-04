@@ -1,0 +1,51 @@
+{
+  "scope": "source-only core ZIP32 extraction; no queue/UI/new installation",
+  "workspace_tests": {
+    "passed": 1088,
+    "core": 387,
+    "helper": 91,
+    "ui": 610,
+    "existing_ignored": 3,
+    "log": "final-workspace-tests.log"
+  },
+  "clippy": {
+    "gate": "PASS",
+    "log": "final-clippy.log"
+  },
+  "fmt": {
+    "gate": "PASS",
+    "log": "final-fmt.log"
+  },
+  "native_core_contract": {
+    "gate": "PASS",
+    "cases": 12,
+    "report": "final-native-execution.json",
+    "method": "owned executable and independent Python zipfile; no GUI input"
+  },
+  "source_sha256": {
+    "crates/core/src/archive_extract_fs.rs": "838083088774d2ef52c594714f4055d0c9e29a8b659472fededd2e56803dd0d4",
+    "crates/core/src/archive_extract.rs": "7e5c65eccf209d002ea8659cc4c8ec0f1103228db075dfb45993ed4143d7ee98",
+    "crates/core/src/file_properties.rs": "0c931e196200245e1af496ab4aaca0282fe668fa0f2217f27e17cbf47d703778",
+    "crates/core/src/lib.rs": "b0d0e5a0a5767d1a465141687f55e8ab3ce99ea6287244ff2de167d598a20379",
+    "crates/core/examples/archive-extract-probe.rs": "ae683a5530dd8c500984c20ceb1ae8c5af3e86bd584c965c6ef596f07b955b97"
+  },
+  "product_ui_gate": "NOT_IMPLEMENTED",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "new_install": false,
+  "historical_failures": "retained; not superseded by this source-only checkpoint",
+  "remaining": [
+    "AuxIo preparation and stale-response ownership",
+    "shared queue retained metadata, FD and outcome admission",
+    "visible review/Apply and queue controls",
+    "creation/ZIP64/TAR/links/other OS",
+    "durable archive crash journal",
+    "full application resource/startup/native-input gates"
+  ],
+  "release": {
+    "gate": "PASS",
+    "workspace_log": "final-workspace-release.log",
+    "example_log": "final-release.log",
+    "app_sha256_not_installed": "9b1ad56d74b797a06ae44e0f8ea8356ad7b3b809da4884cee248dec1ae247c9e"
+  }
+}

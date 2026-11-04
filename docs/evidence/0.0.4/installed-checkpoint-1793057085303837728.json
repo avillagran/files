@@ -1,0 +1,40 @@
+{
+  "checkpoint": "bdaa5f3a9e4fb924dfa00921da88981fd01e9923",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/0.0.4/open-close-ui-1793056978667673268.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793057085218907328",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "c91b9cf20a7f1fa4b48b2e9cbdd6c5b8ebb0302efd9210f7da207577fe295972",
+      "release_sha256": "81c53b8add62fa941fac3fc9f11f30f9af8441e5d31f6a885dc1db3ad9f186b7",
+      "installed_sha256": "81c53b8add62fa941fac3fc9f11f30f9af8441e5d31f6a885dc1db3ad9f186b7"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "61c8d21bec0c797491b843c62994bc6642ce65928f73b82ff91f400221b05f66",
+      "release_sha256": "64f7133b20ab1f04221826e75a8c8da456c32cd04916be23958964428c70dfe4",
+      "installed_sha256": "64f7133b20ab1f04221826e75a8c8da456c32cd04916be23958964428c70dfe4"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "release_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "installed_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": null,
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": null,
+      "release_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "installed_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

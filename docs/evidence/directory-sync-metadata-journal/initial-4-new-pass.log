@@ -1,0 +1,11 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 16.96s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 4 tests
+test directory_sync_store::linux::tests::journal_metadata_codec_and_pending_replay_never_reconstruct_mutation_authority ... ok
+test directory_sync_store::linux::tests::journal_metadata_ack_and_full_reconciliation_advance_only_after_durability ... ok
+test directory_sync_store::linux::tests::journal_metadata_rejects_known_budget_missing_scope_and_unrelated_payload_before_intent ... ok
+test directory_sync_store::linux::tests::journal_metadata_faults_preserve_all_original_records_and_poison_owner ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 652 filtered out; finished in 0.73s

@@ -1,0 +1,108 @@
+{
+  "source_commit": "4d1ae9886a069f2312001ddbfd7ea312ccca9cde",
+  "scope": "SOURCE ONLY actual bounded metadata values, streaming record/inspection, recipe/cohort compatibility and final fresh acquisition receipt; no owned durable store/operator approval/journal/executor/helper/UI/install",
+  "validation": {
+    "workspace_passed": 1465,
+    "core": 558,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 15,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "concurrency": "Normal Rust harness; one Cargo build job admitted by idle snapshot gate, no competing Cargo controlled",
+    "release_helper_ui_build": "NOT_RUN; no installation"
+  },
+  "bounds": {
+    "attributes_per_object": 64,
+    "attribute_names_NUL_and_values_bytes_per_object": 131072,
+    "attribute_name_bytes": 255,
+    "max_value_wire": 131584,
+    "max_records": 32770,
+    "default_stream_bytes": 67108864,
+    "max_stream_bytes": 8589934592,
+    "stream_header": 132,
+    "stream_trailer": 32,
+    "minimum_value_wire": 39,
+    "minimum_record_overhead": 10,
+    "full_actual_inventory": "Both8192-child inventories;16384actual value records streamed to io::sink with count/byte-bound assertions, no output payload retention",
+    "synthetic_codec_maximum": "128KiB combined attribute payload roundtrip/no truncation; not a claim one real xattr can have128KiB value",
+    "memory_scope": "Current bounded Values/encoding plus per-cohort digest table; caller Write sink can retain data and needs its own bound. Not PSS/performance evidence"
+  },
+  "format": {
+    "magic": "FLSMET\\0\\x01",
+    "header": "Evidence/logical/physical seals + nonzero16B job + LEu64 byte budget + LEu32 derived count",
+    "records": "Ordered Stage(index), then directory Undo/Desired pairs, explicit AfterOwnChildren flag, canonical LE raw Values including kind/mode/uid/gid/access/mtime/all attributes",
+    "trailer": "SHA256(domain Files:sync-metadata-values:v1\\0 + every preceding byte), not MAC/provenance/approval/durability",
+    "historical_inspector": "Bounded streaming header/count/order/flags/limits/value shape/full proof where available/Basic scalars and ACL/directory undo-recipe/cohort/trailer/EOF; no original path I/O"
+  },
+  "implemented": [
+    "Sync-only component-by-component O_PATH/NOFOLLOW reopen, captured id/revision/mount/name checks, NOATIME regular/directory reader, complete path rewalk and original root/parent binding checks",
+    "Actual raw sorted attribute values recompute captured metadata digest; regular/directory atime checked, symlink uses existing captured canonical atime policy",
+    "Full/Basic actual values, old owner/access/attributes with source permissions/mtime overlay; Linux POSIX ACL v2 chmod-equivalent owner/mask-or-group/other adjustment preserves named principals/default ACL",
+    "Cohort equality from complete resulting value digests: different old hashes can converge; genuinely incompatible attributes reject whole preparation, never silent split or arbitrary winner",
+    "Separate complete directory undo and desired records; Basic directory AfterOwnChildren mtime policy explicit",
+    "Budgeted streaming completion and final Plan.bind after last consumer write, so end-callback mutation/cancel yields no live Acquired even if remaining stream is valid historical data",
+    "Acquired privately borrows Prepared/Physical and proves actual checked reads/write completion only; StoredValues matching remains comparison data, not owned file/readback/fsync or Apply authority",
+    "Historical full values inspect after original roots deleted; well-formed forged Basic attribute claims can inspect but fail live receipt seal comparison"
+  ],
+  "acl_reference": {
+    "manual": "https://man7.org/linux/man-pages/man5/acl.5.html",
+    "local_uapi": "/usr/include/linux/posix_acl_xattr.h",
+    "local_uapi_sha256": "79a2903236a9ffd32702e6879e48e219556b860486119145561f64c591f87e96",
+    "runtime": "Owned fixture actual system.posix_acl_access read and derived Basic output compared byte-exact with actual Linux chmod result"
+  },
+  "acceptance_history": [
+    "Initial15 focused tests PASS, including full16384 values",
+    "First1465 workspace PASS; four Clippy style findings: two manual modulo, fixed chunks API, nested if",
+    "Equivalent standard APIs and collapsed conditional, no suppression; removed meaningless explicit receipt drop and named test hook type",
+    "Deep ancestor replacement fixture strengthened to shared existing d/sub parents and single leaf materialization; real non-UTF8 xattr name included; final1465/Clippy/fmt PASS"
+  ],
+  "failures": [
+    {
+      "log": "initial-four-clippy-fail.log",
+      "kind": "4style lints, not test failure",
+      "fix": "is_multiple_of, as_chunks, collapsed conditional; final PASS without suppression"
+    }
+  ],
+  "cargo_admission": "Multiple exact o3-server Cargo PID/start identities deferred admission, including1181770/start7755871,1189894/start7769484 and1222295/start7824112; waited exact identities and retried idle snapshot, no competitor controlled. Snapshot is not exclusion of later Cargo.",
+  "log_archive_notes": [
+    {
+      "text": "initial-15-focused-pass.log",
+      "normalization": "Only trailing empty lines removed for git whitespace; raw bytes preserved",
+      "raw_archive": "initial-15-focused-pass.log.raw.gz",
+      "raw_sha256": "eeda0a5d83c496da8338db20bacc7b48aba026eb9135aced80da119e337997b0"
+    },
+    {
+      "text": "initial-1465-workspace-pass.log",
+      "normalization": "Only trailing empty lines removed for git whitespace; raw bytes preserved",
+      "raw_archive": "initial-1465-workspace-pass.log.raw.gz",
+      "raw_sha256": "8ffc573210db6768e0c561b581e8ccbf456b2cdfae58bd454fe4af2a6799cd3d"
+    },
+    {
+      "text": "accepted-1465-workspace.log",
+      "normalization": "Only trailing empty lines removed for git whitespace; raw bytes preserved",
+      "raw_archive": "accepted-1465-workspace.log.raw.gz",
+      "raw_sha256": "cc91ac208f5aff81f7396ebf600f115a22a2921b9489ad77f85c0a108ec7e501"
+    }
+  ],
+  "installation": "Five existing installed hashes unchanged against1793574522897173033, app289db327/helper170f995/HTML04aa7953; installed-unchanged.json",
+  "limitations": [
+    "Acquired is point-in-time reads/compatibility/emission, no lasting freshness or atomic snapshot; sink can discard bytes or complete history can outlive valid live binding",
+    "No owned metadata file identity/readback/locking/fsync/JournalStore ACK or operator approval; no new helper transport/stdout cap or UI ownership integration",
+    "Basic leaf attributes cannot be reconstructed/proven from old opaque digest alone during history inspection; resealed fabricated claims can remain history, never fresh authority",
+    "No actual metadata application or proof backend can reproduce owner/ACL/security attributes on staged filesystem; stage verification still required",
+    "Symlink atime uses captured canonical policy and is not a detector for later atime-only changes; no blocking syscall deadline or privileged mount scenario claim",
+    "No own namespace/revision/nlink/ctime effect ledger, global staging/backups/no-clobber publication/barriers, queue/pause/cancel-closeACK/crash recovery/undo implementation yet",
+    "Absolute PSS/Swap/CPU/startup freeze and new-preview pause preserved; no native/global acceptance inferred"
+  ],
+  "next": "Owned metadata/journal artifact store with identity/readback/durable ACK tied job/evidence/logical/physical/value seals; then explicit new visible approval, live helper pins/ACK, own mutation ledger and recoverable global staging/preservation/publication with queue and recovery. Owned fixtures only.",
+  "full_goal": "ACTIVE, complete original objective unchanged",
+  "source_sha256": {
+    "crates/core/src/directory_sync_metadata.rs": "1dd1d6b31d18a90f586cab945401318807570bed432d6163d8e17c813e94fe67",
+    "crates/core/src/exdev_source/linux/sync_metadata.rs": "39f3ab033abd9e51633fab5a649d42fadb1778887191f178896def1624ed2551",
+    "crates/core/src/directory_sync_manifest.rs": "bf1b3f495f657caa2f7c0c7c92c7e2f8571d5003e670424a17f4f38462c99306",
+    "crates/core/src/exdev_source.rs": "f8dfd6aeafce3c0f56d5330650ae75f1334bd53d3ff069c5044e82d6d6258a81",
+    "crates/core/src/lib.rs": "c0ac3c48d8e4ba929fb7112a3f4e5e30d79203af5c8df445284ff9851a40c144"
+  }
+}

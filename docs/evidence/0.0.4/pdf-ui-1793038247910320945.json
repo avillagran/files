@@ -1,0 +1,72 @@
+{
+  "method": "internal handlers, actual pdfinfo/pdftoppm local raster and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-page-first-1793038246901883467.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-page-second-1793038247166545451.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-zoom-pan-1793038247346743177.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-error-1793038247582867656.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "text selection/extraction",
+    "complex/password/hostile PDF coverage",
+    "resource budget",
+    "cross-platform verification"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0f4a3c30"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=142333\nFILES_UI_SMOKE_OK entries=3\nFILES_PREVIEW_COMMAND_OK pdf\nFILES_PREVIEW_COMMAND_REV action=pdf revision=2\nFILES_PREVIEW_HELPER pid=3855189 start=48101884 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=3855190 start=48101887 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-epr0c18e/files/pages.pdf\") revision=2 page=1 pages=2 width=721 height=960 zoom=1\nFILES_PDF_PAGE_OK page=1 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-first\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-first revision=2\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-next\nFILES_PREVIEW_COMMAND_REV action=pdf-next revision=3\nFILES_PREVIEW_HELPER pid=3855271 start=48101913 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=3855278 start=48101915 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-epr0c18e/files/pages.pdf\") revision=3 page=2 pages=2 width=721 height=960 zoom=1\nFILES_PDF_PAGE_OK page=2 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-second\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-second revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-zoom\nFILES_PREVIEW_COMMAND_REV action=pdf-zoom revision=3\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-epr0c18e/files/pages.pdf\") revision=3 page=2 pages=2 width=721 height=960 zoom=2\nFILES_PREVIEW_COMMAND_OK pdf-pan\nFILES_PREVIEW_COMMAND_REV action=pdf-pan revision=3\nFILES_CAPTURE_OK\nFILES_PDF_ZOOM_PAN_OK zoom=2 pan=0,60\nFILES_PREVIEW_COMMAND_OK pdf-assert-pan\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-pan revision=3\nFILES_PREVIEW_COMMAND_OK pdf-rapid\nFILES_PREVIEW_COMMAND_REV action=pdf-rapid revision=5\nFILES_PREVIEW_HELPER pid=3855383 start=48101955 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=3855384 start=48101957 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-epr0c18e/files/pages.pdf\") revision=5 page=2 pages=2 width=721 height=960 zoom=1\nFILES_PDF_PAGE_OK page=2 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-second\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-second revision=5\nFILES_PREVIEW_COMMAND_OK pdf-bad\nFILES_PREVIEW_COMMAND_REV action=pdf-bad revision=7\nFILES_PREVIEW_HELPER pid=3855389 start=48101965 command=preview_pdf_info\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-epr0c18e/files/bad.pdf\") message=No se pudo leer PDF (protegido, da\u00f1ado o fuera de l\u00edmites): El helper de vista previa termin\u00f3 con error\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-symlink\nFILES_PREVIEW_COMMAND_REV action=pdf-symlink revision=9\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-epr0c18e/files/symlink.pdf\") message=Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK pdf\nFILES_PREVIEW_COMMAND_REV action=pdf revision=11\nFILES_PREVIEW_HELPER pid=3855402 start=48101980 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=3855403 start=48101981 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-epr0c18e/files/pages.pdf\") revision=11 page=1 pages=2 width=721 height=960 zoom=1\nFILES_PREVIEW_COMMAND_OK pdf-next\nFILES_PREVIEW_COMMAND_REV action=pdf-next revision=12\nFILES_PREVIEW_HELPER pid=3855405 start=48101990 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=3855407 start=48101992 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-epr0c18e/files/pages.pdf\") revision=12 page=2 pages=2 width=721 height=960 zoom=1\nFILES_PREVIEW_COMMAND_OK close-pdf-pending\nFILES_PREVIEW_COMMAND_REV action=close-pdf-pending revision=14\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "d138a8c55ea713325df0e747b955bbb6e472f06c784f047ff455d5953151a8d0",
+  "external_tools": {
+    "pdfinfo": {
+      "path": "/usr/bin/pdfinfo",
+      "sha256": "40f8ebaaf1b36d8d006a558ea472b874656fb89fdca4a71c119d6d4c4d5fe8b2",
+      "version": "pdfinfo version 26.08.0"
+    },
+    "pdftoppm": {
+      "path": "/usr/bin/pdftoppm",
+      "sha256": "5ccfc897238587cea18d22ae5a8de746ce51d37511ce055b736a46ae0af28f2b",
+      "version": "pdftoppm version 26.08.0"
+    }
+  }
+}

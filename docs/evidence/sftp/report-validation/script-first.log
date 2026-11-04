@@ -1,0 +1,2 @@
+Python py_compile rejected initial report scene: literal \u{1b} lacked escaping (truncated Unicode escape). No app ran. Replaced assertion with chr(92)+u{1b} and chr(27) to avoid generator escaping. Original runtime reports unaffected.
+Original observed error: SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 0-1: truncated Unicode escape. Source generator wrote a single backslash u{1b} Python string at line170. No Files process ran for that parse failure.

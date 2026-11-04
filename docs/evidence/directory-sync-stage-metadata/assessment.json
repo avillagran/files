@@ -1,0 +1,71 @@
+{
+  "source_commit": "ccdb7b6028e53db50bcdeb41f257af0d43d3e747",
+  "machine": "NODE",
+  "checked_at": "2026-11-02",
+  "scope": "SOURCE ONLY trusted-coordinator metadata reproduction on existing owned staged objects. No staged tree creator, durable create/metadata-intent ledger, native approval or installed Apply.",
+  "validation": {
+    "workspace_passed": 1548,
+    "core": 641,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 8,
+    "focused_initial_total": 7,
+    "focused_initial_new": 6,
+    "focused_expanded_total": 9,
+    "focused_expanded_new": 8,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "harness": "Normal Rust test harness via original idle Cargo gate; initial workspace admission exit75 NOT_STARTED; competing Cargo/cache locks untouched; idle snapshot is not exclusion",
+    "release_install_gui_resources": "NOT_RUN"
+  },
+  "implemented": [
+    "Complete bounded desired validation, fresh old values and exact original path identity/revision/mount/owner/type before mutation",
+    "Descriptor group adjustment, temporary0600/0700, extra-attribute removal and exact raw attributes with access ACL last, final mode and exact descriptor-relative times; no named mutation fallback",
+    "Exact full scalar/attribute readback, same identity/mount/size/link count, full ancestor guards with ONLY selected observed postrevision override; original inventories never change",
+    "Private non-decodable historical metadata receipt (identity/mount/revision/digest), not data hash/durability/native approval/stage provenance",
+    "Failure flag before attempted metadata syscalls, preserve partial objects/no cleanup/undo/retry; caller must journal/reconcile uncertainty",
+    "Symlink target never followed: held O_PATH owner/time operations; attribute changes refused before writing. Already-identical attributes preserved and reread; nonempty link profiles lack positive NODE acceptance",
+    "Existing Control pause/resume/cancel at boundaries; no production worker/timer or blocked-syscall deadline"
+  ],
+  "tests": [
+    "Raw FF names/binary and empty values, removing inherited extra attributes, actual named access/default ACL and final modes",
+    "Symlink times with literal target and target revision unchanged; stale, wrong kind/owner and unsupported link attribute changes rejected pre-mutation",
+    "Seven injected before/after mutation boundaries preserve objects and original snapshots; exact attempt flags",
+    "Early substitution rejects before mutation; late substitution changes only held original, replacement revision/data remain intact and receipt rejected",
+    "Pause/resume/cancel before writes and cancel after attributes; no false success receipt",
+    "Existing owned namespace fixtures now use actual stage metadata application: Basic retains old attrs/named ACL with source mode overlay; Full type-changing tree carries source attrs and hardlink cohort metadata before actual global staging barrier and rename"
+  ],
+  "acceptance_history": [
+    "Initial six new focused tests plus existing stage order test passed",
+    "Expanded eight new tests plus existing stage order passed",
+    "Final source refined identical symlink attribute preservation and wrong-owner preflight; workspace1548 passed clean",
+    "Clippy and fmt passed without compile/test/lint failures; initial gate deferral is not a test failure",
+    "Functional owned syscall probe found listxattrat on O_PATH symlink EBADF for empty/null pathname on current NODE; no unsafe named mutation workaround introduced",
+    "Five installed hashes remain equal to accepted dry-run"
+  ],
+  "failures": [],
+  "limits": [
+    "Caller must establish real staged membership/provenance and exact cohort links including other workspaces, proper journal intent/approval and live source/absolute/helper bindings. This library primitive does not gate them.",
+    "Metadata times can mask a concurrent same-size payload write: later full content capture/global staging verification is mandatory; receipt is not content freshness or FS snapshot",
+    "Symlink attribute mutation remains unsupported; nonempty identical profiles unverified on NODE, privilege/kernel/filesystem exact-reproduction acceptance incomplete",
+    "Shared visible-directory AfterOwnChildren Desired values require separate ledger and cannot be applied as literal audit-baseline mtime by this stage API",
+    "Manual fixture creation/metareproduction is not durable staging creation/metadata-intent recovery or native approval evidence",
+    "No fsync claim from this receipt; global barrier handles later synchronization. Ordinary tests/process exits not power-loss or remote outcome proof",
+    "Staged tree creator/complete executor/recovery/undo/UI Apply and quadratic bulk scaling remain pending; full goal/freezes/native-global gates active"
+  ],
+  "probe": "opath-xattr-probe.json",
+  "installed_hashes": "installed-hashes.json",
+  "source_sha256": {
+    "crates/core/src/directory_sync_store.rs": "d3ab841e35314f524498e89e1ede7518c33089150015cf418fecdd2c995dfbf9",
+    "crates/core/src/exdev_source.rs": "dc23f6f3f25875c84ed3968ef4e0bbb73ad8996c4944692fea16dffad0101971",
+    "crates/core/src/exdev_source/linux/sync_apply.rs": "8867598a6d0c6bffce6b693746a8d846ccbfffb65e7a2eb2c63f827892aa9500",
+    "crates/core/src/exdev_source/linux/sync_metadata.rs": "063349820e41de6518047a330671bab3058b2feeb828ced0d7e0622d3672e984",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "297adebdd2f927895b484d87045b11062febaeb593d9c4e577c4c31d9f16d57e",
+    "docs/DIRECTORY-SYNC-METADATA.md": "a892d838623eb6b807fce89cae2c410b53bd35bcfc434a7cde5eb6586cfb7e50",
+    "docs/DIRECTORY-SYNC-OWN-RENAME.md": "8d3ffab84a2a9502bf0647d30a435dcd775f313b29476a435126a3f512f35e0d",
+    "docs/DIRECTORY-SYNC-STAGE-METADATA.md": "5684c6988785a3b76b2e65fc02e56c1a3ab79a3617c285fa1a02b7066c0b320e",
+    "docs/DIRECTORY-SYNC-STAGING-BARRIER.md": "4b96be445b7d2fdca720a9bcf5850add7e4cacc9dad4e4dd253359bd56409c24",
+    "docs/ROADMAP.md": "2a2fa5075aa1d6b65e9ec9eeb734ed724d031d7308d4d5daf3e145e162af074a"
+  }
+}

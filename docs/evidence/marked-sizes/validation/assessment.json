@@ -1,0 +1,18 @@
+{
+  "scope": "Explicit marked visible-directory batch; existing apparent-size helper unchanged",
+  "rust": "1232 PASS435/98/699+3 historical ignored; workspace Clippy/fmt/release PASS. Final fixture-only commands/cfg guard compile through Clippy and runtime.",
+  "wayland": "docs/evidence/sizes-open/sizes-open-ui-1793534032938582542.json",
+  "x11": "docs/evidence/sizes-open/sizes-open-ui-1793534064819898218.json",
+  "first_pass_limits": "1793533918839408159 functional/root-drain only; measurement-helper logging absent,0 identities. Later runs enable logging and require nonempty identity set.",
+  "visual_review": "Wide exact8+9B queue and escaped raw name, min440 seven controls, paused busy rejection inspected. Bounds/positive rectangles and pairwise nonoverlap asserted from painted hits.",
+  "semantics": "No marks->no focus fallback/no helper. Marked file/link and unmarked folder excluded. Browser selection/focus preserved. New request gives fresh IDs; busy paused batch rejects without IDs/pause/helper change. Existing largest-order/rawOpen/stale context regression and original source hashes intact.",
+  "limits": [
+    "Subtotal covers all completed queue observations, not a filtered selection-only total",
+    "No physical allocation/hardlink dedup/freeable-space claim",
+    "No native input/clipboard/AT-SPI/2x/lifetime/resource/startup proof",
+    "Registry compile cap96 entries; actual65, selection proof64KiB unchanged",
+    "Original intermittent X11 pane anomaly remains open"
+  ],
+  "installed": "docs/evidence/sizes-open/sizes-open-ui-1793534268171728440.json10captures/19loggedDUhelpersgone/root0;record1793534258501090318 five installed+five backup hashes verified",
+  "raw_log_whitespace": "The unedited Cargo test log includes an extra blank line at EOF; git diff whitespace reported that raw evidence line. Source fmt/check passed; log bytes preserved."
+}

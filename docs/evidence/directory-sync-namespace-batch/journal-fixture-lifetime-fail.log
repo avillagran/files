@@ -1,0 +1,15 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+error[E0716]: temporary value dropped while borrowed
+    --> crates/core/src/directory_sync_store.rs:2262:50
+     |
+2262 |                 let physical = Physical::derive(&own_resolve(&record)).unwrap();
+     |                                                  ^^^^^^^^^^^^^^^^^^^^          - temporary value is freed at the end of this statement
+     |                                                  |
+     |                                                  creates a temporary value which is freed while still in use
+2263 |                 let parents = vec![parent.as_path(); physical.transactions().len()];
+     |                                                      -------- borrow later used here
+     |
+     = note: consider using a `let` binding to create a longer lived value
+
+For more information about this error, try `rustc --explain E0716`.
+error: could not compile `files-core` (lib test) due to 1 previous error

@@ -1,0 +1,59 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.08s
+     Running unittests src/lib.rs (target/debug/deps/files_core-b77c5d036427fdd3)
+
+running 8 tests
+test archive_create::linux::tests::cancellation_after_positive_progress_removes_only_owned_stage ... FAILED
+test archive_create::linux::tests::source_changes_during_read_never_publish ... FAILED
+test archive_create::linux::tests::streaming_zip_roundtrip_independent_python_crc_modes_links_raw ... FAILED
+test archive_create::linux::tests::source_replaced_after_review_fails_before_staging ... FAILED
+test archive_create::linux::tests::descendant_destination_and_special_or_ambiguous_names_rejected ... ok
+test archive_create::linux::tests::late_destination_occupant_is_not_overwritten ... FAILED
+test archive_create::linux::tests::replaced_stage_name_is_not_cleaned ... FAILED
+test archive_create::linux::tests::inventory_limits_reject_before_any_output ... ok
+
+failures:
+
+---- archive_create::linux::tests::cancellation_after_positive_progress_removes_only_owned_stage stdout ----
+
+thread 'archive_create::linux::tests::cancellation_after_positive_progress_removes_only_owned_stage' (1848707) panicked at crates/core/src/archive_create.rs:840:42:
+called `Result::unwrap()` on an `Err` value: Os { code: 22, kind: InvalidInput, message: "Invalid argument" }
+
+---- archive_create::linux::tests::source_changes_during_read_never_publish stdout ----
+
+thread 'archive_create::linux::tests::source_changes_during_read_never_publish' (1848712) panicked at crates/core/src/archive_create.rs:932:42:
+called `Result::unwrap()` on an `Err` value: Os { code: 22, kind: InvalidInput, message: "Invalid argument" }
+
+---- archive_create::linux::tests::streaming_zip_roundtrip_independent_python_crc_modes_links_raw stdout ----
+
+thread 'archive_create::linux::tests::streaming_zip_roundtrip_independent_python_crc_modes_links_raw' (1848714) panicked at crates/core/src/archive_create.rs:793:14:
+called `Result::unwrap()` on an `Err` value: Os { code: 22, kind: InvalidInput, message: "Invalid argument" }
+
+---- archive_create::linux::tests::source_replaced_after_review_fails_before_staging stdout ----
+
+thread 'archive_create::linux::tests::source_replaced_after_review_fails_before_staging' (1848713) panicked at crates/core/src/archive_create.rs:828:42:
+called `Result::unwrap()` on an `Err` value: Os { code: 22, kind: InvalidInput, message: "Invalid argument" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- archive_create::linux::tests::late_destination_occupant_is_not_overwritten stdout ----
+
+thread 'archive_create::linux::tests::late_destination_occupant_is_not_overwritten' (1848710) panicked at crates/core/src/archive_create.rs:857:42:
+called `Result::unwrap()` on an `Err` value: Os { code: 22, kind: InvalidInput, message: "Invalid argument" }
+
+---- archive_create::linux::tests::replaced_stage_name_is_not_cleaned stdout ----
+
+thread 'archive_create::linux::tests::replaced_stage_name_is_not_cleaned' (1848711) panicked at crates/core/src/archive_create.rs:874:42:
+called `Result::unwrap()` on an `Err` value: Os { code: 22, kind: InvalidInput, message: "Invalid argument" }
+
+
+failures:
+    archive_create::linux::tests::cancellation_after_positive_progress_removes_only_owned_stage
+    archive_create::linux::tests::late_destination_occupant_is_not_overwritten
+    archive_create::linux::tests::replaced_stage_name_is_not_cleaned
+    archive_create::linux::tests::source_changes_during_read_never_publish
+    archive_create::linux::tests::source_replaced_after_review_fails_before_staging
+    archive_create::linux::tests::streaming_zip_roundtrip_independent_python_crc_modes_links_raw
+
+test result: FAILED. 2 passed; 6 failed; 0 ignored; 0 measured; 393 filtered out; finished in 0.08s
+
+error: test failed, to rerun pass `-p files-core --lib`

@@ -1,0 +1,28 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+error[E0433]: cannot find type `OsStr` in this scope
+    --> crates/core/src/directory_sync_store.rs:2342:39
+     |
+2342 | ...                   .join(OsStr::from_bytes(transaction.target()))
+     |                             ^^^^^ use of undeclared type `OsStr`
+     |
+     = note: struct `crate::name_label::tests::OsStr` exists but is inaccessible
+help: consider importing this struct
+     |
+ 874 +         use std::ffi::OsStr;
+     |
+
+error[E0599]: no method named `target` found for reference `&directory_sync_physical::Transaction` in the current scope
+    --> crates/core/src/directory_sync_store.rs:2313:51
+     |
+2313 | ...                   relative: transaction.target(),
+     |                                             ^^^^^^ method not found in `&directory_sync_physical::Transaction`
+
+error[E0599]: no method named `target` found for reference `&directory_sync_physical::Transaction` in the current scope
+    --> crates/core/src/directory_sync_store.rs:2342:69
+     |
+2342 | ...                   .join(OsStr::from_bytes(transaction.target()))
+     |                                                           ^^^^^^ method not found in `&directory_sync_physical::Transaction`
+
+Some errors have detailed explanations: E0433, E0599.
+For more information about an error, try `rustc --explain E0433`.
+error: could not compile `files-core` (lib test) due to 3 previous errors

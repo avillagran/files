@@ -1,0 +1,59 @@
+{
+  "source_commit": "e963a2a19be9c00fd41938f5769019a1453b8e08",
+  "scope": "SOURCE ONLY helper transport and background reader; not a visible sync tool, Model owner admission/close integration, Apply, queue, durable recovery or installation",
+  "validation": {
+    "workspace_passed": 1388,
+    "core": 489,
+    "helper": 112,
+    "ui": 787,
+    "historical_ignored": 3,
+    "new_tests": 17,
+    "concurrency": "normal Rust harness; one Cargo build job through idle snapshot gate",
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check; final comment-only check also PASS",
+    "debug_helper_build": "PASS",
+    "helper_sha256": "860df3fc07a643908adb4aa330bcb5c77c855dee0ef3d321acc44abcfa267409",
+    "real_helper_cli_cases": 18,
+    "cli_receipt": "helper-wire-1793573300705665050.json",
+    "initial_17_cli_receipt": "helper-wire-1793573236091525053.json",
+    "max_retained_actual_helper": {
+      "rows": 16384,
+      "pages": 512,
+      "stdout_bytes": 13681213,
+      "reasons": 0,
+      "namespace_content_link_mode_mtime_unchanged": true
+    },
+    "release_build": "NOT_RUN; no install"
+  },
+  "implemented": [
+    "version1 nested Intent with raw roots/captured optional IDs/mode/read budget",
+    "strict version/mode/id/roots/budget/namespace/counters/reasons/ancestor/page validation; poisoned ledger",
+    "proposals, subtree coverage and Pending choices derived locally after validated observations; never trusted wire instructions",
+    "MAX_STREAM23400576B derived from comparison21237760 +128*(16384+512+1), MAX_FRAME64KiB pages128rows/4096rawbytes",
+    "only prepare_directory_sync receives new supervisor allowance; comparison and ordinary budgets unchanged",
+    "final Review only after EOF exit0 reap; malformed/trailing/nonzero/EOF-without-exit/cancel-after-terminal cannot publish",
+    "helper fresh root checks and read-only preparation with existing RLIMIT_AS96MiB; not measured memory gate"
+  ],
+  "failures": [],
+  "installation": "unchanged; five artifacts reverified in installed-unchanged.json",
+  "limitations": [
+    "no visible synchronization review or menu/palette action; public background module still needs a Model owner retaining ACK through cancel/close and coordinating readers",
+    "no fresh pinned per-object execution manifest, topology/hardlink validation, recoverable replacement/removal journal, Apply/queue/undo/recovery",
+    "wire coherence is not atomic filesystem freshness or mutation authority",
+    "native OS input/clipboard/AT-SPI/2x/otherOS/global lifetimes/offline syscall deadlines remain pending",
+    "PSS/Swap/CPU/startup experiments and new preview formats remain frozen; no resource experiments"
+  ],
+  "next": "Integrate visible fresh dry-run with all five modes and explicit per-row Pending/conflict/blocked/covered states; root/mode/budget stamp invalidation and single reader ACK admission/cancel/close. Then execution manifest and durable recoverable sync; missing-only copies not complete C02.",
+  "full_goal": "ACTIVE, original full scope unchanged",
+  "source_sha256": {
+    "crates/core/src/directory_sync_wire.rs": "0eee9404a4e0b5a30fb078c02dd4e163de25d7260ba9014aed46c923cffcd657",
+    "crates/core/src/directory_sync.rs": "e61dfbc0c4874dc4d3d2a3e45cada849201eb28f2cd6c490ed99cbd22bd0860d",
+    "crates/core/src/protocol.rs": "3a91538ba83a3bbe192daa745a0e911f2e616c2f48f06fb055975fbddf505892",
+    "crates/helper/src/directory_sync.rs": "34f3a107d67a94fabcc40370e7991bedfbeee46284fb60af315dfd1ff28293a8",
+    "crates/helper/src/main.rs": "9702ae57d3b5d83ee670678843961cf5a873f56680352e086548d72844291883",
+    "crates/ui/src/directory_sync_job.rs": "92633bca38a9236b796a68485866983a31776de3d6db6556ab57a62374b347a6",
+    "crates/ui/src/space_map_job.rs": "97984be90a3bd7fd8d8c6bf07063e43fc968c7f18f385bef0acf5e657b2bd2ff",
+    "crates/ui/src/lib.rs": "c91a73afeabd441f629db9dc0c530371d3d840cd4121fb41901d8b84f364e050",
+    "scripts/directory-sync-wire-check.py": "ef9435c161236e6c60c3a198baf66039ef3ad286dc607e7bd67fd70a9ce5164a"
+  }
+}

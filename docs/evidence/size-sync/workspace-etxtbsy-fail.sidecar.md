@@ -1,0 +1,1 @@
+Original final suite:398core/91helper PASS,641UI PASS/1FAIL. Dialogue oversized-control fixture failed at exec with ETXTBSY, not at protocol assertion. Test-only thread-local registered Script paths now launched as /usr/bin/python3 <path> space_map; production command admission unchanged. No retry, tolerance, ignored test or serialization added.

@@ -1,0 +1,26 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error: large size difference between variants
+  --> crates/ui/src/archive_operation.rs:25:1
+   |
+25 | /  enum Work {
+26 | |      Extract(files_core::archive_extract_fs::Prepared),
+   | |      ------------------------------------------------- the largest variant contains at least 408 bytes
+27 | |/     Recover {
+28 | ||         failure: Failure,
+29 | ||         action: RecoveryAction,
+30 | ||     },
+   | ||_____- the second-largest variant contains at least 17 bytes
+31 | |  }
+   | |__^ the entire enum is at least 408 bytes
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#large_enum_variant
+   = note: `-D clippy::large-enum-variant` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::large_enum_variant)]`
+help: consider boxing the large fields or introducing indirection in some other way to reduce the total size of the enum
+   |
+26 -     Extract(files_core::archive_extract_fs::Prepared),
+26 +     Extract(Box<files_core::archive_extract_fs::Prepared>),
+   |
+
+error: could not compile `files-ui` (lib) due to 1 previous error

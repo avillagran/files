@@ -1,0 +1,8 @@
+{
+  "report": "rename-regex-ui-1793046051262606727.json",
+  "functional_filesystem_gate": "PASS as scoped in original",
+  "visual_error_message": "FAIL: multiline diagnostic drawn in one-line FLTK footer hid its first/reason lines; source invalid and expansion still rejected, Apply disabled",
+  "correction": "normalize a bounded single-line display summary; preserve original diagnostic; next capture/build required",
+  "corrected_report": "rename-regex-ui-1793046339654903640.json",
+  "corrected_visual": "Reviewed framebuffer: invalid regex first/reason lines readable as one bounded line, no applicable preview and disabled Apply"
+}

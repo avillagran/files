@@ -1,0 +1,220 @@
+{
+  "method": "Space image UI handlers and FLTK framebuffer; no native OS input",
+  "captures": [],
+  "clipboard": "not read in resource mode",
+  "resource_gate": "UNVALIDATED",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0e0a55b0"
+  },
+  "cleanup": {
+    "complete": true,
+    "survivors": [],
+    "errors": [],
+    "scope": "observed PID/starttime tree, read-only after exit0"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "fixtures": "RGBA PNG4Mipixels, JPEG EXIF6 landscape\u2192portrait, tiny lossless WebP, corrupt PNG, valid PNG9Mpixels rejected; rapid changes, zoom/pan and close pending",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=187067\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_HELPER pid=2709713 start=47037562 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=1024 height=1024 source=2048x2048 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-0vph_i7k/files/alpha.png\")\nFILES_PREVIEW_COMMAND_OK image-zoom\nFILES_PREVIEW_IMAGE_READY width=1024 height=1024 source=2048x2048 format=png zoom=2 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-0vph_i7k/files/alpha.png\")\nFILES_PREVIEW_COMMAND_OK jpeg\nFILES_PREVIEW_HELPER pid=2709720 start=47037577 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=320 height=480 source=480x320 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-0vph_i7k/files/oriented.jpg\")\nFILES_PREVIEW_COMMAND_OK webp\nFILES_PREVIEW_HELPER pid=2709742 start=47037585 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=1 height=1 source=1x1 format=webp zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-0vph_i7k/files/tiny.webp\")\nFILES_PREVIEW_COMMAND_OK image-rapid\nFILES_PREVIEW_HELPER pid=2709781 start=47037589 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=320 height=480 source=480x320 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-0vph_i7k/files/oriented.jpg\")\nFILES_PREVIEW_COMMAND_OK image-corrupt\nFILES_PREVIEW_HELPER pid=2709790 start=47037593 command=preview_image\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-ui-0vph_i7k/files/broken.png\") message=Formato no admitido: PNG, JPEG o WebP est\u00e1tico\nFILES_PREVIEW_COMMAND_OK image-large\nFILES_PREVIEW_HELPER pid=2709798 start=47037596 command=preview_image\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-ui-0vph_i7k/files/large.png\") message=Imagen fuera del l\u00edmite: 8192 por eje y 4 Mip\u00edxeles\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_HELPER pid=2709805 start=47037599 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=1024 height=1024 source=2048x2048 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-0vph_i7k/files/alpha.png\")\nFILES_PREVIEW_COMMAND_OK close-image-pending\nFILES_PREVIEW_HELPER pid=2709912 start=47037712 command=preview_image\nFILES_PREVIEW_DRAINED\n",
+  "metrics": {
+    "complete": true,
+    "sample_count": 122,
+    "sample_interval_requested_ms": 5.0,
+    "max_observed_interval_ms": 92.07007201621309,
+    "stable_sample_count": 65,
+    "sampled_maxima": {
+      "pss_kib": 43478,
+      "swap_pss_kib": 24096,
+      "memory_kib": 52440,
+      "fds": 18,
+      "threads": 7,
+      "process_count": 2
+    },
+    "sample_at_memory_max": {
+      "pss_kib": 42152,
+      "swap_pss_kib": 10288,
+      "threads": 7,
+      "fds": 18,
+      "memory_kib": 52440,
+      "time_monotonic": 470376.008421673,
+      "cpu_percent_observed": 116.92523124105756,
+      "root_alive": true,
+      "process_count": 2,
+      "complete": true,
+      "errors": [],
+      "processes": [
+        {
+          "pid": 2709687,
+          "start": 47037524,
+          "pss_kib": 24386,
+          "swap_pss_kib": 10288,
+          "threads": 6,
+          "fds": 12
+        },
+        {
+          "pid": 2709805,
+          "start": 47037599,
+          "pss_kib": 17766,
+          "swap_pss_kib": 0,
+          "threads": 1,
+          "fds": 6
+        }
+      ],
+      "exited_during_read": [],
+      "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+    },
+    "stable_medians": {
+      "pss_kib": 3752,
+      "swap_pss_kib": 24096,
+      "memory_kib": 27800,
+      "fds": 11,
+      "threads": 5,
+      "process_count": 1
+    },
+    "stable_cpu_percent_observed_median": 0.0,
+    "stable_cpu_percent_observed_max": 0.0,
+    "observed_process_identities": [
+      [
+        2709687,
+        47037524
+      ],
+      [
+        2709713,
+        47037562
+      ],
+      [
+        2709805,
+        47037599
+      ],
+      [
+        2709912,
+        47037712
+      ]
+    ],
+    "exited_process_identities": [
+      [
+        2709713,
+        47037562
+      ],
+      [
+        2709805,
+        47037599
+      ]
+    ],
+    "exited_during_read": [],
+    "exited_during_read_count": 0,
+    "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+    "errors": [],
+    "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+    "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+  },
+  "stable_since_monotonic": 470376.103681183,
+  "stable_until_monotonic": 470377.114949885,
+  "stable_phase": "PNG displayed with no ongoing requests; one-second window, not universal idle",
+  "terminal_exit_observations": [
+    {
+      "pss_kib": 0,
+      "swap_pss_kib": 0,
+      "threads": 0,
+      "fds": 0,
+      "memory_kib": 0,
+      "time_monotonic": 470377.161448778,
+      "cpu_percent_observed": 0.0,
+      "root_alive": false,
+      "process_count": 0,
+      "complete": false,
+      "errors": [],
+      "processes": [],
+      "exited_during_read": [],
+      "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+    }
+  ],
+  "helper_identities_verified": [
+    [
+      2709713,
+      47037562
+    ],
+    [
+      2709805,
+      47037599
+    ],
+    [
+      2709912,
+      47037712
+    ]
+  ],
+  "helpers_with_unknown_starttime": [],
+  "spawned_image_helpers": [
+    [
+      2709713,
+      47037562
+    ],
+    [
+      2709720,
+      47037577
+    ],
+    [
+      2709742,
+      47037585
+    ],
+    [
+      2709781,
+      47037589
+    ],
+    [
+      2709790,
+      47037593
+    ],
+    [
+      2709798,
+      47037596
+    ],
+    [
+      2709805,
+      47037599
+    ],
+    [
+      2709912,
+      47037712
+    ]
+  ],
+  "helpers_without_memory_sample": [
+    [
+      2709720,
+      47037577
+    ],
+    [
+      2709742,
+      47037585
+    ],
+    [
+      2709781,
+      47037589
+    ],
+    [
+      2709790,
+      47037593
+    ],
+    [
+      2709798,
+      47037596
+    ]
+  ],
+  "sampled_peak_memory_mb_decimal": 53.69856,
+  "goal_met": null,
+  "resource_scope": "sampled main+helpers PSS+Swap, all logged helpers require observed memory; not full lifetimes/exact peak; GPU excluded; 5files, not baseline10k or photos12/24MP",
+  "binary_sha256": "ac7a03743957a933d9f3723bb6d8c4c60934c365e1e4f72d0b5637d2c859ac6e",
+  "helper_sha256": "5a448d062eef3052fb29890a356ab4fb8ab2381ebdffd85e47f26ee0600eb55e",
+  "observed_goal_exceeded": true,
+  "goal_inference": "Observed lower bound already exceeds50MB; incomplete helper coverage cannot reverse this violation. Total upper budget remains unvalidated."
+}

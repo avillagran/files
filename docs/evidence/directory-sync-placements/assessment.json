@@ -1,0 +1,72 @@
+{
+  "source_commit": "52c1a05662a8dfc9853548c500f12ea6f8ed2dd1",
+  "machine": "NODE",
+  "checked_at": "2026-11-02",
+  "scope": "SOURCE ONLY complete durable placement data before workspace mkdir, journal anchoring and explicit artifact attachment; no native/source/absolute execution authority or installed Apply",
+  "validation": {
+    "workspace_passed": 1590,
+    "core": 683,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 8,
+    "focused": "Initial43PASS/1FAIL maximum-path fixture; corrected44PASS, compatibility audit added one fixture then45PASS",
+    "clippy": "PASS final workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "harness": "Normal Rust harness through original idle Cargo gate; competitors untouched; snapshot not exclusion of later competition",
+    "release_install_gui_resources": "NOT_RUN"
+  },
+  "implemented": [
+    "One O_EXCL private0600 nlink1 NOFOLLOW/NOATIME same-Store-mount registry perjob, creatorPID/flock ownership, exact held/named revision and Store binding",
+    "FLSPLC v1 header256B with proof212+physical seal+count; ordered raw absolute parent path and all dev/inode/mount ancestors plus existing workspace intent seal; canonical job/index basename; SHA256 trailer",
+    "Paths≤4096/128components,chain≤129,rows≤16384,row≤7228B,artifact≤128MiB; per-row bounded allocation and aggregate pre-artifact admission; no change to input/journal quotas",
+    "Stream write and whole canonical readback against expected digest under stamp captured BEFORE callbacks/readback; file+all Store ancestor fsync/ACK; failed renewal Uncertain/no silent rewrite/truncate",
+    "Ephemeral index rebuilt only from validated scan; bounded pread one original SHA-checked row, before/after owner/revision guards; history reads without touching saved parents or workspace names",
+    "Factory makes registry durable then tag34 PlacementRegistered33B ACK before any tag32/mkdir; retains live owner; current registered journals require same proof/original registry seal; reopen needs explicit registry renewal and attach",
+    "Legacy unregistered tag32 remains readable as historical data; only NEW writer refuses unregistered intent before bytes; no automatic retry of begun/registered batch",
+    "Placement.open_parent explicitly verifies saved absolute NOFOLLOW identity/mount chain/private0700; artifact attachment/renewal never assert native approval or current paths"
+  ],
+  "tests": [
+    "Two codec fixtures:maximum7228B row/4096B absolute128component path,chain overflow/path overflow,malformed paths/IDs/count and all short-row truncations; zero-filled Proof used solely as codec data, never live authority",
+    "Actual raw FF/newline multiple-root factory records compared with returned receipts, indexed entry bounds, History and explicit renewed attachment, relocated/missing container still inspectable without opening it",
+    "Eight registry creation fault boundaries preserve zero/header-partial/complete streams; complete reopen only History; O_EXCL refuses all replacements; source untouched",
+    "Same-byte rewrite after captured writer stamp rejects; failed renewal ACK leaves Uncertain, data/renewal require reopening",
+    "Registered factory same-byte registry tamper after workspace intent ACK prevents mkdir and poisons owner, pending record remains historical",
+    "Well-formed resealed registry is readable/renewable data but fails attachment to original unchanged journal anchor; sparse file128MiB+1 rejects before parsing allocation",
+    "Legacy v1 unregistered tag32 bytes open/renew as history; new writer refuses same intent without registration and leaves file unchanged",
+    "Ten factory regressions/full creator→durable metadata→barrier→owned publication pass; three actual exit103 cases also reopen registry locations as History, not power-loss proof"
+  ],
+  "acceptance_history": [
+    "Initial core check PASS",
+    "Initial ten factory fixtures PASS with integration",
+    "Initial placement_ filter43PASS1FAIL:maximum-path fixture incorrectly built4097 by double-counting leading slash, fixed to4096→44PASS",
+    "Initial1589workspace PASS; Clippy requested fixed-array as_chunks API",
+    "Compatibility audit found requiring new anchor in historical State.check would reject prior factory tag32 streams; moved requirement to new writer, added old-history fixture and tag34 strict codec assertions",
+    "Final45 focused PASS and1590workspace PASS; finalClippy/fmt PASS; five installed hashes unchanged"
+  ],
+  "limits": [
+    "SHA/replay/registry and attachment are artifact data/barriers, never native approval,fresh source/helper pins or absolute workspace authority; caller must explicitly verify saved parent/current root names before production effects",
+    "Well-formed history can be forged as data; comparison to an unchanged anchor is not cryptographic human authorization; no decoder re-creates approval",
+    "Registry/history inspection does not discover all jobs or implement recovery/resume/undo; partial artifacts preserved, mkdir/tag32 flags do not imply absence of registry writes or tag34",
+    "Newly registered Journal.ensure_current requires live renewed attached registry; journal renewal alone is insufficient; legacy unregistered declarations remain data",
+    "Registry adds one artifact FD, covered by factory creation headroom; next-phase admission and receipt lifetimes still caller duties",
+    "Factory still retains one Directory per transaction; registry streaming bound is not a process memory acceptance. Aggregate retained-placement metadata admission/sharing remains coordinator work",
+    "Container selection/creation,integrated coordinator,native/source/helper/absolute bindings,SharedDir AfterOwnChildren,recovery/undo/UIApply and bulk/native/global gates remain open",
+    "Repeated full-scope walks and journal readbacks potentially quadratic; resource/startup freeze,new-preview pause persist; no release/install/sourcepush/tag/global acceptance"
+  ],
+  "installed_hashes": "installed-hashes.json",
+  "source_sha256": {
+    "crates/core/src/directory_sync_journal.rs": "3219843b408dae25b1628846242edf9a21c01b548dc928e4166895ac1685ccc2",
+    "crates/core/src/directory_sync_journal/workspace.rs": "ee8992c1d6a6c075211a64d708677c167a62a48309bfdc0acf90d84eec39a5fb",
+    "crates/core/src/directory_sync_store.rs": "553a75da988f4cdb93ecc1e8e14c7d32e904fc75af1bf8b94d65410ade446a76",
+    "crates/core/src/directory_sync_store/linux/journal.rs": "4c330aca08f5d133f17ccca36e56ee35c6ae77f9599a4a8fe69e6bd2156e1be3",
+    "crates/core/src/directory_sync_store/linux/journal/workspace.rs": "2f3b3298a59e8b27ead8a1ddca11d21b4e555591ff367c713ff03abd52de6848",
+    "docs/DIRECTORY-SYNC-ADMISSION.md": "bdbc06d8efd742016f83b41408e0e9a5b85346fa1db9f8d8b25c4af636be361a",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "ba70979d6e81ab4d67a969d6f9f21dfe313c34f1e3948f5ac145ca5be90bd0b7",
+    "docs/DIRECTORY-SYNC-JOURNAL.md": "7c129de4d1918d814add0a6162b85d33b8136bcec31a4350550bc7c27e1a4147",
+    "docs/DIRECTORY-SYNC-WORKSPACES.md": "753bd679a9d725161a9cca8a1a1eaba29e296cfd8ef71df733b9317fcc2f7e12",
+    "docs/ROADMAP.md": "33742ed67fedbfa575a75f36410ca5a92127b45c8fe0387605f63ec791cc9bab",
+    "crates/core/src/directory_sync_store/linux/placements.rs": "8569c324fc171190b1d527dee9df3a808e5fc8859e37619117b638fe01b55523",
+    "docs/DIRECTORY-SYNC-PLACEMENTS.md": "64f41313e6a54caa7e07345dceece90ad2f37301ba3c88469dfa9f99c7d2b1ff"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "functional_gate": "PASS",
+  "source": "f6a735f",
+  "fixture_canvas_fix": "031aa00",
+  "workspace_tests": {
+    "passed": 1309,
+    "core": 447,
+    "helper": 105,
+    "ui": 757,
+    "historical_ignored": 3,
+    "result": "PASS normal concurrent harness"
+  },
+  "clippy": "PASS all targets warnings denied",
+  "format": "PASS",
+  "release": "PASS",
+  "source_ui": {
+    "wayland": "narrow-names-ui-1793562545435935498.json",
+    "xvfb_x11": "narrow-names-ui-1793562548431018683.json",
+    "result": "PASS each27captures2normal exits+drain, List/Dual1000x560+440x440 sidebarcollapsed/expanded, active/inactive raw labels, independent sorting and exact raw copy review without enqueue"
+  },
+  "queue_regression": "../queue-review/queue-review-ui-1793562485302474500.json PASS35captures5normal exits; shared rows across ListGroupsGridColumnsDual",
+  "initial_failures": [
+    "narrow-names-ui-1793562477363132269.json",
+    "narrow-names-ui-1793562480268604053.json"
+  ],
+  "failure_assessment": "First UI attempts expected1000x650 for fixture-wide. Actual helper and PNG IHDR prove1000x560. Fixed only expected dimensions; same app/helper binary passes both backends. Initial Clippy fixture chunks_exact lint fixed with bounded as_chunks iteration; no suppressed lint or test serialization.",
+  "manual_inspection": [
+    "Wayland List440 expanded sidebar: Folder,escaped invalid byte/newline,literal backslash,one.txt,two.txt readable with metadata omitted",
+    "X11 Dual440 expanded sidebar: names visible in both panes; independent sort and active-focus stripe; escaped-label targets remain raw",
+    "No relationship proved to original historical wide X11 missing names/icons anomaly; deterministic narrow geometry fix only"
+  ],
+  "limits": [
+    "Names longer than available cell may still clip; no full4096byte-name readability guarantee",
+    "No native OS input/clipboard,AT-SPI,2x,otherOS or global helper lifetime proof",
+    "No resource/startup experiment; PSS footer is not acceptance evidence"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "full_goal": "ACTIVE",
+  "installation": "docs/evidence/0.0.4/installed-checkpoint-1793562789004828933.json",
+  "installed_ui": {
+    "wayland": "narrow-names-ui-1793562954848124239.json",
+    "result": "PASS27captures2normal exits+drain; exact raw selection/copy review and independent pane sorting at1000x560/440x440"
+  },
+  "next": "Fix CopyPath textual nonUTF8 fidelity: model.rs still app::copy(path.to_string_lossy()). Derive lossless explicit export/import policy from existing uri_list/native URI codecs; preserve ordinary UTF8 path behavior and do not claim native clipboard delivery from fixture handlers. Full ROADMAP and original wide X11 anomaly remain open."
+}

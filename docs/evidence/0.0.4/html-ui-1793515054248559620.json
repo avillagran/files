@@ -1,0 +1,119 @@
+{
+  "source_lifecycle": false,
+  "notify_callbacks_suppressed": false,
+  "checks": [],
+  "method": "internal handlers, native litehtml document layout and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/html-rendered-css-1793515053544332034.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/html-visible-selection-1793515053634505197.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/html-css-resize-1793515053742265751.png",
+      "framebuffer_dimensions": [
+        800,
+        500
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/html-blocked-resources-1793515053890568206.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/html-scroll-final-1793515054053089051.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "real font metrics/shaping",
+    "local HTML resources and links",
+    "safe DOM allocator/depth budget",
+    "cross-platform adapter",
+    "resource budget",
+    "selection preservation across reflow"
+  ],
+  "compositor_binding": {
+    "selected": {
+      "instance": "efb50993780079460b0cbed1363e2166a2de1d9f_1793505071_961709112",
+      "time": 1793505071,
+      "pid": 1367,
+      "wl_socket": "wayland-1"
+    },
+    "scope": "fixture-only, no focus/input/global configuration"
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 1,
+    "window_physical": [
+      1000,
+      650
+    ],
+    "native_wayland": true,
+    "address": "0x559d6d6925b0"
+  },
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        741291,
+        999171
+      ],
+      [
+        741357,
+        999189
+      ],
+      [
+        741365,
+        999199
+      ],
+      [
+        741370,
+        999203
+      ],
+      [
+        741376,
+        999214
+      ],
+      [
+        741385,
+        999234
+      ],
+      [
+        741389,
+        999241
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start after root exit0, not lifetime or resource sampling"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_FIRST_PAINT_US=46190\nFILES_UI_SMOKE_OK entries=6\nFILES_PREVIEW_COMMAND_OK html\nFILES_PREVIEW_COMMAND_REV action=html revision=3\nFILES_PREVIEW_HELPER pid=741291 start=999171 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-_cv7fgcs/files/layout.html\") revision=3 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 2051, inode: 15995727, bytes: 1105, modified_seconds: 1793515053, modified_nanoseconds: 369683587, changed_seconds: 1793515053, changed_nanoseconds: 369683587 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_CAPTURE_OK\nFILES_HTML_SELECTION_OK utf8=true clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK html-select\nFILES_PREVIEW_COMMAND_REV action=html-select revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=741357 start=999189 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-_cv7fgcs/files/layout.html\") revision=4 width=732 height=310 bytes=247 commands=89 document_height=311 top=0 source=Revision { device: 2051, inode: 15995727, bytes: 1105, modified_seconds: 1793515053, modified_nanoseconds: 369683587, changed_seconds: 1793515053, changed_nanoseconds: 369683587 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=741365 start=999199 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-_cv7fgcs/files/layout.html\") revision=5 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 2051, inode: 15995727, bytes: 1105, modified_seconds: 1793515053, modified_nanoseconds: 369683587, changed_seconds: 1793515053, changed_nanoseconds: 369683587 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK html-blocked\nFILES_PREVIEW_COMMAND_REV action=html-blocked revision=7\nFILES_PREVIEW_HELPER pid=741370 start=999203 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-_cv7fgcs/files/blocked.html\") revision=7 width=932 height=460 bytes=129 commands=44 document_height=160.02 top=0 source=Revision { device: 2051, inode: 15995732, bytes: 774, modified_seconds: 1793515053, modified_nanoseconds: 369683587, changed_seconds: 1793515053, changed_nanoseconds: 369683587 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 44 comandos \u00b7 129 B texto \u00b7 3 hojas CSS externas bloqueadas \u00b7 2 im\u00e1genes bloqueadas \u00b7 1 <base> ignorados\nFILES_HTML_BLOCKED_OK css=3 images=2 script_visible=false\nFILES_PREVIEW_COMMAND_OK html-assert-blocked\nFILES_PREVIEW_COMMAND_REV action=html-assert-blocked revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK html-long\nFILES_PREVIEW_COMMAND_REV action=html-long revision=9\nFILES_PREVIEW_HELPER pid=741376 start=999214 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-_cv7fgcs/files/long.html\") revision=9 width=932 height=460 bytes=2184 commands=772 document_height=1521.52 top=0 source=Revision { device: 2051, inode: 15995825, bytes: 2536, modified_seconds: 1793515053, modified_nanoseconds: 369805617, changed_seconds: 1793515053, changed_nanoseconds: 369805617 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 772 comandos \u00b7 2184 B texto\nFILES_PREVIEW_COMMAND_OK html-scroll\nFILES_PREVIEW_COMMAND_REV action=html-scroll revision=9\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-_cv7fgcs/files/long.html\") revision=9 width=932 height=460 bytes=2184 commands=772 document_height=1521.52 top=1062 source=Revision { device: 2051, inode: 15995825, bytes: 2536, modified_seconds: 1793515053, modified_nanoseconds: 369805617, changed_seconds: 1793515053, changed_nanoseconds: 369805617 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 772 comandos \u00b7 2184 B texto\nFILES_HTML_FINAL_VISIBLE top=1062\nFILES_PREVIEW_COMMAND_OK html-assert-end\nFILES_PREVIEW_COMMAND_REV action=html-assert-end revision=9\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK html-large\nFILES_PREVIEW_COMMAND_REV action=html-large revision=11\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/html-ui-_cv7fgcs/files/large.html\") message=HTML fuera del l\u00edmite32KiB\nFILES_PREVIEW_COMMAND_OK html-rapid\nFILES_PREVIEW_COMMAND_REV action=html-rapid revision=17\nFILES_PREVIEW_HELPER pid=741385 start=999234 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-_cv7fgcs/files/layout.html\") revision=17 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 2051, inode: 15995727, bytes: 1105, modified_seconds: 1793515053, modified_nanoseconds: 369683587, changed_seconds: 1793515053, changed_nanoseconds: 369683587 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK html-symlink\nFILES_PREVIEW_COMMAND_REV action=html-symlink revision=19\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/html-ui-_cv7fgcs/files/symlink.html\") message=Original no disponible: Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK html\nFILES_PREVIEW_COMMAND_REV action=html revision=21\nFILES_PREVIEW_HELPER pid=741389 start=999241 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-_cv7fgcs/files/layout.html\") revision=21 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 2051, inode: 15995727, bytes: 1105, modified_seconds: 1793515053, modified_nanoseconds: 369683587, changed_seconds: 1793515053, changed_nanoseconds: 369683587 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK close-html-pending\nFILES_PREVIEW_COMMAND_REV action=close-html-pending revision=23\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_CLOSE_DRAINED\n",
+  "binary_path": "/home/node/.local/bin/files",
+  "helper_sha256": "d2e925c49701c3ad87c8d8a66bdbc0f6433503f38a05fe06c84be2c5b1c7b66d",
+  "binary_sha256": "02e0d79995d8ec9af304307615b4e15423f930a2fa19af58b306468a1e3a6e12",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

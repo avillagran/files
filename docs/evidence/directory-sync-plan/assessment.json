@@ -1,0 +1,77 @@
+{
+  "source_commit": "f647b0e73d366e3a9f9948c5546ef40bcea74ab1",
+  "scope": "SOURCE ONLY canonical logical plan, decisions, live binding and comparison keys; no physical executor/operator approval/helper/UI/journal/recovery/install",
+  "validation": {
+    "workspace_passed": 1436,
+    "core": 529,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 11,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "concurrency": "Normal Rust harness; single Cargo build job admitted only through idle snapshot gate; no competitors controlled",
+    "release_helper_ui_build": "NOT_RUN; no installation"
+  },
+  "format": {
+    "magic": "FLSPLN\\0\\x01",
+    "max_rows": 16385,
+    "max_wire": 16464,
+    "fields": "evidence seal32 + three option tags + row count LEu32 + derived row decisions + SHA256(domain Files:sync-action-plan:v1\\0 + pre-trailer bytes)",
+    "key": "88B FLSREV v1 + nonzero16B job +32B evidence seal +32B complete plan seal; stored key comparison only",
+    "fixture": "Actual complete disjoint 8192-child inventories on both sides, evidence >4MiB, complete16385-row plan exactlyMAX_WIRE; no truncation"
+  },
+  "implemented": [
+    "All5modes/typed conflict Pending/legally directed Take/IncludeSkip/retire; no newer-wins",
+    "Raw ancestor coverage survives a-/a/child interleaving; parent decision covers subtree, shared directory metadata independent from children",
+    "Explicit Ignore/Basic/ExactObserved metadata, root flag and hardlink policy sealed; logical directory metadata deepest first including root last",
+    "Nonwrapping plan instance/revision/row receipts; revert restores bytes without reviving stale receipts; decoded plan has new instance",
+    "Decoded proposals/locations/coverage derived from matching evidence, all choices checked even after adversarial digest recomputation",
+    "Resolved live binding exact record plus Prepared.verify, borrows plan/pins; pending/cancel/foreign/changedFS reject; comparison keys never approval or durability"
+  ],
+  "initial_warning": {
+    "log": "initial-11-pass-warning.log",
+    "observation": "11 tests passed with atomic fetch_update deprecation warning",
+    "fix": "Equivalent checked compare_exchange_weak loop; no lint suppression and no dependency on renamed newer API"
+  },
+  "test_refinements": [
+    "Digest tamper always xor-flips evidence seal byte, avoiding chance of no change if byte already zero",
+    "Pending plan history roundtrips but cannot bind; final complete workspace and lint checks rerun"
+  ],
+  "log_archive_notes": [
+    {
+      "text": "initial-11-pass-warning.log",
+      "normalization": "Only trailing empty lines removed; raw bytes retained",
+      "raw_archive": "initial-11-pass-warning.log.raw.gz",
+      "raw_sha256": "d5fc18f9fee3891f387b98a83d68cd7895c4471f3e6211f802dce2230044bbee"
+    },
+    {
+      "text": "first-workspace-pass.log",
+      "normalization": "Only trailing empty lines removed; raw bytes retained",
+      "raw_archive": "first-workspace-pass.log.raw.gz",
+      "raw_sha256": "d97918cecd2dd2daa8b3ac527f460b457fb6504372e0c1ffd20621c45268d32a"
+    },
+    {
+      "text": "workspace-validation-pass.log",
+      "normalization": "Only trailing empty lines removed; raw bytes retained",
+      "raw_archive": "workspace-validation-pass.log.raw.gz",
+      "raw_sha256": "4ee5de3570566b2bf8a5c4757110dacd5a07032a1f06615f9316339f4079b693"
+    }
+  ],
+  "cargo_admission": "Final rerun initially observed external Cargo PID1072834/start7565306 in o3-server worktree; waited exact identity and retried idle gate. No signal/control/external changes. Gate is idle snapshot, not exclusion of future competitors.",
+  "installation": "Five installed dry-run files rehashed unchanged against checkpoint1793574522897173033, app289db327/helper170f995; installed-unchanged.json",
+  "limitations": [
+    "Resolved logical plan is not physical schedule, operator approval, fresh UI ownership, fsync, provenance or atomic filesystem snapshot",
+    "Hardlink PreserveInternal needs group staging/coherent choices; external links isolated; scalar effects cannot be applied blindly",
+    "Ignore only suppresses metadata-only conflicts; content-changing metadata preservation contract remains explicit future work; ExactObserved digest cannot restore ACL/xattr values",
+    "No JournalStore/backup/staging/publication/own-effect revision ledger/queue/pause/cancel/closeACK/crash recovery/undo implementation yet",
+    "No helper/UI/session integration or new release/install/runtime acceptance",
+    "Absolute PSS/Swap/CPU/startup freeze and new-preview pause; bounds are not memory/performance evidence; native/global gates remain open"
+  ],
+  "next": "Physical recoverable planning including hardlink groups/metadata/old inode and own revision overlay, then explicit review/approval tied to complete evidence+plan+job/journal and durable execution with recovery; owned fixtures only",
+  "full_goal": "ACTIVE, original full scope unchanged",
+  "source_sha256": {
+    "crates/core/src/directory_sync_plan.rs": "9af5f96fcd2371da7ce3db0799aed93d2474c992d5cb87834bc9a3e1e97edd48",
+    "crates/core/src/lib.rs": "fd4afb8047644ef2aa9872461c89d360cb36e7023d2e1ece1d4d1b035829162e"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "stage": "core process engine; durable store, AuxIo and UI pending",
+  "installed": "unchanged preparation86bf3ff/f0df843",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "feature_acceptance": "INCOMPLETE",
+  "rust_passed": 895,
+  "rust_ignored": 3,
+  "source_sha256": {
+    "crates/core/src/sftp_connection.rs": "53da971a82c9807194404565ca41628253b7fb4db5477923f61e5ddaaf1e1e1a",
+    "crates/core/src/sftp_lifecycle.rs": "997b664251791587d721f529742a9a56b0361646ed5bda83e1b50bb232602054",
+    "crates/core/src/mount_table.rs": "99387d321fe91fc87b1d8dcd7eb9e1e49ce497b7e964eec308ef9932cbdeffed",
+    "crates/core/src/sftp_mount_point.rs": "c6fe2d0555bd5dc57dd51310e9b62799e4af5427c140e257b6b89b00c129dc3b",
+    "crates/core/src/sftp_target.rs": "87113f5812fa0235cd4ab6e967829474258559292bf607870debfc73871ea29b"
+  },
+  "logs": {
+    "tests-final.log": {
+      "original": "target/sftp-connection-accepted-tests2.log",
+      "sha256": "b67094f82255168a24642363cead63d204cfce7164b8d182a25d57eea50c8862"
+    },
+    "tests-fixture-fail.log": {
+      "original": "target/sftp-connection-accepted-tests.log",
+      "sha256": "fa4cd2473ba8c17cc9e8167fffb529af90a8d81b346efbd6fc8bf70956e72ae7"
+    },
+    "clippy-final.log": {
+      "original": "target/sftp-connection-accepted-clippy.log",
+      "sha256": "49b2fdb57ccb7bf21318a39319e9b1191643282913cabec0ad1b253e06ef3d0a"
+    },
+    "clippy-style-fail.log": {
+      "original": "target/sftp-connection-clippy.log",
+      "sha256": "5d35906e620640ad7981c855bc24301fcda04f30841dcd00bec289b3743f1c8f"
+    },
+    "release.log": {
+      "original": "target/sftp-connection-release.log",
+      "sha256": "21acd4736794fdfbf2f24c7cee28a247337ec71c5b1ddc70fca48f5147a61ab1"
+    },
+    "format-check.log": {
+      "original": "target/sftp-connection-final-format-check.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "example-clippy.log": {
+      "original": "target/sftp-connection-final-example-clippy.log",
+      "sha256": "1bdae6c63b94b85ef65020dd8c3ed9cd5a8cb2949422f5f89edf919089cd7beb"
+    }
+  },
+  "native_cases": [
+    "1793446796308586156",
+    "1793446796591346333",
+    "1793446796781664042"
+  ],
+  "limits": [
+    "No GUI/native input/restart recovery/kernel-D proof",
+    "Default staged-copy FAIL and overallFAIL/exit1 retained",
+    "Sealed stderr cap is not a process-memory acceptance",
+    "Observed process cleanup is not whole-lifetime coverage"
+  ]
+}

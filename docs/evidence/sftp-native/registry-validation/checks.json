@@ -1,0 +1,55 @@
+{
+  "stage": "core durable registry and debug native reader; AuxIo/UI/recovered actions pending",
+  "rust_passed": 908,
+  "ignored": 3,
+  "registry_tests": 13,
+  "tests_scope": "functional changes tested; final diagnostic/lab-help wording changes only after suite, covered by final Clippy/release",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "product_install": "UNCHANGED",
+  "feature_acceptance": "INCOMPLETE",
+  "native_registry_reports": [
+    "1793449119003791297",
+    "1793450438576487018"
+  ],
+  "sync_failure_scope": "injected post-rename EIO hook, not failed kernel fsync or power loss",
+  "source_sha256": {
+    "crates/core/src/sftp_registry.rs": "f7909076c07aab014eafaba857ff57656af7b997f747e2e7f75e62a5efa527ef",
+    "crates/core/src/sftp_mount_point.rs": "052e7de0be52433ef7b6ba3a3317dc75bbb56c74102a45a217a77fad1a667a82",
+    "crates/core/src/sftp_target.rs": "02561b863709cde99bfa360e949fc7e5f4c262aa44e0de020971886e1f757505"
+  },
+  "logs": {
+    "tests-final.log": {
+      "original": "target/sftp-registry-accepted-tests.log",
+      "sha256": "b51d5e2f1621e9ecc3427c767ea6e7e7e235392a3989a18a1445ab7cba6c0295"
+    },
+    "registry-tests.log": {
+      "original": "target/sftp-registry-guard-tests.log",
+      "sha256": "19922fec47eadd9c912923b8634f5dba6d1074c108d36d46567290789002072e"
+    },
+    "clippy-final.log": {
+      "original": "target/sftp-registry-final-all-clippy.log",
+      "sha256": "ddfd4cf0e73544cfd2c59b5ea09bc3921ae5f2386aabff8eed379c3ef059c770"
+    },
+    "clippy-initial-fail.log": {
+      "original": "target/sftp-registry-first-clippy.log",
+      "sha256": "1a34f97afbf861478a83cab6075408ed11610c5a08a18debfa40080228f2c849"
+    },
+    "clippy-style-fail.log": {
+      "original": "target/sftp-registry-final-clippy.log",
+      "sha256": "19eddea8268b2254c64f0c6645807424e89f24a3ba024463fd4d2e59928cb668"
+    },
+    "release.log": {
+      "original": "target/sftp-registry-release.log",
+      "sha256": "e37c4ded321088d4d3159230438f91501f64c187060f090c1210549642e880a6"
+    },
+    "format.log": {
+      "original": "target/sftp-registry-format-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "example-clippy.log": {
+      "original": "target/sftp-registry-final-example-check.log",
+      "sha256": "017628cdad077ee23228339ffe49b140b847c3117048e796704b96c11b9769a4"
+    }
+  }
+}

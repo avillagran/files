@@ -1,0 +1,30 @@
+{
+  "receipt": "docs/evidence/0.0.4/installed-checkpoint-1793560331250393795.json",
+  "files": [
+    {
+      "name": "files",
+      "installed_sha256": "a715c17069d6aa85475d39016a0a725b09847a53befc95eda1b52dc47a41c6e6",
+      "backup_sha256": "2cae3b73db4ec56a3ab928d974e585b6d9a2c18537364ff1100722eb8d72d842"
+    },
+    {
+      "name": "files-helper",
+      "installed_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+      "backup_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd"
+    },
+    {
+      "name": "files-html-helper",
+      "installed_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+      "backup_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "backup_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "installed_sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee",
+      "backup_sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee"
+    }
+  ]
+}

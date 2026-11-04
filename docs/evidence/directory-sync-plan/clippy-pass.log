@@ -1,0 +1,5 @@
+    Checking files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Checking files-helper v0.0.4 (/home/node/Work/files/crates/helper)
+    Checking files-app v0.0.4 (/home/node/Work/files/crates/app)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 14.55s

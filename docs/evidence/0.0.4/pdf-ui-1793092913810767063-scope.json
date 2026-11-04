@@ -1,0 +1,10 @@
+{
+  "scope": "PDF selected source lifecycle plus existing multipage rendering; internal shared handlers and actual FLTK framebuffer",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "active_helper_at_close": "NOT_VALIDATED",
+  "cleanup_scope": "23 logged PID/start identities absent or reused after exit0 and State drain; same-identity zombies fail, no lifetime coverage",
+  "native_input": "NOT_VALIDATED",
+  "native_2x_sharpness": "NOT_VALIDATED",
+  "io_stuck": "controller/gate tests only, no real stuck mount syscall injected"
+}

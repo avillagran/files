@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "scope": "standalone rustc exact-source unit verification, not helper/app/resource validation",
+  "cargo_used": false,
+  "native_jpeg_library_used": false,
+  "source_sha256": {
+    "crates/helper/src/jpeg_scaled.rs": "9b8d130949d5a6a4adc0472d19c4107beb984e6218a41a295de0459e62024570",
+    "vendor/jpeg-decoder/src/lib.rs": "f8fc7484fa5e66728f248377eef89477b16ae0891850bdb8640a15566ca82cf1",
+    "vendor/jpeg-decoder/src/decoder.rs": "cdddbef77549146ffab2fe599c19671f8ea613111391993056b402471857cbde",
+    "vendor/jpeg-decoder/src/worker/mod.rs": "3bd6dc3c81695ac640f003863d5308a919de7f9c4c8e7feb1f3149d270d184af",
+    "vendor/jpeg-decoder/files-bounded.patch": "a705e3aa9ec51a912c29c9a0d50f3f8cc67363c7a5917419f38d533ed3f5ee17"
+  },
+  "commands": [
+    "rustc --edition=2021 --crate-name jpeg_decoder --crate-type rlib vendor/jpeg-decoder/src/lib.rs -C opt-level=1 -o ~/.cache/files-test/jpeg-scaled-validation/libjpeg_decoder.rlib",
+    "rustc --edition=2021 --crate-name jpeg_decoder --test vendor/jpeg-decoder/src/lib.rs -C opt-level=1 -o ~/.cache/files-test/jpeg-scaled-validation/jpeg-vendor-tests",
+    "~/.cache/files-test/jpeg-scaled-validation/jpeg-vendor-tests --test-threads=1",
+    "rustc --edition=2024 --test crates/helper/src/jpeg_scaled.rs --extern jpeg_decoder=~/.cache/files-test/jpeg-scaled-validation/libjpeg_decoder.rlib --extern image=target/debug/deps/libimage-e0a6e5f0075f2161.rlib -L dependency=target/debug/deps -C opt-level=1 -o ~/.cache/files-test/jpeg-scaled-validation/jpeg-scaled-tests",
+    "~/.cache/files-test/jpeg-scaled-validation/jpeg-scaled-tests --test-threads=1"
+  ],
+  "vendor_tests": {
+    "passed": 9,
+    "new_patch_tests": 4,
+    "upstream_tests": 5,
+    "status": "PASS"
+  },
+  "wrapper_tests": {
+    "passed": 5,
+    "status": "PASS"
+  },
+  "decoded_baseline_fixtures": [
+    {
+      "source": [
+        4000,
+        3000
+      ],
+      "output": [
+        1000,
+        750
+      ],
+      "pixel_assert": "all RGB bytes equal 128"
+    },
+    {
+      "source": [
+        6000,
+        4000
+      ],
+      "output": [
+        750,
+        500
+      ],
+      "pixel_assert": "all RGB bytes equal 128"
+    }
+  ],
+  "progressive": {
+    "small_fixture": [
+      128,
+      96
+    ],
+    "small_decoded": true,
+    "large_12mp_24mp_rejected_before_coefficients": true,
+    "coefficient_limit_bytes": 33554432
+  },
+  "resource_gate": "NOT_MEASURED",
+  "ui_gate": "NOT_WIRED",
+  "limits": "Unit tests do not measure allocator/PSS/Swap, helper RLIMIT_AS, startup, latency, throughput or cancellation. Test framework runtime is not a benchmark."
+}

@@ -1,0 +1,21 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0609]: no field `auto_exit` on type `&mut Model`
+  --> crates/ui/src/preview_scene.rs:93:15
+   |
+93 |             m.auto_exit = None;
+   |               ^^^^^^^^^ unknown field
+   |
+   = note: available fields are: `refresh_selection`, `refresh_deferred`, `copy`, `copy_form`, `copy_id` ... and 75 others
+
+error[E0609]: no field `auto_exit` on type `&mut model::Model`
+  --> crates/ui/src/preview_scene.rs:93:15
+   |
+93 |             m.auto_exit = None;
+   |               ^^^^^^^^^ unknown field
+   |
+   = note: available fields are: `refresh_selection`, `refresh_deferred`, `copy`, `copy_form`, `copy_id` ... and 75 others
+
+For more information about this error, try `rustc --explain E0609`.
+error: could not compile `files-ui` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `files-ui` (lib test) due to 1 previous error

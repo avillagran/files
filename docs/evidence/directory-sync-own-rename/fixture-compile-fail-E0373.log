@@ -1,0 +1,60 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+error[E0373]: closure may outlive the current function, but it borrows `done_tx`, which is owned by the current function
+    --> crates/core/src/directory_sync_store.rs:1727:46
+     |
+1724 |                 std::thread::scope(|scope| {
+     |                                     ----- has type `&'1 Scope<'1, '_>`
+...
+1727 |                     let worker = scope.spawn(|| {
+     |                                              ^^ may outlive borrowed value `done_tx`
+...
+1736 |                         done_tx.send(result).unwrap();
+     |                         ------- `done_tx` is borrowed here
+     |
+note: function requires argument type to outlive `'1`
+    --> crates/core/src/directory_sync_store.rs:1727:34
+     |
+1727 |                       let worker = scope.spawn(|| {
+     |  __________________________________^
+1728 | |                         entered_tx.send(()).unwrap();
+1729 | |                         let result = journal.execute_namespace_controlled(
+1730 | |                             0,
+...    |
+1736 | |                         done_tx.send(result).unwrap();
+1737 | |                     });
+     | |______________________^
+help: to force the closure to take ownership of `done_tx` (and any other referenced variables), use the `move` keyword
+     |
+1727 |                     let worker = scope.spawn(move || {
+     |                                              ++++
+
+error[E0373]: closure may outlive the current function, but it borrows `entered_tx`, which is owned by the current function
+    --> crates/core/src/directory_sync_store.rs:1727:46
+     |
+1724 |                 std::thread::scope(|scope| {
+     |                                     ----- has type `&'1 Scope<'1, '_>`
+...
+1727 |                     let worker = scope.spawn(|| {
+     |                                              ^^ may outlive borrowed value `entered_tx`
+1728 |                         entered_tx.send(()).unwrap();
+     |                         ---------- `entered_tx` is borrowed here
+     |
+note: function requires argument type to outlive `'1`
+    --> crates/core/src/directory_sync_store.rs:1727:34
+     |
+1727 |                       let worker = scope.spawn(|| {
+     |  __________________________________^
+1728 | |                         entered_tx.send(()).unwrap();
+1729 | |                         let result = journal.execute_namespace_controlled(
+1730 | |                             0,
+...    |
+1736 | |                         done_tx.send(result).unwrap();
+1737 | |                     });
+     | |______________________^
+help: to force the closure to take ownership of `entered_tx` (and any other referenced variables), use the `move` keyword
+     |
+1727 |                     let worker = scope.spawn(move || {
+     |                                              ++++
+
+For more information about this error, try `rustc --explain E0373`.
+error: could not compile `files-core` (lib test) due to 2 previous errors

@@ -1,0 +1,30 @@
+   Compiling simd-adler32 v0.3.10
+   Compiling miniz_oxide v0.9.1
+   Compiling flate2 v1.1.10
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.81s
+     Running unittests src/lib.rs (target/debug/deps/files_core-b77c5d036427fdd3)
+
+running 6 tests
+test archive_member::tests::requires_real_stream_end_even_when_declared_empty_and_zero_crc ... FAILED
+test archive_member::tests::expansion_is_rejected_before_sink_accepts_bytes_beyond_declared_quota ... ok
+test archive_member::tests::short_interrupted_reads_and_failing_sink_are_handled ... ok
+test archive_member::tests::crc_trailing_and_truncated_streams_never_return_success ... ok
+test archive_member::tests::streams_stored_deflate_signed_unsigned_and_empty_members ... ok
+test archive_member::tests::cancel_before_and_after_progress_never_reports_completed_output ... ok
+
+failures:
+
+---- archive_member::tests::requires_real_stream_end_even_when_declared_empty_and_zero_crc stdout ----
+
+thread 'archive_member::tests::requires_real_stream_end_even_when_declared_empty_and_zero_crc' (816792) panicked at crates/core/src/archive_member.rs:147:121:
+assertion failed: legacy.is_ok()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    archive_member::tests::requires_real_stream_end_even_when_declared_empty_and_zero_crc
+
+test result: FAILED. 5 passed; 1 failed; 0 ignored; 0 measured; 352 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `-p files-core --lib`

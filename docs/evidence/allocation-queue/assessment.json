@@ -1,0 +1,90 @@
+{
+  "status": "SOURCE_TYPED_WORKER_QUEUE_ACCEPTED_PRODUCT_ACTIONS_PENDING",
+  "installed": false,
+  "source_hashes": {
+    "files": "55b730a348c30629c1e9e001630b9be3af71960e94c7c6aa587602f65748de0c",
+    "files-helper": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+    "files-html-helper": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+  },
+  "workspace": {
+    "passed": 1256,
+    "core": 443,
+    "helper": 105,
+    "ui": 708,
+    "historical_ignored": 3,
+    "normal_harness_concurrency": true
+  },
+  "clippy": "PASS",
+  "rustfmt_recursive_all_four_crate_roots": "PASS",
+  "release_workspace": "PASS",
+  "helper_cli": {
+    "tests": 7,
+    "all_passed": true,
+    "includes_full_identity_boundary": true
+  },
+  "regression": [
+    {
+      "backend": "wayland",
+      "receipt": "docs/evidence/sizes-open/sizes-open-ui-1793538269598837581.json",
+      "captures": 15,
+      "logged_helpers_gone_or_reused_no_zombie": 19,
+      "root_exit": 0,
+      "scope": "legacy apparent calculation + marked report regression, not allocated UI acceptance"
+    },
+    {
+      "backend": "x11",
+      "receipt": "docs/evidence/sizes-open/sizes-open-ui-1793538282445360863.json",
+      "captures": 15,
+      "logged_helpers_gone_or_reused_no_zombie": 19,
+      "root_exit": 0,
+      "scope": "legacy apparent calculation + marked report regression, not allocated UI acceptance"
+    }
+  ],
+  "visual_review": "X11 440 report controls fit and wide queue row names visible; Wayland post-forget measured-none report visible. Footer resource numbers excluded.",
+  "worker_queue_tests": [
+    "Allocated and apparent mode finals reject one another",
+    "Unavailable allocation retained as Some, no zero fallback",
+    "Nonzero process exit invalidates valid terminal; spawned child reaped",
+    "Cancel after terminal bytes waits for process completion; Interrupted and child reaped",
+    "Wrong ID, mismatched final, missing final and extra data reject",
+    "Mixed mode records; recalculate/retry preserve mode and new attempt IDs; clear old allocation",
+    "Mode replacement cannot dispatch before old ACK; stale result cannot populate new attempt",
+    "Whole-batch preflight failure preserves IDs/modes/allocation/pause; apparent sort keys unchanged"
+  ],
+  "historical_failure": {
+    "file": "initial-workspace-folder-view-wouldblock.log",
+    "test": "folder_views::tests::save_merges_latest_and_stale_forget_cannot_remove_updated_value",
+    "result": "WouldBlock; later full suite passed normally; cause UNCONFIRMED, no folder-view fix claimed"
+  },
+  "contention": "Build guard and bounded verified waits used for live o3-server Cargo identities; no competing process controlled or Rust harness serialization.",
+  "installed_files_unchanged": [
+    {
+      "path": "/home/node/.local/bin/files",
+      "sha256": "13253b6adcd6eedab16252e4992b5bbf01c6e475830d0501eae2699339b0a5b7"
+    },
+    {
+      "path": "/home/node/.local/bin/files-helper",
+      "sha256": "ec246445e70aba1558771d43cf1bc9144d34fabbc6d279c8297f79c94f6a0609"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper",
+      "sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper.LICENSES",
+      "sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper.build.json",
+      "sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee"
+    }
+  ],
+  "limits": [
+    "No new user action/control or report allocation presentation yet",
+    "No allocated-mode UI/X11/Wayland/installed acceptance",
+    "No native input/clipboard/AT-SPI/2x/full-lifetime acceptance",
+    "Historical X11 missing names cause remains open",
+    "No PSS/Swap/CPU/startup experiments or claims",
+    "No physical ownership/freeable bytes/cross-root identity union"
+  ]
+}

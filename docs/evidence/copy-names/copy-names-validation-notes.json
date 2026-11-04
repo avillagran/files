@@ -1,0 +1,27 @@
+{
+  "final_report": "copy-names-ui-1793429532169892092.json",
+  "tests": {
+    "pass": 818,
+    "core": 252,
+    "helper": 79,
+    "ui": 487,
+    "ignored": 3
+  },
+  "checks": "workspace Clippy all-targets -Dwarnings/release/fmt PASS",
+  "visual": "9 final PNG inspected; controls fit440, long source clips",
+  "preserved": [
+    "initial E0282 Arc inference log",
+    "foundation wiring dead-code warnings",
+    "first scene functionalPASS with title visualFAIL sidecar",
+    "contact sheet attempt PIL unavailable; no dependency installed"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "incidental_footer": "first53.7MiB/final44.4MiB main-only; no causal/comparison/tree proof",
+  "limits": [
+    "no native input/MIME proof",
+    "no Move naming",
+    "no replacement",
+    "no global PASS"
+  ]
+}

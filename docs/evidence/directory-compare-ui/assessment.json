@@ -1,0 +1,74 @@
+{
+  "source": "40e42ff",
+  "functional_gate": "PASS_SCOPED_COMPARISON_UI",
+  "binary_sha256": "188b95956b9e5571e7ea0f3f0020743841525967f37f13179bc366175ef727c2",
+  "helper_sha256": "d2c5cdca4dd4f572a5a9e69f5131f0d3453a2c3904cc76f56e612f83a6c9ec0a",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "tests": {
+    "core": 470,
+    "helper": 109,
+    "ui": 780,
+    "historical_ignored": 3,
+    "normal_concurrency": true
+  },
+  "checks": [
+    "1359 workspace tests PASS",
+    "workspace/all-target Clippy -D warnings PASS",
+    "fmt PASS",
+    "release workspace PASS",
+    "release helper wire seven CLI cases PASS"
+  ],
+  "wayland": "directory-compare-ui-1793570966869599974.json",
+  "x11": "directory-compare-ui-1793571242632970884.json",
+  "installed": "directory-compare-ui-1793571789721868433.json",
+  "per_comparison_receipt": {
+    "captures": 14,
+    "normal_exit_and_drain_roots": 6,
+    "logged_comparison_helper_identities_gone_or_reused": 7
+  },
+  "release_helper_wire": "../directory-compare-wire/helper-wire-1793571784374847109.json",
+  "regressions": {
+    "names": "../narrow-names/narrow-names-ui-1793571386478730874.json",
+    "queue": "../queue-review/queue-review-ui-1793571579151279774.json"
+  },
+  "installation": "../0.0.4/installed-checkpoint-1793571784648344250.json",
+  "five_installed_and_backup_hashes": "install-verification.json",
+  "scope": [
+    "manual lossless URI root and Dual active/opposite capture; shared bounded edit and stale paste rejection",
+    "full/empty/partial read-only observations, retained filters, viewport-bounded rows/hits, selected-route horizontal pan and raw labels",
+    "exact raw side-B locate into raw root, no file opening/synchronization, bytes/link targets/mode/mtime source snapshots unchanged",
+    "full report plus no-final-result diagnostics through isolated text sink; error retained, no native clipboard delivery claim",
+    "shared reader admission/pause restore, modal owner guard, SpaceMap stop/resume",
+    "actual sparse-file helper progress then cancel/reap and root close ACK ordered before CLOSE_DRAINED; sparse files are functional read-limit/cancel fixtures, not CPU/throughput experiments"
+  ],
+  "visual": "Inspected wide/compact/partial/cancel captures and final selected-path tail with other row names visible; raw URI badge and root tails visible. Footer values ignored. Logical fixture sizes only; default native minimum policy unchanged.",
+  "retained_failures": [
+    "initial-double-click-compile-fail.log: new FLTK event_clicks returns bool; fixed new handler API usage",
+    "initial-tests-pass-clippy-fail.log:1357 tests PASS,2collapsible_if lint errors corrected",
+    "scene-order-clippy-fail.log:1357 tests PASS,move fixture items before test module; no suppression",
+    "../queue-review/queue-review-ui-1793570330828587648.json: concurrent Wayland fixtures, expected440x440 but PNG IHDR and actual later marker1000x650 after initial440 marker, no further size command; exact cause unconfirmed. Same binary2f760 standalone1793570563052171944 PASS, final188b959 standalone1793571579151279774 PASS; no product resize fix claimed."
+  ],
+  "intermediate_receipts": [
+    "directory-compare-ui-1793569749386347533.json:app3f88dd,before inactive-tail/no-result diagnostic refinements",
+    "directory-compare-ui-1793570229369913564.json and1793570232443145090:app2f760,before selected-row-only horizontal pan"
+  ],
+  "pending": [
+    "synchronization fresh preparation/plan, explicit conflicts/apply/recovery and operation authority; comparison report is not a plan",
+    "larger/external-memory comparison inventories and remaining metadata/platform capabilities",
+    "native input/clipboard delivery/AT-SPI/physical2x/otherOS/offline syscalls/global lifetimes and full goal",
+    "original historical wide-X11 missing-name/icon anomaly remains unconfirmed"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "cpu_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "new_preview_formats": "PAUSED",
+  "source_sha256": {
+    "crates/ui/src/directory_compare_ui.rs": "bea3f08764e7862838008ca0c2d86f44fd03491d44980a5193f072f16c173fa6",
+    "crates/ui/src/directory_compare_job.rs": "c6e08c4499e4fb86e7e03f9e2cfa194177963616ddd2f572cf852a4f46701f1e",
+    "crates/ui/src/model.rs": "1c2905b7ac8aca554fe65adb833fdce3331bba3452a3261496c54186d40263ab",
+    "crates/ui/src/clipboard_ui.rs": "a2120079f3ac497188619d1c673268f52c913ac97308bb37ce38693b65bd1a24",
+    "crates/ui/src/line_field.rs": "e89823cd9f8b3d85c32fa5b44a051075325c65544a285845b5a4683d2299cdd1",
+    "crates/ui/src/spatial_view.rs": "a1b7efb650caa9751aeb0fa1285dbea821de41a526282f41325832d4ddda3379",
+    "scripts/directory-compare-ui-check.py": "c8cb61b09acd69ce07e6e70f99378e6aaa24846f311f8e4f460177e5903e53fc"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "properties path wrapping and minimum controls; internal handlers and framebuffer only",
+  "source_reports": [
+    "docs/evidence/duplicates/node-functional-1793529310535401451/receipt.json",
+    "docs/evidence/duplicates/node-functional-1793529319603368419/receipt.json",
+    "docs/evidence/0.0.4/properties-ui-1793529331818288088.json"
+  ],
+  "initial_test_failure": "Fixture moved the leaf and then incorrectly expected Snapshot.current_path success. Backend correctly rejected changed child mapping. Corrected test moves pinned parent; backend unchanged.",
+  "initial_clippy_failure": "Fixture helper followed test module; moved helper before tests. Final all-target Clippy PASS.",
+  "visual_review": "X11 requested path, permission grid and readonly link target inspected at440x440. No path omissions or action overlap observed. Existing global footer numbers are not resource evidence.",
+  "limits": [
+    "No native OS input or clipboard",
+    "No AT-SPI or2x evidence",
+    "Metadata other than paths can still clip",
+    "Original intermittent X11 left-pane anomaly remains unconfirmed",
+    "PSS/Swap/CPU/startup NOT_MEASURED"
+  ],
+  "tests": "Final current-source workspace run PASS1214 (425core/95helper/694UI),3 historical ignored. Serial idle guard waited for unrelated Cargo; test concurrency unchanged.",
+  "installed_report": "docs/evidence/duplicates/node-functional-1793529436364969476/receipt.json"
+}

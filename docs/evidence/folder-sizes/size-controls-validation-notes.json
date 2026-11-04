@@ -1,0 +1,15 @@
+{
+  "initial_report": "folder-sizes-ui-1793408604914973870.json",
+  "functional_gate": "PASS scoped",
+  "visual_gate": "FAIL footer",
+  "finding": "Paused batch status was clipped by the rotating help region at 1000x650; no failure of pause/retry execution. Preserve original report and screenshots.",
+  "fix": "Size summary suppresses help and secondary free-space region, keeps self-PSS separate; compact queue/error summary below640px. New Recorder coverage at440/800/1000; recapture final same flow after rebuild required.",
+  "command_regression_report": "../commands/command-palette-ui-1793408614103585218.json",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "final_report": "folder-sizes-ui-1793408838174586064.json",
+  "final_functional_gate": "PASS scoped",
+  "final_visual_check": "Inspected full status1000x650 and compact440x440; no help/free-space collision with queue/error or selfPSS. Ten real framebuffers in final report.",
+  "final_binary_sha256": "aab1d53b41e3010c4ba16bfc09e2a9d851b3a67c556d71b924f460023d314f8f",
+  "limits": "Final actual pause is before admission, no helper alive at pause established. Active finishes while paused / retry-before-oldACK verified in state/model tests only. No native input, lifetime coverage, snapshot, memory/startup or full acceptance. Earlier command regression uses binary before footer-only fix, not a final-binary rerun."
+}

@@ -1,0 +1,82 @@
+{
+  "source_commit": "bb7940cda845d90538d9b3414b11cba499941494",
+  "machine": "NODE",
+  "checked_at": "2026-11-02",
+  "scope": "SOURCE ONLY trusted complete private staging coordinator; no implicit destination effects, native approval or installed Apply",
+  "validation": {
+    "workspace_passed": 1607,
+    "core": 700,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 8,
+    "clippy": "PASS final workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "harness": "Normal Rust harness through original idle Cargo gate; competitors untouched, idle snapshot not exclusion of later competition",
+    "release_install_gui_resources": "NOT_RUN"
+  },
+  "implemented": [
+    "New/unstarted staging-phase batch only, exact Prepared cached record/Physical/saved-intent binding, pure geometry/placement plus cumulative payload budget before private artifacts",
+    "Read-only real private/disjoint/same-mount parent and name-absence checks BEFORE source hashing; factory repeats fresh admission then registry/tag34 ACK before any workspace mkdir",
+    "Fresh original-root controlled snapshots before creation and again after metadata/node observations before global barrier; Control passed into full source walks, no new worker/timer",
+    "Create ALL Physical nodes in order; retain only cohort leaders until last alias and current receipt, drop independent/alias receipts and obsolete empty inventories before fresh full captures",
+    "Absolute WorkspaceLocation parent/name/object/private checks at every creator checkpoint and every metadata-mutating boundary across all scopes; targeted observation checks avoid an extra N*T sweep, global checks before/after barrier",
+    "ALL mutable workspace captures into exact sealed metadata order; existing durable per-syscall/whole-batch alias/owner commit semantics retained; observe/check every final node then global verify/sync/reverify/ACK",
+    "Return complete inventories/shared locations/final original-root snapshots/historical barrier; coarse public observed checkpoints, no decoder/receipt grants approval",
+    "Failure preserves rich cause, phase, reserved payload bytes and last known captures/locations; after private effects owner Uncertain, all directories/artifacts retained, no implicit retry/rollback/delete"
+  ],
+  "read_model": {
+    "formula": "2*S + C + V + (3 + 2*M)*W",
+    "S": "Unique regular dev/ino bytes separately per original root, both snapshots twice",
+    "C": "Copied regular leaders/independent files",
+    "V": "Readback bytes for every regular staged NAME, including aliases",
+    "W": "Unique created regular objects separately within each workspace walk",
+    "M": "Exact staged metadata steps",
+    "admission": "Checked u64 cumulative caller limit may exceed1TiB; existing per-source/per-call two-pass1TiB cap retained and admitted before effects",
+    "exclusions": "EOF probes,symlink literals,attrs,metadata/journal/registry files and FS bookkeeping not payload metric; failed-step reserved amount not invented completed-byte count"
+  },
+  "tests": [
+    "Single6B file exact54B forecast; one-byte-short budget refuses before hashes/artifacts, then complete coordinator result can feed separate owned publication to produce source bytes",
+    "Raw FF/newline tree/empty dirs, same-workspace regular aliases and cross-workspace file/symlink cohorts; logical21B versus18B/workspace-walk,12B copied; outside symlink target unchanged",
+    "Eleven callback fault checkpoints before/after private writes and final ACK; destinations unchanged, complete/partial workspaces retained, renewed History cannot restart staging",
+    "Pause/resume/cancel before private effects with real worker scope; no staged entry while paused; cancelled reserved0/current Journal retained",
+    "Source changed after metadata fails final original snapshot, absolute workspace rename at pre-create checkpoint prevents leaf syscall, no destination publication",
+    "IndependentNames produces separate inodes with120B exact forecast; retire-only reads old3B twice and leaves user file untouched",
+    "Three actual _exit107 points after node materialization, metadata ACK,global barrier ACK reopen only History/registry paths; no power-loss proof",
+    "Existing old namespace/factory/registry/history/FD/publication fixtures and700core/112helper/795UI regression pass"
+  ],
+  "acceptance_history": [
+    "Initial core check PASS with unused diagnostic import/reexport and node payload warnings; public observed progress and proper exports remove them",
+    "Second check PASS with obsolete fork_for_namespace wrapper warning; controlled snapshot path replaces wrapper, removed unused code",
+    "Initial test compile E0277 missing Debug StagedBatch fixed",
+    "First4:3PASS1FAIL at SourceBefore:forecast counted hardlink names but walker deduplicates inodes; corrected per-root S/per-workspace W versus creator V/C, added same-workspace alias→4PASS",
+    "Expanded8:7PASS1FAIL retire fixture selected row0 root metadata instead of x; choose actual x and resolve pending root metadata→8PASS",
+    "InitialClippy PASS; node-observation location check narrowed to selected workspace while global barrier checks all, avoiding unnecessary N*T sweep; final1607/Clippy/fmt PASS"
+  ],
+  "limits": [
+    "Explicit trusted caller still must establish real native approval/helper/original/absolute binding for execution; report/registry/attachment/snapshots/barrier not permission or lasting freshness",
+    "Private staging does not preserve/publish/delete destinations; production destination coordinator,container selection/creation,visibleSharedDirAfterOwnChildren,recovery/undo/UIApply remain open",
+    "Sequential source/path checks are not filesystem snapshots; source changes after last observation still require destination-phase fresh validation",
+    "No whole-coordinator atomic rollback: metadata/private files can already change; later returned error can follow StagingComplete ACK; captures historical, not recovery authority",
+    "Requested placement metadata budget is not global process memory admission; additional source/capture/locator/leader buffers bounded by record/node/workspace caps, no PSS/startup acceptance",
+    "Known repeated full metadata walks and journal readback remain potentially quadratic; forecasts expose payload only, bulk scaling unaccepted",
+    "NamedPostimage directory/symlink and unsupported symlink attrs qualifications retained; ordinary process exits do not prove remote/power-loss durability",
+    "Resource/startup freeze,new-preview pause,no sourcepush/tag/release/install/GUI/native/global acceptance"
+  ],
+  "installed_hashes": "installed-hashes.json",
+  "source_sha256": {
+    "crates/core/src/directory_sync_journal/staging.rs": "12f58e483f9ca9233ebce1b8f88cf108bf15998a2521f50236dac25b18817a3e",
+    "crates/core/src/directory_sync_manifest.rs": "1fe4fcb63a1ff2e5f729199251dfb564053b16c671dfa9ca7b2c8fbc9c4baf0a",
+    "crates/core/src/directory_sync_store.rs": "918886686205ebd4ecd0e590a9dfb0b56b4b27bb2d2435565b0501425a16f9ed",
+    "crates/core/src/directory_sync_store/linux/journal.rs": "f18b7294ca2f7154da04547c79419042d6d775be158644a512a8fa87cd7d4d1a",
+    "crates/core/src/directory_sync_store/linux/journal/workspace.rs": "32c9ccbef1bccd687825fe0dc0dbdc5587ead4f684b874d8d38881dbb1d93e24",
+    "crates/core/src/exdev_source.rs": "21d7202ce69246dfd5063a42ff38b5e34208bffee5126fb32e75f521de58b198",
+    "docs/DIRECTORY-SYNC-BATCH-PREPARATION.md": "e321ff203f3b2b22ceb4ae087789f098f5f3adc4f608ead8cf7823a85bc3fe04",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "12f4bfb646f0395ede64f661a8b4cd3407dcd0a64d652a3591caff9e6f80dd50",
+    "docs/DIRECTORY-SYNC-STAGING-BARRIER.md": "565ff613d02fc8a521f4f1f9a5c93654eae084764a04e709a16121faf1e8c755",
+    "docs/DIRECTORY-SYNC-WORKSPACES.md": "224c6d6945a6c8d01e8200cd5bc765999a3dd8ad3d8e1a1bfca30930b3b2aee2",
+    "docs/ROADMAP.md": "604b0c811f1e721f0a03d8314a7282e421d719d341b7d20d2e30692993838eda",
+    "crates/core/src/directory_sync_store/linux/journal/batch.rs": "cddc7b2906e64eed2cf02b092b130777e9958a089313680f9b793d4d38003079",
+    "docs/DIRECTORY-SYNC-STAGING-COORDINATOR.md": "0f40a21b4758e51d63e1eb81db2254f2d4811f0e2bb4de78e26b2fe99d367bc7"
+  }
+}

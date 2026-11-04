@@ -1,0 +1,64 @@
+{
+  "source_commit": "0a8fa3af8e697c43cbdee9b6ba69da7bf543b0ac",
+  "scope": "SOURCE ONLY Linux full sync inventory reconciliation after caller-identified own root rename; read-only traversal, not a rename/executor/approval/complete mutation ledger",
+  "validation": {
+    "workspace_passed": 1507,
+    "core": 600,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 5,
+    "initial_focused_passed": 4,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "concurrency": "Normal Rust harness, one Cargo build job via idle snapshot gate; competing Cargo never controlled",
+    "release_helper_ui_install": "NOT_RUN"
+  },
+  "implemented": [
+    "Opt-in sync only; fresh FD-rooted NOFOLLOW/NOATIME complete content and metadata traversal with per-entry mount comparison",
+    "Raw path suffix mapping, original held root identity, exact original object identity/content/metadata/access/mode/size/uid/gid/mtime/nlink and descendant revision matching; root ctime is sole revision allowance",
+    "Canonical captured symlink atime policy reused explicitly, no claim to detect later symlink-atime-only changes",
+    "All new paths allocated before traversal; final namespace count/root FD-name revision/mount/cancellation checks, then no-fail recorded prefix/root-revision commit",
+    "Explicit per-call shared regular-payload budget and consumed-byte return, hardlink payload deduplication; original capture accounting retained",
+    "Existing own-rename and controlled call paths dispatch sync inventory to this verifier while legacy EXDEV retains single-file/nlink1 policy and no new mount requirement"
+  ],
+  "tests": [
+    "Real same/different-parent and raw-byte-root rename/back of tree with internal hardlinks, symlink and empty dir; exact child revisions and subsequent verification",
+    "Root hardlink and root symlink, preserved links/content and full evidence; separate hardlink inventory retains strict stale ctime rejection",
+    "Content/child mode/root mode/child-only ctime/added name/removed name/nlink change/root substitution/budget/cancel/controlled child-mount mismatch all reject without changing recorded owner inventory or prefix",
+    "Legacy tree still rejects and cannot call sync rebase; no legacy mount evidence added",
+    "Full8193-entry tree preserves every name and verifies after rename, zero payload bytes for empty regular files"
+  ],
+  "acceptance_history": [
+    "Four initial focused tests PASS; expanded revision/alias cases and full-size test added",
+    "Final1507 workspace/Clippy/fmt PASS, no compilation/lint/test failures"
+  ],
+  "failures": [],
+  "limits": "Existing sync inventory entry/name/depth/path/metadata and 1TiB maximum read allowance remain; explicit pass may be smaller. Path/counter bounds are structural, not PSS/CPU/startup/throughput experiments.",
+  "installation": "Five installed hashes unchanged against1793574522897173033; no release/helper/UI/install",
+  "log_archive_notes": [
+    {
+      "text": "initial-4-focused-pass.log",
+      "raw_archive": "initial-4-focused-pass.log.raw.gz",
+      "raw_sha256": "7e2b3099cb94d40b373ecb6ee04b50c1107cf2366f642955714b93686acfea59",
+      "normalization": "Only trailing whitespace/empty EOF lines removed"
+    },
+    {
+      "text": "accepted-1507-workspace.log",
+      "raw_archive": "accepted-1507-workspace.log.raw.gz",
+      "raw_sha256": "1ce4a7c12fd7d025d174e6295e891bc4277c71bfe3dbfa035c4a80cb54e757bb",
+      "normalization": "Only trailing whitespace/empty EOF lines removed"
+    }
+  ],
+  "limitations": [
+    "Caller must positively identify its own rename; this read-only rescan cannot prove provenance or grant effect authority",
+    "Supplied parent FD alone is not current absolute-path/ancestor binding proof; executor must check parent/root bindings separately",
+    "No complete two-root alias/nlink/parent namespace mutation ledger, no Prepared source-pin rebinding, no actual stage/backup/publication or native approval/helper ACK/recovery UI",
+    "No power-loss/native-input/clipboard/AT-SPI/2x/lifetime/otherOS/global acceptance; resource experiment freeze and new-preview pause intact"
+  ],
+  "next": "Complete actual alias and parent namespace mutation accounting with live source/helper pins and explicit approval, then global staging/metadata/backup/publication and crash-recovery/undo execution. Journal scaling remains unaccepted. Full explorer goal active.",
+  "full_goal": "ACTIVE; original complete objective unchanged",
+  "source_sha256": {
+    "crates/core/src/exdev_source.rs": "5e505c25e3b905127bc5c4de36b831ef055546080f1e607acbfe86e70275d0cb"
+  }
+}

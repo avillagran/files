@@ -1,0 +1,55 @@
+{
+  "method": "internal handlers, actual files-helper du traversal and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/folder-summary-1793040014653687557.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/folder-empty-summary-1793040014834436802.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/folder-replaced-error-1793040014963082340.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "treemap",
+    "recursive mutation snapshot",
+    "resource budget",
+    "cross-platform verification",
+    "offline mounts"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0f2a7160"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=111180\nFILES_UI_SMOKE_OK entries=3\nFILES_PREVIEW_COMMAND_OK folder\nFILES_PREVIEW_COMMAND_REV action=folder revision=2\nFILES_PREVIEW_HELPER pid=4028723 start=48278670 command=preview_directory_du\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/folder-ui-g0rm6ebl/files/folder\") encoding=Carpeta \u00b7 tama\u00f1o aparente truncated=false bytes=237\nFILES_FOLDER_SUMMARY_OK bytes=8 entries=5 symlink_followed=false\nFILES_PREVIEW_COMMAND_OK folder-assert\nFILES_PREVIEW_COMMAND_REV action=folder-assert revision=2\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK folder-empty\nFILES_PREVIEW_COMMAND_REV action=folder-empty revision=4\nFILES_PREVIEW_HELPER pid=4028730 start=48278689 command=preview_directory_du\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/folder-ui-g0rm6ebl/files/empty\") encoding=Carpeta \u00b7 tama\u00f1o aparente truncated=false bytes=237\nFILES_FOLDER_EMPTY_OK bytes=0 entries=0\nFILES_PREVIEW_COMMAND_OK folder-assert-empty\nFILES_PREVIEW_COMMAND_REV action=folder-assert-empty revision=4\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK folder-replaced\nFILES_PREVIEW_COMMAND_REV action=folder-replaced revision=6\nFILES_PREVIEW_HELPER pid=4028820 start=48278703 command=preview_directory_du\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/folder-ui-g0rm6ebl/files/replaced\") message=La vista previa requiere una carpeta real, sin enlace simb\u00f3lico final\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK folder-rapid\nFILES_PREVIEW_COMMAND_REV action=folder-rapid revision=12\nFILES_PREVIEW_HELPER pid=4028840 start=48278715 command=preview_directory_du\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/folder-ui-g0rm6ebl/files/folder\") encoding=Carpeta \u00b7 tama\u00f1o aparente truncated=false bytes=237\nFILES_FOLDER_SUMMARY_OK bytes=8 entries=5 symlink_followed=false\nFILES_PREVIEW_COMMAND_OK folder-assert\nFILES_PREVIEW_COMMAND_REV action=folder-assert revision=12\nFILES_PREVIEW_COMMAND_OK close-folder-pending\nFILES_PREVIEW_COMMAND_REV action=close-folder-pending revision=14\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "c91b9cf20a7f1fa4b48b2e9cbdd6c5b8ebb0302efd9210f7da207577fe295972",
+  "helper_sha256": "61c8d21bec0c797491b843c62994bc6642ce65928f73b82ff91f400221b05f66"
+}

@@ -1,0 +1,5 @@
+{
+  "scope_correction": "Earlier direct-action/copy PASS reports do not prove the selection controls were visible in the painted Actions fallback; visual inspection showed its old item list. Native popup definitions had new commands but native input/popup was not exercised. The fallback submenu and background post-action clearing were subsequently fixed and need the later painted-target scene.",
+  "reports": ["selection-tools-ui-1793396217688188436.json", "selection-tools-ui-1793396260196586260.json"],
+  "resource_gate": "NOT_MEASURED"
+}

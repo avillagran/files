@@ -1,0 +1,7 @@
+{
+  "original_preserved": true,
+  "functional_gate": "FAIL",
+  "reason": "Instrument omitted FILES_TEST_MUTATIONS=1; waited for disabled ACK log or wrong Trash filename (Trash uses unique names). External mutations/pixel checks passed, but normal close not reached. Emergency SIGTERM is NOT lifecycle PASS. New run enables exact fresh success/Undo ACK.",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

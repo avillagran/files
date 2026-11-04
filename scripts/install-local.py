@@ -3,16 +3,28 @@
 import argparse,hashlib,json,os,shutil,subprocess,tempfile,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent
-p=argparse.ArgumentParser();p.add_argument('--report',required=True,type=Path);args=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--report',required=True,type=Path)
+# Machines without the pinned HTML engine build cache (M2) keep the already
+# staged native helper: it must match the current adapter recipe, its build
+# stamp and the validated report. Nothing is rebuilt.
+p.add_argument('--reuse-staged-html-helper',action='store_true');args=p.parse_args()
 report=json.loads(args.report.read_text())
 if report.get('functional_gate')!='PASS':raise SystemExit('Refusing checkpoint without scoped functional PASS')
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 release=ROOT/'target/release'
 if report.get('binary_sha256')!=sha(release/'files'):raise SystemExit('App differs from the validated scene')
 if report.get('helper_sha256')!=sha(release/'files-helper'):raise SystemExit('Helper differs from the validated scene')
-# Validates native adapter recipe/source fingerprint and binary stamp, no compilation.
-subprocess.run(['python3',str(ROOT/'scripts/stage-html-helper.py')],check=True)
-stamp=json.loads((release/'files-html-helper.build.json').read_text())
+stamp_path=release/'files-html-helper.build.json'
+if args.reuse_staged_html_helper:
+    import importlib.util
+    spec=importlib.util.spec_from_file_location('files_html_recipe',ROOT/'scripts/html-engine-probe.py')
+    recipe=importlib.util.module_from_spec(spec);spec.loader.exec_module(recipe)
+    if recipe.adapter_fingerprint()!=json.loads(stamp_path.read_text())['adapter_sha256']:raise SystemExit('Staged HTML helper was built from another adapter recipe')
+    if not report.get('html_helper_sha256'):raise SystemExit('Reusing the staged HTML helper needs a report that validated it')
+else:
+    # Validates native adapter recipe/source fingerprint and binary stamp, no compilation.
+    subprocess.run(['python3',str(ROOT/'scripts/stage-html-helper.py')],check=True)
+stamp=json.loads(stamp_path.read_text())
 if sha(release/'files-html-helper')!=stamp['binary_sha256']:raise SystemExit('HTML helper build identity mismatch')
 if report.get('html_helper_sha256') and report['html_helper_sha256']!=stamp['binary_sha256']:raise SystemExit('HTML helper differs from the validated scene')
 names=['files','files-helper','files-html-helper','files-html-helper.LICENSES','files-html-helper.build.json']
@@ -44,7 +56,9 @@ except BaseException:
     raise
 finally:
     for _,tmp,_ in staged:tmp.unlink(missing_ok=True)
-result={'checkpoint':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'validation_report':str(args.report.resolve()),'scope':'per-user authorized installation; all staged then individual atomic replacements; no running windows controlled','backup':str(backup),'files':records,'resource_gate':'NOT_MEASURED','startup_gate':'NOT_MEASURED'}
+try:checkpoint=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True,stderr=subprocess.DEVNULL).strip()
+except (OSError,subprocess.CalledProcessError):checkpoint=os.environ.get('FILES_SOURCE_CHECKPOINT','exported tree without git')
+result={'checkpoint':checkpoint,'html_helper':'reused staged, recipe verified' if args.reuse_staged_html_helper else 'staged from pinned build','validation_report':str(args.report.resolve()),'scope':'per-user authorized installation; all staged then individual atomic replacements; no running windows controlled','backup':str(backup),'files':records,'resource_gate':'NOT_MEASURED','startup_gate':'NOT_MEASURED'}
 path=ROOT/'docs/evidence/0.0.4'/('installed-checkpoint-'+str(time.time_ns())+'.json')
 with path.open('x') as out:json.dump(result,out,indent=2)
 print(path)

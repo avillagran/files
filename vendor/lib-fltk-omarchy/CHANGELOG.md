@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- Glassy windows: `glass` follows Omarchy's window transparency
+  (Appearance > Windows > Window Opacity: opaque, transparent, glassy) from
+  `$XDG_STATE_HOME/omarchy/toggles/hypr`, live through `ThemeWatcher`.
+  Under Glassy, surfaces painted with `glass::fill`/`glass::surface` get the
+  system glass opacity (the theme's alacritty `[window] opacity`, else
+  Omarchy's 0.65) while text, glyphs and images stay opaque; the window's
+  Wayland opaque region is cleared so Hyprland blurs what is behind, and
+  restored when leaving Glassy. `AppWindow` and its header use it. X11 and
+  RGB24 image/offscreen surfaces stay opaque. No GPU feature needed: the
+  compositor blurs. `OMARCHY_FLTK_GLASS=off|on|<opacity>` overrides it.
+  `examples/glass_check.rs` reads the real Wayland buffer alpha.
+
 - Overlay redraw protection now initializes automatically when any layer opens,
   including consumers using plain FLTK rather than App::new or focus::install.
   The previous fix incorrectly depended on keyboard runtime initialization.

@@ -1,0 +1,95 @@
+{
+  "method": "internal visible hit handlers + FLTK framebuffer + actual fixture modes/bytes; no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-actions-1793048963162153434.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-file-1793048963258740827.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-permissions-applied-1793048963398926699.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-stale-rejected-1793048963537364603.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-symlink-readonly-1793048963711164934.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-directory-1793048963839446274.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-actions-1793048964062153368.png"
+  ],
+  "runs": [
+    {
+      "close_during_request": false,
+      "read_apparent_size": true,
+      "chmod0600_to0640": true,
+      "external_mode_change_preserved": true,
+      "reload_required": true,
+      "symlink_readonly": true,
+      "directory_read": true,
+      "functional_gate": "PASS",
+      "normal_exit_after_ack": true,
+      "root_exit": 0,
+      "cleanup_scope": "root exit0; same-process worker, no helper used",
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=98007\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=1\nFILES_UI_SMOKE_OK entries=3\nFILES_PROPERTIES_READY seq=0 id=0 dialog=false\nFILES_PROPERTIES_COMMAND seq=1 action=actions id=0 applied=false\nFILES_PROPERTIES_READY seq=1 id=0 dialog=false\nFILES_CAPTURE_OK\nFILES_PROPERTIES_COMMAND seq=2 action=properties-file id=1 applied=false\nFILES_PROPERTIES_ACK id=1 success=true changed=false snapshot=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_READY seq=2 id=1 dialog=true observed=0600 requested=0600 stale=false editable=true message=\"Propiedades leídas\"\nFILES_CAPTURE_OK\nFILES_PROPERTIES_COMMAND seq=3 action=focus-group-read id=1 applied=false\nFILES_PROPERTIES_READY seq=3 id=1 dialog=true observed=0600 requested=0600 stale=false editable=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_COMMAND seq=4 action=group-read id=1 applied=false\nFILES_PROPERTIES_READY seq=4 id=1 dialog=true observed=0600 requested=0640 stale=false editable=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_COMMAND seq=5 action=apply id=2 applied=true\nFILES_PROPERTIES_ACK id=2 success=true changed=true snapshot=true message=\"Permisos aplicados. Esta operación no tiene Deshacer.\"\nFILES_PROPERTIES_READY seq=5 id=2 dialog=true observed=0640 requested=0640 stale=false editable=true message=\"Permisos aplicados. Esta operación no tiene Deshacer.\"\nFILES_CAPTURE_OK\nFILES_PROPERTIES_COMMAND seq=6 action=focus-other-read id=2 applied=false\nFILES_PROPERTIES_READY seq=6 id=2 dialog=true observed=0640 requested=0640 stale=false editable=true message=\"Permisos aplicados. Esta operación no tiene Deshacer.\"\nFILES_PROPERTIES_COMMAND seq=7 action=other-read id=2 applied=false\nFILES_PROPERTIES_READY seq=7 id=2 dialog=true observed=0640 requested=0644 stale=false editable=true message=\"Permisos aplicados. Esta operación no tiene Deshacer.\"\nFILES_PROPERTIES_COMMAND seq=8 action=apply id=3 applied=true\nFILES_PROPERTIES_ACK id=3 success=false changed=false snapshot=true message=\"No se cambiaron los permisos: Los permisos, propietario o grupo cambiaron desde la lectura; vuelve a cargar las propiedades antes de confirmar\"\nFILES_PROPERTIES_READY seq=8 id=3 dialog=true observed=0640 requested=0644 stale=true editable=false message=\"No se cambiaron los permisos: Los permisos, propietario o grupo cambiaron desde la lectura; vuelve a cargar las propiedades antes de confirmar\"\nFILES_CAPTURE_OK\nFILES_PROPERTIES_COMMAND seq=9 action=reload id=4 applied=false\nFILES_PROPERTIES_ACK id=4 success=true changed=false snapshot=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_READY seq=9 id=4 dialog=true observed=0600 requested=0600 stale=false editable=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_COMMAND seq=10 action=dismiss id=4 applied=false\nFILES_PROPERTIES_READY seq=10 id=4 dialog=false\nFILES_PROPERTIES_COMMAND seq=11 action=actions id=4 applied=false\nFILES_PROPERTIES_READY seq=11 id=4 dialog=false\nFILES_PROPERTIES_COMMAND seq=12 action=properties-link id=5 applied=false\nFILES_PROPERTIES_ACK id=5 success=true changed=false snapshot=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_READY seq=12 id=5 dialog=true observed=0777 requested=0777 stale=false editable=false message=\"Propiedades leídas\"\nFILES_PROPERTIES_COMMAND seq=13 action=readonly-apply id=5 applied=false\nFILES_PROPERTIES_READY seq=13 id=5 dialog=true observed=0777 requested=0777 stale=false editable=false message=\"Propiedades leídas\"\nFILES_CAPTURE_OK\nFILES_PROPERTIES_COMMAND seq=14 action=dismiss id=5 applied=false\nFILES_PROPERTIES_READY seq=14 id=5 dialog=false\nFILES_PROPERTIES_COMMAND seq=15 action=actions id=5 applied=false\nFILES_PROPERTIES_READY seq=15 id=5 dialog=false\nFILES_PROPERTIES_COMMAND seq=16 action=properties-folder id=6 applied=false\nFILES_PROPERTIES_ACK id=6 success=true changed=false snapshot=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_READY seq=16 id=6 dialog=true observed=0755 requested=0755 stale=false editable=true message=\"Propiedades leídas\"\nFILES_CAPTURE_OK\nFILES_PROPERTIES_COMMAND seq=17 action=close id=6 applied=false\nFILES_PROPERTIES_DRAINED\n"
+    },
+    {
+      "close_during_request": true,
+      "ack_after_apply_close": true,
+      "changed": false,
+      "final_mode": "0o600",
+      "scope": "close immediately after request submission; syscall-active cancellation not claimed",
+      "functional_gate": "PASS",
+      "normal_exit_after_ack": true,
+      "root_exit": 0,
+      "cleanup_scope": "root exit0; same-process worker, no helper used",
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=87070\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=1\nFILES_UI_SMOKE_OK entries=3\nFILES_PROPERTIES_READY seq=0 id=0 dialog=false\nFILES_PROPERTIES_COMMAND seq=1 action=actions id=0 applied=false\nFILES_PROPERTIES_READY seq=1 id=0 dialog=false\nFILES_CAPTURE_OK\nFILES_PROPERTIES_COMMAND seq=2 action=properties-file id=1 applied=false\nFILES_PROPERTIES_ACK id=1 success=true changed=false snapshot=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_READY seq=2 id=1 dialog=true observed=0600 requested=0600 stale=false editable=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_COMMAND seq=3 action=focus-group-read id=1 applied=false\nFILES_PROPERTIES_READY seq=3 id=1 dialog=true observed=0600 requested=0600 stale=false editable=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_COMMAND seq=4 action=group-read id=1 applied=false\nFILES_PROPERTIES_READY seq=4 id=1 dialog=true observed=0600 requested=0640 stale=false editable=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_COMMAND seq=5 action=apply-close id=2 applied=true\nFILES_PROPERTIES_ACK id=2 success=false changed=false snapshot=true message=\"No se cambiaron los permisos: Cambio de permisos cancelado\"\nFILES_PROPERTIES_DRAINED\n"
+    }
+  ],
+  "capture_geometry": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-actions-1793048963162153434.png",
+      "framebuffer_dimensions": [
+        941,
+        1030
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-file-1793048963258740827.png",
+      "framebuffer_dimensions": [
+        941,
+        1030
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-permissions-applied-1793048963398926699.png",
+      "framebuffer_dimensions": [
+        941,
+        1030
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-stale-rejected-1793048963537364603.png",
+      "framebuffer_dimensions": [
+        941,
+        1030
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-symlink-readonly-1793048963711164934.png",
+      "framebuffer_dimensions": [
+        941,
+        1030
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-directory-1793048963839446274.png",
+      "framebuffer_dimensions": [
+        941,
+        1030
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-actions-1793048964062153368.png",
+      "framebuffer_dimensions": [
+        941,
+        1030
+      ]
+    }
+  ],
+  "functional_gate": "PASS",
+  "binary_sha256": "907f1e2ca72e56932d1d0bfbe66a9c85695d6af0b559ac0a65dbb6b642e14138"
+}

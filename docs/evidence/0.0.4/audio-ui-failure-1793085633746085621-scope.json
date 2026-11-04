@@ -1,0 +1,7 @@
+{
+  "report": "audio-ui-failure-1793085633746085621.json",
+  "functional_gate": "FAIL",
+  "cause": "ffplay boolean -infbuf does not consume a following 0; treated it as input filename. Production argv incorrectly included -infbuf 0. Captured stderr exposed failure and prevented false EOF.",
+  "correction": "Use canonical -noinfbuf boolean flag; preserve this report and rebuild/revalidate. No system audio failure established.",
+  "resource_gate": "NOT_MEASURED"
+}

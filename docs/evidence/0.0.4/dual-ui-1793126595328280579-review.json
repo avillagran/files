@@ -1,0 +1,5 @@
+{
+  "review": "Functional checks passed, initial visuals retained. Titles hid leaf at narrow width and completion toast covered footer filter; latest scene uses basename-first title and per-pane filter in header as well. Do not use first scene as evidence of latest labels.",
+  "superseded_for_visual_labels_by": "dual-ui-1793126826929914048.json",
+  "resource_gate": "NOT_MEASURED"
+}

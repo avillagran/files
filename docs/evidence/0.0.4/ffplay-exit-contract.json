@@ -1,0 +1,16 @@
+{
+  "method": "functional silent PCM fixture, no resources/startup sampled",
+  "resource_gate": "NOT_MEASURED",
+  "results": [
+    {
+      "fixture_driver": "dummy",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "fixture_driver": "files_missing_driver",
+      "returncode": 1,
+      "stderr": "Could not initialize SDL - Audio target 'files_missing_driver' not available\n(Did you set the DISPLAY variable?)\n"
+    }
+  ]
+}

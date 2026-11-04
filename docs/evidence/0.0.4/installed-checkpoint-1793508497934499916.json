@@ -1,0 +1,40 @@
+{
+  "checkpoint": "1a266e5912b82d7f40f3e4935b6a2a14917ca67a",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/terminal/terminal-ui-1793507918398541254.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793508497859608366",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "41bec759247b6dd3e6bfcf8f97580d5fec49bad0677377bb5f2e04c9afaa6e3e",
+      "release_sha256": "8deae3545aac0444f35b2426f53e8699ed65ff1fdcbacdd61c5dbdf300f2cc03",
+      "installed_sha256": "8deae3545aac0444f35b2426f53e8699ed65ff1fdcbacdd61c5dbdf300f2cc03"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "63a05ffd3fcd12b364fc5d980fa32eeb2b38924bd62cfa4448e0b4ad822ee439",
+      "release_sha256": "a9a2c8dcde68b13d709e8df8b8f87ed72860afe812980e09ff659a507c797760",
+      "installed_sha256": "a9a2c8dcde68b13d709e8df8b8f87ed72860afe812980e09ff659a507c797760"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "release_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "release_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

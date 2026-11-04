@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "gesture_delivery": "in-process pointer handlers using actual rendered hit targets; not OS events",
+  "persistence": "new process loaded saved positions72/48 and zoom1.15",
+  "font": "Nerd font rasterization must also be visually reviewed",
+  "scenarios": [
+    {
+      "font_selected": "FILES_FONT=FiraCode Nerd Font nerd=true",
+      "scene": "spatial-drag",
+      "fltk_scale_requested": 1,
+      "geometry": {
+        "window_logical": [
+          1000,
+          650
+        ],
+        "output_scale": 2,
+        "window_physical": [
+          2000,
+          1300
+        ],
+        "native_wayland": true,
+        "address": "0xaaab0d724dd0"
+      },
+      "capture": "docs/evidence/0.0.2/spatial-drag-1x.png",
+      "framebuffer_dimensions": "1000x650",
+      "graceful_close": "normal exit after save ACK drain"
+    },
+    {
+      "font_selected": "FILES_FONT=FiraCode Nerd Font nerd=true",
+      "scene": "spatial-reopen",
+      "fltk_scale_requested": 1,
+      "geometry": {
+        "window_logical": [
+          1000,
+          650
+        ],
+        "output_scale": 2,
+        "window_physical": [
+          2000,
+          1300
+        ],
+        "native_wayland": true,
+        "address": "0xaaab0d724dd0"
+      },
+      "capture": "docs/evidence/0.0.2/spatial-reopen-1x.png",
+      "framebuffer_dimensions": "1000x650",
+      "graceful_close": "normal exit after save ACK drain"
+    },
+    {
+      "font_selected": "FILES_FONT=FiraCode Nerd Font nerd=true",
+      "scene": "spatial-reopen",
+      "fltk_scale_requested": 2,
+      "geometry": {
+        "window_logical": [
+          2000,
+          1300
+        ],
+        "output_scale": 2,
+        "window_physical": [
+          4000,
+          2600
+        ],
+        "native_wayland": true,
+        "address": "0xaaab0d724dd0"
+      },
+      "capture": "docs/evidence/0.0.2/spatial-reopen-2x.png",
+      "framebuffer_dimensions": "1000x650",
+      "resize_capture": "docs/evidence/0.0.2/spatial-resize-2x.png",
+      "resized_geometry": {
+        "window_logical": [
+          1600,
+          1000
+        ],
+        "output_scale": 2,
+        "window_physical": [
+          3200,
+          2000
+        ],
+        "native_wayland": true,
+        "address": "0xaaab0d724dd0"
+      },
+      "graceful_close": "normal exit after save ACK drain"
+    }
+  ]
+}

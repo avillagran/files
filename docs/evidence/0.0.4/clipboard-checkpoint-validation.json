@@ -1,0 +1,87 @@
+{
+  "milestone": "M28 private same-window file clipboard",
+  "functional_gate": "PASS_SCOPED",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "rust_tests": {
+    "core": 203,
+    "helper": 67,
+    "ui": 354,
+    "passed": 624,
+    "ignored_core": 3
+  },
+  "checks": {
+    "workspace_tests": {
+      "path": "target/clipboard-checkpoint-final-test.log",
+      "exit_code": 0,
+      "sha256": "ee3591dd242d3d21a4afca908e600ddf9fb225984d6caba574e84911c2954872"
+    },
+    "clippy": {
+      "path": "target/clipboard-checkpoint-overlay-clippy.log",
+      "exit_code": 0,
+      "sha256": "fd5a15d9ae5b9b2d5034be44ea32f3e8c9d9e3bdc0b4cca35fba928d961ad7ad"
+    },
+    "fmt": {
+      "path": "target/clipboard-checkpoint-final-fmt.log",
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "release": {
+      "path": "target/clipboard-checkpoint-final-release.log",
+      "exit_code": 0,
+      "sha256": "5f1efa3d6f665bb5626d01bcd74462ddea06eb8051bb417d9c775d08495d6185"
+    },
+    "functional_scene": {
+      "path": "target/clipboard-ui-final.log",
+      "exit_code": 0,
+      "sha256": "c2045336742d13c6fd30765e6b75e23e59cd764df21cbc242b8191d98de3c659"
+    }
+  },
+  "test_scope_note": "Full final suite includes canonical MIME bridge; subsequent optional context-menu toast guard is compiled by all-target Clippy/release and covered by final framebuffer scene. No redundant full-suite rerun for that visual guard.",
+  "scene": "docs/evidence/0.0.4/clipboard-ui-1793130549985863820.json",
+  "png_ihdr_verified": {
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/clipboard-copy-context-1793130547102729422.png": [
+      1000,
+      650
+    ],
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/clipboard-copy-review-1793130547324940400.png": [
+      1000,
+      650
+    ],
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/clipboard-copy-finished-1793130547619838086.png": [
+      1000,
+      650
+    ],
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/clipboard-cut-partial-retained-1793130548321375159.png": [
+      1000,
+      650
+    ],
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/clipboard-cut-retry-finished-1793130548568917810.png": [
+      1000,
+      650
+    ],
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/clipboard-replacement-rejected-1793130548896327164.png": [
+      1000,
+      650
+    ],
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/clipboard-context-initial-800x440-1793130549750145189.png": [
+      800,
+      440
+    ],
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/clipboard-actions-initial-800x440-1793130549888548985.png": [
+      800,
+      440
+    ]
+  },
+  "native_input": "NOT_VALIDATED",
+  "file_clipboard_interoperability": "PENDING: private internal buffer only",
+  "text": "Own FLTK text immediate and after event loop exact; no external compositor selection/focus or MIME-files claim",
+  "historical_failures": [
+    "clipboard-ui-1793129984528710931.json: harness loaded key",
+    "clipboard-ui-1793130010623243148.json: false-negative text MIME preflight",
+    "clipboard-ui-1793130118639376044.json: harness read partial log line",
+    "clipboard-ui-1793130164558745696.json: same canonical-pointer false negative",
+    "clipboard-ui-1793130287088020335.json: scoped functional PASS, Actions toast visual failure in sidecar"
+  ],
+  "normal_close": "Two root exit0 + application drain ACK; no independent process sampler/lifetime coverage"
+}

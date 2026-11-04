@@ -1,0 +1,13 @@
+{
+  "functional_gate": "FAIL",
+  "method": "Mapped Files framebuffer, internal Released/controller/catalog fixture; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [],
+  "backend": "wayland",
+  "error": "AssertionError('complete framebuffer')",
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=300\nFILES_FIRST_PAINT_US=72577\nFILES_CAPTURE_OK id=0 redraw=false before=1 paint=1 width=664 height=844\n",
+  "binary_sha256": "1d2569a82f856954d0b219cd1147afbdf9f5f30a8e3365ac1f4508c505e17081",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

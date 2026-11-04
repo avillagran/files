@@ -1,0 +1,119 @@
+{
+  "source_lifecycle": false,
+  "notify_callbacks_suppressed": false,
+  "checks": [],
+  "method": "internal handlers, native litehtml document layout and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/html-rendered-css-1793523764959151444.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/html-visible-selection-1793523765046736226.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/html-css-resize-1793523765154123933.png",
+      "framebuffer_dimensions": [
+        800,
+        500
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/html-blocked-resources-1793523765301230632.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/html-scroll-final-1793523765462873253.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "real font metrics/shaping",
+    "local HTML resources and links",
+    "safe DOM allocator/depth budget",
+    "cross-platform adapter",
+    "resource budget",
+    "selection preservation across reflow"
+  ],
+  "compositor_binding": {
+    "selected": {
+      "instance": "efb50993780079460b0cbed1363e2166a2de1d9f_1793505071_961709112",
+      "time": 1793505071,
+      "pid": 1367,
+      "wl_socket": "wayland-1"
+    },
+    "scope": "fixture-only, no focus/input/global configuration"
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 1,
+    "window_physical": [
+      1000,
+      650
+    ],
+    "native_wayland": true,
+    "address": "0x559d6d6486d0"
+  },
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        2471200,
+        1870312
+      ],
+      [
+        2471210,
+        1870330
+      ],
+      [
+        2471218,
+        1870340
+      ],
+      [
+        2471223,
+        1870344
+      ],
+      [
+        2471229,
+        1870355
+      ],
+      [
+        2471237,
+        1870375
+      ],
+      [
+        2471241,
+        1870382
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start after root exit0, not lifetime or resource sampling"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_FIRST_PAINT_US=45949\nFILES_UI_SMOKE_OK entries=6\nFILES_PREVIEW_COMMAND_OK html\nFILES_PREVIEW_COMMAND_REV action=html revision=3\nFILES_PREVIEW_HELPER pid=2471200 start=1870312 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-eykbi9s_/files/layout.html\") revision=3 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 2051, inode: 16017730, bytes: 1105, modified_seconds: 1793523764, modified_nanoseconds: 792895201, changed_seconds: 1793523764, changed_nanoseconds: 792895201 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_CAPTURE_OK\nFILES_HTML_SELECTION_OK utf8=true clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK html-select\nFILES_PREVIEW_COMMAND_REV action=html-select revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=2471210 start=1870330 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-eykbi9s_/files/layout.html\") revision=4 width=732 height=310 bytes=247 commands=89 document_height=311 top=0 source=Revision { device: 2051, inode: 16017730, bytes: 1105, modified_seconds: 1793523764, modified_nanoseconds: 792895201, changed_seconds: 1793523764, changed_nanoseconds: 792895201 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=2471218 start=1870340 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-eykbi9s_/files/layout.html\") revision=5 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 2051, inode: 16017730, bytes: 1105, modified_seconds: 1793523764, modified_nanoseconds: 792895201, changed_seconds: 1793523764, changed_nanoseconds: 792895201 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK html-blocked\nFILES_PREVIEW_COMMAND_REV action=html-blocked revision=7\nFILES_PREVIEW_HELPER pid=2471223 start=1870344 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-eykbi9s_/files/blocked.html\") revision=7 width=932 height=460 bytes=129 commands=44 document_height=160.02 top=0 source=Revision { device: 2051, inode: 16017731, bytes: 774, modified_seconds: 1793523764, modified_nanoseconds: 792895201, changed_seconds: 1793523764, changed_nanoseconds: 792895201 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 44 comandos \u00b7 129 B texto \u00b7 3 hojas CSS externas bloqueadas \u00b7 2 im\u00e1genes bloqueadas \u00b7 1 <base> ignorados\nFILES_HTML_BLOCKED_OK css=3 images=2 script_visible=false\nFILES_PREVIEW_COMMAND_OK html-assert-blocked\nFILES_PREVIEW_COMMAND_REV action=html-assert-blocked revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK html-long\nFILES_PREVIEW_COMMAND_REV action=html-long revision=9\nFILES_PREVIEW_HELPER pid=2471229 start=1870355 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-eykbi9s_/files/long.html\") revision=9 width=932 height=460 bytes=2184 commands=772 document_height=1521.52 top=0 source=Revision { device: 2051, inode: 16017732, bytes: 2536, modified_seconds: 1793523764, modified_nanoseconds: 792996321, changed_seconds: 1793523764, changed_nanoseconds: 792996321 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 772 comandos \u00b7 2184 B texto\nFILES_PREVIEW_COMMAND_OK html-scroll\nFILES_PREVIEW_COMMAND_REV action=html-scroll revision=9\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-eykbi9s_/files/long.html\") revision=9 width=932 height=460 bytes=2184 commands=772 document_height=1521.52 top=1062 source=Revision { device: 2051, inode: 16017732, bytes: 2536, modified_seconds: 1793523764, modified_nanoseconds: 792996321, changed_seconds: 1793523764, changed_nanoseconds: 792996321 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 772 comandos \u00b7 2184 B texto\nFILES_HTML_FINAL_VISIBLE top=1062\nFILES_PREVIEW_COMMAND_OK html-assert-end\nFILES_PREVIEW_COMMAND_REV action=html-assert-end revision=9\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK html-large\nFILES_PREVIEW_COMMAND_REV action=html-large revision=11\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/html-ui-eykbi9s_/files/large.html\") message=HTML fuera del l\u00edmite32KiB\nFILES_PREVIEW_COMMAND_OK html-rapid\nFILES_PREVIEW_COMMAND_REV action=html-rapid revision=17\nFILES_PREVIEW_HELPER pid=2471237 start=1870375 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-eykbi9s_/files/layout.html\") revision=17 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 2051, inode: 16017730, bytes: 1105, modified_seconds: 1793523764, modified_nanoseconds: 792895201, changed_seconds: 1793523764, changed_nanoseconds: 792895201 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK html-symlink\nFILES_PREVIEW_COMMAND_REV action=html-symlink revision=19\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/html-ui-eykbi9s_/files/symlink.html\") message=Original no disponible: Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK html\nFILES_PREVIEW_COMMAND_REV action=html revision=21\nFILES_PREVIEW_HELPER pid=2471241 start=1870382 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/node/.cache/files-test/html-ui-eykbi9s_/files/layout.html\") revision=21 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 2051, inode: 16017730, bytes: 1105, modified_seconds: 1793523764, modified_nanoseconds: 792895201, changed_seconds: 1793523764, changed_nanoseconds: 792895201 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK close-html-pending\nFILES_PREVIEW_COMMAND_REV action=close-html-pending revision=23\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_CLOSE_DRAINED\n",
+  "binary_path": "/home/node/.local/bin/files",
+  "helper_sha256": "006fdb1a8f3acbb90bf0e2b0185ed0a16b932200093d707fba78d7ccc17a7e53",
+  "binary_sha256": "bc987153594533560adcb1b1bcdefa38a2637812e3d3e39de4923ebf5bf11f8e",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

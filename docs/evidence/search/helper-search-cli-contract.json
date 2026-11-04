@@ -1,0 +1,113 @@
+{
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "cases": [
+    {
+      "command": "search_stream",
+      "request": "search",
+      "exit": 2,
+      "messages": [],
+      "stderr": "El comando no coincide con la petición\n"
+    },
+    {
+      "command": "search_stream",
+      "request": "search_stream",
+      "exit": 0,
+      "messages": [
+        {
+          "status": "error",
+          "id": 41,
+          "message": "Usa size:>10MiB o size:1MB..2MB; after:/before:AAAA-MM-DD (UTC)"
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "command": "search",
+      "request": "search",
+      "exit": 0,
+      "messages": [
+        {
+          "status": "search",
+          "id": 41,
+          "report": {
+            "hits": [
+              {
+                "relative": "plain.txt",
+                "kind": "file"
+              },
+              {
+                "relative": [
+                  114,
+                  97,
+                  119,
+                  45,
+                  255,
+                  46,
+                  116,
+                  120,
+                  116
+                ],
+                "kind": "file"
+              }
+            ],
+            "visited": 2,
+            "metadata_reads": 0,
+            "metadata_requested": false,
+            "errors": 0,
+            "mounts_excluded": 0,
+            "complete": true,
+            "reason": null
+          }
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "command": "search_stream",
+      "request": "search_stream",
+      "exit": 0,
+      "messages": [
+        {
+          "status": "search_progress",
+          "id": 41,
+          "progress": {
+            "visited": 0,
+            "found": 0,
+            "errors": 0,
+            "mounts_excluded": 0,
+            "metadata_reads": 0
+          }
+        },
+        {
+          "status": "search_progress",
+          "id": 41,
+          "progress": {
+            "visited": 2,
+            "found": 0,
+            "errors": 0,
+            "mounts_excluded": 0,
+            "metadata_reads": 2
+          }
+        },
+        {
+          "status": "search",
+          "id": 41,
+          "report": {
+            "hits": [],
+            "visited": 2,
+            "metadata_reads": 2,
+            "metadata_requested": true,
+            "errors": 0,
+            "mounts_excluded": 0,
+            "complete": true,
+            "reason": null
+          }
+        }
+      ],
+      "stderr": ""
+    }
+  ],
+  "functional_gate": "PASS",
+  "helper_sha256": "1f33f89dad0822b9ad6577beb03891fbd58b865ebc77fb5f86d573278d1ab778"
+}

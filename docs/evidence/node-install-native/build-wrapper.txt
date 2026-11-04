@@ -1,0 +1,5 @@
+python3 scripts/html-engine-probe.py --build
+/home/node/Work/files/docs/evidence/html-engine/probe-1793514995965348593.json
+{"probe_gate": "NOT_RUN", "feature_gate": "NOT_IMPLEMENTED", "resource_gate": "NOT_MEASURED", "errors": []}
+python3 scripts/stage-html-helper.py
+/home/node/Work/files/target/release/files-html-helper

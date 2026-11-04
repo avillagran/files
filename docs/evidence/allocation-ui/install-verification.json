@@ -1,0 +1,30 @@
+{
+  "record": "docs/evidence/0.0.4/installed-checkpoint-1793539706031130409.json",
+  "five_installed_and_five_backup_hashes_verified": [
+    {
+      "name": "files",
+      "installed": "b9941ab1acfb49f29ae5ad220f399ae425ace5d2739c96c8ac410bce653c28c9",
+      "backup": "13253b6adcd6eedab16252e4992b5bbf01c6e475830d0501eae2699339b0a5b7"
+    },
+    {
+      "name": "files-helper",
+      "installed": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+      "backup": "ec246445e70aba1558771d43cf1bc9144d34fabbc6d279c8297f79c94f6a0609"
+    },
+    {
+      "name": "files-html-helper",
+      "installed": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+      "backup": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "installed": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "backup": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "installed": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee",
+      "backup": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee"
+    }
+  ]
+}

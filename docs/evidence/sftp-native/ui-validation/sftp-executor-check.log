@@ -1,0 +1,40 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+warning: field `writable` is never read
+  --> crates/ui/src/sftp_executor.rs:34:9
+   |
+29 | pub struct Status {
+   |            ------ field in this struct
+...
+34 |     pub writable: bool,
+   |         ^^^^^^^^
+   |
+   = note: `Status` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `files-ui` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.69s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57718b5e1c1473cd)
+
+running 7 tests
+test sftp_state::tests::reviewed_intent_retains_port_and_probe_and_recheck_revokes_it ... ok
+test sftp_state::tests::recheck_is_latest_and_close_removes_future_admission_without_faking_active_ack ... ok
+test sftp_state::tests::late_probe_after_close_reopen_does_not_replace_new_form_and_admission_waits_ack ... ok
+test sftp_state::tests::rejected_text_keeps_draft_cursor_review_and_history_while_edit_invalidates_review ... ok
+test navigation_tests::sftp_modal_rejects_file_actions_and_late_paste_across_field_and_reopen ... ok
+
+thread 'view::inspector_tabs_tests::sftp_form_controls_fit_minimum_and_never_expose_a_connect_action' (1448061) panicked at crates/ui/src/view.rs:1799:13:
+assertion `left == right` failed
+  left: 11
+ right: 7
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test navigation_tests::sftp_field_shortcuts_cursor_and_rejected_port_keep_the_requested_source_literal ... ok
+test view::inspector_tabs_tests::sftp_form_controls_fit_minimum_and_never_expose_a_connect_action ... FAILED
+
+failures:
+
+failures:
+    view::inspector_tabs_tests::sftp_form_controls_fit_minimum_and_never_expose_a_connect_action
+
+test result: FAILED. 6 passed; 1 failed; 0 ignored; 0 measured; 504 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p files-ui --lib`

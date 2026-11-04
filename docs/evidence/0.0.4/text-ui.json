@@ -1,0 +1,374 @@
+{
+  "method": "Space UI handlers/pointer mapping and FLTK framebuffer; no native OS input",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/text-selection-unfocused.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/text-binary-error.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/text-truncated.png"
+  ],
+  "clipboard": "FAIL required clipboard transfer: no exact match within deadline (content withheld)",
+  "resource_gate": "NOT_MEASURED",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0e21fcb0"
+  },
+  "focus_before_copy": {
+    "target_pid": 2077508,
+    "active_pid": 3759262,
+    "active_address": "0xaaab0768a180",
+    "target_is_active": false
+  },
+  "clipboard_transfer": {
+    "attempts": [
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      },
+      {
+        "returncode": 1,
+        "exact_match": false,
+        "stderr": "Nothing is copied\n"
+      }
+    ],
+    "app_alive_after_transfer": true,
+    "async_offer_deadline_seconds": 2
+  },
+  "clipboard_gate": "FAIL",
+  "cleanup": {
+    "complete": true,
+    "survivors": [],
+    "errors": [],
+    "scope": "root exit0 only; no descendant sampler"
+  },
+  "functional_gate": "FAIL",
+  "normal_exit_after_preview_drain": true,
+  "selection_bytes_verified": "Unicode+TAB+CRLF source preserved; pointer handlers with measured shaped width",
+  "rapid_navigation": "A started then B\u2192C latest wins; C Ready observed; controller tests cover stale same-path/errors",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=159136\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK open\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-geikfqls/files/A.txt\") encoding=UTF-8 truncated=false bytes=37\nFILES_PREVIEW_SELECTION=\"rea\\t\u6f22\u5b57\\r\\n@x\"\nFILES_PREVIEW_COMMAND_OK select\nFILES_CAPTURE_OK\nFILES_WAIT_RAW=5 errno_snapshot=11 success=true\nFILES_WAIT_RAW=2 errno_snapshot=2 success=true\nFILES_PREVIEW_COMMAND_OK rapid\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-geikfqls/files/C.txt\") encoding=UTF-8 truncated=false bytes=9\nFILES_PREVIEW_COMMAND_OK binary\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-ui-geikfqls/files/binary.bin\") message=Archivo binario o con controles no representables\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK truncated\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-geikfqls/files/long.txt\") encoding=UTF-8 truncated=true bytes=48000\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK close-pending\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "e24582ed96c8f5e23bef6800f5e1291e53fe66085ecd78081f07e25d10fd634e",
+  "helper_sha256": "9a4719bba08f63e5b7e2918cd896a8ee4a74684de75d638ce9c2a4e8a152ec2d"
+}

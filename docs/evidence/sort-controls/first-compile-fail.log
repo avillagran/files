@@ -1,0 +1,28 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0433]: cannot find type `Action` in this scope
+   --> crates/ui/src/dual_pane.rs:617:29
+    |
+617 |                 self.action(Action::Sort(sort));
+    |                             ^^^^^^ use of undeclared type `Action`
+    |
+help: an enum with a similar name exists
+    |
+617 -                 self.action(Action::Sort(sort));
+617 +                 self.action(Option::Sort(sort));
+    |
+help: consider importing this enum through its public re-export
+    |
+  2 + use crate::Action;
+    |
+
+warning: unused import: `listing::Sort`
+ --> crates/ui/src/view.rs:7:5
+  |
+7 |     listing::Sort,
+  |     ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+For more information about this error, try `rustc --explain E0433`.
+warning: `files-ui` (lib test) generated 1 warning
+error: could not compile `files-ui` (lib test) due to 1 previous error; 1 warning emitted

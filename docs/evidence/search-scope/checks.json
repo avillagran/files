@@ -1,0 +1,18 @@
+{
+  "tests": {
+    "passed": 1121,
+    "core": 398,
+    "helper": 91,
+    "ui": 632,
+    "existing_ignored": 3
+  },
+  "workspace": "PASS",
+  "clippy": "PASS workspace/all-targets -Dwarnings",
+  "fmt": "PASS",
+  "release": "PASS",
+  "scene": "docs/evidence/search-order/search-scope-ui-1793499783655547501.json",
+  "native_input": "UNVALIDATED",
+  "resources": "NOT_MEASURED_FREEZE",
+  "startup": "NOT_MEASURED_FREEZE",
+  "scope": "search root navigation; overall goal remains active"
+}

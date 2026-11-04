@@ -1,0 +1,15 @@
+{
+  "status": "Scoped functional PASS, global goal remains active",
+  "checks": {
+    "initial": "target/destination-editor-check.log check exit0",
+    "initial_workspace": "target/destination-editor-tests.log 796PASS before late-paste test/fixture, deprecated fetch_update and test-only backspace warnings preserved then fixed",
+    "workspace_final": "target/destination-editor-captured-tests.log 798PASS244core/79helper/475UI,3 existing ignored",
+    "clippy": "target/destination-editor-captured-clippy.log workspace all-targets -Dwarnings exit0",
+    "release": "target/destination-editor-captured-release.log workspace release exit0",
+    "fmt": "target/destination-editor-captured-fmt.log fmt --all -- --check exit0"
+  },
+  "earlier_report": "destination-ui-1793423620909348182.json PASS9FB on65d696993b58, before captured control path escaping/4096B escaped-display clip. Original preserved; not final binary claim.",
+  "scope": "Editor integrates unchanged source/preflight/no-clobber/queue. Move runtime review/cancel only, not executing move with edited destination. Pointer end click proven; mouse drag/component are shared implementation, no native input/full drag evidence. Clipboard stale receipt is private fixture, no external MIME/native claim. Freeze PSSSwapCPUstartup and preview pause intact.",
+  "final_report": "destination-ui-1793423889017087207.json: PASS9FB1000/440, root0ACK, final SHA7cadf781a7a0",
+  "visual": "All9 final PNG inspected; action controls complete440, caret visible4096B, general source/info lines can clip. No native input or PSS gate."
+}

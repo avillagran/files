@@ -1,0 +1,39 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.31s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57718b5e1c1473cd)
+
+running 31 tests
+test sftp_executor::tests::cancelling_close_never_revalidates_pre_close_queued_permission ... ok
+test sftp_executor::tests::errors_bound_utf8_bytes_and_make_truncation_explicit ... ok
+test sftp_executor::tests::single_flight_and_reply_survive_modal_independence ... ok
+test sftp_executor::tests::lost_worker_does_not_leave_open_permission_or_fake_success ... ok
+test sftp_executor::tests::readonly_pending_allows_close_without_fabricating_ack ... ok
+test sftp_executor::tests::close_requires_mutation_ack_and_never_admits_late_actions ... ok
+test sftp_profiles_state::tests::full_channel_worker_loss_and_read_failure_do_not_spin_or_fake_ack ... ok
+test sftp_profiles_state::tests::unsynced_publication_retries_only_sync_and_discard_does_not_undo ... ok
+test sftp_profiles_state::tests::stale_ack_cannot_release_write_close_and_retry_keeps_captured_intent ... ok
+test sftp_report::tests::snapshot_distinguishes_draft_status_and_escapes_controls_without_losing_lf ... ok
+test sftp_report::tests::raw_mountpoint_is_escaped_and_does_not_become_lossy_replacement_path ... ok
+test sftp_report::tests::oversized_input_has_explicit_utf8_safe_tail_and_bounded_capture ... ok
+test sftp_report::tests::width_change_preserves_source_anchor_and_height_clamps_without_rebuilding_text ... ok
+test sftp_report::tests::wrapping_is_lossless_for_long_unicode_and_newlines_and_end_is_full_page ... ok
+test sftp_profiles_ui::tests::captured_save_ack_never_changes_newer_draft_and_close_requires_exact_ack ... ok
+test sftp_profiles_ui::tests::stale_catalogue_action_cannot_load_or_remove_reused_id_after_reload ... ok
+test sftp_profiles_ui::tests::load_is_explicit_invalidates_review_and_never_connects_or_navigates ... ok
+test sftp_state::tests::late_probe_after_close_reopen_does_not_replace_new_form_and_admission_waits_ack ... ok
+test navigation_tests::sftp_modal_rejects_file_actions_and_late_paste_across_field_and_reopen ... ok
+test sftp_profiles_ui::tests::label_budget_keys_and_selection_are_separate_from_connection_fields ... ok
+test sftp_profiles_ui::tests::stale_profile_id_and_old_modal_cannot_load_a_different_entry ... ok
+test sftp_state::tests::recheck_is_latest_and_close_removes_future_admission_without_faking_active_ack ... ok
+test sftp_state::tests::rejected_text_keeps_draft_cursor_review_and_history_while_edit_invalidates_review ... ok
+test sftp_report_ui::tests::profiles_reject_stale_background_transport_and_report_commands ... ok
+test sftp_report_ui::tests::stale_report_copy_nav_and_parent_stamp_never_touch_new_capture ... ok
+test navigation_tests::sftp_field_shortcuts_cursor_and_rejected_port_keep_the_requested_source_literal ... ok
+test sftp_state::tests::reviewed_intent_retains_port_and_probe_and_recheck_revokes_it ... ok
+test sftp_report_ui::tests::capture_refresh_return_never_dispatches_or_edits_draft_and_blocks_old_submit ... ok
+test view::inspector_tabs_tests::sftp_transport_controls_fit_minimum_without_claiming_connected ... ok
+test view::inspector_tabs_tests::sftp_profiles_scroll_to_selected_and_fit_minimum_with_all_controls ... ok
+test view::inspector_tabs_tests::sftp_report_controls_and_wrapped_lines_fit_supported_sizes ... ok
+
+test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 578 filtered out; finished in 0.01s
+

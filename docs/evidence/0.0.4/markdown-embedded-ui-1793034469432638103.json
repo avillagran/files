@@ -1,0 +1,117 @@
+{
+  "method": "internal selection/link/scroll handlers + real FLTK framebuffer; compositor geometry requested and verified; no native input",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/markdown-embedded-palette-1793034466511717887.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/markdown-embedded-large-bitmap-1793034467001552713.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/markdown-embedded-budget-and-security-1793034467188330043.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/markdown-contextual-guide-image-1793034467504426748.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/markdown-contextual-detail-image-1793034467732154051.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "clipboard": "NOT_VALIDATED; selection bytes checked inside app, no clipboard read",
+  "resource_gate": "NOT_MEASURED",
+  "known_pending": [
+    "cross-document LRU with safe invalidation",
+    "grapheme/ZWJ shaping",
+    "HTML renderer",
+    "clipboard without Wayland focus"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0ef6e190"
+  },
+  "embedded_initial": {
+    "loaded_occurrences": 5,
+    "retained_capacity_bytes": 3164572,
+    "source_references": 9,
+    "unique_decoded_retained_expected": 2,
+    "cross_document_lru": false
+  },
+  "framebuffer_palette_exact_color_counts": [
+    5792,
+    5611,
+    5611
+  ],
+  "framebuffer_admitted_large_bitmap_exact_color_pixels": 102400,
+  "contextual_parent_navigation": "root\u2192subdir\u2192nested\u2192subdir\u2192root; each escape rejected without revision or helper spawn, local images visible",
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup": {
+    "complete": true,
+    "survivors": [],
+    "errors": [],
+    "scope": "root exit0 only; no descendant sampler"
+  },
+  "latencies": [
+    {
+      "action": "markdown-embedded",
+      "through_observed_layout_ready_ms": 186.65557901840657
+    },
+    {
+      "action": "markdown-contextual",
+      "through_observed_layout_ready_ms": 76.05828199302778
+    },
+    {
+      "action": "markdown-context-guide",
+      "through_observed_layout_ready_ms": 50.76145299244672
+    },
+    {
+      "action": "markdown-context-detail",
+      "through_observed_layout_ready_ms": 102.05278301145881
+    },
+    {
+      "action": "markdown-context-back",
+      "through_observed_layout_ready_ms": 50.990662013646215
+    },
+    {
+      "action": "markdown-context-root",
+      "through_observed_layout_ready_ms": 50.81874498864636
+    }
+  ],
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=197593\nFILES_UI_SMOKE_OK entries=13\nFILES_PREVIEW_COMMAND_OK markdown-embedded\nFILES_PREVIEW_COMMAND_REV action=markdown-embedded revision=3\nFILES_PREVIEW_HELPER pid=3401548 start=47723842 command=preview_text\nFILES_PREVIEW_HELPER pid=3401553 start=47723843 command=preview_relative_image\nFILES_PREVIEW_HELPER pid=3401554 start=47723844 command=preview_relative_image\nFILES_PREVIEW_HELPER pid=3401557 start=47723848 command=preview_relative_image\nFILES_PREVIEW_HELPER pid=3401561 start=47723853 command=preview_relative_image\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/embedded.md\") revision=3 encoding=UTF-8 truncated=false bytes=241 source_extent=329 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=5 image_bytes=3164572 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/embedded.md\") revision=3 encoding=UTF-8 truncated=false bytes=241 source_extent=329 layout_ready=true width=932 height=460 step_max_us=3669 images_loaded=5 image_bytes=3164572 image_buffer_bytes=18432 layout_error=None\nFILES_MARKDOWN_IMAGES_OK loaded=5 retained_bytes=3164572 buffer_bytes=18432\nFILES_PREVIEW_COMMAND_OK markdown-image-assert\nFILES_PREVIEW_COMMAND_REV action=markdown-image-assert revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK markdown-scroll\nFILES_PREVIEW_COMMAND_REV action=markdown-scroll revision=3\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/embedded.md\") revision=3 encoding=UTF-8 truncated=false bytes=241 source_extent=329 layout_ready=true width=932 height=460 step_max_us=3669 images_loaded=5 image_bytes=3164572 image_buffer_bytes=307200 layout_error=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK markdown-bottom\nFILES_PREVIEW_COMMAND_REV action=markdown-bottom revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK markdown-contextual\nFILES_PREVIEW_COMMAND_REV action=markdown-contextual revision=5\nFILES_PREVIEW_HELPER pid=3401736 start=47723943 command=preview_text\nFILES_PREVIEW_HELPER pid=3401737 start=47723944 command=preview_relative_image\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/contextual-links.md\") revision=5 encoding=UTF-8 truncated=false bytes=417 source_extent=510 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 image_bytes=18633 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/contextual-links.md\") revision=5 encoding=UTF-8 truncated=false bytes=417 source_extent=510 layout_ready=true width=932 height=460 step_max_us=3359 images_loaded=1 image_bytes=18633 image_buffer_bytes=18432 layout_error=None\nFILES_MARKDOWN_CONTEXT_REJECTED revision=5 helper_spawn=false\nFILES_PREVIEW_COMMAND_OK markdown-context-reject\nFILES_PREVIEW_COMMAND_REV action=markdown-context-reject revision=5\nFILES_PREVIEW_COMMAND_OK markdown-context-guide\nFILES_PREVIEW_COMMAND_REV action=markdown-context-guide revision=6\nFILES_PREVIEW_HELPER pid=3401745 start=47723952 command=preview_relative_text\nFILES_PREVIEW_HELPER pid=3401746 start=47723953 command=preview_relative_image\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/contextual/guide.md\") revision=6 encoding=UTF-8 truncated=false bytes=222 source_extent=309 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 image_bytes=18633 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/contextual/guide.md\") revision=6 encoding=UTF-8 truncated=false bytes=222 source_extent=309 layout_ready=true width=932 height=460 step_max_us=846 images_loaded=1 image_bytes=18633 image_buffer_bytes=18432 layout_error=None\nFILES_MARKDOWN_IMAGES_OK loaded=1 retained_bytes=18633 buffer_bytes=18432\nFILES_PREVIEW_COMMAND_OK markdown-image-assert\nFILES_PREVIEW_COMMAND_REV action=markdown-image-assert revision=6\nFILES_MARKDOWN_CONTEXT_REJECTED revision=6 helper_spawn=false\nFILES_PREVIEW_COMMAND_OK markdown-context-reject\nFILES_PREVIEW_COMMAND_REV action=markdown-context-reject revision=6\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK markdown-context-detail\nFILES_PREVIEW_COMMAND_REV action=markdown-context-detail revision=7\nFILES_PREVIEW_HELPER pid=3401758 start=47723971 command=preview_relative_text\nFILES_PREVIEW_HELPER pid=3401759 start=47723972 command=preview_relative_image\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/contextual/nested/detail.md\") revision=7 encoding=UTF-8 truncated=false bytes=142 source_extent=228 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 image_bytes=18633 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/contextual/nested/detail.md\") revision=7 encoding=UTF-8 truncated=false bytes=142 source_extent=228 layout_ready=true width=932 height=460 step_max_us=142 images_loaded=1 image_bytes=18633 image_buffer_bytes=18432 layout_error=None\nFILES_MARKDOWN_IMAGES_OK loaded=1 retained_bytes=18633 buffer_bytes=18432\nFILES_PREVIEW_COMMAND_OK markdown-image-assert\nFILES_PREVIEW_COMMAND_REV action=markdown-image-assert revision=7\nFILES_MARKDOWN_CONTEXT_REJECTED revision=7 helper_spawn=false\nFILES_PREVIEW_COMMAND_OK markdown-context-reject\nFILES_PREVIEW_COMMAND_REV action=markdown-context-reject revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK markdown-context-back\nFILES_PREVIEW_COMMAND_REV action=markdown-context-back revision=8\nFILES_PREVIEW_HELPER pid=3401775 start=47723991 command=preview_relative_text\nFILES_PREVIEW_HELPER pid=3401776 start=47723992 command=preview_relative_image\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/contextual/guide.md\") revision=8 encoding=UTF-8 truncated=false bytes=222 source_extent=309 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 image_bytes=18633 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/contextual/guide.md\") revision=8 encoding=UTF-8 truncated=false bytes=222 source_extent=309 layout_ready=true width=932 height=460 step_max_us=142 images_loaded=1 image_bytes=18633 image_buffer_bytes=18432 layout_error=None\nFILES_PREVIEW_COMMAND_OK markdown-context-root\nFILES_PREVIEW_COMMAND_REV action=markdown-context-root revision=9\nFILES_PREVIEW_HELPER pid=3401778 start=47723996 command=preview_relative_text\nFILES_PREVIEW_HELPER pid=3401781 start=47723997 command=preview_relative_image\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/contextual-links.md\") revision=9 encoding=UTF-8 truncated=false bytes=417 source_extent=510 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 image_bytes=18633 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/markdown-ui-2ftgcci8/files/contextual-links.md\") revision=9 encoding=UTF-8 truncated=false bytes=417 source_extent=510 layout_ready=true width=932 height=460 step_max_us=229 images_loaded=1 image_bytes=18633 image_buffer_bytes=18432 layout_error=None\nFILES_MARKDOWN_IMAGES_OK loaded=1 retained_bytes=18633 buffer_bytes=18432\nFILES_PREVIEW_COMMAND_OK markdown-image-assert\nFILES_PREVIEW_COMMAND_REV action=markdown-image-assert revision=9\nFILES_PREVIEW_COMMAND_OK close-markdown-pending\nFILES_PREVIEW_COMMAND_REV action=close-markdown-pending revision=11\nFILES_PREVIEW_HELPER pid=3401984 start=47724153 command=preview_text\nFILES_PREVIEW_DRAINED\n",
+  "fixtures": {
+    "listed_entries": 13,
+    "large_markdown_source_bytes": 201033,
+    "source_sha256": "f751af61c18d84580acf41f363b0cb7e279b9ec66e3cf6d85d8fbaff372e4e65"
+  },
+  "binary_sha256": "16cd4565e50b40f20ed21eed3665cfaf085726f75f65d38f704b2a42f8dc1d80",
+  "helper_sha256": "9f225bf85dbb3a264f961dbcde7db07751565a3993112978f3dfc5b530c5ae86"
+}

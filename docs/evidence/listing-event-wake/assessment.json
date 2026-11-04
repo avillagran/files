@@ -1,0 +1,205 @@
+{
+  "source_commit": "ff7af560a6e0a845dbbcecc4e8c9b3d0e5fc7e94",
+  "worker_sha256": "58e9fecedc9ce3b76eeedfb272933b30ac5ea48063898e027ddc07a4f4d9c68a",
+  "scope": "Bounded listing wake-up optimization and authorized M2 minimum evaluation; no global superiority or overall project acceptance",
+  "validation": {
+    "workspace_passed": 1612,
+    "core": 704,
+    "helper": 112,
+    "ui": 796,
+    "historical_ignored": 3,
+    "new_tests": 1,
+    "focused_worker": 7,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "NODE_release": "PASS",
+    "M2_native_release": "PASS offline/locked, source snapshot identical worker SHA, test-only isolated checkout"
+  },
+  "change": [
+    "Consumer unpark wakes producer as each bounded response slot becomes available, including discarded stale-generation envelopes; notification token prevents lost-before-park wake",
+    "Successful response enqueue wakes FLTK event loop, avoiding sole reliance on periodic5ms fallback; no new callback queue or thread",
+    "Queue8,listing batch256,pump64-update bound, limiter4,generation/cancellation/2ms defensive producer fallback retained",
+    "New4097-entry full-queue fixture verifies complete delivery and rejects old-generation backlog after restart"
+  ],
+  "summary": [
+    {
+      "host": "NODE",
+      "app": "files",
+      "count": 10000,
+      "runs": 4,
+      "ready_ms_median": 98.39467949859682,
+      "ready_ms_min": 96.70506999827921,
+      "ready_ms_max": 100.54121000575833,
+      "tree_memory_mib_median": 18.78271484375,
+      "tree_peak_mib_median": 18.78271484375
+    },
+    {
+      "host": "NODE",
+      "app": "flea",
+      "count": 10000,
+      "runs": 4,
+      "ready_ms_median": 407.04294099850813,
+      "ready_ms_min": 402.9265700010001,
+      "ready_ms_max": 421.51422100141644,
+      "tree_memory_mib_median": 102.240234375,
+      "tree_peak_mib_median": 103.0078125
+    },
+    {
+      "host": "NODE",
+      "app": "files",
+      "count": 100000,
+      "runs": 4,
+      "ready_ms_median": 206.23249850177672,
+      "ready_ms_min": 181.92070799705107,
+      "ready_ms_max": 226.1149649930303,
+      "tree_memory_mib_median": 32.64501953125,
+      "tree_peak_mib_median": 33.54931640625
+    },
+    {
+      "host": "NODE",
+      "app": "flea",
+      "count": 100000,
+      "runs": 4,
+      "ready_ms_median": 407.8117069984728,
+      "ready_ms_min": 401.79160900152056,
+      "ready_ms_max": 409.0174789962475,
+      "tree_memory_mib_median": 104.56640625,
+      "tree_peak_mib_median": 105.27099609375
+    },
+    {
+      "host": "M2",
+      "app": "files",
+      "count": 10000,
+      "runs": 4,
+      "ready_ms_median": 96.8653695017565,
+      "ready_ms_min": 48.88649001077283,
+      "ready_ms_max": 148.76669200020842,
+      "tree_memory_mib_median": 33.7822265625,
+      "tree_peak_mib_median": 36.5888671875
+    },
+    {
+      "host": "M2",
+      "app": "flea",
+      "count": 10000,
+      "runs": 4,
+      "ready_ms_median": 196.99855149519863,
+      "ready_ms_min": 181.0697790060658,
+      "ready_ms_max": 484.18865900021046,
+      "tree_memory_mib_median": 146.68603515625,
+      "tree_peak_mib_median": 148.06787109375
+    },
+    {
+      "host": "M2",
+      "app": "files",
+      "count": 100000,
+      "runs": 4,
+      "ready_ms_median": 212.72056900488678,
+      "ready_ms_min": 197.76288799766917,
+      "ready_ms_max": 218.5878589953063,
+      "tree_memory_mib_median": 43.04345703125,
+      "tree_peak_mib_median": 43.0439453125
+    },
+    {
+      "host": "M2",
+      "app": "flea",
+      "count": 100000,
+      "runs": 4,
+      "ready_ms_median": 194.7995344962692,
+      "ready_ms_min": 185.83214200043585,
+      "ready_ms_max": 232.70336899440736,
+      "tree_memory_mib_median": 149.48046875,
+      "tree_peak_mib_median": 149.51025390625
+    }
+  ],
+  "node_baseline_reference": "../flea-0.4-comparison-20261103/assessment.json: previous100kFiles603ms; current206ms, currentFlea408ms;4 valid/app/count both campaigns",
+  "m2": {
+    "host": "omarchy aarch64 Apple M2 Asahi",
+    "flea": "Official Flea0.4.0 ARM asset SHA0165eae1d858793c88c9f3bef2d59bcf0c8403f14b9a7da2944fee28d733302f; every log reports Vulkan llvmpipe(LLVM23.1.4), NOT hardware Vulkan",
+    "node_flea": "Officialx86_64 VulkanRTX3080Ti",
+    "comparison_geometry": "Client1100x700 on externalHDMIscale1 after own-window benchmark geometry setup; initial mapped geometry recorded separately; timing includes geometry setup. First Files run initially internal2x. Native input was not measured",
+    "minimum_memory": {
+      "gate_status": "FAIL",
+      "reasons": [
+        "baseline 40 MiB analysis threshold exceeded: stop and investigate",
+        "explicit scenario memory budget exceeded"
+      ],
+      "peak_mb_decimal": 58.457088,
+      "peak_mib": 55.7490234375,
+      "stable_mib": 45.2919921875,
+      "physical_geometry": [
+        1920,
+        1080
+      ],
+      "logical_geometry": [
+        960,
+        540
+      ],
+      "output_scale": 2,
+      "modern50MB_goal": false,
+      "qualification": "Existing baseline harness includes startup/tiled-geometry transition before resize;peak is whole launch envelope, not a claim of an always-fixed1080p surface. First invalid1920logical@2 measured4k, preserved separately and not normalized1080p."
+    },
+    "minimum_startup": {
+      "gate_status": "PASS",
+      "runs": 10,
+      "under100ms": 10,
+      "p50_ms": 55.2760095,
+      "p95_ms": 77.499593,
+      "max_ms": 77.499593,
+      "method": "fresh process; POSIX_FADV_DONTNEED requested for executable only; system/font/shared-library caches not globally evicted; internal marker ends at completed draw callback, not compositor presentation; external marker receipt is an upper bound affected by scheduling and instrumentation",
+      "qualification": "First draw marker, not compositor presentation or input readiness; executable-only fadvise, not globally cold caches"
+    },
+    "trial_launcher": "/home/avillagran/.cache/files-100k-m2-check/try-files",
+    "bundle_sha256": {
+      "files-helper": "a6d4af2753d1d7f019810f7de29cdc48708964bc04265b87abdf70212e29d4d9",
+      "files": "5b25c90df2e9bdb0351f01ab254157c0a86b16c2dd660eaaf18fa20a08fc7a2d",
+      "files-html-helper": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "files-html-helper.LICENSES": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "files-html-helper.build.json": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    },
+    "installed_preserved_hashes": [
+      {
+        "name": "files",
+        "installed_sha256": "8deae3545aac0444f35b2426f53e8699ed65ff1fdcbacdd61c5dbdf300f2cc03"
+      },
+      {
+        "name": "files-helper",
+        "installed_sha256": "a9a2c8dcde68b13d709e8df8b8f87ed72860afe812980e09ff659a507c797760"
+      },
+      {
+        "name": "files-html-helper",
+        "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+      },
+      {
+        "name": "files-html-helper.LICENSES",
+        "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+      },
+      {
+        "name": "files-html-helper.build.json",
+        "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+      }
+    ],
+    "native_input": "InstalledCua0.28.2 started for own test; returned zero Wayland windows. No ad-hoc keyboard/pointer fallback. Own driver stopped. No native input acceptance.",
+    "post_timing_visual_validation": {
+      "scope": "Own List and Groups windows at10k captured after ALL performance passes,internal2x display. Count10k and populated names/metadata visually checked; no native-input/2x-sharpness acceptance. FooterPSS not used for metrics.",
+      "captures": {
+        "validated-list.png": "4db28aff7e72273c9a636d8745cb62f728356347c0d0569b567eb4c2dad06588",
+        "validated-groups.png": "6849339632a4ad0271152e42a63e16ce3273089c231dbe66b1ea4960fa53a736"
+      }
+    }
+  },
+  "failures_preserved": [
+    "First wake-only diagnostic100k565ms; both-direction wake pilot224ms, both single diagnostics not acceptance",
+    "M2 first offline build lacked vendoredjpeg-decoder, second lacked bundledtheme includes; copied exact dependencies/themes then thirdnative releasePASS, no new preview formats",
+    "M2 initial legacy monitor dispatcher rejected; switched test harness to observed installed LuaAPI and retained initial failure",
+    "M2 initial memory request1920x1080logical atscale2 produced4k, invalid for1080p; corrected960x540logical atscale2 yields1080p. Corrected memory gate FAIL58.46MB vs50MB and40MiB analysis stop"
+  ],
+  "limits": [
+    "Warm FS/newprocess comparisons, no global cache drop; four runs/group, polling/readiness observers differ across apps, tens-of-ms quantization",
+    "NODE andM2 are separate experiments: different geometry,GPU/backend,load andstartup geometry. M2~213vs195ms does NOT prove Files faster;difference smaller than polling granularity",
+    "GPU memory separate/no blind addition; sampled peaks lower bounds, short-lived helpers may escape; no full lifetime guarantee",
+    "No search/navigation/scroll native latency, other workload formats, default file-chooser integration or complete feature parity acceptance",
+    "New native M2 code only for user-requested test; authoritative development remainsNODE. Existing installed app/helpers preserved on both hosts; no sourcepush/tag or globalPASS"
+  ],
+  "decision": "NODE100k bottleneck improved reproducibly; memory advantage retained. Universal superiority NOT established. M2 first-draw method passes10/10<100ms but memory minimum remainsFAIL; stage for manual trial, file chooser pending, broader goal stays unfinished.",
+  "checked_at": "2026-11-04"
+}

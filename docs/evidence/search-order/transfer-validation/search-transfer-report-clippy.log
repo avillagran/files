@@ -1,0 +1,5 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Checking files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+    Checking files-app v0.0.4 (/home/avillagran/Work/files/crates/app)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 7.04s

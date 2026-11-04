@@ -1,0 +1,1 @@
+Initial compile-only check failed at scripts/sftp-loopback-check.py:184: SyntaxError expected else after if expression (else1 token). No --attempt executed, no fixture/process/mount created. Corrected to else 1; compile-only check PASS.

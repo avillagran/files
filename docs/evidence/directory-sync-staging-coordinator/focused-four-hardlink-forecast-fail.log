@@ -1,0 +1,25 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.87s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 4 tests
+test directory_sync_store::linux::tests::stage_coordinator_failures_keep_workspaces_and_never_publish_or_retry ... ok
+test directory_sync_store::linux::tests::stage_coordinator_multiple_workspaces_raw_tree_and_cross_scope_link_cohorts ... FAILED
+test directory_sync_store::linux::tests::stage_coordinator_rejects_budget_and_private_parent_before_hashing_or_artifacts ... ok
+test directory_sync_store::linux::tests::stage_coordinator_single_file_exact_budget_and_publication_pipeline ... ok
+
+failures:
+
+---- directory_sync_store::linux::tests::stage_coordinator_multiple_workspaces_raw_tree_and_cross_scope_link_cohorts stdout ----
+
+thread 'directory_sync_store::linux::tests::stage_coordinator_multiple_workspaces_raw_tree_and_cross_scope_link_cohorts' (2761381) panicked at crates/core/src/directory_sync_store.rs:2204:123:
+called `Result::unwrap()` on an `Err` value: StageBatchFailure { cause: Custom { kind: InvalidData, error: "Lectura real no coincide con forecast" }, phase: SourceBefore(0), private_effects_possible: false, .. }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    directory_sync_store::linux::tests::stage_coordinator_multiple_workspaces_raw_tree_and_cross_scope_link_cohorts
+
+test result: FAILED. 3 passed; 1 failed; 0 ignored; 0 measured; 695 filtered out; finished in 0.85s
+
+error: test failed, to rerun pass `-p files-core --lib`

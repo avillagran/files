@@ -1,0 +1,60 @@
+{
+  "acceptance": false,
+  "method": "read-only bindings and binary identity; not Super+W or native close event",
+  "key_w": [
+    {
+      "locked": false,
+      "mouse": false,
+      "release": false,
+      "repeat": false,
+      "longPress": false,
+      "non_consuming": false,
+      "auto_consuming": false,
+      "has_description": false,
+      "modmask": 64,
+      "submap": "",
+      "submap_universal": "false",
+      "key": "W",
+      "keycode": 0,
+      "catch_all": false,
+      "description": "",
+      "allow_input_capture": false,
+      "dispatcher": "__lua",
+      "arg": "1268"
+    },
+    {
+      "locked": false,
+      "mouse": false,
+      "release": true,
+      "repeat": false,
+      "longPress": false,
+      "non_consuming": false,
+      "auto_consuming": false,
+      "has_description": false,
+      "modmask": 64,
+      "submap": "",
+      "submap_universal": "false",
+      "key": "W",
+      "keycode": 0,
+      "catch_all": false,
+      "description": "",
+      "allow_input_capture": false,
+      "dispatcher": "__lua",
+      "arg": "1269"
+    }
+  ],
+  "binaries": [
+    {
+      "path": "/home/avillagran/.local/bin/files",
+      "sha256": "c91b9cf20a7f1fa4b48b2e9cbdd6c5b8ebb0302efd9210f7da207577fe295972",
+      "mtime_ns": 1793040202591988980
+    },
+    {
+      "path": "/home/avillagran/Work/files/target/release/files",
+      "sha256": "3b40ad35bc1aaad3bbc86764d7b00aa456d8c8edf0e686e760729320ebba6554",
+      "mtime_ns": 1793049050307856530
+    }
+  ],
+  "open_available": false,
+  "native_input": "PENDING driver target unavailable in prior probe; no alternate screen control"
+}

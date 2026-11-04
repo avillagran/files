@@ -1,0 +1,37 @@
+{
+  "scope": "Linux owned syscall model; not yet Rust API acceptance; no resource experiments",
+  "cases": [
+    {
+      "mode": "close_only",
+      "cloexec": true,
+      "parent_pid": 3771181,
+      "child_pid": 3771184,
+      "holders_after_parent_close": [
+        {
+          "pid": 3771184,
+          "fd": 3
+        }
+      ],
+      "kernel_locks_after_parent_close": [
+        "27: FLOCK  ADVISORY  WRITE 3771181 08:03:17186302 0 EOF"
+      ],
+      "successor_would_block": true,
+      "child_reaped": true
+    },
+    {
+      "mode": "explicit_owner_unlock",
+      "cloexec": true,
+      "parent_pid": 3771181,
+      "child_pid": 3771185,
+      "holders_after_parent_close": [
+        {
+          "pid": 3771185,
+          "fd": 3
+        }
+      ],
+      "kernel_locks_after_parent_close": [],
+      "successor_would_block": false,
+      "child_reaped": true
+    }
+  ]
+}

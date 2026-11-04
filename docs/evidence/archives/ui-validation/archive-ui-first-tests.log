@@ -1,0 +1,18 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+   Compiling files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+   Compiling files-app v0.0.4 (/home/avillagran/Work/files/crates/app)
+error[E0599]: no method named `unwrap` found for unit type `()` in the current scope
+   --> crates/ui/src/archive_ui/tests.rs:245:38
+    |
+245 |     d.input("/different/new-target").unwrap();
+    |                                      ^^^^^^ method not found in `()`
+    |
+note: method `input` modifies its receiver in-place
+   --> crates/ui/src/archive_ui/tests.rs:245:7
+    |
+245 |     d.input("/different/new-target").unwrap();
+    |       ^^^^^ this call modifies `d` in-place
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `files-ui` (lib test) due to 1 previous error

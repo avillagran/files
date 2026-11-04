@@ -1,0 +1,255 @@
+{
+  "method": "internal handlers, actual ffprobe/ffmpeg local decode and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-snapshot-first-1793101103392078568.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-video-fit-before-zoom-1793101103512882569.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-video-zoom-before-pan-1793101103622433005.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-video-zoom-panned-1793101103757226339.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-video-playing-red-1793101104013810513.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-video-playing-blue-1793101108308023666.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-video-paused-blue-1793101108421822710.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-video-seek-retains-framing-1793101108710970326.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-video-playback-ended-1793101114254078279.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-inspector-first-frame-1793101115577865143.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/gif-video-reopen-resets-framing-1793101115815575416.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "zoom_fixture": true,
+  "gif_fixture": true,
+  "audio_fixture": false,
+  "pulse_failure_fixture": false,
+  "audible_verification": "NOT_VALIDATED: zero PCM",
+  "clip_enabled": false,
+  "known_pending": [
+    "audibility/A-V sync/sample-exact seek/audio track selection",
+    "hardware codecs",
+    "resource budget",
+    "cross-platform verification",
+    "VFR/PTS/large/rotated media coverage"
+  ],
+  "compositor_binding": {
+    "selected": {
+      "instance": "unknown_1793084545_122682092",
+      "time": 1793084545,
+      "pid": 3154625,
+      "wl_socket": "wayland-1"
+    },
+    "scope": "fixture-only unique Wayland socket, no focus/global changes"
+  },
+  "gif_source": {
+    "bytes": 5977,
+    "netscape_loop_extension": true,
+    "ignore_loop": true,
+    "policy": "one pass only; no frame-precise timing/alpha/disposal or resource claim"
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab34f485d0"
+  },
+  "stream_observed_live": {
+    "pid": 990429,
+    "starttime": 54387597
+  },
+  "gif_no_hidden_stream": true,
+  "gif_inspector_thumbnail": {
+    "snapshot": {
+      "authorized": true,
+      "busy": false,
+      "cached": 1,
+      "demand": 1,
+      "errors": 0,
+      "notice": null,
+      "painted": 1,
+      "ready": [
+        {
+          "format": "video",
+          "height": 90,
+          "path": "\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\"",
+          "pixel": [
+            251,
+            0,
+            0
+          ],
+          "revision": {
+            "bytes": 5977,
+            "changed_nanoseconds": 826230242,
+            "changed_seconds": 1793101102,
+            "device": 63,
+            "inode": 282423457,
+            "modified_nanoseconds": 826230242,
+            "modified_seconds": 1793101102
+          },
+          "source_height": 360,
+          "source_width": 640,
+          "width": 160
+        }
+      ],
+      "rgb_capacity": 43200,
+      "scratch_capacity": 62400
+    },
+    "scope": "visible inspector static first-frame160px, no playback loop; grid GIF not captured in this scene"
+  },
+  "zoom_pan_checks": {
+    "frames": true,
+    "pause": true,
+    "seek": true,
+    "resume_eof": true,
+    "new_source_reset": true,
+    "method": "shared Action zoom + Model pointer down/drag, not native input",
+    "scope": "single source numeric transform only, viewport raster bounded by existing sampler; no resource claim"
+  },
+  "clip": {
+    "status": "OMITTED",
+    "reason": "functional four-capture scene; no resource experiment or memory inference"
+  },
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        990199,
+        54387512
+      ],
+      [
+        990210,
+        54387518
+      ],
+      [
+        990245,
+        54387535
+      ],
+      [
+        990429,
+        54387597
+      ],
+      [
+        990899,
+        54388064
+      ],
+      [
+        990902,
+        54388070
+      ],
+      [
+        990918,
+        54388094
+      ],
+      [
+        991401,
+        54388645
+      ],
+      [
+        991407,
+        54388650
+      ],
+      [
+        991516,
+        54388779
+      ],
+      [
+        991517,
+        54388784
+      ],
+      [
+        991533,
+        54388806
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start identities after exit, not lifetime or resource sampling"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus State ACK and observed stream PID/starttime absent after pause, EOF and active close; no memory sampler",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=97410\nFILES_UI_SMOKE_OK entries=3\nFILES_PREVIEW_HELPER pid=990199 start=54387512 command=preview_video_probe\nFILES_PREVIEW_COMMAND_OK gif\nFILES_PREVIEW_COMMAND_REV action=gif revision=2\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=990210 start=54387518 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=990245 start=54387535 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=2 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=gif playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_PAUSED_DRAINED\nFILES_PREVIEW_COMMAND_OK video-assert-paused\nFILES_PREVIEW_COMMAND_REV action=video-assert-paused revision=2\nFILES_VIDEO_FRAME_OK red=true position=0.000000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-red\nFILES_PREVIEW_COMMAND_REV action=video-assert-red revision=2\nFILES_CAPTURE_OK\nFILES_VIDEO_TRANSFORM_OK zoom=1 pan=0,0\nFILES_PREVIEW_COMMAND_OK video-assert-transform-reset\nFILES_PREVIEW_COMMAND_REV action=video-assert-transform-reset revision=2\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK video-zoom\nFILES_PREVIEW_COMMAND_REV action=video-zoom revision=2\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK video-pan\nFILES_PREVIEW_COMMAND_REV action=video-pan revision=2\nFILES_VIDEO_TRANSFORM_OK zoom=2 pan=48,36\nFILES_PREVIEW_COMMAND_OK video-assert-transform\nFILES_PREVIEW_COMMAND_REV action=video-assert-transform revision=2\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=3\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=gif playing=true sequence=None drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_CHILD_ADMIT role=video_stream\nFILES_PREVIEW_HELPER pid=990429 start=54387597 command=preview_video_stream audio=false video_index=0 audio_index=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=gif playing=true sequence=Some(0) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.166667 codec=gif playing=true sequence=Some(2) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.333333 codec=gif playing=true sequence=Some(4) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_PLAYING_OK sequence=Some(4) position=0.3333333333333333\nFILES_PREVIEW_COMMAND_OK video-assert-playing\nFILES_PREVIEW_COMMAND_REV action=video-assert-playing revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.416667 codec=gif playing=true sequence=Some(5) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.500000 codec=gif playing=true sequence=Some(6) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.666667 codec=gif playing=true sequence=Some(8) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.750000 codec=gif playing=true sequence=Some(9) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.833333 codec=gif playing=true sequence=Some(10) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.916667 codec=gif playing=true sequence=Some(11) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=1.000000 codec=gif playing=true sequence=Some(12) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=1.083333 codec=gif playing=true sequence=Some(13) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=1.166667 codec=gif playing=true sequence=Some(14) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=1.333333 codec=gif playing=true sequence=Some(16) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=1.500000 codec=gif playing=true sequence=Some(18) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=1.583333 codec=gif playing=true sequence=Some(19) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=1.750000 codec=gif playing=true sequence=Some(21) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=1.833333 codec=gif playing=true sequence=Some(22) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=1.916667 codec=gif playing=true sequence=Some(23) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=2.000000 codec=gif playing=true sequence=Some(24) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=2.083333 codec=gif playing=true sequence=Some(25) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=2.250000 codec=gif playing=true sequence=Some(27) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=2.333333 codec=gif playing=true sequence=Some(28) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=2.500000 codec=gif playing=true sequence=Some(30) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=2.583333 codec=gif playing=true sequence=Some(31) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=2.750000 codec=gif playing=true sequence=Some(33) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=2.833333 codec=gif playing=true sequence=Some(34) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=2.916667 codec=gif playing=true sequence=Some(35) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=3.000000 codec=gif playing=true sequence=Some(36) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=3.083333 codec=gif playing=true sequence=Some(37) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=3.250000 codec=gif playing=true sequence=Some(39) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=3.333333 codec=gif playing=true sequence=Some(40) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=3.416667 codec=gif playing=true sequence=Some(41) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=3.500000 codec=gif playing=true sequence=Some(42) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=3.583333 codec=gif playing=true sequence=Some(43) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=3.750000 codec=gif playing=true sequence=Some(45) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=3.916667 codec=gif playing=true sequence=Some(47) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=4.000000 codec=gif playing=true sequence=Some(48) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=4.083333 codec=gif playing=true sequence=Some(49) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=4.166667 codec=gif playing=true sequence=Some(50) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=4.333333 codec=gif playing=true sequence=Some(52) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=4.416667 codec=gif playing=true sequence=Some(53) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=4.500000 codec=gif playing=true sequence=Some(54) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=4.583333 codec=gif playing=true sequence=Some(55) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_FRAME_OK red=false position=4.750000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-blue\nFILES_PREVIEW_COMMAND_REV action=video-assert-blue revision=3\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=4.750000 codec=gif playing=true sequence=Some(57) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_TRANSFORM_OK zoom=2 pan=48,36\nFILES_PREVIEW_COMMAND_OK video-assert-transform\nFILES_PREVIEW_COMMAND_REV action=video-assert-transform revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK video-pause\nFILES_PREVIEW_COMMAND_REV action=video-pause revision=4\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=4.750000 codec=gif playing=false sequence=Some(57) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=4.750000 codec=gif playing=false sequence=Some(57) drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_PAUSED_DRAINED\nFILES_PREVIEW_COMMAND_OK video-assert-paused\nFILES_PREVIEW_COMMAND_REV action=video-assert-paused revision=4\nFILES_CAPTURE_OK\nFILES_VIDEO_TRANSFORM_OK zoom=2 pan=48,36\nFILES_PREVIEW_COMMAND_OK video-assert-transform\nFILES_PREVIEW_COMMAND_REV action=video-assert-transform revision=4\nFILES_PREVIEW_COMMAND_OK video-mid\nFILES_PREVIEW_COMMAND_REV action=video-mid revision=5\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=990899 start=54388064 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=990902 start=54388070 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=5 width=640 height=360 source=640x360 duration=8.000000 position=2.000000 codec=gif playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_TRANSFORM_OK zoom=2 pan=48,36\nFILES_PREVIEW_COMMAND_OK video-assert-transform\nFILES_PREVIEW_COMMAND_REV action=video-assert-transform revision=5\nFILES_VIDEO_FRAME_OK red=true position=2.000000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-red\nFILES_PREVIEW_COMMAND_REV action=video-assert-red revision=5\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=6\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=2.000000 codec=gif playing=true sequence=None drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_CHILD_ADMIT role=video_stream\nFILES_PREVIEW_HELPER pid=990918 start=54388094 command=preview_video_stream audio=false video_index=0 audio_index=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=2.083333 codec=gif playing=true sequence=Some(1) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=2.333333 codec=gif playing=true sequence=Some(4) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=2.500000 codec=gif playing=true sequence=Some(6) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=2.666667 codec=gif playing=true sequence=Some(8) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=2.750000 codec=gif playing=true sequence=Some(9) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=2.916667 codec=gif playing=true sequence=Some(11) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=3.000000 codec=gif playing=true sequence=Some(12) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=3.083333 codec=gif playing=true sequence=Some(13) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=3.166667 codec=gif playing=true sequence=Some(14) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=3.333333 codec=gif playing=true sequence=Some(16) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=3.416667 codec=gif playing=true sequence=Some(17) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=3.500000 codec=gif playing=true sequence=Some(18) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=3.666667 codec=gif playing=true sequence=Some(20) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=3.750000 codec=gif playing=true sequence=Some(21) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=3.916667 codec=gif playing=true sequence=Some(23) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=4.000000 codec=gif playing=true sequence=Some(24) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=4.083333 codec=gif playing=true sequence=Some(25) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=4.333333 codec=gif playing=true sequence=Some(28) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=4.416667 codec=gif playing=true sequence=Some(29) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=4.500000 codec=gif playing=true sequence=Some(30) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=4.583333 codec=gif playing=true sequence=Some(31) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=4.750000 codec=gif playing=true sequence=Some(33) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=4.833333 codec=gif playing=true sequence=Some(34) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=4.916667 codec=gif playing=true sequence=Some(35) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.000000 codec=gif playing=true sequence=Some(36) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.083333 codec=gif playing=true sequence=Some(37) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.250000 codec=gif playing=true sequence=Some(39) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.333333 codec=gif playing=true sequence=Some(40) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.500000 codec=gif playing=true sequence=Some(42) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.583333 codec=gif playing=true sequence=Some(43) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.750000 codec=gif playing=true sequence=Some(45) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.833333 codec=gif playing=true sequence=Some(46) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.916667 codec=gif playing=true sequence=Some(47) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.083333 codec=gif playing=true sequence=Some(49) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.250000 codec=gif playing=true sequence=Some(51) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.333333 codec=gif playing=true sequence=Some(52) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.416667 codec=gif playing=true sequence=Some(53) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.500000 codec=gif playing=true sequence=Some(54) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.666667 codec=gif playing=true sequence=Some(56) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.750000 codec=gif playing=true sequence=Some(57) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.833333 codec=gif playing=true sequence=Some(58) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.916667 codec=gif playing=true sequence=Some(59) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.000000 codec=gif playing=true sequence=Some(60) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.083333 codec=gif playing=true sequence=Some(61) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.250000 codec=gif playing=true sequence=Some(63) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.333333 codec=gif playing=true sequence=Some(64) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.416667 codec=gif playing=true sequence=Some(65) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.500000 codec=gif playing=true sequence=Some(66) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.666667 codec=gif playing=true sequence=Some(68) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.916667 codec=gif playing=false sequence=Some(71) drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_PAUSED_DRAINED\nFILES_PREVIEW_COMMAND_OK video-assert-paused\nFILES_PREVIEW_COMMAND_REV action=video-assert-paused revision=6\nFILES_VIDEO_TRANSFORM_OK zoom=2 pan=48,36\nFILES_PREVIEW_COMMAND_OK video-assert-transform\nFILES_PREVIEW_COMMAND_REV action=video-assert-transform revision=6\nFILES_CAPTURE_OK\nFILES_MEDIA_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-hide\nFILES_PREVIEW_COMMAND_REV action=media-hide revision=7\nFILES_PREVIEW_HELPER pid=991401 start=54388645 command=preview_video_probe\nFILES_PREVIEW_HELPER pid=991407 start=54388650 command=preview_video_frame\nFILES_GIF_THUMBNAILS {\"authorized\":true,\"busy\":false,\"cached\":1,\"demand\":1,\"errors\":0,\"notice\":null,\"painted\":1,\"ready\":[{\"format\":\"video\",\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\\\"\",\"pixel\":[251,0,0],\"revision\":{\"bytes\":5977,\"changed_nanoseconds\":826230242,\"changed_seconds\":1793101102,\"device\":63,\"inode\":282423457,\"modified_nanoseconds\":826230242,\"modified_seconds\":1793101102},\"source_height\":360,\"source_width\":640,\"width\":160}],\"rgb_capacity\":43200,\"scratch_capacity\":62400}\nFILES_PREVIEW_COMMAND_OK gif-thumbnails\nFILES_PREVIEW_COMMAND_REV action=gif-thumbnails revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK gif\nFILES_PREVIEW_COMMAND_REV action=gif revision=8\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=991516 start=54388779 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=991517 start=54388784 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=8 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=gif playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_TRANSFORM_OK zoom=1 pan=0,0\nFILES_PREVIEW_COMMAND_OK video-assert-transform-reset\nFILES_PREVIEW_COMMAND_REV action=video-assert-transform-reset revision=8\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=9\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=9 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=gif playing=true sequence=None drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_CHILD_ADMIT role=video_stream\nFILES_PREVIEW_HELPER pid=991533 start=54388806 command=preview_video_stream audio=false video_index=0 audio_index=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=9 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=gif playing=true sequence=Some(0) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-u7676h2t/files/clip.gif\") revision=9 width=640 height=360 source=640x360 duration=8.000000 position=0.333333 codec=gif playing=true sequence=Some(4) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_COMMAND_OK close-video-playing\nFILES_PREVIEW_COMMAND_REV action=close-video-playing revision=10\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\n",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "binary_sha256": "8cb2c80c87045b60f9a8ea02010f1831be0d61b1323dab7f2c124d948b5a9b7f",
+  "external_tools": {
+    "ffprobe": {
+      "path": "/usr/bin/ffprobe",
+      "sha256": "7c0a626038e42714f99c85b70412e1607f1f3ce5f92e41124f611014e02a7caa",
+      "version": "ffprobe version n9.0.2 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "ffmpeg": {
+      "path": "/usr/bin/ffmpeg",
+      "sha256": "fc5db7b88a2a96e9a9036fbc9533d8b3ec16abbc31526b285e996ae1d81b9fcd",
+      "version": "ffmpeg version n9.0.2 Copyright (c) 2000-2026 the FFmpeg developers"
+    }
+  }
+}

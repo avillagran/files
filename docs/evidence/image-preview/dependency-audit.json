@@ -1,0 +1,242 @@
+{
+  "schema": 1,
+  "instrument": "cargo tree -p files-helper -e normal,build",
+  "scope": "selected helper normal/build closure, not all optional lock entries",
+  "new_image_features": [
+    "png",
+    "jpeg",
+    "webp"
+  ],
+  "disabled_defaults": true,
+  "selected_licenses": [
+    {
+      "name": "adler2",
+      "version": "2.0.1",
+      "license": "0BSD OR MIT OR Apache-2.0"
+    },
+    {
+      "name": "autocfg",
+      "version": "1.5.1",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
+      "name": "bitflags",
+      "version": "2.13.2",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "bytemuck",
+      "version": "1.25.2",
+      "license": "Zlib OR Apache-2.0 OR MIT"
+    },
+    {
+      "name": "byteorder-lite",
+      "version": "0.1.0",
+      "license": "Unlicense OR MIT"
+    },
+    {
+      "name": "cfg-if",
+      "version": "1.0.5",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "crc32fast",
+      "version": "1.5.3",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "equivalent",
+      "version": "1.0.3",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
+      "name": "fdeflate",
+      "version": "0.3.7",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "files-core",
+      "version": "0.0.4",
+      "license": "MIT"
+    },
+    {
+      "name": "files-helper",
+      "version": "0.0.4",
+      "license": "MIT"
+    },
+    {
+      "name": "flate2",
+      "version": "1.1.10",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.17.1",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "image",
+      "version": "0.25.10",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "image-webp",
+      "version": "0.2.4",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "indexmap",
+      "version": "2.14.2",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
+      "name": "itoa",
+      "version": "1.0.18",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "libc",
+      "version": "0.2.191",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "memchr",
+      "version": "2.8.3",
+      "license": "Unlicense OR MIT"
+    },
+    {
+      "name": "miniz_oxide",
+      "version": "0.8.9",
+      "license": "MIT OR Zlib OR Apache-2.0"
+    },
+    {
+      "name": "miniz_oxide",
+      "version": "0.9.1",
+      "license": "MIT OR Zlib OR Apache-2.0"
+    },
+    {
+      "name": "moxcms",
+      "version": "0.8.1",
+      "license": "BSD-3-Clause OR Apache-2.0"
+    },
+    {
+      "name": "num-traits",
+      "version": "0.2.19",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "png",
+      "version": "0.18.1",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1.0.107",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "pxfm",
+      "version": "0.1.30",
+      "license": "BSD-3-Clause OR Apache-2.0"
+    },
+    {
+      "name": "quick-error",
+      "version": "2.0.1",
+      "license": "MIT/Apache-2.0"
+    },
+    {
+      "name": "quote",
+      "version": "1.0.47",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "serde",
+      "version": "1.0.229",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "serde_core",
+      "version": "1.0.229",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "serde_derive",
+      "version": "1.0.229",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "serde_json",
+      "version": "1.0.154",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "serde_spanned",
+      "version": "0.6.9",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "simd-adler32",
+      "version": "0.3.10",
+      "license": "MIT"
+    },
+    {
+      "name": "syn",
+      "version": "3.0.9",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "toml",
+      "version": "0.8.23",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "toml_datetime",
+      "version": "0.6.11",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "toml_edit",
+      "version": "0.22.27",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "toml_write",
+      "version": "0.1.2",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "name": "unicode-ident",
+      "version": "1.0.27",
+      "license": "(MIT OR Apache-2.0) AND Unicode-3.0"
+    },
+    {
+      "name": "winnow",
+      "version": "0.7.15",
+      "license": "MIT"
+    },
+    {
+      "name": "zmij",
+      "version": "1.0.23",
+      "license": "MIT"
+    },
+    {
+      "name": "zune-core",
+      "version": "0.5.3",
+      "license": "MIT OR Apache-2.0 OR Zlib"
+    },
+    {
+      "name": "zune-jpeg",
+      "version": "0.5.15",
+      "license": "MIT OR Apache-2.0 OR Zlib"
+    }
+  ],
+  "unselected_optional_lock_entry": {
+    "name": "zlib-rs",
+    "version": "0.6.8",
+    "license": "Zlib",
+    "authorized": false,
+    "compiled": false
+  },
+  "tree": "files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)\n\u251c\u2500\u2500 files-core v0.0.4 (/home/avillagran/Work/files/crates/core)\n\u2502   \u251c\u2500\u2500 libc v0.2.191\n\u2502   \u251c\u2500\u2500 serde v1.0.229\n\u2502   \u2502   \u251c\u2500\u2500 serde_core v1.0.229\n\u2502   \u2502   \u2514\u2500\u2500 serde_derive v1.0.229 (proc-macro)\n\u2502   \u2502       \u251c\u2500\u2500 proc-macro2 v1.0.107\n\u2502   \u2502       \u2502   \u2514\u2500\u2500 unicode-ident v1.0.27\n\u2502   \u2502       \u251c\u2500\u2500 quote v1.0.47\n\u2502   \u2502       \u2502   \u2514\u2500\u2500 proc-macro2 v1.0.107 (*)\n\u2502   \u2502       \u2514\u2500\u2500 syn v3.0.9\n\u2502   \u2502           \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n\u2502   \u2502           \u251c\u2500\u2500 quote v1.0.47 (*)\n\u2502   \u2502           \u2514\u2500\u2500 unicode-ident v1.0.27\n\u2502   \u2514\u2500\u2500 toml v0.8.23\n\u2502       \u251c\u2500\u2500 serde v1.0.229 (*)\n\u2502       \u251c\u2500\u2500 serde_spanned v0.6.9\n\u2502       \u2502   \u2514\u2500\u2500 serde v1.0.229 (*)\n\u2502       \u251c\u2500\u2500 toml_datetime v0.6.11\n\u2502       \u2502   \u2514\u2500\u2500 serde v1.0.229 (*)\n\u2502       \u2514\u2500\u2500 toml_edit v0.22.27\n\u2502           \u251c\u2500\u2500 indexmap v2.14.2\n\u2502           \u2502   \u251c\u2500\u2500 equivalent v1.0.3\n\u2502           \u2502   \u2514\u2500\u2500 hashbrown v0.17.1\n\u2502           \u251c\u2500\u2500 serde v1.0.229 (*)\n\u2502           \u251c\u2500\u2500 serde_spanned v0.6.9 (*)\n\u2502           \u251c\u2500\u2500 toml_datetime v0.6.11 (*)\n\u2502           \u251c\u2500\u2500 toml_write v0.1.2\n\u2502           \u2514\u2500\u2500 winnow v0.7.15\n\u251c\u2500\u2500 image v0.25.10\n\u2502   \u251c\u2500\u2500 bytemuck v1.25.2\n\u2502   \u251c\u2500\u2500 byteorder-lite v0.1.0\n\u2502   \u251c\u2500\u2500 image-webp v0.2.4\n\u2502   \u2502   \u251c\u2500\u2500 byteorder-lite v0.1.0\n\u2502   \u2502   \u2514\u2500\u2500 quick-error v2.0.1\n\u2502   \u251c\u2500\u2500 moxcms v0.8.1\n\u2502   \u2502   \u251c\u2500\u2500 num-traits v0.2.19\n\u2502   \u2502   \u2502   [build-dependencies]\n\u2502   \u2502   \u2502   \u2514\u2500\u2500 autocfg v1.5.1\n\u2502   \u2502   \u2514\u2500\u2500 pxfm v0.1.30\n\u2502   \u251c\u2500\u2500 num-traits v0.2.19 (*)\n\u2502   \u251c\u2500\u2500 png v0.18.1\n\u2502   \u2502   \u251c\u2500\u2500 bitflags v2.13.2\n\u2502   \u2502   \u251c\u2500\u2500 crc32fast v1.5.3\n\u2502   \u2502   \u2502   \u2514\u2500\u2500 cfg-if v1.0.5\n\u2502   \u2502   \u251c\u2500\u2500 fdeflate v0.3.7\n\u2502   \u2502   \u2502   \u2514\u2500\u2500 simd-adler32 v0.3.10\n\u2502   \u2502   \u251c\u2500\u2500 flate2 v1.1.10\n\u2502   \u2502   \u2502   \u251c\u2500\u2500 crc32fast v1.5.3 (*)\n\u2502   \u2502   \u2502   \u2514\u2500\u2500 miniz_oxide v0.9.1\n\u2502   \u2502   \u2502       \u251c\u2500\u2500 adler2 v2.0.1\n\u2502   \u2502   \u2502       \u2514\u2500\u2500 simd-adler32 v0.3.10\n\u2502   \u2502   \u2514\u2500\u2500 miniz_oxide v0.8.9\n\u2502   \u2502       \u251c\u2500\u2500 adler2 v2.0.1\n\u2502   \u2502       \u2514\u2500\u2500 simd-adler32 v0.3.10\n\u2502   \u251c\u2500\u2500 zune-core v0.5.3\n\u2502   \u2514\u2500\u2500 zune-jpeg v0.5.15\n\u2502       \u2514\u2500\u2500 zune-core v0.5.3\n\u251c\u2500\u2500 libc v0.2.191\n\u2514\u2500\u2500 serde_json v1.0.154\n    \u251c\u2500\u2500 itoa v1.0.18\n    \u251c\u2500\u2500 memchr v2.8.3\n    \u251c\u2500\u2500 serde_core v1.0.229\n    \u2514\u2500\u2500 zmij v1.0.23\n",
+  "limits_note": "License evidence only; not memory/UI validation"
+}

@@ -1,0 +1,6 @@
+{
+  "observed_failure": "sftp-executor-close-epoch-tests.log asserts new_owner.writable() after owner Drop; no PID/FD owner was recorded in that historical failure",
+  "deterministic_regression": "Private fork holds inherited flock FD, child release() must not unlock living parent; parent Drop must make a new opener writable while child still holds its inherited FD; reader never auto-upgrades",
+  "fix": "Lease RAII acquired immediately after flock, explicit LOCK_UN only from acquiring PID, including Store construction-error paths. Uses existing move_journal owner-PID precedent.",
+  "causal_limit": "The deterministic inherited-FD defect is confirmed. Exact child/cause of the prior concurrent failure is not identified. No test serialization or acceptance widening."
+}

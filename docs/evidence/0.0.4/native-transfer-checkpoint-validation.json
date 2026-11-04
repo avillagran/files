@@ -1,0 +1,47 @@
+{
+  "milestone": "M29a partial",
+  "functional_report": "clipboard-ui-1793133638367792338.json",
+  "checks": [
+    {
+      "command": "cargo test --workspace",
+      "log": "target/native-transfer-workspace-first-test.log",
+      "exit_code": 0,
+      "passed": 637,
+      "core": 208,
+      "helper": 67,
+      "ui": 362,
+      "ignored": 3
+    },
+    {
+      "command": "cargo clippy --workspace --all-targets -- -D warnings",
+      "log": "target/native-transfer-wiring-final-clippy.log",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo fmt --all --check",
+      "log": "target/native-transfer-final-fmt.log",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo build --release",
+      "log": "target/native-transfer-first-release.log",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/tabs-ui-check.py --clipboard",
+      "log": "target/native-transfer-clipboard-first-ui.log",
+      "exit_code": 0
+    }
+  ],
+  "preserved_failure": "target/native-transfer-wiring-first-clippy.log: missing C++ reading_epoch field, fixed before subsequent passes",
+  "scope": "codec, private pipes, injected State callbacks, UI rejection without gesture and private clipboard regression only; isolate-input disables native bridge",
+  "native_mime_interoperability": "UNVALIDATED_NO_NATIVE_INPUT",
+  "external_dnd": "PENDING_PINNED_BACKEND_HOOK",
+  "multiparent": "PENDING_EXPLICIT_REJECTION",
+  "kde": "PENDING_CORRELATED_CUT_METADATA",
+  "resource_gate": "NOT_MEASURED_FREEZE",
+  "startup_gate": "NOT_MEASURED_FREEZE",
+  "files_sha256": "10bc73cfa4d3843cfabc1971d04a21841e4c994daf311753e9198e6b204767f2",
+  "files-helper_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+  "files-html-helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

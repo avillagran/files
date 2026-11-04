@@ -1,0 +1,104 @@
+{
+  "source_commit": "ae80a56b33ec9187cabf36b70c2635e4cd480db0",
+  "scope": "SOURCE ONLY owned complete preparation artifact, saved intent/value readback, file/namespace ownership and Linux artifact durability barriers; not effect journal/operator approval/current source lease/executor/helper/UI/install",
+  "validation": {
+    "workspace_passed": 1482,
+    "core": 575,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 17,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "concurrency": "Normal Rust harness, one Cargo build job via idle snapshot gate; no competitor controlled, no --test-threads serialization",
+    "release_helper_ui_build": "NOT_RUN; no installation"
+  },
+  "format": {
+    "bundle_magic": "FLSSAV\\0\\x01",
+    "bundle_header": 24,
+    "bundle_fields": "LEu32 evidence length, LEu32 logical-plan length, LEu64 stage budget, complete FLSYNC evidence/FLSPLN choices/FLSMET actual values with nested seals and exact EOF",
+    "max_artifact": 8594608798,
+    "key_magic": "FLSMST\\0\\x01",
+    "key_bytes": 212,
+    "key_fields": "directory/file devino, both mount IDs, nonzero job16, evidence/logical/physical/value seals32 each, total artifact length64, record count32",
+    "bounds": "Evidence4657718B, plan16464B, metadata stream up to8GiB,32770values; no ordinary helper stdout cap widened",
+    "actual_max_fixture": "Both8192-child inventories;16384actual metadata values with320B xattrs stored/reopened beyond8MiB, no truncation",
+    "allocation_scope": "Bounded owned intent buffers plus streamed current Values; Record.from_owned validates before retaining original bounded buffer without a second full byte copy; not PSS or FD-peak measurement"
+  },
+  "implemented": [
+    "Existing private0700 root outside input scopes; raw absolute4096B/128-component namespace, no symlink components, captured current device/inode/mount chain and complete directory-ID/ancestry disjoint checks before artifact creation",
+    "Exclusive0600 new record with nonzero-job fixed name, never truncate/replace/reuse an existing or partial file; no automatic removal at Drop/failure",
+    "History open pins O_PATH and validates owned regular single-link private type before opening that exact proc FD for data; file/name/mount/length/mtime/ctime checks around reads/barriers",
+    "Exclusive nonblocking flock with creating-PID explicit unlock/EINTR handling; child Drop cannot unlock parent, parent Drop releases even while child has inherited descriptor",
+    "Complete intent/metadata readback matches checked acquisition, file fsync then child-first namespace fsync through root with one reopened prefix at a time, current binding checks and final source Plan.bind on creation after last callback",
+    "History/Durable/Uncertain states: every reopen loses barriers; new renew rereads intent/values and resyncs; failed renewal latches Uncertain until explicit drop/open",
+    "SavedIntent independently reconstructs decisions and nondefault stage budget without original source paths or Prepared pins; public data key decoding creates no live barrier",
+    "StoredProof and borrowed reverified BarrierReceipt bind exact artifact identity/intention; identical-byte replacement does not satisfy original file proof; durable artifact can coexist with changed source and no approval"
+  ],
+  "acceptance_history": [
+    "Initial metadata-only prototype16focusedPASS",
+    "Recovery review found seals alone cannot reconstruct lost plan; added complete evidence/choices/budget framing and no-copy validated owned Record path;17focusedPASS",
+    "First1482workspacePASS then one manual_range_contains Clippy lint; equivalent RangeInclusive.contains without suppression",
+    "1482/Clippy/fmt PASS after abrupt-process test switched to open_saved without parent plan and deleted input directories",
+    "Final1482/Clippy/fmt PASS after owned fork child liveness asserted with waitpid WNOHANG and EINTR-safe release protocol"
+  ],
+  "failures": [
+    {
+      "log": "initial-range-clippy-fail.log",
+      "failure": "One manual_range_contains style lint, no failed tests",
+      "fix": "Equivalent RangeInclusive.contains, no suppression"
+    }
+  ],
+  "crash_scope": "Three owned subprocesses exit91 via _exit before full record, after values, after final ACK; partial rejected or complete History reopened without auto resume, even without original paths or plan. This is process exit, not power cut/hardware crash durability. Fork fixtures confirm exact owned child alive at parent unlock; not a global helper lifetime claim.",
+  "cargo_admission": "Exact o3-server Cargo PID/start identities observed/waited via admission wrapper, including1281147/start7946309,1322892/start8053086,1352977/start8085858. No competitor signaled/controlled. Idle snapshot does not exclude later Cargo.",
+  "log_archive_notes": [
+    {
+      "text": "prototype-16-focused-pass.log",
+      "normalization": "Only trailing spaces/tabs per line and trailing empty EOF lines removed for git whitespace; exact raw archive retained",
+      "raw_archive": "prototype-16-focused-pass.log.raw.gz",
+      "raw_sha256": "bc3421d7f22b958069eb0f3e10c26f78cf4836ed98d300b976173a9bac5b016e"
+    },
+    {
+      "text": "saved-intent-17-focused-pass.log",
+      "normalization": "Only trailing spaces/tabs per line and trailing empty EOF lines removed for git whitespace; exact raw archive retained",
+      "raw_archive": "saved-intent-17-focused-pass.log.raw.gz",
+      "raw_sha256": "874710629da13ece35861b58a8aa25acb5c7b926ac083d198820948229bcec87"
+    },
+    {
+      "text": "initial-1482-workspace-pass.log",
+      "normalization": "Only trailing spaces/tabs per line and trailing empty EOF lines removed for git whitespace; exact raw archive retained",
+      "raw_archive": "initial-1482-workspace-pass.log.raw.gz",
+      "raw_sha256": "72190b855d275cd24d44cbcff4d8acd5453d71b017b7cfa08b8a13b65ad991f3"
+    },
+    {
+      "text": "before-child-liveness-workspace.log",
+      "normalization": "Only trailing spaces/tabs per line and trailing empty EOF lines removed for git whitespace; exact raw archive retained",
+      "raw_archive": "before-child-liveness-workspace.log.raw.gz",
+      "raw_sha256": "92eb4b77644176fb3df8592ec641d200627c2dcd408c2b00244d1decbc183d17"
+    },
+    {
+      "text": "accepted-workspace.log",
+      "normalization": "Only trailing spaces/tabs per line and trailing empty EOF lines removed for git whitespace; exact raw archive retained",
+      "raw_archive": "accepted-workspace.log.raw.gz",
+      "raw_sha256": "a3ada44c9cb0955b512a88f3cccee33838ca2e7f6a8cf7789370a989a4f7c213"
+    }
+  ],
+  "installation": "Five existing dry-run hashes unchanged against1793574522897173033, app289db327/helper170f995/HTML04aa7953; installed-unchanged.json",
+  "limitations": [
+    "Artifact durability/identity is separate from source freshness, explicit operator approval and effect-journal ACK; no data operation may infer authority from parsed history/StoredProof/State alone",
+    "No effect journal/approval/helper session/pins/ACK/UI integration, per-effect own namespace/revision/nlink/ctime ledger, actual staging/backups/publication/queue/crash undo yet",
+    "Store root must be existing private/readable directory with no symlink components, outside both inputs; no automatic namespace provisioning, takeover, cleanup or resume",
+    "Locks are advisory; positive name/mount/revision checks are point-in-time, not exclusion of uncooperative writers or ABA-free global namespace/snapshot",
+    "Only owned local NODE fixture acceptance, no privileged live mount/unmount, power-loss, other OS or blocking-syscall deadline claim",
+    "Sequential streaming inspect is available; bounded indexed value access for later directory-postorder/stage application remains a next step",
+    "Absolute PSS/Swap/CPU/startup freeze and new-preview pause retained; structural bounds are not resource/native/global evidence"
+  ],
+  "next": "Bounded indexed value access plus owned sequenced effect journal referencing exact preparation proof; new visible approval tied complete job/intent and live helper/source proofs, own effect ledger, all-source staging before destination effects, recoverable no-clobber backup/publication/barriers, queue and explicit recovery/undo. Owned fixtures only.",
+  "full_goal": "ACTIVE, complete original objective unchanged",
+  "source_sha256": {
+    "crates/core/src/directory_sync_store.rs": "8dbd75a2d0a87b5d3c277aec7468cd833a024c33ce2b41c4db8f8269f3879852",
+    "crates/core/src/directory_sync_record.rs": "06e73da7944508b0c3ca67d24ecca71623b79d83cb03b6f43a356a6c21a1ebb1",
+    "crates/core/src/directory_sync_metadata.rs": "1699ab01904f6f640cbf9031cc14237abd8318034337e8a19e23a640bb12041f",
+    "crates/core/src/lib.rs": "ec6dd63f95ccfd2da317920a1c3efb33bee839526f48fc9bfa2de2f0520e1f88"
+  }
+}

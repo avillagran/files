@@ -1,0 +1,26 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+   Compiling files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+error[E0004]: non-exhaustive patterns: `rename_job::Response::Properties(_, _)` not covered
+   --> crates/ui/src/rename_job.rs:520:15
+    |
+520 |         match receive(worker) {
+    |               ^^^^^^^^^^^^^^^ pattern `rename_job::Response::Properties(_, _)` not covered
+    |
+note: `rename_job::Response` defined here
+   --> crates/ui/src/rename_job.rs:76:10
+    |
+ 76 | pub enum Response {
+    |          ^^^^^^^^
+ 77 |     Properties(u64, Box<crate::properties_job::Reply>),
+    |     ---------- not covered
+    = note: the matched value is of type `rename_job::Response`
+help: ensure that all possible cases are being handled by adding a match arm with a wildcard pattern or an explicit pattern as shown
+    |
+525 ~             Response::Planned(_, _) => panic!("expected finished mutation"),
+526 ~             rename_job::Response::Properties(_, _) => todo!(),
+    |
+
+For more information about this error, try `rustc --explain E0004`.
+error: could not compile `files-ui` (lib test) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

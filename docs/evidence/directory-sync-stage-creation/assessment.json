@@ -1,0 +1,77 @@
+{
+  "source_commit": "1dd02a22ab8afac0a538ebda9600e542e9d4d0e0",
+  "machine": "NODE",
+  "checked_at": "2026-11-02",
+  "scope": "SOURCE ONLY journal-bound actual staged node creation, not workspace creator, metadata-intent writer, full native approval/recovery coordinator or installed Apply",
+  "validation": {
+    "workspace_passed": 1556,
+    "core": 649,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 8,
+    "focused_initial_total": 5,
+    "focused_initial_new": 4,
+    "focused_expanded_total": 8,
+    "focused_expanded_new": 7,
+    "focused_exit_total": 9,
+    "focused_exit_new": 8,
+    "clippy": "PASS final workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "harness": "Normal Rust harness; original idle Cargo gate unchanged, only ignored exact-PID/start waiter deadline180\u2192900; competitors/cache locks untouched; idle snapshot not exclusion",
+    "release_install_gui_resources": "NOT_RUN"
+  },
+  "implemented": [
+    "Schema binds exact source root/index/raw relative/object/revision/content/metadata, workspace and planned parent identities/mounts/private0700, raw name/destination device/mount/kind, cohort leader and Store proof",
+    "New strict v1 event28 NodeCreateIntent body37B and event29 NodeMaterialized body5B, existing192B/event256MiB/journal caps; pending guard blocks next create/verification and no implicit retry/replay",
+    "Full intent readback/fsync/ACK before exactly one exclusive regular open/mkdir/symlink/held-FD hardlink; identity NodeCreated ACK before regular bytes, temporary regular mode normalized by returned FD",
+    "Regular source exact-size/EOF SHA streaming64KiB and bounded staged readback+one EOF sentinel; same per-pass allowance\u22641TiB, copied/verified separate; literal source/destination symlink via held descriptors without following targets",
+    "Data/directory and parent sync plus source/path/owner/guard checks, then NodeMaterialized ACK before private live receipt; failures retain partials and poison owner with precise intent/attempt/success/identity flags",
+    "Live same-Store/Journal/process leader receipt, exact known link count and held-inode proc magic-link aliasing; cross-workspace regular and symlink cohorts proven without modifying symlink target",
+    "Typed creation evidence: atomic ExclusiveFile, LinkedHeldDescriptor, qualified NamedPostimage for mkdirat/symlinkat (no returned inode FD and equivalent substitution gap not proven away)",
+    "Owned sync fixtures now use actual creator\u2192actual metadata reproduction\u2192actual global staging barrier\u2192owned preserve/publish, including rawFF/newline tree and131073-byte child"
+  ],
+  "acceptance_history": [
+    "Initial E0433 fs and E0599 Digest imports corrected; compilation failure retained",
+    "Four new focused tests passed; seven expanded passed including aliases and Control",
+    "Readback capped before each read and three real subprocess exits89 added; eight focused passed plus one legacy EXDEV test",
+    "Initial1556 workspace and Clippy passed",
+    "Static final audit found missing symlink attempted flag; moved before symlinkat, added raced symlink collision assertion",
+    "Final1556 workspace/Clippy/fmt passed; five installed hashes unchanged"
+  ],
+  "tests": [
+    "Empty/multichunk files, exact copy/readback and no repeated node index",
+    "Ten injected intent-write/file-sync/ACK/create/record/payload/data-sync/ready faults, retained objects, pending History renewal forbids retry",
+    "Existing/raced regular and symlink collisions, stale source before/after intent and known read budget reject without overwriting",
+    "Codec all truncations/extra bytes and materialization before identity rejected",
+    "Cross-workspace file and symlink hardlink cohorts, target inode link count/data intact",
+    "Wrong/nonempty named postimage and late exclusive-file name substitution preserve originals/replacements",
+    "Pause/resume/cancel and actual exits89 before identity, after identity and after materialization ACK (not power loss)"
+  ],
+  "limits": [
+    "Caller must establish real/durable private workspace creation, proper same-mount placement, native approval/helper/original-source/absolute bindings; declarations/receipts are not authority",
+    "mkdirat/symlinkat do not return inode FDs: NamedPostimage is not atomic creator provenance; equivalent empty replacement can be indistinguishable. Native policy acceptance unfinished",
+    "Metadata write intents/complete coordinator, whole-batch path/name/wire/FD admission, workspace placement including mount roots, Source full-scope final freshness and recovery/undo/UI Apply remain pending",
+    "Directory materialization is an empty scaffold; final children/metadata/hash/global staging confirmation mandatory; receipt is historical readback not FS snapshot",
+    "Open/renew never reconstructs a live leader receipt or auto resumes; ready guard may clear before later error/exit, still History not recovery authority",
+    "Resource/startup freeze and new-preview pause retained; quadratic namespace/journal bulk scaling and native/global gates remain open",
+    "Process exits and fsync ACKs do not prove power-loss or remote-filesystem outcomes"
+  ],
+  "installed_hashes": "installed-hashes.json",
+  "probe": "symlink-held-link-probe.json",
+  "source_sha256": {
+    "crates/core/src/directory_sync_journal.rs": "187196766c476d38d42ae341c3face846086b6adaf2821a7849253e3471fef56",
+    "crates/core/src/directory_sync_journal/create.rs": "2cad278c9e7d324162931c12999707043ef389f695273555c87536539098da3d",
+    "crates/core/src/directory_sync_store.rs": "87a6bffb1adb94dd6f46c991e48cd084614c0c13263b9b794f035dc0ad202c5f",
+    "crates/core/src/directory_sync_store/linux/journal.rs": "94d574c99da6846c6205841518c39a9ebf1b496563af618561f855c7ece4d159",
+    "crates/core/src/directory_sync_store/linux/journal/create.rs": "a103501aba0fc1dcffe86a145b24c8ad416c83774d9029a4fd2475414fee30df",
+    "crates/core/src/exdev_source.rs": "c6196dca524b117e7c8ef74cf0da9295b30724d2be08122bce4a3a77f3f5fa31",
+    "crates/core/src/exdev_source/linux/sync_create.rs": "91492e2f2a9a5aa5380aca1ed9e84ef0de39650a0207e81a8f330da80111baaa",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "4e908978d970c1426d129f9381af493d89b8dbfe1b4cd14ca26abd8ff0ae7132",
+    "docs/DIRECTORY-SYNC-JOURNAL.md": "6089493a15f027289eb38db0892c28ef1723d18e2f545b031ee4d1a57da93a23",
+    "docs/DIRECTORY-SYNC-STAGE-CREATION.md": "b3760c23e52916c2a4d1aad24d0b389d299b70c67eacb445adb78a1b76cad1bb",
+    "docs/DIRECTORY-SYNC-STAGE-METADATA.md": "36b4acba10c5841db0542d033a06e9b3fed6570db60535e9764c2ffa8fa81f5b",
+    "docs/DIRECTORY-SYNC-STAGING-BARRIER.md": "ee321c75714f564d09c03e37d373c0cf207ef9df159a401648b6afd257ed77fe",
+    "docs/ROADMAP.md": "6c07f3b7032261bccd0d7e5a0a7e980d4616008d0bb2da5b390f3eb6d8ca7b34"
+  }
+}

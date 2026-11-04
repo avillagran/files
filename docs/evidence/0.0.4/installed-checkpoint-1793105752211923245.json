@@ -1,0 +1,40 @@
+{
+  "checkpoint": "8032120c02400e5c70587e091130bfc54c22a6fd",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/0.0.4/office-ui-1793105654289278359.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793105751845996483",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "a682485cf39a00fe2695a4b020338c55d156277f4b5ef08ba01d3964fb73fc3a",
+      "release_sha256": "9703332b6c7d3767aedb769c07eb3080e6c2c07a7e23a9994b704f3b1cd3a6db",
+      "installed_sha256": "9703332b6c7d3767aedb769c07eb3080e6c2c07a7e23a9994b704f3b1cd3a6db"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+      "release_sha256": "1b06c98aa9037ee2ab1d461e874de08fab87823fcd0ef33f480b245a5ef230f5",
+      "installed_sha256": "1b06c98aa9037ee2ab1d461e874de08fab87823fcd0ef33f480b245a5ef230f5"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "release_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "release_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

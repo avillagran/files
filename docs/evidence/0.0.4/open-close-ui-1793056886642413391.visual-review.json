@@ -1,0 +1,6 @@
+{
+  "functional_report": "open-close-ui-1793056886642413391.json",
+  "visual_gate": "FAIL",
+  "reason": "status line clips PENDIENTE and exit7; real error existed but full cause not visible; shorten summaries before checkpoint",
+  "native_input": "PENDING_DRIVER_TARGET"
+}

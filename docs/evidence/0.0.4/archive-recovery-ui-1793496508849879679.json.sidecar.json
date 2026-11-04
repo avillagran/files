@@ -1,0 +1,5 @@
+{
+  "classification": "harness assumption failure",
+  "finding": "Cleanup actually completed with zero newly published roots and zero copied bytes. Harness incorrectly required an open error notice for success, whose established UI is a compact toast. Original FAIL and framebuffers preserved.",
+  "change": "Accept successful outcome independently of notice; failures must still show notice. No product relaxation."
+}

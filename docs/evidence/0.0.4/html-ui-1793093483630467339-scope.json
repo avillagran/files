@@ -1,0 +1,11 @@
+{
+  "scope": "HTML selected source lifecycle and existing CSS/render/selection/resize; internal shared handlers and real FLTK framebuffer",
+  "active_helper_at_close": "NOT_VALIDATED",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_input": "NOT_VALIDATED",
+  "native_2x_sharpness": "NOT_VALIDATED",
+  "typography": "approximate scalar monospace, clipping in CJK/cells remains known; not correct shaping",
+  "cleanup_scope": "14 logged PID/start identities absent or reused after exit0/State drain; same-identity zombies fail, not lifetime coverage",
+  "io_stuck": "gate/controller tests only, no real stuck mount syscall"
+}

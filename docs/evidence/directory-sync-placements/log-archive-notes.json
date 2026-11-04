@@ -1,0 +1,62 @@
+[
+  {
+    "text": "initial-core-check-pass.log",
+    "raw_archive": "initial-core-check-pass.log.raw.gz",
+    "raw_sha256": "7cea6d108d6d7f712905f1f66a25d6986cbce05966368e52754a585985273a69",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "factory-ten-pass.log",
+    "raw_archive": "factory-ten-pass.log.raw.gz",
+    "raw_sha256": "5569cf32481714b93b84f93804011469d963b90f003b6b59dbbc1ea73ae73312",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "initial-new-fixture-fail.log",
+    "raw_archive": "initial-new-fixture-fail.log.raw.gz",
+    "raw_sha256": "3932888be9533bd5f1c844c8d12939752f9bd00fe8ff144fd046f73b7151ccf9",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "corrected-44-pass.log",
+    "raw_archive": "corrected-44-pass.log.raw.gz",
+    "raw_sha256": "ce8f0a5db6fb17ebe5eac7ab9160267f50c28891193cc3e861d7bd6f81e31cd3",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "initial-workspace-1589-pass.log",
+    "raw_archive": "initial-workspace-1589-pass.log.raw.gz",
+    "raw_sha256": "98d0cb24c15ba878740d56248329777362f64f068a2944792ed676049ac8edec",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "initial-clippy-chunks-fail.log",
+    "raw_archive": "initial-clippy-chunks-fail.log.raw.gz",
+    "raw_sha256": "0a61e7aceb54092409932048c730ccc3d3000697ff0e0943007eabe6d32ff820",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "final-45-pass.log",
+    "raw_archive": "final-45-pass.log.raw.gz",
+    "raw_sha256": "7288c892cebb92bbc8e66c7bf0797998e512d1612708d099c82dc38ba8ccb86a",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "workspace-final-1590-pass.log",
+    "raw_archive": "workspace-final-1590-pass.log.raw.gz",
+    "raw_sha256": "078e957e79919cf6c6efb15de04aa7033b946a61fc199b7b13dc3e9cd28fe4b5",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "clippy-pass.log",
+    "raw_archive": "clippy-pass.log.raw.gz",
+    "raw_sha256": "5de431507ccb347d17475e64c1af31ef7bf9e3f106e0b38182c5271cc9136e8b",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "fmt-check-pass.log",
+    "raw_archive": "fmt-check-pass.log.raw.gz",
+    "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  }
+]

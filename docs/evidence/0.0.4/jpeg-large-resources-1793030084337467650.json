@@ -1,0 +1,6671 @@
+{
+  "method": "Space image UI handlers and FLTK framebuffer; no native OS input",
+  "captures": [],
+  "clipboard": "not read in resource mode",
+  "resource_gate": "PASS",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0e26c9d0"
+  },
+  "cleanup": {
+    "complete": true,
+    "survivors": [],
+    "errors": [],
+    "scope": "observed PID/starttime tree, read-only after exit0"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "fixtures": "baseline JPEG12/24MP RGB-pattern IDCT, EXIF24MP and progressive12/24 rejection in capture only; resource mode two baseline files only/no pending-close spawn",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=107280\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK jpeg12\nFILES_PREVIEW_HELPER pid=2946683 start=47285533 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=1000 height=750 source=4000x3000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-4gu6orzb/files/baseline12.jpg\")\nFILES_PREVIEW_COMMAND_OK jpeg24\nFILES_PREVIEW_HELPER pid=2946685 start=47285541 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=750 height=500 source=6000x4000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-4gu6orzb/files/baseline24.jpg\")\nFILES_PREVIEW_COMMAND_OK close\nFILES_PREVIEW_DRAINED\n",
+  "metrics": {
+    "complete": true,
+    "sample_count": 204,
+    "sample_interval_requested_ms": 5.0,
+    "max_observed_interval_ms": 69.09002101747319,
+    "stable_sample_count": 159,
+    "sampled_maxima": {
+      "pss_kib": 41370,
+      "swap_pss_kib": 0,
+      "memory_kib": 41370,
+      "fds": 20,
+      "threads": 7,
+      "process_count": 2
+    },
+    "sample_at_memory_max": {
+      "pss_kib": 41370,
+      "swap_pss_kib": 0,
+      "threads": 5,
+      "fds": 11,
+      "memory_kib": 41370,
+      "time_monotonic": 472855.244886541,
+      "cpu_percent_observed": 157.00130043394466,
+      "root_alive": true,
+      "process_count": 1,
+      "complete": true,
+      "errors": [],
+      "processes": [
+        {
+          "pid": 2946662,
+          "start": 47285511,
+          "pss_kib": 41370,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11
+        }
+      ],
+      "exited_during_read": [
+        {
+          "pid": 2946664,
+          "start": 47285519,
+          "phase": "discovery_stat",
+          "reason": "process directory disappeared",
+          "memory_available": false,
+          "parent_pid": null
+        },
+        {
+          "pid": 2946667,
+          "start": 47285522,
+          "phase": "discovery_stat",
+          "reason": "process directory disappeared",
+          "memory_available": false,
+          "parent_pid": null
+        }
+      ],
+      "discovery_events": [],
+      "discovery": "children",
+      "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+    },
+    "stable_medians": {
+      "pss_kib": 38324,
+      "swap_pss_kib": 0,
+      "memory_kib": 38324,
+      "fds": 11,
+      "threads": 5,
+      "process_count": 1
+    },
+    "stable_cpu_percent_observed_median": 0.0,
+    "stable_cpu_percent_observed_max": 269.7217887111843,
+    "observed_process_identities": [
+      [
+        2946662,
+        47285511
+      ],
+      [
+        2946664,
+        47285519
+      ],
+      [
+        2946667,
+        47285522
+      ],
+      [
+        2946683,
+        47285533
+      ],
+      [
+        2946685,
+        47285541
+      ]
+    ],
+    "exited_process_identities": [
+      [
+        2946664,
+        47285519
+      ],
+      [
+        2946667,
+        47285522
+      ],
+      [
+        2946683,
+        47285533
+      ],
+      [
+        2946685,
+        47285541
+      ]
+    ],
+    "exited_during_read": [
+      {
+        "sample": 17,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 18,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 19,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 19,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 20,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 20,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 21,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 21,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 22,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 22,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 23,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 23,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 24,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 24,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 25,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 25,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 26,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 26,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 27,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 27,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 28,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 28,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 29,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 29,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 30,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 30,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 31,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 31,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 31,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 32,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 32,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 32,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 33,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 33,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 33,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 34,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 34,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 34,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 35,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 35,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 35,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 36,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 36,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 36,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 37,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 37,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 37,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 38,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 38,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 38,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 39,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 39,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 39,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 40,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 40,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 40,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 41,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 41,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 41,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 41,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 42,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 42,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 42,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 42,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 43,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 43,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 43,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 43,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 44,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 44,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 44,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 44,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 45,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 45,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 45,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 45,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 46,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 46,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 46,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 46,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 47,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 47,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 47,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 47,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 48,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 48,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 48,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 48,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 49,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 49,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 49,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 49,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 50,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 50,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 50,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 50,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 51,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 51,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 51,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 51,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 52,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 52,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 52,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 52,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 53,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 53,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 53,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 53,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 54,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 54,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 54,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 54,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 55,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 55,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 55,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 55,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 56,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 56,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 56,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 56,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 57,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 57,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 57,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 57,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 58,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 58,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 58,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 58,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 59,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 59,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 59,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 59,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 60,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 60,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 60,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 60,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 61,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 61,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 61,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 61,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 62,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 62,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 62,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 62,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 63,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 63,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 63,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 63,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 64,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 64,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 64,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 64,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 65,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 65,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 65,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 65,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 66,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 66,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 66,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 66,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 67,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 67,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 67,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 67,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 68,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 68,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 68,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 68,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 69,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 69,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 69,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 69,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 70,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 70,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 70,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 70,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 71,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 71,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 71,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 71,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 72,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 72,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 72,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 72,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 73,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 73,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 73,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 73,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 74,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 74,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 74,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 74,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 75,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 75,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 75,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 75,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 76,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 76,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 76,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 76,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 77,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 77,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 77,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 77,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 78,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 78,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 78,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 78,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 79,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 79,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 79,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 79,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 80,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 80,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 80,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 80,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 81,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 81,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 81,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 81,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 82,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 82,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 82,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 82,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 83,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 83,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 83,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 83,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 84,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 84,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 84,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 84,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 85,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 85,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 85,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 85,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 86,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 86,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 86,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 86,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 87,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 87,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 87,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 87,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 88,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 88,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 88,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 88,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 89,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 89,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 89,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 89,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 90,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 90,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 90,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 90,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 91,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 91,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 91,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 91,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 92,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 92,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 92,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 92,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 93,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 93,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 93,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 93,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 94,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 94,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 94,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 94,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 95,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 95,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 95,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 95,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 96,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 96,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 96,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 96,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 97,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 97,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 97,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 97,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 98,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 98,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 98,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 98,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 99,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 99,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 99,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 99,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 100,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 100,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 100,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 100,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 101,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 101,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 101,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 101,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 102,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 102,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 102,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 102,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 103,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 103,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 103,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 103,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 104,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 104,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 104,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 104,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 105,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 105,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 105,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 105,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 106,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 106,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 106,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 106,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 107,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 107,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 107,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 107,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 108,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 108,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 108,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 108,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 109,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 109,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 109,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 109,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 110,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 110,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 110,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 110,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 111,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 111,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 111,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 111,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 112,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 112,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 112,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 112,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 113,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 113,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 113,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 113,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 114,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 114,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 114,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 114,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 115,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 115,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 115,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 115,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 116,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 116,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 116,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 116,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 117,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 117,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 117,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 117,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 118,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 118,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 118,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 118,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 119,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 119,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 119,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 119,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 120,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 120,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 120,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 120,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 121,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 121,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 121,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 121,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 122,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 122,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 122,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 122,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 123,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 123,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 123,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 123,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 124,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 124,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 124,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 124,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 125,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 125,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 125,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 125,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 126,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 126,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 126,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 126,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 127,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 127,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 127,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 127,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 128,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 128,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 128,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 128,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 129,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 129,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 129,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 129,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 130,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 130,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 130,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 130,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 131,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 131,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 131,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 131,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 132,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 132,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 132,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 132,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 133,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 133,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 133,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 133,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 134,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 134,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 134,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 134,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 135,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 135,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 135,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 135,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 136,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 136,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 136,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 136,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 137,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 137,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 137,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 137,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 138,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 138,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 138,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 138,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 139,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 139,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 139,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 139,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 140,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 140,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 140,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 140,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 141,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 141,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 141,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 141,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 142,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 142,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 142,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 142,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 143,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 143,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 143,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 143,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 144,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 144,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 144,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 144,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 145,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 145,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 145,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 145,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 146,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 146,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 146,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 146,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 147,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 147,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 147,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 147,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 148,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 148,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 148,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 148,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 149,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 149,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 149,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 149,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 150,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 150,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 150,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 150,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 151,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 151,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 151,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 151,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 152,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 152,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 152,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 152,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 153,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 153,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 153,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 153,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 154,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 154,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 154,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 154,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 155,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 155,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 155,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 155,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 156,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 156,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 156,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 156,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 157,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 157,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 157,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 157,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 158,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 158,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 158,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 158,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 159,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 159,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 159,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 159,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 160,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 160,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 160,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 160,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 161,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 161,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 161,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 161,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 162,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 162,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 162,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 162,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 163,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 163,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 163,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 163,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 164,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 164,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 164,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 164,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 165,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 165,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 165,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 165,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 166,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 166,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 166,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 166,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 167,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 167,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 167,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 167,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 168,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 168,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 168,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 168,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 169,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 169,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 169,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 169,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 170,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 170,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 170,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 170,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 171,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 171,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 171,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 171,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 172,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 172,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 172,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 172,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 173,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 173,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 173,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 173,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 174,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 174,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 174,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 174,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 175,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 175,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 175,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 175,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 176,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 176,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 176,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 176,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 177,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 177,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 177,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 177,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 178,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 178,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 178,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 178,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 179,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 179,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 179,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 179,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 180,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 180,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 180,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 180,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 181,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 181,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 181,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 181,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 182,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 182,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 182,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 182,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 183,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 183,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 183,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 183,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 184,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 184,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 184,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 184,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 185,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 185,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 185,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 185,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 186,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 186,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 186,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 186,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 187,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 187,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 187,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 187,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 188,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 188,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 188,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 188,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 189,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 189,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 189,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 189,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 190,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 190,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 190,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 190,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 191,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 191,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 191,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 191,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 192,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 192,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 192,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 192,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 193,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 193,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 193,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 193,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 194,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 194,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 194,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 194,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 195,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 195,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 195,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 195,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 196,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 196,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 196,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 196,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 197,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 197,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 197,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 197,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 198,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 198,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 198,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 198,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 199,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 199,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 199,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 199,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 200,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 200,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 200,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 200,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 201,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 201,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 201,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 201,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 202,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 202,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 202,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 202,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 203,
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 203,
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 203,
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      },
+      {
+        "sample": 203,
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null
+      }
+    ],
+    "exited_during_read_count": 708,
+    "discovery_events": [
+      {
+        "sample": 30,
+        "pid": 2946662,
+        "start": 47285511,
+        "tid": 2946682,
+        "task_start": 47285533,
+        "phase": "task_children",
+        "reason": "task directory disappeared during discovery",
+        "memory_available": false
+      }
+    ],
+    "discovery_event_count": 1,
+    "discovery_modes": [
+      "children"
+    ],
+    "completeness_scope": "complete verifies surviving readable identities and discovery reads, not lifetimes; confirmed exits and lost/reused TID children can have unavailable process/memory coverage",
+    "errors": [],
+    "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+    "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals",
+    "exit_summary_by_identity_phase": [
+      {
+        "pid": 2946664,
+        "start": 47285519,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null,
+        "observation_count": 187,
+        "first_sample": 17,
+        "last_sample": 203
+      },
+      {
+        "pid": 2946667,
+        "start": 47285522,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null,
+        "observation_count": 185,
+        "first_sample": 19,
+        "last_sample": 203
+      },
+      {
+        "pid": 2946683,
+        "start": 47285533,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null,
+        "observation_count": 173,
+        "first_sample": 31,
+        "last_sample": 203
+      },
+      {
+        "pid": 2946685,
+        "start": 47285541,
+        "phase": "discovery_stat",
+        "reason": "process directory disappeared",
+        "memory_available": false,
+        "parent_pid": null,
+        "observation_count": 163,
+        "first_sample": 41,
+        "last_sample": 203
+      }
+    ],
+    "known_exit_identity_count": 4
+  },
+  "stable_since_monotonic": 472855.455334708,
+  "stable_until_monotonic": 472856.456520677,
+  "stable_phase": "one-second post-Ready window; can include first software paint, not universal idle",
+  "discovery_mode": "children",
+  "terminal_exit_observations": [
+    {
+      "pss_kib": 0,
+      "swap_pss_kib": 0,
+      "threads": 0,
+      "fds": 0,
+      "memory_kib": 0,
+      "time_monotonic": 472856.46931405,
+      "cpu_percent_observed": 0.0,
+      "root_alive": false,
+      "process_count": 0,
+      "complete": false,
+      "errors": [],
+      "processes": [],
+      "exited_during_read": [
+        {
+          "pid": 2946664,
+          "start": 47285519,
+          "phase": "discovery_stat",
+          "reason": "process directory disappeared",
+          "memory_available": false,
+          "parent_pid": null
+        },
+        {
+          "pid": 2946667,
+          "start": 47285522,
+          "phase": "discovery_stat",
+          "reason": "process directory disappeared",
+          "memory_available": false,
+          "parent_pid": null
+        },
+        {
+          "pid": 2946683,
+          "start": 47285533,
+          "phase": "discovery_stat",
+          "reason": "process directory disappeared",
+          "memory_available": false,
+          "parent_pid": null
+        },
+        {
+          "pid": 2946685,
+          "start": 47285541,
+          "phase": "discovery_stat",
+          "reason": "process directory disappeared",
+          "memory_available": false,
+          "parent_pid": null
+        }
+      ],
+      "discovery_events": [],
+      "discovery": "children",
+      "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+    }
+  ],
+  "helper_identities_verified": [
+    [
+      2946683,
+      47285533
+    ],
+    [
+      2946685,
+      47285541
+    ]
+  ],
+  "helpers_with_unknown_starttime": [],
+  "spawned_image_helpers": [
+    [
+      2946683,
+      47285533
+    ],
+    [
+      2946685,
+      47285541
+    ]
+  ],
+  "helpers_without_memory_sample": [],
+  "sampled_peak_memory_mb_decimal": 42.36288,
+  "goal_met": true,
+  "observed_goal_exceeded": false,
+  "resource_scope": "sampled main+helpers PSS+Swap, all logged helpers require observed memory; not full lifetimes/exact peak; GPU excluded; two baseline12/24MP synthetic-pattern JPEG decodes; five listed fixtures, progressive decoding not measured, not baseline10k",
+  "binary_sha256": "121d88b93d75dfefea29108b9e2e78c63876e54b95f6c5ff4acf4ada7ae17068",
+  "helper_sha256": "b826e2eca4c14628adcccd02dd4769c57f0ed2695b7c3da42dc27ae21b7368e0",
+  "warnings": [
+    "4 known exited identities, 708 raw repeated observation records; raw observations preserved, not additional children.",
+    "1 TID/children discovery lifetime gap; complete only verifies surviving readable identities, not all lifetimes.",
+    "Post-Ready CPU window includes rendering; maximum269.72% is not settled idle."
+  ],
+  "derived_summary_note": "Groups/warnings added after run without resampling; raw process metrics retained unchanged."
+}

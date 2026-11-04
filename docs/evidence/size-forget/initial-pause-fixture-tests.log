@@ -1,0 +1,33 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.39s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-6cb802029f4441f7)
+
+running 6 tests
+test size_queue::tests::forgetting_other_observation_does_not_reset_active_epoch_or_progress ... ok
+test size_queue::tests::forgetting_finished_row_releases_capacity_but_never_forgets_queued_or_active_ack ... ok
+test size_queue::tests::snapshot_forget_preserves_new_measurements_errors_pause_and_zero_semantics ... FAILED
+test navigation_tests::forgetting_measurement_keeps_browser_selection_generation_and_rejects_old_panel_buttons ... ok
+test navigation_tests::forget_report_uses_frozen_ids_and_keeps_measurements_that_finish_later ... FAILED
+test dual_pane::tests::forgetting_size_reorders_both_views_without_changing_their_selection ... ok
+
+failures:
+
+---- size_queue::tests::snapshot_forget_preserves_new_measurements_errors_pause_and_zero_semantics stdout ----
+
+thread 'size_queue::tests::snapshot_forget_preserves_new_measurements_errors_pause_and_zero_semantics' (2272634) panicked at crates/ui/src/size_queue.rs:770:9:
+assertion failed: s.paused()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- navigation_tests::forget_report_uses_frozen_ids_and_keeps_measurements_that_finish_later stdout ----
+
+thread 'navigation_tests::forget_report_uses_frozen_ids_and_keeps_measurements_that_finish_later' (2272630) panicked at crates/ui/src/navigation_tests.rs:1841:5:
+assertion failed: m.sizes.paused()
+
+
+failures:
+    navigation_tests::forget_report_uses_frozen_ids_and_keeps_measurements_that_finish_later
+    size_queue::tests::snapshot_forget_preserves_new_measurements_errors_pause_and_zero_semantics
+
+test result: FAILED. 4 passed; 2 failed; 0 ignored; 0 measured; 633 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `-p files-ui --lib`

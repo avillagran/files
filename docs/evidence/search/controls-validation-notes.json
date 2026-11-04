@@ -1,0 +1,12 @@
+{
+  "previous_report": "search-controls-ui-1793402706606379401.json",
+  "functional_scope": "PASS private handlers, real helper IPC and framebuffer; no native OS input",
+  "visual_issue": {
+    "gate": "FAIL",
+    "capture": "search-controls-440x440-1793402704597886286.png",
+    "detail": "Expanded two-row form leaves an 8px results viewport. Multi-line help is clipped to an unreadable sliver. Not accepted as final visual delivery."
+  },
+  "correction": "Skip three-line help without54px and result rows/hits without46px body space. Preserve retained results while expanded drawer hides them; final private scene checks no clipped row targets at440. No helper/input semantics change. Final visual regression pending; original report and17captures preserved.",
+  "final_report": "search-controls-ui-1793402932050805344.json",
+  "final_visual": "PASS scoped:18framebuffers, four inputs at1000/800/440, no help sliver and zero row targets with retained results at440. Original17FB and visualFAIL preserved. Pure handlers/FLTK, not OS input."
+}

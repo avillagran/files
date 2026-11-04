@@ -1,0 +1,87 @@
+{
+  "complete": true,
+  "sample_count": 35,
+  "sample_interval_requested_ms": 25.0,
+  "max_observed_interval_ms": 42.4857449834235,
+  "stable_sample_count": 27,
+  "sampled_maxima": {
+    "pss_kib": 33700,
+    "swap_pss_kib": 4400,
+    "memory_kib": 33700,
+    "fds": 17,
+    "threads": 6,
+    "process_count": 2
+  },
+  "sample_at_memory_max": {
+    "pss_kib": 33700,
+    "swap_pss_kib": 0,
+    "threads": 5,
+    "fds": 11,
+    "memory_kib": 33700,
+    "time_monotonic": 456881.358099486,
+    "cpu_percent_observed": 0.0,
+    "root_alive": true,
+    "process_count": 1,
+    "complete": true,
+    "errors": [],
+    "processes": [
+      {
+        "pid": 1386652,
+        "start": 45688106,
+        "pss_kib": 33700,
+        "swap_pss_kib": 0,
+        "threads": 5,
+        "fds": 11
+      }
+    ],
+    "exited_during_read": [],
+    "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+  },
+  "stable_medians": {
+    "pss_kib": 28638,
+    "swap_pss_kib": 4400,
+    "memory_kib": 33038,
+    "fds": 11,
+    "threads": 5,
+    "process_count": 1
+  },
+  "stable_cpu_percent_observed_median": 0.0,
+  "stable_cpu_percent_observed_max": 0.0,
+  "observed_process_identities": [
+    [
+      1386652,
+      45688106
+    ],
+    [
+      1386655,
+      45688116
+    ]
+  ],
+  "exited_process_identities": [
+    [
+      1386655,
+      45688116
+    ]
+  ],
+  "exited_during_read": [],
+  "exited_during_read_count": 0,
+  "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+  "errors": [],
+  "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+  "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals",
+  "scenario": "inspector recursive apparent size, 10000 files / 6 MB",
+  "ui_action_method": "internal action; no native OS input",
+  "window_requested": [
+    1000,
+    650
+  ],
+  "resource_gate": "UNVALIDATED",
+  "helper_identities_verified": [],
+  "memory_peak_mb_decimal": 34.5088,
+  "functional_result": "PASS: 6.0 MB",
+  "cleanup": {
+    "surviving_observed_processes": [],
+    "errors": [],
+    "complete": true
+  }
+}

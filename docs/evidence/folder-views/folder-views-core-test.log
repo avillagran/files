@@ -1,0 +1,14 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 33.21s
+     Running unittests src/lib.rs (target/debug/deps/files_core-b77c5d036427fdd3)
+
+running 6 tests
+test folder_views::tests::readonly_missing_does_not_create_config_or_folder ... ok
+test folder_views::tests::raw_keys_and_settings_roundtrip_without_lexical_normalization ... ok
+test folder_views::tests::rejects_unsorted_duplicate_and_aggregate_overflow ... ok
+test folder_views::tests::busy_invalid_future_and_symlink_are_preserved ... ok
+test folder_views::tests::full_document_allows_update_but_never_silently_evicts ... ok
+test folder_views::tests::save_merges_latest_and_stale_forget_cannot_remove_updated_value ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 404 filtered out; finished in 0.00s
+

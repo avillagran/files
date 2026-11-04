@@ -1,0 +1,136 @@
+{
+  "gate_status": "PASS",
+  "gate_reasons": [],
+  "warnings": [],
+  "limits": {
+    "baseline_objective_mib": 35,
+    "baseline_analysis_stop_mib": 40,
+    "baseline_hard_mib": 60,
+    "modern_goal_mb_decimal": 50,
+    "absolute_ceiling_mb_decimal": 150,
+    "scenario_budget_mb_decimal": null
+  },
+  "files": 10000,
+  "scenario": "baseline",
+  "geometry": {
+    "window_logical": [
+      960,
+      540
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      1920,
+      1080
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0dc90c70"
+  },
+  "required_physical": [
+    1920,
+    1080
+  ],
+  "metrics": {
+    "complete": true,
+    "sample_count": 256,
+    "sample_interval_requested_ms": 25.0,
+    "max_observed_interval_ms": 28.5710190073587,
+    "stable_sample_count": 40,
+    "sampled_maxima": {
+      "pss_kib": 34796,
+      "swap_pss_kib": 0,
+      "memory_kib": 34796,
+      "fds": 19,
+      "threads": 5,
+      "process_count": 2
+    },
+    "sample_at_memory_max": {
+      "pss_kib": 34796,
+      "swap_pss_kib": 0,
+      "threads": 5,
+      "fds": 12,
+      "memory_kib": 34796,
+      "time_monotonic": 457118.430996867,
+      "cpu_percent_observed": 79.8062176192255,
+      "root_alive": true,
+      "process_count": 1,
+      "complete": true,
+      "errors": [],
+      "processes": [
+        {
+          "pid": 1409089,
+          "start": 45711815,
+          "pss_kib": 34796,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 12
+        }
+      ],
+      "exited_during_read": [],
+      "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+    },
+    "stable_medians": {
+      "pss_kib": 30309.0,
+      "swap_pss_kib": 0.0,
+      "memory_kib": 30309.0,
+      "fds": 11.0,
+      "threads": 5.0,
+      "process_count": 1.0
+    },
+    "stable_cpu_percent_observed_median": 0.0,
+    "stable_cpu_percent_observed_max": 0.0,
+    "observed_process_identities": [
+      [
+        1409089,
+        45711815
+      ],
+      [
+        1409148,
+        45711826
+      ],
+      [
+        1409151,
+        45711830
+      ]
+    ],
+    "exited_process_identities": [
+      [
+        1409148,
+        45711826
+      ],
+      [
+        1409151,
+        45711830
+      ]
+    ],
+    "exited_during_read": [],
+    "exited_during_read_count": 0,
+    "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+    "errors": [],
+    "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+    "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+  },
+  "sampled_peak_memory_mib": 33.98046875,
+  "sampled_peak_memory_mb_decimal": 35.631104,
+  "baseline_objective_met": true,
+  "modern_goal_met": true,
+  "run_policy": "serialized: no concurrent builds, captures or benchmarks; caller must enforce",
+  "gpu_memory": "not measured by /proc; effects must be off for baseline",
+  "view_requested": "groups",
+  "view_validation": "application readiness marker verified against requested view/count; rendered UI independently validated",
+  "scene_readiness": {
+    "view": "groups",
+    "loaded": true,
+    "entry_count": 10000,
+    "stats_ready": true,
+    "layout_ready": false,
+    "generation": 1
+  },
+  "font_selected": "FILES_FONT=FiraCode Nerd Font nerd=true",
+  "first_paint_ms_internal": 192.188,
+  "cleanup": {
+    "surviving_observed_processes": [],
+    "errors": [],
+    "complete": true
+  },
+  "stderr_tail": null
+}

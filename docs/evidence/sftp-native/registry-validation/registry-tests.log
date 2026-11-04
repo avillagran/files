@@ -1,0 +1,21 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.46s
+     Running unittests src/lib.rs (target/debug/deps/files_core-5c13a5fcc688f7e4)
+
+running 13 tests
+test sftp_registry::tests::codec_roundtrip_raw_paths_and_every_truncation_rejected ... ok
+test sftp_registry::tests::synthetic_recovery_requires_full_mount_record_and_matching_live_process ... ok
+test sftp_registry::tests::fifo_and_hardlinked_locks_rejected_without_block_or_rewrite ... ok
+test sftp_registry::tests::no_mount_is_not_accepted_as_original_point_after_replacement_or_nested_mount ... ok
+test sftp_registry::tests::invalid_modes_and_parent_substitution_never_change_actor_data ... ok
+test sftp_registry::tests::zombie_is_ended_not_live_then_reaped ... ok
+test sftp_registry::tests::lifetime_lock_is_readonly_without_automatic_upgrade_and_reopens_after_drop ... ok
+test sftp_registry::tests::invalid_future_oversize_and_symlink_records_are_preserved ... ok
+test sftp_registry::tests::post_rename_sync_failure_retains_visible_revision_and_retry_only_syncs ... ok
+test sftp_registry::tests::external_record_change_and_replaced_lock_block_publication ... ok
+test sftp_registry::tests::active_server_and_mount_signatures_are_retained_until_explicit_absent ... ok
+test sftp_registry::tests::stale_revision_and_new_intent_cannot_overwrite_unresolved_connection ... ok
+test sftp_registry::tests::absent_publication_requires_real_namespace_absence_and_process_reap ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 302 filtered out; finished in 0.01s
+

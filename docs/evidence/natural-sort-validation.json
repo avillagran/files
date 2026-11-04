@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-26",
+  "tests": "cargo test --workspace: 18 passed; clippy all-targets -D warnings passed; release build passed",
+  "memory_command": "python3 scripts/memcheck.py",
+  "files": 10000,
+  "physical_window": [1920, 1080],
+  "pss_mib": 25.62,
+  "swap_pss_mib": 16.53,
+  "pss_plus_swap_mib": 42.15,
+  "first_paint_ms": 190.158,
+  "startup_under_100ms": false,
+  "capture": "natural-sort.png",
+  "visual_check": "Folders 2 before 10; files 1,2,02,10,20; Unicode Album2 before album10 visually inspected",
+  "limitations": [
+    "Memory uses existing single-sample main-process gate, not a measured peak",
+    "Swap residency prevents treating low PSS alone as low total footprint",
+    "Capture is FLTK real framebuffer using internal smoke scene, not native keyboard/mouse proof",
+    "Memory and capture were performed in separate runs"
+  ]
+}

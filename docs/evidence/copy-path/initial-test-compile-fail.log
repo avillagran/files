@@ -1,0 +1,62 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+error[E0433]: cannot find `entry` in `files_core`
+   --> crates/ui/src/path_edit.rs:409:37
+    |
+409 |             .map(|name| files_core::entry::Entry {
+    |                                     ^^^^^ could not find `entry` in `files_core`
+
+error[E0433]: cannot find `entry` in `files_core`
+   --> crates/ui/src/path_edit.rs:449:36
+    |
+449 |         m.entries.push(files_core::entry::Entry {
+    |                                    ^^^^^ could not find `entry` in `files_core`
+
+error[E0433]: cannot find `entry` in `files_core`
+   --> crates/ui/src/path_edit.rs:411:35
+    |
+411 |                 kind: files_core::entry::Kind::File,
+    |                                   ^^^^^ could not find `entry` in `files_core`
+    |
+note: enum `crate::toolkit_menu::Kind` exists but is inaccessible
+   --> crates/ui/src/toolkit_menu.rs:12:1
+    |
+ 12 | enum Kind {
+    | ^^^^^^^^^ not accessible
+help: consider importing one of these enums
+    |
+400 +     use crate::file_clipboard::Kind;
+    |
+400 +     use crate::open_job::Kind;
+    |
+help: if you import `Kind`, refer to it directly
+    |
+411 -                 kind: files_core::entry::Kind::File,
+411 +                 kind: Kind::File,
+    |
+
+error[E0433]: cannot find `entry` in `files_core`
+   --> crates/ui/src/path_edit.rs:450:52
+    |
+450 |             name: "leaf".into(), kind: files_core::entry::Kind::File,
+    |                                                    ^^^^^ could not find `entry` in `files_core`
+    |
+note: enum `crate::toolkit_menu::Kind` exists but is inaccessible
+   --> crates/ui/src/toolkit_menu.rs:12:1
+    |
+ 12 | enum Kind {
+    | ^^^^^^^^^ not accessible
+help: consider importing one of these enums
+    |
+400 +     use crate::file_clipboard::Kind;
+    |
+400 +     use crate::open_job::Kind;
+    |
+help: if you import `Kind`, refer to it directly
+    |
+450 -             name: "leaf".into(), kind: files_core::entry::Kind::File,
+450 +             name: "leaf".into(), kind: Kind::File,
+    |
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `files-ui` (lib test) due to 4 previous errors

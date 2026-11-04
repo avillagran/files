@@ -1,0 +1,10 @@
+{
+  "workspace": "PASS1133:398core/91helper/644UI;3existingignored",
+  "scope_note": "Full suite precedes only6px directory-size cell gutter; final Clippy/release/scene cover that paint adjustment",
+  "clippy": "PASS workspace all-targets -D warnings",
+  "fmt": "PASS",
+  "resource_gate": "NOT_MEASURED freeze",
+  "startup_gate": "NOT_MEASURED freeze",
+  "native_input": "UNVALIDATED",
+  "previews": "PAUSED"
+}

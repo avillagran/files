@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-10-31T23:01:53.828253+00:00",
+  "reference": "docs/evidence/0.0.4/installed-checkpoint-1793486330919943223.json",
+  "scope": "five installed files independently reread; foundation release not installed",
+  "files": [
+    {
+      "name": "files",
+      "sha256": "cfaa8f3ac1ac161a477bbb7106e7619873303c53f991711a434fb18a1df83ef6"
+    },
+    {
+      "name": "files-helper",
+      "sha256": "05736746b394413d59df5ecc169341592f66b44d9b895d5388d1b4b4f9e61967"
+    },
+    {
+      "name": "files-html-helper",
+      "sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ],
+  "pass": true
+}

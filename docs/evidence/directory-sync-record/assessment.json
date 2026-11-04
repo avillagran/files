@@ -1,0 +1,80 @@
+{
+  "source_commit": "988e4fab0ea5ec58821ea51658efd77cde04ae31",
+  "scope": "SOURCE ONLY canonical read-only evidence record/seal and revalidated live binding; not resolved action plan/operator approval/durable journal/effects/helper/UI/installation",
+  "validation": {
+    "workspace_passed": 1425,
+    "core": 518,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 16,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "concurrency": "normal Rust harness; one Cargo build job via idle snapshot gate, no competitors controlled",
+    "release_helper_ui_build": "NOT_RUN; no installation"
+  },
+  "format": {
+    "magic": "FLSYNC\\0\\x01",
+    "seal": "SHA256(domain Files:sync-evidence:v1\\0 + complete pre-trailer bytes); not MAC/signature/authentication",
+    "max_wire": 4657718,
+    "entries_each_side": 8193,
+    "relative_names_each_side": 1048576,
+    "path_bytes": 4096,
+    "descendant_components": 33,
+    "ancestors_each_side": 128,
+    "fixed_entry_bytes": 155,
+    "complete_actual_fixture": "both8192-child inventories plusroots, >4MiB and <=MAX_WIRE, exact-size buffers; no truncation",
+    "key": "56B FLSBND v1 + nonzero16B job +32B record seal; StoredKey comparison only"
+  },
+  "implemented": [
+    "raw normalized roots/canonical parents, intent/mode/readlimit/payload/optionalIDs, per-object revision/access/content/metadata/mount evidence",
+    "strict borrowed namespace/count/kind/time/identity/mount/ancestor/parent/budget validation before owned byte copy",
+    "complete directory child-name digests recomputed, hardlink coherence and internal/external group derivation, real cross-filesystem and symlink hardlink roundtrips",
+    "absolute root depth independent of descendant budget; real40-level selected root red-to-green",
+    "decode needs no paths/descriptors and can display history after roots removed",
+    "live binding requires exact canonical bytes plus full Prepared revalidation, borrows pins and Record; cannot deserialize runtime binding",
+    "forged well-formed resealed metadata/content history can decode but cannot bind to held capture",
+    "matching stored comparison key remains matching after file changes while new live binding rejects; no approval/barrier/write authority"
+  ],
+  "failures": [
+    {
+      "log": "initial-map-inference-fail.log",
+      "failure": "E0282 borrowed parent-index map needs explicit usize index type",
+      "fix": "explicit BTreeMap<&[u8],usize>"
+    },
+    {
+      "log": "initial-1424-pass-clippy-fail.log",
+      "failure": "1424testsPASS then one collapsible_if lint",
+      "fix": "equivalent collapsed condition without suppression; final ClippyPASS"
+    },
+    {
+      "log": "deep-absolute-root-red.log",
+      "failure": "real40-level valid captured root could not encode because absolute used descendant depth predicate",
+      "fix": "absolute normal-component/byte validation separated from root-relative depth; accepted full1425 log includes green"
+    }
+  ],
+  "log_archive_notes": [
+    {
+      "text": "initial-focused-12-pass.log",
+      "normalization": "only trailing empty lines removed for git whitespace; content unchanged",
+      "raw_archive": "initial-focused-12-pass.log.raw.gz",
+      "raw_sha256": "6111d371bf740d019f9b2d8c55a8b846f3aac32ed61be415af01c14e9445fd85"
+    }
+  ],
+  "installation": "five existing dry-run artifacts verified unchanged, app289db327/helper170f995, installed-unchanged.json",
+  "limitations": [
+    "seal is not provenance, operator approval, live freshness, atomic snapshot or durability; numeric path/mount/digest claims do not prove files were read",
+    "evidence key alone lacks resolved action-plan/decision seal, fresh UI approval/journal/stage identity or barriers",
+    "no action planning/explicit manifest review/helper session/JournalStore/recoverable add-merge-replace-remove-metadata/queue/crashundo yet",
+    "leaf handles reacquired per effect and own mutation overlay/ledger still needed; digest cannot restore ACL/xattr",
+    "owned/O_NOATIME/backend constraints inherited; no privileged live bind/unmount scenario or other OS acceptance",
+    "PSS/Swap/CPU/startup and new-preview freeze retained; byte/count bounds are not process memory or performance evidence"
+  ],
+  "next": "Derive canonical action plan for all modes and bind reviewed choices/options to evidence with new explicit approval and owned journal identity; then durable recoverable no-clobber effects, bounded queue and recovery. Old dry-run choices or decoded history never Apply authority. Owned fixtures only.",
+  "full_goal": "ACTIVE, original full scope unchanged",
+  "source_sha256": {
+    "crates/core/src/directory_sync_record.rs": "94de8190cb426c73db0937fc2bd3e09fe37a755755b289f1b9f199d68d2a9273",
+    "crates/core/src/directory_sync_manifest.rs": "41094eedc006a657e92c59d2f5c3395c0980c5636441516d0a437bb6d905cec6",
+    "crates/core/src/lib.rs": "f3ce6dc4c994a1f4d13e268c78d98aeed982b1e24227ba533d7ec646a876e3d8"
+  }
+}

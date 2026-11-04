@@ -1,0 +1,9 @@
+{
+  "observed_pid": 1309929,
+  "expected_start_ticks": "16783564",
+  "cwd": "/home/avillagran/Work/ttfx-ambient-standalone-config",
+  "initial_own_admission": "NOT_STARTED_EXIT75",
+  "revalidation": "gone",
+  "checked_at": "2026-11-01T00:08:26.250368+00:00",
+  "action": "no signal, wait, cleanup or source changes to competitor"
+}

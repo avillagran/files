@@ -1,0 +1,51 @@
+{
+  "method": "internal handlers, actual pdfinfo/pdftoppm local raster and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-page-first-1793038101467320085.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-page-second-1793038101683157777.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-zoom-pan-1793038101792049068.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "text selection/extraction",
+    "complex/password/hostile PDF coverage",
+    "resource budget",
+    "cross-platform verification"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0f4a3c30"
+  },
+  "functional_gate": "FAIL",
+  "error": "AssertionError('command failed: pdf-assert-pan\\nFILES_FONT=FiraCode Nerd Font nerd=true\\nFILES_FIRST_PAINT_US=99382\\nFILES_UI_SMOKE_OK entries=3\\nFILES_PREVIEW_COMMAND_OK pdf\\nFILES_PREVIEW_COMMAND_REV action=pdf revision=2\\nFILES_PREVIEW_HELPER pid=3839676 start=48087344 command=preview_pdf_info\\nFILES_PREVIEW_HELPER pid=3839726 start=48087348 command=preview_pdf_page\\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-0h9_dw_d/files/pages.pdf\") revision=2 page=1 pages=2 width=721 height=960 zoom=1\\nFILES_PDF_PAGE_OK page=1 pages=2 bytes=2076480 pan=0,0\\nFILES_PREVIEW_COMMAND_OK pdf-assert-first\\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-first revision=2\\nFILES_CAPTURE_OK\\nFILES_PREVIEW_COMMAND_OK pdf-next\\nFILES_PREVIEW_COMMAND_REV action=pdf-next revision=3\\nFILES_PREVIEW_HELPER pid=3839762 start=48087368 command=preview_pdf_info\\nFILES_PREVIEW_HELPER pid=3839763 start=48087370 command=preview_pdf_page\\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-0h9_dw_d/files/pages.pdf\") revision=3 page=2 pages=2 width=721 height=960 zoom=1\\nFILES_PDF_PAGE_OK page=2 pages=2 bytes=2076480 pan=0,0\\nFILES_PREVIEW_COMMAND_OK pdf-assert-second\\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-second revision=3\\nFILES_CAPTURE_OK\\nFILES_PREVIEW_COMMAND_OK pdf-zoom\\nFILES_PREVIEW_COMMAND_REV action=pdf-zoom revision=3\\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-0h9_dw_d/files/pages.pdf\") revision=3 page=2 pages=2 width=721 height=960 zoom=2\\nFILES_PREVIEW_COMMAND_OK pdf-pan\\nFILES_PREVIEW_COMMAND_REV action=pdf-pan revision=3\\nFILES_CAPTURE_OK\\nFILES_PREVIEW_COMMAND_ERROR pdf-assert-pan: unknown preview fixture action\\n')",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=99382\nFILES_UI_SMOKE_OK entries=3\nFILES_PREVIEW_COMMAND_OK pdf\nFILES_PREVIEW_COMMAND_REV action=pdf revision=2\nFILES_PREVIEW_HELPER pid=3839676 start=48087344 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=3839726 start=48087348 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-0h9_dw_d/files/pages.pdf\") revision=2 page=1 pages=2 width=721 height=960 zoom=1\nFILES_PDF_PAGE_OK page=1 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-first\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-first revision=2\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-next\nFILES_PREVIEW_COMMAND_REV action=pdf-next revision=3\nFILES_PREVIEW_HELPER pid=3839762 start=48087368 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=3839763 start=48087370 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-0h9_dw_d/files/pages.pdf\") revision=3 page=2 pages=2 width=721 height=960 zoom=1\nFILES_PDF_PAGE_OK page=2 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-second\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-second revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-zoom\nFILES_PREVIEW_COMMAND_REV action=pdf-zoom revision=3\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-0h9_dw_d/files/pages.pdf\") revision=3 page=2 pages=2 width=721 height=960 zoom=2\nFILES_PREVIEW_COMMAND_OK pdf-pan\nFILES_PREVIEW_COMMAND_REV action=pdf-pan revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_ERROR pdf-assert-pan: unknown preview fixture action\n"
+}

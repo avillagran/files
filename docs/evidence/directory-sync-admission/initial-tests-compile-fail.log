@@ -1,0 +1,158 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:333:63
+    |
+333 |                 .add(b"", format!("{i:05}").as_bytes(), Kind::Regular, false)
+    |                                                               ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:336:51
+    |
+336 |         assert!(shape.add(b"", b"overflow", Kind::Regular, false).is_err());
+    |                                                   ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:356:37
+    |
+356 |         shape.add(b"", &path, Kind::Regular, false).unwrap();
+    |                                     ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:359:48
+    |
+359 |                 .add(b"new", &path[2..], Kind::Regular, false)
+    |                                                ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:363:44
+    |
+363 |         Shape::new().add(b"", &deep, Kind::Regular, false).unwrap();
+    |                                            ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:366:43
+    |
+366 |                 .add(b"new", &deep, Kind::Regular, false)
+    |                                           ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:375:41
+    |
+375 |                 [Kind::Directory, Kind::Regular]
+    |                                         ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:377:24
+    |
+377 |                 [Kind::Regular, Kind::Directory]
+    |                        ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:392:40
+    |
+392 |         missing.add(b"", b"x/y", Kind::Regular, false).unwrap();
+    |                                        ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:395:35
+    |
+395 |         leaf.add(b"", b"x", Kind::Regular, false).unwrap();
+    |                                   ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:396:37
+    |
+396 |         leaf.add(b"", b"x/y", Kind::Regular, false).unwrap();
+    |                                     ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:406:39
+    |
+406 |         shape.add(b"new", b"a", Kind::Regular, false).unwrap();
+    |                                       ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Regular` found for enum `move_manifest::Kind` in the current scope
+   --> crates/core/src/directory_sync_admission.rs:407:39
+    |
+407 |         shape.add(b"new", b"b", Kind::Regular, false).unwrap();
+    |                                       ^^^^^^^ variant, associated function, or constant not found in `move_manifest::Kind`
+    |
+   ::: crates/core/src/move_manifest.rs:12:1
+    |
+ 12 | pub enum Kind {
+    | ------------- variant, associated function, or constant `Regular` not found for this enum
+
+error[E0596]: cannot borrow `journal` as mutable, as it is not declared as mutable
+   --> crates/core/src/directory_sync_store.rs:959:21
+    |
+959 |             assert!(journal.renew(&AtomicBool::new(false)).is_ok());
+    |                     ^^^^^^^ cannot borrow as mutable
+    |
+help: consider changing this to be mutable
+    |
+958 |             let mut journal = Journal::open(&store, &physical).unwrap();
+    |                 +++
+
+Some errors have detailed explanations: E0596, E0599.
+For more information about an error, try `rustc --explain E0596`.
+error: could not compile `files-core` (lib test) due to 14 previous errors

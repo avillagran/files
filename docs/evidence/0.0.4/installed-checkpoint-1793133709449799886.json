@@ -1,0 +1,40 @@
+{
+  "checkpoint": "a6fef216616a59b4cc42960ba819af37afded5d9",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/0.0.4/clipboard-ui-1793133638367792338.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793133709358666095",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "997eb13b9f53de5802ec4fc4a1aa3b7f9ed04422433839d4da753c8959d84620",
+      "release_sha256": "10bc73cfa4d3843cfabc1971d04a21841e4c994daf311753e9198e6b204767f2",
+      "installed_sha256": "10bc73cfa4d3843cfabc1971d04a21841e4c994daf311753e9198e6b204767f2"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+      "release_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+      "installed_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "release_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "release_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

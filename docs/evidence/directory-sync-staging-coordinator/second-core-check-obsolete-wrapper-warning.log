@@ -1,0 +1,14 @@
+    Checking files-core v0.0.4 (/home/node/Work/files/crates/core)
+warning: method `fork_for_namespace` is never used
+  --> crates/core/src/exdev_source.rs:82:23
+   |
+72 |     impl Inventory {
+   |     -------------- method in this implementation
+...
+82 |         pub(crate) fn fork_for_namespace(
+   |                       ^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `files-core` (lib) generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.59s

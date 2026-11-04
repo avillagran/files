@@ -1,0 +1,5 @@
+{
+  "status": "FAIL preserved",
+  "finding": "Harness expected FILES_HIDDEN_STATE closing=true, but existing hidden fixture emits only while !closing. Log proves FILES_CLOSE_REQUEST and WAIT saves_ready=false after stale label write error; no post-close state marker expected. Checker now waits existing close trace and captures real dialog, no product relaxation.",
+  "next": "Run corrected fixture, retain original log/report/4 PNG."
+}

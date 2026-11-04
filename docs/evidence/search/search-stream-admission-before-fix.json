@@ -1,0 +1,6 @@
+{
+  "exit": 2,
+  "stdout": "",
+  "stderr": "Uso: files-helper space_map|du|preview_archive|preview_directory|preview_text|preview_relative_text|preview_image|preview_relative_image (una petición JSON por proceso)\n",
+  "scope": "existing release before CLI admission fix; owned empty root; no app resource measurement"
+}

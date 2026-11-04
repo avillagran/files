@@ -1,0 +1,18 @@
+{
+  "workspace": "PASS1151:401core/94helper/656UI;3existingignored",
+  "clippy": "PASS workspace all-targets -D warnings final",
+  "fmt": "PASS",
+  "new_tests": 11,
+  "resource_gate": "NOT_MEASURED freeze",
+  "startup_gate": "NOT_MEASURED freeze",
+  "native_input": "NOT_ATTEMPTED",
+  "broker_protocol_audit": "installed UWSM FIFO text UTF8 strict; only ASCII hex directory crosses broker, real helper decodes locally",
+  "preserved_failures": [
+    "first-clippy-fail.log",
+    "menu-cast-compile-fail.log"
+  ],
+  "release": "PASS workspace final",
+  "functional_report": "terminal-ui-1793507918398541254.json scopedPASS9FB/2root0ACK",
+  "native_terminal": "PASS actual mapped configured terminal/PTY/exact raw cwd with owned writer, no physical input",
+  "known_cleanup": "6 registered identities absent/reused, own unit inactive; no full lifetime coverage"
+}

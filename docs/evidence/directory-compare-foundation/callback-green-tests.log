@@ -1,0 +1,17 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.47s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 9 tests
+test directory_compare::tests::depth_bound_and_fifo_are_explicit_partial_without_opening_devices ... ok
+test directory_compare::tests::callback_errors_are_not_swallowed_as_filesystem_changes ... ok
+test directory_compare::tests::limits_never_turn_unknown_into_absence_or_equality ... ok
+test directory_compare::tests::root_replacement_is_not_the_captured_tree ... ok
+test directory_compare::tests::recursive_namespace_content_types_and_empty_directories ... ok
+test directory_compare::tests::source_mode_differences_are_separate_from_content ... ok
+test directory_compare::tests::raw_paths_and_literal_symlinks_never_follow_targets ... ok
+test directory_compare::tests::cancellation_and_captured_root_identity_prevent_publication ... ok
+test directory_compare::tests::changes_after_inventory_revoke_stale_files_and_absence ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 450 filtered out; finished in 0.01s
+

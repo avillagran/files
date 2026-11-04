@@ -1,0 +1,1559 @@
+{
+  "functional_gate": "PASS",
+  "method": "visible hit handlers + shared navigation/mode/callback handlers + actual FLTK framebuffer; no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-wide-1793550657616929720.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-inspector-1793550657832414053.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-folder-1793550658090636755.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-zero-selection-1793550658331217290.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-empty-1793550658500201997.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-error-1793550658669455562.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-partial-1793550658891859124.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-resize-1793550659079758022.png",
+      "dimensions": [
+        941,
+        508
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-cancelled-1793550659204399391.png",
+      "dimensions": [
+        941,
+        508
+      ]
+    }
+  ],
+  "states": [
+    {
+      "areas": [],
+      "bar_rects": [],
+      "changed": false,
+      "complete": null,
+      "controls": [],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 0,
+      "list_rect": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [],
+      "no_area_raw": [],
+      "nodes": null,
+      "observed": null,
+      "operation_bar": false,
+      "page_rows": 1,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 2,
+      "row_hits": [],
+      "scroll": 0,
+      "selected": "Fotos",
+      "selected_raw": "466f746f73",
+      "selection_raw": [
+        "466f746f73"
+      ],
+      "seq": 0,
+      "state": "closed",
+      "total": null,
+      "view": "other",
+      "watch_gap": false,
+      "watch_pending": true,
+      "watch_settled": false,
+      "width": 0
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 126.0,
+          "name": "Fotos",
+          "w": 352.5714285714286,
+          "x": 264.4285714285714,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 126.0,
+          "name": "Documentos",
+          "w": 176.28571428571428,
+          "x": 88.14285714285712,
+          "y": 0.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 126.0,
+          "name": "video.bin",
+          "w": 88.14285714285712,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 374,
+      "list_rect": [
+        68,
+        360,
+        617,
+        84
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "466f746f73",
+        "446f63756d656e746f73",
+        "766964656f2e62696e",
+        "766163c3ad61",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "no_area_raw": [
+        "766163c3ad61",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "nodes": 6,
+      "observed": 14680064,
+      "operation_bar": false,
+      "page_rows": 3,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 4,
+      "row_hits": [
+        {
+          "raw": "766163c3ad61",
+          "rect": [
+            68,
+            360,
+            617,
+            26
+          ]
+        },
+        {
+          "raw": "656e6c616365",
+          "rect": [
+            68,
+            388,
+            617,
+            26
+          ]
+        },
+        {
+          "raw": "766163c3ad6f2e747874",
+          "rect": [
+            68,
+            416,
+            617,
+            26
+          ]
+        }
+      ],
+      "scroll": 0,
+      "selected": "Fotos",
+      "selected_raw": "466f746f73",
+      "selection_raw": [
+        "466f746f73"
+      ],
+      "seq": 1,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 698.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 465.33333333333337,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 232.66666666666666
+        },
+        {
+          "bytes": 2097152,
+          "h": 232.66666666666666,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 946,
+      "list_rect": [
+        68,
+        932,
+        1596,
+        84
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "466f746f73",
+        "446f63756d656e746f73",
+        "766964656f2e62696e",
+        "766163c3ad61",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "no_area_raw": [
+        "766163c3ad61",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "nodes": 6,
+      "observed": 14680064,
+      "operation_bar": false,
+      "page_rows": 3,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 4,
+      "row_hits": [
+        {
+          "raw": "766163c3ad61",
+          "rect": [
+            68,
+            932,
+            1596,
+            26
+          ]
+        },
+        {
+          "raw": "656e6c616365",
+          "rect": [
+            68,
+            960,
+            1596,
+            26
+          ]
+        },
+        {
+          "raw": "766163c3ad6f2e747874",
+          "rect": [
+            68,
+            988,
+            1596,
+            26
+          ]
+        }
+      ],
+      "scroll": 0,
+      "selected": "Fotos",
+      "selected_raw": "466f746f73",
+      "selection_raw": [
+        "466f746f73"
+      ],
+      "seq": 2,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 698.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 465.33333333333337,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 232.66666666666666
+        },
+        {
+          "bytes": 2097152,
+          "h": 232.66666666666666,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 946,
+      "list_rect": [
+        68,
+        932,
+        1596,
+        84
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "466f746f73",
+        "446f63756d656e746f73",
+        "766964656f2e62696e",
+        "766163c3ad61",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "no_area_raw": [
+        "766163c3ad61",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "nodes": 6,
+      "observed": 14680064,
+      "operation_bar": false,
+      "page_rows": 3,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 4,
+      "row_hits": [
+        {
+          "raw": "766163c3ad61",
+          "rect": [
+            68,
+            932,
+            1596,
+            26
+          ]
+        },
+        {
+          "raw": "656e6c616365",
+          "rect": [
+            68,
+            960,
+            1596,
+            26
+          ]
+        },
+        {
+          "raw": "766163c3ad6f2e747874",
+          "rect": [
+            68,
+            988,
+            1596,
+            26
+          ]
+        }
+      ],
+      "scroll": 0,
+      "selected": "Fotos",
+      "selected_raw": "466f746f73",
+      "selection_raw": [
+        "466f746f73"
+      ],
+      "seq": 3,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 812.0,
+          "name": "contenido",
+          "w": 1596.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 2,
+      "height": 946,
+      "list_rect": [
+        68,
+        1046,
+        1596,
+        0
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "636f6e74656e69646f"
+      ],
+      "no_area_raw": [],
+      "nodes": 1,
+      "observed": 8388608,
+      "operation_bar": false,
+      "page_rows": 1,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source/Fotos",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 6,
+      "row_hits": [],
+      "scroll": 0,
+      "selected": "contenido",
+      "selected_raw": "636f6e74656e69646f",
+      "selection_raw": [
+        "636f6e74656e69646f"
+      ],
+      "seq": 4,
+      "state": "ready",
+      "total": 8388608,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 698.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 465.33333333333337,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 232.66666666666666
+        },
+        {
+          "bytes": 2097152,
+          "h": 232.66666666666666,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 3,
+      "height": 946,
+      "list_rect": [
+        68,
+        932,
+        1596,
+        84
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "466f746f73",
+        "446f63756d656e746f73",
+        "766964656f2e62696e",
+        "766163c3ad61",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "no_area_raw": [
+        "766163c3ad61",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "nodes": 6,
+      "observed": 14680064,
+      "operation_bar": false,
+      "page_rows": 3,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 8,
+      "row_hits": [
+        {
+          "raw": "766163c3ad61",
+          "rect": [
+            68,
+            932,
+            1596,
+            26
+          ]
+        },
+        {
+          "raw": "656e6c616365",
+          "rect": [
+            68,
+            960,
+            1596,
+            26
+          ]
+        },
+        {
+          "raw": "766163c3ad6f2e747874",
+          "rect": [
+            68,
+            988,
+            1596,
+            26
+          ]
+        }
+      ],
+      "scroll": 0,
+      "selected": "Documentos",
+      "selected_raw": "446f63756d656e746f73",
+      "selection_raw": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 5,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 698.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 465.33333333333337,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 232.66666666666666
+        },
+        {
+          "bytes": 2097152,
+          "h": 232.66666666666666,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 3,
+      "height": 946,
+      "list_rect": [
+        68,
+        932,
+        1596,
+        84
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "466f746f73",
+        "446f63756d656e746f73",
+        "766964656f2e62696e",
+        "766163c3ad61",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "no_area_raw": [
+        "766163c3ad61",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "nodes": 6,
+      "observed": 14680064,
+      "operation_bar": false,
+      "page_rows": 3,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 8,
+      "row_hits": [
+        {
+          "raw": "766163c3ad61",
+          "rect": [
+            68,
+            932,
+            1596,
+            26
+          ]
+        },
+        {
+          "raw": "656e6c616365",
+          "rect": [
+            68,
+            960,
+            1596,
+            26
+          ]
+        },
+        {
+          "raw": "766163c3ad6f2e747874",
+          "rect": [
+            68,
+            988,
+            1596,
+            26
+          ]
+        }
+      ],
+      "scroll": 0,
+      "selected": "vacío.txt",
+      "selected_raw": "766163c3ad6f2e747874",
+      "selection_raw": [
+        "766163c3ad6f2e747874"
+      ],
+      "seq": 6,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 4,
+      "height": 946,
+      "list_rect": [
+        68,
+        1046,
+        1596,
+        0
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [],
+      "no_area_raw": [],
+      "nodes": 0,
+      "observed": 0,
+      "operation_bar": false,
+      "page_rows": 1,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source/vacía",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 10,
+      "row_hits": [],
+      "scroll": 0,
+      "selected": null,
+      "selected_raw": null,
+      "selection_raw": [],
+      "seq": 7,
+      "state": "ready",
+      "total": 0,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [],
+      "bar_rects": [],
+      "changed": false,
+      "complete": null,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": "No se pudo calcular Espacio: No se pudo abrir una carpeta real para Espacio: No such file or directory (os error 2)",
+      "generation": 5,
+      "height": 946,
+      "list_rect": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [],
+      "no_area_raw": [],
+      "nodes": null,
+      "observed": null,
+      "operation_bar": false,
+      "page_rows": 1,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source/vacía",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 12,
+      "row_hits": [],
+      "scroll": 0,
+      "selected": null,
+      "selected_raw": null,
+      "selection_raw": [],
+      "seq": 8,
+      "state": "error",
+      "total": null,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": false,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 726.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 484.0,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 242.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 242.0,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 6,
+      "height": 946,
+      "list_rect": [
+        68,
+        960,
+        1596,
+        56
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "466f746f73",
+        "446f63756d656e746f73",
+        "766964656f2e62696e",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "no_area_raw": [
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "nodes": 5,
+      "observed": 14680064,
+      "operation_bar": false,
+      "page_rows": 2,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 14,
+      "row_hits": [
+        {
+          "raw": "656e6c616365",
+          "rect": [
+            68,
+            960,
+            1596,
+            26
+          ]
+        },
+        {
+          "raw": "766163c3ad6f2e747874",
+          "rect": [
+            68,
+            988,
+            1596,
+            26
+          ]
+        }
+      ],
+      "scroll": 0,
+      "selected": "Documentos",
+      "selected_raw": "446f63756d656e746f73",
+      "selection_raw": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 9,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 5,
+          "h": 754.0,
+          "name": "known",
+          "w": 1596.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": false,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 7,
+      "height": 946,
+      "list_rect": [
+        68,
+        988,
+        1596,
+        28
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "6b6e6f776e",
+        "7265737472696e67696461"
+      ],
+      "no_area_raw": [
+        "7265737472696e67696461"
+      ],
+      "nodes": 2,
+      "observed": 5,
+      "operation_bar": false,
+      "page_rows": 1,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/partial",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 16,
+      "row_hits": [
+        {
+          "raw": "7265737472696e67696461",
+          "rect": [
+            68,
+            988,
+            1596,
+            26
+          ]
+        }
+      ],
+      "scroll": 0,
+      "selected": "restringida",
+      "selected_raw": "7265737472696e67696461",
+      "selection_raw": [
+        "7265737472696e67696461"
+      ],
+      "seq": 10,
+      "state": "ready",
+      "total": 5,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 726.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 484.0,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 242.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 242.0,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 8,
+      "height": 946,
+      "list_rect": [
+        68,
+        960,
+        1596,
+        56
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "466f746f73",
+        "446f63756d656e746f73",
+        "766964656f2e62696e",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "no_area_raw": [
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "nodes": 5,
+      "observed": 14680064,
+      "operation_bar": false,
+      "page_rows": 2,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 18,
+      "row_hits": [
+        {
+          "raw": "656e6c616365",
+          "rect": [
+            68,
+            960,
+            1596,
+            26
+          ]
+        },
+        {
+          "raw": "766163c3ad6f2e747874",
+          "rect": [
+            68,
+            988,
+            1596,
+            26
+          ]
+        }
+      ],
+      "scroll": 0,
+      "selected": "Documentos",
+      "selected_raw": "446f63756d656e746f73",
+      "selection_raw": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 11,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 154.0,
+          "name": "Fotos",
+          "w": 352.5714285714286,
+          "x": 264.4285714285714,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 154.0,
+          "name": "Documentos",
+          "w": 176.28571428571428,
+          "x": 88.14285714285712,
+          "y": 0.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 154.0,
+          "name": "video.bin",
+          "w": 88.14285714285712,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 8,
+      "height": 374,
+      "list_rect": [
+        68,
+        388,
+        617,
+        56
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "466f746f73",
+        "446f63756d656e746f73",
+        "766964656f2e62696e",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "no_area_raw": [
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "nodes": 5,
+      "observed": 14680064,
+      "operation_bar": false,
+      "page_rows": 2,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 18,
+      "row_hits": [
+        {
+          "raw": "656e6c616365",
+          "rect": [
+            68,
+            388,
+            617,
+            26
+          ]
+        },
+        {
+          "raw": "766163c3ad6f2e747874",
+          "rect": [
+            68,
+            416,
+            617,
+            26
+          ]
+        }
+      ],
+      "scroll": 0,
+      "selected": "Documentos",
+      "selected_raw": "446f63756d656e746f73",
+      "selection_raw": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 12,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    },
+    {
+      "areas": [],
+      "bar_rects": [],
+      "changed": false,
+      "complete": null,
+      "controls": [],
+      "drained": true,
+      "error": null,
+      "generation": 8,
+      "height": 0,
+      "list_rect": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [],
+      "no_area_raw": [],
+      "nodes": null,
+      "observed": null,
+      "operation_bar": false,
+      "page_rows": 1,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 19,
+      "row_hits": [],
+      "scroll": 0,
+      "selected": "Documentos",
+      "selected_raw": "446f63756d656e746f73",
+      "selection_raw": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 13,
+      "state": "closed",
+      "total": null,
+      "view": "other",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 0
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 154.0,
+          "name": "Fotos",
+          "w": 352.5714285714286,
+          "x": 264.4285714285714,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 154.0,
+          "name": "Documentos",
+          "w": 176.28571428571428,
+          "x": 88.14285714285712,
+          "y": 0.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 154.0,
+          "name": "video.bin",
+          "w": 88.14285714285712,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "bar_rects": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 8,
+      "height": 374,
+      "list_rect": [
+        68,
+        388,
+        617,
+        56
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [
+        "466f746f73",
+        "446f63756d656e746f73",
+        "766964656f2e62696e",
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "no_area_raw": [
+        "656e6c616365",
+        "766163c3ad6f2e747874"
+      ],
+      "nodes": 5,
+      "observed": 14680064,
+      "operation_bar": false,
+      "page_rows": 2,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 21,
+      "row_hits": [
+        {
+          "raw": "656e6c616365",
+          "rect": [
+            68,
+            388,
+            617,
+            26
+          ]
+        },
+        {
+          "raw": "766163c3ad6f2e747874",
+          "rect": [
+            68,
+            416,
+            617,
+            26
+          ]
+        }
+      ],
+      "scroll": 0,
+      "selected": "Documentos",
+      "selected_raw": "446f63756d656e746f73",
+      "selection_raw": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 14,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    },
+    {
+      "areas": [],
+      "bar_rects": [],
+      "changed": false,
+      "complete": null,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        },
+        {
+          "action": "cancel",
+          "rect": [
+            274,
+            128,
+            36,
+            28
+          ]
+        }
+      ],
+      "drained": false,
+      "error": null,
+      "generation": 9,
+      "height": 374,
+      "list_rect": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [],
+      "no_area_raw": [],
+      "nodes": null,
+      "observed": null,
+      "operation_bar": false,
+      "page_rows": 1,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/busy",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 23,
+      "row_hits": [],
+      "scroll": 0,
+      "selected": "items",
+      "selected_raw": "6974656d73",
+      "selection_raw": [
+        "6974656d73"
+      ],
+      "seq": 15,
+      "state": "loading",
+      "total": null,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    },
+    {
+      "areas": [],
+      "bar_rects": [],
+      "changed": false,
+      "complete": null,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 9,
+      "height": 374,
+      "list_rect": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "loaded": true,
+      "max_scroll": 0,
+      "navigation_raw": [],
+      "no_area_raw": [],
+      "nodes": null,
+      "observed": null,
+      "operation_bar": false,
+      "page_rows": 1,
+      "path": "/home/node/.cache/files-test/space-ui-c1pcmrwl/busy",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 24,
+      "row_hits": [],
+      "scroll": 0,
+      "selected": "items",
+      "selected_raw": "6974656d73",
+      "selection_raw": [
+        "6974656d73"
+      ],
+      "seq": 16,
+      "state": "closed",
+      "total": null,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    }
+  ],
+  "helper_alive_before_callback": true,
+  "proportional_bytes_8_4_2": true,
+  "selection_inspector": true,
+  "navigation_back": true,
+  "empty_partial_error": true,
+  "real_viewport_resize": true,
+  "cancel_and_leave_release": true,
+  "normal_callback_exit_after_drain": true,
+  "helper_identities_observed": 11,
+  "known_helper_cleanup_complete": true,
+  "root_exit": 0,
+  "fixture_contents_preserved": true,
+  "scope": "flat immediate children; apparent bytes by name; geometry areas exact before visual 2px gaps; no snapshot/dedup/native input/resource gate",
+  "log_before_cleanup": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_FIRST_PAINT_US=50925\nFILES_UI_SMOKE_OK entries=6\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[],\"drained\":true,\"error\":null,\"generation\":1,\"height\":0,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":2,\"row_hits\":[],\"scroll\":0,\"selected\":\"Fotos\",\"selected_raw\":\"466f746f73\",\"selection_raw\":[\"466f746f73\"],\"seq\":0,\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"watch_gap\":false,\"watch_pending\":true,\"watch_settled\":false,\"width\":0}\nFILES_SPACE_COMMAND seq=1 action=map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":3,\"row_hits\":[],\"scroll\":0,\"selected\":\"Fotos\",\"selected_raw\":\"466f746f73\",\"selection_raw\":[\"466f746f73\"],\"seq\":1,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":true,\"watch_settled\":false,\"width\":617}\nFILES_PREVIEW_HELPER pid=3698080 start=4559574 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":1,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"row_hits\":[],\"scroll\":0,\"selected\":\"Fotos\",\"selected_raw\":\"466f746f73\",\"selection_raw\":[\"466f746f73\"],\"seq\":1,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":126.0,\"name\":\"Fotos\",\"w\":352.5714285714286,\"x\":264.4285714285714,\"y\":0.0},{\"bytes\":4194304,\"h\":126.0,\"name\":\"Documentos\",\"w\":176.28571428571428,\"x\":88.14285714285712,\"y\":0.0},{\"bytes\":2097152,\"h\":126.0,\"name\":\"video.bin\",\"w\":88.14285714285712,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":374,\"list_rect\":[68,360,617,84],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":6,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":3,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"row_hits\":[{\"raw\":\"766163c3ad61\",\"rect\":[68,360,617,26]},{\"raw\":\"656e6c616365\",\"rect\":[68,388,617,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,416,617,26]}],\"scroll\":0,\"selected\":\"Fotos\",\"selected_raw\":\"466f746f73\",\"selection_raw\":[\"466f746f73\"],\"seq\":1,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_COMMAND seq=2 action=full\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":126.0,\"name\":\"Fotos\",\"w\":352.5714285714286,\"x\":264.4285714285714,\"y\":0.0},{\"bytes\":4194304,\"h\":126.0,\"name\":\"Documentos\",\"w\":176.28571428571428,\"x\":88.14285714285712,\"y\":0.0},{\"bytes\":2097152,\"h\":126.0,\"name\":\"video.bin\",\"w\":88.14285714285712,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":374,\"list_rect\":[68,360,617,84],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":6,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":3,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"row_hits\":[{\"raw\":\"766163c3ad61\",\"rect\":[68,360,617,26]},{\"raw\":\"656e6c616365\",\"rect\":[68,388,617,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,416,617,26]}],\"scroll\":0,\"selected\":\"Fotos\",\"selected_raw\":\"466f746f73\",\"selection_raw\":[\"466f746f73\"],\"seq\":2,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":698.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":465.33333333333337,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":232.66666666666666},{\"bytes\":2097152,\"h\":232.66666666666666,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":946,\"list_rect\":[68,932,1596,84],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":6,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":3,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"row_hits\":[{\"raw\":\"766163c3ad61\",\"rect\":[68,932,1596,26]},{\"raw\":\"656e6c616365\",\"rect\":[68,960,1596,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,988,1596,26]}],\"scroll\":0,\"selected\":\"Fotos\",\"selected_raw\":\"466f746f73\",\"selection_raw\":[\"466f746f73\"],\"seq\":2,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=10 paint=10 width=1920 height=1080\nFILES_SPACE_COMMAND seq=3 action=select-photos\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":698.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":465.33333333333337,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":232.66666666666666},{\"bytes\":2097152,\"h\":232.66666666666666,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":946,\"list_rect\":[68,932,1596,84],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":6,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":3,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"row_hits\":[{\"raw\":\"766163c3ad61\",\"rect\":[68,932,1596,26]},{\"raw\":\"656e6c616365\",\"rect\":[68,960,1596,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,988,1596,26]}],\"scroll\":0,\"selected\":\"Fotos\",\"selected_raw\":\"466f746f73\",\"selection_raw\":[\"466f746f73\"],\"seq\":3,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=11 paint=11 width=1920 height=1080\nFILES_SPACE_COMMAND seq=4 action=enter-photos\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":2,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source/Fotos\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":5,\"row_hits\":[],\"scroll\":0,\"selected\":\"contenido\",\"selected_raw\":\"636f6e74656e69646f\",\"selection_raw\":[\"636f6e74656e69646f\"],\"seq\":4,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3698179 start=4559624 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":2,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source/Fotos\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":6,\"row_hits\":[],\"scroll\":0,\"selected\":\"contenido\",\"selected_raw\":\"636f6e74656e69646f\",\"selection_raw\":[\"636f6e74656e69646f\"],\"seq\":4,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":812.0,\"name\":\"contenido\",\"w\":1596.0,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":2,\"height\":946,\"list_rect\":[68,1046,1596,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"636f6e74656e69646f\"],\"no_area_raw\":[],\"nodes\":1,\"observed\":8388608,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source/Fotos\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":6,\"row_hits\":[],\"scroll\":0,\"selected\":\"contenido\",\"selected_raw\":\"636f6e74656e69646f\",\"selection_raw\":[\"636f6e74656e69646f\"],\"seq\":4,\"state\":\"ready\",\"total\":8388608,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=16 paint=16 width=1920 height=1080\nFILES_SPACE_COMMAND seq=5 action=back\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"row_hits\":[],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":5,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3698217 start=4559647 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":3,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":8,\"row_hits\":[],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":5,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":698.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":465.33333333333337,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":232.66666666666666},{\"bytes\":2097152,\"h\":232.66666666666666,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":946,\"list_rect\":[68,932,1596,84],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":6,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":3,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":8,\"row_hits\":[{\"raw\":\"766163c3ad61\",\"rect\":[68,932,1596,26]},{\"raw\":\"656e6c616365\",\"rect\":[68,960,1596,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,988,1596,26]}],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":5,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_COMMAND seq=6 action=select-zero\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":698.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":465.33333333333337,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":232.66666666666666},{\"bytes\":2097152,\"h\":232.66666666666666,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":946,\"list_rect\":[68,932,1596,84],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"766163c3ad61\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":6,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":3,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":8,\"row_hits\":[{\"raw\":\"766163c3ad61\",\"rect\":[68,932,1596,26]},{\"raw\":\"656e6c616365\",\"rect\":[68,960,1596,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,988,1596,26]}],\"scroll\":0,\"selected\":\"vacío.txt\",\"selected_raw\":\"766163c3ad6f2e747874\",\"selection_raw\":[\"766163c3ad6f2e747874\"],\"seq\":6,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=22 paint=22 width=1920 height=1080\nFILES_SPACE_COMMAND seq=7 action=empty\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":4,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":9,\"row_hits\":[],\"scroll\":0,\"selected\":null,\"selected_raw\":null,\"selection_raw\":[],\"seq\":7,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3698230 start=4559666 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":4,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":10,\"row_hits\":[],\"scroll\":0,\"selected\":null,\"selected_raw\":null,\"selection_raw\":[],\"seq\":7,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":4,\"height\":946,\"list_rect\":[68,1046,1596,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":0,\"observed\":0,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":10,\"row_hits\":[],\"scroll\":0,\"selected\":null,\"selected_raw\":null,\"selection_raw\":[],\"seq\":7,\"state\":\"ready\",\"total\":0,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=26 paint=26 width=1920 height=1080\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":true,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":4,\"height\":946,\"list_rect\":[68,1046,1596,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":0,\"observed\":0,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":10,\"row_hits\":[],\"scroll\":0,\"selected\":null,\"selected_raw\":null,\"selection_raw\":[],\"seq\":7,\"state\":\"ready\",\"total\":0,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":true,\"watch_settled\":false,\"width\":1596}\nFILES_SPACE_COMMAND seq=8 action=refresh\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":5,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":11,\"row_hits\":[],\"scroll\":0,\"selected\":null,\"selected_raw\":null,\"selection_raw\":[],\"seq\":8,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3698253 start=4559683 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":5,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":12,\"row_hits\":[],\"scroll\":0,\"selected\":null,\"selected_raw\":null,\"selection_raw\":[],\"seq\":8,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":\"No se pudo calcular Espacio: No se pudo abrir una carpeta real para Espacio: No such file or directory (os error 2)\",\"generation\":5,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":12,\"row_hits\":[],\"scroll\":0,\"selected\":null,\"selected_raw\":null,\"selection_raw\":[],\"seq\":8,\"state\":\"error\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=31 paint=31 width=1920 height=1080\nFILES_SPACE_COMMAND seq=9 action=back\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":6,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":13,\"row_hits\":[],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":9,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3698288 start=4559700 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":6,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":14,\"row_hits\":[],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":9,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":726.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":484.0,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":242.0},{\"bytes\":2097152,\"h\":242.0,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":6,\"height\":946,\"list_rect\":[68,960,1596,56],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":5,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":2,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":14,\"row_hits\":[{\"raw\":\"656e6c616365\",\"rect\":[68,960,1596,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,988,1596,26]}],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":9,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_COMMAND seq=10 action=partial\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":7,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/partial\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":15,\"row_hits\":[],\"scroll\":0,\"selected\":\"restringida\",\"selected_raw\":\"7265737472696e67696461\",\"selection_raw\":[\"7265737472696e67696461\"],\"seq\":10,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3698291 start=4559705 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":7,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/partial\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":16,\"row_hits\":[],\"scroll\":0,\"selected\":\"restringida\",\"selected_raw\":\"7265737472696e67696461\",\"selection_raw\":[\"7265737472696e67696461\"],\"seq\":10,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":5,\"h\":754.0,\"name\":\"known\",\"w\":1596.0,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":false,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":7,\"height\":946,\"list_rect\":[68,988,1596,28],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"6b6e6f776e\",\"7265737472696e67696461\"],\"no_area_raw\":[\"7265737472696e67696461\"],\"nodes\":2,\"observed\":5,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/partial\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":16,\"row_hits\":[{\"raw\":\"7265737472696e67696461\",\"rect\":[68,988,1596,26]}],\"scroll\":0,\"selected\":\"restringida\",\"selected_raw\":\"7265737472696e67696461\",\"selection_raw\":[\"7265737472696e67696461\"],\"seq\":10,\"state\":\"ready\",\"total\":5,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=40 paint=41 width=1920 height=1080\nFILES_SPACE_COMMAND seq=11 action=root\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":17,\"row_hits\":[],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":11,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3698387 start=4559723 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":8,\"height\":946,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":18,\"row_hits\":[],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":11,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":726.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":484.0,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":242.0},{\"bytes\":2097152,\"h\":242.0,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":946,\"list_rect\":[68,960,1596,56],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":5,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":2,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":18,\"row_hits\":[{\"raw\":\"656e6c616365\",\"rect\":[68,960,1596,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,988,1596,26]}],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":11,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_COMMAND seq=12 action=normal\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":726.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":484.0,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":242.0},{\"bytes\":2097152,\"h\":242.0,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":946,\"list_rect\":[68,960,1596,56],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":5,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":2,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":18,\"row_hits\":[{\"raw\":\"656e6c616365\",\"rect\":[68,960,1596,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,988,1596,26]}],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":12,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":154.0,\"name\":\"Fotos\",\"w\":352.5714285714286,\"x\":264.4285714285714,\"y\":0.0},{\"bytes\":4194304,\"h\":154.0,\"name\":\"Documentos\",\"w\":176.28571428571428,\"x\":88.14285714285712,\"y\":0.0},{\"bytes\":2097152,\"h\":154.0,\"name\":\"video.bin\",\"w\":88.14285714285712,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":374,\"list_rect\":[68,388,617,56],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":5,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":2,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":18,\"row_hits\":[{\"raw\":\"656e6c616365\",\"rect\":[68,388,617,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,416,617,26]}],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":12,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_CAPTURE_OK id=0 redraw=false before=50 paint=50 width=941 height=508\nFILES_SPACE_COMMAND seq=13 action=list\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[],\"drained\":true,\"error\":null,\"generation\":8,\"height\":0,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":19,\"row_hits\":[],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":13,\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":0}\nFILES_SPACE_COMMAND seq=14 action=map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":20,\"row_hits\":[],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":14,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_PREVIEW_HELPER pid=3698424 start=4559734 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":8,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":21,\"row_hits\":[],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":14,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":154.0,\"name\":\"Fotos\",\"w\":352.5714285714286,\"x\":264.4285714285714,\"y\":0.0},{\"bytes\":4194304,\"h\":154.0,\"name\":\"Documentos\",\"w\":176.28571428571428,\"x\":88.14285714285712,\"y\":0.0},{\"bytes\":2097152,\"h\":154.0,\"name\":\"video.bin\",\"w\":88.14285714285712,\"x\":0.0,\"y\":0.0}],\"bar_rects\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":374,\"list_rect\":[68,388,617,56],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[\"466f746f73\",\"446f63756d656e746f73\",\"766964656f2e62696e\",\"656e6c616365\",\"766163c3ad6f2e747874\"],\"no_area_raw\":[\"656e6c616365\",\"766163c3ad6f2e747874\"],\"nodes\":5,\"observed\":14680064,\"operation_bar\":false,\"page_rows\":2,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":21,\"row_hits\":[{\"raw\":\"656e6c616365\",\"rect\":[68,388,617,26]},{\"raw\":\"766163c3ad6f2e747874\",\"rect\":[68,416,617,26]}],\"scroll\":0,\"selected\":\"Documentos\",\"selected_raw\":\"446f63756d656e746f73\",\"selection_raw\":[\"446f63756d656e746f73\"],\"seq\":14,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_COMMAND seq=15 action=busy\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":9,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":22,\"row_hits\":[],\"scroll\":0,\"selected\":\"items\",\"selected_raw\":\"6974656d73\",\"selection_raw\":[\"6974656d73\"],\"seq\":15,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":617}\nFILES_PREVIEW_HELPER pid=3698429 start=4559738 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":9,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":23,\"row_hits\":[],\"scroll\":0,\"selected\":\"items\",\"selected_raw\":\"6974656d73\",\"selection_raw\":[\"6974656d73\"],\"seq\":15,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_COMMAND seq=16 action=cancel\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":9,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":24,\"row_hits\":[],\"scroll\":0,\"selected\":\"items\",\"selected_raw\":\"6974656d73\",\"selection_raw\":[\"6974656d73\"],\"seq\":16,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":9,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":24,\"row_hits\":[],\"scroll\":0,\"selected\":\"items\",\"selected_raw\":\"6974656d73\",\"selection_raw\":[\"6974656d73\"],\"seq\":16,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_CAPTURE_OK id=0 redraw=false before=59 paint=59 width=941 height=508\nFILES_SPACE_COMMAND seq=17 action=refresh\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":10,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":25,\"row_hits\":[],\"scroll\":0,\"selected\":\"items\",\"selected_raw\":\"6974656d73\",\"selection_raw\":[\"6974656d73\"],\"seq\":17,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_PREVIEW_HELPER pid=3698434 start=4559745 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":10,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":26,\"row_hits\":[],\"scroll\":0,\"selected\":\"items\",\"selected_raw\":\"6974656d73\",\"selection_raw\":[\"6974656d73\"],\"seq\":17,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_SPACE_COMMAND seq=18 action=callback\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":10,\"height\":374,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"observed\":null,\"operation_bar\":false,\"page_rows\":1,\"path\":\"/home/node/.cache/files-test/space-ui-c1pcmrwl/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":26,\"row_hits\":[],\"scroll\":0,\"selected\":\"items\",\"selected_raw\":\"6974656d73\",\"selection_raw\":[\"6974656d73\"],\"seq\":18,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=false mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=false notice=false\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_SPACE_DRAINED\nFILES_CLOSE_DRAINED\n",
+  "binary_sha256": "dc2babf673b9fae6d4f14c2ee904b37d7218c6bc056957857c0ed53fd236c2b3",
+  "helper_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd"
+}

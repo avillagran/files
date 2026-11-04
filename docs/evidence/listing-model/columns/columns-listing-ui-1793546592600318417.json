@@ -1,0 +1,14 @@
+{
+  "functional_gate": "FAIL",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "states": [],
+  "captures": [],
+  "logs": {
+    "columns": "Can't open display: :0\n"
+  },
+  "error": "AssertionError('columns exited 1')",
+  "binary_sha256": "b3d6204df2e923bcd8a8363f9419d57774688ada4a5b8d6084a4fa910ec984e9",
+  "helper_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

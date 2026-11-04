@@ -1,0 +1,21 @@
+{
+  "method": "internal selection/link/scroll handlers + real FLTK framebuffer; compositor geometry requested and verified; no native input",
+  "captures": [],
+  "clipboard": "NOT_VALIDATED; selection bytes checked inside app, no clipboard read",
+  "resource_gate": "UNVALIDATED",
+  "known_pending": [
+    "embedded images",
+    "grapheme/ZWJ shaping and navigation",
+    "HTML renderer",
+    "clipboard without Wayland focus"
+  ],
+  "functional_gate": "NOT_RUN",
+  "interference": [
+    {
+      "pid": 3345852,
+      "start": 47680712,
+      "comm": "cargo"
+    }
+  ],
+  "reason": "Build competitor observed before launch; no app or performance measurement started"
+}

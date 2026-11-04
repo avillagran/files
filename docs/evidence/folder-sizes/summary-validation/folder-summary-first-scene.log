@@ -1,0 +1,9 @@
+/home/avillagran/Work/files/docs/evidence/folder-sizes/direct-summary-ui-1793493539981700983.json
+Traceback (most recent call last):
+  File "/home/avillagran/Work/files/scripts/folder-sizes-ui-check.py", line 87, in <module>
+    summaries()
+    ~~~~~~~~~^^
+  File "/home/avillagran/Work/files/scripts/folder-sizes-ui-check.py", line 66, in summaries
+    s=act('sizes-sort');order=[bytes.fromhex(n)for n in s['order']];assert order==[b'C-Empty',b'A-Small',b'B-Many'];assert b'B-Many'not in measured(s);capture('known-zero-before-eight-and-unknown')
+                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

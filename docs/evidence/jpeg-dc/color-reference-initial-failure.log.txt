@@ -1,0 +1,19 @@
+   Compiling files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.75s
+     Running unittests src/main.rs (target/debug/deps/files_helper-1dfd0225c1bf59f7)
+
+running 1 test
+
+thread 'jpeg_scaled::tests::sparse_dc_matches_full_one_eighth_with_real_color_and_dc_refinements' (1661919) panicked at crates/helper/src/jpeg_scaled.rs:411:9:
+1/8 colors disagree with libjpeg-turbo reference: sparse=[181, 70, 63, 181, 70, 63, 181, 70, 63, 181, 70, 63, 181, 70, 63, 181, 70, 63, 181, 70, 63, 181, 70, 63, 164, 71, 79, 164, 71, 79, 164, 71, 79, 164, 71, 79, 164, 71, 79, 164, 71, 79, 164, 71, 79, 164, 71, 79, 134, 77, 110, 134, 77, 110, 134, 77, 110, 134, 77, 110, 134, 77, 110, 134, 77, 110, 134, 77, 110, 134, 77, 110, 104, 82, 144, 104, 82, 144, 104, 82, 144, 104, 82, 144, 104, 82, 144, 104, 82, 144, 104, 82, 144, 104, 82, 144, 74, 88, 176, 74, 88, 176, 74, 88, 176, 74, 88, 176, 74, 88, 176, 74, 88, 176, 74, 88, 176, 74, 88, 176, 58, 90, 191, 58, 90, 191, 58, 90, 191, 58, 90, 191, 58, 90, 191, 58, 90, 191, 58, 90, 191, 58, 90, 191], reference=[196, 67, 46, 196, 67, 46, 196, 67, 46, 196, 67, 46, 196, 67, 46, 196, 67, 46, 196, 67, 46, 196, 67, 46, 164, 71, 79, 164, 71, 79, 164, 71, 79, 164, 71, 79, 164, 71, 79, 164, 71, 79, 164, 71, 79, 164, 71, 79, 135, 78, 111, 135, 78, 111, 135, 78, 111, 135, 78, 111, 135, 78, 111, 135, 78, 111, 135, 78, 111, 135, 78, 111, 105, 83, 145, 105, 83, 145, 105, 83, 145, 105, 83, 145, 105, 83, 145, 105, 83, 145, 105, 83, 145, 105, 83, 145, 75, 89, 178, 75, 89, 178, 75, 89, 178, 75, 89, 178, 75, 89, 178, 75, 89, 178, 75, 89, 178, 75, 89, 178, 44, 93, 211, 44, 93, 211, 44, 93, 211, 44, 93, 211, 44, 93, 211, 44, 93, 211, 44, 93, 211, 44, 93, 211]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test jpeg_scaled::tests::sparse_dc_matches_full_one_eighth_with_real_color_and_dc_refinements ... FAILED
+
+failures:
+
+failures:
+    jpeg_scaled::tests::sparse_dc_matches_full_one_eighth_with_real_color_and_dc_refinements
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p files-helper --bin files-helper`

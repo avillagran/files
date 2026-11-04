@@ -1,0 +1,77 @@
+{
+  "scope": "hardware GLES3 compile/link only; no app rendering, visual correctness, or performance claim",
+  "context": {
+    "egl": "1.5",
+    "vendor": "Mesa",
+    "renderer": "Apple M2 Pro (G14S B1)",
+    "version": "OpenGL ES 3.2 Mesa 26.2.5-arch1.1",
+    "glsl": "OpenGL ES GLSL ES 3.20"
+  },
+  "shaders": {
+    "threadaura": {
+      "passed": true,
+      "stage": "link",
+      "logs": [
+        {
+          "file": "quad.vert",
+          "log": ""
+        },
+        {
+          "file": "threadaura.frag",
+          "log": ""
+        }
+      ],
+      "link_log": "",
+      "sha256": "4794aa6bf33511d63cb802ee1649a37e7f33168c3aa57da8ea5d552e14205b5c"
+    },
+    "reveal": {
+      "passed": true,
+      "stage": "link",
+      "logs": [
+        {
+          "file": "quad.vert",
+          "log": ""
+        },
+        {
+          "file": "reveal.frag",
+          "log": ""
+        }
+      ],
+      "link_log": "",
+      "sha256": "e1c1d6415c51fe9cd47ed9c9de0add439043ed4847b9e64c0ef52368aaeecec0"
+    },
+    "starfield": {
+      "passed": true,
+      "stage": "link",
+      "logs": [
+        {
+          "file": "quad.vert",
+          "log": ""
+        },
+        {
+          "file": "starfield.frag",
+          "log": ""
+        }
+      ],
+      "link_log": "",
+      "sha256": "d18c803d1483c77c7e0a635dcb6e946f7b29db3ecdd291f0993c4ded71786b42"
+    },
+    "activity": {
+      "passed": true,
+      "stage": "link",
+      "logs": [
+        {
+          "file": "quad.vert",
+          "log": ""
+        },
+        {
+          "file": "activity.frag",
+          "log": ""
+        }
+      ],
+      "link_log": "",
+      "sha256": "684e9ed2b2f7235e344a18c4040f573390b4cd7a8754723176dac38aa728a62c"
+    }
+  },
+  "passed": true
+}

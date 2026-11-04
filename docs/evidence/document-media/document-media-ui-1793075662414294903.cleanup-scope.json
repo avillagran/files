@@ -1,0 +1,6 @@
+{
+  "original_gate": "PASS scoped media UI",
+  "limitation": "Original checker treated a same-identity zombie as non-live; it did not preserve whether that state occurred. Not strict proof of absent/reused PID at that instant. No actual zombie observed or claimed here.",
+  "correction": "Checker now rejects any same PID/starttime, including Z. Subsequent scene must pass strict absence/reuse; original preserved.",
+  "resource_gate": "NOT_MEASURED"
+}

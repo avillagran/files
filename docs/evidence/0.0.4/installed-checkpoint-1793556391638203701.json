@@ -1,0 +1,40 @@
+{
+  "checkpoint": "f9e5388afd2d6da28a4d1576261279d7d2e7c154",
+  "validation_report": "/home/node/Work/files/docs/evidence/listing-model/space-map/navigation/space-map-nav-ui-1793556363461275656.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/node/.cache/files-test/installed-backups/1793556391504010014",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "c5254a6503397ff371f11fffe526a25ceb27ca93045ded452d23b9f044e6e9ab",
+      "release_sha256": "5a9660a4ed5c66083bd8b5c641ab426ebee137a8b3edc9fbd73795026a3bf59f",
+      "installed_sha256": "5a9660a4ed5c66083bd8b5c641ab426ebee137a8b3edc9fbd73795026a3bf59f"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+      "release_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+      "installed_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+      "release_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+      "installed_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee",
+      "release_sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee",
+      "installed_sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

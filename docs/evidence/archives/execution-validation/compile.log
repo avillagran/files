@@ -1,0 +1,8 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.40s
+     Running unittests src/lib.rs (target/debug/deps/files_core-b77c5d036427fdd3)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 370 filtered out; finished in 0.00s
+

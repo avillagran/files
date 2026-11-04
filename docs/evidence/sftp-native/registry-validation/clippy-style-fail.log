@@ -1,0 +1,30 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+error: this `if` statement can be collapsed
+   --> crates/core/src/sftp_registry.rs:527:20
+    |
+527 |               } else if record.phase != Phase::Absent {
+    |  ____________________^
+528 | |                 if old.phase == Phase::Absent
+529 | |                     || record.phase == Phase::Prepared
+530 | |                     || (old.server.is_some() && record.server != old.server)
+...   |
+537 | |             }
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+527 ~             } else if record.phase != Phase::Absent
+528 ~                 && (old.phase == Phase::Absent
+529 |                     || record.phase == Phase::Prepared
+530 |                     || (old.server.is_some() && record.server != old.server)
+531 ~                     || (old.mount.is_some() && record.mount != old.mount))
+532 |                 {
+...
+535 |                     ));
+536 ~                 }
+    |
+
+error: could not compile `files-core` (lib) due to 1 previous error

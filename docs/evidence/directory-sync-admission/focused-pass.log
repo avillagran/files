@@ -1,0 +1,16 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.04s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 9 tests
+test directory_sync_admission::tests::exact_names_budget_is_charged_before_join_allocation ... ok
+test directory_sync_admission::tests::full_entry_envelope_and_first_excess ... ok
+test directory_sync_admission::tests::malformed_parent_graphs_and_duplicates_reject ... ok
+test directory_sync_admission::tests::pending_work_accounts_for_ancestor_child_lists ... ok
+test directory_sync_admission::tests::raw_paths_remapping_and_depth_limits ... ok
+test directory_sync_admission::tests::union_promotes_conflicting_leaf_to_directory_in_both_orders ... ok
+test directory_sync_physical::tests::staging_admission_bounds_replace_retire_and_cross_workspace_links ... ok
+test sftp_lifecycle::tests::cancellation_before_admission_prevents_spawn_and_unreadable_table_never_means_absent ... ok
+test terminal_directory::tests::hostile_payloads_reject_before_path_admission ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 659 filtered out; finished in 0.04s

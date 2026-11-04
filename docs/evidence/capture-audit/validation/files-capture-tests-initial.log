@@ -1,0 +1,62 @@
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+error[E0433]: cannot find module or crate `serde` in this scope
+ --> crates/ui/src/capture_frame.rs:8:19
+  |
+8 | #[derive(Default, serde::Deserialize)]
+  |                   ^^^^^ use of unresolved module or unlinked crate `serde`
+
+error: cannot find attribute `serde` in this scope
+  --> crates/ui/src/capture_frame.rs:9:3
+   |
+ 9 | #[serde(deny_unknown_fields)]
+   |   ^^^^^
+   |
+help: `serde` is an attribute that can be used by the derive macros `Deserialize` and `Serialize`, you might be missing a `derive` attribute
+   |
+10 + #[derive(Deserialize, Serialize)]
+11 | pub struct Request {
+   |
+
+error: cannot find attribute `serde` in this scope
+  --> crates/ui/src/capture_frame.rs:12:7
+   |
+12 |     #[serde(default)]
+   |       ^^^^^
+   |
+   = note: `serde` is an attribute that can be used by the derive macros `Deserialize` and `Serialize`, you might be missing a `derive` attribute
+
+error[E0277]: the trait bound `capture_frame::Request: serde::Deserialize<'de>` is not satisfied
+    --> crates/ui/src/capture_frame.rs:26:28
+     |
+  26 |     let request: Request = serde_json::from_slice(&data)?;
+     |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unsatisfied trait bound
+     |
+help: the trait `serde_core::de::Deserialize<'_>` is not implemented for `capture_frame::Request`
+    --> crates/ui/src/capture_frame.rs:10:1
+     |
+  10 | pub struct Request {
+     | ^^^^^^^^^^^^^^^^^^
+     = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `capture_frame::Request` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `serde_core::de::Deserialize<'de>`:
+               &'a [u8]
+               &'a std::path::Path
+               &'a str
+               ()
+               (T,)
+               (T0, T1)
+               (T0, T1, T2)
+               (T0, T1, T2, T3)
+             and 182 others
+note: required by a bound in `from_slice`
+    --> /home/node/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.154/src/de.rs:2669:8
+     |
+2667 | pub fn from_slice<'a, T>(v: &'a [u8]) -> Result<T>
+     |        ---------- required by a bound in this function
+2668 | where
+2669 |     T: de::Deserialize<'a>,
+     |        ^^^^^^^^^^^^^^^^^^^ required by this bound in `from_slice`
+
+Some errors have detailed explanations: E0277, E0433.
+For more information about an error, try `rustc --explain E0277`.
+error: could not compile `files-ui` (lib) due to 4 previous errors

@@ -1,0 +1,27 @@
+{
+  "status": "STATIC_AUDIT_ONLY",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "new_package": {
+    "name": "quick-xml",
+    "version": "0.41.0",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "checksum": "e660451e55124f798a69a5af3f49ccfbefbd41910eefd25caf2393e1f3473ec1",
+    "dependencies": [
+      "memchr"
+    ]
+  },
+  "license": "MIT",
+  "default_features": false,
+  "manifest_and_license_hashes": {
+    "/home/avillagran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/Cargo.toml": "0e7df0b5caa523509bb47a3ce3cb282e49e64dcf59e39cd12ab8e3aacd732700",
+    "/home/avillagran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quick-xml-0.41.0/LICENSE-MIT.md": "5b2c207dcf571267ebe0bbdd5bf321f561ddc22ff597e7b363e96f4539507a29"
+  },
+  "existing_direct_dependencies": [
+    "flate2=1.1.10 rust_backend, defaults off",
+    "crc32fast=1.5.3"
+  ],
+  "selected_normal_build_tree": "files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)\n\u251c\u2500\u2500 crc32fast v1.5.3\n\u2502   \u2514\u2500\u2500 cfg-if v1.0.5\n\u251c\u2500\u2500 files-core v0.0.4 (/home/avillagran/Work/files/crates/core)\n\u2502   \u251c\u2500\u2500 libc v0.2.191\n\u2502   \u251c\u2500\u2500 regex v1.13.1\n\u2502   \u2502   \u251c\u2500\u2500 regex-automata v0.4.18\n\u2502   \u2502   \u2502   \u2514\u2500\u2500 regex-syntax v0.8.11\n\u2502   \u2502   \u2514\u2500\u2500 regex-syntax v0.8.11\n\u2502   \u251c\u2500\u2500 serde v1.0.229\n\u2502   \u2502   \u251c\u2500\u2500 serde_core v1.0.229\n\u2502   \u2502   \u2514\u2500\u2500 serde_derive v1.0.229 (proc-macro)\n\u2502   \u2502       \u251c\u2500\u2500 proc-macro2 v1.0.107\n\u2502   \u2502       \u2502   \u2514\u2500\u2500 unicode-ident v1.0.27\n\u2502   \u2502       \u251c\u2500\u2500 quote v1.0.47\n\u2502   \u2502       \u2502   \u2514\u2500\u2500 proc-macro2 v1.0.107 (*)\n\u2502   \u2502       \u2514\u2500\u2500 syn v3.0.9\n\u2502   \u2502           \u251c\u2500\u2500 proc-macro2 v1.0.107 (*)\n\u2502   \u2502           \u251c\u2500\u2500 quote v1.0.47 (*)\n\u2502   \u2502           \u2514\u2500\u2500 unicode-ident v1.0.27\n\u2502   \u2514\u2500\u2500 toml v0.8.23\n\u2502       \u251c\u2500\u2500 serde v1.0.229 (*)\n\u2502       \u251c\u2500\u2500 serde_spanned v0.6.9\n\u2502       \u2502   \u2514\u2500\u2500 serde v1.0.229 (*)\n\u2502       \u251c\u2500\u2500 toml_datetime v0.6.11\n\u2502       \u2502   \u2514\u2500\u2500 serde v1.0.229 (*)\n\u2502       \u2514\u2500\u2500 toml_edit v0.22.27\n\u2502           \u251c\u2500\u2500 indexmap v2.14.2\n\u2502           \u2502   \u251c\u2500\u2500 equivalent v1.0.3\n\u2502           \u2502   \u2514\u2500\u2500 hashbrown v0.17.1\n\u2502           \u251c\u2500\u2500 serde v1.0.229 (*)\n\u2502           \u251c\u2500\u2500 serde_spanned v0.6.9 (*)\n\u2502           \u251c\u2500\u2500 toml_datetime v0.6.11 (*)\n\u2502           \u251c\u2500\u2500 toml_write v0.1.2\n\u2502           \u2514\u2500\u2500 winnow v0.7.15\n\u251c\u2500\u2500 flate2 v1.1.10\n\u2502   \u251c\u2500\u2500 crc32fast v1.5.3 (*)\n\u2502   \u2514\u2500\u2500 miniz_oxide v0.9.1\n\u2502       \u251c\u2500\u2500 adler2 v2.0.1\n\u2502       \u2514\u2500\u2500 simd-adler32 v0.3.10\n\u251c\u2500\u2500 image v0.25.10\n\u2502   \u251c\u2500\u2500 bytemuck v1.25.2\n\u2502   \u251c\u2500\u2500 byteorder-lite v0.1.0\n\u2502   \u251c\u2500\u2500 image-webp v0.2.4\n\u2502   \u2502   \u251c\u2500\u2500 byteorder-lite v0.1.0\n\u2502   \u2502   \u2514\u2500\u2500 quick-error v2.0.1\n\u2502   \u251c\u2500\u2500 moxcms v0.8.1\n\u2502   \u2502   \u251c\u2500\u2500 num-traits v0.2.19\n\u2502   \u2502   \u2502   [build-dependencies]\n\u2502   \u2502   \u2502   \u2514\u2500\u2500 autocfg v1.5.1\n\u2502   \u2502   \u2514\u2500\u2500 pxfm v0.1.30\n\u2502   \u251c\u2500\u2500 num-traits v0.2.19 (*)\n\u2502   \u2514\u2500\u2500 png v0.18.1\n\u2502       \u251c\u2500\u2500 bitflags v2.13.2\n\u2502       \u251c\u2500\u2500 crc32fast v1.5.3 (*)\n\u2502       \u251c\u2500\u2500 fdeflate v0.3.7\n\u2502       \u2502   \u2514\u2500\u2500 simd-adler32 v0.3.10\n\u2502       \u251c\u2500\u2500 flate2 v1.1.10 (*)\n\u2502       \u2514\u2500\u2500 miniz_oxide v0.8.9\n\u2502           \u251c\u2500\u2500 adler2 v2.0.1\n\u2502           \u2514\u2500\u2500 simd-adler32 v0.3.10\n\u251c\u2500\u2500 jpeg-decoder v0.3.2 (/home/avillagran/Work/files/vendor/jpeg-decoder)\n\u251c\u2500\u2500 libc v0.2.191\n\u251c\u2500\u2500 png v0.18.1 (*)\n\u251c\u2500\u2500 quick-xml v0.41.0\n\u2502   \u2514\u2500\u2500 memchr v2.8.3\n\u2514\u2500\u2500 serde_json v1.0.154\n    \u251c\u2500\u2500 itoa v1.0.18\n    \u251c\u2500\u2500 memchr v2.8.3\n    \u251c\u2500\u2500 serde_core v1.0.229\n    \u2514\u2500\u2500 zmij v1.0.23\n",
+  "zlib_rs_selected": false,
+  "scope": "permissive dependency/static audit, not DOCX UI acceptance or global budget proof"
+}

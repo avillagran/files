@@ -1,0 +1,195 @@
+{
+  "checked_at": "2026-11-04",
+  "code_commit": "ff7af560a6e0a845dbbcecc4e8c9b3d0e5fc7e94",
+  "source": "Same optimized NODE native x86_64 artifacts as previous NODE trial, transferred unchanged; no source edits/rebuilds during Intel campaign",
+  "host": {
+    "host": "mbp-intel",
+    "cpu": "Intel Corei5-5257U,2cores/4threads",
+    "gpu": "Intel Iris6100/Broadwell,i915",
+    "memory_total_kib": 8018956,
+    "kernel": "posix.uname_result(sysname='Linux', nodename='mbp-intel', release='7.2.8-9-omarchy', version='#1 SMP PREEMPT_DYNAMIC Sat, 17 Oct 2026 22:09:33 +0000', machine='x86_64')",
+    "libc": [
+      "glibc",
+      "2.44"
+    ],
+    "monitors": [
+      {
+        "id": 0,
+        "name": "eDP-1",
+        "description": "Apple Computer Inc Color LCD",
+        "make": "Apple Computer Inc",
+        "model": "Color LCD",
+        "serial": "",
+        "width": 2560,
+        "height": 1600,
+        "physicalWidth": 290,
+        "physicalHeight": 180,
+        "refreshRate": 59.972,
+        "x": 0,
+        "y": 0,
+        "activeWorkspace": {
+          "id": 1,
+          "name": "1"
+        },
+        "specialWorkspace": {
+          "id": 0,
+          "name": ""
+        },
+        "reserved": [
+          0,
+          26,
+          0,
+          0
+        ],
+        "scale": 2,
+        "transform": 0,
+        "focused": true,
+        "dpmsStatus": true,
+        "vrr": false,
+        "solitary": "0",
+        "solitaryBlockedBy": [
+          "WINDOWED",
+          "CANDIDATE"
+        ],
+        "activelyTearing": false,
+        "tearingBlockedBy": [
+          "NOT_TORN",
+          "USER",
+          "CANDIDATE",
+          "HW_CURSOR"
+        ],
+        "directScanoutTo": "0",
+        "directScanoutBlockedBy": [
+          "USER",
+          "CANDIDATE"
+        ],
+        "disabled": false,
+        "currentFormat": "XRGB8888",
+        "mirrorOf": "none",
+        "availableModes": [
+          "2560x1600@59.97Hz"
+        ],
+        "colorManagementPreset": "srgb",
+        "sdrBrightness": 1,
+        "sdrSaturation": 1,
+        "sdrMinLuminance": 0.2,
+        "sdrMaxLuminance": 80,
+        "hardwareCursorsInUse": true
+      }
+    ],
+    "code_commit": "ff7af560a6e0a845dbbcecc4e8c9b3d0e5fc7e94",
+    "artifacts": {
+      "files": "19597bef2136e0b0bdae9b337c3435ee4dac7e01e80f008a14f4829043d12473",
+      "files-helper": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+      "files-html-helper": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+      "files-html-helper.LICENSES": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "files-html-helper.build.json": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee",
+      "process_metrics.py": "b4f48eff65907bc0e9220a7ff491bb4cf70858c2283a167607f538f68cc0001c",
+      "memcheck.py": "554285242a4423be431461d73b79613549688e21eaa952bdfd2850b4f17fe430",
+      "bench-template.py": "7c8ecc31a78bc4eccde38436433b29c5f9582268df886478e73976c773883ece"
+    },
+    "loadavg_setup": [
+      0.14208984375,
+      0.0546875,
+      0.01416015625
+    ],
+    "scope": "Intel-specific experiment. Target executables unpacked only; no installation/defaults changed."
+  },
+  "access": "Explicit user authorization intel@192.168.1.70; direct SSH worked, no environment pairing required",
+  "summary": [
+    {
+      "app": "files",
+      "count": 10000,
+      "runs": 4,
+      "listing_ready_ms_median": 159.1571785029373,
+      "listing_ready_ms_min": 156.55015400261618,
+      "listing_ready_ms_max": 168.33331101224758,
+      "mapped_ms_median": 158.83192700130166,
+      "stable_tree_mib_median": 39.0390625,
+      "peak_tree_mib_median": 39.0390625,
+      "drm_client_resident_mib_median_at_end": 0.0,
+      "drm_resident_mib_per_run": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "app": "flea",
+      "count": 10000,
+      "runs": 4,
+      "listing_ready_ms_median": 278.8463859978947,
+      "listing_ready_ms_min": 265.5747089884244,
+      "listing_ready_ms_max": 552.1023299952503,
+      "mapped_ms_median": 188.09801249881275,
+      "stable_tree_mib_median": 56.3671875,
+      "peak_tree_mib_median": 57.11474609375,
+      "drm_client_resident_mib_median_at_end": 79.796875,
+      "drm_resident_mib_per_run": [
+        79.796875,
+        79.796875,
+        79.796875,
+        79.796875
+      ]
+    },
+    {
+      "app": "files",
+      "count": 100000,
+      "runs": 4,
+      "listing_ready_ms_median": 1419.5027534951805,
+      "listing_ready_ms_min": 1413.6809129995527,
+      "listing_ready_ms_max": 1429.2489310028031,
+      "mapped_ms_median": 169.67849699722137,
+      "stable_tree_mib_median": 51.81787109375,
+      "peak_tree_mib_median": 51.81787109375,
+      "drm_client_resident_mib_median_at_end": 0.0,
+      "drm_resident_mib_per_run": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "app": "flea",
+      "count": 100000,
+      "runs": 4,
+      "listing_ready_ms_median": 271.3154610028141,
+      "listing_ready_ms_min": 266.63301899679936,
+      "listing_ready_ms_max": 338.5164240025915,
+      "mapped_ms_median": 182.49479599762708,
+      "stable_tree_mib_median": 58.82666015625,
+      "peak_tree_mib_median": 59.60009765625,
+      "drm_client_resident_mib_median_at_end": 79.796875,
+      "drm_resident_mib_per_run": [
+        79.796875,
+        79.796875,
+        79.796875,
+        79.796875
+      ]
+    }
+  ],
+  "renderer_flea": "Vulkan Intel IrisGraphics6100(BDWGT3), confirmed each launch; no llvmpipe",
+  "geometry": "1256x750 logical, nativeWayland, internal2560x1600 outputscale2; both apps identical geometry all16validruns; desktop/default row density differs",
+  "method": "4 valid runs/app/count,AB/BA alternating,10k/100k empty.txt files with same names,name-sortedList,newprocess/warm directorymetadata; private HOME/XDG profiles, process-tree PSS+SwapPss,~40ms polling+overhead, CPUquiet/mapped/liststate kept distinct",
+  "sampling": "Tree sampler children discovery;16valid0sampleerrors; sampled peaks lower bounds, ephemeral children may escape; different readiness observers Files marker vsFlea IPC; no native input or presented frame claim",
+  "gpu_qualification": "Resident DRM system/stolen regions read once at end, deduplicated bydevice/clientid and maximum value across duplicateFD observations. Flea79.796875MiB; Files no own DRM client observed, NOT zero compositor/GPU cost. Do not blindly add DRM resident toPSS: possible overlap/accounting differences; compositor outside both app trees. GPU values are not a lifetime peak.",
+  "interpretation": "Intel independently shows lower process-tree RAM forFiles bothcounts, faster10k but slower100k. ~1.42s vs0.27s at100k is reproducible and much larger than poll granularity. 50MB is an internal objective, explicitly NOT a rejection criterion; user values RAM win. No global superiority/project no-go claim.",
+  "limits": [
+    "No cross-host timing/memory ranking: NODE655x836scale1,M2test1100x700scale1,Intel1256x750scale2; different GPU drivers/backend/cache/background",
+    "FirstFlea launch slower fromcold profile/GPU cache initialization; every valid run retained, medians of four; no globally cold-cache campaign",
+    "No search/navigation/scroll/input latency, media/thumbnail parity or full lifetime/CPU/energy acceptance",
+    "No configured app/default association changed; neitherFiles norFlea installedsystem-wide. Own groups only SIGTERM; retained identities/windows verified exited; not orderly app-close proof"
+  ],
+  "validation": {
+    "valid_runs": 16,
+    "sample_errors": 0,
+    "same_geometry": true,
+    "retained_processes_exited": true,
+    "benchmark_windows_closed": true,
+    "application_code_changed": false,
+    "new_tests_or_builds": "NOT_NEEDED; unchanged app binaries verified against manifest"
+  },
+  "broader_goal": "Preserved and unfinished; Intel comparison adds data, not a toolkit-wide verdict"
+}

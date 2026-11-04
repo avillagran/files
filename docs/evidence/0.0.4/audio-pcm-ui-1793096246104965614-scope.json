@@ -1,0 +1,6 @@
+{
+  "scope": "ZERO PCM routing probe only; actual private sink IDs matched and cleanup passed",
+  "tone_content": "NOT_VALIDATED, sources intentionally all zero",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

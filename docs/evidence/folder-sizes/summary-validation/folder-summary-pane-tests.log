@@ -1,0 +1,21 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+   Compiling files-app v0.0.4 (/home/avillagran/Work/files/crates/app)
+error[E0599]: no method named `focus_pane` found for struct `model::Model` in the current scope
+   --> crates/ui/src/dual_pane/tests.rs:448:7
+    |
+448 |     m.focus_pane(other).unwrap();
+    |       ^^^^^^^^^^
+    |
+   ::: crates/ui/src/model.rs:335:1
+    |
+335 | pub struct Model {
+    | ---------------- method `focus_pane` not found for this struct
+    |
+help: there is a method `close_focused_pane` with a similar name, but with different arguments
+   --> crates/ui/src/dual_pane.rs:698:5
+    |
+698 |     pub fn close_focused_pane(&mut self) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `files-ui` (lib test) due to 1 previous error

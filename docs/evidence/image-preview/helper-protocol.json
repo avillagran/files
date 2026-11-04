@@ -1,0 +1,36 @@
+{
+  "scope": "debug helper protocol fixtures only, no UI/PSS/latency claim",
+  "cases": [
+    {
+      "case": "png",
+      "status": "PASS",
+      "exit": 0,
+      "header": {
+        "status": "image",
+        "id": 73,
+        "width": 2,
+        "height": 1,
+        "byte_len": 6,
+        "source_width": 2,
+        "source_height": 1,
+        "format": "png"
+      },
+      "pixel_sha256": "0757241fa846855871c4ec6994954cbe0e0e7a8fd7bb3f7487462f6ce4215780",
+      "stdin_open_when_exited": true
+    },
+    {
+      "case": "mismatch",
+      "status": "PASS",
+      "exit": 2,
+      "mismatched_command_rejected": true
+    },
+    {
+      "case": "corrupt",
+      "status": "PASS",
+      "exit": 0,
+      "error_only_no_pixel_payload": true
+    }
+  ],
+  "status": "PASS",
+  "helper_sha256": "6e92799e2397dc8a9ac3daa727c725e4f230188dd11370efb00ac7fc51a874e1"
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "build/fixture only; no native Wayland DnD acceptance",
+  "generated_source_count": 1,
+  "compiled_static_symbol": "fl_files_dnd_input_d2b250390119c5baf67399cb5bcda9a5f334e4d88712c01c7e0e82a5238e570d",
+  "symbol_evidence": "coordinator independently verified matching strong U bridge/T libfltk, not final app link",
+  "compile_command": {
+    "directory": "/home/avillagran/Work/files/target/debug/build/fltk-sys-ccb87e34be8a3222/out/build/fltk/src",
+    "command": "/usr/bin/c++ -DFL_LIBRARY -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I/home/avillagran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/fltk-sys-1.5.23/cfltk/fltk/src/drivers/Wayland -I/home/avillagran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/fltk-sys-1.5.23/cfltk/fltk/zlib -I/home/avillagran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/fltk-sys-1.5.23/cfltk/fltk/png -I/home/avillagran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/fltk-sys-1.5.23/cfltk/fltk/jpeg -I/home/avillagran/Work/files/target/debug/build/fltk-sys-ccb87e34be8a3222/out/build/fltk/src/.. -I/home/avillagran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/fltk-sys-1.5.23/cfltk/fltk/src/.. -I/usr/include/freetype2 -I/usr/include/pango-1.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/fribidi -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/sysprof-6 -I/usr/include/dbus-1.0 -I/usr/lib/dbus-1.0/include  -ffunction-sections -fdata-sections -fPIC -w -fno-exceptions -I/home/avillagran/Work/files/target/debug/build/fltk-sys-ccb87e34be8a3222/out/build/fltk/src -g   -D_THREAD_SAFE -D_REENTRANT -o CMakeFiles/fltk.dir/__/__/files-wayland-transfer/fl_wayland_clipboard_dnd.cxx.o -c /home/avillagran/Work/files/target/debug/build/fltk-sys-ccb87e34be8a3222/out/build/files-wayland-transfer/fl_wayland_clipboard_dnd.cxx",
+    "file": "/home/avillagran/Work/files/target/debug/build/fltk-sys-ccb87e34be8a3222/out/build/files-wayland-transfer/fl_wayland_clipboard_dnd.cxx",
+    "output": "fltk/src/CMakeFiles/fltk.dir/__/__/files-wayland-transfer/fl_wayland_clipboard_dnd.cxx.o"
+  },
+  "lifecycle": {
+    "lifecycle": "PASS",
+    "destroyed_once": 3,
+    "default_negotiations": 1,
+    "late_events_suppressed": true,
+    "native_protocol": "UNVALIDATED"
+  },
+  "review_harness_initial_failure": "Assumed historical files-ui output directory; actual content guard header now files-ui-99060c3737327c37. No product failure or source changes.",
+  "stale_input_rejected": true,
+  "stale_input_diagnostic": "CMake Error at .cargo/tmp/dnd-guard-kp4rihyu/native/fltk/guard-v1.cmake:15 (message):\n  files DnD stale/missing generated build input.  Bump BOTH versioned CMAKE\n  wrapper and CFLTK_TOOLCHAIN paths in .cargo/config.toml to force the pinned\n  fltk-sys configure; do not edit the registry or bypass this guard.\n\n\n"
+}

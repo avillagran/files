@@ -1,0 +1,17 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0425]: cannot find value `action` in this scope
+    --> crates/ui/src/model.rs:2028:33
+     |
+1779 |     pub fn action(&mut self, a: Action) {
+     |            ------ a method by that name is available on `Self` here
+...
+2028 |                     if matches!(action, Action::CopyVisiblePublication) {
+     |                                 ^^^^^^ not found in this scope
+     |
+help: consider importing this function
+     |
+   1 + use crate::operation_bar::action;
+     |
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `files-ui` (lib test) due to 1 previous error

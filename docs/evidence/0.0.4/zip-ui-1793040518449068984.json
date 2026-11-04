@@ -1,0 +1,62 @@
+{
+  "method": "internal handlers, actual files-helper ZIP central-directory catalog and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/zip-catalog-safety-labels-1793040517836050782.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/zip-raw-name-1793040518032019326.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/zip-empty-catalog-1793040518154796792.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/zip-catalog-truncated-1793040518270267279.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "extraction/compression",
+    "ZIP64/tar/other formats",
+    "payload/local-header/CRC integrity",
+    "resource budget",
+    "cross-platform verification"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0f2a7160"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=56289\nFILES_UI_SMOKE_OK entries=6\nFILES_PREVIEW_COMMAND_OK archive\nFILES_PREVIEW_COMMAND_REV action=archive revision=2\nFILES_PREVIEW_HELPER pid=4077261 start=48328990 command=preview_archive\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/zip-ui-pl4kcog5/files/catalog.zip\") encoding=ZIP \u00b7 directorio central truncated=false bytes=859\nFILES_ZIP_CATALOG_OK count=7 metadata_only=true extraction=false\nFILES_PREVIEW_COMMAND_OK archive-assert\nFILES_PREVIEW_COMMAND_REV action=archive-assert revision=2\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK archive-raw\nFILES_PREVIEW_COMMAND_REV action=archive-raw revision=4\nFILES_PREVIEW_HELPER pid=4077273 start=48329008 command=preview_archive\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/zip-ui-pl4kcog5/files/raw.zip\") encoding=ZIP \u00b7 directorio central truncated=false bytes=320\nFILES_ZIP_RAW_NAME_OK escaped=true\nFILES_PREVIEW_COMMAND_OK archive-assert-raw\nFILES_PREVIEW_COMMAND_REV action=archive-assert-raw revision=4\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK archive-empty\nFILES_PREVIEW_COMMAND_REV action=archive-empty revision=6\nFILES_PREVIEW_HELPER pid=4077351 start=48329023 command=preview_archive\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/zip-ui-pl4kcog5/files/empty.zip\") encoding=ZIP \u00b7 directorio central truncated=false bytes=245\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK archive-large\nFILES_PREVIEW_COMMAND_REV action=archive-large revision=8\nFILES_PREVIEW_HELPER pid=4077379 start=48329034 command=preview_archive\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/zip-ui-pl4kcog5/files/large.zip\") encoding=ZIP \u00b7 directorio central truncated=true bytes=130846\nFILES_ZIP_TRUNCATED_OK bytes=130846 lines=1620\nFILES_PREVIEW_COMMAND_OK archive-assert-truncated\nFILES_PREVIEW_COMMAND_REV action=archive-assert-truncated revision=8\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK archive-rapid\nFILES_PREVIEW_COMMAND_REV action=archive-rapid revision=13\nFILES_PREVIEW_HELPER pid=4077389 start=48329046 command=preview_archive\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/zip-ui-pl4kcog5/files/catalog.zip\") encoding=ZIP \u00b7 directorio central truncated=false bytes=859\nFILES_ZIP_CATALOG_OK count=7 metadata_only=true extraction=false\nFILES_PREVIEW_COMMAND_OK archive-assert\nFILES_PREVIEW_COMMAND_REV action=archive-assert revision=13\nFILES_PREVIEW_COMMAND_OK archive-bad\nFILES_PREVIEW_COMMAND_REV action=archive-bad revision=15\nFILES_PREVIEW_HELPER pid=4077391 start=48329051 command=preview_archive\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/zip-ui-pl4kcog5/files/bad.zip\") message=ZIP incompleto: falta el directorio central\nFILES_PREVIEW_COMMAND_OK archive-over\nFILES_PREVIEW_COMMAND_REV action=archive-over revision=17\nFILES_PREVIEW_HELPER pid=4077417 start=48329054 command=preview_archive\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/zip-ui-pl4kcog5/files/over.zip\") message=ZIP excede 10000 entradas o 4MiB de directorio central\nFILES_PREVIEW_COMMAND_OK close-archive-pending\nFILES_PREVIEW_COMMAND_REV action=close-archive-pending revision=20\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "f9c4b4a1f4daa84c8528c7bbb3dc30ffa9ee5202906b89ad273c6a0d6e8fb807",
+  "helper_sha256": "796e1b268aa4f099afcee7e7ef0276663e625977bc7e444d7640bc7784f95542"
+}

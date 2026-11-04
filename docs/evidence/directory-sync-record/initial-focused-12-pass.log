@@ -1,0 +1,19 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.31s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 12 tests
+test directory_sync_record::tests::duplicated_out_of_order_or_missing_parent_namespace_is_rejected_after_reseal ... ok
+test directory_sync_record::tests::decoding_needs_no_live_paths_or_descriptors ... ok
+test directory_sync_record::tests::journal_comparison_key_requires_job_identity_and_cannot_recreate_live_binding ... ok
+test directory_sync_record::tests::unresealed_changes_truncation_extra_bytes_and_oversize_are_rejected ... ok
+test directory_sync_record::tests::resealed_impossible_version_mode_budget_expected_identity_and_counts_are_rejected ... ok
+test directory_sync_record::tests::hardlinks_are_derived_with_external_counts_and_inconsistent_revisions_fail ... ok
+test directory_sync_record::tests::resealed_bad_paths_ancestors_timestamps_kind_links_mount_and_directory_hash_fail ... ok
+test directory_sync_record::tests::valid_resealed_content_or_metadata_claims_remain_history_not_live_authority ... ok
+test directory_sync_record::tests::canonical_roundtrip_preserves_raw_fields_roots_mounts_and_cached_identity ... ok
+test directory_sync_record::tests::decoded_history_and_matching_stored_key_do_not_grant_freshness_or_approval ... ok
+test directory_sync_record::tests::mode_and_request_policy_changes_produce_distinct_records_and_cannot_bind ... ok
+test directory_sync_record::tests::both_complete_inventory_records_exceed_four_mib_without_truncation ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 505 filtered out; finished in 2.43s

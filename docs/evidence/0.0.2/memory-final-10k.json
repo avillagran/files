@@ -1,0 +1,105 @@
+{
+  "gate_status": "PASS",
+  "gate_reasons": [],
+  "warnings": [],
+  "limits": {
+    "baseline_objective_mib": 35,
+    "baseline_analysis_stop_mib": 40,
+    "baseline_hard_mib": 60,
+    "modern_goal_mb_decimal": 50,
+    "absolute_ceiling_mb_decimal": 150,
+    "scenario_budget_mb_decimal": null
+  },
+  "files": 10000,
+  "scenario": "baseline",
+  "geometry": {
+    "window_logical": [
+      960,
+      540
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      1920,
+      1080
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0d724dd0"
+  },
+  "required_physical": [
+    1920,
+    1080
+  ],
+  "metrics": {
+    "complete": true,
+    "sample_count": 254,
+    "sample_interval_requested_ms": 25.0,
+    "max_observed_interval_ms": 25.390380003955215,
+    "stable_sample_count": 40,
+    "sampled_maxima": {
+      "pss_kib": 36254,
+      "swap_pss_kib": 0,
+      "memory_kib": 36254,
+      "fds": 13,
+      "threads": 5,
+      "process_count": 1
+    },
+    "sample_at_memory_max": {
+      "pss_kib": 36254,
+      "swap_pss_kib": 0,
+      "threads": 5,
+      "fds": 11,
+      "memory_kib": 36254,
+      "time_monotonic": 455219.124639563,
+      "cpu_percent_observed": 79.81986583841697,
+      "root_alive": true,
+      "process_count": 1,
+      "complete": true,
+      "errors": [],
+      "processes": [
+        {
+          "pid": 1218474,
+          "start": 45521894,
+          "pss_kib": 36254,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11
+        }
+      ]
+    },
+    "stable_medians": {
+      "pss_kib": 28989.0,
+      "swap_pss_kib": 0.0,
+      "memory_kib": 28989.0,
+      "fds": 11.0,
+      "threads": 5.0,
+      "process_count": 1.0
+    },
+    "stable_cpu_percent_observed_median": 0.0,
+    "stable_cpu_percent_observed_max": 0.0,
+    "observed_process_identities": [
+      [
+        1218474,
+        45521894
+      ]
+    ],
+    "exited_process_identities": [],
+    "errors": [],
+    "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+    "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+  },
+  "sampled_peak_memory_mib": 35.404296875,
+  "sampled_peak_memory_mb_decimal": 37.124096,
+  "baseline_objective_met": false,
+  "modern_goal_met": true,
+  "run_policy": "serialized: no concurrent builds, captures or benchmarks; caller must enforce",
+  "gpu_memory": "not measured by /proc; effects must be off for baseline",
+  "view_requested": "groups",
+  "view_validation": "CLI request only; verify rendered scene independently",
+  "first_paint_ms_internal": 36.289,
+  "cleanup": {
+    "surviving_observed_processes": [],
+    "errors": [],
+    "complete": true
+  },
+  "stderr_tail": null
+}

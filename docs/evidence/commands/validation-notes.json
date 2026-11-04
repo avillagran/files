@@ -1,0 +1,9 @@
+{
+  "initial_report": "command-palette-ui-1793404366025571814.json",
+  "initial_scope": "PASS11FB before presentation refinements and late-notice guard; preserved, not final installed binary",
+  "final_report": "command-palette-ui-1793404858332671715.json",
+  "refinements": "Query hint, result count, disabled Execute button without hit, button insets, inspector label. Dispatch additionally rejects an async notice/dialog; tested independently. No weaker checks or new permission fallback.",
+  "source_checks": "735Rust234core/73helper/428UI,3existing ignored; workspace Clippy alltargets-Dwarnings/release/fmt final PASS; target/command-palette-guard-*",
+  "first_clippy": "target/command-palette-first-clippy.log FAIL preserved: deprecated fetch_update plus two style lints. Replaced with checked compare_exchange loop and fixed borrows/let-chain, no warnings suppressed.",
+  "limits": "Private invocation/key policy, painted targets and actual helper/queue/framebuffer; NO inputSO/OSclipboard/physicalinterop/resource/startup acceptance. No extra preview work."
+}

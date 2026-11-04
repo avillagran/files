@@ -1,0 +1,36 @@
+{
+  "functional_gate": "PASS",
+  "source": "f9e5388",
+  "workspace_tests": {
+    "core": 447,
+    "helper": 105,
+    "ui": 744,
+    "passed": 1296,
+    "historical_ignored": 3,
+    "result": "PASS normal concurrency; only subsequent source difference is a translated test comment"
+  },
+  "clippy": "PASS all targets warnings denied",
+  "format": "PASS",
+  "retained_failure": "initial-workspace-failure.log:1295PASS1FAIL at listing_sync.rs695. Kernel audit writeCreate+Modify/renameMoveto supports removing multievent test-stimulus assumption; exact prior callback ordering not observed. Production watcher unchanged, later write must still invalidate. No test serialization/quiet-time sleep.",
+  "synthetic_dual_context": "Model invariant tests only; normal toggle_dual changes view tag to List; no user-visible dual regression reproduced",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "full_goal": "ACTIVE",
+  "release": "PASS",
+  "source_ui": {
+    "wayland": "../navigation/space-map-nav-ui-1793556363461275656.json",
+    "xvfb_x11": "../navigation/space-map-nav-ui-1793556366342518840.json",
+    "result": "PASS each19captures3normal exits+drain7logged SpaceMap helpers gone/reused"
+  },
+  "installed_ui": {
+    "wayland": "../navigation/space-map-nav-ui-1793556407655363636.json",
+    "result": "PASS19captures3normal exits+drain7logged SpaceMap helpers gone/reused"
+  },
+  "installation": "docs/evidence/0.0.4/installed-checkpoint-1793556391638203701.json",
+  "manual_inspection": [
+    "Wayland palette: recalcular query, contextual label and F5/Ctrl+R fit",
+    "X11 partial map inspector copy button has no false F5; review captures both marked root names",
+    "Wayland entry menu copy label fits and has no false F5"
+  ],
+  "next": "Audit command availability parity between real Map keyboard routes, inspector/entry menu, palette and MC bar. Preserve common operation preflight/raw-name selection/revision/owner checks; do not infer file authority from an old size report. Other full ROADMAP gates remain pending."
+}

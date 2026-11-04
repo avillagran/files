@@ -1,0 +1,20 @@
+[
+  {
+    "text": "initial-4-owned-pass.log",
+    "raw_archive": "initial-4-owned-pass.log.raw.gz",
+    "raw_sha256": "fe41babc31e744f8862beded7772d7d513c575b353b64b62b8745dfcd8462bad",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "owned-9-pass.log",
+    "raw_archive": "owned-9-pass.log.raw.gz",
+    "raw_sha256": "d1d0d8eb283e6495fa8633f8f1bd4c9ec8e99cdead8e1aa6435af5a89657a415",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "workspace-pass.log",
+    "raw_archive": "workspace-pass.log.raw.gz",
+    "raw_sha256": "3890db4766f278d0d91d52477493363b52221152e479844516e0264f811b183f",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  }
+]

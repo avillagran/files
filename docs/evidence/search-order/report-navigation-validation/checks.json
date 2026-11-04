@@ -1,0 +1,20 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "owned filesystem fixtures and independent Files processes; painted handlers/private command pipes and real FLTK framebuffer; no native input",
+  "binary_sha256": "91e92f71edcb44f8cc93968fd09b866fef8761d50e8797a12b43d124579f0ccf",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "scene": "docs/evidence/search-order/operation-report-ui-1793471804962465697.json",
+  "tests": "975Rust327core/85helper/563UI+3existingignored PASS; full suite precedes only test-iterator style and direction tooltip labels; final2focused report tests/Clippyworkspacealltargets-Dwarnings/release/fmt PASS",
+  "captures": 34,
+  "report_scope": "Actual Move report440 has10lines/7visible: PgDown\u2192full last page, Home, Down clamp, painted last/previous/next buttons; first button disabled at start; wide resize fits all10and clamps0/disablesall, Home used when first button disabled; horizontal pan bounded. Operation ID/count unchanged; row immutable/empty/extremes/resize/nonzero pan in unit tests. Native pointer/keyboard NOT validated.",
+  "helper_cleanup": "6 logged PID/start identities gone/reused, Z rejected; root0ACK, not lifetime coverage",
+  "native_input": "UNVALIDATED",
+  "global_gate": "PENDING; full goal/ROADMAP remain active; no performance/resource claim",
+  "original_failures": [
+    "Clippy test-only iterator last\u2192next_back\u2192rfind; both FAILlogs retained, no disabled lint",
+    "scene1793471758547361926 tried End after PgDown already reached last page; correctly disabled/no target. ReturnHome before paintedEnd; originalJSON/PNGs/sidecar intact."
+  ]
+}

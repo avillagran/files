@@ -1,0 +1,6 @@
+{
+  "method": "functional silent PCM fixture with SDL disk driver opening nonexistent private parent; no audio written, no resource/startup gate",
+  "resource_gate": "NOT_MEASURED",
+  "returncode": 0,
+  "stderr": "No more combinations to try, audio open failed\nFailed to open file '/home/avillagran/.cache/files-test/ffplay-device-bw5ygkn2/silence.wav' or configure filtergraph\n"
+}

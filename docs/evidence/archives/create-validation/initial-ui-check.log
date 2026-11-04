@@ -1,0 +1,61 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0308]: mismatched types
+   --> crates/ui/src/archive_ui.rs:157:17
+    |
+154 |             crate::aux_io::Request::PrepareCreateArchive(
+    |             -------------------------------------------- arguments to this enum variant are incorrect
+...
+157 |                 form.names.clone(),
+    |                 ^^^^^^^^^^^^^^^^^^ expected `Vec<OsString>`, found `Arc<[OsString]>`
+    |
+    = note: expected struct `Vec<OsString>`
+               found struct `Arc<[OsString]>`
+note: tuple variant defined here
+   --> crates/ui/src/aux_io.rs:13:5
+    |
+ 13 |     PrepareCreateArchive(
+    |     ^^^^^^^^^^^^^^^^^^^^
+help: try using a conversion method
+    |
+157 -                 form.names.clone(),
+157 +                 form.names.to_vec(),
+    |
+
+error[E0063]: missing field `creating` in initializer of `copy_dialog::Dialog`
+   --> crates/ui/src/clipboard_ui.rs:157:24
+    |
+157 |         let mut form = crate::copy_dialog::Dialog {
+    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^ missing `creating`
+
+error[E0308]: mismatched types
+   --> crates/ui/src/copy_job.rs:390:22
+    |
+390 |         let s = lock(&self.shared.state);
+    |                 ---- ^^^^^^^^^^^^^^^^^^ expected `&Shared`, found `&Mutex<State>`
+    |                 |
+    |                 arguments to this function are incorrect
+    |
+    = note: expected reference `&copy_job::Shared`
+               found reference `&std::sync::Mutex<copy_job::State>`
+note: function defined here
+   --> crates/ui/src/copy_job.rs:363:4
+    |
+363 | fn lock(shared: &Shared) -> MutexGuard<'_, State> {
+    |    ^^^^ ---------------
+
+error[E0063]: missing field `creating` in initializer of `copy_dialog::Dialog`
+   --> crates/ui/src/copy_ui.rs:296:31
+    |
+296 |         self.copy_form = Some(Dialog {
+    |                               ^^^^^^ missing `creating`
+
+error[E0063]: missing field `creating` in initializer of `copy_dialog::Dialog`
+   --> crates/ui/src/search_transfer.rs:378:24
+    |
+378 |         let mut form = Dialog {
+    |                        ^^^^^^ missing `creating`
+
+Some errors have detailed explanations: E0063, E0308.
+For more information about an error, try `rustc --explain E0063`.
+error: could not compile `files-ui` (lib) due to 5 previous errors

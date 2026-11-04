@@ -1,0 +1,12 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling syn v3.0.9
+   Compiling serde_derive v1.0.229
+   Compiling serde v1.0.229
+   Compiling toml_datetime v0.6.11
+   Compiling serde_spanned v0.6.9
+   Compiling toml_edit v0.22.27
+   Compiling toml v0.8.23
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+   Compiling files-helper v0.0.4 (/home/node/Work/files/crates/helper)
+    Finished `release` profile [optimized] target(s) in 30.77s

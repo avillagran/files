@@ -1,0 +1,25 @@
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error: this `if` statement can be collapsed
+   --> crates/ui/src/sftp_ui.rs:137:9
+    |
+137 | /         if !self.sftp.inspected
+138 | |             && !self.sftp.transport.busy()
+139 | |             && let Some(Ok(cap)) = self.sftp.form.as_ref().and_then(|f| f.capability.as_ref())
+...   |
+149 | |         }
+    | |_________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+139 ~             && let Some(Ok(cap)) = self.sftp.form.as_ref().and_then(|f| f.capability.as_ref())
+140 ~             && self
+141 |                 .sftp
+...
+146 |                 self.sftp.inspected = true;
+147 ~             }
+    |
+
+error: could not compile `files-ui` (lib) due to 1 previous error

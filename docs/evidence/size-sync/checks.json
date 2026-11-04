@@ -1,0 +1,16 @@
+{
+  "workspace": "PASS 1131 tests:398 core/91 helper/642 UI;3 existing ignored",
+  "clippy": "PASS workspace all-targets -D warnings",
+  "release": "PASS workspace",
+  "fmt": "PASS",
+  "red_reproduction": "Model pump with injected completed Job: inactive Size order stale, actual measured value accepted; not real helper evidence",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_input": "UNVALIDATED",
+  "final_workspace": "PASS1131/3 existing ignored after test-only stable interpreter fix",
+  "preserved_failures": [
+    "workspace-etxtbsy-fail.log",
+    "../folder-sizes/size-sync-ui-1793502346325456603.json",
+    "../folder-sizes/size-sync-ui-1793502449563984992.json"
+  ]
+}

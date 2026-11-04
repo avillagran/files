@@ -1,0 +1,17 @@
+{
+  "scope": "Guided explicit literal/regex mode and saved criteria v1/v2 compatibility",
+  "rust": "1230 PASS435/98/697+3 historical ignored; workspace Clippy/fmt/release PASS",
+  "wayland": "docs/evidence/search/content-search-ui-1793532804833634378.json",
+  "x11": "docs/evidence/search/content-search-ui-1793532832682703956.json",
+  "initial_compile_failure": "Large fixture json macro reached recursion limit; split metadata into small object inserts. No crate recursion setting changed; initial log preserved.",
+  "initial_functional_failure": "1793532704370210150 asserted empty hit rectangles from async pre-paint state. Frame showed selector. Harness now requires painted header before a finished report; failure preserved, no product rendering fix claim.",
+  "visual_review": "Wayland440 mode plus paged peers, Save review Regex label, loaded legacy Literal and loaded Regex inspected. Positive bounds and nonoverlap checked from painted hits.",
+  "persistence": "Owned v1 literal seed, explicit regex Save through AuxIo, binary version2 plus distinct mode rows; actual Reload and Load each yield correct mode/text without helper, Enter yields distinct expected files.",
+  "limits": [
+    "No native keyboard/mouse/clipboard/IME/AT-SPI/2x/lifetime/resource/startup claims",
+    "Older binaries reject v2 and preserve it; literal-only encoding remains v1",
+    "Original X11 pane anomaly remains open",
+    "Unicode casefold/other encodings and remaining explorer goal still pending"
+  ],
+  "installed": "docs/evidence/search/content-search-ui-1793533005797097317.json37captures/27loggedhelpersgone-reused/root0;5installed+5backups record1793532994109325152 verified"
+}

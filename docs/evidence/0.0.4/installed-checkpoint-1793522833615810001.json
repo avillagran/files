@@ -1,0 +1,40 @@
+{
+  "checkpoint": "2ec389fe5a5da9ce56050bfc3e7622ae2f527ae5",
+  "validation_report": "/home/node/Work/files/docs/evidence/duplicates/node-functional-1793522778032344026/receipt.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/node/.cache/files-test/installed-backups/1793522833522692472",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "d0401cd1c43ea627dd29055f522f1efb0a72ffd8586d089d321863fef3dce340",
+      "release_sha256": "441261c2b883a67b5556a8db5410b65aa6748eb114a3e13d571328c98faf0a0c",
+      "installed_sha256": "441261c2b883a67b5556a8db5410b65aa6748eb114a3e13d571328c98faf0a0c"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "006fdb1a8f3acbb90bf0e2b0185ed0a16b932200093d707fba78d7ccc17a7e53",
+      "release_sha256": "006fdb1a8f3acbb90bf0e2b0185ed0a16b932200093d707fba78d7ccc17a7e53",
+      "installed_sha256": "006fdb1a8f3acbb90bf0e2b0185ed0a16b932200093d707fba78d7ccc17a7e53"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+      "release_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+      "installed_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee",
+      "release_sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee",
+      "installed_sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

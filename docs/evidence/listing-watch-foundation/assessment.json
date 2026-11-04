@@ -1,0 +1,58 @@
+{
+  "status": "SOURCE_FOUNDATION_ONLY_MODEL_BRIDGE_PENDING",
+  "installed_changed": false,
+  "current_scoped_tests": {
+    "passed": 5,
+    "failed": 0,
+    "normal_harness_concurrency": true
+  },
+  "initial_workspace": "1263 passed/3historical ignored before attachment-ACK refinement",
+  "latest_workspace": {
+    "passed": 1262,
+    "failed": 1,
+    "ignored": 3,
+    "failure": "navigation_tests::folder_view_explicit_save_keeps_captured_path_through_navigation_and_forget_is_cas",
+    "reason": "historical WouldBlock; cause unconfirmed/no fix claimed; raw full FAIL retained"
+  },
+  "subsequent_refinement": "Removed periodic ready-state wakeups/stable-target cloning; final5scoped tests and all-target Clippy validate current foundation. No full-workspace PASS claimed.",
+  "clippy": "PASS",
+  "recursive_ui_rustfmt": "PASS",
+  "scope": [
+    "two target slots,capacity1wake,epoch+serial stale rejection",
+    "10000events coalesced without path queue",
+    "atomic invalid configuration rejection",
+    "Linux local create/rename/remove/rawname/two roots",
+    "root replacement rearm using explicit attachment ACK instead of timing sleep",
+    "missing directory failed->ready retry and stop ACK"
+  ],
+  "limits": [
+    "Model does not construct this foundation; no automatic listing refresh UI acceptance",
+    "Root alias/symlink/ancestor replacement still needs coverage or reconciliation before integration",
+    "Native filesystem registration/destruction may be uninterruptible; stop is not a hard deadline",
+    "Nonrecursive notifications are not recursive size invalidation or operation authority",
+    "No installed change/new previews/resource/startup experiments",
+    "No native input/clipboard/AT-SPI/2x/global lifetime acceptance"
+  ],
+  "installed_files_verified_unchanged": [
+    {
+      "name": "files",
+      "sha256": "b9941ab1acfb49f29ae5ad220f399ae425ace5d2739c96c8ac410bce653c28c9"
+    },
+    {
+      "name": "files-helper",
+      "sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd"
+    },
+    {
+      "name": "files-html-helper",
+      "sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee"
+    }
+  ]
+}

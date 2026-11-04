@@ -1,0 +1,157 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "helper_sha256": "1b06c98aa9037ee2ab1d461e874de08fab87823fcd0ef33f480b245a5ef230f5",
+  "cases": [
+    {
+      "name": "valid-cdata-in-text",
+      "expected": "OfficeText",
+      "passed": true,
+      "response": {
+        "status": "office_text",
+        "id": 1,
+        "text": "niño & 文档\n",
+        "truncated": false,
+        "source": {
+          "device": 63,
+          "inode": 282605641,
+          "bytes": 304,
+          "modified_seconds": 1793105639,
+          "modified_nanoseconds": 355045119,
+          "changed_seconds": 1793105639,
+          "changed_nanoseconds": 355045119
+        }
+      },
+      "exit_code": 0
+    },
+    {
+      "name": "valid-declaration",
+      "expected": "OfficeText",
+      "passed": true,
+      "response": {
+        "status": "office_text",
+        "id": 2,
+        "text": "niño & 文档\n",
+        "truncated": false,
+        "source": {
+          "device": 63,
+          "inode": 282605642,
+          "bytes": 342,
+          "modified_seconds": 1793105639,
+          "modified_nanoseconds": 356778585,
+          "changed_seconds": 1793105639,
+          "changed_nanoseconds": 356778585
+        }
+      },
+      "exit_code": 0
+    },
+    {
+      "name": "valid-bom-declaration",
+      "expected": "OfficeText",
+      "passed": true,
+      "response": {
+        "status": "office_text",
+        "id": 3,
+        "text": "niño & 文档\n",
+        "truncated": false,
+        "source": {
+          "device": 63,
+          "inode": 282605643,
+          "bytes": 345,
+          "modified_seconds": 1793105639,
+          "modified_nanoseconds": 357629631,
+          "changed_seconds": 1793105639,
+          "changed_nanoseconds": 357629631
+        }
+      },
+      "exit_code": 0
+    },
+    {
+      "name": "valid-comments-outside-root",
+      "expected": "OfficeText",
+      "passed": true,
+      "response": {
+        "status": "office_text",
+        "id": 4,
+        "text": "niño & 文档\n",
+        "truncated": false,
+        "source": {
+          "device": 63,
+          "inode": 282605644,
+          "bytes": 329,
+          "modified_seconds": 1793105639,
+          "modified_nanoseconds": 361453773,
+          "changed_seconds": 1793105639,
+          "changed_nanoseconds": 361453773
+        }
+      },
+      "exit_code": 0
+    },
+    {
+      "name": "cdata-before-root",
+      "expected": "Error",
+      "passed": true,
+      "response": {
+        "status": "error",
+        "id": 5,
+        "message": "CDATA fuera de raíz DOCX"
+      },
+      "exit_code": 0
+    },
+    {
+      "name": "cdata-after-root",
+      "expected": "Error",
+      "passed": true,
+      "response": {
+        "status": "error",
+        "id": 6,
+        "message": "CDATA fuera de raíz DOCX"
+      },
+      "exit_code": 0
+    },
+    {
+      "name": "empty-cdata-before-root",
+      "expected": "Error",
+      "passed": true,
+      "response": {
+        "status": "error",
+        "id": 7,
+        "message": "CDATA fuera de raíz DOCX"
+      },
+      "exit_code": 0
+    },
+    {
+      "name": "duplicate-declaration",
+      "expected": "Error",
+      "passed": true,
+      "response": {
+        "status": "error",
+        "id": 8,
+        "message": "Declaración XML DOCX no admitida"
+      },
+      "exit_code": 0
+    },
+    {
+      "name": "declaration-after-comment",
+      "expected": "Error",
+      "passed": true,
+      "response": {
+        "status": "error",
+        "id": 9,
+        "message": "Declaración XML DOCX no admitida"
+      },
+      "exit_code": 0
+    },
+    {
+      "name": "declaration-after-root",
+      "expected": "Error",
+      "passed": true,
+      "response": {
+        "status": "error",
+        "id": 10,
+        "message": "Declaración XML DOCX no admitida"
+      },
+      "exit_code": 0
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "gate_status": "PASS",
+  "gate_reasons": [],
+  "warnings": [
+    "1 known process exit(s) during collection: memory unavailable for those identities; see events"
+  ],
+  "limits": {
+    "baseline_objective_mib": 35,
+    "baseline_analysis_stop_mib": 40,
+    "baseline_hard_mib": 60,
+    "modern_goal_mb_decimal": 50,
+    "absolute_ceiling_mb_decimal": 150,
+    "scenario_budget_mb_decimal": null
+  },
+  "files": 10000,
+  "scenario": "spatial-10k",
+  "geometry": {
+    "window_logical": [
+      960,
+      540
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      1920,
+      1080
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0d88ba00"
+  },
+  "required_physical": [
+    1920,
+    1080
+  ],
+  "metrics": {
+    "complete": true,
+    "sample_count": 254,
+    "sample_interval_requested_ms": 25.0,
+    "max_observed_interval_ms": 25.888147007208318,
+    "stable_sample_count": 41,
+    "sampled_maxima": {
+      "pss_kib": 35089,
+      "swap_pss_kib": 0,
+      "memory_kib": 35089,
+      "fds": 13,
+      "threads": 5,
+      "process_count": 1
+    },
+    "sample_at_memory_max": {
+      "pss_kib": 35089,
+      "swap_pss_kib": 0,
+      "threads": 5,
+      "fds": 11,
+      "memory_kib": 35089,
+      "time_monotonic": 455938.179713428,
+      "cpu_percent_observed": 79.78255097370608,
+      "root_alive": true,
+      "process_count": 1,
+      "complete": true,
+      "errors": [],
+      "processes": [
+        {
+          "pid": 1293640,
+          "start": 45593800,
+          "pss_kib": 35089,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11
+        }
+      ],
+      "exited_during_read": [],
+      "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+    },
+    "stable_medians": {
+      "pss_kib": 29305,
+      "swap_pss_kib": 0,
+      "memory_kib": 29305,
+      "fds": 11,
+      "threads": 5,
+      "process_count": 1
+    },
+    "stable_cpu_percent_observed_median": 0.0,
+    "stable_cpu_percent_observed_max": 0.0,
+    "observed_process_identities": [
+      [
+        1293640,
+        45593800
+      ],
+      [
+        1293656,
+        45593804
+      ]
+    ],
+    "exited_process_identities": [
+      [
+        1293656,
+        45593804
+      ]
+    ],
+    "exited_during_read": [
+      {
+        "sample": 2,
+        "pid": 1293656,
+        "start": 45593804,
+        "phase": "smaps_rollup",
+        "reason": "process directory disappeared",
+        "memory_available": false
+      }
+    ],
+    "exited_during_read_count": 1,
+    "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+    "errors": [],
+    "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+    "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+  },
+  "sampled_peak_memory_mib": 34.2666015625,
+  "sampled_peak_memory_mb_decimal": 35.931136,
+  "baseline_objective_met": null,
+  "modern_goal_met": true,
+  "run_policy": "serialized: no concurrent builds, captures or benchmarks; caller must enforce",
+  "gpu_memory": "not measured by /proc; effects must be off for baseline",
+  "view_requested": "spatial",
+  "view_validation": "application readiness marker verified against requested view/count; rendered UI independently validated",
+  "scene_readiness": {
+    "view": "spatial",
+    "loaded": true,
+    "entry_count": 10000,
+    "stats_ready": false,
+    "layout_ready": true,
+    "generation": 1
+  },
+  "font_selected": "FILES_FONT=FiraCode Nerd Font nerd=true",
+  "first_paint_ms_internal": 94.732,
+  "cleanup": {
+    "surviving_observed_processes": [],
+    "errors": [],
+    "complete": true
+  },
+  "stderr_tail": null
+}

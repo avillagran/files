@@ -1,0 +1,33 @@
+{
+  "record": "/home/avillagran/Work/files/docs/evidence/0.0.4/installed-checkpoint-1793496618085702365.json",
+  "source": "61f93c650e8b96017283fb5d4d06658cb1d3af29",
+  "verified_installed": 5,
+  "verified_backups": 5,
+  "files": [
+    {
+      "name": "files",
+      "installed": "4143d6b8de5457bacf24b25c5719b29ac435e491d08305a546a5a6ee5de1d463",
+      "backup": "43a09343ee995de0fdb8127a2a692e70970e88d1a59ebd9398d1c1af942805f3"
+    },
+    {
+      "name": "files-helper",
+      "installed": "63a05ffd3fcd12b364fc5d980fa32eeb2b38924bd62cfa4448e0b4ad822ee439",
+      "backup": "63a05ffd3fcd12b364fc5d980fa32eeb2b38924bd62cfa4448e0b4ad822ee439"
+    },
+    {
+      "name": "files-html-helper",
+      "installed": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "backup": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "installed": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "backup": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "installed": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "backup": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ]
+}

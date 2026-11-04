@@ -1,0 +1,72 @@
+{
+  "status": "INSTALLED_SCOPED_FUNCTIONAL_ACCEPTED",
+  "source_hashes": {
+    "files": "b9941ab1acfb49f29ae5ad220f399ae425ace5d2739c96c8ac410bce653c28c9",
+    "files-helper": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+    "files-html-helper": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+  },
+  "rust": {
+    "passed": 1258,
+    "core": 443,
+    "helper": 105,
+    "ui": 710,
+    "historical_ignored": 3,
+    "normal_harness_concurrency": true,
+    "note": "Final fixture router move compiled by all-target Clippy/release and exercised by both UI runs after unit run"
+  },
+  "clippy": "PASS",
+  "recursive_workspace_roots_rustfmt": "PASS",
+  "release": "PASS",
+  "cli_allocation_cases": 7,
+  "source_ui": [
+    {
+      "backend": "wayland",
+      "receipt": "docs/evidence/sizes-open/sizes-open-ui-1793539566646617514.json",
+      "captures": 22,
+      "roots_exit0_drain": 2,
+      "helpers_gone_reused_no_zombie": 25
+    },
+    {
+      "backend": "x11",
+      "receipt": "docs/evidence/sizes-open/sizes-open-ui-1793539569606454785.json",
+      "captures": 22,
+      "roots_exit0_drain": 2,
+      "helpers_gone_reused_no_zombie": 25
+    }
+  ],
+  "visual_review": "X11 regular-file blocks detail8192/name4096/identity vs apparent1.1MB; Wayland440nine-controls; X11440reportEnd/raw values visible. Footer resource numbers excluded.",
+  "historical_failures": [
+    "WouldBlock in unchanged core folder-view test",
+    "WouldBlock in existing UI folder-view test; no cause/fix claim; raw logs retained"
+  ],
+  "fixture_failures": [
+    {
+      "receipts": [
+        "1793539235668400427",
+        "1793539238671484689"
+      ],
+      "reason": "new private command placed inside manager-prefix dispatch; moved to root dispatcher"
+    },
+    {
+      "receipts": [
+        "1793539519066562136",
+        "1793539522034707822"
+      ],
+      "reason": "test tried Sizes hit before opening Actions menu; fixture corrected, no product change"
+    }
+  ],
+  "limits": [
+    "Private production handlers/framebuffer, not native OS input/clipboard/AT-SPI/2x/full lifetime",
+    "No PSS/Swap/CPU/startup experiments",
+    "Historical X11 missing-names cause remains open",
+    "Regular-file allocation only; not physical ownership/freeable bytes/cross-root union"
+  ],
+  "installed": {
+    "record": "docs/evidence/0.0.4/installed-checkpoint-1793539706031130409.json",
+    "receipt": "docs/evidence/sizes-open/sizes-open-ui-1793539716211647444.json",
+    "captures": 22,
+    "roots_exit0_drain": 2,
+    "helpers_gone_reused_no_zombie": 25,
+    "installed_and_backup_hashes": "install-verification.json"
+  }
+}

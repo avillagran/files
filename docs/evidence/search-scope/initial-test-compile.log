@@ -1,0 +1,101 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0433]: cannot find type `Rc` in this scope
+    --> crates/ui/src/search_state.rs:2350:22
+     |
+2350 |         let cancel = Rc::new(Cell::new(false));
+     |                      ^^ use of undeclared type `Rc`
+     |
+help: consider importing one of these structs
+     |
+2097 +     use crate::Rc;
+     |
+2097 +     use std::rc::Rc;
+     |
+
+error[E0433]: cannot find type `Cell` in this scope
+    --> crates/ui/src/search_state.rs:2350:30
+     |
+2350 |         let cancel = Rc::new(Cell::new(false));
+     |                              ^^^^ use of undeclared type `Cell`
+     |
+note: struct `crate::markdown_render::Cell` exists but is inaccessible
+    --> crates/ui/src/markdown_render.rs:44:1
+     |
+  44 | struct Cell {
+     | ^^^^^^^^^^^ not accessible
+help: consider importing one of these structs
+     |
+2097 +     use crate::Cell;
+     |
+2097 +     use std::cell::Cell;
+     |
+
+error[E0433]: cannot find type `Rc` in this scope
+    --> crates/ui/src/search_state.rs:2351:21
+     |
+2351 |         let reply = Rc::new(Cell::new(false));
+     |                     ^^ use of undeclared type `Rc`
+     |
+help: consider importing one of these structs
+     |
+2097 +     use crate::Rc;
+     |
+2097 +     use std::rc::Rc;
+     |
+
+error[E0433]: cannot find type `Cell` in this scope
+    --> crates/ui/src/search_state.rs:2351:29
+     |
+2351 |         let reply = Rc::new(Cell::new(false));
+     |                             ^^^^ use of undeclared type `Cell`
+     |
+note: struct `crate::markdown_render::Cell` exists but is inaccessible
+    --> crates/ui/src/markdown_render.rs:44:1
+     |
+  44 | struct Cell {
+     | ^^^^^^^^^^^ not accessible
+help: consider importing one of these structs
+     |
+2097 +     use crate::Cell;
+     |
+2097 +     use std::cell::Cell;
+     |
+
+error[E0422]: cannot find struct, variant or union type `Fake` in this scope
+    --> crates/ui/src/search_state.rs:2354:25
+     |
+2354 |             Ok(Box::new(Fake {
+     |                         ^^^^ not found in this scope
+     |
+note: these structs exist but are inaccessible
+    --> crates/ui/src/search_state.rs:1321:5
+     |
+1321 |     struct Fake {
+     |     ^^^^^^^^^^^ `crate::search_state::tests::Fake`: not accessible
+     |
+    ::: crates/ui/src/worker.rs:440:5
+     |
+ 440 |     struct Fake {
+     |     ^^^^^^^^^^^ `crate::worker::tests::Fake`: not accessible
+
+error[E0422]: cannot find struct, variant or union type `Fake` in this scope
+    --> crates/ui/src/search_state.rs:2369:25
+     |
+2369 |             Ok(Box::new(Fake {
+     |                         ^^^^ not found in this scope
+     |
+note: these structs exist but are inaccessible
+    --> crates/ui/src/search_state.rs:1321:5
+     |
+1321 |     struct Fake {
+     |     ^^^^^^^^^^^ `crate::search_state::tests::Fake`: not accessible
+     |
+    ::: crates/ui/src/worker.rs:440:5
+     |
+ 440 |     struct Fake {
+     |     ^^^^^^^^^^^ `crate::worker::tests::Fake`: not accessible
+
+Some errors have detailed explanations: E0422, E0433.
+For more information about an error, try `rustc --explain E0422`.
+error: could not compile `files-ui` (lib test) due to 6 previous errors

@@ -1,0 +1,13 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.08s
+     Running unittests src/lib.rs (target/debug/deps/files_core-5c13a5fcc688f7e4)
+
+running 5 tests
+test saved_search::tests::fifo_and_oversize_rejected_without_publication ... ok
+test saved_search::tests::borrowed_limits_duplicate_criteria_and_aggregate_budget ... ok
+test saved_search::tests::codec_preserves_raw_root_fields_unicode_and_rejects_all_partial_inputs ... ok
+test saved_search::tests::busy_lock_invalid_future_and_symlink_preserve_existing_bytes ... ok
+test saved_search::tests::locked_updates_merge_deduplicate_and_require_exact_entry_for_remove_rename ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 330 filtered out; finished in 0.00s
+

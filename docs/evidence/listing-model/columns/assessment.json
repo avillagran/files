@@ -1,0 +1,37 @@
+{
+  "source_acceptance": "PASS",
+  "installation": "installed-checkpoint-1793546728652462098.json sourceac02206; five installed/five backup hashes verified",
+  "tests": {
+    "core_pass": 443,
+    "helper_pass": 105,
+    "ui_pass": 730,
+    "historical_ignored": 3,
+    "normal_harness_concurrency": true
+  },
+  "clippy": "workspace all targets -D warnings PASS",
+  "format": "PASS",
+  "release": "PASS",
+  "wayland": "columns-listing-ui-1793546575995551884.json",
+  "x11_xvfb": "columns-listing-ui-1793546622163571675.json",
+  "general_listing_regression": "../listing-ui-1793546632244600164.json",
+  "allocation_regression": "../../sizes-open/sizes-open-ui-1793546654402483441.json",
+  "initial_failures_retained": [
+    "/var/tmp/files-columns-watch-integration-tests.log: missing new watch_id in two native-drop test fixtures, corrected",
+    "columns-listing-ui-1793546527459180776.json: fixture accepted previous ready B column after select A; latest-state and expected-path condition corrected",
+    "columns-listing-ui-1793546592600318417.json: session Xwayland :0 could not be opened; no app scene; X11 accepted under owned xvfb-run instead",
+    "../../sizes-open/sizes-open-ui-1793546755350560853.json: installed regression reader parsed an incomplete log line; all80 completed markers in final log valid JSON. Readers now ignore trailing incomplete lines; unchanged installed binary passed retry22captures/2root exits and logged helper identity checks."
+  ],
+  "visual_review": "Wayland and Xvfb X11 ancestor-update captures show updated ancestor and raw active mark in correct pane. Footer resource values excluded.",
+  "limits": [
+    "private handlers and actual framebuffer, no OS input",
+    "no PSS/Swap/CPU/startup experiments",
+    "SpaceMap remains deferred",
+    "historical X11 missing names and WouldBlock unconfirmed",
+    "no global lifetime or offline syscall deadline proof"
+  ],
+  "installed_columns": [
+    "columns-listing-ui-1793546741743502286.json",
+    "columns-listing-ui-1793546823293042852.json"
+  ],
+  "installed_allocation_regression": "../../sizes-open/sizes-open-ui-1793546792633964223.json"
+}

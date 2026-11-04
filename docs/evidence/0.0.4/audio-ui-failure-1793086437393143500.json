@@ -1,0 +1,73 @@
+{
+  "method": "internal handlers, actual ffprobe local metadata and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-metadata-1793086436574849987.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-metadata-selection-1793086436694938454.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-wav-metadata-1793086436826746492.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-tags-truncated-1793086437002872127.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "playback": true,
+  "audio_output": "default Pulse audio output with zero PCM, not audible verification",
+  "source_lifecycle": false,
+  "notify_callbacks_suppressed": false,
+  "checks": [],
+  "known_pending": [
+    "waveform/cover art and audible verification",
+    "resource budget",
+    "cross-platform verification",
+    "additional formats/cover art"
+  ],
+  "compositor_binding": {
+    "previous_signature": "unknown_1792557238_2092186919",
+    "selected": {
+      "instance": "unknown_1793084545_122682092",
+      "time": 1793084545,
+      "pid": 3154625,
+      "wl_socket": "wayland-1"
+    },
+    "scope": "fixture-only environment, unique Wayland socket match; no focus/input/global changes"
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab34a911f0"
+  },
+  "functional_gate": "FAIL",
+  "error": "AssertionError('audio backend error: FILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 281820389, bytes: 9127, modified_seconds: 1793086436, modified_nanoseconds: 91916144, changed_seconds: 1793086436, changed_nanoseconds: 91916144 }) audio_requested=false audio_running=false position=0.1 drained=true audio_error=Some(\"No se pudo reproducir audio: mmap() failed: Cannot allocate memory mmap() failed: Cannot allocate memory [PulseAudio outdev @ 0xaaaba2e40ad0] Cannot create context. [out#0/pulse @ 0xaaaba2e3f160] Could not write header (incorrect codec parameters ?): Cannot allocate memory [af#0:0 @ 0xaaaba2e1fa50] Error sending frames to consumers: Cannot allocate memory [af#0:0 @ 0xaaaba2e1fa50] Task finished with error code: -12 (Cannot allocate memory) [af#0:0 @ 0xaaaba2e1fa50] Terminating thread with return code -12 (Cannot allocate memory) [out#0/pulse @ 0xaaaba2e3f160] Nothing was written into output file, because at least one of its streams received no packets. . Comprueba el dispositivo de salida.\")')",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=140707\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=3\nFILES_PREVIEW_HELPER pid=3445293 start=52920854 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=3 stamp=Some(Revision { device: 63, inode: 281820389, bytes: 9127, modified_seconds: 1793086436, modified_nanoseconds: 91916144, changed_seconds: 1793086436, changed_nanoseconds: 91916144 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_METADATA_OK unicode=true content=actual-tags\nFILES_PREVIEW_COMMAND_OK audio-assert\nFILES_PREVIEW_COMMAND_REV action=audio-assert revision=3\nFILES_CAPTURE_OK\nFILES_AUDIO_SELECTION_OK utf8=true clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK audio-select\nFILES_PREVIEW_COMMAND_REV action=audio-select revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-wav\nFILES_PREVIEW_COMMAND_REV action=audio-wav revision=5\nFILES_PREVIEW_HELPER pid=3445474 start=52920887 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/sound.wav\") encoding=Audio \u00b7 metadatos truncated=false bytes=159 revision=5 stamp=Some(Revision { device: 63, inode: 281820388, bytes: 576078, modified_seconds: 1793086435, modified_nanoseconds: 991915547, changed_seconds: 1793086435, changed_nanoseconds: 991915547 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-long\nFILES_PREVIEW_COMMAND_REV action=audio-long revision=7\nFILES_PREVIEW_HELPER pid=3445524 start=52920902 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/long.flac\") encoding=Audio \u00b7 metadatos truncated=true bytes=2294 revision=7 stamp=Some(Revision { device: 63, inode: 281820390, bytes: 13612, modified_seconds: 1793086436, modified_nanoseconds: 159916551, changed_seconds: 1793086436, changed_nanoseconds: 159916551 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_TRUNCATED_OK bytes=2294\nFILES_PREVIEW_COMMAND_OK audio-assert-truncated\nFILES_PREVIEW_COMMAND_REV action=audio-assert-truncated revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-rapid\nFILES_PREVIEW_COMMAND_REV action=audio-rapid revision=13\nFILES_PREVIEW_HELPER pid=3445561 start=52920919 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=13 stamp=Some(Revision { device: 63, inode: 281820389, bytes: 9127, modified_seconds: 1793086436, modified_nanoseconds: 91916144, changed_seconds: 1793086436, changed_nanoseconds: 91916144 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_METADATA_OK unicode=true content=actual-tags\nFILES_PREVIEW_COMMAND_OK audio-assert\nFILES_PREVIEW_COMMAND_REV action=audio-assert revision=13\nFILES_PREVIEW_COMMAND_OK audio-bad\nFILES_PREVIEW_COMMAND_REV action=audio-bad revision=15\nFILES_PREVIEW_HELPER pid=3445605 start=52920927 command=preview_audio_metadata\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/bad.flac\") message=Frecuencia de audio fuera del l\u00edmite\nFILES_PREVIEW_COMMAND_OK audio-symlink\nFILES_PREVIEW_COMMAND_REV action=audio-symlink revision=17\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/symlink.flac\") message=Original no disponible: Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=19\nFILES_PREVIEW_HELPER pid=3445670 start=52920936 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=19 stamp=Some(Revision { device: 63, inode: 281820389, bytes: 9127, modified_seconds: 1793086436, modified_nanoseconds: 91916144, changed_seconds: 1793086436, changed_nanoseconds: 91916144 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_TRANSPORT_OK {\"drained\":true,\"notice\":null,\"position\":0.0,\"requested\":false,\"running\":false}\nFILES_PREVIEW_COMMAND_OK audio-assert-paused\nFILES_PREVIEW_COMMAND_REV action=audio-assert-paused revision=19\nFILES_PREVIEW_COMMAND_OK audio-play\nFILES_PREVIEW_COMMAND_REV action=audio-play revision=20\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 281820389, bytes: 9127, modified_seconds: 1793086436, modified_nanoseconds: 91916144, changed_seconds: 1793086436, changed_nanoseconds: 91916144 }) audio_requested=true audio_running=false position=0.0 drained=false audio_error=None\nFILES_PREVIEW_HELPER pid=3445679 start=52920946 command=preview_audio_playback\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 281820389, bytes: 9127, modified_seconds: 1793086436, modified_nanoseconds: 91916144, changed_seconds: 1793086436, changed_nanoseconds: 91916144 }) audio_requested=true audio_running=true position=0.0 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-6ply1_e8/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 281820389, bytes: 9127, modified_seconds: 1793086436, modified_nanoseconds: 91916144, changed_seconds: 1793086436, changed_nanoseconds: 91916144 }) audio_requested=false audio_running=false position=0.1 drained=true audio_error=Some(\"No se pudo reproducir audio: mmap() failed: Cannot allocate memory mmap() failed: Cannot allocate memory [PulseAudio outdev @ 0xaaaba2e40ad0] Cannot create context. [out#0/pulse @ 0xaaaba2e3f160] Could not write header (incorrect codec parameters ?): Cannot allocate memory [af#0:0 @ 0xaaaba2e1fa50] Error sending frames to consumers: Cannot allocate memory [af#0:0 @ 0xaaaba2e1fa50] Task finished with error code: -12 (Cannot allocate memory) [af#0:0 @ 0xaaaba2e1fa50] Terminating thread with return code -12 (Cannot allocate memory) [out#0/pulse @ 0xaaaba2e3f160] Nothing was written into output file, because at least one of its streams received no packets. . Comprueba el dispositivo de salida.\")\n"
+}

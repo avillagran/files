@@ -1,0 +1,17 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0502]: cannot borrow `*m` as mutable because it is also borrowed as immutable
+   --> crates/ui/src/hidden_scene.rs:799:9
+    |
+799 |           click(
+    |           ^----
+    |           |
+    |  _________immutable borrow later used by call
+    | |
+800 | |             m,
+801 | |             |a| matches!(a,Action::SearchToggle(i,epoch)if *i==index&&*epoch==m.search.result_epoch),
+    | |             --- immutable borrow occurs here                                  --------------------- first borrow occurs due to use of `m.search.result_epoch` in closure
+802 | |         )?;
+    | |_________^ mutable borrow occurs here
+
+For more information about this error, try `rustc --explain E0502`.
+error: could not compile `files-ui` (lib) due to 1 previous error

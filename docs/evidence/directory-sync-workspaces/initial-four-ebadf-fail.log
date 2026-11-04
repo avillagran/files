@@ -1,0 +1,41 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.27s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 4 tests
+test directory_sync_store::linux::tests::workspace_factory_all_placements_preflight_before_any_artifact_or_intent ... ok
+test directory_sync_store::linux::tests::workspace_factory_batch_keeps_completed_receipts_and_rejects_collisions ... FAILED
+test directory_sync_store::linux::tests::workspace_factory_complete_creator_metadata_barrier_and_publication ... FAILED
+test directory_sync_store::linux::tests::workspace_factory_faults_preserve_partials_and_pending_history_blocks_retry ... FAILED
+
+failures:
+
+---- directory_sync_store::linux::tests::workspace_factory_batch_keeps_completed_receipts_and_rejects_collisions stdout ----
+
+thread 'directory_sync_store::linux::tests::workspace_factory_batch_keeps_completed_receipts_and_rejects_collisions' (2633898) panicked at crates/core/src/directory_sync_store.rs:1110:17:
+assertion `left == right` failed
+  left: 0
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- directory_sync_store::linux::tests::workspace_factory_complete_creator_metadata_barrier_and_publication stdout ----
+
+thread 'directory_sync_store::linux::tests::workspace_factory_complete_creator_metadata_barrier_and_publication' (2633899) panicked at crates/core/src/directory_sync_store.rs:995:79:
+called `Result::unwrap()` on an `Err` value: WorkspaceFailure { cause: Os { code: 9, kind: Uncategorized, message: "Bad file descriptor" }, completed: 0, path: Some("/home/node/Work/files/.cargo/tmp/files-sync-store-2633896-7/factory/sync-83838383838383838383838383838383-00000000"), .. }
+
+---- directory_sync_store::linux::tests::workspace_factory_faults_preserve_partials_and_pending_history_blocks_retry stdout ----
+
+thread 'directory_sync_store::linux::tests::workspace_factory_faults_preserve_partials_and_pending_history_blocks_retry' (2633900) panicked at crates/core/src/directory_sync_store.rs:1074:17:
+assertion `left == right` failed
+  left: false
+ right: true
+
+
+failures:
+    directory_sync_store::linux::tests::workspace_factory_batch_keeps_completed_receipts_and_rejects_collisions
+    directory_sync_store::linux::tests::workspace_factory_complete_creator_metadata_barrier_and_publication
+    directory_sync_store::linux::tests::workspace_factory_faults_preserve_partials_and_pending_history_blocks_retry
+
+test result: FAILED. 1 passed; 3 failed; 0 ignored; 0 measured; 668 filtered out; finished in 0.36s
+
+error: test failed, to rerun pass `-p files-core --lib`

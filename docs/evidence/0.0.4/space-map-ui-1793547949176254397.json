@@ -1,0 +1,933 @@
+{
+  "functional_gate": "PASS",
+  "method": "visible hit handlers + shared navigation/mode/callback handlers + actual FLTK framebuffer; no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-wide-1793547947785115066.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-inspector-1793547947922830796.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-folder-1793547948080854893.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-zero-selection-1793547948259816958.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-empty-1793547948418223543.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-error-1793547948586519645.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-partial-1793547948785530760.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-resize-1793547948972561415.png",
+      "dimensions": [
+        941,
+        508
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-cancelled-1793547949096633415.png",
+      "dimensions": [
+        941,
+        508
+      ]
+    }
+  ],
+  "states": [
+    {
+      "areas": [],
+      "changed": false,
+      "complete": null,
+      "controls": [],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 0,
+      "loaded": true,
+      "nodes": null,
+      "observed": null,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 2,
+      "selected": "Fotos",
+      "seq": 0,
+      "state": "closed",
+      "total": null,
+      "view": "other",
+      "watch_gap": false,
+      "watch_pending": true,
+      "watch_settled": false,
+      "width": 0
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 126.0,
+          "name": "Fotos",
+          "w": 352.5714285714286,
+          "x": 264.4285714285714,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 126.0,
+          "name": "Documentos",
+          "w": 176.28571428571428,
+          "x": 88.14285714285712,
+          "y": 0.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 126.0,
+          "name": "video.bin",
+          "w": 88.14285714285712,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 374,
+      "loaded": true,
+      "nodes": 6,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 4,
+      "selected": "Fotos",
+      "seq": 1,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 698.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 465.33333333333337,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 232.66666666666666
+        },
+        {
+          "bytes": 2097152,
+          "h": 232.66666666666666,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 946,
+      "loaded": true,
+      "nodes": 6,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 4,
+      "selected": "Fotos",
+      "seq": 2,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 698.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 465.33333333333337,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 232.66666666666666
+        },
+        {
+          "bytes": 2097152,
+          "h": 232.66666666666666,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 946,
+      "loaded": true,
+      "nodes": 6,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 4,
+      "selected": "Fotos",
+      "seq": 3,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 812.0,
+          "name": "contenido",
+          "w": 1596.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 2,
+      "height": 946,
+      "loaded": true,
+      "nodes": 1,
+      "observed": 8388608,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source/Fotos",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 6,
+      "selected": "contenido",
+      "seq": 4,
+      "state": "ready",
+      "total": 8388608,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 698.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 465.33333333333337,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 232.66666666666666
+        },
+        {
+          "bytes": 2097152,
+          "h": 232.66666666666666,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 3,
+      "height": 946,
+      "loaded": true,
+      "nodes": 6,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 8,
+      "selected": "Documentos",
+      "seq": 5,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 698.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 465.33333333333337,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 232.66666666666666
+        },
+        {
+          "bytes": 2097152,
+          "h": 232.66666666666666,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 3,
+      "height": 946,
+      "loaded": true,
+      "nodes": 6,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 8,
+      "selected": "vacío.txt",
+      "seq": 6,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 4,
+      "height": 946,
+      "loaded": true,
+      "nodes": 0,
+      "observed": 0,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source/vacía",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 10,
+      "selected": null,
+      "seq": 7,
+      "state": "ready",
+      "total": 0,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [],
+      "changed": false,
+      "complete": null,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": "No se pudo calcular Espacio: No se pudo abrir una carpeta real para Espacio: No such file or directory (os error 2)",
+      "generation": 5,
+      "height": 946,
+      "loaded": true,
+      "nodes": null,
+      "observed": null,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source/vacía",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 12,
+      "selected": null,
+      "seq": 8,
+      "state": "error",
+      "total": null,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": false,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 726.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 484.0,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 242.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 242.0,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 6,
+      "height": 946,
+      "loaded": true,
+      "nodes": 5,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 14,
+      "selected": "Documentos",
+      "seq": 9,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 5,
+          "h": 754.0,
+          "name": "known",
+          "w": 1596.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": false,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 7,
+      "height": 946,
+      "loaded": true,
+      "nodes": 2,
+      "observed": 5,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/partial",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 16,
+      "selected": "restringida",
+      "seq": 10,
+      "state": "ready",
+      "total": 5,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 726.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 484.0,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 242.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 242.0,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 8,
+      "height": 946,
+      "loaded": true,
+      "nodes": 5,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 18,
+      "selected": "Documentos",
+      "seq": 11,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 154.0,
+          "name": "Fotos",
+          "w": 352.5714285714286,
+          "x": 264.4285714285714,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 154.0,
+          "name": "Documentos",
+          "w": 176.28571428571428,
+          "x": 88.14285714285712,
+          "y": 0.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 154.0,
+          "name": "video.bin",
+          "w": 88.14285714285712,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 8,
+      "height": 374,
+      "loaded": true,
+      "nodes": 5,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 18,
+      "selected": "Documentos",
+      "seq": 12,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    },
+    {
+      "areas": [],
+      "changed": false,
+      "complete": null,
+      "controls": [],
+      "drained": true,
+      "error": null,
+      "generation": 8,
+      "height": 0,
+      "loaded": true,
+      "nodes": null,
+      "observed": null,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 19,
+      "selected": "Documentos",
+      "seq": 13,
+      "state": "closed",
+      "total": null,
+      "view": "other",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 0
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 154.0,
+          "name": "Fotos",
+          "w": 352.5714285714286,
+          "x": 264.4285714285714,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 154.0,
+          "name": "Documentos",
+          "w": 176.28571428571428,
+          "x": 88.14285714285712,
+          "y": 0.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 154.0,
+          "name": "video.bin",
+          "w": 88.14285714285712,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 8,
+      "height": 374,
+      "loaded": true,
+      "nodes": 5,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 21,
+      "selected": "Documentos",
+      "seq": 14,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    },
+    {
+      "areas": [],
+      "changed": false,
+      "complete": null,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        },
+        {
+          "action": "cancel",
+          "rect": [
+            274,
+            128,
+            36,
+            28
+          ]
+        }
+      ],
+      "drained": false,
+      "error": null,
+      "generation": 9,
+      "height": 374,
+      "loaded": true,
+      "nodes": null,
+      "observed": null,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/busy",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 23,
+      "selected": "items",
+      "seq": 15,
+      "state": "loading",
+      "total": null,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    },
+    {
+      "areas": [],
+      "changed": false,
+      "complete": null,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 9,
+      "height": 374,
+      "loaded": true,
+      "nodes": null,
+      "observed": null,
+      "path": "/home/node/.cache/files-test/space-ui-67ol6dpq/busy",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 24,
+      "selected": "items",
+      "seq": 16,
+      "state": "closed",
+      "total": null,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    }
+  ],
+  "helper_alive_before_callback": true,
+  "proportional_bytes_8_4_2": true,
+  "selection_inspector": true,
+  "navigation_back": true,
+  "empty_partial_error": true,
+  "real_viewport_resize": true,
+  "cancel_and_leave_release": true,
+  "normal_callback_exit_after_drain": true,
+  "helper_identities_observed": 11,
+  "known_helper_cleanup_complete": true,
+  "root_exit": 0,
+  "fixture_contents_preserved": true,
+  "scope": "flat immediate children; apparent bytes by name; geometry areas exact before visual 2px gaps; no snapshot/dedup/native input/resource gate",
+  "log_before_cleanup": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_FIRST_PAINT_US=51025\nFILES_UI_SMOKE_OK entries=6\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[],\"drained\":true,\"error\":null,\"generation\":1,\"height\":0,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":2,\"selected\":\"Fotos\",\"seq\":0,\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"watch_gap\":false,\"watch_pending\":true,\"watch_settled\":false,\"width\":0}\nFILES_SPACE_COMMAND seq=1 action=map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":3,\"selected\":\"Fotos\",\"seq\":1,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":true,\"watch_settled\":false,\"width\":617}\nFILES_PREVIEW_HELPER pid=3582103 start=4288594 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":1,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"Fotos\",\"seq\":1,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":126.0,\"name\":\"Fotos\",\"w\":352.5714285714286,\"x\":264.4285714285714,\"y\":0.0},{\"bytes\":4194304,\"h\":126.0,\"name\":\"Documentos\",\"w\":176.28571428571428,\"x\":88.14285714285712,\"y\":0.0},{\"bytes\":2097152,\"h\":126.0,\"name\":\"video.bin\",\"w\":88.14285714285712,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":374,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"Fotos\",\"seq\":1,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_COMMAND seq=2 action=full\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":126.0,\"name\":\"Fotos\",\"w\":352.5714285714286,\"x\":264.4285714285714,\"y\":0.0},{\"bytes\":4194304,\"h\":126.0,\"name\":\"Documentos\",\"w\":176.28571428571428,\"x\":88.14285714285712,\"y\":0.0},{\"bytes\":2097152,\"h\":126.0,\"name\":\"video.bin\",\"w\":88.14285714285712,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":374,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"Fotos\",\"seq\":2,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":698.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":465.33333333333337,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":232.66666666666666},{\"bytes\":2097152,\"h\":232.66666666666666,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":946,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"Fotos\",\"seq\":2,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=10 paint=10 width=1920 height=1080\nFILES_SPACE_COMMAND seq=3 action=select-photos\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":698.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":465.33333333333337,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":232.66666666666666},{\"bytes\":2097152,\"h\":232.66666666666666,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":946,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"Fotos\",\"seq\":3,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=11 paint=11 width=1920 height=1080\nFILES_SPACE_COMMAND seq=4 action=enter-photos\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":2,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source/Fotos\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":5,\"selected\":\"contenido\",\"seq\":4,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3582122 start=4288626 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":2,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source/Fotos\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":6,\"selected\":\"contenido\",\"seq\":4,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":812.0,\"name\":\"contenido\",\"w\":1596.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":2,\"height\":946,\"loaded\":true,\"nodes\":1,\"observed\":8388608,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source/Fotos\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":6,\"selected\":\"contenido\",\"seq\":4,\"state\":\"ready\",\"total\":8388608,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=16 paint=16 width=1920 height=1080\nFILES_SPACE_COMMAND seq=5 action=back\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":5,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3582133 start=4288641 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":3,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":8,\"selected\":\"Documentos\",\"seq\":5,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":698.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":465.33333333333337,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":232.66666666666666},{\"bytes\":2097152,\"h\":232.66666666666666,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":946,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":8,\"selected\":\"Documentos\",\"seq\":5,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_COMMAND seq=6 action=select-zero\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":698.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":465.33333333333337,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":232.66666666666666},{\"bytes\":2097152,\"h\":232.66666666666666,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":946,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":8,\"selected\":\"vacío.txt\",\"seq\":6,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=21 paint=21 width=1920 height=1080\nFILES_SPACE_COMMAND seq=7 action=empty\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":4,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":9,\"selected\":null,\"seq\":7,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3582144 start=4288659 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":4,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":10,\"selected\":null,\"seq\":7,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":4,\"height\":946,\"loaded\":true,\"nodes\":0,\"observed\":0,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":10,\"selected\":null,\"seq\":7,\"state\":\"ready\",\"total\":0,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=25 paint=25 width=1920 height=1080\nFILES_SPACE_COMMAND seq=8 action=refresh\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":5,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":11,\"selected\":null,\"seq\":8,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3582157 start=4288675 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":5,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":12,\"selected\":null,\"seq\":8,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":\"No se pudo calcular Espacio: No se pudo abrir una carpeta real para Espacio: No such file or directory (os error 2)\",\"generation\":5,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source/vacía\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":12,\"selected\":null,\"seq\":8,\"state\":\"error\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=29 paint=29 width=1920 height=1080\nFILES_SPACE_COMMAND seq=9 action=back\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":6,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":13,\"selected\":\"Documentos\",\"seq\":9,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3582168 start=4288692 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":6,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":14,\"selected\":\"Documentos\",\"seq\":9,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":726.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":484.0,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":242.0},{\"bytes\":2097152,\"h\":242.0,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":6,\"height\":946,\"loaded\":true,\"nodes\":5,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":14,\"selected\":\"Documentos\",\"seq\":9,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_COMMAND seq=10 action=partial\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":7,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/partial\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":15,\"selected\":\"restringida\",\"seq\":10,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3582171 start=4288695 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":7,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/partial\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":16,\"selected\":\"restringida\",\"seq\":10,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":5,\"h\":754.0,\"name\":\"known\",\"w\":1596.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":false,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":7,\"height\":946,\"loaded\":true,\"nodes\":2,\"observed\":5,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/partial\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":16,\"selected\":\"restringida\",\"seq\":10,\"state\":\"ready\",\"total\":5,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=39 paint=39 width=1920 height=1080\nFILES_SPACE_COMMAND seq=11 action=root\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":17,\"selected\":\"Documentos\",\"seq\":11,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3582182 start=4288712 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":8,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":18,\"selected\":\"Documentos\",\"seq\":11,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":726.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":484.0,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":242.0},{\"bytes\":2097152,\"h\":242.0,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":946,\"loaded\":true,\"nodes\":5,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":18,\"selected\":\"Documentos\",\"seq\":11,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_COMMAND seq=12 action=normal\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":726.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":484.0,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":242.0},{\"bytes\":2097152,\"h\":242.0,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":946,\"loaded\":true,\"nodes\":5,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":18,\"selected\":\"Documentos\",\"seq\":12,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":154.0,\"name\":\"Fotos\",\"w\":352.5714285714286,\"x\":264.4285714285714,\"y\":0.0},{\"bytes\":4194304,\"h\":154.0,\"name\":\"Documentos\",\"w\":176.28571428571428,\"x\":88.14285714285712,\"y\":0.0},{\"bytes\":2097152,\"h\":154.0,\"name\":\"video.bin\",\"w\":88.14285714285712,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":374,\"loaded\":true,\"nodes\":5,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":18,\"selected\":\"Documentos\",\"seq\":12,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_CAPTURE_OK id=0 redraw=false before=47 paint=47 width=941 height=508\nFILES_SPACE_COMMAND seq=13 action=list\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[],\"drained\":true,\"error\":null,\"generation\":8,\"height\":0,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":19,\"selected\":\"Documentos\",\"seq\":13,\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":0}\nFILES_SPACE_COMMAND seq=14 action=map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":20,\"selected\":\"Documentos\",\"seq\":14,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_PREVIEW_HELPER pid=3582189 start=4288723 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":8,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":21,\"selected\":\"Documentos\",\"seq\":14,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":154.0,\"name\":\"Fotos\",\"w\":352.5714285714286,\"x\":264.4285714285714,\"y\":0.0},{\"bytes\":4194304,\"h\":154.0,\"name\":\"Documentos\",\"w\":176.28571428571428,\"x\":88.14285714285712,\"y\":0.0},{\"bytes\":2097152,\"h\":154.0,\"name\":\"video.bin\",\"w\":88.14285714285712,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":8,\"height\":374,\"loaded\":true,\"nodes\":5,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":21,\"selected\":\"Documentos\",\"seq\":14,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_COMMAND seq=15 action=busy\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":9,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":22,\"selected\":\"items\",\"seq\":15,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":617}\nFILES_PREVIEW_HELPER pid=3582192 start=4288726 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":9,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":23,\"selected\":\"items\",\"seq\":15,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_COMMAND seq=16 action=cancel\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":9,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":24,\"selected\":\"items\",\"seq\":16,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":9,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":24,\"selected\":\"items\",\"seq\":16,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_CAPTURE_OK id=0 redraw=false before=56 paint=56 width=941 height=508\nFILES_SPACE_COMMAND seq=17 action=refresh\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":10,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":25,\"selected\":\"items\",\"seq\":17,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_PREVIEW_HELPER pid=3582196 start=4288735 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":10,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":26,\"selected\":\"items\",\"seq\":17,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_SPACE_COMMAND seq=18 action=callback\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":10,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-67ol6dpq/busy\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":26,\"selected\":\"items\",\"seq\":18,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=false mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=false notice=false\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_SPACE_DRAINED\nFILES_CLOSE_DRAINED\n",
+  "binary_sha256": "e0c108956754939f51c96926b99b11130f8959036e170251400e7d4d9a8a077b",
+  "helper_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd"
+}

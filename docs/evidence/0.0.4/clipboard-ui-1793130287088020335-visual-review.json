@@ -1,0 +1,9 @@
+{
+  "report": "clipboard-ui-1793130287088020335.json",
+  "functional_gate": "PASS_SCOPED_ORIGINAL_UNCHANGED",
+  "visual_gate": "FAIL_TOAST_OVERLAY",
+  "finding": "Operation toast crosses Actions menu border/icons at 800x440. Context menu covers toast within its rectangle; only harmless left strip remains. Target bounds alone do not prove unobscured Actions UI.",
+  "fix": "Suppress compact message while actions_menu/settings/context_menu is open; contextual suppression is optional cleanup, message preserved. New framebuffer validation pending.",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

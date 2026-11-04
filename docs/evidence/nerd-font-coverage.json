@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-26",
+  "family": "FiraCode Nerd Font",
+  "font_file": "/usr/share/fonts/TTF/FiraCodeNerdFont-Regular.ttf",
+  "method": "fontconfig fc-query charset coverage for candidate UI glyphs",
+  "glyphs": {
+    "folder": {
+      "codepoint": "U+F07B",
+      "present": true
+    },
+    "folder_open": {
+      "codepoint": "U+F07C",
+      "present": true
+    },
+    "file": {
+      "codepoint": "U+F15B",
+      "present": true
+    },
+    "home": {
+      "codepoint": "U+F015",
+      "present": true
+    },
+    "download": {
+      "codepoint": "U+F019",
+      "present": true
+    },
+    "copy": {
+      "codepoint": "U+F0C5",
+      "present": true
+    },
+    "cut": {
+      "codepoint": "U+F0C4",
+      "present": true
+    },
+    "paste": {
+      "codepoint": "U+F0EA",
+      "present": true
+    },
+    "rename": {
+      "codepoint": "U+F044",
+      "present": true
+    },
+    "trash": {
+      "codepoint": "U+F1F8",
+      "present": true
+    },
+    "search": {
+      "codepoint": "U+F002",
+      "present": true
+    },
+    "settings": {
+      "codepoint": "U+F013",
+      "present": true
+    },
+    "terminal": {
+      "codepoint": "U+F120",
+      "present": true
+    },
+    "refresh": {
+      "codepoint": "U+F021",
+      "present": true
+    },
+    "lock": {
+      "codepoint": "U+F023",
+      "present": true
+    },
+    "video": {
+      "codepoint": "U+F03D",
+      "present": true
+    },
+    "image": {
+      "codepoint": "U+F03E",
+      "present": true
+    },
+    "audio": {
+      "codepoint": "U+F001",
+      "present": true
+    },
+    "pdf": {
+      "codepoint": "U+F1C1",
+      "present": true
+    },
+    "archive": {
+      "codepoint": "U+F1C6",
+      "present": true
+    }
+  },
+  "all_present": true,
+  "limitations": "Coverage only: actual FLTK rasterization and role appearance still need visual inspection"
+}

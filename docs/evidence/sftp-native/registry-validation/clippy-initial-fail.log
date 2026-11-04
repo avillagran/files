@@ -1,0 +1,43 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+error: use of deprecated method `std::sync::atomic::Atomic::<u64>::fetch_update`: renamed to `try_update` for consistency
+   --> crates/core/src/sftp_registry.rs:530:22
+    |
+530 |                     .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |v| v.checked_add(1))
+    |                      ^^^^^^^^^^^^
+    |
+    = note: `-D deprecated` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(deprecated)]`
+help: replace the use of the deprecated method
+    |
+530 -                     .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |v| v.checked_add(1))
+530 +                     .try_update(Ordering::Relaxed, Ordering::Relaxed, |v| v.checked_add(1))
+    |
+
+error: this `if` statement can be collapsed
+  --> crates/core/src/sftp_registry.rs:88:9
+   |
+88 | /         if let Some(m) = &self.mount {
+89 | |             if m.id == 0
+90 | |                 || m.point != self.point
+91 | |                 || m.source != self.point.file_name().unwrap()
+...  |
+99 | |         }
+   | |_________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+   = note: `-D clippy::collapsible-if` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+   |
+88 ~         if let Some(m) = &self.mount
+89 ~             && (m.id == 0
+90 |                 || m.point != self.point
+...
+94 |                 || !m.root.is_absolute()
+95 ~                 || m.root.as_os_str().as_bytes().contains(&0))
+96 |             {
+97 |                 return Err(bad());
+98 ~             }
+   |
+
+error: could not compile `files-core` (lib) due to 2 previous errors

@@ -1,0 +1,21 @@
+{
+  "ui_smoke": "passed",
+  "theme_partial_write": "retained last valid palette",
+  "theme_symlink_swap": "passed",
+  "theme_atomic_file_replacement": "passed",
+  "corners_persisted": [
+    "rounded",
+    "square"
+  ],
+  "captures": [
+    "docs/evidence/0.0.2/hackerman.png",
+    "docs/evidence/0.0.2/tokyo-night.png",
+    "docs/evidence/0.0.2/rounded.png",
+    "docs/evidence/0.0.2/square.png",
+    "docs/evidence/0.0.2/list.png",
+    "docs/evidence/0.0.2/rail.png",
+    "docs/evidence/0.0.2/spatial.png"
+  ],
+  "capture_method": "FLTK live window framebuffer (no compositor overlays)",
+  "native_input_driver": "unavailable: CUA lists zero windows; scenes use in-process actions"
+}

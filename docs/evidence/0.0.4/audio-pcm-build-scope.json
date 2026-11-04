@@ -1,0 +1,13 @@
+{
+  "scope": "build environment recovery, not an app runtime failure or performance comparison",
+  "initial_error": "ENOSPC writing Python .pyc; later df showed free space, no unique causal attribution",
+  "interruption": "only owned Cargo interrupted withSIGINT exit130 after long compile; core test execution had just begun, no suitePASS asserted",
+  "preserved_logs": [
+    "target/audio-pcm-test-interrupted.log",
+    "target/audio-pcm-test-interrupted-final.log"
+  ],
+  "cleanup": "only repo target/debug/incremental regenerated cache removed; source/evidence/installed backups/unrelated compilers preserved",
+  "retry": "CARGO_INCREMENTAL=0 cargo test481PASS, Clippyworkspace-DwarningsPASS, releasePASS; no permanent config change",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

@@ -1,0 +1,32 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+   Compiling files-app v0.0.4 (/home/avillagran/Work/files/crates/app)
+error[E0277]: `model::View` doesn't implement `Debug`
+    --> crates/ui/src/navigation_tests.rs:1910:14
+     |
+1910 |             "{view:?}"
+     |              ^^^^^^^^ `model::View` cannot be formatted using `{:?}` because it doesn't implement `Debug`
+     |
+     = help: the trait `Debug` is not implemented for `model::View`
+help: consider annotating `model::View` with `#[derive(Debug)]`
+    -->  crates/ui/src/model.rs:17:1
+     |
+  17 + #[derive(Debug)]
+  18 | pub enum View {
+     |
+
+error[E0277]: `model::View` doesn't implement `Debug`
+    --> crates/ui/src/navigation_tests.rs:1913:41
+     |
+1913 |         assert!(m.copy_form.is_none(), "{view:?}");
+     |                                         ^^^^^^^^ `model::View` cannot be formatted using `{:?}` because it doesn't implement `Debug`
+     |
+     = help: the trait `Debug` is not implemented for `model::View`
+help: consider annotating `model::View` with `#[derive(Debug)]`
+    -->  crates/ui/src/model.rs:17:1
+     |
+  17 + #[derive(Debug)]
+  18 | pub enum View {
+     |
+
+For more information about this error, try `rustc --explain E0277`.
+error: could not compile `files-ui` (lib test) due to 2 previous errors

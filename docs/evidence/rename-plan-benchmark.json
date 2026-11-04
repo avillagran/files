@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-26",
+  "command": "python3 scripts/rename-plan-check.py",
+  "scope": "Isolated optimized Rust rename planner with input names and retained preview; no UI or filesystem operations",
+  "results": [
+    {"entries": 10000, "plan_ms": 7.079, "sampled_peak_pss_plus_swap_kib": 4231, "retained_pss_plus_swap_kib": 4231, "samples": 2},
+    {"entries": 100000, "plan_ms": 86.736, "sampled_peak_pss_plus_swap_kib": 33127, "retained_pss_plus_swap_kib": 26375, "samples": 7}
+  ],
+  "limitations": ["One run per size", "Sampled peaks are lower bounds", "Does not prove the complete files application budget"]
+}

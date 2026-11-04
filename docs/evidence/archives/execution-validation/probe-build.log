@@ -1,0 +1,5 @@
+   Compiling simd-adler32 v0.3.10
+   Compiling miniz_oxide v0.9.1
+   Compiling flate2 v1.1.10
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `release` profile [optimized] target(s) in 9.62s

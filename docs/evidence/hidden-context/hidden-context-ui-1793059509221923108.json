@@ -1,0 +1,13 @@
+{
+  "functional_gate": "FAIL",
+  "method": "shared visible hit/context/selection handlers; shortcut action and callback injected internally; actual FLTK framebuffer; no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [],
+  "states": [],
+  "runs": [],
+  "failed_log": "FILES_FONT=FiraCode Nerd Font nerd=true\n\nthread 'main' (2652614) panicked at crates/ui/src/lib.rs:1495:5:\nassertion `left == right` failed\n  left: 8\n right: 11\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n",
+  "error": "AssertionError('fresh painted state absent, seq=0; exit=101')",
+  "binary_sha256": "1726156052fde0707cc9940719a9a5ee574c895430422771519316f8ad9ac04e",
+  "helper_sha256": "4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0"
+}

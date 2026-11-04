@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "feature_gate": "NOT_IMPLEMENTED",
+  "resource_gate": "NOT_MEASURED",
+  "probe_gate": "NOT_RUN",
+  "engine_commit": "6fd7aaa63833c913cf1a0336e46fb2e027e4c656",
+  "archive_sha256": "82cfdc8347ebb61fbf308e29ebcb6ea5f82e894dd6a013c928deacc0446a471e",
+  "source_url": "https://codeload.github.com/litehtml/litehtml/tar.gz/6fd7aaa63833c913cf1a0336e46fb2e027e4c656",
+  "errors": [
+    "CalledProcessError: Command '['cmake', '--build', '/home/avillagran/.cache/files-test/html-engine/build-6fd7aaa63833c913cf1a0336e46fb2e027e4c656', '--target', 'html-engine-probe', '--parallel', '1']' returned non-zero exit status 2."
+  ],
+  "rows": [],
+  "sources_verified": true
+}

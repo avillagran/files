@@ -1,0 +1,326 @@
+{
+  "functional_gate": "PASS",
+  "scope": "Captured local calendar presets and strict UTC timestamp extension, input/reply lifecycle, content-editor preservation; not full search/ROADMAP/global/resource/native input acceptance",
+  "scene": "docs/evidence/search/search-calendar-ui-1793460920785323202.json",
+  "tests": {
+    "core": 324,
+    "helper": 85,
+    "ui": 528,
+    "total": 937,
+    "core_ignored_existing": 3
+  },
+  "timezone_cases": [
+    "UTC leap day",
+    "New York23hour",
+    "New York25hour",
+    "Santiago midnight gap",
+    "Santiago25hour yesterday",
+    "Havana repeated midnight",
+    "Apia skipped date rejection",
+    "seven local dates crossing DST"
+  ],
+  "checks": {
+    "workspace_tests": "PASS",
+    "clippy_workspace_all_targets_Dwarnings": "PASS",
+    "release": "PASS",
+    "format": "PASS"
+  },
+  "method": "production actions/painted hits through private fixture pipe; real files-helper IPC and FLTK framebuffer; no native input",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-calendar-choices-1793460916974889838.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-calendar-choices-440-1793460917102166099.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-calendar-fixed-utc-fields-440-1793460917176416300.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-calendar-today-raw-boundaries-440-1793460917233781246.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-calendar-yesterday-1793460917390375761.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-calendar-seven-local-days-1793460917581101824.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-calendar-content-and-raw-name-1793460917814780617.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-calendar-equal-mixed-bounds-rejected-1793460918077668711.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-controls-four-criteria-1793460918485456740.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-controls-800x440-1793460918625353294.png",
+      "dimensions": [
+        800,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-controls-440x440-1793460918699339502.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-controls-results-440x440-1793460918773254670.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-controls-retained-results-drawer-440x440-1793460918847657747.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-controls-invalid-range-1793460919012617544.png",
+      "dimensions": [
+        800,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/search-controls-clear-preserves-name-1793460919163881287.png",
+      "dimensions": [
+        800,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-results-and-parents-1793460919326687710.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-size-date-facets-1793460919424088777.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-size-exclusion-date-1793460919554533496.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-invalid-size-1793460919663377828.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-hidden-local-scope-1793460919782742983.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-raw-result-1793460919936196731.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-located-raw-file-1793460920049794985.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-partial-limit-1793460920237776533.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-small-window-1793460920317142198.png",
+      "dimensions": [
+        800,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-invalid-filter-1793460920422081143.png",
+      "dimensions": [
+        800,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/search/recursive-open-directory-1793460920533383480.png",
+      "dimensions": [
+        800,
+        440
+      ]
+    }
+  ],
+  "logged_helper_identities": [
+    [
+      "2020653",
+      "13714519"
+    ],
+    [
+      "2020722",
+      "13714534"
+    ],
+    [
+      "2020741",
+      "13714553"
+    ],
+    [
+      "2020751",
+      "13714576"
+    ],
+    [
+      "2020876",
+      "13714673"
+    ],
+    [
+      "2020887",
+      "13714710"
+    ],
+    [
+      "2020898",
+      "13714727"
+    ],
+    [
+      "2020903",
+      "13714738"
+    ],
+    [
+      "2020960",
+      "13714750"
+    ],
+    [
+      "2020980",
+      "13714773"
+    ],
+    [
+      "2021000",
+      "13714788"
+    ],
+    [
+      "2021013",
+      "13714818"
+    ],
+    [
+      "2021025",
+      "13714836"
+    ],
+    [
+      "2021057",
+      "13714846"
+    ],
+    [
+      "2021064",
+      "13714867"
+    ],
+    [
+      "2021071",
+      "13714872"
+    ]
+  ],
+  "helper_cleanup": "logged PID/start identities absent or reused; Z not accepted; not lifetime coverage",
+  "normal_exit": true,
+  "calendar_reference": {
+    "after": "2026-10-31T03:00:00Z",
+    "before": "2026-11-01T03:00:00Z",
+    "end": 1793502000,
+    "preset": "Today",
+    "reference": 1793460917,
+    "start": 1793415600
+  },
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_input_gate": "UNVALIDATED",
+  "preserved_failures": [
+    "search-dates-wiring-tests.log syntax missing match arrow; corrected without acceptance relaxation"
+  ],
+  "earlier_name_only_scene": "docs/evidence/search/search-calendar-ui-1793460239093706643.json",
+  "review_fix": "calendar ACK now selects primary editor instead of hardcoded name field; added content combination unit and final real helper scene",
+  "pending": [
+    "Arbitrary rolling relative ages and natural-language date input",
+    "Pagination/index/other systems/native input and resource/startup gates",
+    "Complete folder-size/tools/operations/SFTP/shaders/i18n ROADMAP"
+  ],
+  "binary_sha256": "7654450b01fadcfbf004461820ecdcb12f678a07085a05d3a7834dd4f2e9134a",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "validation_logs": {
+    "search-dates-core-tests.log": "c00f887807dcd95b5d81ba37a56d4ee42d89158333ed53922b92e4deb7c44bd4",
+    "search-dates-wiring-tests.log": "3193f858a4ccfd23cccd9b71dd0862c478ed2ef3222af5ada969ed57fb27af33",
+    "search-dates-wiring-final-tests.log": "27fe6c719d6f03e919a9644da8a3f437c743738fc214bfc6b4390d41c7a0e22e",
+    "search-dates-workspace-tests.log": "e28ed4061533beee725b2221339e75aeef33e8c55c724e0c558abdb0a93bf412",
+    "search-dates-final-tests.log": "38b9a63c2292ff595b125e995e71a3997ec609f8f25064355a2a503866b614c0",
+    "search-dates-clippy.log": "f0958457e728c5644781c69f0de7954e959f39c8049507082b02f6026260ec4c",
+    "search-dates-final-clippy.log": "319c7ebe9f224a5baf8213105e5fcef4a05a3cc629aa69efba4897559f8505de",
+    "search-dates-release.log": "73c2eba1091ffb26fcedcf8dc19444eafda2bc52ffbca4871ce47234fcbd36f9",
+    "search-dates-content-final-tests.log": "c75a625f94e274dc7b5b9e926f271b97ec9d933fb0a3ffa9c8d6c22eeb47909f",
+    "search-dates-content-final-clippy.log": "2de2faa22770f25ee16ceccb043a2f8abaa2029898f37286afc29b62344031df",
+    "search-dates-final-release.log": "cabdb9948a1151cf7f62c65b16a099ec517c4017b3b668bb0cefe354e72d8e8c",
+    "search-dates-final-format.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "source_sha256": {
+    "crates/core/src/search_dates.rs": "1c73ccdb21703480d1592afb230a0a9e6ebfc5fcd67579aa61d5c39052762516",
+    "crates/core/src/search_predicate.rs": "8133fe611c789e6e2df2720df6059065083d15dc3db2ee16536f4d6f8a0d77db",
+    "crates/ui/src/search_state.rs": "002da63427c8adeb385ad1f960563f369d9c5640bcc16363989e7c0cf28d2696",
+    "crates/ui/src/search_ui.rs": "9964492507937365c803cd35af4671fa1382a0a67773d4b0e2628c9492b6e6f3",
+    "scripts/recursive-search-ui-check.py": "45a64fc279c228744911716dffc64f4a07cfdb314b9bf30f37650e8d3a3d8907"
+  }
+}

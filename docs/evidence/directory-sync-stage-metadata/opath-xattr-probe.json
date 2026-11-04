@@ -1,0 +1,21 @@
+{
+  "machine": "NODE",
+  "kernel": "7.2.8-9-omarchy",
+  "architecture": "x86_64",
+  "local_syscall_number_source": "/usr/include/asm/unistd_64.h __NR_listxattrat=465",
+  "owned_fixture_only": true,
+  "rows": [
+    {
+      "pathname": "empty",
+      "result": -1,
+      "errno": 9
+    },
+    {
+      "pathname": "null",
+      "result": -1,
+      "errno": 9
+    }
+  ],
+  "interpretation": "No safe O_PATH symlink xattr route from this API; reject nonempty symlink attributes before mutation; no named mutation fallback",
+  "performance_experiment": false
+}

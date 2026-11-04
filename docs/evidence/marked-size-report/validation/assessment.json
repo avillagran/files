@@ -1,0 +1,15 @@
+{
+  "scope": "Explicit marked-only captured report with missing observations and measured-attempt ID binding",
+  "rust": "1235 PASS435/98/702+3 historical ignored; workspace Clippy/fmt/release PASS",
+  "wayland": "docs/evidence/sizes-open/sizes-open-ui-1793535194990134695.json",
+  "x11": "docs/evidence/sizes-open/sizes-open-ui-1793535284990930976.json",
+  "visual_review": "Wide marked17B scope, min440 scope/Forget buttons and forgotten no-measurement view inspected; input order/scope explicit. Full report may require normal scrolling at minimum size.",
+  "isolation": "Real all queue60B vs marked17B; after Forget only three unselected IDs/43B remain. Marked forgotten rows unobserved not0, no extra helper; source files/empty dir/link unchanged. Unit rejects stale broader ID payload.",
+  "limits": [
+    "No native input/clipboard/AT-SPI/2x/all-lifetime/resource/startup acceptance",
+    "Apparent per-name observations, no physical usage/dedup/freeable-space/snapshot proof",
+    "Unobserved counts are in captured text and fixture summary; no fake zero",
+    "Original X11 pane anomaly remains open"
+  ],
+  "installed": "1793535611390640623 and1793535752955443428 each15captures/19loggedDUhelpersgone/root0; latter verifies ShiftI from queue for two unobserved marked rows, no helper. Record1793535529326396307 five installed+five backup hashes verified."
+}

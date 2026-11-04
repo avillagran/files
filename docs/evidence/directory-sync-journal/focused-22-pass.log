@@ -1,0 +1,35 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.80s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 22 tests
+test move_journal::tests::crc_known_vector ... ok
+test move_journal::tests::destination_proofs_preserve_hardlinks_and_cannot_alias_unrelated_sources ... ok
+test move_journal::tests::restored_is_not_completed_and_partial_delete_cannot_claim_full_restore ... ok
+test move_journal::tests::write_ahead_order_children_first_and_recovery_never_inherits_barriers ... ok
+test move_journal::tests::torn_corrupt_future_and_reordered_records_fail_without_skipping ... ok
+test directory_sync_record::tests::journal_comparison_key_requires_job_identity_and_cannot_recreate_live_binding ... ok
+test move_journal::store_tests::multiroot_valid_crc_wire_cannot_create_open_or_construct_state ... ok
+test move_journal::linux::owner_drop_tests::owner_release_does_not_wait_for_an_inherited_open_description_to_close ... ok
+test move_journal::store_tests::lock_regular_nofollow_fifo_future_and_exclusive_create ... ok
+test move_journal::store_tests::replacement_and_live_same_length_edit_are_not_overwritten ... ok
+test move_journal::store_tests::every_persistence_failure_stops_live_mutations_and_preserves_visible_bytes ... ok
+test directory_sync_journal::tests::ordering_identity_and_cohort_claims_fail_closed ... ok
+
+running 1 test
+test directory_sync_journal::tests::codec_rejects_torn_corrupt_reordered_and_foreign_history ... ok
+test move_journal::store_tests::reopen_replays_but_never_truncates_partial_tail ... ok
+test exdev_move::linux::tests::single_file_recovery_wire_cap_preserves_large_journal ... ok
+test move_journal::store_tests::readable_synced_event_after_failed_ack_requires_new_barriers_and_entry_checks ... ok
+test move_journal::store_tests::replacement_during_write_sync_create_or_renew_never_receives_ack ... ok
+test directory_sync_store::linux::tests::effect_journal_rejects_aliases_replacements_and_foreign_preparation ... ok
+test directory_sync_store::linux::tests::effect_journal_durable_append_history_and_explicit_renewal ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::effect_journal_failed_ack_poison_and_torn_tail_never_truncated ... ok
+test directory_sync_journal::tests::all_modes_stage_publish_commit_undo_and_stream_roundtrip ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::effect_journal_process_exit_keeps_complete_claim_without_fresh_authority ... ok
+
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 574 filtered out; finished in 0.46s

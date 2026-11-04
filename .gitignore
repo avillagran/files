@@ -1,0 +1,5 @@
+/target/
+/.cache/
+*.log
+__pycache__/
+*.pyc

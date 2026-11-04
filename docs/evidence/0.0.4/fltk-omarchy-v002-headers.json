@@ -1,0 +1,56 @@
+{
+  "first_build": "target/fltk-omarchy-v002-first-build.log",
+  "normalization": "only FLTK_DATADIR and FLTK_DOCDIR excluded",
+  "headers": {
+    "config.h": {
+      "files": [
+        {
+          "path": "/home/avillagran/Work/files/target/debug/build/fltk-sys-cba180c4b0848a1d/out/build/fltk/config.h",
+          "sha256": "4cc022aaf6aaf3a636955dac419186269d7df79d6a191522fda846d98b345f46",
+          "normalized_sha256": "b0063be6e716939f125f2472290540889fe4385dd22c68a64e0bb7ccd1440210"
+        },
+        {
+          "path": "/home/avillagran/Work/files/target/debug/build/fltk-sys-ccb87e34be8a3222/out/build/fltk/config.h",
+          "sha256": "2ae65fc291817b41c6767d1974aa17a4ebe41c3d2f28f30eef34f78996f8e614",
+          "normalized_sha256": "b0063be6e716939f125f2472290540889fe4385dd22c68a64e0bb7ccd1440210"
+        }
+      ],
+      "equal_normalized": true
+    },
+    "FL/fl_config.h": {
+      "files": [
+        {
+          "path": "/home/avillagran/Work/files/target/debug/build/fltk-sys-cba180c4b0848a1d/out/build/fltk/FL/fl_config.h",
+          "sha256": "3009064cd93b05a7d847f2a5571e2da0d4aee4ce30cd3a7899e44d61ab28953d",
+          "normalized_sha256": "3fb71e142e18cbf11f644cad0730a910f172c69469ea344972e7e5c64eadbcb4"
+        },
+        {
+          "path": "/home/avillagran/Work/files/target/debug/build/fltk-sys-ccb87e34be8a3222/out/build/fltk/FL/fl_config.h",
+          "sha256": "3009064cd93b05a7d847f2a5571e2da0d4aee4ce30cd3a7899e44d61ab28953d",
+          "normalized_sha256": "3fb71e142e18cbf11f644cad0730a910f172c69469ea344972e7e5c64eadbcb4"
+        }
+      ],
+      "equal_normalized": true
+    }
+  },
+  "packages": {
+    "fltk": [
+      {
+        "version": "1.5.23",
+        "source": "registry+https://github.com/rust-lang/crates.io-index"
+      }
+    ],
+    "fltk-sys": [
+      {
+        "version": "1.5.23",
+        "source": "registry+https://github.com/rust-lang/crates.io-index"
+      }
+    ],
+    "lib-fltk-omarchy": [
+      {
+        "version": "0.0.2",
+        "source": "git+https://github.com/avillagran/lib-fltk-omarchy?tag=v0.0.2#210e0d64b8b4f365b909079370df76dc0dcaf45d"
+      }
+    ]
+  }
+}

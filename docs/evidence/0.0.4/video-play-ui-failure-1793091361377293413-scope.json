@@ -1,0 +1,7 @@
+{
+  "report": "video-play-ui-failure-1793091361377293413.json",
+  "functional_gate": "FAIL",
+  "scope": "Opt-in audio Pulse context mmap failure with default allocator under AS768MiB; muted frames passed, last frame and backend notice retained.",
+  "correction": "Encoded AV functional contract at SAME AS768: default arenas fail, MALLOC_ARENA_MAX2 succeeds. Set child-only arena bound, no larger AS, no PSS/CPU/startup measurements or memory savings claim.",
+  "resource_gate": "NOT_MEASURED"
+}

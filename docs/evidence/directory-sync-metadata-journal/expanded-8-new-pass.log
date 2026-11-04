@@ -1,0 +1,21 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.25s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 8 tests
+
+running 1 test
+test directory_sync_store::linux::tests::journal_metadata_codec_and_pending_replay_never_reconstruct_mutation_authority ... ok
+test directory_sync_store::linux::tests::journal_metadata_ack_and_full_reconciliation_advance_only_after_durability ... ok
+test directory_sync_store::linux::tests::journal_metadata_order_and_prior_confirmation_cannot_be_rebased_implicitly ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::journal_metadata_rejects_known_budget_missing_scope_and_unrelated_payload_before_intent ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::journal_metadata_real_process_exits_reopen_data_history_without_owner_commit ... ok
+test directory_sync_store::linux::tests::journal_metadata_control_and_pre_syscall_guard_leave_unstarted_work_unchanged ... ok
+test directory_sync_store::linux::tests::journal_metadata_cross_workspace_aliases_commit_together_or_not_at_all ... ok
+test directory_sync_store::linux::tests::journal_metadata_faults_preserve_all_original_records_and_poison_owner ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 652 filtered out; finished in 0.94s

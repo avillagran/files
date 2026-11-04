@@ -1,0 +1,71 @@
+{
+  "source_commit": "a9f10f59588150db56d7c3ddc5694e3aac23dc64",
+  "machine": "NODE",
+  "checked_at": "2026-11-02",
+  "scope": "SOURCE ONLY durable staged metadata over ALL borrowed workspace owners, not native approval/workspace factory/full recovery coordinator or installed Apply",
+  "validation": {
+    "workspace_passed": 1564,
+    "core": 657,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 8,
+    "clippy": "PASS final workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "harness": "Normal Rust test harness through original idle Cargo gate; competitors untouched; snapshot not exclusion of later competition",
+    "release_install_gui_resources": "NOT_RUN"
+  },
+  "implemented": [
+    "Schema exact Physical metadata order (unique cohort leaders, non-directory first then directories deepest first); all created/no pending creation, full workspace roles and all expected data/UID/link/size checks",
+    "Already confirmed metadata observations cached and checked EXACTLY including revision; fresh changed capture cannot silently rebase completed step",
+    "Target::Stage values read under exact current Store proof, AfterOwnChildren rejected; full pre-verification/fork all scopes and enough allowance for BOTH walks before any intent",
+    "Strict v1 event30 StageMetadataIntent body178B and event31 StageMetadataApplied body146B, caps192B/event256MiB/journal unchanged; pending guard and all-order completion before NodeVerified once tracked",
+    "Intent full readback/file+ancestorfsync/ACK precedes actual FD metadata; owner/guard checked at all checkpoints and BEFORE EVERY mutating syscall",
+    "Candidate entries patch ALL known inode aliases, preserving canonical symlink atime; full post data/name/metadata/revision/mount rewalk then selected inode/parent sync",
+    "Applied ACK then root/changed-alias guards and FINAL owner guard before non-fallible commit of every borrowed inventory; original capture counters/profiles remain unchanged",
+    "Private historical metadata receipt with node/seal/sequence/read count/applied metadata, no decode/approval/lasting freshness; failures poison after intent writing and retain partials with distinct ACK/attempt/applied flags"
+  ],
+  "tests": [
+    "Eight new fixtures: receipt/read counts and preserved capture counters, sixteen before/after fs/journal/last-owner fault boundaries, strict codec/history pending no retry",
+    "Missing scopes, insufficient two-pass quota and fresh wrong payload reject pre-intent; exact prior confirmation prevents rebasing changed metadata",
+    "File AND symlink aliases in two workspaces commit together; late other-scope mutation or post-applied-ACK rename leaves ALL original ledgers unchanged",
+    "Cooperative pause/resume/cancel before writes; rewriting identical journal bytes before first syscall prevents mutation and rewrite at final owner guard rejects before any inventory advances",
+    "Three real process exits97 after durable intent/value readback/applied ACK reopen only History (not power-loss proof)",
+    "Existing complete creator\u2192durable metadata\u2192global barrier\u2192owned namespace fixtures pass, including raw tree/ACL/FullBasic/hardlinks/symlinks"
+  ],
+  "acceptance_history": [
+    "Initial core check passed with unused operation diagnostic payload warning; flattened explicit points remove unused field",
+    "Initial four new focused PASS; expanded eight PASS including three exits97",
+    "First1564 workspace and Clippy PASS",
+    "Final audit found fallible owner check after core inventory commit; moved it into final pre-commit callback, added sixteenth boundary and final journal-rewrite assertion",
+    "Final1564 workspace/Clippy/fmt PASS, no compile/test/lint failures; five installed hashes unchanged"
+  ],
+  "failures": [],
+  "limits": [
+    "Trusted caller still must establish workspace provenance/placement/durability, live native approval/helper/original source/absolute bindings; data/receipts/replay never grant these",
+    "Sequential pre/post checks not FS snapshot or lasting freshness; symlink canonical captured access policy retained, requested link attribute mutation unsupported",
+    "Workspace-root factory/placement/whole-batch shape-wire-name-FD admission, SharedDir AfterOwnChildren/visible metadata, native queue/recovery/undo/UIApply remain pending",
+    "Pending guards block renewal-driven retry; complete after marker can clear guard before later failure, still no automatic recovery authority or live receipt reconstruction",
+    "No deletion/truncation/rollback/resume; partial metadata retained; ACK false may still have complete bytes",
+    "Repeated all-scope data verification and journal readbacks cumulative quadratic: BULK SCALING UNACCEPTED; resource/startup freeze/new-preview pause/native-global gates stay open",
+    "Ordinary exit97/fsync tests do not prove power-loss or remote filesystem outcomes"
+  ],
+  "installed_hashes": "installed-hashes.json",
+  "source_sha256": {
+    "crates/core/src/directory_sync_journal.rs": "0a1535ca3d2bbfb289c494229609c8f39e23df30ca437bcfce0fa0adb0a0a991",
+    "crates/core/src/directory_sync_journal/stage_meta.rs": "fcb404e3d3ab81d49ffb9b3172a9040a5b86797e1bdf8bf395552928f68d3782",
+    "crates/core/src/directory_sync_store.rs": "cc816a97b4f8428c332ccea278a154adead3d186ecd7bd730a1f1200af93dc7e",
+    "crates/core/src/directory_sync_store/linux/journal.rs": "2621f31b4665892a53459c6e044420016fd0041d060986bc9f30a38435457a93",
+    "crates/core/src/directory_sync_store/linux/journal/metadata.rs": "90f1ca0e36b5a41f10e1b7d5f0f6258b6ee9ff4842c777cfd56e7249068772b3",
+    "crates/core/src/exdev_source.rs": "77357ac477c3e3971bab8883e4cab40c79e02b39000b9e3e2586f3dd3d09a776",
+    "crates/core/src/exdev_source/linux/sync_apply.rs": "a986364fa3fbfb39a659e4e1eb2aeb129bc64bc9544f8ac653a6f394f8894dae",
+    "crates/core/src/exdev_source/linux/sync_meta_batch.rs": "f18c43ea0f32cb06d1f05d2bed5e155cbcc52a393b9df60cce2e4923534b346b",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "1b5f8806c45df634a7a4cad2f45f3acbac8907bf3f9649a06048700c1c42204b",
+    "docs/DIRECTORY-SYNC-JOURNAL.md": "b077a5d19efed169672ba496fe26b8857df9dee0ffe351b570df1d9fbed4b2f2",
+    "docs/DIRECTORY-SYNC-METADATA-JOURNAL.md": "b9a4df2f6665a6e742f585984e9316dc5d449e3cf0862cefde94538c28ae1d0d",
+    "docs/DIRECTORY-SYNC-STAGE-CREATION.md": "9a2935c573362d238e8e00cf2161cb36f2b017055572e99ae21901dfefc08966",
+    "docs/DIRECTORY-SYNC-STAGE-METADATA.md": "a7c2639b709bb190994b8c6a12a66e52e8550b4e4957139986ebaa01f32ab50d",
+    "docs/DIRECTORY-SYNC-STAGING-BARRIER.md": "3f95d856e1758780aacbf4f35fa4d6e3a8c2bad7c1181f26ea31363c6a8c0f1d",
+    "docs/ROADMAP.md": "1a526fad682ea1437673dde6df6b8d38a32cb546a61987139ee727e09794773b"
+  }
+}

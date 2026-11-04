@@ -1,0 +1,58 @@
+{
+  "source_commit": "307533c3947bb69d8d8d620553efe3bb15088a56",
+  "scope": "SOURCE ONLY exact root-rename transition evidence and all-or-nothing recorded-revision reconciliation across supplied alias inventories. Read-only Linux primitive, not own-effect provenance/approval/actual sync execution.",
+  "validation": {
+    "workspace_passed": 1515,
+    "core": 608,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 8,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "concurrency": "Normal Rust harness, one Cargo build job through idle snapshot gate. Competitors untouched; idle snapshot does not exclude later competing Cargo.",
+    "release_install_gui_acceptance": "NOT_RUN"
+  },
+  "implemented": [
+    "Non-decodable private-field RenameChange from successful complete root rebase, exact old/new revision/identity/mount/access/content/metadata plus separate payload bytes",
+    "Every supplied sync scope must match exact old transition capture and contain affected names; current target revisions must match exact new revision including ctime, unrelated entries entirely strict",
+    "Physical parent device/inode plus raw basename identifies names, rejects overlapping inventories while allowing distinct names of same inode; supplied known name count cannot exceed nlink",
+    "Combined inspected-entry cap32772, per-call shared regular-payload allowance, each inventory fully reread with existing NOFOLLOW/NOATIME/hash/fullmetadata/mount/hardlink rules; payload deduplicated within scope but charged separately across scopes",
+    "Full walks plus final root FD/name/revision/mount and cancel checkpoints before any recorded-owner update, then no-fail all-scope commit; failure leaves all supplied recorded inventories unchanged",
+    "Cooperative Control variant shares existing pause/cancel walk checkpoints and final commit boundary; no new production worker/thread/timer",
+    "Original root-rebase bytes and original capture accounting retained separately; legacy EXDEV policy unchanged"
+  ],
+  "tests": [
+    "Real rename transition across two disjoint directory scopes, three target names and unrelated files, report18payload/3names, subsequent strict verification and old transition rejection",
+    "Failure after earlier scope verification: unrelated content, budget17 vs18, cancel, exact ctime mismatch, controlled root-mount mismatch and root replacement; both recorded owners unchanged",
+    "Overlapping real pre-rename snapshots reject duplicate physical names; root-file scopes with distinct same-inode names reconcile after a second real rename",
+    "Fresh-after-transition capture, legacy capture and inconsistent original digest reject",
+    "RawFF name and literal backslash-xff name remain physically distinct, subsequent verification",
+    "Hardlinked symlinks with warmed pre-capture atime use documented canonical captured-atime policy, report0regularpayload",
+    "Paused worker waits; resume succeeds; cancel wakes Interrupted and preserves both recorded owners. Functional timed wait, not blocked-syscall deadline evidence",
+    "Four actual8193-entry scopes, exact32772 combined boundary plus fifth single-entry scope rejection without partial update; four supplied names reconcile and verify, omitted extra name remains stale"
+  ],
+  "acceptance_history": [
+    "Initial five focused tests PASS; overlap/root-file test initially seeded old revision fields as a controlled stand-in",
+    "Replaced stand-in with actual pre-rename captures and second real rename; added raw/symlink coverage; pre-control1514 workspace PASS",
+    "Added cooperative Control API and positive pause/resume/cancel worker test; final1515 workspace/Clippy/fmt PASS, no failures"
+  ],
+  "failures": [],
+  "log_archive_notes": "log-archive-notes.json",
+  "installation": "Five installed hashes unchanged against1793574522897173033, installed-unchanged.json; no release/install",
+  "limitations": [
+    "Root rebase cannot prove who performed a rename; receipt and reconciled data are not effect authority, human approval, MAC, durable barrier or fresh source/helper session",
+    "Supplied parent FD is not current absolute-path/ancestor binding proof; sequential full scans are not simultaneous filesystem snapshot and future effects must reverify",
+    "No discovery/proof of unknown or omitted aliases; nlink changes and directory transitions rejected; complete parent namespace/nlink mutation ledger and Prepared pin rebinding remain pending",
+    "Symlink atime remains canonical captured-value policy, not detection of later atime-only changes; unsupported stale/inconsistent original captures reject",
+    "Failure reports do not grant implicit retry; operation-wide retry/read accounting, durable own-effect provenance, actual staging/backup/publication/queue/recovery/UI remain pending",
+    "Control checks cannot bound a blocked filesystem syscall, no native input/clipboard/AT-SPI/2x/lifetime/otherOS/global acceptance",
+    "Absolute PSS/Swap/CPU/startup experiment freeze and new-preview pause preserved; counts/byte caps are structural, not resource measurements"
+  ],
+  "next": "Parent namespace/revision/nlink/pin accounting with positively identified own effects, visible approval and live helper/source pins; actual global staging/metadata verification, recoverable no-clobber backup/publication and explicit crash reconciliation/undo. Journal scaling still unaccepted. Full explorer goal active.",
+  "full_goal": "ACTIVE, complete original objective unchanged",
+  "source_sha256": {
+    "crates/core/src/exdev_source.rs": "193330d5a56c59f2f2393ec1e3ecbc8dd1e207125d7eed82ae74aa207aa287e3",
+    "crates/core/src/exdev_source/linux/sync_alias.rs": "02f590308b42de7f5d05fc2948c55463e945b43c6b532e6d10f98595c5b90ab2"
+  }
+}

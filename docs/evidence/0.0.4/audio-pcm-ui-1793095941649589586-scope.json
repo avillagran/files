@@ -1,0 +1,9 @@
+{
+  "scope": "fixture reached app metadata but no playback command or monitor; geometry failed in parent with stale inherited compositor signature",
+  "failure": "selected compositor was passed only to child; parent hyprctl geometry used previous environment",
+  "correction": "bind parent and child to same unique current WAYLAND_DISPLAY instance before geometry; no focus or global configuration changes",
+  "private_module_removed": true,
+  "default_sink_unchanged": true,
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

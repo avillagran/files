@@ -1,0 +1,32 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+warning: use of deprecated method `std::sync::atomic::Atomic::<u64>::fetch_update`: renamed to `try_update` for consistency
+   --> crates/core/src/directory_sync_plan.rs:220:14
+    |
+220 |             .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |n| n.checked_add(1))
+    |              ^^^^^^^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+help: replace the use of the deprecated method
+    |
+220 -             .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |n| n.checked_add(1))
+220 +             .try_update(Ordering::Relaxed, Ordering::Relaxed, |n| n.checked_add(1))
+    |
+
+warning: `files-core` (lib test) generated 1 warning (run `cargo fix --lib -p files-core --tests` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.82s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 11 tests
+test directory_sync_plan::tests::review_key_rejects_old_format_and_zero_job ... ok
+test directory_sync_plan::tests::directory_mtime_is_ignored_by_basic_but_exact_observes_it ... ok
+test directory_sync_plan::tests::directory_coverage_survives_raw_sort_interleaving_and_skips ... ok
+test directory_sync_plan::tests::metadata_policy_shared_directories_and_root_order ... ok
+test directory_sync_plan::tests::all_five_modes_and_direction_constraints ... ok
+test directory_sync_plan::tests::receipts_reject_old_instance_revision_and_reverted_choices ... ok
+test directory_sync_plan::tests::type_conflicts_cover_subtree_and_links_remain_links ... ok
+test directory_sync_plan::tests::recomputed_digest_cannot_validate_illegal_choices_or_shapes ... ok
+test directory_sync_plan::tests::canonical_roundtrip_raw_names_and_policy_seals ... ok
+test directory_sync_plan::tests::live_binding_rejects_pending_cancel_changed_files_and_foreign_evidence ... ok
+test directory_sync_plan::tests::maximum_disjoint_names_have_no_truncation ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 521 filtered out; finished in 2.44s

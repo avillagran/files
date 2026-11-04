@@ -1,0 +1,9 @@
+{
+  "failed_receipt": "docs/evidence/checksums/node-functional-1793521052637335385/receipt.json",
+  "observed": "B-toolkit popup actions/pick ACKs, no checksum panel; timeout after 25 seconds, harness cleanup SIGTERM. A completed its checks first.",
+  "concurrent": "Existing HTML regression was launched concurrently and passed. Focus interference is a hypothesis, not established cause.",
+  "next_step": "Repeat same installed SHA checker alone without code or artifact changes; retain original failure.",
+  "native_input": "NOT_PROVEN",
+  "retry_receipt": "docs/evidence/checksums/node-functional-1793521115630802923/receipt.json",
+  "retry_result": "PASS alone, unchanged artifacts/code; intermittent popup cause remains unproven"
+}

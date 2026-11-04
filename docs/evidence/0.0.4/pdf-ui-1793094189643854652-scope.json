@@ -1,0 +1,13 @@
+{
+  "scope": "PDF extracted text for two synthetic ASCII pages with pointer selection and raster return, plus source lifecycle under suppressed notifications",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "copy": "shared handler invoked; clipboard bytes NOT_VALIDATED",
+  "selection": "extracted text offsets; not original PDF geometry or OCR",
+  "unicode_pdf_font_coverage": "NOT_VALIDATED; UTF8/TAB/CRLF tested in pure decoder/document tests",
+  "active_helper_at_close": "NOT_VALIDATED",
+  "native_input": "NOT_VALIDATED",
+  "native_2x_sharpness": "NOT_VALIDATED",
+  "cleanup_scope": "29 logged PID/start identities absent or reused after root exit0 and State drain; same-identity zombies fail, not lifetime coverage",
+  "size_rejection": "unchanged stable revision and no new child over reconciliation interval, not CPU/resource measurement"
+}

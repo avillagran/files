@@ -1,0 +1,15 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0425]: cannot find type `Arc` in this scope
+   --> crates/ui/src/move_operation.rs:265:12
+    |
+265 |     proof: Arc<files_core::multi_origin::Captured>,
+    |            ^^^ not found in this scope
+    |
+help: consider importing this struct
+    |
+  4 + use std::sync::Arc;
+    |
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `files-ui` (lib) due to 1 previous error

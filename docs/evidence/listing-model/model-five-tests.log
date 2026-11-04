@@ -1,0 +1,13 @@
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.53s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57a6206bf2b86e3e)
+
+running 5 tests
+test listing_sync::tests::external_changes_preserve_marks_focus_range_anchor_and_named_viewport ... ok
+test listing_sync::tests::edits_and_paused_size_queue_defer_without_losing_dirty_notifications ... ok
+test listing_sync::tests::inactive_pane_updates_without_switching_focus_or_rearming_after_refresh ... ok
+test listing_sync::tests::grid_and_group_viewports_restore_by_name_after_required_metadata ... ok
+test listing_sync::tests::restored_tab_reconciles_external_changes_and_watch_restarts_after_close_cancel ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 719 filtered out; finished in 0.98s
+

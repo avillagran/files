@@ -1,0 +1,95 @@
+{
+  "method": "internal file/menu handlers + actual FLTK framebuffer; compositor modes observed read-only with hyprctl; no native OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_move_resize_gate": "PENDING_OS_INPUT",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/window-normal-default-1793042206288427705.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/window-preferences-1793042206475800055.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/window-actions-1793042206621066087.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/window-fullscreen-preferences-1793042206929465636.png",
+      "framebuffer_dimensions": [
+        1728,
+        1117
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "initial_mode": "normal",
+      "initial_marker": "FILES_WINDOW_READY seq=0 mode=normal preferences=false actions=false border=true fullscreen=false maximized=false width=854 height=1065 config_error=None",
+      "initial_compositor": {
+        "address": "0xaaab0bcb76f0",
+        "mapped": true,
+        "hidden": false,
+        "visible": false,
+        "acceptsInput": true,
+        "at": [
+          4519,
+          48
+        ],
+        "size": [
+          845,
+          1061
+        ],
+        "workspace": {
+          "id": 2,
+          "name": "2"
+        },
+        "floating": false,
+        "monitor": 0,
+        "class": "files",
+        "title": "files",
+        "initialClass": "files",
+        "initialTitle": "files",
+        "pid": 56362,
+        "xwayland": false,
+        "pinned": false,
+        "pinFullscreened": false,
+        "fullscreen": 0,
+        "fullscreenClient": 0,
+        "fullscreenHandler": "default",
+        "allowedOverFullscreen": true,
+        "grouped": [],
+        "tags": [
+          "default-opacity*"
+        ],
+        "swallowing": "0x0",
+        "focusHistoryID": 0,
+        "inhibitingIdle": false,
+        "xdgTag": "",
+        "xdgDescription": "",
+        "contentType": "none",
+        "tearingHint": false,
+        "stableId": "18000ab2"
+      }
+    }
+  ],
+  "known_pending": [
+    "real serial-driven move/resize and grab/grabbing cursor visual proof",
+    "screen reader tree and non-Linux validation",
+    "resource/startup phase frozen"
+  ],
+  "functional_gate": "FAIL",
+  "error": "AssertionError(\"FILES_FONT=FiraCode Nerd Font nerd=true\\nFILES_FIRST_PAINT_US=102050\\nFILES_UI_SMOKE_OK entries=3\\nFILES_WINDOW_READY seq=0 mode=normal preferences=false actions=false border=true fullscreen=false maximized=false width=854 height=1065 config_error=None\\nFILES_CAPTURE_OK\\nFILES_WINDOW_COMMAND seq=1 action=preferences\\nFILES_WINDOW_READY seq=1 mode=normal preferences=true actions=false border=true fullscreen=false maximized=true width=845 height=1061 config_error=None\\nFILES_CAPTURE_OK\\nFILES_WINDOW_COMMAND seq=2 action=actions\\nFILES_WINDOW_READY seq=2 mode=normal preferences=false actions=true border=true fullscreen=false maximized=true width=845 height=1061 config_error=None\\nFILES_CAPTURE_OK\\nFILES_WINDOW_COMMAND seq=3 action=preferences\\nFILES_WINDOW_READY seq=3 mode=normal preferences=true actions=false border=true fullscreen=false maximized=true width=845 height=1061 config_error=None\\nFILES_WINDOW_COMMAND seq=4 action=fullscreen\\nFILES_WINDOW_READY seq=4 mode=fullscreen preferences=true actions=false border=true fullscreen=true maximized=true width=845 height=1061 config_error=None\\nFILES_CAPTURE_OK\\nFILES_WINDOW_COMMAND seq=5 action=close\\n\\nthread 'main' (56362) panicked at crates/ui/src/window_scene.rs:62:9:\\nassertion failed: m.hits.iter().any(|h| is_preference(&h.action))\\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\\n\")",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=102050\nFILES_UI_SMOKE_OK entries=3\nFILES_WINDOW_READY seq=0 mode=normal preferences=false actions=false border=true fullscreen=false maximized=false width=854 height=1065 config_error=None\nFILES_CAPTURE_OK\nFILES_WINDOW_COMMAND seq=1 action=preferences\nFILES_WINDOW_READY seq=1 mode=normal preferences=true actions=false border=true fullscreen=false maximized=true width=845 height=1061 config_error=None\nFILES_CAPTURE_OK\nFILES_WINDOW_COMMAND seq=2 action=actions\nFILES_WINDOW_READY seq=2 mode=normal preferences=false actions=true border=true fullscreen=false maximized=true width=845 height=1061 config_error=None\nFILES_CAPTURE_OK\nFILES_WINDOW_COMMAND seq=3 action=preferences\nFILES_WINDOW_READY seq=3 mode=normal preferences=true actions=false border=true fullscreen=false maximized=true width=845 height=1061 config_error=None\nFILES_WINDOW_COMMAND seq=4 action=fullscreen\nFILES_WINDOW_READY seq=4 mode=fullscreen preferences=true actions=false border=true fullscreen=true maximized=true width=845 height=1061 config_error=None\nFILES_CAPTURE_OK\nFILES_WINDOW_COMMAND seq=5 action=close\n\nthread 'main' (56362) panicked at crates/ui/src/window_scene.rs:62:9:\nassertion failed: m.hits.iter().any(|h| is_preference(&h.action))\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
+}

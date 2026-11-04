@@ -1,0 +1,30 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+error: manual implementation of `.is_multiple_of()`
+  --> crates/core/src/terminal_directory.rs:34:59
+   |
+34 |     if bytes.is_empty() || bytes.len() > MAX_BYTES * 2 || bytes.len() % 2 != 0 {
+   |                                                           ^^^^^^^^^^^^^^^^^^^^ help: replace with: `!bytes.len().is_multiple_of(2)`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_is_multiple_of
+   = note: `-D clippy::manual-is-multiple-of` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::manual_is_multiple_of)]`
+
+error: using `chunks_exact` with a constant chunk size
+  --> crates/core/src/terminal_directory.rs:38:23
+   |
+38 |     for pair in bytes.chunks_exact(2) {
+   |                       ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<2>().0`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+   = note: `-D clippy::chunks-exact-to-as-chunks` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::chunks_exact_to_as_chunks)]`
+
+error: using `chunks_exact` with a constant chunk size
+  --> crates/core/src/terminal_directory.rs:46:10
+   |
+46 |         .chunks_exact(2)
+   |          ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<2>().0.iter()`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+
+error: could not compile `files-core` (lib) due to 3 previous errors

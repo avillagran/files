@@ -1,0 +1,1153 @@
+{
+  "functional_gate": "FAIL",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "states": [
+    {
+      "app": "map",
+      "state": {
+        "areas": [],
+        "changed": false,
+        "complete": null,
+        "controls": [],
+        "drained": true,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "loaded": true,
+        "nodes": null,
+        "observed": null,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 3,
+        "selected": "base.bin",
+        "seq": 0,
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [],
+        "changed": false,
+        "complete": null,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          },
+          {
+            "action": "cancel",
+            "rect": [
+              274,
+              128,
+              36,
+              28
+            ]
+          }
+        ],
+        "drained": false,
+        "error": null,
+        "generation": 2,
+        "height": 516,
+        "loaded": true,
+        "nodes": null,
+        "observed": null,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 5,
+        "selected": "base.bin",
+        "seq": 1,
+        "state": "loading",
+        "total": null,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 16,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 450.6666666666667,
+            "x": 225.33333333333331,
+            "y": 0.0
+          },
+          {
+            "bytes": 8,
+            "h": 382.0,
+            "name": "base.bin",
+            "w": 225.33333333333331,
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 2,
+        "height": 516,
+        "loaded": true,
+        "nodes": 2,
+        "observed": 24,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 5,
+        "selected": "base.bin",
+        "seq": 1,
+        "state": "ready",
+        "total": 24,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 16,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 450.6666666666667,
+            "x": 225.33333333333331,
+            "y": 0.0
+          },
+          {
+            "bytes": 8,
+            "h": 382.0,
+            "name": "base.bin",
+            "w": 225.33333333333331,
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 2,
+        "height": 516,
+        "loaded": true,
+        "nodes": 2,
+        "observed": 24,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 5,
+        "selected": "Fotos",
+        "seq": 2,
+        "state": "ready",
+        "total": 24,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 16,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 450.6666666666667,
+            "x": 225.33333333333331,
+            "y": 0.0
+          },
+          {
+            "bytes": 8,
+            "h": 382.0,
+            "name": "base.bin",
+            "w": 225.33333333333331,
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 2,
+        "height": 516,
+        "loaded": true,
+        "nodes": 2,
+        "observed": 24,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 5,
+        "selected": "Fotos",
+        "seq": 2,
+        "state": "ready",
+        "total": 24,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 16,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 450.6666666666667,
+            "x": 225.33333333333331,
+            "y": 0.0
+          },
+          {
+            "bytes": 8,
+            "h": 382.0,
+            "name": "base.bin",
+            "w": 225.33333333333331,
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "changed": true,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 2,
+        "height": 516,
+        "loaded": true,
+        "nodes": 2,
+        "observed": 24,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 5,
+        "selected": "Fotos",
+        "seq": 2,
+        "state": "ready",
+        "total": 24,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [],
+        "changed": false,
+        "complete": null,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          },
+          {
+            "action": "cancel",
+            "rect": [
+              274,
+              128,
+              36,
+              28
+            ]
+          }
+        ],
+        "drained": false,
+        "error": null,
+        "generation": 3,
+        "height": 516,
+        "loaded": true,
+        "nodes": null,
+        "observed": null,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Fotos",
+        "seq": 3,
+        "state": "loading",
+        "total": null,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 16,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 300.4444444444444,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 229.2,
+            "name": "extra.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 152.8
+          },
+          {
+            "bytes": 8,
+            "h": 152.8,
+            "name": "base.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 3,
+        "height": 516,
+        "loaded": true,
+        "nodes": 3,
+        "observed": 36,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Fotos",
+        "seq": 3,
+        "state": "ready",
+        "total": 36,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 16,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 300.4444444444444,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 229.2,
+            "name": "extra.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 152.8
+          },
+          {
+            "bytes": 8,
+            "h": 152.8,
+            "name": "base.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 3,
+        "height": 516,
+        "loaded": true,
+        "nodes": 3,
+        "observed": 36,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "extra.bin",
+        "seq": 4,
+        "state": "ready",
+        "total": 36,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 16,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 300.4444444444444,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 229.2,
+            "name": "extra.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 152.8
+          },
+          {
+            "bytes": 8,
+            "h": 152.8,
+            "name": "base.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 3,
+        "height": 516,
+        "loaded": true,
+        "nodes": 3,
+        "observed": 36,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "extra.bin",
+        "seq": 4,
+        "state": "ready",
+        "total": 36,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 16,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 300.4444444444444,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 229.2,
+            "name": "extra.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 152.8
+          },
+          {
+            "bytes": 8,
+            "h": 152.8,
+            "name": "base.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 3,
+        "height": 516,
+        "loaded": true,
+        "nodes": 3,
+        "observed": 36,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "extra.bin",
+        "seq": 4,
+        "state": "ready",
+        "total": 36,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 16,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 300.4444444444444,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 229.2,
+            "name": "extra.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 152.8
+          },
+          {
+            "bytes": 8,
+            "h": 152.8,
+            "name": "base.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 3,
+        "height": 516,
+        "loaded": true,
+        "nodes": 3,
+        "observed": 36,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "extra.bin",
+        "seq": 5,
+        "state": "ready",
+        "total": 36,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 16,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 300.4444444444444,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 229.2,
+            "name": "extra.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 152.8
+          },
+          {
+            "bytes": 8,
+            "h": 152.8,
+            "name": "base.bin",
+            "w": 375.5555555555556,
+            "x": 300.4444444444444,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 3,
+        "height": 516,
+        "loaded": true,
+        "nodes": 3,
+        "observed": 36,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "extra.bin",
+        "seq": 5,
+        "state": "ready",
+        "total": 36,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [],
+        "changed": false,
+        "complete": null,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          },
+          {
+            "action": "cancel",
+            "rect": [
+              274,
+              128,
+              36,
+              28
+            ]
+          }
+        ],
+        "drained": false,
+        "error": null,
+        "generation": 4,
+        "height": 516,
+        "loaded": true,
+        "nodes": null,
+        "observed": null,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 9,
+        "selected": "extra.bin",
+        "seq": 6,
+        "state": "loading",
+        "total": null,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 26,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 382.0869565217391,
+            "x": 293.9130434782609,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 229.2,
+            "name": "extra.bin",
+            "w": 293.9130434782609,
+            "x": 0.0,
+            "y": 152.8
+          },
+          {
+            "bytes": 8,
+            "h": 152.8,
+            "name": "base.bin",
+            "w": 293.9130434782609,
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 4,
+        "height": 516,
+        "loaded": true,
+        "nodes": 3,
+        "observed": 46,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 9,
+        "selected": "extra.bin",
+        "seq": 6,
+        "state": "ready",
+        "total": 46,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 26,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 382.0869565217391,
+            "x": 293.9130434782609,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 229.2,
+            "name": "extra.bin",
+            "w": 293.9130434782609,
+            "x": 0.0,
+            "y": 152.8
+          },
+          {
+            "bytes": 8,
+            "h": 152.8,
+            "name": "base.bin",
+            "w": 293.9130434782609,
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "changed": true,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 4,
+        "height": 516,
+        "loaded": true,
+        "nodes": 3,
+        "observed": 46,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 9,
+        "selected": "extra.bin",
+        "seq": 6,
+        "state": "ready",
+        "total": 46,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 26,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 462.5263157894737,
+            "x": 213.4736842105263,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 382.0,
+            "name": "renamed.bin",
+            "w": 213.4736842105263,
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 5,
+        "height": 516,
+        "loaded": true,
+        "nodes": 2,
+        "observed": 38,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 11,
+        "selected": null,
+        "seq": 7,
+        "state": "ready",
+        "total": 38,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 26,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 462.5263157894737,
+            "x": 213.4736842105263,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 382.0,
+            "name": "renamed.bin",
+            "w": 213.4736842105263,
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 5,
+        "height": 516,
+        "loaded": true,
+        "nodes": 2,
+        "observed": 38,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 11,
+        "selected": null,
+        "seq": 7,
+        "state": "ready",
+        "total": 38,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 26,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 462.5263157894737,
+            "x": 213.4736842105263,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 382.0,
+            "name": "renamed.bin",
+            "w": 213.4736842105263,
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 5,
+        "height": 516,
+        "loaded": true,
+        "nodes": 2,
+        "observed": 38,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 11,
+        "selected": "renamed.bin",
+        "seq": 8,
+        "state": "ready",
+        "total": 38,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    },
+    {
+      "app": "map",
+      "state": {
+        "areas": [
+          {
+            "bytes": 26,
+            "h": 382.0,
+            "name": "Fotos",
+            "w": 462.5263157894737,
+            "x": 213.4736842105263,
+            "y": 0.0
+          },
+          {
+            "bytes": 12,
+            "h": 382.0,
+            "name": "renamed.bin",
+            "w": 213.4736842105263,
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "changed": false,
+        "complete": true,
+        "controls": [
+          {
+            "action": "recalculate",
+            "rect": [
+              156,
+              128,
+              112,
+              28
+            ]
+          }
+        ],
+        "drained": true,
+        "error": null,
+        "generation": 5,
+        "height": 516,
+        "loaded": true,
+        "nodes": 2,
+        "observed": 38,
+        "path": "/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 11,
+        "selected": "renamed.bin",
+        "seq": 8,
+        "state": "ready",
+        "total": 38,
+        "view": "space_map",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 676
+      }
+    }
+  ],
+  "captures": [
+    "/home/node/Work/files/docs/evidence/listing-model/space-map/space-map-observation-and-scope-1793547600872347280.png",
+    "/home/node/Work/files/docs/evidence/listing-model/space-map/space-map-root-change-retains-observation-no-rescan-1793547600999136831.png",
+    "/home/node/Work/files/docs/evidence/listing-model/space-map/space-map-recalculate-renews-listing-and-hits-1793547601146291355.png",
+    "/home/node/Work/files/docs/evidence/listing-model/space-map/space-map-nested-change-explicit-f5-1793547601293408438.png"
+  ],
+  "logs": {
+    "map": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_FIRST_PAINT_US=45733\nFILES_UI_SMOKE_OK entries=2\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[],\"drained\":true,\"error\":null,\"generation\":1,\"height\":0,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":2,\"selected\":\"base.bin\",\"seq\":0,\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"watch_gap\":false,\"watch_pending\":true,\"watch_settled\":false,\"width\":0}\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[],\"drained\":true,\"error\":null,\"generation\":2,\"height\":0,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":3,\"selected\":\"base.bin\",\"seq\":0,\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":0}\nFILES_SPACE_COMMAND seq=1 action=map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":2,\"height\":516,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"base.bin\",\"seq\":1,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_PREVIEW_HELPER pid=3573880 start=4253902 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":2,\"height\":516,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":5,\"selected\":\"base.bin\",\"seq\":1,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":16,\"h\":382.0,\"name\":\"Fotos\",\"w\":450.6666666666667,\"x\":225.33333333333331,\"y\":0.0},{\"bytes\":8,\"h\":382.0,\"name\":\"base.bin\",\"w\":225.33333333333331,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":2,\"height\":516,\"loaded\":true,\"nodes\":2,\"observed\":24,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":5,\"selected\":\"base.bin\",\"seq\":1,\"state\":\"ready\",\"total\":24,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_CAPTURE_OK id=0 redraw=false before=8 paint=8 width=1000 height=650\nFILES_SPACE_COMMAND seq=2 action=select-photos\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":16,\"h\":382.0,\"name\":\"Fotos\",\"w\":450.6666666666667,\"x\":225.33333333333331,\"y\":0.0},{\"bytes\":8,\"h\":382.0,\"name\":\"base.bin\",\"w\":225.33333333333331,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":2,\"height\":516,\"loaded\":true,\"nodes\":2,\"observed\":24,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":5,\"selected\":\"Fotos\",\"seq\":2,\"state\":\"ready\",\"total\":24,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":16,\"h\":382.0,\"name\":\"Fotos\",\"w\":450.6666666666667,\"x\":225.33333333333331,\"y\":0.0},{\"bytes\":8,\"h\":382.0,\"name\":\"base.bin\",\"w\":225.33333333333331,\"x\":0.0,\"y\":0.0}],\"changed\":true,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":2,\"height\":516,\"loaded\":true,\"nodes\":2,\"observed\":24,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":5,\"selected\":\"Fotos\",\"seq\":2,\"state\":\"ready\",\"total\":24,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_CAPTURE_OK id=0 redraw=false before=10 paint=10 width=1000 height=650\nFILES_SPACE_COMMAND seq=3 action=refresh\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":516,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":6,\"selected\":\"Fotos\",\"seq\":3,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_PREVIEW_HELPER pid=3573888 start=4253928 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":3,\"height\":516,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Fotos\",\"seq\":3,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":16,\"h\":382.0,\"name\":\"Fotos\",\"w\":300.4444444444444,\"x\":0.0,\"y\":0.0},{\"bytes\":12,\"h\":229.2,\"name\":\"extra.bin\",\"w\":375.5555555555556,\"x\":300.4444444444444,\"y\":152.8},{\"bytes\":8,\"h\":152.8,\"name\":\"base.bin\",\"w\":375.5555555555556,\"x\":300.4444444444444,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":516,\"loaded\":true,\"nodes\":3,\"observed\":36,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Fotos\",\"seq\":3,\"state\":\"ready\",\"total\":36,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_SPACE_COMMAND seq=4 action=select:extra.bin\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":16,\"h\":382.0,\"name\":\"Fotos\",\"w\":300.4444444444444,\"x\":0.0,\"y\":0.0},{\"bytes\":12,\"h\":229.2,\"name\":\"extra.bin\",\"w\":375.5555555555556,\"x\":300.4444444444444,\"y\":152.8},{\"bytes\":8,\"h\":152.8,\"name\":\"base.bin\",\"w\":375.5555555555556,\"x\":300.4444444444444,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":516,\"loaded\":true,\"nodes\":3,\"observed\":36,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"extra.bin\",\"seq\":4,\"state\":\"ready\",\"total\":36,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_CAPTURE_OK id=0 redraw=false before=16 paint=16 width=1000 height=650\nFILES_SPACE_COMMAND seq=5 action=state\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":16,\"h\":382.0,\"name\":\"Fotos\",\"w\":300.4444444444444,\"x\":0.0,\"y\":0.0},{\"bytes\":12,\"h\":229.2,\"name\":\"extra.bin\",\"w\":375.5555555555556,\"x\":300.4444444444444,\"y\":152.8},{\"bytes\":8,\"h\":152.8,\"name\":\"base.bin\",\"w\":375.5555555555556,\"x\":300.4444444444444,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":516,\"loaded\":true,\"nodes\":3,\"observed\":36,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"extra.bin\",\"seq\":5,\"state\":\"ready\",\"total\":36,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_SPACE_COMMAND seq=6 action=f5\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":4,\"height\":516,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":8,\"selected\":\"extra.bin\",\"seq\":6,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_PREVIEW_HELPER pid=3573893 start=4253945 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":4,\"height\":516,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":9,\"selected\":\"extra.bin\",\"seq\":6,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":26,\"h\":382.0,\"name\":\"Fotos\",\"w\":382.0869565217391,\"x\":293.9130434782609,\"y\":0.0},{\"bytes\":12,\"h\":229.2,\"name\":\"extra.bin\",\"w\":293.9130434782609,\"x\":0.0,\"y\":152.8},{\"bytes\":8,\"h\":152.8,\"name\":\"base.bin\",\"w\":293.9130434782609,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":4,\"height\":516,\"loaded\":true,\"nodes\":3,\"observed\":46,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":9,\"selected\":\"extra.bin\",\"seq\":6,\"state\":\"ready\",\"total\":46,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_CAPTURE_OK id=0 redraw=false before=22 paint=22 width=1000 height=650\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":26,\"h\":382.0,\"name\":\"Fotos\",\"w\":382.0869565217391,\"x\":293.9130434782609,\"y\":0.0},{\"bytes\":12,\"h\":229.2,\"name\":\"extra.bin\",\"w\":293.9130434782609,\"x\":0.0,\"y\":152.8},{\"bytes\":8,\"h\":152.8,\"name\":\"base.bin\",\"w\":293.9130434782609,\"x\":0.0,\"y\":0.0}],\"changed\":true,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":4,\"height\":516,\"loaded\":true,\"nodes\":3,\"observed\":46,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":9,\"selected\":\"extra.bin\",\"seq\":6,\"state\":\"ready\",\"total\":46,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_SPACE_COMMAND seq=7 action=refresh\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":5,\"height\":516,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":10,\"selected\":null,\"seq\":7,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_PREVIEW_HELPER pid=3573898 start=4253959 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":5,\"height\":516,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":11,\"selected\":null,\"seq\":7,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":26,\"h\":382.0,\"name\":\"Fotos\",\"w\":462.5263157894737,\"x\":213.4736842105263,\"y\":0.0},{\"bytes\":12,\"h\":382.0,\"name\":\"renamed.bin\",\"w\":213.4736842105263,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":5,\"height\":516,\"loaded\":true,\"nodes\":2,\"observed\":38,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":11,\"selected\":null,\"seq\":7,\"state\":\"ready\",\"total\":38,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_SPACE_COMMAND seq=8 action=select:renamed.bin\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":26,\"h\":382.0,\"name\":\"Fotos\",\"w\":462.5263157894737,\"x\":213.4736842105263,\"y\":0.0},{\"bytes\":12,\"h\":382.0,\"name\":\"renamed.bin\",\"w\":213.4736842105263,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":5,\"height\":516,\"loaded\":true,\"nodes\":2,\"observed\":38,\"path\":\"/home/node/.cache/files-test/space-map-watch-ui-xmnk51g7/Files\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":11,\"selected\":\"renamed.bin\",\"seq\":8,\"state\":\"ready\",\"total\":38,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":676}\nFILES_SPACE_COMMAND_ERROR action=fixture-minimum error=Comando de fixture Espacio desconocido\n"
+  },
+  "error": "AssertionError('map state/command deadline')",
+  "binary_sha256": "8655efc949128cbd4898b143395ff7b4c8106a096fe3a10cb06fe1e0336179dd",
+  "helper_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

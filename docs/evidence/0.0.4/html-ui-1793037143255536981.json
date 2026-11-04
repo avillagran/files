@@ -1,0 +1,70 @@
+{
+  "method": "internal handlers, native litehtml document layout and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-rendered-css-1793037142549758121.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-visible-selection-1793037142651752960.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-css-resize-1793037142768299401.png",
+      "framebuffer_dimensions": [
+        800,
+        500
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-blocked-resources-1793037142920799344.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-scroll-final-1793037143093299428.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "real font metrics/shaping",
+    "local HTML resources and links",
+    "safe DOM allocator/depth budget",
+    "cross-platform adapter",
+    "resource budget",
+    "selection preservation across reflow"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0f468e90"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=85348\nFILES_UI_SMOKE_OK entries=4\nFILES_PREVIEW_COMMAND_OK html\nFILES_PREVIEW_COMMAND_REV action=html revision=3\nFILES_PREVIEW_HELPER pid=3712644 start=47991463 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-b3agzg9u/files/layout.html\") revision=3 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_CAPTURE_OK\nFILES_HTML_SELECTION_OK utf8=true clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK html-select\nFILES_PREVIEW_COMMAND_REV action=html-select revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=3712675 start=47991485 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-b3agzg9u/files/layout.html\") revision=4 width=732 height=310 bytes=247 commands=89 document_height=311 top=0 summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=3712744 start=47991495 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-b3agzg9u/files/layout.html\") revision=5 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK html-blocked\nFILES_PREVIEW_COMMAND_REV action=html-blocked revision=7\nFILES_PREVIEW_HELPER pid=3712762 start=47991499 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-b3agzg9u/files/blocked.html\") revision=7 width=932 height=460 bytes=129 commands=44 document_height=160.02 top=0 summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 44 comandos \u00b7 129 B texto \u00b7 3 hojas CSS externas bloqueadas \u00b7 2 im\u00e1genes bloqueadas \u00b7 1 <base> ignorados\nFILES_HTML_BLOCKED_OK css=3 images=2 script_visible=false\nFILES_PREVIEW_COMMAND_OK html-assert-blocked\nFILES_PREVIEW_COMMAND_REV action=html-assert-blocked revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK html-long\nFILES_PREVIEW_COMMAND_REV action=html-long revision=9\nFILES_PREVIEW_HELPER pid=3712777 start=47991512 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-b3agzg9u/files/long.html\") revision=9 width=932 height=460 bytes=2184 commands=772 document_height=1521.52 top=0 summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 772 comandos \u00b7 2184 B texto\nFILES_PREVIEW_COMMAND_OK html-scroll\nFILES_PREVIEW_COMMAND_REV action=html-scroll revision=9\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-b3agzg9u/files/long.html\") revision=9 width=932 height=460 bytes=2184 commands=772 document_height=1521.52 top=1062 summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 772 comandos \u00b7 2184 B texto\nFILES_HTML_FINAL_VISIBLE top=1062\nFILES_PREVIEW_COMMAND_OK html-assert-end\nFILES_PREVIEW_COMMAND_REV action=html-assert-end revision=9\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK html-large\nFILES_PREVIEW_COMMAND_REV action=html-large revision=11\nFILES_PREVIEW_HELPER pid=3712788 start=47991528 command=preview_html\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/html-ui-b3agzg9u/files/large.html\") message=No se pudo renderizar HTML (m\u00e1ximo32KiB): El helper de vista previa termin\u00f3 con error\nFILES_PREVIEW_COMMAND_OK html-rapid\nFILES_PREVIEW_COMMAND_REV action=html-rapid revision=17\nFILES_PREVIEW_HELPER pid=3712792 start=47991532 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-b3agzg9u/files/layout.html\") revision=17 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK close-html-pending\nFILES_PREVIEW_COMMAND_REV action=close-html-pending revision=19\nFILES_PREVIEW_HELPER pid=3712794 start=47991535 command=preview_html\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "5e7980aa658668de57461a03c26adb202e93279be227b5955bd1907ef05c9ea8",
+  "html_helper_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111"
+}

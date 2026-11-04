@@ -1,0 +1,48 @@
+{
+  "packages": [
+    {
+      "name": "regex",
+      "version": "1.13.1",
+      "manifest_license": "MIT OR Apache-2.0",
+      "chosen_license": "MIT",
+      "manifest_sha256": "d6695aba00bda6017a25464bdf2c8e8c0d7e769389416d03d53de58cb62dc873",
+      "scope": "selected"
+    },
+    {
+      "name": "regex-automata",
+      "version": "0.4.18",
+      "manifest_license": "MIT OR Apache-2.0",
+      "chosen_license": "MIT",
+      "manifest_sha256": "25d528e0bd6dd67c78462d3c7a426698b5d6e702052b25daf7599c0a211315b6",
+      "scope": "selected"
+    },
+    {
+      "name": "regex-syntax",
+      "version": "0.8.11",
+      "manifest_license": "MIT OR Apache-2.0",
+      "chosen_license": "MIT",
+      "manifest_sha256": "10c3f14629c0900ac452dd6d55a62aab561bbabbdf5774a802c8d223933cfa3b",
+      "scope": "selected"
+    },
+    {
+      "name": "aho-corasick",
+      "version": "1.1.5",
+      "manifest_license": "Unlicense OR MIT",
+      "chosen_license": "MIT",
+      "manifest_sha256": "7ff243aed78547f286729c3c60d97577fbc685546120263548d7c4f2a3884bc1",
+      "scope": "lock only, not selected in normal core/workspace tree"
+    }
+  ],
+  "regex_features": [
+    "std"
+  ],
+  "regex_syntax_features": [
+    "std"
+  ],
+  "unicode_tables_enabled": false,
+  "unicode_table_license_file": "/home/avillagran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-syntax-0.8.11/src/unicode_tables/LICENSE-UNICODE",
+  "unicode_table_license_sha256": "74db5baf44a41b1000312c673544b3374e4198af5605c7f9080a402cec42cfa3",
+  "decision": "Do not activate Unicode tables: their license is outside the specific allowlist/exceptions. No new exception inferred. UTF-8 scalar/literal/range matching remains enabled; Unicode properties/classes/casefold reject explicitly.",
+  "workspace_unification": "Existing bstr/opener enables automata dfa-search only. No Unicode table features, DFA-build, hybrid or regex perf feature selected.",
+  "resource_gate": "NOT_MEASURED"
+}

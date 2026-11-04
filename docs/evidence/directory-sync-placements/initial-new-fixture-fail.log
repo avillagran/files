@@ -1,0 +1,67 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.28s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 44 tests
+test archive_extract_fs::linux::tests::replacement_in_rename_gap_is_uncertain_without_relocating_foreign_as_rollback ... ok
+test archive_extract_fs::linux::tests::symlink_replacement_of_active_output_never_redirects_bytes_or_cleanup ... ok
+test checksum::tests::replacement_during_read_rejects_original_observation ... ok
+test checksum::tests::root_replacement_during_read_rejects_even_identical_contents ... ok
+test copy_engine::captured_multi_tests::all_groups_are_verified_before_first_copy_and_preexisting_replacement_preserved ... ok
+test copy_engine::captured_multi_tests::later_root_replacement_after_initial_proof_is_rejected_by_effective_engine_fd ... ok
+test copy_engine::tests::moved_staging_replacement_is_retained_and_actual_rescue_reported ... ok
+test copy_engine::tests::nested_staged_replacement_prevents_publication_and_survives_cleanup ... ok
+test copy_engine::tests::selected_copy_rejects_replacement_after_capture_before_any_staging ... ok
+test copy_engine::tests::unrelated_staged_replacement_is_not_deleted ... ok
+test copy_engine::tests::visible_replacement_preserves_actor_and_reports_relocated_owned_root ... ok
+test directory_compare::tests::root_replacement_is_not_the_captured_tree ... ok
+test directory_sync_metadata::tests::ancestor_replacement_does_not_emit_outside_attributes ... ok
+test directory_sync_store::linux::placements::tests::placement_codec_maximum_row_and_first_excess_are_bounded ... FAILED
+test directory_sync_store::linux::placements::tests::placement_codec_rejects_malformed_paths_chain_ids_and_truncations ... ok
+test directory_sync_store::linux::tests::identical_replacement_bytes_do_not_recreate_original_file_identity ... ok
+test directory_sync_store::linux::tests::owned_namespace_race_collision_and_source_replacement_do_not_overwrite_or_retry ... ok
+test directory_sync_store::linux::tests::placement_registry_fault_boundaries_preserve_complete_or_partial_history ... ok
+test directory_sync_store::linux::tests::placement_registry_forged_history_does_not_match_original_journal_anchor ... ok
+test directory_sync_store::linux::tests::placement_registry_history_raw_locations_renewal_and_explicit_journal_attachment ... ok
+test directory_sync_store::linux::tests::placement_registry_same_byte_rewrite_owner_and_renewal_ack_are_strict ... ok
+test directory_sync_store::linux::tests::placement_registry_tampering_before_mkdir_blocks_registered_factory ... ok
+test directory_sync_store::linux::tests::stage_creation_named_postimage_and_late_file_replacement_have_explicit_limits ... ok
+test duplicates::tests::cancellation_and_root_replacement_cannot_become_clean_no_matches ... ok
+test duplicates::tests::root_rebinding_is_partial_and_never_reads_replacement_contents ... ok
+test exdev_move::linux::tests::reviewed_intent_rejects_same_job_replacement_and_catalog_fd_stays_original ... ok
+test exdev_source::linux::destination::tests::parent_replacement_with_hardlink_to_owned_inode_never_redirects_cleanup_or_metadata ... ok
+test exdev_source::linux::tests::replacement_content_attribute_and_child_changes_are_rejected ... ok
+test media_source::tests::replacement_same_name_size_and_mtime_is_a_different_identity ... ok
+test move_engine::linux::tests::collisions_replacement_and_pre_cancel_leave_sources ... ok
+test move_journal::store_tests::replacement_and_live_same_length_edit_are_not_overwritten ... ok
+test move_journal::store_tests::replacement_during_write_sync_create_or_renew_never_receives_ack ... ok
+test name_label::tests::invalid_bytes_are_distinct_from_literal_escapes_and_replacement_characters ... ok
+test rename_plan::tests::regex_replacement_is_opt_in_and_preserves_extension_and_literal_dollars ... ok
+test rename_transaction::tests::relocated_staging_cleanup_keeps_replacement_and_reports_real_path ... ok
+test rename_transaction::tests::undo_refuses_replacement_and_unselected_original_name ... ok
+test selection_source::tests::clipboard_proof_rejects_replacement_between_verify_and_native_capture ... ok
+test sftp_mount_point::tests::renamed_parent_blocks_spawn_and_preserves_replacement_parent ... ok
+test sftp_mount_point::tests::replacement_of_point_preserves_both_original_and_actor ... ok
+test sftp_profiles::tests::busy_invalid_future_symlink_and_lock_replacement_preserve_data ... ok
+test sftp_registry::tests::no_mount_is_not_accepted_as_original_point_after_replacement_or_nested_mount ... ok
+test trash::platform::tests::post_restore_replacement_is_not_moved_back_to_trash ... ok
+test trash::platform::tests::source_replacement_before_commit_is_not_trashed ... ok
+test trash::platform::tests::trash_post_move_replacement_is_not_rolled_back_into_empty_original ... ok
+
+failures:
+
+---- directory_sync_store::linux::placements::tests::placement_codec_maximum_row_and_first_excess_are_bounded stdout ----
+
+thread 'directory_sync_store::linux::placements::tests::placement_codec_maximum_row_and_first_excess_are_bounded' (2660938) panicked at crates/core/src/directory_sync_store/linux/placements.rs:241:9:
+assertion `left == right` failed
+  left: 4097
+ right: 4096
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    directory_sync_store::linux::placements::tests::placement_codec_maximum_row_and_first_excess_are_bounded
+
+test result: FAILED. 43 passed; 1 failed; 0 ignored; 0 measured; 641 filtered out; finished in 0.67s
+
+error: test failed, to rerun pass `-p files-core --lib`

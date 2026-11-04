@@ -1,0 +1,19 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.98s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 12 tests
+test directory_sync_physical::tests::all_modes_include_copies_replacements_and_explicit_retirements ... ok
+test directory_sync_physical::tests::destination_mount_boundary_blocks_backup ... ok
+test directory_sync_physical::tests::old_shared_inode_aliases_are_recorded_without_mutating_outside_data ... ok
+test directory_sync_physical::tests::policies_preserve_destination_attributes_or_take_full_source_explicitly ... ok
+test directory_sync_physical::tests::hardlink_recipe_mismatch_requires_real_values_never_silent_split ... ok
+test directory_sync_physical::tests::subtree_nodes_have_stage_parents_and_raw_siblings_do_not_leak ... ok
+test directory_sync_physical::tests::metadata_leaf_is_isolated_and_directory_metadata_is_postorder ... ok
+test directory_sync_physical::tests::hardlinks_span_separate_transactions_and_staged_subtrees_but_skips_stay_skipped ... ok
+test directory_sync_physical::tests::replacing_and_retiring_whole_trees_retains_complete_old_scope ... ok
+test directory_sync_physical::tests::cross_mount_cohorts_block_linking_but_explicit_independent_names_can_plan ... ok
+test directory_sync_physical::tests::canonical_blueprint_changes_with_choices_and_preserves_empty_plan ... ok
+test directory_sync_physical::tests::full_both_sides_expand_without_truncation_or_duplicate_names ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 532 filtered out; finished in 2.83s

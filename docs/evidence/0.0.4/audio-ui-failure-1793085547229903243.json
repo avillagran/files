@@ -1,0 +1,21 @@
+{
+  "method": "internal handlers, actual ffprobe local metadata and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [],
+  "playback": true,
+  "audio_output": "system default SDL with zero PCM, not audible verification",
+  "source_lifecycle": false,
+  "notify_callbacks_suppressed": false,
+  "checks": [],
+  "known_pending": [
+    "waveform/cover art and audible verification",
+    "resource budget",
+    "cross-platform verification",
+    "additional formats/cover art"
+  ],
+  "functional_gate": "FAIL",
+  "error": "CalledProcessError(4, ['hyprctl', 'clients', '-j'])",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=132915\nFILES_UI_SMOKE_OK entries=5\n"
+}

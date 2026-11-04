@@ -1,0 +1,6 @@
+{
+  "original": "hidden-context-ui-1793059567549543195.json",
+  "correction": "UI assertions/captures valid; helper launch logging was not enabled and known-helper set empty. Root callback exit0 only; tree cleanup NOT_VALIDATED in this report. Final script enables logging and requires nonempty identities.",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

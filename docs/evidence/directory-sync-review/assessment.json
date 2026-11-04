@@ -1,0 +1,53 @@
+{
+  "source_commit": "aa38963b69bc83f7d895800e4983c5e0edf107fa",
+  "scope": "SOURCE ONLY fresh directory synchronization core review; not executor, helper command, visible sync UI or installation",
+  "validation": {
+    "workspace_tests": {
+      "passed": 1371,
+      "core": 482,
+      "helper": 109,
+      "ui": 780,
+      "historical_ignored": 3,
+      "new_sync_core_tests": 12,
+      "concurrency": "normal Rust harness"
+    },
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "release_build": "NOT_RUN; no installation",
+    "log": "workspace-validation-pass.log"
+  },
+  "features": [
+    "new inventory/hash preparation; cannot accept old comparison report",
+    "Update and Mirror either direction; Merge both ways without inferred deletion or timestamp winner",
+    "content/link/type/basic-metadata/destination-only explicit pending conflicts",
+    "one-row typed directional choices; no writes; recovery requirements explicit",
+    "subtree coverage without duplicate copy/removal proposals",
+    "whole review blocked on partial/changed/unsupported observations",
+    "cancellation and consumer errors propagated",
+    "canonical root containment/final symlink rejection; captured and post-terminal root identities checked"
+  ],
+  "retained_failures": [
+    {
+      "log": "initial-budget-fixture-fail.log",
+      "result": "8/9 passed; read-budget test incorrectly used unequal file lengths, which permit comparison without reading content; unused other method warning",
+      "correction": "equal-length unequal content tests read budget; unused method removed without suppression",
+      "green": "focused-11-tests-pass.log and final 12 tests in workspace-validation-pass.log"
+    }
+  ],
+  "installation": "NOT_CHANGED; installed-unchanged.json verifies five existing comparison artifact hashes",
+  "limits": [
+    "Review and zero unresolved count are not mutation authority or an Apply token",
+    "not atomic snapshot or proof of bind-mount/submount independence",
+    "no fresh pinned per-object execution manifest, helper/UI sync, queue apply, durable replacement/removal journal or crash/undo acceptance",
+    "root metadata, ACL/xattr/owner and hardlink topology are not replicated",
+    "native OS input/clipboard/AT-SPI/2x/other OS/global lifetimes/offline syscall deadlines pending",
+    "PSS/Swap/CPU/startup experiments and new preview formats remain frozen; no resource measurements"
+  ],
+  "next": "Supervised bounded helper transport and visible dry-run, then pinned execution manifest and recoverable replacement/removal/journal/queue/recovery; missing-only copies are not full C02 synchronization",
+  "full_goal": "ACTIVE; full scope unchanged",
+  "source_sha256": {
+    "crates/core/src/directory_sync.rs": "175b8885848b2630c0e65654fb3e7445c87c8e53f702368bb06d01dff4558ed7",
+    "crates/core/src/lib.rs": "e3f8b9a4b3dfb68ba1c614e907e44e8b26db892e8ee09a59ec130a5d2e219ce5",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "faac54fafb262a2563e4bb2c46f22c57456fee510e9099d760d27b4a85d16b73"
+  }
+}

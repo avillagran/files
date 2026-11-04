@@ -1,0 +1,17 @@
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.65s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57a6206bf2b86e3e)
+
+running 9 tests
+test folder_views_state::tests::full_queue_preserves_arc_and_unadmitted_intent_can_be_discarded ... ok
+test folder_views_state::tests::unsynced_publication_retries_only_sync_and_discard_never_undoes_rows ... ok
+test folder_views_state::tests::close_drops_unadmitted_reads_but_waits_for_admitted_read_ack ... ok
+test folder_views_state::tests::exact_intent_retries_and_stale_ack_does_not_release_active_close_gate ... ok
+test navigation_tests::folder_view_manual_intent_even_if_reverted_and_stale_generation_reject_late_read ... ok
+test navigation_tests::folder_view_restore_keeps_dual_enabled_and_owner_switch_rejects ... ok
+test navigation_tests::folder_view_tab_session_snapshot_has_priority_over_late_catalog ... ok
+test navigation_tests::folder_view_waits_for_listing_then_restores_without_hidden_or_query_changes ... ok
+test navigation_tests::folder_view_explicit_save_keeps_captured_path_through_navigation_and_forget_is_cas ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 656 filtered out; finished in 0.02s
+

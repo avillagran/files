@@ -1,0 +1,13 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.88s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 6 tests
+test directory_sync_store::linux::tests::staging_barrier_rejects_fresh_but_unapproved_values_and_duplicate_scopes ... ok
+test directory_sync_store::linux::tests::staging_barrier_receipt_is_historical_and_cannot_repeat_or_survive_history ... ok
+test directory_sync_store::linux::tests::staging_barrier_detects_mutation_after_sync_and_enforces_shared_read_allowance ... ok
+test directory_sync_store::linux::tests::staging_barrier_rechecks_disk_and_rejects_extra_or_changed_objects ... ok
+test directory_sync_store::linux::tests::staging_barrier_checks_each_boundary_and_never_returns_receipt_on_fault ... ok
+test directory_sync_store::linux::tests::staging_barrier_covers_all_workspaces_as_one_shared_budget ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 629 filtered out; finished in 0.31s

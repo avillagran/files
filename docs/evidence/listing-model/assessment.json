@@ -1,0 +1,71 @@
+{
+  "status": "INSTALLED_SCOPED_FUNCTIONAL_ACCEPTED",
+  "source_hashes": {
+    "files": "8f7733dfce15f9809521f7a8246d728cf8420ea09f8fba2beae906e788d2dd1b",
+    "files-helper": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+    "files-html-helper": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+  },
+  "workspace": {
+    "passed": 1272,
+    "core": 443,
+    "helper": 105,
+    "ui": 724,
+    "historical_ignored": 3,
+    "normal_harness_concurrency": true
+  },
+  "model_integration_tests": 5,
+  "clippy": "PASS",
+  "recursive_ui_rustfmt": "PASS",
+  "release_workspace": "PASS",
+  "watch_ui": [
+    {
+      "backend": "wayland",
+      "receipt": "docs/evidence/listing-model/listing-ui-1793544227414221009.json",
+      "captures": 6,
+      "roots_exit0_drained": 2
+    },
+    {
+      "backend": "x11",
+      "receipt": "docs/evidence/listing-model/listing-ui-1793544230415153296.json",
+      "captures": 6,
+      "roots_exit0_drained": 2
+    }
+  ],
+  "allocation_regression": [
+    {
+      "backend": "wayland",
+      "receipt": "docs/evidence/sizes-open/sizes-open-ui-1793544348456367078.json",
+      "captures": 22,
+      "roots_exit0_drained": 2,
+      "helpers_gone_or_reused_no_zombie": 25
+    },
+    {
+      "backend": "x11",
+      "receipt": "docs/evidence/sizes-open/sizes-open-ui-1793544351424203679.json",
+      "captures": 22,
+      "roots_exit0_drained": 2,
+      "helpers_gone_or_reused_no_zombie": 25
+    }
+  ],
+  "visual_review": "X11 newfirstentry and raw marks/focus visible, alias new-target file visible; Wayland path-edit pending footer visible. Footer resource values excluded.",
+  "initial_failures": "Two refresh tests caught unpainted numeric-scroll fallback and8MiB diagnostic compatibility; corrected, raw retained. Historical folder-view WouldBlock also repeated, no fix/cause claim. Initial unused-settled lint resolved by fixture snapshot usage.",
+  "limits": [
+    "Private handlers/framebuffer, not native OS input/clipboard/AT-SPI/2x/global lifetime",
+    "Columns and SpaceMap defer general auto-refresh; their own pipeline coverage remains pending",
+    "Stored tab numeric scroll semantics preserved; named viewport while tab away not proven",
+    "Registration/metadata/drop can be uninterruptible; no hard offline close bound",
+    "No PSS/Swap/CPU/startup experiments or new previews",
+    "Historical folder-view WouldBlock and original X11 missing names remain open"
+  ],
+  "installed": {
+    "record": "docs/evidence/0.0.4/installed-checkpoint-1793544731266983878.json",
+    "watch_receipt": "docs/evidence/listing-model/listing-ui-1793544742660384859.json",
+    "watch_captures": 6,
+    "watch_roots0_drained": 2,
+    "allocation_receipt": "docs/evidence/sizes-open/sizes-open-ui-1793544743043408636.json",
+    "allocation_captures": 22,
+    "allocation_roots0_drained": 2,
+    "allocation_helpers_gone_reused_no_zombie": 25,
+    "hash_verification": "install-verification.json"
+  }
+}

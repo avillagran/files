@@ -1,0 +1,8 @@
+{
+  "original_report": "/home/avillagran/Work/files/docs/evidence/0.0.4/markdown-ui-1793032403245429423.json",
+  "original_unchanged": true,
+  "correction": "too-many.md returned fresh MARKDOWN_READY truncated=true, not ERROR. The original loose suffix check falsely credited rejection. Original functional_gate PASS is superseded: UNVALIDATED for this assertion until corrected capture. Symlink rejection is present as a real ERROR but checker is now exact/fresh. Resource gate remains UNVALIDATED unchanged; no resource rerun.",
+  "corrected_functional_gate": "UNVALIDATED",
+  "raw_original_functional_gate": "PASS",
+  "scope": "all original logs/images/metrics preserved; no claim of rejection/fully validated functional report"
+}

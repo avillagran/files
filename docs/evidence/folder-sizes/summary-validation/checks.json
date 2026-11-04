@@ -1,0 +1,70 @@
+{
+  "functional_gate": "PASS_SCOPED",
+  "scope": "bounded direct counts distinct from explicit recursive totals; consistent known/unknown size sort and late pane replies",
+  "tests": {
+    "total": 1100,
+    "core": 388,
+    "helper": 91,
+    "ui": 621,
+    "existing_ignored": 3,
+    "log": "folder-summary-final-tests.log"
+  },
+  "clippy": {
+    "gate": "PASS",
+    "log": "folder-summary-visual-clippy.log",
+    "flags": "--workspace --all-targets -- -D warnings"
+  },
+  "release": {
+    "gate": "PASS",
+    "log": "folder-summary-final-release.log"
+  },
+  "fmt": {
+    "gate": "PASS",
+    "log": "folder-summary-final-fmt.log"
+  },
+  "scene": "docs/evidence/folder-sizes/direct-summary-ui-1793493877395472428.json",
+  "binary_sha256": "43a09343ee995de0fdb8127a2a692e70970e88d1a59ebd9398d1c1af942805f3",
+  "visual_review": {
+    "gate": "PASS_SCOPED",
+    "checks": [
+      "1000: direct counts never masquerade as byte totals",
+      "wide inspector policy and Calculate shortcut fit",
+      "440:0B/8B measured versus >=1024direct unknown remain readable",
+      "both Size directions preserve unknown-last policy"
+    ]
+  },
+  "bounded_work": {
+    "automatic_iterator_limit": 1024,
+    "child_stat_calls_during_summary": 0,
+    "child_stat_proof": "worker::tests::direct_summary_does_not_load_child_metadata_or_descend; local implementation directly drops ReadDir entries",
+    "measurement_queue": "unchanged existing shared helper",
+    "summary_value_size_max": 32
+  },
+  "nonclaims": [
+    "no kernel-syscall count/read-ahead/latency guarantee",
+    "no native OS input/clipboard receiver",
+    "no offline/kernelD/powerloss/lifetime coverage",
+    "no allocated/unique disk-space total or atomic FS snapshot",
+    "no process PSS/Swap/CPU/startup experiment"
+  ],
+  "history": [
+    "folder-summary-first-tests.log:ETXTBSY on existing space_map test script, then poisoned mutex; original failure unchanged, cause not claimed solved",
+    "folder-summary-pane-tests.log:fixture used nonexistent focus_pane method; replaced with real Action::PaneFocus",
+    "direct-summary-ui-1793493539981700983.json:wrong ascending-first harness expectation; product starts Size descending; first FAIL+2PNG+sidecar retained"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "source_sha256": {
+    "crates/core/src/listing.rs": "8c54f29d833db9ae13265fd5150e0c95d687d2dea9e6a047ba2f488b74aafaa5",
+    "crates/ui/src/dual_pane.rs": "5d3c607410b941700ef44d38a0b16ab0a22a44f71f8e7a73731284267f8c9641",
+    "crates/ui/src/dual_pane/tests.rs": "6bbe3757fc05046114d9184d41bcac1a3ee3c8a4bbfb4515241962f5e7b3bced",
+    "crates/ui/src/folder_summary.rs": "84728787aa7f6ee30616afa57e0a2427aa895cf7b0eb4cc191e2e7ff813a2903",
+    "crates/ui/src/hidden_scene.rs": "8ef945425e1b63845864f4278aa175db60805ce63a53b0cd58fe2267272d8d35",
+    "crates/ui/src/lib.rs": "bf2dcf4b2ea3aaa38a16038bd0d043d8ccce70de54a440f4adcebefa69bc7255",
+    "crates/ui/src/model.rs": "a99ded8ec3a85d0a9271f2d048cefa395ffb3c01904eec626bd414bd071fde17",
+    "crates/ui/src/size_queue.rs": "9ddf4d9b2f20a9b72010a12f919b3b4c8a61af34399fb347bb2b70746240313a",
+    "crates/ui/src/view.rs": "b7220b31ab01be3fb1281e784753fd723a16a70f5f6bbfcd4b73b2271f1d3dac",
+    "crates/ui/src/worker.rs": "351e15f474819fe2b3e8a392f44d4f2d36a09152a84c41fa581021066f32cf91",
+    "scripts/folder-sizes-ui-check.py": "e1bcf813869b624f929146e6789badc6ed7ea18d751011a996fbb7d35692c3ee"
+  }
+}

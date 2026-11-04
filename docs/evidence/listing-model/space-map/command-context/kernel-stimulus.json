@@ -1,0 +1,22 @@
+{
+  "scope": "owned Linux kernel inotify stimulus only; does not identify callback ordering of the prior failed Rust run",
+  "write": [
+    {
+      "mask": "0x100",
+      "cookie": 0,
+      "name": "written"
+    },
+    {
+      "mask": "0x2",
+      "cookie": 0,
+      "name": "written"
+    }
+  ],
+  "rename_from_unwatched_subdirectory": [
+    {
+      "mask": "0x80",
+      "cookie": 774239,
+      "name": "published"
+    }
+  ]
+}

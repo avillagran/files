@@ -1,0 +1,22 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.92s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 15 tests
+test directory_sync_metadata::tests::malformed_acl_overlay_fails_without_partial_value_mutation ... ok
+test directory_sync_metadata::tests::value_codec_preserves_raw_fields_and_rejects_all_truncations_and_invalid_shapes ... ok
+test directory_sync_metadata::tests::maximum_value_payload_is_bounded_and_not_truncated ... ok
+test directory_sync_metadata::tests::truly_incompatible_hardlink_attributes_reject_complete_preparation ... ok
+test directory_sync_metadata::tests::actual_raw_xattrs_roundtrip_and_digest_matches_capture ... ok
+test directory_sync_metadata::tests::byte_budget_sink_failure_job_and_foreign_capture_fail_closed ... ok
+test directory_sync_metadata::tests::ancestor_replacement_does_not_emit_outside_attributes ... ok
+test directory_sync_metadata::tests::symlink_values_keep_captured_canonical_access_time_without_following_target ... ok
+test directory_sync_metadata::tests::directory_undo_and_after_children_policy_are_separate_complete_records ... ok
+test directory_sync_metadata::tests::basic_acl_overlay_matches_real_linux_chmod_and_retains_named_entries ... ok
+test directory_sync_metadata::tests::actual_basic_recipes_can_converge_despite_different_old_hashes ... ok
+test directory_sync_metadata::tests::well_formed_basic_history_can_be_forged_but_does_not_match_live_receipt ... ok
+test directory_sync_metadata::tests::final_consumer_mutation_or_cancellation_cannot_return_live_receipt ... ok
+test directory_sync_metadata::tests::stream_rejects_truncation_order_budget_and_resealed_full_value_claims ... ok
+test directory_sync_metadata::tests::full_both_inventories_stream_all_values_without_retaining_payloads ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 546 filtered out; finished in 8.10s

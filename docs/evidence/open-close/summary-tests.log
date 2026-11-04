@@ -1,0 +1,12 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.52s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-5b4ec8057b7a85eb)
+
+running 4 tests
+test open_job::tests::preflight_rejects_relative_nul_and_excess_bytes_before_spawn ... ok
+test open_job::tests::missing_command_and_failed_status_are_distinct_and_do_not_fallback ... ok
+test open_job::tests::absolute_argv_preserves_spaces_unicode_shell_symbols_and_non_utf8 ... ok
+test open_job::tests::dropping_job_does_not_cancel_the_launcher ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 189 filtered out; finished in 0.06s
+

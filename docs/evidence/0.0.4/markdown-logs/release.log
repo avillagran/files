@@ -1,0 +1,11 @@
+   Compiling memchr v2.8.3
+   Compiling pulldown-cmark v0.13.5
+   Compiling unicase v2.10.0
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+   Compiling serde_json v1.0.154
+   Compiling bstr v1.13.1
+   Compiling opener v0.8.5
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+   Compiling files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+   Compiling files-app v0.0.4 (/home/avillagran/Work/files/crates/app)
+    Finished `release` profile [optimized] target(s) in 25.95s

@@ -1,0 +1,88 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/office-main-body-1793105650305469085.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/office-visible-selection-1793105650565651558.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/office-replaced-same-size-mtime-1793105651346170104.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/office-raw-source-1793105653436547814.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/office-symlink-error-1793105653777828783.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/office-truncated-explicit-1793105654017389872.png"
+  ],
+  "method": "shared preview/selection/copy Actions, actual helper and FLTK framebuffer; no native OS input, no external clipboard read or performance sampling",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab352ecfd0"
+  },
+  "errors": [
+    "FILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/bad.docx\") message=Contenido ZIP incompleto o CRC incorrecto",
+    "FILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/too-large.docx\") message=Miembro DOCX supera 1MiB o sus tama\u00f1os son contradictorios",
+    "FILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/dtd.docx\") message=DTD/instrucciones XML DOCX no admitidos",
+    "FILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/link.docx\") message=Original no disponible: Too many levels of symbolic links (os error 40)"
+  ],
+  "selection": "full extracted document, Copy handler only; clipboard contents NOT_VALIDATED",
+  "notify_callbacks_suppressed": true,
+  "same_size_mtime_replace": true,
+  "delete_recreate": true,
+  "opaque_source_path": true,
+  "latest_wins": true,
+  "normal_callback_exit0_after_ack": true,
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        1470267,
+        54842232
+      ],
+      [
+        1470473,
+        54842333
+      ],
+      [
+        1470646,
+        54842536
+      ],
+      [
+        1470654,
+        54842548
+      ],
+      [
+        1470667,
+        54842571
+      ],
+      [
+        1470672,
+        54842577
+      ],
+      [
+        1470675,
+        54842580
+      ],
+      [
+        1470724,
+        54842605
+      ],
+      [
+        1470737,
+        54842630
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start identities, not lifetime/resource coverage"
+  },
+  "no_zip_member_extraction": true,
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=7\nFILES_FIRST_PAINT_US=230728\nFILES_PREVIEW_COMMAND_OK office\nFILES_PREVIEW_COMMAND_REV action=office revision=3\nFILES_PREVIEW_HELPER pid=1470267 start=54842232 command=preview_office\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/report.docx\") encoding=DOCX \u00b7 texto extra\u00eddo truncated=false bytes=102 revision=3 stamp=Some(Revision { device: 63, inode: 282605930, bytes: 800, modified_seconds: 1793105649, modified_nanoseconds: 844591616, changed_seconds: 1793105649, changed_nanoseconds: 844591616 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_OFFICE_TEXT_OK expected=ALFA source=Some(Revision { device: 63, inode: 282605930, bytes: 800, modified_seconds: 1793105649, modified_nanoseconds: 844591616, changed_seconds: 1793105649, changed_nanoseconds: 844591616 })\nFILES_PREVIEW_COMMAND_OK office-assert-a\nFILES_PREVIEW_COMMAND_REV action=office-assert-a revision=3\nFILES_CAPTURE_OK\nFILES_OFFICE_SELECTION_OK bytes=102 clipboard_handler_only=true\nFILES_PREVIEW_COMMAND_OK office-select\nFILES_PREVIEW_COMMAND_REV action=office-select revision=3\nFILES_CAPTURE_OK\nFILES_THEME_RELOADED background=#121212\nFILES_PREVIEW_HELPER pid=1470473 start=54842333 command=preview_office\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/report.docx\") encoding=DOCX \u00b7 texto extra\u00eddo truncated=false bytes=102 revision=4 stamp=Some(Revision { device: 63, inode: 282606047, bytes: 800, modified_seconds: 1793105649, modified_nanoseconds: 844591616, changed_seconds: 1793105650, changed_nanoseconds: 685983313 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_OFFICE_TEXT_OK expected=BETA source=Some(Revision { device: 63, inode: 282606047, bytes: 800, modified_seconds: 1793105649, modified_nanoseconds: 844591616, changed_seconds: 1793105650, changed_nanoseconds: 685983313 })\nFILES_PREVIEW_COMMAND_OK office-assert-b\nFILES_PREVIEW_COMMAND_REV action=office-assert-b revision=4\nFILES_CAPTURE_OK\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/report.docx\") message=Original no disponible: No such file or directory (os error 2)\nFILES_PREVIEW_HELPER pid=1470646 start=54842536 command=preview_office\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/report.docx\") encoding=DOCX \u00b7 texto extra\u00eddo truncated=false bytes=102 revision=5 stamp=Some(Revision { device: 63, inode: 282606056, bytes: 800, modified_seconds: 1793105652, modified_nanoseconds: 214667968, changed_seconds: 1793105652, changed_nanoseconds: 214667968 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_OFFICE_TEXT_OK expected=BETA source=Some(Revision { device: 63, inode: 282606056, bytes: 800, modified_seconds: 1793105652, modified_nanoseconds: 214667968, changed_seconds: 1793105652, changed_nanoseconds: 214667968 })\nFILES_PREVIEW_COMMAND_OK office-assert-b\nFILES_PREVIEW_COMMAND_REV action=office-assert-b revision=5\nFILES_PREVIEW_COMMAND_OK office-raw\nFILES_PREVIEW_COMMAND_REV action=office-raw revision=7\nFILES_PREVIEW_HELPER pid=1470654 start=54842548 command=preview_office\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/raw-\\xFF.docx\") encoding=DOCX \u00b7 texto extra\u00eddo truncated=false bytes=101 revision=7 stamp=Some(Revision { device: 63, inode: 282605931, bytes: 799, modified_seconds: 1793105649, modified_nanoseconds: 844675117, changed_seconds: 1793105649, changed_nanoseconds: 844675117 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_OFFICE_TEXT_OK expected=RAW source=Some(Revision { device: 63, inode: 282605931, bytes: 799, modified_seconds: 1793105649, modified_nanoseconds: 844675117, changed_seconds: 1793105649, changed_nanoseconds: 844675117 })\nFILES_PREVIEW_COMMAND_OK office-assert-raw\nFILES_PREVIEW_COMMAND_REV action=office-assert-raw revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK office-bad\nFILES_PREVIEW_COMMAND_REV action=office-bad revision=9\nFILES_PREVIEW_HELPER pid=1470667 start=54842571 command=preview_office\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/bad.docx\") message=Contenido ZIP incompleto o CRC incorrecto\nFILES_PREVIEW_COMMAND_OK office-oversize\nFILES_PREVIEW_COMMAND_REV action=office-oversize revision=11\nFILES_PREVIEW_HELPER pid=1470672 start=54842577 command=preview_office\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/too-large.docx\") message=Miembro DOCX supera 1MiB o sus tama\u00f1os son contradictorios\nFILES_PREVIEW_COMMAND_OK office-dtd\nFILES_PREVIEW_COMMAND_REV action=office-dtd revision=13\nFILES_PREVIEW_HELPER pid=1470675 start=54842580 command=preview_office\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/dtd.docx\") message=DTD/instrucciones XML DOCX no admitidos\nFILES_PREVIEW_COMMAND_OK office-symlink\nFILES_PREVIEW_COMMAND_REV action=office-symlink revision=15\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/link.docx\") message=Original no disponible: Too many levels of symbolic links (os error 40)\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK office-truncated\nFILES_PREVIEW_COMMAND_REV action=office-truncated revision=17\nFILES_PREVIEW_HELPER pid=1470724 start=54842605 command=preview_office\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/truncated.docx\") encoding=DOCX \u00b7 texto extra\u00eddo truncated=true bytes=262144 revision=17 stamp=Some(Revision { device: 63, inode: 282605935, bytes: 836, modified_seconds: 1793105649, modified_nanoseconds: 848692677, changed_seconds: 1793105649, changed_nanoseconds: 848692677 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK office-rapid\nFILES_PREVIEW_COMMAND_REV action=office-rapid revision=23\nFILES_PREVIEW_HELPER pid=1470737 start=54842630 command=preview_office\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/office-ui-vtjxvgfk/files/report.docx\") encoding=DOCX \u00b7 texto extra\u00eddo truncated=false bytes=102 revision=23 stamp=Some(Revision { device: 63, inode: 282606056, bytes: 800, modified_seconds: 1793105652, modified_nanoseconds: 214667968, changed_seconds: 1793105652, changed_nanoseconds: 214667968 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_OFFICE_TEXT_OK expected=BETA source=Some(Revision { device: 63, inode: 282606056, bytes: 800, modified_seconds: 1793105652, modified_nanoseconds: 214667968, changed_seconds: 1793105652, changed_nanoseconds: 214667968 })\nFILES_PREVIEW_COMMAND_OK office-assert-b\nFILES_PREVIEW_COMMAND_REV action=office-assert-b revision=23\nFILES_PREVIEW_COMMAND_OK callback\nFILES_PREVIEW_COMMAND_REV action=callback revision=23\nFILES_MEDIA_PROBE_STOPPED=false scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "9703332b6c7d3767aedb769c07eb3080e6c2c07a7e23a9994b704f3b1cd3a6db",
+  "helper_sha256": "1b06c98aa9037ee2ab1d461e874de08fab87823fcd0ef33f480b245a5ef230f5",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

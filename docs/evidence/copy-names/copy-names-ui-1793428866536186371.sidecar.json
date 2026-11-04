@@ -1,0 +1,6 @@
+{
+  "functional_gate": "PASS scoped retained",
+  "visual_gate": "FAIL proposed-name count",
+  "finding": "All5 root requests mapped/copied correctly, but header displayed4names because it counted committed overrides and omitted current visible dirty draft. Changed_count now includes the current proposal/undo/reset; singular labels corrected. Original9PNG/log/report preserved.",
+  "resources": "Incidental main-process footer later showed53.7MiB. This is above ideal if taken at face value, but not a valid tree+Swap/per-scenario experiment; freeze prevents a new benchmark and no resource PASS/causality asserted."
+}

@@ -1,0 +1,9 @@
+{
+  "report": "helper-crash-1793088449742352360.json",
+  "source_integrity_scope": "2 media SHA256 and 20000 descendant count, not individual descendant name/content/attribute hashes",
+  "lifetime_scope": "direct owned helper observed alive before root-only SIGKILL; test subreaper adopts and waits WTERMSIG9. No process-group/manual helper signal in PASS path. Not PID1/T3 reaper latency, grandchild or D-state proof.",
+  "progress_scope": "helper may be killed before first useful output; alive-after-spawn is the acceptance condition",
+  "mutations_in_flight": false,
+  "resource_gate": "NOT_MEASURED",
+  "native_input": "NOT_VALIDATED"
+}

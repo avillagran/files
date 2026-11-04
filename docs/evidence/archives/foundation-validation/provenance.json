@@ -1,0 +1,39 @@
+{
+  "checked_at": "2026-10-31T22:59:48.623188+00:00",
+  "package_identity_set_unchanged": true,
+  "lock_diff": "Only files-core dependency edges flate2/crc32fast; no package/source/checksum/version added or updated",
+  "licenses": {
+    "flate2": {
+      "version": "1.1.10",
+      "license": "MIT OR Apache-2.0",
+      "manifest_sha256": "1365f28dd7ad9f83ebcc9afd545d7cdcedb284bf6e059081b0e1d1847ce6a94e"
+    },
+    "crc32fast": {
+      "version": "1.5.3",
+      "license": "MIT OR Apache-2.0",
+      "manifest_sha256": "c79d5b10769b1fab560e1c949d545857122284713dcb83af0e6d640a0909530a"
+    }
+  },
+  "office_wire": [
+    {
+      "path": "docs/evidence/archives/foundation-validation/office-stored-wire.json",
+      "passed": 10,
+      "helper_sha256": "34aa00eff15933478363a8530235da3e16eacee68a9a0e9fccd48baa39925883"
+    },
+    {
+      "path": "docs/evidence/archives/foundation-validation/office-deflate-wire.json",
+      "passed": 10,
+      "helper_sha256": "34aa00eff15933478363a8530235da3e16eacee68a9a0e9fccd48baa39925883"
+    },
+    {
+      "path": "docs/evidence/archives/foundation-validation/office-descriptor-wire.json",
+      "passed": 10,
+      "helper_sha256": "34aa00eff15933478363a8530235da3e16eacee68a9a0e9fccd48baa39925883"
+    }
+  ],
+  "format_references": [
+    "https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT",
+    "https://docs.rs/flate2/1.1.10/flate2/struct.Decompress.html"
+  ],
+  "upstream_spec_or_decoder_source_copied": false
+}

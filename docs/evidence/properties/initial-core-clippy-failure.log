@@ -1,0 +1,14 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+error: redundant closure
+   --> crates/core/src/file_properties.rs:365:53
+    |
+365 |         chmod_with_observer(snapshot, mode, cancel, |snapshot| revalidate(snapshot))
+    |                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace the closure with the function itself: `revalidate`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#redundant_closure
+    = note: `-D clippy::redundant-closure` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::redundant_closure)]`
+
+error: could not compile `files-core` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `files-core` (lib test) due to 1 previous error

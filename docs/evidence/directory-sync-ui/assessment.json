@@ -1,0 +1,87 @@
+{
+  "source_commit": "71eb40f",
+  "scope": "INSTALLED visible fresh synchronization dry-run; no Apply, operation queue submission, backup creation, retirement, pinned execution manifest, durable journal or recovery/undo",
+  "validation": {
+    "workspace_passed": 1396,
+    "core": 489,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_controller_tests": 8,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS",
+    "release": "PASS; module-doc-only corrections rebuilt and final changed binary rechecked on both backends",
+    "rust_concurrency": "normal",
+    "source_wayland": "directory-sync-ui-1793574428421481675.json",
+    "source_x11": "directory-sync-ui-1793574443373162313.json",
+    "installed_wayland": "directory-sync-ui-1793574546356530935.json",
+    "each_sync_scene": {
+      "captures": 19,
+      "normal_root_exits_and_drain": 6,
+      "logged_sync_pid_start_gone_or_reused": 12
+    },
+    "comparison_regressions": [
+      "docs/evidence/directory-compare-ui/directory-compare-ui-1793574433356876800.json",
+      "docs/evidence/directory-compare-ui/directory-compare-ui-1793574451607334660.json"
+    ],
+    "each_comparison_scene": {
+      "captures": 14,
+      "normal_root_exits_and_drain": 6,
+      "logged_comparison_pid_start_gone_or_reused": 7
+    },
+    "release_helper_cli": "../directory-sync-wire/helper-wire-1793574477573675033.json (18 cases, including both complete8192name inventories)",
+    "gui_concurrency": "one fixture per backend, one Xvfb wrapper at a time"
+  },
+  "accepted_sha256": {
+    "binary_sha256": "289db327a121ffb8eed49f0386443fa7fbc4b0dc3b07b99cf8207d096bfce2f9",
+    "helper_sha256": "170f995dc6d4f86e6deeb5ef47257aef91fda3654e42f0254c3bc9d485a0ef0f",
+    "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+  },
+  "installation_receipt": "../0.0.4/installed-checkpoint-1793574522897173033.json",
+  "installation_verification": "install-verification.json; five installed plus five backup hashes",
+  "features": [
+    "Root Actions/palette/background-menu preparation; A active/B opposite or manualrawURI",
+    "F6 six modes including retained comparison; F5 explicit new preparation; semantics not newer-wins/deletion inference",
+    "typed Pending/Skip/preserve-before-replace/metadata/removal choices per row through F9/ShiftF9/F10 and buttons; no writes",
+    "selection/choice/filter/root/mode/budget stamp invalidation; stale actions cannot decide another row",
+    "pending/proposals/differences/unknown/all filters; resolving pending row removes it without reusing stale receipt",
+    "ancestor coverage without duplicate child effects, shared directory metadata independent; partial globally blocked",
+    "compact440controls disjoint and selected choice readable; retained virtual rows and selected-path pan",
+    "full16MiB bounded diagnostic with explicit no Apply authority, all proposals/choices and no partial clipboard copy; error retained",
+    "raw Locate with fresh browser listing, hidden/empty/raw names included, no open or mutation",
+    "one enum-owned comparison-or-sync reader, existing reader admission/sizepause/thumb suspension/Map resume, retained cancel/rootclose ACK, discard queued success on cancellation/context mismatch",
+    "private sync Job module now integrated with Model owner, no duplicate full row arrays"
+  ],
+  "retained_failures": [
+    {
+      "log": "initial-controller-fixtures-fail.log",
+      "result": "1394 workspace passed,2 new fixture assertions failed (793 UI passed/2 failed)",
+      "cause": "empty size queue cannot remain paused; synthetic phase3-to-phase0 progress legitimately marks repaint dirty",
+      "correction": "enqueue real pending work before pausing; assert retained busy ownership through ACK rather than no repaint",
+      "green": "workspace-validation-pass.log:1396 passed,0 failed"
+    }
+  ],
+  "intermediate_passes": [
+    "directory-sync-ui-1793574219972422123.json",
+    "directory-sync-ui-1793574264512852275.json"
+  ],
+  "limitations": [
+    "Dry-run is not complete C02 synchronization; no Write/Apply token or authority from old observations/choices",
+    "Need fresh pinned object manifest/topology/hardlink proof, recoverable replacement/removal/journal/barriers, queue lifecycle and crash/reopen/undo",
+    "raw roots with final symlink, containment or identical IDs rejected; comparison is not atomic snapshot, bind-alias independence or complete metadata/hardlink replication",
+    "Internal model handlers/framebuffers are not native OS input/clipboard/AT-SPI/2x/otherOS/global lifetimes/offline syscall deadlines",
+    "PSS/Swap/CPU/startup experiments and new preview formats remain frozen; footer values are not evidence",
+    "Original wide-X11 and concurrent-Wayland geometry causes remain unconfirmed; no causal fix claim"
+  ],
+  "next": "Fresh execution manifest/preparation with pinned roots/parents/object revisions/content/link/metadata/absence/topology, new explicit review authority, then recoverable effects and durable journal/queue/recovery. Never apply unattended to personal folders. Missing-only copies do not complete C02.",
+  "full_goal": "ACTIVE; full scope unchanged",
+  "source_sha256": {
+    "crates/ui/src/directory_compare_ui.rs": "cebb78987bd1d239435adb145316a413dd4bdb2fd524b9e151f55bed666c5c24",
+    "crates/ui/src/directory_sync_job.rs": "0246277678bb1fad9eee974d652a8922622ab9f3786ef4fb61947d04d7965560",
+    "crates/ui/src/command_palette.rs": "7fcc131fb0e3bdc89a3c09952891f96d5c01afaff8bd40b11aa1078ef5557dd7",
+    "crates/ui/src/context_menu.rs": "8d02baf219bd70556366f92328b5bf8f0426fd9042f67882f7b94c41c3788c06",
+    "crates/ui/src/model.rs": "e5b560a293687aa13678672495e9b2ac9e63c6a99c1b5c6ae6b7eb5de8439eea",
+    "crates/ui/src/lib.rs": "5bb705b0c49ea71f14f4a84c6097cb25d5f5a1dbfcb3cff473c9193317645b27",
+    "scripts/directory-sync-ui-check.py": "d6990b23fa264dbeb100850eb56fbf5f41dae1c059980d499c48623257bccfaa"
+  }
+}

@@ -1,0 +1,19 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.73s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 11 tests
+test directory_sync::tests::overlapping_roots_parent_components_and_final_links_are_rejected ... ok
+test directory_sync::tests::replacing_a_root_while_comparing_never_yields_action_proposals ... ok
+test directory_sync::tests::equal_nested_and_shared_directory_metadata_do_not_hide_children ... ok
+test directory_sync::tests::cancellation_callback_errors_and_stale_root_identity_do_not_publish ... ok
+test directory_sync::tests::content_link_type_and_metadata_are_independent_explicit_conflicts ... ok
+test directory_sync::tests::choices_are_directional_typed_reversible_and_never_bulk_resolve ... ok
+test directory_sync::tests::partial_inventory_or_read_budget_blocks_every_proposal ... ok
+test directory_sync::tests::directions_and_modes_never_infer_bidirectional_deletion ... ok
+test directory_sync::tests::subtree_proposals_do_not_duplicate_copy_or_removal_and_keep_raw_names ... ok
+test directory_sync::tests::changed_inventory_during_hashing_blocks_even_unrelated_missing_names ... ok
+test directory_sync::tests::preparation_rereads_instead_of_trusting_old_comparison ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 473 filtered out; finished in 0.00s
+

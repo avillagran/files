@@ -1,0 +1,130 @@
+{
+  "gate_status": "FAIL",
+  "limit_ms_strictly_below": 100,
+  "runs": [
+    {
+      "main_to_paint_ms": 82.806,
+      "spawn_to_paint_ms": 90.226616,
+      "metrics": null,
+      "timing_only": true,
+      "normal_exit_tail_observations": [],
+      "phase_markers_us": {
+        "FIRST_PAINT": 82806
+      },
+      "phase_marker_scope": "main-relative stages except FONT (duration); only available with FILES_TRACE=1"
+    },
+    {
+      "main_to_paint_ms": 137.918,
+      "spawn_to_paint_ms": 150.310623,
+      "metrics": null,
+      "timing_only": true,
+      "normal_exit_tail_observations": [],
+      "phase_markers_us": {
+        "FIRST_PAINT": 137918
+      },
+      "phase_marker_scope": "main-relative stages except FONT (duration); only available with FILES_TRACE=1"
+    },
+    {
+      "main_to_paint_ms": 58.861,
+      "spawn_to_paint_ms": 65.258256,
+      "metrics": null,
+      "timing_only": true,
+      "normal_exit_tail_observations": [],
+      "phase_markers_us": {
+        "FIRST_PAINT": 58861
+      },
+      "phase_marker_scope": "main-relative stages except FONT (duration); only available with FILES_TRACE=1"
+    },
+    {
+      "main_to_paint_ms": 80.186,
+      "spawn_to_paint_ms": 89.190899,
+      "metrics": null,
+      "timing_only": true,
+      "normal_exit_tail_observations": [],
+      "phase_markers_us": {
+        "FIRST_PAINT": 80186
+      },
+      "phase_marker_scope": "main-relative stages except FONT (duration); only available with FILES_TRACE=1"
+    },
+    {
+      "main_to_paint_ms": 92.968,
+      "spawn_to_paint_ms": 102.569378,
+      "metrics": null,
+      "timing_only": true,
+      "normal_exit_tail_observations": [],
+      "phase_markers_us": {
+        "FIRST_PAINT": 92968
+      },
+      "phase_marker_scope": "main-relative stages except FONT (duration); only available with FILES_TRACE=1"
+    },
+    {
+      "main_to_paint_ms": 83.839,
+      "spawn_to_paint_ms": 94.008603,
+      "metrics": null,
+      "timing_only": true,
+      "normal_exit_tail_observations": [],
+      "phase_markers_us": {
+        "FIRST_PAINT": 83839
+      },
+      "phase_marker_scope": "main-relative stages except FONT (duration); only available with FILES_TRACE=1"
+    },
+    {
+      "main_to_paint_ms": 75.089,
+      "spawn_to_paint_ms": 85.708955,
+      "metrics": null,
+      "timing_only": true,
+      "normal_exit_tail_observations": [],
+      "phase_markers_us": {
+        "FIRST_PAINT": 75089
+      },
+      "phase_marker_scope": "main-relative stages except FONT (duration); only available with FILES_TRACE=1"
+    },
+    {
+      "main_to_paint_ms": 53.787,
+      "spawn_to_paint_ms": 60.278134,
+      "metrics": null,
+      "timing_only": true,
+      "normal_exit_tail_observations": [],
+      "phase_markers_us": {
+        "FIRST_PAINT": 53787
+      },
+      "phase_marker_scope": "main-relative stages except FONT (duration); only available with FILES_TRACE=1"
+    },
+    {
+      "main_to_paint_ms": 65.292,
+      "spawn_to_paint_ms": 76.329841,
+      "metrics": null,
+      "timing_only": true,
+      "normal_exit_tail_observations": [],
+      "phase_markers_us": {
+        "FIRST_PAINT": 65292
+      },
+      "phase_marker_scope": "main-relative stages except FONT (duration); only available with FILES_TRACE=1"
+    },
+    {
+      "main_to_paint_ms": 73.511,
+      "spawn_to_paint_ms": 84.105776,
+      "metrics": null,
+      "timing_only": true,
+      "normal_exit_tail_observations": [],
+      "phase_markers_us": {
+        "FIRST_PAINT": 73511
+      },
+      "phase_marker_scope": "main-relative stages except FONT (duration); only available with FILES_TRACE=1"
+    }
+  ],
+  "errors": [],
+  "p50_spawn_to_paint_ms": 87.449927,
+  "p95_spawn_to_paint_ms": 150.310623,
+  "max_spawn_to_paint_ms": 150.310623,
+  "p50_main_to_paint_ms": 77.6375,
+  "p95_main_to_paint_ms": 137.918,
+  "max_main_to_paint_ms": 137.918,
+  "under_limit": 8,
+  "percentile_method": "nearest rank for p95; median for p50",
+  "method": "fresh process; POSIX_FADV_DONTNEED requested for executable only; system/font/shared-library caches not globally evicted; internal marker ends at completed draw callback, not compositor presentation; external marker receipt is an upper bound affected by scheduling and instrumentation",
+  "run_policy": "serialized: no builds, captures or other benchmarks; caller must enforce",
+  "instrumentation_cost": "process-tree /proc collection delays marker receipt between event polls; use --timing-only as a separate external timing run, and retain a separate measured memory run",
+  "process_metrics_measured": false,
+  "gpu_memory": "not measured; process-tree memory sampling is a lower bound"
+}

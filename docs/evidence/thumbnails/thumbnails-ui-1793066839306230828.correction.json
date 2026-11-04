@@ -1,0 +1,8 @@
+{
+  "original_preserved": true,
+  "functional_gate": "FAIL",
+  "reason": "All recorded media checks and root callback exit0 completed, but instrument required FILES_THUMBNAILS_CLOSE, which was only emitted for preview_fixture rather than hidden-context fixture. New marker emitted independently before exit. Original report remains FAIL; no retroactive lifecycle PASS.",
+  "additional_visual_fix": "Letterboxed source image corners were square because mask applied to viewport bounds. New CPU mask rounds displayed image rectangle; dedicated asymmetric letterbox test passes.",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

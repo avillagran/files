@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "sample_count": 48,
+  "sample_interval_requested_ms": 25.0,
+  "max_observed_interval_ms": 44.869966979604214,
+  "stable_sample_count": 26,
+  "sampled_maxima": {
+    "pss_kib": 34285,
+    "swap_pss_kib": 3168,
+    "memory_kib": 34285,
+    "fds": 20,
+    "threads": 7,
+    "process_count": 2
+  },
+  "sample_at_memory_max": {
+    "pss_kib": 34285,
+    "swap_pss_kib": 0,
+    "threads": 7,
+    "fds": 20,
+    "memory_kib": 34285,
+    "time_monotonic": 456937.279379738,
+    "cpu_percent_observed": 77.92670087035822,
+    "root_alive": true,
+    "process_count": 2,
+    "complete": true,
+    "errors": [],
+    "processes": [
+      {
+        "pid": 1392653,
+        "start": 45693697,
+        "pss_kib": 33703,
+        "swap_pss_kib": 0,
+        "threads": 6,
+        "fds": 13
+      },
+      {
+        "pid": 1392686,
+        "start": 45693727,
+        "pss_kib": 582,
+        "swap_pss_kib": 0,
+        "threads": 1,
+        "fds": 7
+      }
+    ],
+    "exited_during_read": [],
+    "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+  },
+  "stable_medians": {
+    "pss_kib": 33351.0,
+    "swap_pss_kib": 192.0,
+    "memory_kib": 33543.0,
+    "fds": 11.0,
+    "threads": 5.0,
+    "process_count": 1.0
+  },
+  "stable_cpu_percent_observed_median": 0.0,
+  "stable_cpu_percent_observed_max": 0.0,
+  "observed_process_identities": [
+    [
+      1392653,
+      45693697
+    ],
+    [
+      1392686,
+      45693727
+    ]
+  ],
+  "exited_process_identities": [
+    [
+      1392686,
+      45693727
+    ]
+  ],
+  "exited_during_read": [],
+  "exited_during_read_count": 0,
+  "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+  "errors": [],
+  "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+  "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals",
+  "scenario": "inspector recursive apparent size, 100000 files",
+  "ui_action_method": "internal action; no native OS input",
+  "window_requested": [
+    1000,
+    650
+  ],
+  "resource_gate": "PASS",
+  "helper_identities_verified": [
+    [
+      1392686,
+      45693727
+    ]
+  ],
+  "memory_peak_mb_decimal": 35.10784,
+  "functional_result": "PASS: 60000000 bytes",
+  "cleanup": {
+    "surviving_observed_processes": [],
+    "errors": [],
+    "complete": true
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "date": "2026-11-03",
+  "source_commit": "5a8f995fccf4a3a3efb0311a4067e340545dfcbd",
+  "flea_tag": "v0.4.0",
+  "flea_tag_commit": "22fa922",
+  "flea_release_asset_sha256": "efa466c4916228cad6e374f9f33b216ef236f53515758fddc502c6972f5c50d7",
+  "artifact_sha256": {
+    "files": "b51dd04003ed00c0d62c2db4c42d0d523a789a0649b5516d183ed0c6775d9f79",
+    "files-helper": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+    "flea": "5c0df1aad8dd958d64ff23f05271d5ac476caec6cb34855acaac12ee73a5c89a",
+    "flea-gui": "02b0d3c1cd78663a626bbda0e1e9278bfdd3bb6fe9d4e170ac479cf4f8f068cb"
+  },
+  "host": "NODE",
+  "cpu": "AMD Ryzen 9 5900X",
+  "renderer_flea": "Vulkan NVIDIA GeForce RTX 3080 Ti (confirmed every launch log)",
+  "renderer_files": "FLTK software Wayland",
+  "display": "1920x1080 scale1; observed client655x836 nativeWayland, identical geometry every timed run",
+  "fixture": "10000 and100000 empty .txt, same raw names/name sort,List view,own btrfs fixtures; default app row density differs",
+  "protocol": "4 valid runs per app/count alternating AB/BA; same shared private clean HOME/XDG configs/cache; real desktop background not killed, no build while measurements, samples~40-59ms incl overhead; own process group only cleanup",
+  "cache": "Directory metadata primed before each size; warm filesystem cache/fresh process, no global cache drop, no true cold-start result",
+  "memory": "Process-tree summed PSS+SwapPss including observed helpers; sampled peak is lower bound; settled median from>=max(ready+1s,3s) until>=max(5s,ready+3s); GPU memory separately recorded, NOT added blindly to PSS",
+  "timings": "External monotonic polling. Mapped is compositor client appearance, not usable. Listing state Files loaded/errorfree+expectedcount through existing FILES_METRICS_READY; Flea listingWindowState total+loaded>0, state ready, mounted drawnCount>0 through IPC. Different app observers, NOT OS-input or scanout latency. Poll quantization tens of ms; RPC overhead included for Flea. No frame/scroll/input latency claim",
+  "failure": "Initial 100k Flea rep2 IPC returned non-JSON before adapter ready; harness parser raised, own group terminated, raw log preserved. Parser now treats non-JSON as not-yet-ready; replacement rep2-retry and remaining original schedule complete. Invalid run excluded, not app failure",
+  "summary": [
+    {
+      "app": "files",
+      "count": 10000,
+      "runs": 4,
+      "mapped_s": {
+        "median": 0.09689898649958195,
+        "min": 0.09631551100028446,
+        "max": 0.09848784900532337
+      },
+      "listing_state_ready_s": {
+        "median": 0.0969517104967963,
+        "min": 0.09636571600276511,
+        "max": 0.09854248100600671
+      },
+      "peak_pss_swap_kib": {
+        "median": 19349.5,
+        "min": 19141,
+        "max": 19570
+      },
+      "stable_pss_swap_kib": {
+        "median": 19346.5,
+        "min": 19141,
+        "max": 19570
+      }
+    },
+    {
+      "app": "flea",
+      "count": 10000,
+      "runs": 4,
+      "mapped_s": {
+        "median": 0.39939456950014574,
+        "min": 0.3505130530029419,
+        "max": 0.4024181860004319
+      },
+      "listing_state_ready_s": {
+        "median": 0.40321666449744953,
+        "min": 0.3541587020008592,
+        "max": 0.4062780469976133
+      },
+      "peak_pss_swap_kib": {
+        "median": 111212.0,
+        "min": 110405,
+        "max": 111573
+      },
+      "stable_pss_swap_kib": {
+        "median": 110495.0,
+        "min": 109588,
+        "max": 110848.0
+      }
+    },
+    {
+      "app": "files",
+      "count": 100000,
+      "runs": 4,
+      "mapped_s": {
+        "median": 0.09934714149858337,
+        "min": 0.09877508899808163,
+        "max": 0.09969792500487529
+      },
+      "listing_state_ready_s": {
+        "median": 0.6027802739990875,
+        "min": 0.6013184510011342,
+        "max": 0.6029418090038234
+      },
+      "peak_pss_swap_kib": {
+        "median": 33411.0,
+        "min": 33095,
+        "max": 33446
+      },
+      "stable_pss_swap_kib": {
+        "median": 33411.0,
+        "min": 33095,
+        "max": 33446
+      }
+    },
+    {
+      "app": "flea",
+      "count": 100000,
+      "runs": 4,
+      "mapped_s": {
+        "median": 0.4045880540033977,
+        "min": 0.40367269300622866,
+        "max": 0.40752232300292235
+      },
+      "listing_state_ready_s": {
+        "median": 0.40888962500321213,
+        "min": 0.4071947420015931,
+        "max": 0.4115506509988336
+      },
+      "peak_pss_swap_kib": {
+        "median": 113926.0,
+        "min": 113615,
+        "max": 114022
+      },
+      "stable_pss_swap_kib": {
+        "median": 113175.5,
+        "min": 112894,
+        "max": 113256.0
+      }
+    }
+  ],
+  "decision": "Strict criterion LOWER MEMORY AND FASTER across tested listing workloads NOT MET: Files lower process-tree RAM both, faster listing10k, slower listing100k. No broad superiority or automatic feature-development continuation claim. Project not deleted/archived.",
+  "unmeasured": [
+    "True cold cache",
+    "Native input-to-visible-response, scrolling, navigation and search latency; computer-use driver unavailable, no ad-hoc input fallback",
+    "Media workload/equivalent thumbnail generation",
+    "Long-lifetime/leaks/power/CPU performance or bulk sync",
+    "Other machines/graphics drivers/complete feature parity"
+  ],
+  "freeze": "User explicitly lifted prior resource/startup freeze ONLY for this comparison; unrelated experiments remain frozen"
+}

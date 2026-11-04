@@ -1,0 +1,32 @@
+[
+  {
+    "text": "initial-16-focused-pass.log",
+    "raw_archive": "initial-16-focused-pass.log.raw.gz",
+    "raw_sha256": "338c3f2032e4396355209101ac9e18b110f24a1cb2f12cce70ce2c57fbec1998",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "pre-allocation-guard-1523-workspace-pass.log",
+    "raw_archive": "pre-allocation-guard-1523-workspace-pass.log.raw.gz",
+    "raw_sha256": "13fe89f54f4094ff16cd420785be50859959f318541827cc967ce4acfb6e3f0b",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "pre-execution-profile-1523-workspace-pass.log",
+    "raw_archive": "pre-execution-profile-1523-workspace-pass.log.raw.gz",
+    "raw_sha256": "bac7d3c31a6c6803469ab03c2d577f40025597fe4438cd124337c362594bf15f",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "execution-profile-17-focused-pass.log",
+    "raw_archive": "execution-profile-17-focused-pass.log.raw.gz",
+    "raw_sha256": "9c011dcba8dc6f0d82c41b6a702c2de543ca114134a95fa96b01795e5ca6f581",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "accepted-1524-workspace.log",
+    "raw_archive": "accepted-1524-workspace.log.raw.gz",
+    "raw_sha256": "7db54d4711a0d0be718ef8960fbbd7fc787866269338693b3eaa8cf1cff82b05",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  }
+]

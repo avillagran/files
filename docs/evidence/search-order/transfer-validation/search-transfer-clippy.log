@@ -1,0 +1,14 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error: unreachable pattern
+   --> crates/ui/src/hidden_scene.rs:547:13
+    |
+546 |             "f5" => (Key::F5, Shortcut::None),
+    |             ---- matches all the relevant values
+547 |             "f5" => (Key::F5, Shortcut::None),
+    |             ^^^^ no value can reach this
+    |
+    = note: `-D unreachable-patterns` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(unreachable_patterns)]`
+
+error: could not compile `files-ui` (lib) due to 1 previous error

@@ -1,0 +1,28 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "owned filesystem fixtures and independent Files processes; painted handlers/private command pipes and real FLTK framebuffer; no native input",
+  "binary_sha256": "0e7fed8a88831816340481ab6343bb200ea487618a5de195c99e207cdca7f39c",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "saved_scope": "PASS four owned processes save/name/filter/content/hidden, cancel-label retains1, load no helper until Enter, raw root Here and persisted raw root reopened, rename stable ID then remove metadata only, future version preserved with error; storage ACK never changed search criteria. Private keys/painted handlers/framebuffer, no native input/clipboard/lifetimes/resources.",
+  "scene": "docs/evidence/search-order/saved-search-ui-1793475882305119370.json",
+  "tests": "993Rust334core/85helper/574UI PASS+3existing core ignored; final Clippyworkspace/alltargets-Dwarnings/release/fmt PASS",
+  "normal_exits": 4,
+  "captures": 14,
+  "helper_cleanup": "6 logged PID/start identities gone/reused; Z rejected, no lifetime coverage",
+  "native_input": "UNVALIDATED",
+  "global_gate": "PENDING; full user goal/ROADMAP and resource/startup freeze remain open",
+  "storage_scope": "real codec bounds/raw/invalid/future/symlink/FIFO/lock/exact stale-entry tests;2real fork tests creator-only unlock/child cannot unlock; unsynced/retry/close/lost ACK controller tests are phase/synthetic, not power-loss or kernel-D proof",
+  "selection_scope": "exact request-bound ACK selection; user row/key selection or a new panel supersedes; tests normal/manual/newpanel, native2nd entry selected after save; ACK never changes active search fields",
+  "compact_scope": "content result row reserved before extended stats, abbreviated counts retained; all4criteria above footer; unit and real440px fields/results proof, unchanged strict result row check",
+  "original_failures": [
+    "saved-search-contract-tests.log WouldBlock in parallel core suite; original cause not proven; creator-only unlock fixes independently reproduced inherited-description risk, no test serialization/retry added",
+    "wiring E0004/deprecated fetch_update, local test helper scope and fixture Result coercion/style errors retained/fixed",
+    "native1793473783841284494 real compact content-row bug; preserve report/log/PNG+sidecar",
+    "native1793474568062614730 criteria-mode checker expected results, plus independent compact field/footer geometry correction; preserve originals+sidecar",
+    "native1793475141532770945 snapshot flags emitted before search object; moved emission, no relaxed predicate",
+    "native1793475395663045259 first scopedPASS14FB retained; new save selected old row, fixed exact request/panel selection before installation"
+  ]
+}

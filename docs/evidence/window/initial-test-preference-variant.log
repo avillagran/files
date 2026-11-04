@@ -1,0 +1,28 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+   Compiling files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+error[E0599]: no variant, associated function, or constant named `Corners` found for enum `aux_io::Request` in the current scope
+   --> crates/ui/src/spatial_view.rs:571:22
+    |
+571 |         let Request::Corners(rev, _) = input.try_recv().unwrap() else {
+    |                      ^^^^^^^ variant, associated function, or constant not found in `aux_io::Request`
+    |
+   ::: crates/ui/src/aux_io.rs:12:1
+    |
+ 12 | pub enum Request {
+    | ---------------- variant, associated function, or constant `Corners` not found for this enum
+
+error[E0599]: no variant, associated function, or constant named `Corners` found for enum `aux_io::Request` in the current scope
+   --> crates/ui/src/spatial_view.rs:582:22
+    |
+582 |         let Request::Corners(latest, corners) = input.try_recv().unwrap() else {
+    |                      ^^^^^^^ variant, associated function, or constant not found in `aux_io::Request`
+    |
+   ::: crates/ui/src/aux_io.rs:12:1
+    |
+ 12 | pub enum Request {
+    | ---------------- variant, associated function, or constant `Corners` not found for this enum
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `files-ui` (lib test) due to 2 previous errors
+warning: build failed, waiting for other jobs to finish...

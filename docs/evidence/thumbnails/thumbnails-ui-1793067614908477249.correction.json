@@ -1,0 +1,12 @@
+{
+  "original_preserved": true,
+  "functional_gate": "FAIL",
+  "facts": [
+    "Grid command arrived after SMOKE_OK but before first valid post-smoke paint, producing Control no visible. New harness waits HIDDEN_STATE after paint and fails immediately on command error.",
+    "App later exited101 with a deleted FLTK WidgetTracker assertion; original had no backtrace. Cause remains UNRESOLVED, not attributed to cleanup or fixed by readiness wait.",
+    "Later20s idle/backtrace run passed; this does NOT establish the cause.",
+    "New backend-loss guards cancel/drain without dereferencing deleted window/canvas; separate own C++ widget-destruction case verifies deliberate exit1 and helper cleanup, not native compositor/SuperW behavior."
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

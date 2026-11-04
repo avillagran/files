@@ -1,0 +1,25 @@
+    Checking files-core v0.0.4 (/home/node/Work/files/crates/core)
+error: this `if` statement can be collapsed
+   --> crates/core/src/directory_sync_journal.rs:561:9
+    |
+561 | / ...   if let Some((i, _)) = self.workspace_create {
+562 | | ...       if !matches!(e, Event::WorkspaceCreated { transaction, .. } | Event::WorkspaceMaterialized(transaction) if transaction ...
+563 | | ...       {
+564 | | ...           return Err(bad("Creación de workspace pendiente"));
+565 | | ...       }
+566 | | ...   }
+    | |_______^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+561 ~         if let Some((i, _)) = self.workspace_create
+562 ~             && !matches!(e, Event::WorkspaceCreated { transaction, .. } | Event::WorkspaceMaterialized(transaction) if transaction == i)
+563 |             {
+564 |                 return Err(bad("Creación de workspace pendiente"));
+565 ~             }
+    |
+
+error: could not compile `files-core` (lib) due to 1 previous error

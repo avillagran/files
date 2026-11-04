@@ -1,0 +1,8 @@
+{
+  "scope": "GIF snapshot/playback/pause/resumeEOF reached, failed before normal-close acceptance",
+  "failure": "harness counted all helpers after ClosePreview while inspector thumbnail remained visible; probe/frame were legitimate demand, no new stream was logged",
+  "correction": "assert no new preview_video_stream, independently validate visible inspector thumbnail160px/FD/pixel and capture",
+  "functional_gate": "FAIL preserved",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

@@ -1,0 +1,17 @@
+{
+  "change": "Escaped native labels in operation review, no editor/target changes",
+  "initial_compile_failure": "Converted text calls retained obsolete boolean arguments. Removed those arguments; final check and Clippy passed. Original compile log retained.",
+  "source_copy_report": "docs/evidence/copy-names/copy-names-ui-1793529876642064456.json",
+  "source_rename_report": "docs/evidence/0.0.4/rename-regex-ui-1793529887572115455.json",
+  "visual_review": "Inspected source with invalid byte and LF; original name with invalid byte, LF, backslash and bidi; options; create/extract ZIP two-line captions. Labels escaped; inputs keep their old captured/raw syntax.",
+  "limits": [
+    "Operation captions and rename columns can still clip",
+    "Archive summary truncation still explicit",
+    "No native input/clipboard/AT-SPI/2x",
+    "No full helper lifetime evidence from these scripts",
+    "Resource/startup freeze remains; footer numbers ignored",
+    "Historical intermittent X11 pane anomaly remains open"
+  ],
+  "x11_copy_report": "docs/evidence/copy-names/copy-names-ui-1793529921947404739.json",
+  "tests": "Final current-source1215 Rust PASS425core/95helper/695UI plus3 historical ignored. Final all-target Clippy/fmt/release PASS. Tests use normal concurrency after idle admission."
+}

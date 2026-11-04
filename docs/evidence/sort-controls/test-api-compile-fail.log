@@ -1,0 +1,63 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0599]: no associated function or constant named `default` found for struct `refresh_selection::Snapshot` in the current scope
+   --> crates/ui/src/dual_pane/tests.rs:633:50
+    |
+633 |         Some(crate::refresh_selection::Snapshot::default());
+    |                                                  ^^^^^^^ associated function or constant not found in `refresh_selection::Snapshot`
+    |
+   ::: crates/ui/src/refresh_selection.rs:5:1
+    |
+  5 | pub struct Snapshot {
+    | ------------------- associated function or constant `default` not found for this struct
+    |
+note: if you're trying to build a new `refresh_selection::Snapshot` consider using one of the following associated functions:
+      refresh_selection::Snapshot::capture
+      refresh_selection::Snapshot::capture_with_anchor
+   --> crates/ui/src/refresh_selection.rs:12:5
+    |
+ 12 | /     pub fn capture<'a>(
+ 13 | |         names: impl Iterator<Item = &'a OsStr> + Clone,
+ 14 | |         focus: Option<&OsStr>,
+ 15 | |     ) -> Result<Self, &'static str> {
+    | |___________________________________^
+...
+ 63 | /     pub fn capture_with_anchor<'a>(
+ 64 | |         names: impl Iterator<Item = &'a OsStr> + Clone,
+ 65 | |         focus: Option<&OsStr>,
+ 66 | |         anchor: Option<&OsStr>,
+ 67 | |         limit: usize,
+ 68 | |     ) -> Result<Self, &'static str> {
+    | |___________________________________^
+    = help: items from traits can only be used if the trait is implemented and in scope
+    = note: the following trait defines an item `default`, perhaps you need to implement it:
+            candidate #1: `std::default::Default`
+
+error[E0782]: expected a type, found a trait
+   --> crates/ui/src/dual_pane/tests.rs:645:21
+    |
+645 |         let mut p = Painter::new(1000, 650);
+    |                     ^^^^^^^
+    |
+help: you can add the `dyn` keyword if you want a trait object
+    |
+645 |         let mut p = <dyn Painter>::new(1000, 650);
+    |                     ++++        +
+
+error[E0599]: no method named `tooltip` found for enum `model::Action` in the current scope
+   --> crates/ui/src/dual_pane/tests.rs:657:30
+    |
+657 |             assert!(a.action.tooltip().is_some());
+    |                              ^^^^^^^ method not found in `model::Action`
+    |
+   ::: crates/ui/src/model.rs:26:1
+    |
+ 26 | pub enum Action {
+    | --------------- method `tooltip` not found for this enum
+    |
+    = help: items from traits can only be used if the trait is implemented and in scope
+    = note: the following trait defines an item `tooltip`, perhaps you need to implement it:
+            candidate #1: `fltk::prelude::WidgetExt`
+
+Some errors have detailed explanations: E0599, E0782.
+For more information about an error, try `rustc --explain E0599`.
+error: could not compile `files-ui` (lib test) due to 3 previous errors

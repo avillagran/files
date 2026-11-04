@@ -1,0 +1,19 @@
+{
+  "tests": {
+    "core": 252,
+    "helper": 79,
+    "ui": 489,
+    "ignored": 3
+  },
+  "final_report": "size-manager-ui-1793429969089468901.json",
+  "previous_report": "size-manager-ui-1793429877969598708.json",
+  "final_pngs_inspected": 3,
+  "all_framebuffers": 17,
+  "checks": "workspace tests/Clippy all-targets -Dwarnings/release/fmt PASS",
+  "source_changes_after_full_suite": "fixture Home command only; finalClippy/release",
+  "native_input": "NOT_VALIDATED",
+  "partial_positive_runtime_observed": false,
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "incidental_footer": "440 final50.8MiB, previous51.0MiB main-only; above ideal at face value, no tree/comparison/causality claim"
+}

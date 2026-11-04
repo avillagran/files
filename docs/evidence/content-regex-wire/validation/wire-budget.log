@@ -1,0 +1,9 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.69s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 1 test
+test search_snippet::tests::worst_case_valid_snippets_and_paths_keep_existing_wire_caps ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 435 filtered out; finished in 0.11s
+

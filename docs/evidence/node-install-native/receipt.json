@@ -1,0 +1,94 @@
+{
+  "host": "NODE",
+  "machine": "x86_64",
+  "date": "2026-11-01",
+  "source": "bdb588290c9949009e66f1ea9b5ab92275ad04ed",
+  "installed_verified": [
+    {
+      "name": "files",
+      "sha256": "02e0d79995d8ec9af304307615b4e15423f930a2fa19af58b306468a1e3a6e12",
+      "architecture": "ELF64 little-endian EM_X86_64=62",
+      "previous": null
+    },
+    {
+      "name": "files-helper",
+      "sha256": "d2e925c49701c3ad87c8d8a66bdbc0f6433503f38a05fe06c84be2c5b1c7b66d",
+      "architecture": "ELF64 little-endian EM_X86_64=62",
+      "previous": null
+    },
+    {
+      "name": "files-html-helper",
+      "sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+      "architecture": "ELF64 little-endian EM_X86_64=62",
+      "previous": null
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "architecture": null,
+      "previous": null
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee",
+      "architecture": null,
+      "previous": null
+    }
+  ],
+  "installation_record": "docs/evidence/0.0.4/installed-checkpoint-1793515028382395392.json",
+  "backup": "/home/node/.cache/files-test/installed-backups/1793515028278891259",
+  "previous_state": "first NODE install; all five files absent, empty backup directory recorded",
+  "source_archive_sha256": "82cfdc8347ebb61fbf308e29ebcb6ea5f82e894dd6a013c928deacc0446a471e",
+  "engine_commit": "6fd7aaa63833c913cf1a0336e46fb2e027e4c656",
+  "import_policy": "only checksum-verified source archive copied from M2 support; no ARM executable staged or run",
+  "validation": {
+    "release_html": "docs/evidence/0.0.4/html-ui-1793515005288679209.json",
+    "installed_html": "docs/evidence/0.0.4/html-ui-1793515054248559620.json",
+    "installed_v12": "docs/evidence/folder-views/node-functional-1793515054294142344/receipt.json",
+    "html_installed_captures": 5,
+    "v12_installed_captures": 9,
+    "installed_root_exits": 4,
+    "html_logged_helper_cleanup": {
+      "complete": true,
+      "identities": [
+        [
+          741291,
+          999171
+        ],
+        [
+          741357,
+          999189
+        ],
+        [
+          741365,
+          999199
+        ],
+        [
+          741370,
+          999203
+        ],
+        [
+          741376,
+          999214
+        ],
+        [
+          741385,
+          999234
+        ],
+        [
+          741389,
+          999241
+        ]
+      ],
+      "zombies_accepted": false,
+      "scope": "logged PID/start after root exit0, not lifetime or resource sampling"
+    }
+  },
+  "resource_gate": "NOT_MEASURED; frozen",
+  "startup_gate": "NOT_MEASURED; frozen",
+  "limitations": [
+    "handlers/framebuffers, no OS input/clipboard/AT-SPI/2x/lifetimes proof",
+    "existing HTML renderer remains experimental; no new preview feature",
+    "no source push/tag/global PASS; full goal remains active"
+  ]
+}

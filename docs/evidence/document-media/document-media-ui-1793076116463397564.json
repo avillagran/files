@@ -1,0 +1,355 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "internal shared Markdown commands + own filesystem mutations + actual FLTK framebuffer; no native input",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/document-media/embedded-red-1793076102364209201.png",
+    "/home/avillagran/Work/files/docs/evidence/document-media/embedded-replaced-blue-1793076102722117050.png",
+    "/home/avillagran/Work/files/docs/evidence/document-media/embedded-deleted-placeholder-1793076103280929444.png",
+    "/home/avillagran/Work/files/docs/evidence/document-media/embedded-recreated-green-1793076103641518102.png",
+    "/home/avillagran/Work/files/docs/evidence/document-media/embedded-root-replaced-1793076105029402841.png"
+  ],
+  "cases": [
+    {
+      "notify_callbacks_suppressed": false,
+      "checks": [
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=2 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=5143 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=3 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=65 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "same path/size/mtime replacement: old red gone, blue shown, fresh effective FD inode/revision",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=4 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=62 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "in-place modification preserves inode but changes revision and replaces displayed RGB",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=5 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=352 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None",
+        "external delete: published placeholder has no old bitmap/proof",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=6 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=60 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "missing image intent detects recreation without retaining old RGB",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=7 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=87 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=8 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=54 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "rename away/back invalidates and reacquires the current path",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=11 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=82 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "root rename/replacement recovers through fresh rootFD and watches; no old Ready",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=13 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=65 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "closed preview launches no helpers during wait; reopening demands fresh document proof"
+      ],
+      "functional_gate": "PASS",
+      "normal_exit": 0,
+      "helpers": [
+        [
+          "1425329",
+          "51887429",
+          "preview_text"
+        ],
+        [
+          "1425339",
+          "51887430",
+          "probe_relative_file"
+        ],
+        [
+          "1425340",
+          "51887432",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1425392",
+          "51887457",
+          "preview_text"
+        ],
+        [
+          "1425404",
+          "51887458",
+          "probe_relative_file"
+        ],
+        [
+          "1425417",
+          "51887459",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1425574",
+          "51887490",
+          "preview_text"
+        ],
+        [
+          "1425576",
+          "51887491",
+          "probe_relative_file"
+        ],
+        [
+          "1425577",
+          "51887493",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1425682",
+          "51887523",
+          "preview_text"
+        ],
+        [
+          "1425684",
+          "51887524",
+          "probe_relative_file"
+        ],
+        [
+          "1425730",
+          "51887549",
+          "preview_text"
+        ],
+        [
+          "1425734",
+          "51887550",
+          "probe_relative_file"
+        ],
+        [
+          "1425736",
+          "51887551",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1425829",
+          "51887583",
+          "preview_text"
+        ],
+        [
+          "1425834",
+          "51887584",
+          "probe_relative_file"
+        ],
+        [
+          "1425843",
+          "51887589",
+          "preview_text"
+        ],
+        [
+          "1425844",
+          "51887590",
+          "probe_relative_file"
+        ],
+        [
+          "1425845",
+          "51887591",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1425853",
+          "51887597",
+          "preview_text"
+        ],
+        [
+          "1426027",
+          "51887697",
+          "preview_text"
+        ],
+        [
+          "1426028",
+          "51887698",
+          "probe_relative_file"
+        ],
+        [
+          "1426029",
+          "51887699",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1426390",
+          "51887844",
+          "preview_text"
+        ],
+        [
+          "1426394",
+          "51887845",
+          "probe_relative_file"
+        ],
+        [
+          "1426398",
+          "51887846",
+          "preview_relative_image_checked"
+        ]
+      ],
+      "cleanup": {
+        "logged_identities_absent": true,
+        "zombies_accepted": false,
+        "scope": "logged PID/start identities after exit0; no lifetime sampling or metrics"
+      },
+      "readonly_probe_stop": [
+        "false"
+      ],
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=2\nFILES_FIRST_PAINT_US=123823\nFILES_PREVIEW_COMMAND_OK markdown\nFILES_PREVIEW_COMMAND_REV action=markdown revision=2\nFILES_PREVIEW_HELPER pid=1425329 start=51887429 command=preview_text\nFILES_PREVIEW_HELPER pid=1425339 start=51887430 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1425340 start=51887432 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=2 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=2 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=932 height=460 step_max_us=5143 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=2 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=5143 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":942024188,\"changed_seconds\":1793076101,\"device\":63,\"inode\":281397757,\"modified_nanoseconds\":942024188,\"modified_seconds\":1793076101},\"root\":{\"device\":63,\"inode\":281397753}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":942695484,\"changed_seconds\":1793076101,\"device\":63,\"inode\":281397758,\"modified_nanoseconds\":942695484,\"modified_seconds\":1793076101},\"root\":{\"device\":63,\"inode\":281397753}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":2}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=2\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=1425392 start=51887457 command=preview_text\nFILES_PREVIEW_HELPER pid=1425404 start=51887458 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1425417 start=51887459 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=3 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=3 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=65 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":942024188,\"changed_seconds\":1793076101,\"device\":63,\"inode\":281397757,\"modified_nanoseconds\":942024188,\"modified_seconds\":1793076101},\"root\":{\"device\":63,\"inode\":281397753}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":428195364,\"changed_seconds\":1793076102,\"device\":63,\"inode\":281397765,\"modified_nanoseconds\":942695484,\"modified_seconds\":1793076101},\"root\":{\"device\":63,\"inode\":281397753}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":3}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=1425574 start=51887490 command=preview_text\nFILES_PREVIEW_HELPER pid=1425576 start=51887491 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1425577 start=51887493 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=4 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=4 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=62 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":942024188,\"changed_seconds\":1793076101,\"device\":63,\"inode\":281397757,\"modified_nanoseconds\":942024188,\"modified_seconds\":1793076101},\"root\":{\"device\":63,\"inode\":281397753}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":765521330,\"changed_seconds\":1793076102,\"device\":63,\"inode\":281397765,\"modified_nanoseconds\":765521330,\"modified_seconds\":1793076102},\"root\":{\"device\":63,\"inode\":281397753}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":4}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=4\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=1425682 start=51887523 command=preview_text\nFILES_PREVIEW_HELPER pid=1425684 start=51887524 command=probe_relative_file\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=5 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=5 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=352 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":942024188,\"changed_seconds\":1793076101,\"device\":63,\"inode\":281397757,\"modified_nanoseconds\":942024188,\"modified_seconds\":1793076101},\"root\":{\"device\":63,\"inode\":281397753}},\"published_after_watch_probe\":true,\"resources\":[],\"revision\":5}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=5\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=1425730 start=51887549 command=preview_text\nFILES_PREVIEW_HELPER pid=1425734 start=51887550 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1425736 start=51887551 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=6 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=6 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=60 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":942024188,\"changed_seconds\":1793076101,\"device\":63,\"inode\":281397757,\"modified_nanoseconds\":942024188,\"modified_seconds\":1793076101},\"root\":{\"device\":63,\"inode\":281397753}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":348277879,\"changed_seconds\":1793076103,\"device\":63,\"inode\":281397780,\"modified_nanoseconds\":348277879,\"modified_seconds\":1793076103},\"root\":{\"device\":63,\"inode\":281397753}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":6}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=6\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=1425829 start=51887583 command=preview_text\nFILES_PREVIEW_HELPER pid=1425834 start=51887584 command=probe_relative_file\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=7 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=7 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=87 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_HELPER pid=1425843 start=51887589 command=preview_text\nFILES_PREVIEW_HELPER pid=1425844 start=51887590 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1425845 start=51887591 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=8 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=8 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=54 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":942024188,\"changed_seconds\":1793076101,\"device\":63,\"inode\":281397757,\"modified_nanoseconds\":942024188,\"modified_seconds\":1793076101},\"root\":{\"device\":63,\"inode\":281397753}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":744190889,\"changed_seconds\":1793076103,\"device\":63,\"inode\":281397780,\"modified_nanoseconds\":348277879,\"modified_seconds\":1793076103},\"root\":{\"device\":63,\"inode\":281397753}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":8}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=8\nFILES_PREVIEW_HELPER pid=1425853 start=51887597 command=preview_text\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") message=No se puede vigilar el original: No path was found. about [\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files\"]\nFILES_PREVIEW_HELPER pid=1426027 start=51887697 command=preview_text\nFILES_PREVIEW_HELPER pid=1426028 start=51887698 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1426029 start=51887699 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=11 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=11 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=82 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":848276060,\"changed_seconds\":1793076103,\"device\":63,\"inode\":281397790,\"modified_nanoseconds\":848276060,\"modified_seconds\":1793076103},\"root\":{\"device\":63,\"inode\":281397787}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":848804314,\"changed_seconds\":1793076103,\"device\":63,\"inode\":281397791,\"modified_nanoseconds\":848804314,\"modified_seconds\":1793076103},\"root\":{\"device\":63,\"inode\":281397787}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":11}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=11\nFILES_CAPTURE_OK\nFILES_MEDIA_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-hide\nFILES_PREVIEW_COMMAND_REV action=media-hide revision=12\nFILES_PREVIEW_COMMAND_OK markdown\nFILES_PREVIEW_COMMAND_REV action=markdown revision=13\nFILES_PREVIEW_HELPER pid=1426390 start=51887844 command=preview_text\nFILES_PREVIEW_HELPER pid=1426394 start=51887845 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1426398 start=51887846 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=13 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-5du22rnc/files/overview.md\") revision=13 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=65 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":848276060,\"changed_seconds\":1793076103,\"device\":63,\"inode\":281397790,\"modified_nanoseconds\":848276060,\"modified_seconds\":1793076103},\"root\":{\"device\":63,\"inode\":281397787}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":848804314,\"changed_seconds\":1793076103,\"device\":63,\"inode\":281397791,\"modified_nanoseconds\":848804314,\"modified_seconds\":1793076103},\"root\":{\"device\":63,\"inode\":281397787}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":13}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=13\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_PREVIEW_COMMAND_OK callback\nFILES_PREVIEW_COMMAND_REV action=callback revision=13\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=false scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_CLOSE_DRAINED\n",
+      "normal": true
+    },
+    {
+      "notify_callbacks_suppressed": true,
+      "checks": [
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=2 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=5796 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=3 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=173 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "same path/size/mtime replacement: old red gone, blue shown, fresh effective FD inode/revision",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=4 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=288 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "in-place modification preserves inode but changes revision and replaces displayed RGB",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=5 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=301 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None",
+        "external delete: published placeholder has no old bitmap/proof",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=6 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=52 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "missing image intent detects recreation without retaining old RGB",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=7 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=98 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=8 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=148 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "rename away/back invalidates and reacquires the current path",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=11 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=52 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "root rename/replacement recovers through fresh rootFD and watches; no old Ready",
+        "FILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=13 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=53 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None",
+        "closed preview launches no helpers during wait; reopening demands fresh document proof"
+      ],
+      "functional_gate": "PASS",
+      "normal_exit": 0,
+      "helpers": [
+        [
+          "1426488",
+          "51887874",
+          "preview_text"
+        ],
+        [
+          "1426493",
+          "51887875",
+          "probe_relative_file"
+        ],
+        [
+          "1426494",
+          "51887876",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1426833",
+          "51887978",
+          "preview_text"
+        ],
+        [
+          "1426847",
+          "51887981",
+          "probe_relative_file"
+        ],
+        [
+          "1426848",
+          "51887982",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1427002",
+          "51888084",
+          "preview_text"
+        ],
+        [
+          "1427003",
+          "51888085",
+          "probe_relative_file"
+        ],
+        [
+          "1427008",
+          "51888086",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1427193",
+          "51888187",
+          "preview_text"
+        ],
+        [
+          "1427195",
+          "51888188",
+          "probe_relative_file"
+        ],
+        [
+          "1427415",
+          "51888290",
+          "preview_text"
+        ],
+        [
+          "1427419",
+          "51888291",
+          "probe_relative_file"
+        ],
+        [
+          "1427432",
+          "51888292",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1427645",
+          "51888394",
+          "preview_text"
+        ],
+        [
+          "1427655",
+          "51888395",
+          "probe_relative_file"
+        ],
+        [
+          "1427996",
+          "51888497",
+          "preview_text"
+        ],
+        [
+          "1428007",
+          "51888498",
+          "probe_relative_file"
+        ],
+        [
+          "1428008",
+          "51888499",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1428160",
+          "51888600",
+          "preview_text"
+        ],
+        [
+          "1428376",
+          "51888701",
+          "preview_text"
+        ],
+        [
+          "1428386",
+          "51888702",
+          "probe_relative_file"
+        ],
+        [
+          "1428395",
+          "51888704",
+          "preview_relative_image_checked"
+        ],
+        [
+          "1428770",
+          "51888850",
+          "preview_text"
+        ],
+        [
+          "1428790",
+          "51888851",
+          "probe_relative_file"
+        ],
+        [
+          "1428810",
+          "51888852",
+          "preview_relative_image_checked"
+        ]
+      ],
+      "cleanup": {
+        "logged_identities_absent": true,
+        "zombies_accepted": false,
+        "scope": "logged PID/start identities after exit0; no lifetime sampling or metrics"
+      },
+      "readonly_probe_stop": [
+        "true"
+      ],
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=2\nFILES_FIRST_PAINT_US=92458\nFILES_PREVIEW_COMMAND_OK markdown\nFILES_PREVIEW_COMMAND_REV action=markdown revision=2\nFILES_PREVIEW_HELPER pid=1426488 start=51887874 command=preview_text\nFILES_PREVIEW_HELPER pid=1426493 start=51887875 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1426494 start=51887876 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=2 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=2 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=932 height=460 step_max_us=5796 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=2 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=5796 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":427208184,\"changed_seconds\":1793076106,\"device\":63,\"inode\":281397929,\"modified_nanoseconds\":427208184,\"modified_seconds\":1793076106},\"root\":{\"device\":63,\"inode\":281397925}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":429278989,\"changed_seconds\":1793076106,\"device\":63,\"inode\":281397930,\"modified_nanoseconds\":429278989,\"modified_seconds\":1793076106},\"root\":{\"device\":63,\"inode\":281397925}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":2}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=2\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=1426833 start=51887978 command=preview_text\nFILES_PREVIEW_HELPER pid=1426847 start=51887981 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1426848 start=51887982 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=3 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=3 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=173 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":427208184,\"changed_seconds\":1793076106,\"device\":63,\"inode\":281397929,\"modified_nanoseconds\":427208184,\"modified_seconds\":1793076106},\"root\":{\"device\":63,\"inode\":281397925}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":867996609,\"changed_seconds\":1793076106,\"device\":63,\"inode\":281397937,\"modified_nanoseconds\":429278989,\"modified_seconds\":1793076106},\"root\":{\"device\":63,\"inode\":281397925}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":3}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=1427002 start=51888084 command=preview_text\nFILES_PREVIEW_HELPER pid=1427003 start=51888085 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1427008 start=51888086 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=4 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=4 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=288 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":427208184,\"changed_seconds\":1793076106,\"device\":63,\"inode\":281397929,\"modified_nanoseconds\":427208184,\"modified_seconds\":1793076106},\"root\":{\"device\":63,\"inode\":281397925}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":949217994,\"changed_seconds\":1793076107,\"device\":63,\"inode\":281397937,\"modified_nanoseconds\":949217994,\"modified_seconds\":1793076107},\"root\":{\"device\":63,\"inode\":281397925}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":4}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=4\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=1427193 start=51888187 command=preview_text\nFILES_PREVIEW_HELPER pid=1427195 start=51888188 command=probe_relative_file\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=5 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=5 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=301 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":427208184,\"changed_seconds\":1793076106,\"device\":63,\"inode\":281397929,\"modified_nanoseconds\":427208184,\"modified_seconds\":1793076106},\"root\":{\"device\":63,\"inode\":281397925}},\"published_after_watch_probe\":true,\"resources\":[],\"revision\":5}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=5\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=1427415 start=51888290 command=preview_text\nFILES_PREVIEW_HELPER pid=1427419 start=51888291 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1427432 start=51888292 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=6 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=6 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=52 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":427208184,\"changed_seconds\":1793076106,\"device\":63,\"inode\":281397929,\"modified_nanoseconds\":427208184,\"modified_seconds\":1793076106},\"root\":{\"device\":63,\"inode\":281397925}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":947811083,\"changed_seconds\":1793076109,\"device\":63,\"inode\":281398041,\"modified_nanoseconds\":947811083,\"modified_seconds\":1793076109},\"root\":{\"device\":63,\"inode\":281397925}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":6}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=6\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=1427645 start=51888394 command=preview_text\nFILES_PREVIEW_HELPER pid=1427655 start=51888395 command=probe_relative_file\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=7 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=7 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=98 images_loaded=0 checked_resources=0 checked_root=true image_bytes=0 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_HELPER pid=1427996 start=51888497 command=preview_text\nFILES_PREVIEW_HELPER pid=1428007 start=51888498 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1428008 start=51888499 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=8 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=8 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=148 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":427208184,\"changed_seconds\":1793076106,\"device\":63,\"inode\":281397929,\"modified_nanoseconds\":427208184,\"modified_seconds\":1793076106},\"root\":{\"device\":63,\"inode\":281397925}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":846243108,\"changed_seconds\":1793076111,\"device\":63,\"inode\":281398041,\"modified_nanoseconds\":947811083,\"modified_seconds\":1793076109},\"root\":{\"device\":63,\"inode\":281397925}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":8}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=8\nFILES_PREVIEW_HELPER pid=1428160 start=51888600 command=preview_text\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") message=No se puede vigilar el original: No path was found. about [\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files\"]\nFILES_PREVIEW_HELPER pid=1428376 start=51888701 command=preview_text\nFILES_PREVIEW_HELPER pid=1428386 start=51888702 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1428395 start=51888704 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=11 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=11 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=52 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":897305990,\"changed_seconds\":1793076113,\"device\":63,\"inode\":281398054,\"modified_nanoseconds\":897305990,\"modified_seconds\":1793076113},\"root\":{\"device\":63,\"inode\":281398051}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":897846952,\"changed_seconds\":1793076113,\"device\":63,\"inode\":281398055,\"modified_nanoseconds\":897846952,\"modified_seconds\":1793076113},\"root\":{\"device\":63,\"inode\":281398051}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":11}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=11\nFILES_CAPTURE_OK\nFILES_MEDIA_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-hide\nFILES_PREVIEW_COMMAND_REV action=media-hide revision=12\nFILES_PREVIEW_COMMAND_OK markdown\nFILES_PREVIEW_COMMAND_REV action=markdown revision=13\nFILES_PREVIEW_HELPER pid=1428770 start=51888850 command=preview_text\nFILES_PREVIEW_HELPER pid=1428790 start=51888851 command=probe_relative_file\nFILES_PREVIEW_HELPER pid=1428810 start=51888852 command=preview_relative_image_checked\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=13 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=false width=0 height=0 step_max_us=0 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=0 layout_error=None\nFILES_PREVIEW_MARKDOWN_READY path=Some(\"/home/avillagran/.cache/files-test/document-media-qodvrux3/files/overview.md\") revision=13 encoding=UTF-8 truncated=false bytes=76 source_extent=90 layout_ready=true width=932 height=460 step_max_us=53 images_loaded=1 checked_resources=1 checked_root=true image_bytes=154283 image_buffer_bytes=153600 layout_error=None\nFILES_DOCUMENT_PROOF {\"document\":{\"file\":{\"bytes\":90,\"changed_nanoseconds\":897305990,\"changed_seconds\":1793076113,\"device\":63,\"inode\":281398054,\"modified_nanoseconds\":897305990,\"modified_seconds\":1793076113},\"root\":{\"device\":63,\"inode\":281398051}},\"published_after_watch_probe\":true,\"resources\":[{\"proof\":{\"file\":{\"bytes\":2048,\"changed_nanoseconds\":897846952,\"changed_seconds\":1793076113,\"device\":63,\"inode\":281398055,\"modified_nanoseconds\":897846952,\"modified_seconds\":1793076113},\"root\":{\"device\":63,\"inode\":281398051}},\"relative_raw\":[115,117,98,47,100,101,101,112,47,109,101,100,105,97,46,112,110,103]}],\"revision\":13}\nFILES_PREVIEW_COMMAND_OK markdown-source-proof\nFILES_PREVIEW_COMMAND_REV action=markdown-source-proof revision=13\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_PREVIEW_COMMAND_OK callback\nFILES_PREVIEW_COMMAND_REV action=callback revision=13\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_CLOSE_DRAINED\n",
+      "normal": true
+    }
+  ],
+  "footer_scope": "main-process PSS footer is not a tree/Swap budget and is not used",
+  "known_pending": [
+    "HTML resources",
+    "cross-document LRU",
+    "native input/clipboard",
+    "other platforms",
+    "performance gates remain frozen"
+  ],
+  "binary_sha256": "3c6f0c78ee808d759581e0718cdc2d88abbe0c217d4d2ade26aece9db9ddef1e",
+  "helper_sha256": "fcf3a913c39b5173137a904d435a166bb7ae3c39052c17e382905786e3ca9fa7"
+}

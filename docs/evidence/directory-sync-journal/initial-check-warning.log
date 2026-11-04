@@ -1,0 +1,11 @@
+    Checking files-core v0.0.4 (/home/node/Work/files/crates/core)
+warning: function `frame` is never used
+    --> crates/core/src/directory_sync_journal.rs:1041:15
+     |
+1041 | pub(crate) fn frame(sequence: u64, previous: [u8; 32], event: Event) -> io::Result<Vec<u8>> {
+     |               ^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `files-core` (lib) generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.71s

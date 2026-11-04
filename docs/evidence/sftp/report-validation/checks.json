@@ -1,0 +1,84 @@
+{
+  "status": "scoped functional PASS and installed; full goal remains active",
+  "checked_at": "2026-10-31T22:38:36.179038+00:00",
+  "tests": {
+    "workspace": {
+      "passed": 1050,
+      "ignored": 3,
+      "core": 349,
+      "helper": 91,
+      "ui": 610,
+      "exit": 0,
+      "log": "tests-wrap.log"
+    },
+    "sftp_directed": {
+      "passed": 31,
+      "log": "sftp-tests-final.log"
+    },
+    "clippy": {
+      "exit": 0,
+      "log": "clippy-wrap.log",
+      "command": "cargo clippy --workspace --all-targets -- -D warnings"
+    }
+  },
+  "failures_preserved": [
+    {
+      "log": "compile-tests.log",
+      "scope": "old normal form target count13 vs added report button14; layout contract updated"
+    },
+    {
+      "log": "tests-first.log",
+      "scope": "test compilation mistakenly negated Option active, corrected is_none; no runtime gate relaxation"
+    },
+    {
+      "log": "script-first.log",
+      "scope": "initial scene Python Unicode escape parse error; no app ran; chr-based assertion corrected"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_input": "UNVALIDATED",
+  "os_clipboard_delivery": "UNVALIDATED",
+  "copy_scope": "request handler plus current immutable snapshot; no clipboard read/fallback",
+  "global_pass": false,
+  "new_dependencies": false,
+  "supervisor_runtime_changed": false,
+  "scene": "docs/evidence/sftp-preparation/sftp-report-ui-1793486210147321426.json",
+  "profiles_regression": "docs/evidence/sftp-preparation/sftp-profiles-ui-1793486235803344634.json",
+  "scene_gate": "PASS",
+  "report_normal_exits": 2,
+  "profile_normal_exits": 3,
+  "captures": 14,
+  "binary_sha256": "cfaa8f3ac1ac161a477bbb7106e7619873303c53f991711a434fb18a1df83ef6",
+  "helper_sha256": "05736746b394413d59df5ecc169341592f66b44d9b895d5388d1b4b4f9e61967",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "release": {
+    "command": "cargo build --release --workspace",
+    "exit": 0,
+    "log": "release-wrap.log"
+  },
+  "fmt": {
+    "exit": 0,
+    "log": "fmt-wrap-check.log"
+  },
+  "preserved_positive": {
+    "scene": "docs/evidence/sftp-preparation/sftp-report-ui-1793485984728077290.json",
+    "sidecar": "docs/evidence/sftp-preparation/sftp-report-ui-1793485984728077290.sidecar.json",
+    "scope": "original scalar-only wrap split words; final whitespace preference validated with new release"
+  },
+  "source_sha256": {
+    "crates/ui/src/clipboard_ui.rs": "955c61b52ec5578f44f539e8fe1d43268a87b73b2085e955ab32f42c839d2e62",
+    "crates/ui/src/help_view.rs": "f2cba5fdda598f20e511013e9d45298074a95d1d13281f54ac04020ca7c1ed9c",
+    "crates/ui/src/hidden_scene.rs": "624a2f81d8283121a356d871396b640841e1dd5fb757d25512bd2163da3d22ac",
+    "crates/ui/src/lib.rs": "98efb5312472c34320b9e5a8dff9e439e106b50422d02b5f6c889ea752d2a865",
+    "crates/ui/src/sftp_state.rs": "34bae341388b6e4005bfe263f7e2a470bdc394df071010df3e577ee2e8b45575",
+    "crates/ui/src/sftp_ui.rs": "c182966b421b7625afd970189513234351c6f070694533b6da873af2360204d4",
+    "crates/ui/src/view.rs": "d15a4cab663abac80468a6273df0ff2fa263c1ca158e2bcf1b4ca030ea79fb10",
+    "scripts/sftp-preparation-ui-check.py": "1e255611e3a7af4f4adb397aaa09e83be53f447617d2b44f7ad5380d50dc6827",
+    "crates/ui/src/sftp_report.rs": "6062fb5d3dc7ffbd81b5008ab334671b19d467c8d3e35e5401e1f08d831014e1",
+    "crates/ui/src/sftp_report_ui.rs": "94f078850c36ee4f32488c2b3e78ce31e8e5395e7f65a7c9298e3173dbbd22c4"
+  },
+  "source_commit": "d1345fb",
+  "installation": "docs/evidence/0.0.4/installed-checkpoint-1793486330919943223.json",
+  "independent_install_verification": "docs/evidence/sftp/report-validation/install-verification.json"
+}

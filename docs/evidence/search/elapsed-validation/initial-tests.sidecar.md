@@ -1,0 +1,1 @@
+Original tests.log:335core/85helper PASS,578UI PASS/1FAIL. The minimum-window test still expected three date buttons; feature deliberately adds three elapsed choices. Updated exact expected count to six, and strengthened pairwise non-overlap and vertical limit assertions. Final workspace999PASS+3existingignored, no disabled/serialized tests.

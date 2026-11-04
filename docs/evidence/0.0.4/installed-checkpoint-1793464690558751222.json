@@ -1,0 +1,40 @@
+{
+  "checkpoint": "04af97e8d8b771c983e04377b683785c6e386f49",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/search-order/marks-validation/checks.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793464690502146370",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "224d138405a32bac5246fdbe224dafe99fa4d96820f1f710ca0bbd3eafc54d85",
+      "release_sha256": "d484fc75ccdee27e08c8b1f4d1cd1d56db025514fe637c224dfbbec603fe7f9b",
+      "installed_sha256": "d484fc75ccdee27e08c8b1f4d1cd1d56db025514fe637c224dfbbec603fe7f9b"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+      "release_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+      "installed_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "release_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "release_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

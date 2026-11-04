@@ -1,0 +1,738 @@
+{
+  "gate_status": "FAIL",
+  "limit_ms_strictly_below": 100,
+  "runs": [
+    {
+      "main_to_paint_ms": 61.708,
+      "spawn_to_paint_ms": 69.01169,
+      "metrics": {
+        "complete": true,
+        "sample_count": 23,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 53.56221197871491,
+        "stable_sample_count": 23,
+        "sampled_maxima": {
+          "pss_kib": 33439,
+          "swap_pss_kib": 0,
+          "memory_kib": 33439,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 33439,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 33439,
+          "time_monotonic": 456081.648352349,
+          "cpu_percent_observed": 0.0,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1308595,
+              "start": 45608133,
+              "pss_kib": 33439,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 33439,
+          "swap_pss_kib": 0,
+          "memory_kib": 33439,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 68.30206397169928,
+        "observed_process_identities": [
+          [
+            1308595,
+            45608133
+          ]
+        ],
+        "exited_process_identities": [],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "timing_only": false
+    },
+    {
+      "main_to_paint_ms": 100.959,
+      "spawn_to_paint_ms": 110.737624,
+      "metrics": {
+        "complete": false,
+        "sample_count": 24,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 47.81353299040347,
+        "stable_sample_count": 24,
+        "sampled_maxima": {
+          "pss_kib": 33687,
+          "swap_pss_kib": 0,
+          "memory_kib": 33687,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 33687,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 33687,
+          "time_monotonic": 456082.675811134,
+          "cpu_percent_observed": 0.0,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1308769,
+              "start": 45608235,
+              "pss_kib": 33687,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 33687.0,
+          "swap_pss_kib": 0.0,
+          "memory_kib": 33687.0,
+          "fds": 11.0,
+          "threads": 5.0,
+          "process_count": 1.0
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 77.1426544818003,
+        "observed_process_identities": [
+          [
+            1308769,
+            45608235
+          ]
+        ],
+        "exited_process_identities": [
+          [
+            1308769,
+            45608235
+          ]
+        ],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [
+          {
+            "sample": 23,
+            "errors": [
+              {
+                "pid": 1308769,
+                "error": "[Errno 3] No such process: '/proc/1308769/smaps_rollup'"
+              }
+            ],
+            "root_alive": true
+          }
+        ],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "timing_only": false
+    },
+    {
+      "main_to_paint_ms": 49.893,
+      "spawn_to_paint_ms": 61.839206,
+      "metrics": {
+        "complete": false,
+        "sample_count": 25,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 57.77941696578637,
+        "stable_sample_count": 25,
+        "sampled_maxima": {
+          "pss_kib": 40431,
+          "swap_pss_kib": 19552,
+          "memory_kib": 40431,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 40431,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 40431,
+          "time_monotonic": 456083.428514165,
+          "cpu_percent_observed": 50.65632105746624,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1308910,
+              "start": 45608337,
+              "pss_kib": 40431,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 28951,
+          "swap_pss_kib": 1152,
+          "memory_kib": 30119,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 88.36782898190944,
+        "observed_process_identities": [
+          [
+            1308910,
+            45608337
+          ]
+        ],
+        "exited_process_identities": [],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [
+          {
+            "sample": 24,
+            "errors": [],
+            "root_alive": false
+          }
+        ],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "timing_only": false
+    },
+    {
+      "main_to_paint_ms": 79.851,
+      "spawn_to_paint_ms": 87.026525,
+      "metrics": {
+        "complete": true,
+        "sample_count": 19,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 63.514762034174055,
+        "stable_sample_count": 19,
+        "sampled_maxima": {
+          "pss_kib": 33455,
+          "swap_pss_kib": 0,
+          "memory_kib": 33455,
+          "fds": 13,
+          "threads": 5,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 33455,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 33455,
+          "time_monotonic": 456084.530243886,
+          "cpu_percent_observed": 93.5433065540393,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1309188,
+              "start": 45608443,
+              "pss_kib": 33455,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 33453,
+          "swap_pss_kib": 0,
+          "memory_kib": 33453,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 93.5433065540393,
+        "observed_process_identities": [
+          [
+            1309188,
+            45608443
+          ]
+        ],
+        "exited_process_identities": [],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "timing_only": false
+    },
+    {
+      "main_to_paint_ms": 58.483,
+      "spawn_to_paint_ms": 79.41987,
+      "metrics": {
+        "complete": false,
+        "sample_count": 19,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 62.78458901215345,
+        "stable_sample_count": 19,
+        "sampled_maxima": {
+          "pss_kib": 33399,
+          "swap_pss_kib": 0,
+          "memory_kib": 33399,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 33399,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 33399,
+          "time_monotonic": 456085.687565036,
+          "cpu_percent_observed": 0.0,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1309380,
+              "start": 45608545,
+              "pss_kib": 33399,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 33399,
+          "swap_pss_kib": 0,
+          "memory_kib": 33399,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 47.1791514950361,
+        "observed_process_identities": [
+          [
+            1309380,
+            45608545
+          ]
+        ],
+        "exited_process_identities": [
+          [
+            1309380,
+            45608545
+          ]
+        ],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [
+          {
+            "sample": 18,
+            "errors": [
+              {
+                "pid": 1309380,
+                "error": "[Errno 3] No such process: '/proc/1309380/smaps_rollup'"
+              }
+            ],
+            "root_alive": true
+          }
+        ],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "timing_only": false
+    },
+    {
+      "main_to_paint_ms": 65.13,
+      "spawn_to_paint_ms": 99.5711,
+      "metrics": {
+        "complete": true,
+        "sample_count": 16,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 111.49100301554427,
+        "stable_sample_count": 16,
+        "sampled_maxima": {
+          "pss_kib": 33455,
+          "swap_pss_kib": 0,
+          "memory_kib": 33455,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 33455,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 33455,
+          "time_monotonic": 456086.607167325,
+          "cpu_percent_observed": 32.81246500565979,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1309522,
+              "start": 45608647,
+              "pss_kib": 33455,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 33452.5,
+          "swap_pss_kib": 0.0,
+          "memory_kib": 33452.5,
+          "fds": 11.0,
+          "threads": 5.0,
+          "process_count": 1.0
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 68.57543882702456,
+        "observed_process_identities": [
+          [
+            1309522,
+            45608647
+          ]
+        ],
+        "exited_process_identities": [],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "timing_only": false
+    },
+    {
+      "main_to_paint_ms": 144.734,
+      "spawn_to_paint_ms": 198.730445,
+      "metrics": {
+        "complete": true,
+        "sample_count": 22,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 62.44746001902968,
+        "stable_sample_count": 22,
+        "sampled_maxima": {
+          "pss_kib": 33382,
+          "swap_pss_kib": 0,
+          "memory_kib": 33382,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 33382,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 33382,
+          "time_monotonic": 456087.787595927,
+          "cpu_percent_observed": 0.0,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1309865,
+              "start": 45608750,
+              "pss_kib": 33382,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 33382.0,
+          "swap_pss_kib": 0.0,
+          "memory_kib": 33382.0,
+          "fds": 11.0,
+          "threads": 5.0,
+          "process_count": 1.0
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 65.71113156852078,
+        "observed_process_identities": [
+          [
+            1309865,
+            45608750
+          ]
+        ],
+        "exited_process_identities": [],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "timing_only": false
+    },
+    {
+      "main_to_paint_ms": 89.009,
+      "spawn_to_paint_ms": 121.535846,
+      "metrics": {
+        "complete": true,
+        "sample_count": 18,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 63.78893001237884,
+        "stable_sample_count": 18,
+        "sampled_maxima": {
+          "pss_kib": 33485,
+          "swap_pss_kib": 0,
+          "memory_kib": 33485,
+          "fds": 13,
+          "threads": 5,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 33485,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 33485,
+          "time_monotonic": 456088.760031948,
+          "cpu_percent_observed": 0.0,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1310095,
+              "start": 45608855,
+              "pss_kib": 33485,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 33364.0,
+          "swap_pss_kib": 0.0,
+          "memory_kib": 33364.0,
+          "fds": 11.0,
+          "threads": 5.0,
+          "process_count": 1.0
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 120.9697828996514,
+        "observed_process_identities": [
+          [
+            1310095,
+            45608855
+          ]
+        ],
+        "exited_process_identities": [],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "timing_only": false
+    },
+    {
+      "main_to_paint_ms": 72.793,
+      "spawn_to_paint_ms": 80.602046,
+      "metrics": {
+        "complete": true,
+        "sample_count": 23,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 62.46512598590925,
+        "stable_sample_count": 23,
+        "sampled_maxima": {
+          "pss_kib": 33461,
+          "swap_pss_kib": 0,
+          "memory_kib": 33461,
+          "fds": 13,
+          "threads": 5,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 33461,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 33461,
+          "time_monotonic": 456089.82167263,
+          "cpu_percent_observed": 0.0,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1310243,
+              "start": 45608956,
+              "pss_kib": 33461,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 33461,
+          "swap_pss_kib": 0,
+          "memory_kib": 33461,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 52.733663029385724,
+        "observed_process_identities": [
+          [
+            1310243,
+            45608956
+          ]
+        ],
+        "exited_process_identities": [],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "timing_only": false
+    },
+    {
+      "main_to_paint_ms": 78.721,
+      "spawn_to_paint_ms": 87.98878,
+      "metrics": {
+        "complete": true,
+        "sample_count": 19,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 63.09696496464312,
+        "stable_sample_count": 19,
+        "sampled_maxima": {
+          "pss_kib": 33487,
+          "swap_pss_kib": 0,
+          "memory_kib": 33487,
+          "fds": 13,
+          "threads": 5,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 33487,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 33487,
+          "time_monotonic": 456090.674279268,
+          "cpu_percent_observed": 111.05570343585838,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1310467,
+              "start": 45609058,
+              "pss_kib": 33487,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 33224,
+          "swap_pss_kib": 0,
+          "memory_kib": 33224,
+          "fds": 11,
+          "threads": 5,
+          "process_count": 1
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 111.05570343585838,
+        "observed_process_identities": [
+          [
+            1310467,
+            45609058
+          ]
+        ],
+        "exited_process_identities": [],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "timing_only": false
+    }
+  ],
+  "errors": [],
+  "p50_spawn_to_paint_ms": 87.5076525,
+  "p95_spawn_to_paint_ms": 198.730445,
+  "max_spawn_to_paint_ms": 198.730445,
+  "p50_main_to_paint_ms": 75.757,
+  "p95_main_to_paint_ms": 144.734,
+  "max_main_to_paint_ms": 144.734,
+  "under_limit": 7,
+  "percentile_method": "nearest rank for p95; median for p50",
+  "method": "fresh process; POSIX_FADV_DONTNEED requested for executable only; system/font/shared-library caches not globally evicted; internal marker ends at completed draw callback, not compositor presentation; external marker receipt is an upper bound affected by scheduling and instrumentation",
+  "run_policy": "serialized: no builds, captures or other benchmarks; caller must enforce",
+  "instrumentation_cost": "process-tree /proc collection delays marker receipt between event polls; use --timing-only as a separate external timing run, and retain a separate measured memory run",
+  "process_metrics_measured": true,
+  "gpu_memory": "not measured; process-tree memory sampling is a lower bound"
+}

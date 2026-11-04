@@ -1,0 +1,192 @@
+{
+  "method": "internal handlers, actual ffprobe local metadata and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-metadata-1793092211780047548.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-metadata-selection-1793092211914694733.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-wav-metadata-1793092212067971342.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-tags-truncated-1793092212231527208.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-playing-1793092213575297307.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-paused-seek-1793092213732832311.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-timeline-seek-1793092213855075730.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-eof-1793092215301124240.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-playing-source-deleted-1793092216921089338.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "playback": true,
+  "audio_output": "default Pulse audio output with zero PCM, not audible verification",
+  "source_lifecycle": false,
+  "notify_callbacks_suppressed": false,
+  "checks": [
+    "actual ffmpeg audio play/pause/seek pointer without stealing selection, resume/EOF, hidden stop/no restart, source deletion kill/reap, callback close while player observed alive; silent PCM, no physical/audible verification"
+  ],
+  "known_pending": [
+    "waveform/cover art and audible verification",
+    "resource budget",
+    "cross-platform verification",
+    "additional formats/cover art"
+  ],
+  "compositor_binding": {
+    "previous_signature": "unknown_1792557238_2092186919",
+    "selected": {
+      "instance": "unknown_1793084545_122682092",
+      "time": 1793084545,
+      "pid": 3154625,
+      "wl_socket": "wayland-1"
+    },
+    "scope": "fixture-only environment, unique Wayland socket match; no focus/input/global changes"
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab34a48290"
+  },
+  "active_player_at_callback": {
+    "pid": 96846,
+    "start": 53498930
+  },
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        96023,
+        53498382
+      ],
+      [
+        96052,
+        53498410
+      ],
+      [
+        96151,
+        53498426
+      ],
+      [
+        96169,
+        53498444
+      ],
+      [
+        96214,
+        53498453
+      ],
+      [
+        96239,
+        53498461
+      ],
+      [
+        96243,
+        53498469
+      ],
+      [
+        96498,
+        53498592
+      ],
+      [
+        96509,
+        53498595
+      ],
+      [
+        96624,
+        53498750
+      ],
+      [
+        96764,
+        53498877
+      ],
+      [
+        96766,
+        53498884
+      ],
+      [
+        96837,
+        53498919
+      ],
+      [
+        96846,
+        53498930
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start after exit0, not lifetime or resource sampling"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=74397\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=3\nFILES_PREVIEW_HELPER pid=96023 start=53498382 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=3 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_METADATA_OK unicode=true content=actual-tags\nFILES_PREVIEW_COMMAND_OK audio-assert\nFILES_PREVIEW_COMMAND_REV action=audio-assert revision=3\nFILES_CAPTURE_OK\nFILES_AUDIO_SELECTION_OK utf8=true clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK audio-select\nFILES_PREVIEW_COMMAND_REV action=audio-select revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-wav\nFILES_PREVIEW_COMMAND_REV action=audio-wav revision=5\nFILES_PREVIEW_HELPER pid=96052 start=53498410 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/sound.wav\") encoding=Audio \u00b7 metadatos truncated=false bytes=159 revision=5 stamp=Some(Revision { device: 63, inode: 282051833, bytes: 576078, modified_seconds: 1793092211, modified_nanoseconds: 301025131, changed_seconds: 1793092211, changed_nanoseconds: 301025131 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-long\nFILES_PREVIEW_COMMAND_REV action=audio-long revision=7\nFILES_PREVIEW_HELPER pid=96151 start=53498426 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/long.flac\") encoding=Audio \u00b7 metadatos truncated=true bytes=2294 revision=7 stamp=Some(Revision { device: 63, inode: 282051839, bytes: 13612, modified_seconds: 1793092211, modified_nanoseconds: 531026231, changed_seconds: 1793092211, changed_nanoseconds: 531026231 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_TRUNCATED_OK bytes=2294\nFILES_PREVIEW_COMMAND_OK audio-assert-truncated\nFILES_PREVIEW_COMMAND_REV action=audio-assert-truncated revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-rapid\nFILES_PREVIEW_COMMAND_REV action=audio-rapid revision=13\nFILES_PREVIEW_HELPER pid=96169 start=53498444 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=13 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_METADATA_OK unicode=true content=actual-tags\nFILES_PREVIEW_COMMAND_OK audio-assert\nFILES_PREVIEW_COMMAND_REV action=audio-assert revision=13\nFILES_PREVIEW_COMMAND_OK audio-bad\nFILES_PREVIEW_COMMAND_REV action=audio-bad revision=15\nFILES_PREVIEW_HELPER pid=96214 start=53498453 command=preview_audio_metadata\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/bad.flac\") message=Duraci\u00f3n desconocida o superior a siete d\u00edas\nFILES_PREVIEW_COMMAND_OK audio-symlink\nFILES_PREVIEW_COMMAND_REV action=audio-symlink revision=17\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/symlink.flac\") message=Original no disponible: Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=19\nFILES_PREVIEW_HELPER pid=96239 start=53498461 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=19 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_TRANSPORT_OK {\"drained\":true,\"notice\":null,\"position\":0.0,\"requested\":false,\"running\":false}\nFILES_PREVIEW_COMMAND_OK audio-assert-paused\nFILES_PREVIEW_COMMAND_REV action=audio-assert-paused revision=19\nFILES_PREVIEW_COMMAND_OK audio-play\nFILES_PREVIEW_COMMAND_REV action=audio-play revision=20\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=false position=0.0 drained=false audio_error=None\nFILES_PREVIEW_HELPER pid=96243 start=53498469 command=preview_audio_playback\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.0 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.1 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.2 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.3 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.4 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.5 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.6 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.7 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.8 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.9 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=1.0 drained=false audio_error=None\nFILES_AUDIO_TRANSPORT_OK {\"drained\":false,\"notice\":null,\"position\":0.972228113,\"requested\":true,\"running\":true}\nFILES_PREVIEW_COMMAND_OK audio-assert-playing\nFILES_PREVIEW_COMMAND_REV action=audio-assert-playing revision=20\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-pause\nFILES_PREVIEW_COMMAND_REV action=audio-pause revision=21\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=21 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=false audio_running=false position=1.1 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=21 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=false audio_running=false position=1.1 drained=true audio_error=None\nFILES_AUDIO_TRANSPORT_OK {\"drained\":true,\"notice\":null,\"position\":1.052956208,\"requested\":false,\"running\":false}\nFILES_PREVIEW_COMMAND_OK audio-assert-paused\nFILES_PREVIEW_COMMAND_REV action=audio-assert-paused revision=21\nFILES_AUDIO_SELECTION_OK utf8=true clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK audio-select\nFILES_PREVIEW_COMMAND_REV action=audio-select revision=21\nFILES_PREVIEW_COMMAND_OK audio-seek\nFILES_PREVIEW_COMMAND_REV action=audio-seek revision=22\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=22 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=false audio_running=false position=2.6 drained=true audio_error=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-play\nFILES_PREVIEW_COMMAND_REV action=audio-play revision=23\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=23 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=false position=2.6 drained=false audio_error=None\nFILES_PREVIEW_HELPER pid=96498 start=53498592 command=preview_audio_playback\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=23 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=2.6 drained=false audio_error=None\nFILES_PREVIEW_COMMAND_OK audio-timeline\nFILES_PREVIEW_COMMAND_REV action=audio-timeline revision=24\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=false position=4.5 drained=false audio_error=None\nFILES_PREVIEW_HELPER pid=96509 start=53498595 command=preview_audio_playback\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=4.5 drained=false audio_error=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=4.6 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=4.7 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=4.8 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=4.9 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=5.0 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=5.1 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=5.2 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=5.3 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=5.4 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=5.5 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=5.6 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=5.7 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=5.8 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=5.9 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=24 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=false audio_running=false position=6.0 drained=true audio_error=None\nFILES_AUDIO_TRANSPORT_OK {\"drained\":true,\"notice\":null,\"position\":6.0,\"requested\":false,\"running\":false}\nFILES_PREVIEW_COMMAND_OK audio-assert-paused\nFILES_PREVIEW_COMMAND_REV action=audio-assert-paused revision=24\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-play\nFILES_PREVIEW_COMMAND_REV action=audio-play revision=25\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=25 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=false position=0.0 drained=false audio_error=None\nFILES_PREVIEW_HELPER pid=96624 start=53498750 command=preview_audio_playback\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=25 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.0 drained=false audio_error=None\nFILES_MEDIA_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-hide\nFILES_PREVIEW_COMMAND_REV action=media-hide revision=26\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=27\nFILES_PREVIEW_HELPER pid=96764 start=53498877 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=27 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_PREVIEW_COMMAND_OK audio-play\nFILES_PREVIEW_COMMAND_REV action=audio-play revision=28\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=28 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=false position=0.0 drained=false audio_error=None\nFILES_PREVIEW_HELPER pid=96766 start=53498884 command=preview_audio_playback\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=28 stamp=Some(Revision { device: 63, inode: 282051838, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092211, changed_nanoseconds: 475025963 }) audio_requested=true audio_running=true position=0.0 drained=false audio_error=None\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") message=Original no disponible: No such file or directory (os error 2)\nFILES_AUDIO_SOURCE_EMPTY\nFILES_PREVIEW_COMMAND_OK audio-source-empty\nFILES_PREVIEW_COMMAND_REV action=audio-source-empty revision=29\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=96837 start=53498919 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=29 stamp=Some(Revision { device: 63, inode: 282052083, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092216, changed_nanoseconds: 953116700 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_SOURCE_OK {\"revision\":29,\"source\":{\"bytes\":9127,\"changed_nanoseconds\":953116700,\"changed_seconds\":1793092216,\"device\":63,\"inode\":282052083,\"modified_nanoseconds\":475025963,\"modified_seconds\":1793092211},\"title\":\"Canci\u00f3n \u6f22 \u00e1\"}\nFILES_PREVIEW_COMMAND_OK audio-source-a\nFILES_PREVIEW_COMMAND_REV action=audio-source-a revision=29\nFILES_PREVIEW_COMMAND_OK audio-play\nFILES_PREVIEW_COMMAND_REV action=audio-play revision=30\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=30 stamp=Some(Revision { device: 63, inode: 282052083, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092216, changed_nanoseconds: 953116700 }) audio_requested=true audio_running=false position=0.0 drained=false audio_error=None\nFILES_PREVIEW_HELPER pid=96846 start=53498930 command=preview_audio_playback\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-1yhwbq7u/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=30 stamp=Some(Revision { device: 63, inode: 282052083, bytes: 9127, modified_seconds: 1793092211, modified_nanoseconds: 475025963, changed_seconds: 1793092216, changed_nanoseconds: 953116700 }) audio_requested=true audio_running=true position=0.0 drained=false audio_error=None\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_PREVIEW_COMMAND_OK callback\nFILES_PREVIEW_COMMAND_REV action=callback revision=30\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=false mutations_drained=true copy_closed=true preview_drained=false du_drained=true space_drained=true notice=false\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_CLOSE_DRAINED\n",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "binary_sha256": "52cde7a05957ba702f5c50946f2eaa5130e01d76663d1e0117929bcc7029e820",
+  "external_tools": {
+    "ffprobe": {
+      "path": "/usr/bin/ffprobe",
+      "sha256": "7c0a626038e42714f99c85b70412e1607f1f3ce5f92e41124f611014e02a7caa",
+      "version": "ffprobe version n9.0.2 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "ffmpeg": {
+      "path": "/usr/bin/ffmpeg",
+      "sha256": "fc5db7b88a2a96e9a9036fbc9533d8b3ec16abbc31526b285e996ae1d81b9fcd",
+      "version": "ffmpeg version n9.0.2 Copyright (c) 2000-2026 the FFmpeg developers"
+    }
+  }
+}

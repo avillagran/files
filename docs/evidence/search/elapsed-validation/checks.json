@@ -1,0 +1,17 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "binary_sha256": "4310c38d4bcc2bdd8ca75ca7ee84e988d8a98397fb9318b88432c230c5a4d6f1",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "elapsed_scope": "PASS actual AuxIo+SearchBatches;1/24/168h exact spans ending captured floored reference, inclusive start/exclusive end/subseconds/raw paths and AND size+literal criteria. Key4/key6 and painted24h;6metadata attempts per scan, no auto helper on choice;440px. No native input/clock snapshots/resource claim.",
+  "helper_cleanup": "logged PID/start identities absent or reused; Z not accepted; not lifetime coverage",
+  "scene": "docs/evidence/search/search-calendar-ui-1793477561276508002.json",
+  "tests": "999 Rust335core/85helper/579UI PASS+3existingignored; final Clippyworkspace/alltargets-Dwarnings/release/fmt PASS after label-only precision",
+  "captures": 23,
+  "logged_helpers": 18,
+  "exit": "root0 after callback/drainACK",
+  "native_input": "UNVALIDATED",
+  "global_gate": "PENDING; whole roadmap/resource gates open; new previews paused"
+}

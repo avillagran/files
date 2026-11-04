@@ -1,0 +1,30 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 16.35s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 17 tests
+test directory_sync_store::linux::tests::partial_write_failure_preserves_unreusable_artifact_without_success_owner ...
+running 1 test
+ok
+test directory_sync_store::linux::tests::input_limits_foreign_capture_and_private_disjoint_namespace_checked_before_creation ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::proof_codec_is_comparison_only_and_checks_shape ... ok
+test directory_sync_store::linux::tests::reopen_rejects_symlink_fifo_and_corrupted_private_records_before_read ... ok
+test directory_sync_store::linux::tests::exclusive_creation_never_clobbers_or_reuses_an_existing_name ... ok
+test directory_sync_store::linux::tests::saved_intent_recovers_decisions_and_stage_budget_without_original_paths_or_pins ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::create_readback_namespace_sync_and_reopen_require_new_barriers ... ok
+test directory_sync_store::linux::tests::durable_artifact_renewal_never_implies_fresh_source_or_operator_approval ... ok
+test directory_sync_store::linux::tests::failed_renewal_latches_uncertain_until_drop_and_explicit_reopen ... ok
+test directory_sync_store::linux::tests::identical_replacement_bytes_do_not_recreate_original_file_identity ... ok
+test directory_sync_store::linux::tests::final_ack_source_change_or_cancel_cannot_return_creation_receipt ... ok
+test directory_sync_store::linux::tests::creator_pid_guard_handles_child_drop_and_inherited_fd_after_parent_drop ... ok
+test directory_sync_store::linux::tests::live_hardlink_truncation_and_directory_substitution_revoke_binding ... ok
+test directory_sync_store::linux::tests::abrupt_process_exit_preserves_history_or_partial_record_without_auto_resume ... ok
+test directory_sync_store::linux::tests::deep_absolute_raw_store_path_is_not_confused_with_relative_content_depth ... ok
+test directory_sync_store::linux::tests::failures_after_each_real_barrier_leave_history_without_fresh_durability ... ok
+test directory_sync_store::linux::tests::both_full_inventories_store_and_reopen_complete_values_beyond_four_mib ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 561 filtered out; finished in 13.03s

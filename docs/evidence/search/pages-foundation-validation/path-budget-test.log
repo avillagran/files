@@ -1,0 +1,9 @@
+   Compiling files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.67s
+     Running unittests src/main.rs (target/debug/deps/files_helper-04860caf595c33cc)
+
+running 1 test
+test search::tests::long_relative_names_fill_path_budget_before_500_without_losing_the_next_hit ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 90 filtered out; finished in 0.00s
+

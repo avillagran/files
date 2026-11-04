@@ -1,0 +1,14 @@
+{
+  "scope": "GIF snapshot and software play under explicit user action, single pass ignores infinite source loop, visible inspector static first-frame thumbnail",
+  "grid_gif_thumbnail": "NOT_VALIDATED in this scene; selector/helper/cache shared, unit covered",
+  "normal_eof": "requires backend notice=None, drained and same observed helper identity absent",
+  "not_proven": [
+    "GIF alpha/disposal/irregular-delay fidelity",
+    "precise frame PTS or12fps performance",
+    "nativeinput/clipboard/native2xsharpness",
+    "lifetime/resource coverage",
+    "real blocked mount syscalls"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

@@ -1,0 +1,57 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.98s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57718b5e1c1473cd)
+
+running 49 tests
+test help_view::tests::scrolling_is_bounded_and_resize_reclamps ... ok
+test grid_view::tests::resize_zoom_empty_and_extreme_dimensions_do_not_keep_per_entry_state ... ok
+test help_view::tests::help_fits_supported_sizes_and_only_advertises_implemented_views ... ok
+test html_preview_job::tests::stable_unsupported_html_size_is_terminal_without_reprobe_flag ... ok
+test html_preview_job::tests::size_cap_precedes_child_and_readonly_close_denies_admission ... ok
+test markdown_preview_job::tests::cancelled_and_oversized_source_return_no_document ... ok
+test line_field::tests::progress_and_caret_only_paints_reuse_exact_geometry_and_resize_rebuilds ... ok
+test du_job::stream_tests::rejects_regressions_duplicate_final_oversize_and_unfinished_stream ... ok
+test copy_job::tests::oversized_input_and_retained_path_capacity_reject_without_starting_thread ... ok
+test markdown_render::tests::blank_and_final_row_anchors_survive_end_movement_and_resize ... ok
+test markdown_render::tests::wrap_resize_and_hit_testing_keep_visible_utf8_ranges ... ok
+test markdown_render::tests::embedded_bitmaps_are_visible_and_equal_size_colors_do_not_go_stale ... ok
+test native_transfer_io::tests::kde_metadata_first_oversize_and_deadline_fail_closed ... ok
+test navigation_tests::size_panel_open_binds_selected_id_and_rejects_stale_context ... ok
+test navigation_tests::size_panel_owns_input_and_old_row_controls_cannot_cancel_a_retried_attempt ... ok
+test command_palette::tests::size_controls_advertise_availability_and_dispatch_only_failures ... ok
+test navigation_tests::listed_sizes_capture_filtered_names_and_focus_change_does_not_redirect_queue ... ok
+test navigation_tests::omnibar_catalog_rejects_oversize_and_controls_without_losing_draft ... ok
+test navigation_tests::size_control_actions_preserve_focus_results_and_pending_source ... ok
+test search_state::calendar_tests::malformed_reference_error_or_oversized_composition_preserves_date_fields ... ok
+test rename_dialog::input_tests::oversized_paste_preserves_field_and_preview_revision ... ok
+test navigation_tests::size_panel_stale_owner_and_recapture_reject_old_window_commands ... ok
+test navigation_tests::size_panel_alt_enter_opens_raw_selected_folder_without_mutating_paths ... ok
+test navigation_tests::size_panel_sorted_navigation_keeps_record_identity_and_queue_order ... ok
+test size_panel::tests::diagnostic_wrap_preserves_unicode_and_never_interprets_controls_as_markup ... ok
+test size_panel::tests::display_order_does_not_mutate_queue_or_rank_partial_progress_as_total ... ok
+test size_queue::tests::navigation_and_same_name_do_not_publish_old_ack_or_start_before_it ... ok
+test size_queue::tests::oversized_error_keeps_utf8_budget_and_signals_omitted_suffix ... ok
+test size_queue::tests::pause_finishes_active_but_never_admits_next_until_resume ... ok
+test size_queue::tests::progress_is_not_a_final_total_and_errors_do_not_become_zero ... ok
+test size_queue::tests::record_tickets_survive_cancel_retry_ack_without_reusing_attempt_identity ... ok
+test size_queue::tests::retry_only_errors_preserves_pause_measured_cancelled_and_ack_barrier ... ok
+test size_queue::tests::over_budget_batch_rejects_atomically_and_cancelled_results_stay_unconfirmed ... ok
+test size_queue::tests::rejected_enqueue_preserves_pause_while_navigation_and_stop_clear_it ... ok
+test size_report::tests::raw_names_errors_and_timestamps_remain_escaped_not_path_authority ... ok
+test size_report::tests::subtotal_distinguishes_unknown_valid_zero_progress_and_overflow ... ok
+test status_tips::tests::resize_or_new_measurement_resets_but_identical_paint_does_not ... ok
+test size_report::tests::layout_caches_utf8_ranges_and_bounds_pathological_narrow_views ... ok
+test thumbnail_cache::tests::rejects_oversized_capacity_before_retention ... ok
+test text_preview_state::tests::html_resize_coalesces_and_close_drains_without_restarting_stale_layout ... ok
+test view::inspector_tabs_tests::size_status_displaces_help_and_free_space_without_overlapping_pss ... ok
+test view::inspector_tabs_tests::size_panel_virtual_rows_and_controls_stay_inside_minimum_window ... ok
+test size_report::tests::captured_report_is_bounded_utf8_and_explicitly_truncated_with_counts_first ... ok
+test archive_preview_job::tests::exact_catalog_contract_rejects_stale_identity_encoding_and_size ... ok
+test text_preview_job::tests::rejects_wrong_type_encoding_and_decoded_size ... ok
+test text_preview_job::tests::oversized_stream_is_rejected_and_reaped ... ok
+test search_state::tests::invalid_or_oversized_composition_never_admits_helper_and_retains_draft ... ok
+test markdown_render::tests::embedded_layout_resizes_with_caret_and_height_only_resize_clamps_scroll ... ok
+test text_preview_job::tests::reads_pipe_sized_text_and_checks_protocol_identity ... ok
+
+test result: ok. 49 passed; 0 failed; 0 ignored; 0 measured; 483 filtered out; finished in 0.11s
+

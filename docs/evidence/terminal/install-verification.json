@@ -1,0 +1,33 @@
+{
+  "record": "/home/avillagran/Work/files/docs/evidence/0.0.4/installed-checkpoint-1793508497934499916.json",
+  "source": "1a266e5912b82d7f40f3e4935b6a2a14917ca67a",
+  "installed_verified": 5,
+  "backups_verified": 5,
+  "files": [
+    {
+      "name": "files",
+      "installed_sha256": "8deae3545aac0444f35b2426f53e8699ed65ff1fdcbacdd61c5dbdf300f2cc03",
+      "backup_sha256": "41bec759247b6dd3e6bfcf8f97580d5fec49bad0677377bb5f2e04c9afaa6e3e"
+    },
+    {
+      "name": "files-helper",
+      "installed_sha256": "a9a2c8dcde68b13d709e8df8b8f87ed72860afe812980e09ff659a507c797760",
+      "backup_sha256": "63a05ffd3fcd12b364fc5d980fa32eeb2b38924bd62cfa4448e0b4ad822ee439"
+    },
+    {
+      "name": "files-html-helper",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "backup_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "backup_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "backup_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ]
+}

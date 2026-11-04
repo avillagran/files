@@ -1,0 +1,25 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+error[E0599]: no method named `name` found for struct `directory_sync_record::Record` in the current scope
+    --> crates/core/src/directory_sync_store.rs:2314:46
+     |
+2314 | ...                   relative: record.name(transaction.row()).unwrap(),
+     |                                        ^^^^ method not found in `directory_sync_record::Record`
+     |
+    ::: crates/core/src/directory_sync_record.rs:58:1
+     |
+  58 | pub struct Record {
+     | ----------------- method `name` not found for this struct
+
+error[E0599]: no method named `name` found for struct `directory_sync_record::Record` in the current scope
+    --> crates/core/src/directory_sync_store.rs:2343:64
+     |
+2343 | ...                   .join(OsStr::from_bytes(record.name(transaction.row()).unwrap()))
+     |                                                      ^^^^ method not found in `directory_sync_record::Record`
+     |
+    ::: crates/core/src/directory_sync_record.rs:58:1
+     |
+  58 | pub struct Record {
+     | ----------------- method `name` not found for this struct
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `files-core` (lib test) due to 2 previous errors

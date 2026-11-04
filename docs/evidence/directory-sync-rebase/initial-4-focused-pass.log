@@ -1,0 +1,11 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 15.12s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 4 tests
+test exdev_source::linux::tests::sync_rebase_is_opt_in_and_cannot_weaken_legacy_tree_policy ... ok
+test exdev_source::linux::tests::sync_rebase_root_hardlink_and_symlink_preserve_full_evidence ... ok
+test exdev_source::linux::tests::sync_rebase_complete_tree_raw_prefix_hardlinks_and_symlink_roundtrip ... ok
+test exdev_source::linux::tests::sync_rebase_rejects_unrelated_changes_and_failure_never_updates_owner ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 598 filtered out; finished in 0.02s

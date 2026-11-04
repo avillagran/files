@@ -1,0 +1,17 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+error[E0282]: type annotations needed for `Result<(), _>`
+   --> crates/core/src/folder_usage.rs:192:13
+    |
+192 |         let result = (|| {
+    |             ^^^^^^
+...
+208 |             self.failure = Some(error.clone());
+    |                                 ----- type must be known at this point
+    |
+help: consider giving `result` an explicit type, where the type for type parameter `E` is specified
+    |
+192 |         let result: Result<_, E> = (|| {
+    |                   ++++++++++++++
+
+For more information about this error, try `rustc --explain E0282`.
+error: could not compile `files-core` (lib) due to 1 previous error

@@ -1,0 +1,28 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "binary_sha256": "e72bb4cc2e14127d76879436e72088715770898c90bb0719502a90e66c32762b",
+  "helper_sha256": "05736746b394413d59df5ecc169341592f66b44d9b895d5388d1b4b4f9e61967",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "pages_scope": "PASS1207=500/500/207 union/raw; explicit keyboard/painted credit, cached prev/next no new credit, marks page-local/current copy review cancel, stale epoch ignored; exact1000 empty terminal retains500;4507 history max8/2MiB explicit eviction;500opaque513B paths decoded and located byte-exact; stop retains valid window/counters with no continuation; restart/live helper before callback/root0ACK. Private handlers/framebuffers, no native input/resources/lifetimes/snapshot/global ordering proof.",
+  "pages_content_scope": "PASS literal input/602 matches=500+102, line2/byte7/UTF8 snippet needle exact, cumulative files602 and terminal after reap, real440px framebuffers; no clipboard bytes/resources/native input",
+  "normal_exits": 6,
+  "scene": "docs/evidence/search-order/search-pages-ui-1793482591192967537.json",
+  "tests": "1023 Rust341core/91helper/591UI PASS+3existingignored; final workspace Clippyalltargets-Dwarnings/release/fmt PASS",
+  "captures": 18,
+  "logged_helpers": 8,
+  "cleanup": "all logged PID/start identities absent/reused with strict Z rejection; not lifetime coverage",
+  "live_before_stop": [
+    "281868",
+    "15881591"
+  ],
+  "live_before_close": [
+    "281949",
+    "15881608"
+  ],
+  "cli": "seven actual release CLI pipe cases PASS; exact same helper SHA as final scene; docs/evidence/search/pages-release-contract.json",
+  "native_input": "UNVALIDATED; private painted targets/key handlers/framebuffer only",
+  "global_gate": "PENDING; whole ROADMAP/resource/startup/clipboard/native/otherOS gates remain open; no new previews",
+  "test_source_followup": "The already-passing cfg(test) compact content layout test in view.rs is committed separately after installation; no runtime source or installed artifact changed."
+}

@@ -1,0 +1,19 @@
+{
+  "files": 10000,
+  "pss_mib": 34.13,
+  "limit_mib": 60,
+  "analysis_gate_mib": 40,
+  "first_paint_ms": 67.645,
+  "window_logical": [
+    960,
+    540
+  ],
+  "ui_scale": 1,
+  "native_wayland": true,
+  "swap_pss_mib": 0.0,
+  "output_scale": 2,
+  "window_physical": [
+    1920,
+    1080
+  ]
+}

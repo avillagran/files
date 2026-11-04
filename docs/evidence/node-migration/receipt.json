@@ -1,0 +1,23 @@
+{
+  "source": "/home/avillagran/Work/files",
+  "destination": "NODE:/home/node/Work/files",
+  "source_head": "77ca979878ba9d4bd5d6ef1ba71c0f85620f68b1",
+  "complete_checksum_verification": "PASS no differences (including --delete dry-run)",
+  "support_checksum_verification": "PASS no differences",
+  "git_fsck": "PASS retains dangling objects",
+  "local_source_removed": true,
+  "local_support_cache_removed": true,
+  "local_pointer_retained": "/home/avillagran/Work/files/MOVED-TO-NODE.md",
+  "installed_m2_binaries": "unchanged",
+  "free_before_bytes": 4653465600,
+  "free_after_bytes": 12321001472,
+  "free_delta_bytes": 7667535872,
+  "node_native_tests": "PASS core only, not whole workspace/UI/release",
+  "time_unix": 1793510334.5620308,
+  "node_native_core_tests": {
+    "passed": 410,
+    "ignored": 3,
+    "post_portability_fix": true
+  },
+  "node_clippy_core_all_targets": "PASS -Dwarnings"
+}

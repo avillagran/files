@@ -1,0 +1,56 @@
+{
+  "source_commit": "6155ace2131cbd2bfa2c2508507d3e56e7c4c4e8",
+  "machine": "NODE",
+  "checked_at": "2026-11-02",
+  "scope": "SOURCE ONLY opt-in whole-batch namespace observers; destination coordinator and production Apply remain pending",
+  "validation": {
+    "workspace_passed": 1611,
+    "core": 704,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 4,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "harness": "Normal parallel Rust harness through original idle Cargo gate; only exact process FD-delta test isolates itself in child, no global serialization or competitor control",
+    "release_install_gui_resources": "NOT_RUN"
+  },
+  "limits": {
+    "scopes": 16386,
+    "entries": 49154,
+    "relative_name_bytes": 8454144,
+    "wire_bytes": 28263206,
+    "per_scope": "Existing namespace capture/entry/name/wire/path/depth/read limits unchanged",
+    "scope": "Structural requested data limits, not PSS/CPU/startup admission"
+  },
+  "implemented": [
+    "Opt-in batch scopes including unmodified observer workspaces/root inventories; original endpoint-only API unchanged",
+    "Charge ALL borrowed input shapes before directory sets/candidate allocations; charge per-scope and batch candidates before path clone",
+    "Reuse full preparation/post verification, coherent moved-inode ctime-only exception across EVERY owner, final root checks then infallible ALL-owner commit",
+    "Four-workspace regular/symlink alias Journal publication with subsequent transactions, full inventories checked after each; post-confirmed-ACK fault keeps all recorded workspace owners unchanged while syscall succeeded",
+    "Pre-existing exact global FD-delta test fixed by test-local subprocess isolation; original exact ownership/close checks retained"
+  ],
+  "failure_chronology": [
+    "Initial three tests PASS; new Journal fixture compile failures: OsStr import/Transaction.target, Record.name, temporary Plan lifetime; all corrected and raw logs retained",
+    "Corrected four focused tests PASS",
+    "First full run 703 core PASS/1 FAIL/3 historical ignored: existing exact process FD-delta test underflow from sibling test opens/closes. No production FD code changed; isolate exact functional test in child, preserve failure",
+    "Initial runner invocation omitted log argument and ran system fmt --all, exited1 before Rust formatting; corrected invocation uses unchanged original Cargo gate. This diagnostic was in tool output; no preserved raw file claimed"
+  ],
+  "remaining": [
+    "Destination batch coordinator and cumulative effect budget admission before user effects",
+    "Fresh native human approval/helper/source/absolute bindings before effects; plans/data/Journal ACK do not grant approval",
+    "Shared-directory metadata after own child effects, explicit recovery/undo and UI Apply",
+    "Repeated full namespace walks and journal readbacks remain potentially quadratic; no bulk scaling acceptance",
+    "Complete project goal, resource/startup freeze, preview pause and broad native/global gates remain open"
+  ],
+  "installed_hashes": "installed-hashes.json",
+  "source_sha256": {
+    "crates/core/src/exdev_source.rs": "efcf15108ca828e658797e4944319d076416e6037903079e2589caea572e966f",
+    "crates/core/src/exdev_source/linux/sync_namespace.rs": "36caf46681ade9d07b34b0a09249cea930e2941d2a74d4012a2a70d62b5b0f95",
+    "crates/core/src/directory_sync_store.rs": "5cab9acc89ad2bda74aae8618c5b749ac6c80a169a2367324407bf7a5ffe49bd",
+    "docs/DIRECTORY-SYNC-NAMESPACE-BATCH.md": "89107a138ce089cc2410ebe7c7f3f6189b79e9f5a434c3626982c9ba981c84c7",
+    "docs/DIRECTORY-SYNC-NAMESPACE.md": "bfd3ef0a19d6e0552be9dae55cf85559897159a3d614036c3febee7b19ee2b58",
+    "docs/DIRECTORY-SYNC-STAGING-COORDINATOR.md": "5b43ed552846a1d2509a0145ae6fe50348954df624b3d123590719e13e989cdf",
+    "docs/ROADMAP.md": "61575c90b7249749238043035d7e903154ae3e878e13d21dc755f9de725669aa"
+  }
+}

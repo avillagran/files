@@ -1,0 +1,626 @@
+{
+  "functional_gate": "FAIL",
+  "resource_gate": "NOT_MEASURED_FREEZE",
+  "startup_gate": "NOT_MEASURED_FREEZE",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/exdev-file-review-1793122167806713159.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/exdev-paused-global-queue-1793122167964805238.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/exdev-result-target-1793122168121795270.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/exdev-interrupted-restore-gap-catalog-1793122168408331031.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/exdev-interrupted-restore-gap-details-1793122168557807400.png"
+  ],
+  "cases": [
+    {
+      "name": "normal",
+      "source_st_dev": 63,
+      "destination_st_dev": 75,
+      "states": [
+        {
+          "active": null,
+          "canvas": [
+            1000,
+            650
+          ],
+          "entries": [
+            "6974656d",
+            "756e746f75636865642e747874"
+          ],
+          "form": null,
+          "generation": 1,
+          "notice": false,
+          "outcome": null,
+          "paint_revision": 2,
+          "painted": [
+            1000,
+            650
+          ],
+          "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source",
+          "phase": "Idle",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              false
+            ],
+            "entries": 0,
+            "error": "",
+            "loading": false,
+            "open": false
+          },
+          "review_pending": false,
+          "selection": [
+            "756e746f75636865642e747874"
+          ],
+          "seq": 0,
+          "window": [
+            1000,
+            650
+          ]
+        },
+        {
+          "active": null,
+          "canvas": [
+            1000,
+            650
+          ],
+          "entries": [
+            "6974656d",
+            "756e746f75636865642e747874"
+          ],
+          "form": {
+            "error": "",
+            "exdev": false,
+            "id": null,
+            "moving": true,
+            "prepared": false,
+            "preparing": false
+          },
+          "generation": 1,
+          "notice": false,
+          "outcome": null,
+          "paint_revision": 3,
+          "painted": [
+            1000,
+            650
+          ],
+          "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source",
+          "phase": "Idle",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              false
+            ],
+            "entries": 0,
+            "error": "",
+            "loading": false,
+            "open": false
+          },
+          "review_pending": false,
+          "selection": [
+            "6974656d"
+          ],
+          "seq": 1,
+          "window": [
+            1000,
+            650
+          ]
+        },
+        {
+          "active": null,
+          "canvas": [
+            1000,
+            650
+          ],
+          "entries": [
+            "6974656d",
+            "756e746f75636865642e747874"
+          ],
+          "form": {
+            "error": "",
+            "exdev": true,
+            "id": 1,
+            "moving": true,
+            "prepared": true,
+            "preparing": false
+          },
+          "generation": 1,
+          "notice": false,
+          "outcome": null,
+          "paint_revision": 5,
+          "painted": [
+            1000,
+            650
+          ],
+          "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source",
+          "phase": "Idle",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              false
+            ],
+            "entries": 0,
+            "error": "",
+            "loading": false,
+            "open": false
+          },
+          "review_pending": false,
+          "selection": [
+            "6974656d"
+          ],
+          "seq": 2,
+          "window": [
+            1000,
+            650
+          ]
+        },
+        {
+          "active": 1,
+          "canvas": [
+            1000,
+            650
+          ],
+          "entries": [
+            "6974656d",
+            "756e746f75636865642e747874"
+          ],
+          "form": null,
+          "generation": 1,
+          "notice": false,
+          "outcome": null,
+          "paint_revision": 7,
+          "painted": [
+            1000,
+            650
+          ],
+          "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source",
+          "phase": "Paused",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              false
+            ],
+            "entries": 0,
+            "error": "",
+            "loading": false,
+            "open": false
+          },
+          "review_pending": false,
+          "selection": [
+            "6974656d"
+          ],
+          "seq": 3,
+          "window": [
+            1000,
+            650
+          ]
+        },
+        {
+          "active": null,
+          "canvas": [
+            1000,
+            650
+          ],
+          "entries": [
+            "756e746f75636865642e747874"
+          ],
+          "form": null,
+          "generation": 2,
+          "notice": false,
+          "outcome": {
+            "cancelled": false,
+            "completed": 1,
+            "exdev": true,
+            "id": 1,
+            "moving": true,
+            "phase": null,
+            "success": true
+          },
+          "paint_revision": 11,
+          "painted": [
+            1000,
+            650
+          ],
+          "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source",
+          "phase": "Idle",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              false
+            ],
+            "entries": 0,
+            "error": "",
+            "loading": false,
+            "open": false
+          },
+          "review_pending": false,
+          "selection": [],
+          "seq": 4,
+          "window": [
+            1000,
+            650
+          ]
+        },
+        {
+          "active": null,
+          "canvas": [
+            1000,
+            650
+          ],
+          "entries": [
+            "6974656d"
+          ],
+          "form": null,
+          "generation": 4,
+          "notice": false,
+          "outcome": {
+            "cancelled": false,
+            "completed": 1,
+            "exdev": true,
+            "id": 1,
+            "moving": true,
+            "phase": null,
+            "success": true
+          },
+          "paint_revision": 12,
+          "painted": [
+            1000,
+            650
+          ],
+          "path": "/run/user/1001/files-exdev-ui-zo1vgyid/normal",
+          "phase": "Idle",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              false
+            ],
+            "entries": 0,
+            "error": "",
+            "loading": false,
+            "open": false
+          },
+          "review_pending": false,
+          "selection": [
+            "6974656d"
+          ],
+          "seq": 5,
+          "window": [
+            1000,
+            650
+          ]
+        },
+        {
+          "active": null,
+          "canvas": [
+            1000,
+            650
+          ],
+          "entries": [
+            "756e746f75636865642e747874"
+          ],
+          "form": null,
+          "generation": 5,
+          "notice": false,
+          "outcome": {
+            "cancelled": false,
+            "completed": 1,
+            "exdev": true,
+            "id": 1,
+            "moving": true,
+            "phase": null,
+            "success": true
+          },
+          "paint_revision": 15,
+          "painted": [
+            1000,
+            650
+          ],
+          "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source",
+          "phase": "Idle",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              false
+            ],
+            "entries": 0,
+            "error": "",
+            "loading": false,
+            "open": false
+          },
+          "review_pending": false,
+          "selection": [],
+          "seq": 6,
+          "window": [
+            1000,
+            650
+          ]
+        }
+      ],
+      "original": {
+        "mode": 33184,
+        "uid": 1001,
+        "gid": 1001,
+        "mtime_ns": 1700000000000000000,
+        "atime_ns": 1700000000000000000,
+        "sha256": "1d08fe1950525eff0602ba26a59bc7eedcbdb37bc2600a57b5c91483b47a2edc",
+        "xattrs": {
+          "user.files-exdev": "70726573657276652d6578616374"
+        }
+      },
+      "capture_dimensions": {
+        "/home/avillagran/Work/files/docs/evidence/0.0.4/exdev-file-review-1793122167806713159.png": [
+          1000,
+          650
+        ],
+        "/home/avillagran/Work/files/docs/evidence/0.0.4/exdev-paused-global-queue-1793122167964805238.png": [
+          1000,
+          650
+        ],
+        "/home/avillagran/Work/files/docs/evidence/0.0.4/exdev-result-target-1793122168121795270.png": [
+          1000,
+          650
+        ]
+      },
+      "normal_exit0_after_ack": true,
+      "stages_absent": true,
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=234115\nFILES_UI_SMOKE_OK entries=2\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=2 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[854,537],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":1,\"painted\":[854,537],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":0,\"window\":[854,537]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":2,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":0,\"window\":[1000,650]}\nFILES_COPY_COMMAND_OK move-exdev-form\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":{\"error\":\"\",\"exdev\":false,\"id\":null,\"moving\":true,\"prepared\":false,\"preparing\":false},\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":2,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":1,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":{\"error\":\"\",\"exdev\":false,\"id\":null,\"moving\":true,\"prepared\":false,\"preparing\":false},\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":3,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":1,\"window\":[1000,650]}\nFILES_COPY_COMMAND_OK move-review\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":{\"error\":\"\",\"exdev\":false,\"id\":1,\"moving\":true,\"prepared\":false,\"preparing\":true},\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":3,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":true,\"selection\":[\"6974656d\"],\"seq\":2,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":{\"error\":\"\",\"exdev\":true,\"id\":1,\"moving\":true,\"prepared\":true,\"preparing\":false},\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":4,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":2,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":{\"error\":\"\",\"exdev\":true,\"id\":1,\"moving\":true,\"prepared\":true,\"preparing\":false},\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":5,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":2,\"window\":[1000,650]}\nFILES_CAPTURE_OK\nFILES_COPY_COMMAND_OK move-confirm\nFILES_COPY_STATE phase=Queued active=None queued=1 loaded=true entries=2 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":5,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Queued\",\"queued\":1,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":3,\"window\":[1000,650]}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_STATE phase=Queued active=Some(1) queued=0 loaded=true entries=2 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":1,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":6,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Queued\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":3,\"window\":[1000,650]}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_STATE phase=Paused active=Some(1) queued=0 loaded=true entries=2 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":1,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":7,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Paused\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":3,\"window\":[1000,650]}\nFILES_CAPTURE_OK\nFILES_COPY_COMMAND_OK resume\nFILES_COPY_STATE phase=Running active=Some(1) queued=0 loaded=true entries=2 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":1,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":7,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Running\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":4,\"window\":[1000,650]}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_PROGRESS id=1 bytes=25600 entries=0 method=Stream stats=ProgressStats { callbacks: 1, published: 1, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_MOVE_STATE {\"active\":1,\"canvas\":[1000,650],\"entries\":[\"6974656d\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":8,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Running\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":4,\"window\":[1000,650]}\nFILES_COPY_VIEW id=1 method=Some(Stream) progress_stats=ProgressStats { callbacks: 1, published: 1, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_FINISHED id=1 cancelled_pending=0 progress_stats=Some(ProgressStats { callbacks: 1, published: 1, suppressed: 0, overwritten: 0, path_details_omitted: 0 }) cancelled=false report_bytes=25600 report_files=1 completed=1\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=1 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\"],\"form\":null,\"generation\":2,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":1,\"exdev\":true,\"id\":1,\"moving\":true,\"phase\":null,\"success\":true},\"paint_revision\":9,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[],\"seq\":4,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\"],\"form\":null,\"generation\":2,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":1,\"exdev\":true,\"id\":1,\"moving\":true,\"phase\":null,\"success\":true},\"paint_revision\":10,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[],\"seq\":4,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\"],\"form\":null,\"generation\":2,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":1,\"exdev\":true,\"id\":1,\"moving\":true,\"phase\":null,\"success\":true},\"paint_revision\":11,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[],\"seq\":4,\"window\":[1000,650]}\nFILES_COPY_COMMAND_OK move-exdev-target-tab\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=false entries=0 snapshot=false notice=false\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=1 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"6974656d\"],\"form\":null,\"generation\":4,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":1,\"exdev\":true,\"id\":1,\"moving\":true,\"phase\":null,\"success\":true},\"paint_revision\":12,\"painted\":[1000,650],\"path\":\"/run/user/1001/files-exdev-ui-zo1vgyid/normal\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":5,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"6974656d\"],\"form\":null,\"generation\":4,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":1,\"exdev\":true,\"id\":1,\"moving\":true,\"phase\":null,\"success\":true},\"paint_revision\":13,\"painted\":[1000,650],\"path\":\"/run/user/1001/files-exdev-ui-zo1vgyid/normal\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":5,\"window\":[1000,650]}\nFILES_CAPTURE_OK\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"6974656d\"],\"form\":null,\"generation\":4,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":1,\"exdev\":true,\"id\":1,\"moving\":true,\"phase\":null,\"success\":true},\"paint_revision\":14,\"painted\":[1000,650],\"path\":\"/run/user/1001/files-exdev-ui-zo1vgyid/normal\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"6974656d\"],\"seq\":5,\"window\":[1000,650]}\nFILES_COPY_COMMAND_OK move-source-tab\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=false entries=0 snapshot=true notice=false\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=1 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\"],\"form\":null,\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":1,\"exdev\":true,\"id\":1,\"moving\":true,\"phase\":null,\"success\":true},\"paint_revision\":15,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[],\"seq\":6,\"window\":[1000,650]}\nFILES_COPY_COMMAND_OK close\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\"],\"form\":null,\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":1,\"exdev\":true,\"id\":1,\"moving\":true,\"phase\":null,\"success\":true},\"paint_revision\":16,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[],\"seq\":7,\"window\":[1000,650]}\nFILES_CLOSE_WAIT saves_ready=false mutations_drained=true copy_closed=false preview_drained=true du_drained=true space_drained=true notice=false\nFILES_COPY_STATE phase=Closing active=None queued=0 loaded=true entries=1 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\"],\"form\":null,\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":1,\"exdev\":true,\"id\":1,\"moving\":true,\"phase\":null,\"success\":true},\"paint_revision\":17,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/normal/source\",\"phase\":\"Closing\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[],\"seq\":7,\"window\":[1000,650]}\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_COPY_DRAINED\nFILES_CLOSE_DRAINED\n"
+    },
+    {
+      "name": "restore-gap",
+      "source_st_dev": 63,
+      "destination_st_dev": 75,
+      "states": [
+        {
+          "active": null,
+          "canvas": [
+            1000,
+            650
+          ],
+          "entries": [
+            "756e746f75636865642e747874",
+            "2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73",
+            "6974656d"
+          ],
+          "form": null,
+          "generation": 1,
+          "notice": false,
+          "outcome": null,
+          "paint_revision": 2,
+          "painted": [
+            1000,
+            650
+          ],
+          "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source",
+          "phase": "Idle",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              false
+            ],
+            "entries": 0,
+            "error": "",
+            "loading": false,
+            "open": false
+          },
+          "review_pending": false,
+          "selection": [
+            "756e746f75636865642e747874"
+          ],
+          "seq": 0,
+          "window": [
+            1000,
+            650
+          ]
+        },
+        {
+          "active": null,
+          "canvas": [
+            1000,
+            650
+          ],
+          "entries": [
+            "756e746f75636865642e747874",
+            "2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73",
+            "6974656d"
+          ],
+          "form": null,
+          "generation": 1,
+          "notice": false,
+          "outcome": null,
+          "paint_revision": 4,
+          "painted": [
+            1000,
+            650
+          ],
+          "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source",
+          "phase": "Idle",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              false
+            ],
+            "entries": 1,
+            "error": "",
+            "loading": false,
+            "open": true
+          },
+          "review_pending": false,
+          "selection": [
+            "756e746f75636865642e747874"
+          ],
+          "seq": 1,
+          "window": [
+            1000,
+            650
+          ]
+        },
+        {
+          "active": null,
+          "canvas": [
+            1000,
+            650
+          ],
+          "entries": [
+            "756e746f75636865642e747874",
+            "2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73",
+            "6974656d"
+          ],
+          "form": null,
+          "generation": 1,
+          "notice": true,
+          "outcome": null,
+          "paint_revision": 5,
+          "painted": [
+            1000,
+            650
+          ],
+          "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source",
+          "phase": "Idle",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              true
+            ],
+            "entries": 1,
+            "error": "",
+            "loading": false,
+            "open": false
+          },
+          "review_pending": false,
+          "selection": [
+            "756e746f75636865642e747874"
+          ],
+          "seq": 2,
+          "window": [
+            1000,
+            650
+          ]
+        },
+        {
+          "active": null,
+          "canvas": [
+            440,
+            440
+          ],
+          "entries": [
+            "756e746f75636865642e747874",
+            "2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73",
+            "6974656d"
+          ],
+          "form": null,
+          "generation": 1,
+          "notice": true,
+          "outcome": null,
+          "paint_revision": 6,
+          "painted": [
+            440,
+            440
+          ],
+          "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source",
+          "phase": "Idle",
+          "queued": 0,
+          "recovery": {
+            "actions": [
+              false,
+              true
+            ],
+            "entries": 1,
+            "error": "",
+            "loading": false,
+            "open": false
+          },
+          "review_pending": false,
+          "selection": [
+            "756e746f75636865642e747874"
+          ],
+          "seq": 3,
+          "window": [
+            440,
+            440
+          ]
+        }
+      ],
+      "original": {
+        "mode": 33184,
+        "uid": 1001,
+        "gid": 1001,
+        "mtime_ns": 1700000000000000000,
+        "atime_ns": 1700000000000000000,
+        "sha256": "1d08fe1950525eff0602ba26a59bc7eedcbdb37bc2600a57b5c91483b47a2edc",
+        "xattrs": {
+          "user.files-exdev": "70726573657276652d6578616374"
+        }
+      },
+      "fixture_process_exit": 73,
+      "fixture_process_log": "\nrunning 1 test\n",
+      "capture_dimensions": {
+        "/home/avillagran/Work/files/docs/evidence/0.0.4/exdev-interrupted-restore-gap-catalog-1793122168408331031.png": [
+          1000,
+          650
+        ],
+        "/home/avillagran/Work/files/docs/evidence/0.0.4/exdev-interrupted-restore-gap-details-1793122168557807400.png": [
+          1000,
+          650
+        ]
+      },
+      "narrow_paint": {
+        "active": null,
+        "canvas": [
+          440,
+          440
+        ],
+        "entries": [
+          "756e746f75636865642e747874",
+          "2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73",
+          "6974656d"
+        ],
+        "form": null,
+        "generation": 1,
+        "notice": true,
+        "outcome": null,
+        "paint_revision": 6,
+        "painted": [
+          440,
+          440
+        ],
+        "path": "/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source",
+        "phase": "Idle",
+        "queued": 0,
+        "recovery": {
+          "actions": [
+            false,
+            true
+          ],
+          "entries": 1,
+          "error": "",
+          "loading": false,
+          "open": false
+        },
+        "review_pending": false,
+        "selection": [
+          "756e746f75636865642e747874"
+        ],
+        "seq": 3,
+        "window": [
+          440,
+          440
+        ]
+      },
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=70932\nFILES_UI_SMOKE_OK entries=3\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=3 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[854,537],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":1,\"painted\":[854,537],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":0,\"window\":[854,537]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":2,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":0,\"window\":[1000,650]}\nFILES_COPY_COMMAND_OK move-recovery-list\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":2,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":0,\"error\":\"\",\"loading\":true,\"open\":true},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":1,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":3,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":true},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":1,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"paint_revision\":4,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,false],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":true},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":1,\"window\":[1000,650]}\nFILES_CAPTURE_OK\nFILES_COPY_COMMAND_OK move-recovery-select\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=3 snapshot=false notice=true\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":4,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":2,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":5,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":2,\"window\":[1000,650]}\nFILES_CAPTURE_OK\nFILES_COPY_COMMAND_OK move-resize-440x440\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":5,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":6,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":7,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":8,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":9,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":10,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":11,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":12,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":13,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":14,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":15,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":16,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":17,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":18,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":19,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":20,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":21,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":22,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":23,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":24,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":25,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":26,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":27,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":28,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":29,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":30,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[440,440],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":31,\"painted\":[440,440],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[440,440]}\nFILES_MOVE_STATE {\"active\":null,\"canvas\":[1000,650],\"entries\":[\"756e746f75636865642e747874\",\"2e66696c65732d6d6f76652d39363936393639363936393639363936393639363936393639363936393639362d73\",\"6974656d\"],\"form\":null,\"generation\":1,\"notice\":true,\"outcome\":null,\"paint_revision\":32,\"painted\":[1000,650],\"path\":\"/home/avillagran/.cache/files-test/exdev-ui-1_a2668o/restore-gap/source\",\"phase\":\"Idle\",\"queued\":0,\"recovery\":{\"actions\":[false,true],\"entries\":1,\"error\":\"\",\"loading\":false,\"open\":false},\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":3,\"window\":[1000,650]}\nFILES_CAPTURE_OK\n"
+    }
+  ],
+  "scope": "single regular file nlink1, real EXDEV and explicit recovery in app after process exit73",
+  "method": "existing internal Actions/handlers + real FLTK framebuffer; no native OS input; no powerloss/SIGKILL/failed fsync syscall",
+  "error": "AssertionError(('framebuffer size', (1000, 650), 'expected', (440, 440)))",
+  "binary_sha256": "27b6b2575351e8ba579b1ff042bed167f5cb509587ad9ea895b64d4bb4ca45e9",
+  "helper_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

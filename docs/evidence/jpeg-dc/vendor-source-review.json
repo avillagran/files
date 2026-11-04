@@ -1,0 +1,39 @@
+{
+  "source_gate": "PASS",
+  "archive_sha256": "00810f1d8b74be64b13dbf3db89ac67740615d6c891f0e7b6179326533011a07",
+  "original_sources_verified": 17,
+  "patch_sha256": "42b3c84325cd048a597ec676ba555418577c0464096394b561a9a542b80f0e6f",
+  "patch_fuzz": 0,
+  "reconstructed_sources_equal": true,
+  "licenses_and_readme_unchanged": true,
+  "changes": [
+    "src/arch/wasm.rs",
+    "src/decoder.rs",
+    "src/huffman.rs",
+    "src/idct.rs",
+    "src/marker.rs",
+    "src/parser.rs",
+    "src/upsampler.rs",
+    "src/worker/immediate.rs",
+    "src/worker/mod.rs"
+  ],
+  "scope": "source provenance only, not decoder correctness/UI or PSS",
+  "resource_gate": "NOT_MEASURED",
+  "patch_context": "zero; original archive/source hashes required and exact reconstruction checked",
+  "prior_checkpoint": "53998a5",
+  "prior_patch_applies": true,
+  "prior_patch_source_drift_vs_checkpoint": [
+    "src/arch/wasm.rs",
+    "src/decoder.rs",
+    "src/huffman.rs",
+    "src/idct.rs",
+    "src/marker.rs",
+    "src/parser.rs",
+    "src/upsampler.rs",
+    "src/worker/immediate.rs"
+  ],
+  "algorithm_source_changed_vs_checkpoint": [
+    "src/decoder.rs"
+  ],
+  "prior_drift_reproduced_by_rustfmt": true
+}

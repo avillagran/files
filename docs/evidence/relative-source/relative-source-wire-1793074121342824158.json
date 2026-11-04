@@ -1,0 +1,9 @@
+{
+  "method": "real release helper protocol, own filesystem fixtures and deterministic replacement between probe/decode",
+  "functional_gate": "FAIL",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "cases": [],
+  "error": "CalledProcessError(2, ['/home/avillagran/Work/files/target/release/files-helper', 'probe_relative_file'])",
+  "helper_sha256": "4d92cf2d4c003d04d36ca7d7e3c29c59c9bf47fd4c65327b0738c56ebafac626"
+}

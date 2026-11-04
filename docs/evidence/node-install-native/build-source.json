@@ -1,0 +1,29 @@
+{
+  "archive_sha256": "82cfdc8347ebb61fbf308e29ebcb6ea5f82e894dd6a013c928deacc0446a471e",
+  "adapter_sha256": "babce060e9ec324af33f55b825a376e6a01213227bcd75e5227a8e95d2c69375",
+  "patch_sha256": "48fb04110df6590b55983495b8b657fe850557a10b335bea34361c7ca5bbecb6",
+  "binary_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "commands": [
+    [
+      "cmake",
+      "-S",
+      "/home/node/Work/files/scripts/fixtures/html-engine",
+      "-B",
+      "/home/node/.cache/files-test/html-engine/build-6fd7aaa63833c913cf1a0336e46fb2e027e4c656",
+      "-DLITEHTML_SOURCE=/home/node/.cache/files-test/html-engine/patched-6fd7aaa63833c913cf1a0336e46fb2e027e4c656-babce060e9ec324a-1793514920168366279",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DBUILD_SHARED_LIBS=OFF",
+      "-DLITEHTML_BUILD_TESTING=OFF",
+      "-DLITEHTML_ENABLE_LINT=OFF"
+    ],
+    [
+      "cmake",
+      "--build",
+      "/home/node/.cache/files-test/html-engine/build-6fd7aaa63833c913cf1a0336e46fb2e027e4c656",
+      "--target",
+      "html-engine-probe",
+      "--parallel",
+      "1"
+    ]
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "gate": "PASS",
+  "scope": "Independent reread of5installed and5backup artifacts, no running windows controlled",
+  "report": "docs/evidence/0.0.4/installed-checkpoint-1793471905931935042.json",
+  "source_commit": "17597f4e9baa4df2f1875cdf18eefa920bfe6631",
+  "files": [
+    {
+      "name": "files",
+      "installed_sha256": "91e92f71edcb44f8cc93968fd09b866fef8761d50e8797a12b43d124579f0ccf",
+      "backup_sha256": "da5c24312ca1c330cf9d4601153ac382c1ac11c18a49349285df06b4a67332d5"
+    },
+    {
+      "name": "files-helper",
+      "installed_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+      "backup_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd"
+    },
+    {
+      "name": "files-html-helper",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "backup_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "backup_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "backup_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ]
+}

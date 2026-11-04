@@ -1,0 +1,35 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.71s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 10 tests
+test directory_sync_store::linux::tests::workspace_factory_actual_fd_limit_and_umask_fail_closed_in_child ...
+running 1 test
+test directory_sync_store::linux::tests::workspace_factory_actual_fd_limit_and_umask_fail_closed_in_child ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 677 filtered out; finished in 0.23s
+
+
+running 1 test
+test directory_sync_store::linux::tests::workspace_factory_actual_fd_limit_and_umask_fail_closed_in_child ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 677 filtered out; finished in 0.02s
+
+ok
+test directory_sync_store::linux::tests::workspace_factory_all_placements_preflight_before_any_artifact_or_intent ... ok
+test directory_sync_store::linux::tests::workspace_factory_batch_keeps_completed_receipts_and_rejects_collisions ... ok
+test directory_sync_store::linux::tests::workspace_factory_complete_creator_metadata_barrier_and_publication ... ok
+test directory_sync_store::linux::tests::workspace_factory_cooperative_pause_resume_and_cancel_precede_effects ... ok
+test directory_sync_store::linux::tests::workspace_factory_faults_preserve_partials_and_pending_history_blocks_retry ... ok
+test directory_sync_store::linux::tests::workspace_factory_foreign_mount_rejects_before_first_workspace ... ok
+test directory_sync_store::linux::tests::workspace_factory_raw_parent_multiple_roots_and_strict_guard_codec ... ok
+test directory_sync_store::linux::tests::workspace_factory_real_exits_reopen_history_without_implicit_recreation ...
+running 1 test
+
+running 1 test
+
+running 1 test
+ok
+test directory_sync_store::linux::tests::workspace_factory_rejects_changed_journal_and_post_ack_replacement ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 668 filtered out; finished in 0.96s

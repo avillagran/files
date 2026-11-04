@@ -1,0 +1,13 @@
+{
+  "source_report": "image-ui-1793081848018085943.json",
+  "framebuffer_dimensions": [
+    1000,
+    650
+  ],
+  "native_2x_sharpness": "NOT_VALIDATED",
+  "close_pending_preview": true,
+  "helper_alive_at_close": "NOT_VALIDATED: source publication gate prevented queued helper start",
+  "cleanup_scope": "12 logged PID/start identities absent/reused after normal exit; same identity zombie rejected. Not lifetime or resource coverage.",
+  "resource_gate": "NOT_MEASURED: user freeze",
+  "startup_gate": "NOT_MEASURED: user freeze"
+}

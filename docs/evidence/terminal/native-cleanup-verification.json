@@ -1,0 +1,39 @@
+{
+  "report": "/home/avillagran/Work/files/docs/evidence/terminal/terminal-ui-1793507918398541254.json",
+  "identities": [
+    {
+      "pid": 3437382,
+      "start": "18414468",
+      "identity": "absent"
+    },
+    {
+      "pid": 3437638,
+      "start": "18414512",
+      "identity": "absent"
+    },
+    {
+      "pid": 3437688,
+      "start": "18414528",
+      "identity": "absent"
+    },
+    {
+      "pid": 3437705,
+      "start": "18414554",
+      "identity": "absent"
+    },
+    {
+      "pid": 3437883,
+      "start": "18414597",
+      "identity": "absent"
+    },
+    {
+      "pid": 3437958,
+      "start": "18414620",
+      "identity": "absent"
+    }
+  ],
+  "unit": "files-terminal-fixture-1793507916319313238.service",
+  "unit_state": "LoadState=not-found\nActiveState=inactive\n",
+  "strict_Z_not_accepted": true,
+  "resource_gate": "NOT_MEASURED"
+}

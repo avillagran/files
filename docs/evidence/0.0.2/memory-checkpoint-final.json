@@ -1,0 +1,121 @@
+{
+  "gate_status": "FAIL",
+  "gate_reasons": [
+    "baseline 40 MiB analysis threshold exceeded: stop and investigate"
+  ],
+  "warnings": [],
+  "limits": {
+    "baseline_objective_mib": 35,
+    "baseline_analysis_stop_mib": 40,
+    "baseline_hard_mib": 60,
+    "modern_goal_mb_decimal": 50,
+    "absolute_ceiling_mb_decimal": 150,
+    "scenario_budget_mb_decimal": null
+  },
+  "files": 10000,
+  "scenario": "baseline",
+  "geometry": {
+    "window_logical": [
+      960,
+      540
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      1920,
+      1080
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0df46300"
+  },
+  "required_physical": [
+    1920,
+    1080
+  ],
+  "metrics": {
+    "complete": true,
+    "sample_count": 256,
+    "sample_interval_requested_ms": 25.0,
+    "max_observed_interval_ms": 28.530399955343455,
+    "stable_sample_count": 41,
+    "sampled_maxima": {
+      "pss_kib": 39434,
+      "swap_pss_kib": 20080,
+      "memory_kib": 41786,
+      "fds": 13,
+      "threads": 5,
+      "process_count": 1
+    },
+    "sample_at_memory_max": {
+      "pss_kib": 39434,
+      "swap_pss_kib": 2352,
+      "threads": 5,
+      "fds": 11,
+      "memory_kib": 41786,
+      "time_monotonic": 458672.948341155,
+      "cpu_percent_observed": 79.68404628760901,
+      "root_alive": true,
+      "process_count": 1,
+      "complete": true,
+      "errors": [],
+      "processes": [
+        {
+          "pid": 1558762,
+          "start": 45867262,
+          "pss_kib": 39434,
+          "swap_pss_kib": 2352,
+          "threads": 5,
+          "fds": 11
+        }
+      ],
+      "exited_during_read": [],
+      "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+    },
+    "stable_medians": {
+      "pss_kib": 18168,
+      "swap_pss_kib": 11152,
+      "memory_kib": 29320,
+      "fds": 11,
+      "threads": 5,
+      "process_count": 1
+    },
+    "stable_cpu_percent_observed_median": 0.0,
+    "stable_cpu_percent_observed_max": 39.9117264463079,
+    "observed_process_identities": [
+      [
+        1558762,
+        45867262
+      ]
+    ],
+    "exited_process_identities": [],
+    "exited_during_read": [],
+    "exited_during_read_count": 0,
+    "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+    "errors": [],
+    "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+    "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+  },
+  "sampled_peak_memory_mib": 40.806640625,
+  "sampled_peak_memory_mb_decimal": 42.788864,
+  "baseline_objective_met": false,
+  "modern_goal_met": true,
+  "run_policy": "serialized: no concurrent builds, captures or benchmarks; caller must enforce",
+  "gpu_memory": "not measured by /proc; effects must be off for baseline",
+  "view_requested": "groups",
+  "view_validation": "application readiness marker verified against requested view/count; rendered UI independently validated",
+  "scene_readiness": {
+    "view": "groups",
+    "loaded": true,
+    "entry_count": 10000,
+    "stats_ready": true,
+    "layout_ready": false,
+    "generation": 1
+  },
+  "font_selected": "FILES_FONT=FiraCode Nerd Font nerd=true",
+  "first_paint_ms_internal": 138.447,
+  "cleanup": {
+    "surviving_observed_processes": [],
+    "errors": [],
+    "complete": true
+  },
+  "stderr_tail": null
+}

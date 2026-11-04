@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-10-31T09:25:41.609464+00:00",
+  "core_gate": "PASS",
+  "functional_gate": "NOT_IMPLEMENTED",
+  "mount_gate": "NOT_TESTED",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "core_tests": {
+    "passed": 278,
+    "ignored": 3,
+    "new_target_tests": 6,
+    "new_mount_table_tests": 3
+  },
+  "real_mountinfo_records_parsed": 31,
+  "method": "pure validation fixtures plus own-process Linux mountinfo read-only parser probe; no command spawn/network/FUSE/authentication/UI tests for SFTP",
+  "logs": {
+    "target/sftp-core-final3-tests.log": {
+      "sha256": "4f2cd47081efbea3c6077e0eb9b5b5389b5ae118749f2990cb0aeefc500041a8",
+      "path": "/home/avillagran/Work/files/target/sftp-core-final3-tests.log"
+    },
+    "target/sftp-foundation-clippy.log": {
+      "sha256": "be2a4df1418935682d9d57ae869ba5ef7e223609d05d669d794697233e2b73af",
+      "path": "/home/avillagran/Work/files/target/sftp-foundation-clippy.log"
+    },
+    "target/sftp-foundation-fmt.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "/home/avillagran/Work/files/target/sftp-foundation-fmt.log"
+    },
+    "target/sftp-mount-table-probe.log": {
+      "sha256": "a3471bb92ef0e5f688065718f46cc37370c18e8f8cd3cbb9cf224b0d8cbc4e73",
+      "path": "/home/avillagran/Work/files/target/sftp-mount-table-probe.log"
+    }
+  },
+  "source_sha256": {
+    "crates/core/src/sftp_target.rs": "59081b2a249f14c8aea147104336b4c70489af8323b68a526153fc303a97771c",
+    "crates/core/src/mount_table.rs": "17ba091b14f3cdd63a5b006ea03826d82843180c70d335eff0d12dce8da89fb7",
+    "crates/core/examples/mount-table-probe.rs": "2d2c51f9826ab37dd23e4b3f53a0f3edbc0d419c6bf9ac7d9b7ec5b4ab80787a"
+  },
+  "installed_checkpoint": "64e18d3/e236e1a unchanged; no SFTP installation",
+  "pending": [
+    "capability/review UI",
+    "owned mountpoint and worker lifecycle",
+    "sshfs dependency availability",
+    "real isolated SFTP/FUSE operations",
+    "daemon identity/resource association",
+    "offline/cancel/recovery",
+    "native input/platform/global resource acceptance"
+  ]
+}

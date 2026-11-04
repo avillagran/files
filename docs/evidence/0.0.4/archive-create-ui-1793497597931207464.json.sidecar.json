@@ -1,0 +1,5 @@
+{
+  "classification": "harness variable error",
+  "finding": "Product completed ZIP creation and independent zipfile CRC/content/raw/link checks, then correctly rejected occupied destination. Harness asserted the obsolete success-state variable instead of the returned review-state variable (None form), causing TypeError.",
+  "change": "Assign returned state before asserting prepared=false; original FAIL and captures retained. No product change."
+}

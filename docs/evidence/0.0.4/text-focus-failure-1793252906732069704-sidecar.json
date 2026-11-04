@@ -1,0 +1,24 @@
+{
+  "original": "docs/evidence/0.0.4/text-focus-failure-1793252906732069704.json",
+  "clipboard_gate": "NOT_ATTEMPTED",
+  "focus_gate": "FAIL",
+  "reason": "Hyprland rejected authorized legacy dispatcher with exit 7; no clipboard copy/read was attempted",
+  "binary_sha256": "390a4f1f03de681118be6f385a6e77505166ef64e132dc27d835a11d881be295",
+  "helper_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+  "captures": [],
+  "focus_attempt": {
+    "target_pid": 2457943,
+    "target_address": "0xaaab2930a3d0",
+    "command": [
+      "hyprctl",
+      "dispatch",
+      "focuswindow",
+      "address:0xaaab2930a3d0"
+    ],
+    "returncode": 7,
+    "stdout": "error: [string \"return hl.dispatch(focuswindow address:0xaaab...\"]:1: ')' expected near 'address'\n\n \u2192 Note: dispatch in lua is a shorthand for hl.dispatch(...), your syntax might need to be updated.\n",
+    "stderr": ""
+  },
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

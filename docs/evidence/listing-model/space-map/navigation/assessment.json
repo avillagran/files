@@ -1,0 +1,34 @@
+{
+  "source_acceptance": "PASS",
+  "installation": "source d05e51c; installed-checkpoint-1793550835411868233.json; five installed and five backup hashes verified",
+  "tests": {
+    "core": 443,
+    "helper": 105,
+    "ui": 736,
+    "historical_ignored": 3,
+    "normal_harness_concurrency": true
+  },
+  "clippy": "workspace all targets -D warnings PASS",
+  "format": "PASS",
+  "release": "PASS",
+  "wayland": "space-map-nav-ui-1793550565762001516.json",
+  "x11_xvfb": "space-map-nav-ui-1793550568773633837.json",
+  "watch_regression": "../space-map-watch-ui-1793550646082116464.json",
+  "legacy_map_regression": "../../../0.0.4/space-map-ui-1793550659295504628.json",
+  "columns_regression": "../../columns/columns-listing-ui-1793550661213140097.json",
+  "initial_failures": [
+    "test-failures.json",
+    "space-map-nav-ui-1793550132726222079.json: reproduced MC440 chart24px high; large tile had no name or named row. Row fallback now uses actual65x45 label geometry."
+  ],
+  "dispatch_audit": "Prior SpaceMap F5 fixture invoked Action::Refresh rather than the real global F5 Copy binding. Fixed dispatcher and fixture to shared context-sensitive handler; MC bar action/label/tip/help match; list F5 Copy review covered by unit fixture. No OS delivery claimed.",
+  "visual_review": "Wayland raw tiny row and XvfbX11 Ctrl focus marks readable; final MC440 mouse-recalculation capture shows large block with named row, F5 refresh icon and no overlaps. Footer resource values excluded.",
+  "limits": [
+    "All/Invert/Filtered/MCInsert and other Map file-operation strip restrictions remain pending audit",
+    "historical WouldBlock and original X11 missing labels unconfirmed",
+    "internal key/wheel/mouse handlers + real framebuffer, no OS input/clipboard/AT-SPI/2x/global lifetime proof",
+    "PSS/Swap/CPU/startup freeze; no new content previews"
+  ],
+  "installed_navigation": "space-map-nav-ui-1793550890414818248.json",
+  "installed_watch": "../space-map-watch-ui-1793550890942500902.json",
+  "installed_allocation": "../../../sizes-open/sizes-open-ui-1793550891808371341.json"
+}

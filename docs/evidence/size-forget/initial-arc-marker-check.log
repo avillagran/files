@@ -1,0 +1,29 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0277]: the trait bound `std::sync::Arc<[u64]>: serde::Serialize` is not satisfied
+    --> crates/ui/src/size_panel.rs:1008:9
+     |
+1008 | ...   serde_json::json!({"summary":summary,"report....y,h.rect.w,h.rect.h]).collect::<Vec<_>>()}),
+     |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |       |
+     |       the trait `serde_core::ser::Serialize` is not implemented for `std::sync::Arc<[u64]>`
+     |       required by a bound introduced by this call
+     |
+     = note: for local types consider adding `#[derive(serde::Serialize)]` to your `std::sync::Arc<[u64]>` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = note: required for `&std::sync::Arc<[u64]>` to implement `serde_core::ser::Serialize`
+note: required by a bound in `to_value`
+    --> /home/avillagran/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.154/src/value/mod.rs:997:8
+     |
+ 995 | pub fn to_value<T>(value: T) -> Result<Value, Error>
+     |        -------- required by a bound in this function
+ 996 | where
+ 997 |     T: Serialize,
+     |        ^^^^^^^^^ required by this bound in `to_value`
+     = note: this error originates in the macro `$crate::json_internal` which comes from the expansion of the macro `serde_json::json` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider dereferencing here
+     |
+1008 |         serde_json::json!({"summary":summary,"report":s.report.as_ref().map(|r|serde_json::json!({"text":r.text,"truncated":r.truncated})),"report_lines":s.report_layout.lines.len(),"note":s.note,"copy_report_hit":m.hits.iter().any(|h|matches!(h.action,Action::SizePanel(_,Command::CopyReport))),"forget_hit":m.hits.iter().any(|h|matches!(h.action,Action::SizePanel(_,Command::Forget(_)))),"forget_measured_hit":m.hits.iter().any(|h|matches!(h.action,Action::SizePanel(_,Command::ForgetMeasured(_)))),"report_ids":*s.report_ids,"stamp":s.stamp,"current":s.current(m),"selected":s.selected,"display_order":s.order.label(),"display_ids":s.order.indices(m.sizes.rows(&s.root)).iter().map(|&i|m.sizes.rows(&s.root)[i].id).collect::<Vec<_>>(),"details":s.details,"detail_top":s.detail_top,"error":s.error,"rows":m.sizes.rows(&s.root).iter().map(|r|serde_json::json!({"id":r.id,"name":r.name.as_encoded_bytes(),"label":m.sizes.label(&s.root,&r.name),"detail":m.sizes.detail(&s.root,&r.name)})).collect::<Vec<_>>(),"row_hits":m.hits.iter().filter(|h|matches!(h.action,Action::SizePanel(_,Command::Select(_)))).count(),"open_hit":m.hits.iter().any(|h|matches!(h.action,Action::SizePanel(_,Command::Open(_)))),"recalculate_hit":m.hits.iter().any(|h|matches!(h.action,Action::SizePanel(_,Command::Recalculate(_)))),"recalculate_id":m.hits.iter().find_map(|h|if let Action::SizePanel(_,Command::Recalculate(id))=h.action{Some(id)}else{None}),"retry_hit":m.hits.iter().any(|h|matches!(h.action,Action::SizePanel(_,Command::Retry(_)))),"cancel_hit":m.hits.iter().any(|h|matches!(h.action,Action::SizePanel(_,Command::Cancel(_)))),"control_rects":m.hits.iter().filter(|h|matches!(h.action,Action::SizePanel(_,_))).map(|h|[h.rect.x,h.rect.y,h.rect.w,h.rect.h]).collect::<Vec<_>>()}),
+     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   +
+
+For more information about this error, try `rustc --explain E0277`.
+error: could not compile `files-ui` (lib test) due to 1 previous error

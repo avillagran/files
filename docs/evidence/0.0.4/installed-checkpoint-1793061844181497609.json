@@ -1,0 +1,40 @@
+{
+  "checkpoint": "8af2c1382229cef8fafd02bf7c0434e071877856",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/help/help-ui-1793061761953895411.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793061844095822006",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "39db06227fa069b43d8bfe9c323b262d82ec46e420abea8dbcc8cdf10637426b",
+      "release_sha256": "a8a563c1898ae8ea5ae4e60617448d85e98de5e5c48e4eb3e95e09096cdacfcf",
+      "installed_sha256": "a8a563c1898ae8ea5ae4e60617448d85e98de5e5c48e4eb3e95e09096cdacfcf"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0",
+      "release_sha256": "4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0",
+      "installed_sha256": "4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "release_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "installed_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "release_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "installed_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

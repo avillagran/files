@@ -1,0 +1,42 @@
+{
+  "status": "Scoped functional PASS; global/native/resource acceptance pending",
+  "preserved_build_findings": [
+    {
+      "log": "target/bookmarks-clippy.log",
+      "finding": "Private scene id/stamp parse type was inferred as never in matches guard; fixed explicit u64."
+    },
+    {
+      "log": "target/bookmarks-clippy-typed.log",
+      "finding": "Clippy collapsible_if in three equivalent UI branches; collapsed, no allow suppression."
+    }
+  ],
+  "final_checks": {
+    "workspace": "target/bookmarks-workspace-final.log: 791 PASS (244 core /79 helper /468 UI),3 existing core ignored",
+    "clippy": "target/bookmarks-accepted-clippy.log: workspace/all-targets -D warnings exit0",
+    "release": "target/bookmarks-accepted-release.log: workspace release exit0",
+    "prior_reload_regression": "target/bookmarks-reload-regression.log: 792 PASS,3 ignored before final shortcut/stamp guards",
+    "latest": "target/bookmarks-final-regressions.log: 793 PASS244core/79helper/470UI,3 existing ignored",
+    "fmt": "target/bookmarks-accepted-fmt.log: fmt --all -- --check exit0"
+  },
+  "scope": "No resource/startup benchmark; no new preview. Fixture and native protocol acceptance remain distinct.",
+  "preserved_scene_findings": [
+    {
+      "report": "bookmarks-ui-1793422449596475652.json",
+      "scope": "Instrument expected closing marker suppressed by existing fixture; WAIT trace used instead. Sidecar retained."
+    },
+    {
+      "report": "bookmarks-ui-1793422508905329953.json",
+      "scope": "Product same-current-path jump skipped reload after external directory->file replacement; fixed explicit async navigation even same path, with regression."
+    }
+  ],
+  "static_review_fixes": [
+    "CtrlAltD inside hub closes rather than matching CtrlD Add. Directed regression.",
+    "Label edit changes control stamp so previous Jump button cannot act after mode change. Directed regression.",
+    "Removed duplicate early Action::Bookmark dispatch branch."
+  ],
+  "final_reports": [
+    "bookmarks-ui-1793422800552758666.json",
+    "../commands/command-palette-ui-1793422810269958601.json"
+  ],
+  "visual": "All11 final bookmark PNG inspected; complete440 close controls and wrapped future diagnostic. Paths/status may clip; F1 details available. Footer PSS incidental, not gate."
+}

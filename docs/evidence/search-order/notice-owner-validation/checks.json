@@ -1,0 +1,15 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "binary_sha256": "f822044e54e6c8cae0ad868c64f0f0a8152fd36616d8316788603f8c50991c8d",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "notice_owner_scope": "PASS retained real operation survives unrelated Saved validation diagnostic; full-report target absent there, restored only by reopening original result. No export or OS clipboard invoked.",
+  "normal_exits": 4,
+  "scene": "docs/evidence/search-order/saved-search-ui-1793476738607299942.json",
+  "tests": "994 Rust334core/85helper/575UI PASS+3existing ignored; Clippyalltargets-Dwarnings/release/fmt PASS",
+  "captures": 39,
+  "helper_cleanup": "10 logged search helper PID/start identities absent/reused; strict Z rejection, no lifetime coverage",
+  "global_gate": "PENDING; full roadmap/freeze unchanged"
+}

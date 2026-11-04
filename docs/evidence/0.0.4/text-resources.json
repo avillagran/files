@@ -1,0 +1,157 @@
+{
+  "method": "Space UI handlers/pointer mapping and FLTK framebuffer; no native OS input",
+  "captures": [],
+  "clipboard": "not read in resource mode",
+  "resource_gate": "UNVALIDATED",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0e2612f0"
+  },
+  "cleanup": {
+    "complete": true,
+    "survivors": [],
+    "errors": [],
+    "scope": "observed PID/starttime tree, read-only after exit0"
+  },
+  "functional_checks_passed": true,
+  "functional_gate": "FAIL",
+  "required_clipboard_gate": "PENDING real Wayland focus/clipboard; resource scenario is partial",
+  "normal_exit_after_preview_drain": true,
+  "selection_bytes_verified": "Unicode+TAB+CRLF source preserved; pointer handlers with measured shaped width",
+  "rapid_navigation": "A started then B\u2192C latest wins; C Ready observed; controller tests cover stale same-path/errors",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=83431\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK open\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-e2ndi7g5/files/A.txt\") encoding=UTF-8 truncated=false bytes=37\nFILES_PREVIEW_SELECTION=\"rea\\t\u6f22\u5b57\\r\\n@x\"\nFILES_PREVIEW_COMMAND_OK select\nFILES_PREVIEW_COMMAND_OK rapid\nFILES_WAIT_RAW=4 errno_snapshot=2 success=true\nFILES_WAIT_RAW=2 errno_snapshot=2 success=true\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-e2ndi7g5/files/C.txt\") encoding=UTF-8 truncated=false bytes=9\nFILES_PREVIEW_COMMAND_OK binary\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-ui-e2ndi7g5/files/binary.bin\") message=Archivo binario o con controles no representables\nFILES_PREVIEW_COMMAND_OK truncated\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-e2ndi7g5/files/long.txt\") encoding=UTF-8 truncated=true bytes=48000\nFILES_PREVIEW_COMMAND_OK close-pending\nFILES_PREVIEW_DRAINED\n",
+  "metrics": {
+    "complete": true,
+    "sample_count": 88,
+    "sample_interval_requested_ms": 5.0,
+    "max_observed_interval_ms": 91.20259102201089,
+    "stable_sample_count": 67,
+    "sampled_maxima": {
+      "pss_kib": 34858,
+      "swap_pss_kib": 0,
+      "memory_kib": 34858,
+      "fds": 17,
+      "threads": 6,
+      "process_count": 2
+    },
+    "sample_at_memory_max": {
+      "pss_kib": 34858,
+      "swap_pss_kib": 0,
+      "threads": 5,
+      "fds": 11,
+      "memory_kib": 34858,
+      "time_monotonic": 463995.418367686,
+      "cpu_percent_observed": 0.0,
+      "root_alive": true,
+      "process_count": 1,
+      "complete": true,
+      "errors": [],
+      "processes": [
+        {
+          "pid": 2091073,
+          "start": 46399475,
+          "pss_kib": 34858,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11
+        }
+      ],
+      "exited_during_read": [],
+      "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+    },
+    "stable_medians": {
+      "pss_kib": 34858,
+      "swap_pss_kib": 0,
+      "memory_kib": 34858,
+      "fds": 11,
+      "threads": 5,
+      "process_count": 1
+    },
+    "stable_cpu_percent_observed_median": 0.0,
+    "stable_cpu_percent_observed_max": 0.0,
+    "observed_process_identities": [
+      [
+        2091073,
+        46399475
+      ],
+      [
+        2091081,
+        46399481
+      ],
+      [
+        2091084,
+        46399482
+      ]
+    ],
+    "exited_process_identities": [
+      [
+        2091081,
+        46399481
+      ],
+      [
+        2091084,
+        46399482
+      ]
+    ],
+    "exited_during_read": [
+      {
+        "sample": 5,
+        "pid": 2091084,
+        "start": 46399482,
+        "phase": "smaps_rollup",
+        "reason": "process directory disappeared",
+        "memory_available": false
+      }
+    ],
+    "exited_during_read_count": 1,
+    "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+    "errors": [],
+    "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+    "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+  },
+  "stable_since_monotonic": 463995.162677252,
+  "stable_until_monotonic": 463996.174652574,
+  "stable_phase": "truncated preview displayed, no ongoing requests; bounded one-second window",
+  "terminal_exit_observations": [
+    {
+      "pss_kib": 0,
+      "swap_pss_kib": 0,
+      "threads": 0,
+      "fds": 0,
+      "memory_kib": 0,
+      "time_monotonic": 463996.18489815,
+      "cpu_percent_observed": 0.0,
+      "root_alive": false,
+      "process_count": 0,
+      "complete": false,
+      "errors": [],
+      "processes": [],
+      "exited_during_read": [
+        {
+          "pid": 2091073,
+          "start": 46399475,
+          "phase": "smaps_rollup",
+          "reason": "same identity is a zombie (address space exited)",
+          "memory_available": false
+        }
+      ],
+      "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+    }
+  ],
+  "helper_identities_verified": [],
+  "sampled_peak_memory_mb_decimal": 35.694592,
+  "goal_met": null,
+  "resource_scope": "sampled main+observed helpers PSS+Swap; not exact peaks/full lifetimes; GPU excluded. Five-file fixture, not baseline10k or large-operation coverage.",
+  "binary_sha256": "e24582ed96c8f5e23bef6800f5e1291e53fe66085ecd78081f07e25d10fd634e",
+  "helper_sha256": "9a4719bba08f63e5b7e2918cd896a8ee4a74684de75d638ce9c2a4e8a152ec2d",
+  "metadata_correction": "Requested sleep5ms in text-ui-check; inherited Metrics default25ms corrected; measured timestamps and samples unchanged."
+}

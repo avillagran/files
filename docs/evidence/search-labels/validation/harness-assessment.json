@@ -1,0 +1,10 @@
+{
+  "failed_receipt": "docs/evidence/duplicates/node-functional-1793526685989061509/receipt.json",
+  "observed": "Harness sent Unicode U+00FF (Python hex escape) as history query; panel correctly had no matching history selection. C was terminated by harness cleanup after assertion, not an app crash.",
+  "fix": "Build literal backslash via chr(92), assert exact query string before expecting history row. No Rust production change.",
+  "unchanged_binary": "ff8b0c38b940322382ac403e8063eec6f5cfc9aa52ada35a2ded56d13a9ccfe7",
+  "retries": [
+    "1793526790428126272 X11 PASS",
+    "1793526860637069317 Wayland PASS"
+  ]
+}

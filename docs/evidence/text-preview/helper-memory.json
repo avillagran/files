@@ -1,0 +1,72 @@
+{
+  "complete": true,
+  "sample_count": 20,
+  "sample_interval_requested_ms": 25.0,
+  "max_observed_interval_ms": 42.9902279865928,
+  "stable_sample_count": 20,
+  "sampled_maxima": {
+    "pss_kib": 1350,
+    "swap_pss_kib": 0,
+    "memory_kib": 1350,
+    "fds": 3,
+    "threads": 1,
+    "process_count": 1
+  },
+  "sample_at_memory_max": {
+    "pss_kib": 1350,
+    "swap_pss_kib": 0,
+    "threads": 1,
+    "fds": 3,
+    "memory_kib": 1350,
+    "time_monotonic": 457498.879947504,
+    "cpu_percent_observed": null,
+    "root_alive": true,
+    "process_count": 1,
+    "complete": true,
+    "errors": [],
+    "processes": [
+      {
+        "pid": 1446289,
+        "start": 45749887,
+        "pss_kib": 1350,
+        "swap_pss_kib": 0,
+        "threads": 1,
+        "fds": 3
+      }
+    ],
+    "exited_during_read": [],
+    "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+  },
+  "stable_medians": {
+    "pss_kib": 1078.0,
+    "swap_pss_kib": 0.0,
+    "memory_kib": 1078.0,
+    "fds": 3.0,
+    "threads": 1.0,
+    "process_count": 1.0
+  },
+  "stable_cpu_percent_observed_median": 0.0,
+  "stable_cpu_percent_observed_max": 23.26110018099616,
+  "observed_process_identities": [
+    [
+      1446289,
+      45749887
+    ]
+  ],
+  "exited_process_identities": [],
+  "exited_during_read": [],
+  "exited_during_read_count": 0,
+  "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+  "errors": [],
+  "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+  "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals",
+  "scenario": "debug text helper, sparse4GiB input,256KiB bounded preview,stdout backpressure500ms",
+  "scope": "helper only; not integrated UI budget, not latency; sampled peak lower bound",
+  "peak_mb_decimal": 1.3824,
+  "functional_result": "PASS",
+  "cleanup": {
+    "surviving_observed_processes": [],
+    "errors": [],
+    "complete": true
+  }
+}

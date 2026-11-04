@@ -1,0 +1,16 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Checking files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+error: the variable `lines` is used as a loop counter
+  --> crates/helper/src/archive_preview.rs:89:5
+   |
+89 |     for entry in &list.entries {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider using: `for (lines, entry) in (text.lines().count()..).zip(list.entries.iter())`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#explicit_counter_loop
+   = note: `-D clippy::explicit-counter-loop` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::explicit_counter_loop)]`
+
+error: could not compile `files-helper` (bin "files-helper") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `files-helper` (bin "files-helper" test) due to 1 previous error

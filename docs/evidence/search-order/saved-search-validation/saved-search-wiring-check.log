@@ -1,0 +1,41 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+warning: use of deprecated method `std::sync::atomic::Atomic::<u64>::fetch_update`: renamed to `try_update` for consistency
+  --> crates/ui/src/saved_search_ui.rs:16:10
+   |
+16 |     NEXT.fetch_update(Ordering::Relaxed, Ordering::Relaxed, |n| n.checked_add(1))
+   |          ^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+help: replace the use of the deprecated method
+   |
+16 -     NEXT.fetch_update(Ordering::Relaxed, Ordering::Relaxed, |n| n.checked_add(1))
+16 +     NEXT.try_update(Ordering::Relaxed, Ordering::Relaxed, |n| n.checked_add(1))
+   |
+
+error[E0004]: non-exhaustive patterns: `Action::SavedSearches(_)` and `Action::SavedSearchCommand(_, _)` not covered
+    --> crates/ui/src/model.rs:1962:15
+     |
+1962 |         match a {
+     |               ^ patterns `Action::SavedSearches(_)` and `Action::SavedSearchCommand(_, _)` not covered
+     |
+note: `Action` defined here
+    --> crates/ui/src/model.rs:26:10
+     |
+  26 | pub enum Action {
+     |          ^^^^^^
+...
+  89 |     SavedSearches(bool),
+     |     ------------- not covered
+  90 |     SavedSearchCommand(u64, crate::saved_search_ui::Command),
+     |     ------------------ not covered
+     = note: the matched value is of type `Action`
+help: ensure that all possible cases are being handled by adding a match arm with a wildcard pattern, a match arm with multiple or-patterns as shown, or multiple match arms
+     |
+2436 ~             Action::ViewMenu(w, h) => crate::context_menu::open_views(self, w, h),
+2437 ~             Action::SavedSearches(_) | Action::SavedSearchCommand(_, _) => todo!(),
+     |
+
+For more information about this error, try `rustc --explain E0004`.
+warning: `files-ui` (lib) generated 1 warning
+error: could not compile `files-ui` (lib) due to 1 previous error; 1 warning emitted

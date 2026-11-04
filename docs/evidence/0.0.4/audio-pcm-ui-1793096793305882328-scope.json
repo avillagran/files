@@ -1,0 +1,14 @@
+{
+  "scope": "actual PCM content at private Pulse monitor, standalone440 and video880 after opt-in, pause/default mute silence; source is sample-defined12s",
+  "not_proven": [
+    "physical speaker audibility",
+    "PCM sample-exact seek or clock",
+    "A/V sync",
+    "native OS input/clipboard",
+    "native2xsharpness",
+    "lifetime/resource coverage"
+  ],
+  "cleanup": "root0+StateACK,8loggedPID/startgone/reused no same-identity zombies, recorderreaped/moduleownednonceabsent/defaultunchanged",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

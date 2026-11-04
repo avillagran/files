@@ -1,0 +1,8 @@
+{
+  "original": "docs/evidence/sftp-native/sftp-loopback-1793457503490291773.json",
+  "functional_copy_gate": "PASS retained: content/inode-independent metadata checks/cancel/no-clobber/expected failures",
+  "visual_gate": "FAIL minimum warning text clipped horizontally in options view; original screenshots retained",
+  "fix": "Explicit bounded static warning lines; final release/capture still required; no broadening of functional acceptance",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

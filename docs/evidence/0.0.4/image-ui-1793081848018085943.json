@@ -1,0 +1,91 @@
+{
+  "method": "Space image UI handlers and FLTK framebuffer; no native OS input",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/image-alpha-1793081845442755970.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/image-zoom-1793081845538882310.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/image-oriented-1793081845663873047.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/image-corrupt-1793081845902237913.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/png9mp-rows-1793081846119760399.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/png12-row-preview-1793081846326597362.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/png24-row-preview-1793081846541880260.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/png24-oriented-row-preview-1793081846763134922.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/png-adam7-zoom-1793081846891799376.png"
+  ],
+  "clipboard": "not read in resource mode",
+  "resource_gate": "NOT_MEASURED",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0d8893f0"
+  },
+  "cleanup": {
+    "complete": true,
+    "survivors": [],
+    "logged_identities": [
+      [
+        2585808,
+        52461714
+      ],
+      [
+        2585906,
+        52461749
+      ],
+      [
+        2586185,
+        52461773
+      ],
+      [
+        2586229,
+        52461787
+      ],
+      [
+        2586232,
+        52461792
+      ],
+      [
+        2586250,
+        52461797
+      ],
+      [
+        2586337,
+        52461810
+      ],
+      [
+        2586443,
+        52461831
+      ],
+      [
+        2586497,
+        52461852
+      ],
+      [
+        2586526,
+        52461874
+      ],
+      [
+        2586570,
+        52461896
+      ],
+      [
+        2586602,
+        52461907
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start identities after exit0, no lifetime/resource sampling"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "fixtures": "RGBA PNG4/9/12/24MP by rows, lateEXIF24MP/Adam7, JPEG/WebP/corrupt, rapid/zoom/close",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=9\nFILES_PREVIEW_HELPER pid=2585808 start=52461714 command=preview_thumbnail\nFILES_FIRST_PAINT_US=125192\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_COMMAND_REV action=png revision=2\nFILES_PREVIEW_HELPER pid=2585906 start=52461749 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=1024 height=1024 source=2048x2048 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/alpha.png\") revision=2 stamp=Some(Revision { device: 63, inode: 281623098, bytes: 28338, modified_seconds: 1793081842, modified_nanoseconds: 445483298, changed_seconds: 1793081842, changed_nanoseconds: 445483298 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK image-zoom\nFILES_PREVIEW_COMMAND_REV action=image-zoom revision=2\nFILES_PREVIEW_IMAGE_READY width=1024 height=1024 source=2048x2048 format=png zoom=2 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/alpha.png\") revision=2 stamp=Some(Revision { device: 63, inode: 281623098, bytes: 28338, modified_seconds: 1793081842, modified_nanoseconds: 445483298, changed_seconds: 1793081842, changed_nanoseconds: 445483298 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK jpeg\nFILES_PREVIEW_COMMAND_REV action=jpeg revision=4\nFILES_PREVIEW_HELPER pid=2586185 start=52461773 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=480 source=480x320 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/oriented.jpg\") revision=4 stamp=Some(Revision { device: 63, inode: 281623334, bytes: 4025, modified_seconds: 1793081844, modified_nanoseconds: 848295768, changed_seconds: 1793081844, changed_nanoseconds: 848295768 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK webp\nFILES_PREVIEW_COMMAND_REV action=webp revision=6\nFILES_PREVIEW_HELPER pid=2586229 start=52461787 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=1 height=1 source=1x1 format=webp zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/tiny.webp\") revision=6 stamp=Some(Revision { device: 63, inode: 281623335, bytes: 36, modified_seconds: 1793081844, modified_nanoseconds: 868911273, changed_seconds: 1793081844, changed_nanoseconds: 868911273 })\nFILES_PREVIEW_COMMAND_OK image-rapid\nFILES_PREVIEW_COMMAND_REV action=image-rapid revision=12\nFILES_PREVIEW_HELPER pid=2586232 start=52461792 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=480 source=480x320 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/oriented.jpg\") revision=12 stamp=Some(Revision { device: 63, inode: 281623334, bytes: 4025, modified_seconds: 1793081844, modified_nanoseconds: 848295768, changed_seconds: 1793081844, changed_nanoseconds: 848295768 })\nFILES_PREVIEW_COMMAND_OK image-corrupt\nFILES_PREVIEW_COMMAND_REV action=image-corrupt revision=14\nFILES_PREVIEW_HELPER pid=2586250 start=52461797 command=preview_image_checked\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/broken.png\") message=Formato no admitido: PNG, JPEG o WebP est\u00e1tico\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK image-large\nFILES_PREVIEW_COMMAND_REV action=image-large revision=16\nFILES_PREVIEW_HELPER pid=2586337 start=52461810 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=1024 height=1024 source=3000x3000 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/large.png\") revision=16 stamp=Some(Revision { device: 63, inode: 281623115, bytes: 52756, modified_seconds: 1793081842, modified_nanoseconds: 572890206, changed_seconds: 1793081842, changed_nanoseconds: 572890206 })\nFILES_PNG_ROWS_PIXELS width=1024 height=1024 colors_at_least=4 actual_source_fd=true\nFILES_PREVIEW_COMMAND_OK png-source-assert\nFILES_PREVIEW_COMMAND_REV action=png-source-assert revision=16\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK png12\nFILES_PREVIEW_COMMAND_REV action=png12 revision=18\nFILES_PREVIEW_HELPER pid=2586443 start=52461831 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=1024 height=768 source=4000x3000 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/rows12.png\") revision=18 stamp=Some(Revision { device: 63, inode: 281623139, bytes: 58193, modified_seconds: 1793081842, modified_nanoseconds: 719819740, changed_seconds: 1793081842, changed_nanoseconds: 719819740 })\nFILES_PNG_ROWS_PIXELS width=1024 height=768 colors_at_least=4 actual_source_fd=true\nFILES_PREVIEW_COMMAND_OK png-source-assert\nFILES_PREVIEW_COMMAND_REV action=png-source-assert revision=18\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK png24\nFILES_PREVIEW_COMMAND_REV action=png24 revision=20\nFILES_PREVIEW_HELPER pid=2586497 start=52461852 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=1024 height=682 source=6000x4000 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/rows24.png\") revision=20 stamp=Some(Revision { device: 63, inode: 281623159, bytes: 116527, modified_seconds: 1793081842, modified_nanoseconds: 999708945, changed_seconds: 1793081842, changed_nanoseconds: 999708945 })\nFILES_PNG_ROWS_PIXELS width=1024 height=682 colors_at_least=4 actual_source_fd=true\nFILES_PREVIEW_COMMAND_OK png-source-assert\nFILES_PREVIEW_COMMAND_REV action=png-source-assert revision=20\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK png24-oriented\nFILES_PREVIEW_COMMAND_REV action=png24-oriented revision=22\nFILES_PREVIEW_HELPER pid=2586526 start=52461874 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=682 height=1024 source=6000x4000 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/rows24-oriented.png\") revision=22 stamp=Some(Revision { device: 63, inode: 281623161, bytes: 116565, modified_seconds: 1793081843, modified_nanoseconds: 1590324, changed_seconds: 1793081843, changed_nanoseconds: 1590324 })\nFILES_PNG_ROWS_PIXELS width=682 height=1024 colors_at_least=4 actual_source_fd=true\nFILES_PREVIEW_COMMAND_OK png-source-assert\nFILES_PREVIEW_COMMAND_REV action=png-source-assert revision=22\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK png-adam7\nFILES_PREVIEW_COMMAND_REV action=png-adam7 revision=24\nFILES_PREVIEW_HELPER pid=2586570 start=52461896 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=31 height=23 source=31x23 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/adam7.png\") revision=24 stamp=Some(Revision { device: 63, inode: 281623163, bytes: 546, modified_seconds: 1793081843, modified_nanoseconds: 2437993, changed_seconds: 1793081843, changed_nanoseconds: 2437993 })\nFILES_PREVIEW_COMMAND_OK image-zoom\nFILES_PREVIEW_COMMAND_REV action=image-zoom revision=24\nFILES_PREVIEW_IMAGE_READY width=31 height=23 source=31x23 format=png zoom=2 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/adam7.png\") revision=24 stamp=Some(Revision { device: 63, inode: 281623163, bytes: 546, modified_seconds: 1793081843, modified_nanoseconds: 2437993, changed_seconds: 1793081843, changed_nanoseconds: 2437993 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_COMMAND_REV action=png revision=26\nFILES_PREVIEW_HELPER pid=2586602 start=52461907 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=1024 height=1024 source=2048x2048 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-s4t7m983/files/alpha.png\") revision=26 stamp=Some(Revision { device: 63, inode: 281623098, bytes: 28338, modified_seconds: 1793081842, modified_nanoseconds: 445483298, changed_seconds: 1793081842, changed_nanoseconds: 445483298 })\nFILES_PREVIEW_COMMAND_OK close-image-pending\nFILES_PREVIEW_COMMAND_REV action=close-image-pending revision=27\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "3dc74314523f4862f919d9f66779855fde502fb0006b6ed5cb2886e9ef4628f0",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9"
+}

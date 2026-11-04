@@ -1,0 +1,86 @@
+{
+  "functional_gate": "PASS",
+  "method": "FLTK right press/hold/release phases, passive capture without flush; async thumbnail and periodic refresh; NOT OS input",
+  "captures": [
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-held-1793777714827341246.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-released-1793777714909708714.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-async-0-1793777715572512247.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-async-1-1793777716234873347.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-async-2-1793777716896676067.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-async-3-1793777717558538638.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-async-4-1793777718220487061.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-overlap-1793777718343222302.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-overlap-0-1793777719005483032.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-overlap-1-1793777719667393874.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-overlap-2-1793777720329472121.ppm",
+    "/home/node/Work/files/docs/evidence/popup-media-20261104/x11-overlap-3-1793777720991620781.ppm"
+  ],
+  "inspector_samples": [
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      122,
+      162,
+      247
+    ],
+    [
+      122,
+      162,
+      247
+    ],
+    [
+      122,
+      162,
+      247
+    ],
+    [
+      122,
+      162,
+      247
+    ],
+    [
+      122,
+      162,
+      247
+    ]
+  ],
+  "state": "menu=true generation=1 thumbnails={\"authorized\":true,\"busy\":false,\"cached\":1,\"demand\":1,\"errors\":0,\"notice\":null,\"painted\":1,\"ready\":[{\"format\":\"png\",\"height\":120,\"path\":\"\\\"/home/node/.cache/files-test/popup-media-tplft6rh/files/red.png\\\"\",\"pixel\":[210,30,70],\"revision\":{\"bytes\":27825,\"changed_nanoseconds\":694086676,\"changed_seconds\":1793777714,\"device\":2051,\"inode\":15865051,\"modified_nanoseconds\":694086676,\"modified_seconds\":1793777714},\"source_height\":2400,\"source_width\":3200,\"width\":160}],\"rgb_capacity\":57904,\"scratch_capacity\":47040}",
+  "log": "XOpenIM() failed\nFILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_FIRST_PAINT_US=31323\nFILES_UI_SMOKE_OK entries=1\nFILES_TOOLKIT_FIXTURE action=media-inspector\nFILES_TOOLKIT_FIXTURE action=right-hold\nFILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((76, 130, 323, 456))\nFILES_CAPTURE_OK id=1 redraw=false before=7 paint=7 width=1000 height=650\nFILES_TOOLKIT_FIXTURE action=right-release\nFILES_CAPTURE_OK id=2 redraw=false before=8 paint=8 width=1000 height=650\nFILES_CAPTURE_OK id=3 redraw=false before=8 paint=8 width=1000 height=650\nFILES_CAPTURE_OK id=4 redraw=false before=10 paint=10 width=1000 height=650\nFILES_CAPTURE_OK id=5 redraw=false before=13 paint=13 width=1000 height=650\nFILES_CAPTURE_OK id=6 redraw=false before=13 paint=13 width=1000 height=650\nFILES_CAPTURE_OK id=7 redraw=false before=15 paint=15 width=1000 height=650\nFILES_POPUP_MEDIA menu=true generation=1 thumbnails={\"authorized\":true,\"busy\":false,\"cached\":1,\"demand\":1,\"errors\":0,\"notice\":null,\"painted\":1,\"ready\":[{\"format\":\"png\",\"height\":120,\"path\":\"\\\"/home/node/.cache/files-test/popup-media-tplft6rh/files/red.png\\\"\",\"pixel\":[210,30,70],\"revision\":{\"bytes\":27825,\"changed_nanoseconds\":694086676,\"changed_seconds\":1793777714,\"device\":2051,\"inode\":15865051,\"modified_nanoseconds\":694086676,\"modified_seconds\":1793777714},\"source_height\":2400,\"source_width\":3200,\"width\":160}],\"rgb_capacity\":57904,\"scratch_capacity\":47040}\nFILES_TOOLKIT_FIXTURE action=media-state\nFILES_TOOLKIT_FIXTURE action=escape\nFILES_TOOLKIT_POPUP_DISMISS kind=Context reason=Escape valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=context\nFILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((675, 189, 323, 456))\nFILES_CAPTURE_OK id=8 redraw=false before=25 paint=25 width=1000 height=650\nFILES_CAPTURE_OK id=9 redraw=false before=26 paint=26 width=1000 height=650\nFILES_CAPTURE_OK id=10 redraw=false before=28 paint=28 width=1000 height=650\nFILES_CAPTURE_OK id=11 redraw=false before=31 paint=31 width=1000 height=650\nFILES_CAPTURE_OK id=12 redraw=false before=32 paint=32 width=1000 height=650\nFILES_TOOLKIT_FIXTURE action=escape\nFILES_TOOLKIT_POPUP_DISMISS kind=Context reason=Escape valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=close\nFILES_CLOSE_WAIT saves_ready=false mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_CLOSE_DRAINED\n",
+  "binary_path": "/home/node/Work/files/target/release/files",
+  "binary_sha256": "0f7bdae5db351dd6d8f519a7c1bbde7ec55acac4c802d95653a451c43675ae8e",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

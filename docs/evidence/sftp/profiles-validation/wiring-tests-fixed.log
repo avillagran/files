@@ -1,0 +1,14 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0424]: cannot find value `self` in this scope
+   --> crates/ui/src/sftp_ui.rs:493:36
+    |
+449 | pub fn event(m: &mut Model, e: Event) -> bool {
+    |        ----- this function can't have a `self` parameter
+...
+493 |                         f.touch(); self.hits.clear();
+    |                                    ^^^^ `self` value is a keyword only available in methods with a `self` parameter
+    |
+    = note: a module named `self` exists in another namespace
+
+For more information about this error, try `rustc --explain E0424`.
+error: could not compile `files-ui` (lib) due to 1 previous error

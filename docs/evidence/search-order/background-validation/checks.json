@@ -1,0 +1,16 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "owned filesystem fixtures and independent Files processes; painted handlers/private command pipes and real FLTK framebuffer; no native input",
+  "binary_sha256": "224d138405a32bac5246fdbe224dafe99fa4d96820f1f710ca0bbd3eafc54d85",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "background_scope": "provisional search+selection/order+source context retained, no extra helper at background admission; raw result440 through painted button and activation preserves exact selection; directory CtrlEnter activates empty target without launcher; repeated CtrlEnter capped8, failure keeps tabs/search/active; no preload/new worker/native input/resources",
+  "scene": "docs/evidence/search-order/search-background-ui-1793463564614078345.json",
+  "tests": "945Rust324core/85helper/536UI PASS;3 existing core ignored; workspaceClippy all-targets-Dwarnings/release/fmt PASS",
+  "native_input": "UNVALIDATED",
+  "global_gate": "PENDING; no resource/speed/clipboard proof",
+  "helper_cleanup": "3 logged PID/start search helpers absent/reused; Z rejected; not lifetime coverage",
+  "source_original_failure": "search-tab-feature-tests.log assertion empty History retained_bytes()==0, fixed plus missing history reserve included in source charge; original preserved"
+}

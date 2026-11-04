@@ -1,0 +1,20 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "owned filesystem fixtures and independent Files processes; painted handlers/private command pipes and real FLTK framebuffer; no native input",
+  "binary_sha256": "d484fc75ccdee27e08c8b1f4d1cd1d56db025514fe637c224dfbbec603fe7f9b",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "marks_scope": "painted checkbox marks held provisional path and survives final epoch; stale hit ignored, ShiftDown visual range3, atomic3backgroundtabs in visualorder, CtrlA42/rejected whole tabbatch, painted None button/explicit empty no focus fallback; bounds/raw/pruning unit proof",
+  "background_scope": "provisional search+selection/order+source context retained, no extra helper at background admission; raw result440 through painted button and activation preserves exact selection; directory CtrlEnter activates empty target without launcher; repeated CtrlEnter capped8, failure keeps tabs/search/active; no preload/new worker/native input/resources",
+  "scene": "docs/evidence/search-order/search-marks-ui-1793464566350502738.json",
+  "tests": "951Rust324core/85helper/542UI PASS;3 existing core ignored; full suite precedes only short acknowledgment/tooltip/help labels; finalClippy/release/fmt cover labels",
+  "native_input": "UNVALIDATED",
+  "global_gate": "PENDING; no resource/clipboard/speed proof",
+  "helper_cleanup": "3 logged PID/start search helpers absent/reused; Z rejected; not lifetime coverage",
+  "original_failures": [
+    "search-marks-wiring-tests.log E0502 private fixture closure; fixed scalar epoch capture",
+    "search-marks-clippy.log too_many_arguments; modifier tuple, no disabled lint"
+  ]
+}

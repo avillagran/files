@@ -1,0 +1,5 @@
+{
+  "functional_gate": "PASS scoped retained",
+  "visual_gate": "FAIL compact summary440",
+  "finding": "Compact notice subtracted280px for m.inspector even at440 where actual inspector is hidden. Notice showed Copia#3:0publicad and hid skipped total. Fix only subtracts space when inspector actually visible (same view condition), counts first/jobid last, short dialog policy hint. Original8 PNG/log/report preserved; final runtime scene must validate changed binary."
+}

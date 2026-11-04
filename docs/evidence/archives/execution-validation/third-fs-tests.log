@@ -1,0 +1,26 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.81s
+     Running unittests src/lib.rs (target/debug/deps/files_core-b77c5d036427fdd3)
+
+running 18 tests
+test archive_extract_fs::linux::tests::final_source_and_destination_parent_symlinks_are_rejected_including_trailing_slash ... ok
+test archive_extract_fs::linux::tests::occupied_symlink_and_directory_targets_reject_without_mutation ... ok
+test archive_extract_fs::linux::tests::changed_source_or_parent_between_review_and_apply_is_rejected_before_staging ... ok
+test archive_extract_fs::linux::tests::changed_destination_parent_during_stream_stops_and_retains_exact_stage ... ok
+test archive_extract_fs::linux::tests::owner_execute_is_retained_but_privileged_and_group_modes_are_not ... ok
+test archive_extract_fs::linux::tests::bad_crc_and_runtime_cancel_remove_only_own_unpublished_staging ... ok
+test archive_extract_fs::linux::tests::symlink_replacement_of_active_output_never_redirects_bytes_or_cleanup ... ok
+test archive_extract_fs::linux::tests::occupant_created_after_review_is_not_overwritten_and_staging_is_clean ... ok
+test archive_extract_fs::linux::tests::post_publish_sync_error_is_not_replayed_or_cleaned_and_sync_retry_is_only_sync ... ok
+test archive_extract_fs::linux::tests::prepare_does_not_create_output_and_success_publishes_crc_checked_tree ... ok
+test archive_extract_fs::linux::tests::partial_cleanup_ledger_survives_an_error_and_does_not_delete_new_occupant ... ok
+test archive_extract_fs::linux::tests::opaque_source_destination_and_output_names_remain_exact ... ok
+test archive_extract_fs::linux::tests::replacement_in_rename_gap_is_uncertain_without_relocating_foreign_as_rollback ... ok
+test archive_extract_fs::linux::tests::root_permission_change_prevents_publish_and_no_implicit_permission_repair ... ok
+test archive_extract_fs::linux::tests::sync_retry_refuses_replaced_published_name_without_touching_occupant ... ok
+test archive_extract_fs::linux::tests::unknown_foreign_entry_blocks_cleanup_and_retry_after_removal_is_explicit ... ok
+test archive_extract_fs::linux::tests::cancellation_before_apply_and_pause_then_cancel_do_not_create_staging ... ok
+test archive_extract_fs::linux::tests::source_replaced_during_stream_keeps_new_original_and_never_publishes ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 370 filtered out; finished in 0.03s
+

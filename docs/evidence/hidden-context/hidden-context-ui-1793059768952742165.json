@@ -1,0 +1,2810 @@
+{
+  "functional_gate": "PASS",
+  "method": "shared visible hit/context/selection handlers; shortcut action and callback injected internally; actual FLTK framebuffer; no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/hidden-context/space-v3-hidden-default-1793059767906356423.png",
+      "dimensions": [
+        1000,
+        560
+      ],
+      "theme": "current Omarchy",
+      "input": "internal handlers"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/hidden-context/space-bottom-marquee-1793059767993559922.png",
+      "dimensions": [
+        1000,
+        560
+      ],
+      "theme": "current Omarchy",
+      "input": "internal handlers"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/hidden-context/space-show-hidden-1793059768047337830.png",
+      "dimensions": [
+        1000,
+        560
+      ],
+      "theme": "current Omarchy",
+      "input": "internal handlers"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/hidden-context/preferences-hidden-global-1793059768132667194.png",
+      "dimensions": [
+        1000,
+        560
+      ],
+      "theme": "current Omarchy",
+      "input": "internal handlers"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/hidden-context/context-selected-batch-1793059768289995270.png",
+      "dimensions": [
+        1000,
+        560
+      ],
+      "theme": "current Omarchy",
+      "input": "internal handlers"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/hidden-context/context-rename-wired-1793059768407224719.png",
+      "dimensions": [
+        1000,
+        560
+      ],
+      "theme": "current Omarchy",
+      "input": "internal handlers"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/hidden-context/context-background-1793059768533605215.png",
+      "dimensions": [
+        1000,
+        560
+      ],
+      "theme": "current Omarchy",
+      "input": "internal handlers"
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/hidden-context/space-global-reopened-hidden-1793059768903850867.png",
+      "dimensions": [
+        1000,
+        560
+      ],
+      "theme": "current Omarchy",
+      "input": "internal handlers"
+    }
+  ],
+  "states": [
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 1034,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 0,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "groups",
+      "width": 950
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 1,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "groups",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 2,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 3,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "spatial",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "6172636869766f2e7a6970",
+        "726177ff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 237.71428571428572,
+            "x": 438.2857142857143,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 178.28571428571428,
+            "x": 260.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 165.4857142857143,
+            "name": "Documentos",
+            "w": 260.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 196.5142857142857,
+            "name": "video.mp4",
+            "w": 109.47368421052632,
+            "x": 0.0,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 71.45974025974024,
+            "name": "README.md",
+            "w": 150.5263157894737,
+            "x": 109.47368421052632,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 125.05454545454546,
+            "name": "música.flac",
+            "w": 86.01503759398497,
+            "x": 173.98496240601503,
+            "y": 236.94545454545457
+          },
+          {
+            "bytes": 524288,
+            "h": 83.36969696969697,
+            "name": "archivo.zip",
+            "w": 64.51127819548871,
+            "x": 109.47368421052632,
+            "y": 278.630303030303
+          },
+          {
+            "bytes": 262144,
+            "h": 41.68484848484849,
+            "name": "raw�",
+            "w": 64.51127819548871,
+            "x": 109.47368421052632,
+            "y": 236.94545454545457
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Documentos",
+        "seq": 4,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 676
+      },
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 4,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "6172636869766f2e7a6970",
+        "726177ff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 322.1098901098901,
+            "x": 593.8901098901099,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 241.5824175824176,
+            "x": 352.3076923076923,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 165.4857142857143,
+            "name": "Documentos",
+            "w": 352.3076923076923,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 196.5142857142857,
+            "name": "video.mp4",
+            "w": 148.34008097165992,
+            "x": 0.0,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 196.5142857142857,
+            "name": "README.md",
+            "w": 74.17004048582999,
+            "x": 148.34008097165992,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 112.2938775510204,
+            "name": "música.flac",
+            "w": 129.79757085020242,
+            "x": 222.5101214574899,
+            "y": 249.7061224489796
+          },
+          {
+            "bytes": 524288,
+            "h": 84.22040816326532,
+            "name": "archivo.zip",
+            "w": 86.53171390013495,
+            "x": 265.7759784075574,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 262144,
+            "h": 84.22040816326532,
+            "name": "raw�",
+            "w": 43.26585695006747,
+            "x": 222.5101214574899,
+            "y": 165.4857142857143
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Documentos",
+        "seq": 5,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 916
+      },
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 5,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "6172636869766f2e7a6970",
+        "726177ff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 322.1098901098901,
+            "x": 593.8901098901099,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 241.5824175824176,
+            "x": 352.3076923076923,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 165.4857142857143,
+            "name": "Documentos",
+            "w": 352.3076923076923,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 196.5142857142857,
+            "name": "video.mp4",
+            "w": 148.34008097165992,
+            "x": 0.0,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 196.5142857142857,
+            "name": "README.md",
+            "w": 74.17004048582999,
+            "x": 148.34008097165992,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 112.2938775510204,
+            "name": "música.flac",
+            "w": 129.79757085020242,
+            "x": 222.5101214574899,
+            "y": 249.7061224489796
+          },
+          {
+            "bytes": 524288,
+            "h": 84.22040816326532,
+            "name": "archivo.zip",
+            "w": 86.53171390013495,
+            "x": 265.7759784075574,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 262144,
+            "h": 84.22040816326532,
+            "name": "raw�",
+            "w": 43.26585695006747,
+            "x": 222.5101214574899,
+            "y": 165.4857142857143
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Documentos",
+        "seq": 5,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 916
+      },
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 5,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "6172636869766f2e7a6970",
+        "726177ff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 322.1098901098901,
+            "x": 593.8901098901099,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 241.5824175824176,
+            "x": 352.3076923076923,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 165.4857142857143,
+            "name": "Documentos",
+            "w": 352.3076923076923,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 196.5142857142857,
+            "name": "video.mp4",
+            "w": 148.34008097165992,
+            "x": 0.0,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 196.5142857142857,
+            "name": "README.md",
+            "w": 74.17004048582999,
+            "x": 148.34008097165992,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 112.2938775510204,
+            "name": "música.flac",
+            "w": 129.79757085020242,
+            "x": 222.5101214574899,
+            "y": 249.7061224489796
+          },
+          {
+            "bytes": 524288,
+            "h": 84.22040816326532,
+            "name": "archivo.zip",
+            "w": 86.53171390013495,
+            "x": 265.7759784075574,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 262144,
+            "h": 84.22040816326532,
+            "name": "raw�",
+            "w": 43.26585695006747,
+            "x": 222.5101214574899,
+            "y": 165.4857142857143
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Documentos",
+        "seq": 6,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 916
+      },
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 6,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 35,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "2e6361636865",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "2e7365637265746f",
+        "6172636869766f2e7a6970",
+        "726177ff",
+        "2eff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 281.8461538461538,
+            "x": 634.1538461538462,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 211.38461538461544,
+            "x": 422.7692307692308,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 241.33333333333337,
+            "name": "Documentos",
+            "w": 211.3846153846154,
+            "x": 0.0,
+            "y": 120.66666666666666
+          },
+          {
+            "bytes": 2097152,
+            "h": 120.66666666666666,
+            "name": ".cache",
+            "w": 211.3846153846154,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 181.0,
+            "name": "video.mp4",
+            "w": 140.92307692307696,
+            "x": 281.8461538461538,
+            "y": 0.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 181.0,
+            "name": "README.md",
+            "w": 70.46153846153842,
+            "x": 211.3846153846154,
+            "y": 0.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 181.0,
+            "name": "música.flac",
+            "w": 70.46153846153842,
+            "x": 211.3846153846154,
+            "y": 181.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 90.5,
+            "name": ".secreto",
+            "w": 140.92307692307696,
+            "x": 281.8461538461538,
+            "y": 181.0
+          },
+          {
+            "bytes": 524288,
+            "h": 90.5,
+            "name": "archivo.zip",
+            "w": 70.46153846153845,
+            "x": 281.8461538461538,
+            "y": 271.5
+          },
+          {
+            "bytes": 262144,
+            "h": 45.25,
+            "name": "raw�",
+            "w": 70.46153846153851,
+            "x": 352.30769230769226,
+            "y": 271.5
+          },
+          {
+            "bytes": 262144,
+            "h": 45.25,
+            "name": ".�",
+            "w": 70.46153846153851,
+            "x": 352.30769230769226,
+            "y": 316.75
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Documentos",
+        "seq": 7,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 916
+      },
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 7,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 35,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "2e6361636865",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "2e7365637265746f",
+        "6172636869766f2e7a6970",
+        "726177ff",
+        "2eff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 281.8461538461538,
+            "x": 634.1538461538462,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 211.38461538461544,
+            "x": 422.7692307692308,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 241.33333333333337,
+            "name": "Documentos",
+            "w": 211.3846153846154,
+            "x": 0.0,
+            "y": 120.66666666666666
+          },
+          {
+            "bytes": 2097152,
+            "h": 120.66666666666666,
+            "name": ".cache",
+            "w": 211.3846153846154,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 181.0,
+            "name": "video.mp4",
+            "w": 140.92307692307696,
+            "x": 281.8461538461538,
+            "y": 0.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 181.0,
+            "name": "README.md",
+            "w": 70.46153846153842,
+            "x": 211.3846153846154,
+            "y": 0.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 181.0,
+            "name": "música.flac",
+            "w": 70.46153846153842,
+            "x": 211.3846153846154,
+            "y": 181.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 90.5,
+            "name": ".secreto",
+            "w": 140.92307692307696,
+            "x": 281.8461538461538,
+            "y": 181.0
+          },
+          {
+            "bytes": 524288,
+            "h": 90.5,
+            "name": "archivo.zip",
+            "w": 70.46153846153845,
+            "x": 281.8461538461538,
+            "y": 271.5
+          },
+          {
+            "bytes": 262144,
+            "h": 45.25,
+            "name": "raw�",
+            "w": 70.46153846153851,
+            "x": 352.30769230769226,
+            "y": 271.5
+          },
+          {
+            "bytes": 262144,
+            "h": 45.25,
+            "name": ".�",
+            "w": 70.46153846153851,
+            "x": 352.30769230769226,
+            "y": 316.75
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Documentos",
+        "seq": 8,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 916
+      },
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": true,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 8,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 35,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "6172636869766f2e7a6970",
+        "726177ff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 322.1098901098901,
+            "x": 593.8901098901099,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 241.5824175824176,
+            "x": 352.3076923076923,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 165.4857142857143,
+            "name": "Documentos",
+            "w": 352.3076923076923,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 196.5142857142857,
+            "name": "video.mp4",
+            "w": 148.34008097165992,
+            "x": 0.0,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 196.5142857142857,
+            "name": "README.md",
+            "w": 74.17004048582999,
+            "x": 148.34008097165992,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 112.2938775510204,
+            "name": "música.flac",
+            "w": 129.79757085020242,
+            "x": 222.5101214574899,
+            "y": 249.7061224489796
+          },
+          {
+            "bytes": 524288,
+            "h": 84.22040816326532,
+            "name": "archivo.zip",
+            "w": 86.53171390013495,
+            "x": 265.7759784075574,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 262144,
+            "h": 84.22040816326532,
+            "name": "raw�",
+            "w": 43.26585695006747,
+            "x": 222.5101214574899,
+            "y": 165.4857142857143
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Documentos",
+        "seq": 9,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 916
+      },
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": true,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 9,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 35,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "6172636869766f2e7a6970",
+        "726177ff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 322.1098901098901,
+            "x": 593.8901098901099,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 241.5824175824176,
+            "x": 352.3076923076923,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 165.4857142857143,
+            "name": "Documentos",
+            "w": 352.3076923076923,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 196.5142857142857,
+            "name": "video.mp4",
+            "w": 148.34008097165992,
+            "x": 0.0,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 196.5142857142857,
+            "name": "README.md",
+            "w": 74.17004048582999,
+            "x": 148.34008097165992,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 112.2938775510204,
+            "name": "música.flac",
+            "w": 129.79757085020242,
+            "x": 222.5101214574899,
+            "y": 249.7061224489796
+          },
+          {
+            "bytes": 524288,
+            "h": 84.22040816326532,
+            "name": "archivo.zip",
+            "w": 86.53171390013495,
+            "x": 265.7759784075574,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 262144,
+            "h": 84.22040816326532,
+            "name": "raw�",
+            "w": 43.26585695006747,
+            "x": 222.5101214574899,
+            "y": 165.4857142857143
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Documentos",
+        "seq": 10,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 916
+      },
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 10,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 35,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "2e6361636865",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "2e7365637265746f",
+        "6172636869766f2e7a6970",
+        "726177ff",
+        "2eff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 281.8461538461538,
+            "x": 634.1538461538462,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 211.38461538461544,
+            "x": 422.7692307692308,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 241.33333333333337,
+            "name": "Documentos",
+            "w": 211.3846153846154,
+            "x": 0.0,
+            "y": 120.66666666666666
+          },
+          {
+            "bytes": 2097152,
+            "h": 120.66666666666666,
+            "name": ".cache",
+            "w": 211.3846153846154,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 181.0,
+            "name": "video.mp4",
+            "w": 140.92307692307696,
+            "x": 281.8461538461538,
+            "y": 0.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 181.0,
+            "name": "README.md",
+            "w": 70.46153846153842,
+            "x": 211.3846153846154,
+            "y": 0.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 181.0,
+            "name": "música.flac",
+            "w": 70.46153846153842,
+            "x": 211.3846153846154,
+            "y": 181.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 90.5,
+            "name": ".secreto",
+            "w": 140.92307692307696,
+            "x": 281.8461538461538,
+            "y": 181.0
+          },
+          {
+            "bytes": 524288,
+            "h": 90.5,
+            "name": "archivo.zip",
+            "w": 70.46153846153845,
+            "x": 281.8461538461538,
+            "y": 271.5
+          },
+          {
+            "bytes": 262144,
+            "h": 45.25,
+            "name": "raw�",
+            "w": 70.46153846153851,
+            "x": 352.30769230769226,
+            "y": 271.5
+          },
+          {
+            "bytes": 262144,
+            "h": 45.25,
+            "name": ".�",
+            "w": 70.46153846153851,
+            "x": 352.30769230769226,
+            "y": 316.75
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Documentos",
+        "seq": 11,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 916
+      },
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 11,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 35,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "446f63756d656e746f73",
+      "selection": [
+        "446f63756d656e746f73"
+      ],
+      "seq": 12,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 35,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "2e7365637265746f",
+      "selection": [
+        "2e7365637265746f"
+      ],
+      "seq": 13,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 35,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "41706c69636163696f6e6573",
+      "selection": [
+        "41706c69636163696f6e6573"
+      ],
+      "seq": 14,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 35,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "766964656f2e6d7034",
+      "selection": [
+        "766964656f2e6d7034",
+        "524541444d452e6d64"
+      ],
+      "seq": 15,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 35,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": {
+        "items": [
+          "  Abrir elemento enfocado",
+          "  Vista previa · Space",
+          "  Renombrar · F2",
+          "  Copiar selección · F5",
+          "  Papelera · Supr",
+          "  Propiedades · Alt+Enter"
+        ],
+        "rect": [
+          526,
+          339,
+          300,
+          212
+        ],
+        "target": "Entries"
+      },
+      "dialog": null,
+      "entry_hits": [],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "524541444d452e6d64",
+      "selection": [
+        "766964656f2e6d7034",
+        "524541444d452e6d64"
+      ],
+      "seq": 16,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "524541444d452e6d64",
+      "selection": [
+        "766964656f2e6d7034",
+        "524541444d452e6d64"
+      ],
+      "seq": 17,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "766964656f2e6d7034",
+      "selection": [
+        "766964656f2e6d7034",
+        "524541444d452e6d64"
+      ],
+      "seq": 18,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": {
+        "items": [
+          "  Abrir elemento enfocado",
+          "  Vista previa · Space",
+          "  Renombrar · F2",
+          "  Copiar selección · F5",
+          "  Papelera · Supr",
+          "  Propiedades · Alt+Enter"
+        ],
+        "rect": [
+          526,
+          263,
+          300,
+          212
+        ],
+        "target": "Entries"
+      },
+      "dialog": null,
+      "entry_hits": [],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "6dc3ba736963612e666c6163",
+      "selection": [
+        "6dc3ba736963612e666c6163"
+      ],
+      "seq": 19,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": "rename",
+      "entry_hits": [],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "6dc3ba736963612e666c6163",
+      "selection": [
+        "6dc3ba736963612e666c6163"
+      ],
+      "seq": 20,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "6dc3ba736963612e666c6163",
+      "selection": [
+        "6dc3ba736963612e666c6163"
+      ],
+      "seq": 21,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "766964656f2e6d7034",
+      "selection": [
+        "766964656f2e6d7034",
+        "524541444d452e6d64"
+      ],
+      "seq": 22,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": {
+        "items": [
+          "  Crear archivo · Ctrl+N",
+          "  Crear carpeta · F7",
+          "  Mostrar ocultos · Ctrl+H",
+          "  Actualizar · Ctrl+R"
+        ],
+        "rect": [
+          500,
+          400,
+          300,
+          152
+        ],
+        "target": "Background"
+      },
+      "dialog": null,
+      "entry_hits": [],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": null,
+      "selection": [],
+      "seq": 23,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": "file",
+      "entry_hits": [],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": null,
+      "selection": [],
+      "seq": 24,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": null,
+      "selection": [],
+      "seq": 25,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "766964656f2e6d7034",
+      "selection": [
+        "766964656f2e6d7034",
+        "524541444d452e6d64"
+      ],
+      "seq": 26,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": {
+        "items": [
+          "  Abrir elemento enfocado",
+          "  Vista previa · Space",
+          "  Renombrar · F2",
+          "  Copiar selección · F5",
+          "  Papelera · Supr",
+          "  Propiedades · Alt+Enter"
+        ],
+        "rect": [
+          526,
+          340,
+          300,
+          212
+        ],
+        "target": "Entries"
+      },
+      "dialog": null,
+      "entry_hits": [],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "766964656f2e6d7034",
+      "selection": [
+        "766964656f2e6d7034",
+        "524541444d452e6d64"
+      ],
+      "seq": 27,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "766964656f2e6d7034",
+      "selection": [
+        "766964656f2e6d7034",
+        "524541444d452e6d64"
+      ],
+      "seq": 28,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "766964656f2e6d7034",
+      "selection": [
+        "766964656f2e6d7034",
+        "524541444d452e6d64"
+      ],
+      "seq": 29,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [],
+      "error": "",
+      "height": 1034,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "41706c69636163696f6e6573",
+      "selection": [
+        "41706c69636163696f6e6573"
+      ],
+      "seq": 0,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "groups",
+      "width": 950
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "41706c69636163696f6e6573",
+      "selection": [
+        "41706c69636163696f6e6573"
+      ],
+      "seq": 1,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "groups",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "41706c69636163696f6e6573",
+      "selection": [
+        "41706c69636163696f6e6573"
+      ],
+      "seq": 2,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "list",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "error": "",
+      "height": 560,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "41706c69636163696f6e6573",
+      "selection": [
+        "41706c69636163696f6e6573"
+      ],
+      "seq": 3,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "spatial",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "2e6361636865",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "2e7365637265746f",
+        "6172636869766f2e7a6970",
+        "726177ff",
+        "2eff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 208.0,
+            "x": 468.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 156.0,
+            "x": 312.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 181.0,
+            "name": "Documentos",
+            "w": 208.0,
+            "x": 104.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 181.0,
+            "name": ".cache",
+            "w": 104.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 120.66666666666669,
+            "name": "video.mp4",
+            "w": 156.0,
+            "x": 0.0,
+            "y": 241.33333333333331
+          },
+          {
+            "bytes": 1048576,
+            "h": 60.333333333333314,
+            "name": "README.md",
+            "w": 156.0,
+            "x": 0.0,
+            "y": 181.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 60.333333333333314,
+            "name": "música.flac",
+            "w": 156.0,
+            "x": 156.0,
+            "y": 181.0
+          },
+          {
+            "bytes": 1048576,
+            "h": 120.66666666666669,
+            "name": ".secreto",
+            "w": 78.0,
+            "x": 156.0,
+            "y": 241.33333333333331
+          },
+          {
+            "bytes": 524288,
+            "h": 60.333333333333314,
+            "name": "archivo.zip",
+            "w": 78.0,
+            "x": 234.0,
+            "y": 241.33333333333331
+          },
+          {
+            "bytes": 262144,
+            "h": 60.33333333333337,
+            "name": "raw�",
+            "w": 39.0,
+            "x": 234.0,
+            "y": 301.66666666666663
+          },
+          {
+            "bytes": 262144,
+            "h": 60.33333333333337,
+            "name": ".�",
+            "w": 39.0,
+            "x": 273.0,
+            "y": 301.66666666666663
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Aplicaciones",
+        "seq": 4,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 676
+      },
+      "native_frame_label": "",
+      "order": [
+        "2e6361636865",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "2e7365637265746f",
+        "2eff",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "41706c69636163696f6e6573",
+      "selection": [
+        "41706c69636163696f6e6573"
+      ],
+      "seq": 4,
+      "show_hidden": true,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "6172636869766f2e7a6970",
+        "726177ff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 237.71428571428572,
+            "x": 438.2857142857143,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 178.28571428571428,
+            "x": 260.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 165.4857142857143,
+            "name": "Documentos",
+            "w": 260.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 196.5142857142857,
+            "name": "video.mp4",
+            "w": 109.47368421052632,
+            "x": 0.0,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 71.45974025974024,
+            "name": "README.md",
+            "w": 150.5263157894737,
+            "x": 109.47368421052632,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 125.05454545454546,
+            "name": "música.flac",
+            "w": 86.01503759398497,
+            "x": 173.98496240601503,
+            "y": 236.94545454545457
+          },
+          {
+            "bytes": 524288,
+            "h": 83.36969696969697,
+            "name": "archivo.zip",
+            "w": 64.51127819548871,
+            "x": 109.47368421052632,
+            "y": 278.630303030303
+          },
+          {
+            "bytes": 262144,
+            "h": 41.68484848484849,
+            "name": "raw�",
+            "w": 64.51127819548871,
+            "x": 109.47368421052632,
+            "y": 236.94545454545457
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Aplicaciones",
+        "seq": 5,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 676
+      },
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "41706c69636163696f6e6573",
+      "selection": [
+        "41706c69636163696f6e6573"
+      ],
+      "seq": 5,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "space_map",
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "entry_hits": [
+        "466f746f73",
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "766964656f2e6d7034",
+        "524541444d452e6d64",
+        "6dc3ba736963612e666c6163",
+        "6172636869766f2e7a6970",
+        "726177ff"
+      ],
+      "error": "",
+      "height": 560,
+      "map": {
+        "areas": [
+          {
+            "bytes": 8388608,
+            "h": 362.0,
+            "name": "Fotos",
+            "w": 322.1098901098901,
+            "x": 593.8901098901099,
+            "y": 0.0
+          },
+          {
+            "bytes": 6291456,
+            "h": 362.0,
+            "name": "Aplicaciones",
+            "w": 241.5824175824176,
+            "x": 352.3076923076923,
+            "y": 0.0
+          },
+          {
+            "bytes": 4194304,
+            "h": 165.4857142857143,
+            "name": "Documentos",
+            "w": 352.3076923076923,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "bytes": 2097152,
+            "h": 196.5142857142857,
+            "name": "video.mp4",
+            "w": 148.34008097165992,
+            "x": 0.0,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 196.5142857142857,
+            "name": "README.md",
+            "w": 74.17004048582999,
+            "x": 148.34008097165992,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 1048576,
+            "h": 112.2938775510204,
+            "name": "música.flac",
+            "w": 129.79757085020242,
+            "x": 222.5101214574899,
+            "y": 249.7061224489796
+          },
+          {
+            "bytes": 524288,
+            "h": 84.22040816326532,
+            "name": "archivo.zip",
+            "w": 86.53171390013495,
+            "x": 265.7759784075574,
+            "y": 165.4857142857143
+          },
+          {
+            "bytes": 262144,
+            "h": 84.22040816326532,
+            "name": "raw�",
+            "w": 43.26585695006747,
+            "x": 222.5101214574899,
+            "y": 165.4857142857143
+          }
+        ],
+        "complete": true,
+        "drained": true,
+        "error": null,
+        "generation": 1,
+        "height": 458,
+        "loaded": true,
+        "nodes": 11,
+        "observed": 27262976,
+        "path": "/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo",
+        "preview_drained": true,
+        "preview_visible": false,
+        "revision": 7,
+        "selected": "Aplicaciones",
+        "seq": 6,
+        "state": "ready",
+        "total": 27262976,
+        "view": "space_map",
+        "width": 916
+      },
+      "native_frame_label": "",
+      "order": [
+        "41706c69636163696f6e6573",
+        "446f63756d656e746f73",
+        "466f746f73",
+        "6172636869766f2e7a6970",
+        "6dc3ba736963612e666c6163",
+        "726177ff",
+        "524541444d452e6d64",
+        "766964656f2e6d7034"
+      ],
+      "preferences": false,
+      "selected": "41706c69636163696f6e6573",
+      "selection": [
+        "41706c69636163696f6e6573"
+      ],
+      "seq": 6,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "space_map",
+      "width": 1000
+    }
+  ],
+  "runs": [
+    {
+      "root_exit": 0,
+      "callback_drain": true,
+      "known_helper_identities": 1,
+      "known_helper_cleanup": true,
+      "persisted_show_hidden": true,
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=114026\nFILES_UI_SMOKE_OK entries=11\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":1034,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":0,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"groups\",\"width\":950}\nFILES_SPACE_COMMAND seq=1 action=groups\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":1,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"groups\",\"width\":1000}\nFILES_SPACE_COMMAND seq=2 action=list\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":2,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=3 action=spatial\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":3,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"spatial\",\"width\":1000}\nFILES_SPACE_COMMAND seq=4 action=map\nFILES_PREVIEW_HELPER pid=2703525 start=50253999 command=space_map\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"6172636869766f2e7a6970\",\"726177ff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":237.71428571428572,\"x\":438.2857142857143,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":178.28571428571428,\"x\":260.0,\"y\":0.0},{\"bytes\":4194304,\"h\":165.4857142857143,\"name\":\"Documentos\",\"w\":260.0,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":196.5142857142857,\"name\":\"video.mp4\",\"w\":109.47368421052632,\"x\":0.0,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":71.45974025974024,\"name\":\"README.md\",\"w\":150.5263157894737,\"x\":109.47368421052632,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":125.05454545454546,\"name\":\"música.flac\",\"w\":86.01503759398497,\"x\":173.98496240601503,\"y\":236.94545454545457},{\"bytes\":524288,\"h\":83.36969696969697,\"name\":\"archivo.zip\",\"w\":64.51127819548871,\"x\":109.47368421052632,\"y\":278.630303030303},{\"bytes\":262144,\"h\":41.68484848484849,\"name\":\"raw�\",\"w\":64.51127819548871,\"x\":109.47368421052632,\"y\":236.94545454545457}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":4,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":676},\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":4,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"space_map\",\"width\":1000}\nFILES_SPACE_COMMAND seq=5 action=inspector-close\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"6172636869766f2e7a6970\",\"726177ff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":322.1098901098901,\"x\":593.8901098901099,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":241.5824175824176,\"x\":352.3076923076923,\"y\":0.0},{\"bytes\":4194304,\"h\":165.4857142857143,\"name\":\"Documentos\",\"w\":352.3076923076923,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":196.5142857142857,\"name\":\"video.mp4\",\"w\":148.34008097165992,\"x\":0.0,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":196.5142857142857,\"name\":\"README.md\",\"w\":74.17004048582999,\"x\":148.34008097165992,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":112.2938775510204,\"name\":\"música.flac\",\"w\":129.79757085020242,\"x\":222.5101214574899,\"y\":249.7061224489796},{\"bytes\":524288,\"h\":84.22040816326532,\"name\":\"archivo.zip\",\"w\":86.53171390013495,\"x\":265.7759784075574,\"y\":165.4857142857143},{\"bytes\":262144,\"h\":84.22040816326532,\"name\":\"raw�\",\"w\":43.26585695006747,\"x\":222.5101214574899,\"y\":165.4857142857143}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":5,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":5,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"space_map\",\"width\":1000}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=6 action=tip-advance\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"6172636869766f2e7a6970\",\"726177ff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":322.1098901098901,\"x\":593.8901098901099,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":241.5824175824176,\"x\":352.3076923076923,\"y\":0.0},{\"bytes\":4194304,\"h\":165.4857142857143,\"name\":\"Documentos\",\"w\":352.3076923076923,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":196.5142857142857,\"name\":\"video.mp4\",\"w\":148.34008097165992,\"x\":0.0,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":196.5142857142857,\"name\":\"README.md\",\"w\":74.17004048582999,\"x\":148.34008097165992,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":112.2938775510204,\"name\":\"música.flac\",\"w\":129.79757085020242,\"x\":222.5101214574899,\"y\":249.7061224489796},{\"bytes\":524288,\"h\":84.22040816326532,\"name\":\"archivo.zip\",\"w\":86.53171390013495,\"x\":265.7759784075574,\"y\":165.4857142857143},{\"bytes\":262144,\"h\":84.22040816326532,\"name\":\"raw�\",\"w\":43.26585695006747,\"x\":222.5101214574899,\"y\":165.4857142857143}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":6,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":6,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"space_map\",\"width\":1000}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=7 action=toggle-hit\nFILES_HIDDEN_STATE {\"config_dirty\":true,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"2e6361636865\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"2e7365637265746f\",\"6172636869766f2e7a6970\",\"726177ff\",\"2eff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":281.8461538461538,\"x\":634.1538461538462,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":211.38461538461544,\"x\":422.7692307692308,\"y\":0.0},{\"bytes\":4194304,\"h\":241.33333333333337,\"name\":\"Documentos\",\"w\":211.3846153846154,\"x\":0.0,\"y\":120.66666666666666},{\"bytes\":2097152,\"h\":120.66666666666666,\"name\":\".cache\",\"w\":211.3846153846154,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":181.0,\"name\":\"video.mp4\",\"w\":140.92307692307696,\"x\":281.8461538461538,\"y\":0.0},{\"bytes\":1048576,\"h\":181.0,\"name\":\"README.md\",\"w\":70.46153846153842,\"x\":211.3846153846154,\"y\":0.0},{\"bytes\":1048576,\"h\":181.0,\"name\":\"música.flac\",\"w\":70.46153846153842,\"x\":211.3846153846154,\"y\":181.0},{\"bytes\":1048576,\"h\":90.5,\"name\":\".secreto\",\"w\":140.92307692307696,\"x\":281.8461538461538,\"y\":181.0},{\"bytes\":524288,\"h\":90.5,\"name\":\"archivo.zip\",\"w\":70.46153846153845,\"x\":281.8461538461538,\"y\":271.5},{\"bytes\":262144,\"h\":45.25,\"name\":\"raw�\",\"w\":70.46153846153851,\"x\":352.30769230769226,\"y\":271.5},{\"bytes\":262144,\"h\":45.25,\"name\":\".�\",\"w\":70.46153846153851,\"x\":352.30769230769226,\"y\":316.75}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":7,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":7,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"space_map\",\"width\":1000}\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"2e6361636865\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"2e7365637265746f\",\"6172636869766f2e7a6970\",\"726177ff\",\"2eff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":281.8461538461538,\"x\":634.1538461538462,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":211.38461538461544,\"x\":422.7692307692308,\"y\":0.0},{\"bytes\":4194304,\"h\":241.33333333333337,\"name\":\"Documentos\",\"w\":211.3846153846154,\"x\":0.0,\"y\":120.66666666666666},{\"bytes\":2097152,\"h\":120.66666666666666,\"name\":\".cache\",\"w\":211.3846153846154,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":181.0,\"name\":\"video.mp4\",\"w\":140.92307692307696,\"x\":281.8461538461538,\"y\":0.0},{\"bytes\":1048576,\"h\":181.0,\"name\":\"README.md\",\"w\":70.46153846153842,\"x\":211.3846153846154,\"y\":0.0},{\"bytes\":1048576,\"h\":181.0,\"name\":\"música.flac\",\"w\":70.46153846153842,\"x\":211.3846153846154,\"y\":181.0},{\"bytes\":1048576,\"h\":90.5,\"name\":\".secreto\",\"w\":140.92307692307696,\"x\":281.8461538461538,\"y\":181.0},{\"bytes\":524288,\"h\":90.5,\"name\":\"archivo.zip\",\"w\":70.46153846153845,\"x\":281.8461538461538,\"y\":271.5},{\"bytes\":262144,\"h\":45.25,\"name\":\"raw�\",\"w\":70.46153846153851,\"x\":352.30769230769226,\"y\":271.5},{\"bytes\":262144,\"h\":45.25,\"name\":\".�\",\"w\":70.46153846153851,\"x\":352.30769230769226,\"y\":316.75}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":7,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":7,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"space_map\",\"width\":1000}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=8 action=preferences\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"2e6361636865\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"2e7365637265746f\",\"6172636869766f2e7a6970\",\"726177ff\",\"2eff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":281.8461538461538,\"x\":634.1538461538462,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":211.38461538461544,\"x\":422.7692307692308,\"y\":0.0},{\"bytes\":4194304,\"h\":241.33333333333337,\"name\":\"Documentos\",\"w\":211.3846153846154,\"x\":0.0,\"y\":120.66666666666666},{\"bytes\":2097152,\"h\":120.66666666666666,\"name\":\".cache\",\"w\":211.3846153846154,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":181.0,\"name\":\"video.mp4\",\"w\":140.92307692307696,\"x\":281.8461538461538,\"y\":0.0},{\"bytes\":1048576,\"h\":181.0,\"name\":\"README.md\",\"w\":70.46153846153842,\"x\":211.3846153846154,\"y\":0.0},{\"bytes\":1048576,\"h\":181.0,\"name\":\"música.flac\",\"w\":70.46153846153842,\"x\":211.3846153846154,\"y\":181.0},{\"bytes\":1048576,\"h\":90.5,\"name\":\".secreto\",\"w\":140.92307692307696,\"x\":281.8461538461538,\"y\":181.0},{\"bytes\":524288,\"h\":90.5,\"name\":\"archivo.zip\",\"w\":70.46153846153845,\"x\":281.8461538461538,\"y\":271.5},{\"bytes\":262144,\"h\":45.25,\"name\":\"raw�\",\"w\":70.46153846153851,\"x\":352.30769230769226,\"y\":271.5},{\"bytes\":262144,\"h\":45.25,\"name\":\".�\",\"w\":70.46153846153851,\"x\":352.30769230769226,\"y\":316.75}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":8,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":true,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":8,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"space_map\",\"width\":1000}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=9 action=toggle-hit\nFILES_HIDDEN_STATE {\"config_dirty\":true,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"6172636869766f2e7a6970\",\"726177ff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":322.1098901098901,\"x\":593.8901098901099,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":241.5824175824176,\"x\":352.3076923076923,\"y\":0.0},{\"bytes\":4194304,\"h\":165.4857142857143,\"name\":\"Documentos\",\"w\":352.3076923076923,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":196.5142857142857,\"name\":\"video.mp4\",\"w\":148.34008097165992,\"x\":0.0,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":196.5142857142857,\"name\":\"README.md\",\"w\":74.17004048582999,\"x\":148.34008097165992,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":112.2938775510204,\"name\":\"música.flac\",\"w\":129.79757085020242,\"x\":222.5101214574899,\"y\":249.7061224489796},{\"bytes\":524288,\"h\":84.22040816326532,\"name\":\"archivo.zip\",\"w\":86.53171390013495,\"x\":265.7759784075574,\"y\":165.4857142857143},{\"bytes\":262144,\"h\":84.22040816326532,\"name\":\"raw�\",\"w\":43.26585695006747,\"x\":222.5101214574899,\"y\":165.4857142857143}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":9,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":true,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":9,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"space_map\",\"width\":1000}\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"6172636869766f2e7a6970\",\"726177ff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":322.1098901098901,\"x\":593.8901098901099,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":241.5824175824176,\"x\":352.3076923076923,\"y\":0.0},{\"bytes\":4194304,\"h\":165.4857142857143,\"name\":\"Documentos\",\"w\":352.3076923076923,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":196.5142857142857,\"name\":\"video.mp4\",\"w\":148.34008097165992,\"x\":0.0,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":196.5142857142857,\"name\":\"README.md\",\"w\":74.17004048582999,\"x\":148.34008097165992,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":112.2938775510204,\"name\":\"música.flac\",\"w\":129.79757085020242,\"x\":222.5101214574899,\"y\":249.7061224489796},{\"bytes\":524288,\"h\":84.22040816326532,\"name\":\"archivo.zip\",\"w\":86.53171390013495,\"x\":265.7759784075574,\"y\":165.4857142857143},{\"bytes\":262144,\"h\":84.22040816326532,\"name\":\"raw�\",\"w\":43.26585695006747,\"x\":222.5101214574899,\"y\":165.4857142857143}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":9,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":true,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":9,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"space_map\",\"width\":1000}\nFILES_SPACE_COMMAND seq=10 action=menus-close\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"6172636869766f2e7a6970\",\"726177ff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":322.1098901098901,\"x\":593.8901098901099,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":241.5824175824176,\"x\":352.3076923076923,\"y\":0.0},{\"bytes\":4194304,\"h\":165.4857142857143,\"name\":\"Documentos\",\"w\":352.3076923076923,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":196.5142857142857,\"name\":\"video.mp4\",\"w\":148.34008097165992,\"x\":0.0,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":196.5142857142857,\"name\":\"README.md\",\"w\":74.17004048582999,\"x\":148.34008097165992,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":112.2938775510204,\"name\":\"música.flac\",\"w\":129.79757085020242,\"x\":222.5101214574899,\"y\":249.7061224489796},{\"bytes\":524288,\"h\":84.22040816326532,\"name\":\"archivo.zip\",\"w\":86.53171390013495,\"x\":265.7759784075574,\"y\":165.4857142857143},{\"bytes\":262144,\"h\":84.22040816326532,\"name\":\"raw�\",\"w\":43.26585695006747,\"x\":222.5101214574899,\"y\":165.4857142857143}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":10,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":10,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"space_map\",\"width\":1000}\nFILES_SPACE_COMMAND seq=11 action=toggle-shortcut\nFILES_HIDDEN_STATE {\"config_dirty\":true,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"2e6361636865\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"2e7365637265746f\",\"6172636869766f2e7a6970\",\"726177ff\",\"2eff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":281.8461538461538,\"x\":634.1538461538462,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":211.38461538461544,\"x\":422.7692307692308,\"y\":0.0},{\"bytes\":4194304,\"h\":241.33333333333337,\"name\":\"Documentos\",\"w\":211.3846153846154,\"x\":0.0,\"y\":120.66666666666666},{\"bytes\":2097152,\"h\":120.66666666666666,\"name\":\".cache\",\"w\":211.3846153846154,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":181.0,\"name\":\"video.mp4\",\"w\":140.92307692307696,\"x\":281.8461538461538,\"y\":0.0},{\"bytes\":1048576,\"h\":181.0,\"name\":\"README.md\",\"w\":70.46153846153842,\"x\":211.3846153846154,\"y\":0.0},{\"bytes\":1048576,\"h\":181.0,\"name\":\"música.flac\",\"w\":70.46153846153842,\"x\":211.3846153846154,\"y\":181.0},{\"bytes\":1048576,\"h\":90.5,\"name\":\".secreto\",\"w\":140.92307692307696,\"x\":281.8461538461538,\"y\":181.0},{\"bytes\":524288,\"h\":90.5,\"name\":\"archivo.zip\",\"w\":70.46153846153845,\"x\":281.8461538461538,\"y\":271.5},{\"bytes\":262144,\"h\":45.25,\"name\":\"raw�\",\"w\":70.46153846153851,\"x\":352.30769230769226,\"y\":271.5},{\"bytes\":262144,\"h\":45.25,\"name\":\".�\",\"w\":70.46153846153851,\"x\":352.30769230769226,\"y\":316.75}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":11,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":11,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"space_map\",\"width\":1000}\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"2e6361636865\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"2e7365637265746f\",\"6172636869766f2e7a6970\",\"726177ff\",\"2eff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":281.8461538461538,\"x\":634.1538461538462,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":211.38461538461544,\"x\":422.7692307692308,\"y\":0.0},{\"bytes\":4194304,\"h\":241.33333333333337,\"name\":\"Documentos\",\"w\":211.3846153846154,\"x\":0.0,\"y\":120.66666666666666},{\"bytes\":2097152,\"h\":120.66666666666666,\"name\":\".cache\",\"w\":211.3846153846154,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":181.0,\"name\":\"video.mp4\",\"w\":140.92307692307696,\"x\":281.8461538461538,\"y\":0.0},{\"bytes\":1048576,\"h\":181.0,\"name\":\"README.md\",\"w\":70.46153846153842,\"x\":211.3846153846154,\"y\":0.0},{\"bytes\":1048576,\"h\":181.0,\"name\":\"música.flac\",\"w\":70.46153846153842,\"x\":211.3846153846154,\"y\":181.0},{\"bytes\":1048576,\"h\":90.5,\"name\":\".secreto\",\"w\":140.92307692307696,\"x\":281.8461538461538,\"y\":181.0},{\"bytes\":524288,\"h\":90.5,\"name\":\"archivo.zip\",\"w\":70.46153846153845,\"x\":281.8461538461538,\"y\":271.5},{\"bytes\":262144,\"h\":45.25,\"name\":\"raw�\",\"w\":70.46153846153851,\"x\":352.30769230769226,\"y\":271.5},{\"bytes\":262144,\"h\":45.25,\"name\":\".�\",\"w\":70.46153846153851,\"x\":352.30769230769226,\"y\":316.75}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":11,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":11,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"space_map\",\"width\":1000}\nFILES_SPACE_COMMAND seq=12 action=list\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"446f63756d656e746f73\",\"selection\":[\"446f63756d656e746f73\"],\"seq\":12,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=13 action=select-hidden\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"2e7365637265746f\",\"selection\":[\"2e7365637265746f\"],\"seq\":13,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=14 action=toggle-shortcut\nFILES_HIDDEN_STATE {\"config_dirty\":true,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":14,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"list\",\"width\":1000}\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":14,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=15 action=select-batch\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"766964656f2e6d7034\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":15,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":35,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=16 action=right-selected\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":{\"items\":[\"  Abrir elemento enfocado\",\"  Vista previa · Space\",\"  Renombrar · F2\",\"  Copiar selección · F5\",\"  Papelera · Supr\",\"  Propiedades · Alt+Enter\"],\"rect\":[526,339,300,212],\"target\":\"Entries\"},\"dialog\":null,\"entry_hits\":[],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"524541444d452e6d64\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":16,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=17 action=outside\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"524541444d452e6d64\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":17,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=18 action=select-batch\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"766964656f2e6d7034\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":18,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=19 action=right-outside\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":{\"items\":[\"  Abrir elemento enfocado\",\"  Vista previa · Space\",\"  Renombrar · F2\",\"  Copiar selección · F5\",\"  Papelera · Supr\",\"  Propiedades · Alt+Enter\"],\"rect\":[526,263,300,212],\"target\":\"Entries\"},\"dialog\":null,\"entry_hits\":[],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"6dc3ba736963612e666c6163\",\"selection\":[\"6dc3ba736963612e666c6163\"],\"seq\":19,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=20 action=menu-rename\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":\"rename\",\"entry_hits\":[],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"6dc3ba736963612e666c6163\",\"selection\":[\"6dc3ba736963612e666c6163\"],\"seq\":20,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=21 action=dialog-cancel\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"6dc3ba736963612e666c6163\",\"selection\":[\"6dc3ba736963612e666c6163\"],\"seq\":21,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=22 action=select-batch\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"766964656f2e6d7034\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":22,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=23 action=right-background\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":{\"items\":[\"  Crear archivo · Ctrl+N\",\"  Crear carpeta · F7\",\"  Mostrar ocultos · Ctrl+H\",\"  Actualizar · Ctrl+R\"],\"rect\":[500,400,300,152],\"target\":\"Background\"},\"dialog\":null,\"entry_hits\":[],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":null,\"selection\":[],\"seq\":23,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=24 action=menu-create\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":\"file\",\"entry_hits\":[],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":null,\"selection\":[],\"seq\":24,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=25 action=dialog-cancel\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":null,\"selection\":[],\"seq\":25,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=26 action=select-batch\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"766964656f2e6d7034\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":26,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=27 action=menu-key\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":{\"items\":[\"  Abrir elemento enfocado\",\"  Vista previa · Space\",\"  Renombrar · F2\",\"  Copiar selección · F5\",\"  Papelera · Supr\",\"  Propiedades · Alt+Enter\"],\"rect\":[526,340,300,212],\"target\":\"Entries\"},\"dialog\":null,\"entry_hits\":[],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"766964656f2e6d7034\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":27,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=28 action=escape\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"766964656f2e6d7034\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":28,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=29 action=toggle-shortcut\nFILES_HIDDEN_STATE {\"config_dirty\":true,\"context\":null,\"dialog\":null,\"entry_hits\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"766964656f2e6d7034\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":29,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"766964656f2e6d7034\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":29,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_SPACE_COMMAND seq=30 action=callback\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"766964656f2e6d7034\",\"selection\":[\"766964656f2e6d7034\",\"524541444d452e6d64\"],\"seq\":30,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_SPACE_DRAINED\nFILES_CLOSE_DRAINED\n"
+    },
+    {
+      "root_exit": 0,
+      "callback_drain": true,
+      "known_helper_identities": 1,
+      "known_helper_cleanup": true,
+      "persisted_show_hidden": false,
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=87362\nFILES_UI_SMOKE_OK entries=11\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[],\"error\":\"\",\"height\":1034,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":0,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"groups\",\"width\":950}\nFILES_SPACE_COMMAND seq=1 action=groups\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":1,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"groups\",\"width\":1000}\nFILES_SPACE_COMMAND seq=2 action=list\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":2,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"list\",\"width\":1000}\nFILES_SPACE_COMMAND seq=3 action=spatial\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"error\":\"\",\"height\":560,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":3,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"spatial\",\"width\":1000}\nFILES_SPACE_COMMAND seq=4 action=map\nFILES_PREVIEW_HELPER pid=2703860 start=50254098 command=space_map\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"2e6361636865\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"2e7365637265746f\",\"6172636869766f2e7a6970\",\"726177ff\",\"2eff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":208.0,\"x\":468.0,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":156.0,\"x\":312.0,\"y\":0.0},{\"bytes\":4194304,\"h\":181.0,\"name\":\"Documentos\",\"w\":208.0,\"x\":104.0,\"y\":0.0},{\"bytes\":2097152,\"h\":181.0,\"name\":\".cache\",\"w\":104.0,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":120.66666666666669,\"name\":\"video.mp4\",\"w\":156.0,\"x\":0.0,\"y\":241.33333333333331},{\"bytes\":1048576,\"h\":60.333333333333314,\"name\":\"README.md\",\"w\":156.0,\"x\":0.0,\"y\":181.0},{\"bytes\":1048576,\"h\":60.333333333333314,\"name\":\"música.flac\",\"w\":156.0,\"x\":156.0,\"y\":181.0},{\"bytes\":1048576,\"h\":120.66666666666669,\"name\":\".secreto\",\"w\":78.0,\"x\":156.0,\"y\":241.33333333333331},{\"bytes\":524288,\"h\":60.333333333333314,\"name\":\"archivo.zip\",\"w\":78.0,\"x\":234.0,\"y\":241.33333333333331},{\"bytes\":262144,\"h\":60.33333333333337,\"name\":\"raw�\",\"w\":39.0,\"x\":234.0,\"y\":301.66666666666663},{\"bytes\":262144,\"h\":60.33333333333337,\"name\":\".�\",\"w\":39.0,\"x\":273.0,\"y\":301.66666666666663}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Aplicaciones\",\"seq\":4,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":676},\"native_frame_label\":\"\",\"order\":[\"2e6361636865\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"2e7365637265746f\",\"2eff\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":4,\"show_hidden\":true,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"space_map\",\"width\":1000}\nFILES_SPACE_COMMAND seq=5 action=toggle-hit\nFILES_HIDDEN_STATE {\"config_dirty\":true,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"6172636869766f2e7a6970\",\"726177ff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":237.71428571428572,\"x\":438.2857142857143,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":178.28571428571428,\"x\":260.0,\"y\":0.0},{\"bytes\":4194304,\"h\":165.4857142857143,\"name\":\"Documentos\",\"w\":260.0,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":196.5142857142857,\"name\":\"video.mp4\",\"w\":109.47368421052632,\"x\":0.0,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":71.45974025974024,\"name\":\"README.md\",\"w\":150.5263157894737,\"x\":109.47368421052632,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":125.05454545454546,\"name\":\"música.flac\",\"w\":86.01503759398497,\"x\":173.98496240601503,\"y\":236.94545454545457},{\"bytes\":524288,\"h\":83.36969696969697,\"name\":\"archivo.zip\",\"w\":64.51127819548871,\"x\":109.47368421052632,\"y\":278.630303030303},{\"bytes\":262144,\"h\":41.68484848484849,\"name\":\"raw�\",\"w\":64.51127819548871,\"x\":109.47368421052632,\"y\":236.94545454545457}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Aplicaciones\",\"seq\":5,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":676},\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":5,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"space_map\",\"width\":1000}\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"6172636869766f2e7a6970\",\"726177ff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":237.71428571428572,\"x\":438.2857142857143,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":178.28571428571428,\"x\":260.0,\"y\":0.0},{\"bytes\":4194304,\"h\":165.4857142857143,\"name\":\"Documentos\",\"w\":260.0,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":196.5142857142857,\"name\":\"video.mp4\",\"w\":109.47368421052632,\"x\":0.0,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":71.45974025974024,\"name\":\"README.md\",\"w\":150.5263157894737,\"x\":109.47368421052632,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":125.05454545454546,\"name\":\"música.flac\",\"w\":86.01503759398497,\"x\":173.98496240601503,\"y\":236.94545454545457},{\"bytes\":524288,\"h\":83.36969696969697,\"name\":\"archivo.zip\",\"w\":64.51127819548871,\"x\":109.47368421052632,\"y\":278.630303030303},{\"bytes\":262144,\"h\":41.68484848484849,\"name\":\"raw�\",\"w\":64.51127819548871,\"x\":109.47368421052632,\"y\":236.94545454545457}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Aplicaciones\",\"seq\":5,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":676},\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":5,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"space_map\",\"width\":1000}\nFILES_SPACE_COMMAND seq=6 action=inspector-close\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"6172636869766f2e7a6970\",\"726177ff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":322.1098901098901,\"x\":593.8901098901099,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":241.5824175824176,\"x\":352.3076923076923,\"y\":0.0},{\"bytes\":4194304,\"h\":165.4857142857143,\"name\":\"Documentos\",\"w\":352.3076923076923,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":196.5142857142857,\"name\":\"video.mp4\",\"w\":148.34008097165992,\"x\":0.0,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":196.5142857142857,\"name\":\"README.md\",\"w\":74.17004048582999,\"x\":148.34008097165992,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":112.2938775510204,\"name\":\"música.flac\",\"w\":129.79757085020242,\"x\":222.5101214574899,\"y\":249.7061224489796},{\"bytes\":524288,\"h\":84.22040816326532,\"name\":\"archivo.zip\",\"w\":86.53171390013495,\"x\":265.7759784075574,\"y\":165.4857142857143},{\"bytes\":262144,\"h\":84.22040816326532,\"name\":\"raw�\",\"w\":43.26585695006747,\"x\":222.5101214574899,\"y\":165.4857142857143}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Aplicaciones\",\"seq\":6,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":6,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"space_map\",\"width\":1000}\nFILES_CAPTURE_OK\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_SPACE_COMMAND seq=7 action=callback\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"entry_hits\":[\"466f746f73\",\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"766964656f2e6d7034\",\"524541444d452e6d64\",\"6dc3ba736963612e666c6163\",\"6172636869766f2e7a6970\",\"726177ff\"],\"error\":\"\",\"height\":560,\"map\":{\"areas\":[{\"bytes\":8388608,\"h\":362.0,\"name\":\"Fotos\",\"w\":322.1098901098901,\"x\":593.8901098901099,\"y\":0.0},{\"bytes\":6291456,\"h\":362.0,\"name\":\"Aplicaciones\",\"w\":241.5824175824176,\"x\":352.3076923076923,\"y\":0.0},{\"bytes\":4194304,\"h\":165.4857142857143,\"name\":\"Documentos\",\"w\":352.3076923076923,\"x\":0.0,\"y\":0.0},{\"bytes\":2097152,\"h\":196.5142857142857,\"name\":\"video.mp4\",\"w\":148.34008097165992,\"x\":0.0,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":196.5142857142857,\"name\":\"README.md\",\"w\":74.17004048582999,\"x\":148.34008097165992,\"y\":165.4857142857143},{\"bytes\":1048576,\"h\":112.2938775510204,\"name\":\"música.flac\",\"w\":129.79757085020242,\"x\":222.5101214574899,\"y\":249.7061224489796},{\"bytes\":524288,\"h\":84.22040816326532,\"name\":\"archivo.zip\",\"w\":86.53171390013495,\"x\":265.7759784075574,\"y\":165.4857142857143},{\"bytes\":262144,\"h\":84.22040816326532,\"name\":\"raw�\",\"w\":43.26585695006747,\"x\":222.5101214574899,\"y\":165.4857142857143}],\"complete\":true,\"drained\":true,\"error\":null,\"generation\":1,\"height\":458,\"loaded\":true,\"nodes\":11,\"observed\":27262976,\"path\":\"/home/avillagran/.cache/files-test/hidden-context-704snnye/Archivo\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Aplicaciones\",\"seq\":7,\"state\":\"ready\",\"total\":27262976,\"view\":\"space_map\",\"width\":916},\"native_frame_label\":\"\",\"order\":[\"41706c69636163696f6e6573\",\"446f63756d656e746f73\",\"466f746f73\",\"6172636869766f2e7a6970\",\"6dc3ba736963612e666c6163\",\"726177ff\",\"524541444d452e6d64\",\"766964656f2e6d7034\"],\"preferences\":false,\"selected\":\"41706c69636163696f6e6573\",\"selection\":[\"41706c69636163696f6e6573\"],\"seq\":7,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"space_map\",\"width\":1000}\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_SPACE_DRAINED\nFILES_CLOSE_DRAINED\n"
+    }
+  ],
+  "comparison_dimensions_match_v3": true,
+  "marquee_clock_injection_changes_only_bottom_bar": true,
+  "global_preference_reopened": true,
+  "hidden_default_raw_all_views": true,
+  "selection_pruned_before_operations": true,
+  "context_batch_background_existing_action_wiring": true,
+  "frame_label_removed_at_source": true,
+  "treemap_visible_area_denominator_and_total_including_hidden": true,
+  "scope": "two owned instances, same global setting; internal handlers/framebuffer, no native right click/keyboard/minimize or resource validation",
+  "binary_sha256": "101ecb706ed100681e45b21078b160b2d5afba014025d19454dd1586a2298e55",
+  "helper_sha256": "4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0"
+}

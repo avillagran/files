@@ -1,0 +1,6 @@
+{
+  "original_gate": "FAIL",
+  "cause": "probe_relative_file and preview_relative_image_checked missing from startup CLI command allowlist, despite matching protocol/dispatcher; helper exits2 before request",
+  "status": "fixed in source, subsequent evidence required; original retained",
+  "resource_gate": "NOT_MEASURED"
+}

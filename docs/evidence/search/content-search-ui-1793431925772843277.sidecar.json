@@ -1,0 +1,7 @@
+{
+  "original_report": "content-search-ui-1793431925772843277.json",
+  "original_gate": "FAIL",
+  "finding": "Locate predicate accepted loaded model/path/selected before selected entry was in visible painted list; order had raw result, visible empty, searchclosed. No completed-paint evidence before assertion.",
+  "change": "Wait requires original full visible/searchclosed assertion as part of predicate, no assertion removed. Rerun needed to prove completion; no product navigation change or causal attribution to streaming.",
+  "followup": "1793432050269332012 reached painted visible raw Locate with full predicate; no product navigation change. Its separate cleanup marker failure is recorded in its own sidecar."
+}

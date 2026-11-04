@@ -1,0 +1,22 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.00s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 9 tests
+
+running 1 test
+test directory_sync_store::linux::tests::owned_namespace_intent_codec_pending_history_cannot_implicitly_retry ... ok
+test directory_sync_store::linux::tests::owned_namespace_retirement_preserves_directory_without_publishing_new_data ... ok
+test directory_sync_store::linux::tests::owned_namespace_add_publishes_only_after_durable_intent ... ok
+test directory_sync_store::linux::tests::owned_namespace_rejects_wrong_role_path_and_changed_scope_before_recording_intent ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::owned_namespace_cooperative_pause_cancel_and_resume_guard_actual_syscall ... ok
+test directory_sync_store::linux::tests::owned_namespace_race_collision_and_source_replacement_do_not_overwrite_or_retry ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::owned_namespace_process_exit_after_syscall_sync_and_confirmation_reopens_history ... ok
+test directory_sync_store::linux::tests::owned_namespace_preserve_publish_file_and_directory_are_durable_before_receipt ... ok
+test directory_sync_store::linux::tests::owned_namespace_faults_poison_owner_preserve_objects_and_never_advance_snapshots ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 0.59s

@@ -1,0 +1,50 @@
+   Compiling bitflags v2.13.2
+   Compiling serde v1.0.229
+   Compiling fltk-sys v1.5.23
+   Compiling crossbeam-utils v0.8.23
+   Compiling serde_spanned v0.6.9
+   Compiling toml_datetime v0.6.11
+   Compiling memchr v2.8.3
+   Compiling toml_edit v0.22.27
+   Compiling crossbeam-channel v0.5.17
+   Compiling inotify-sys v0.1.8
+   Compiling once_cell v1.21.4
+   Compiling log v0.4.34
+   Compiling same-file v1.0.6
+   Compiling ttf-parser v0.25.1
+   Compiling fltk v1.5.23
+   Compiling walkdir v2.5.0
+   Compiling serde_json v1.0.154
+   Compiling mio v1.2.4
+   Compiling inotify v0.11.5
+   Compiling toml v0.8.23
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+   Compiling notify-types v2.1.0
+   Compiling unicase v2.10.0
+   Compiling pulldown-cmark v0.13.5
+   Compiling notify v8.2.1
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+   Compiling lib-fltk-omarchy v0.0.9 (https://github.com/avillagran/lib-fltk-omarchy?tag=v0.0.9#c2ab990c)
+error[E0061]: this function takes 2 arguments but 3 arguments were supplied
+    --> crates/ui/src/navigation_tests.rs:2050:20
+     |
+2050 |         selection: crate::refresh_selection::Snapshot::capture(
+     |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+2053 |             crate::tabs::SELECTION_LIMIT,
+     |             ---------------------------- unexpected argument #3 of type `usize`
+     |
+note: associated function defined here
+    --> crates/ui/src/refresh_selection.rs:12:12
+     |
+  12 |     pub fn capture<'a>(
+     |            ^^^^^^^
+help: remove the extra argument
+     |
+2052 -             None,
+2053 -             crate::tabs::SELECTION_LIMIT,
+2052 +             None,
+     |
+
+For more information about this error, try `rustc --explain E0061`.
+error: could not compile `files-ui` (lib test) due to 1 previous error

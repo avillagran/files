@@ -1,0 +1,23 @@
+{
+  "source_base": "135ccdd",
+  "final_code_commit": "ff7af56",
+  "initial_snapshot_includes": "Tracked Cargo/crates/scripts/native/config plus producer-only worker snapshot",
+  "overlays": "vendor tar supplies exact NODE vendored dependencies; update tar supplies exact NODE themes plus final two-direction-wake worker",
+  "sha256": {
+    "source-for-m2.tar": "1ec13b504ccecefc20355c345c2a4277ada4504c505725d9f6a4252173adb76b",
+    "vendor-for-m2.tar": "b8c8d63d8ff715691eb73a30ab1d3b2b6abf8031063a2f7d2104140495229b1b",
+    "m2-build-update.tar": "d6603c05c0a800e8dfd3ba31375af1d9f5b74c4cd024f47f63df5bc6a8adc5b6"
+  },
+  "final_worker_sha256": "58e9fecedc9ce3b76eeedfb272933b30ac5ea48063898e027ddc07a4f4d9c68a",
+  "NODE_artifacts": {
+    "files": "19597bef2136e0b0bdae9b337c3435ee4dac7e01e80f008a14f4829043d12473",
+    "files-helper": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b"
+  },
+  "M2_artifacts": {
+    "files-helper": "a6d4af2753d1d7f019810f7de29cdc48708964bc04265b87abdf70212e29d4d9",
+    "files": "5b25c90df2e9bdb0351f01ab254157c0a86b16c2dd660eaaf18fa20a08fc7a2d",
+    "files-html-helper": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+    "files-html-helper.LICENSES": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+    "files-html-helper.build.json": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+  }
+}

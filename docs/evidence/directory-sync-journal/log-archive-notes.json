@@ -1,0 +1,38 @@
+[
+  {
+    "text": "initial-3-persistence-pass.log",
+    "raw_archive": "initial-3-persistence-pass.log.raw.gz",
+    "raw_sha256": "73d64a3dfeafc433803e42529691175bdd180dd20eedd357bbb6843b641a77de",
+    "normalization": "Only trailing whitespace and blank EOF lines removed"
+  },
+  {
+    "text": "state-codec-3-pass.log",
+    "raw_archive": "state-codec-3-pass.log.raw.gz",
+    "raw_sha256": "fe45482e710434bec87bcdbac68096054c6d381a1d7edc375c9d4697ef4c98e6",
+    "normalization": "Only trailing whitespace and blank EOF lines removed"
+  },
+  {
+    "text": "focused-22-pass.log",
+    "raw_archive": "focused-22-pass.log.raw.gz",
+    "raw_sha256": "b77ae6f5298adf1c8bb01dd053b4ecfa0edb6b72ae81c249f2bbdd3cfa12d85b",
+    "normalization": "Only trailing whitespace and blank EOF lines removed"
+  },
+  {
+    "text": "pre-readback-audit-1501-workspace-pass.log",
+    "raw_archive": "pre-readback-audit-1501-workspace-pass.log.raw.gz",
+    "raw_sha256": "036db56554f559ba20f879a69c558d555eb6a28781cf58ce2e9d86a9ad8fa53c",
+    "normalization": "Only trailing whitespace and blank EOF lines removed"
+  },
+  {
+    "text": "pre-test-style-1502-workspace-pass.log",
+    "raw_archive": "pre-test-style-1502-workspace-pass.log.raw.gz",
+    "raw_sha256": "e7f0b348cc77d90ff72112e33ee7909d72846386d886651331f855df9a6033b3",
+    "normalization": "Only trailing whitespace and blank EOF lines removed"
+  },
+  {
+    "text": "accepted-state-3-pass.log",
+    "raw_archive": "accepted-state-3-pass.log.raw.gz",
+    "raw_sha256": "b30e8845de2a1de1f213a1303da3e25d2cb0e70a401064aaa745357bd22dd477",
+    "normalization": "Only trailing whitespace and blank EOF lines removed"
+  }
+]

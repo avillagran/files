@@ -1,0 +1,29 @@
+{
+  "tests": {
+    "core": 258,
+    "helper": 82,
+    "ui": 497,
+    "ignored": 3
+  },
+  "checks": "workspace tests/Clippy all-targets -Dwarnings/release/fmt PASS",
+  "final_report": "search-batches-ui-1793432390766040716.json",
+  "content_regression": "../search/content-search-ui-1793432406201870889.json",
+  "inspected_pngs": {
+    "primary": 7,
+    "regression": 4
+  },
+  "fixture_hold": "real scanner/helper, max5s only3isolated flags+owned gate; no natural latency/kernelD proof",
+  "preserved_failures": [
+    "helper directSerde compile; fixed core serializer",
+    "1793431925772843277 fixture accepted before visible paint",
+    "1793432050269332012 legacy-only helper matcher",
+    "foreign Cargo guard75 no competing process touched"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "no_claims": [
+    "native input/clipboard",
+    "full lifetime",
+    "global goal or ideal RAM PASS"
+  ]
+}

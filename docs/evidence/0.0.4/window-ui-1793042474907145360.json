@@ -1,0 +1,214 @@
+{
+  "method": "internal file/menu handlers + actual FLTK framebuffer; compositor modes observed read-only with hyprctl; no native OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_move_resize_gate": "PENDING_OS_INPUT",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/window-normal-default-1793042473829802629.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/window-preferences-1793042473963081012.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/window-actions-1793042474075297111.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/window-fullscreen-preferences-1793042474241645244.png",
+      "framebuffer_dimensions": [
+        1728,
+        1117
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/window-normal-restored-1793042474691886649.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "initial_mode": "normal",
+      "initial_marker": "FILES_WINDOW_READY seq=0 mode=normal preferences=false actions=false border=true fullscreen=false maximized=false width=1000 height=650 config_error=None",
+      "initial_compositor": {
+        "address": "0xaaab0bcb76f0",
+        "mapped": true,
+        "hidden": false,
+        "visible": false,
+        "acceptsInput": true,
+        "at": [
+          4519,
+          48
+        ],
+        "size": [
+          845,
+          1061
+        ],
+        "workspace": {
+          "id": 2,
+          "name": "2"
+        },
+        "floating": false,
+        "monitor": 0,
+        "class": "files",
+        "title": "files",
+        "initialClass": "files",
+        "initialTitle": "files",
+        "pid": 85190,
+        "xwayland": false,
+        "pinned": false,
+        "pinFullscreened": false,
+        "fullscreen": 0,
+        "fullscreenClient": 0,
+        "fullscreenHandler": "default",
+        "allowedOverFullscreen": true,
+        "grouped": [],
+        "tags": [
+          "default-opacity*"
+        ],
+        "swallowing": "0x0",
+        "focusHistoryID": 0,
+        "inhibitingIdle": false,
+        "xdgTag": "",
+        "xdgDescription": "",
+        "contentType": "none",
+        "tearingHint": false,
+        "stableId": "18000ab7"
+      },
+      "exit": 0,
+      "drained": true,
+      "persisted_mode": "fullscreen",
+      "unknown_fields_preserved": true,
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=3\nFILES_WINDOW_READY seq=0 mode=normal preferences=false actions=false border=true fullscreen=false maximized=false width=1000 height=650 config_error=None\nFILES_FIRST_PAINT_US=202856\nFILES_CAPTURE_OK\nFILES_WINDOW_COMMAND seq=1 action=preferences\nFILES_WINDOW_READY seq=1 mode=normal preferences=true actions=false border=true fullscreen=false maximized=true width=845 height=1061 config_error=None\nFILES_CAPTURE_OK\nFILES_WINDOW_COMMAND seq=2 action=actions\nFILES_WINDOW_READY seq=2 mode=normal preferences=false actions=true border=true fullscreen=false maximized=true width=845 height=1061 config_error=None\nFILES_CAPTURE_OK\nFILES_WINDOW_COMMAND seq=3 action=preferences\nFILES_WINDOW_READY seq=3 mode=normal preferences=true actions=false border=true fullscreen=false maximized=true width=845 height=1061 config_error=None\nFILES_WINDOW_COMMAND seq=4 action=fullscreen\nFILES_WINDOW_READY seq=4 mode=fullscreen preferences=true actions=false border=true fullscreen=true maximized=true width=845 height=1061 config_error=None\nFILES_CAPTURE_OK\nFILES_WINDOW_COMMAND seq=5 action=close\nFILES_WINDOW_DRAINED\n"
+    },
+    {
+      "initial_mode": "fullscreen",
+      "initial_marker": "FILES_WINDOW_READY seq=0 mode=fullscreen preferences=false actions=false border=true fullscreen=true maximized=true width=1728 height=1117 config_error=None",
+      "initial_compositor": {
+        "address": "0xaaab0bcb76f0",
+        "mapped": true,
+        "hidden": false,
+        "visible": true,
+        "acceptsInput": true,
+        "at": [
+          3648,
+          4
+        ],
+        "size": [
+          1728,
+          1117
+        ],
+        "workspace": {
+          "id": 2,
+          "name": "2"
+        },
+        "floating": false,
+        "monitor": 0,
+        "class": "files",
+        "title": "files",
+        "initialClass": "files",
+        "initialTitle": "files",
+        "pid": 85341,
+        "xwayland": false,
+        "pinned": false,
+        "pinFullscreened": false,
+        "fullscreen": 2,
+        "fullscreenClient": 2,
+        "fullscreenHandler": "default",
+        "allowedOverFullscreen": true,
+        "grouped": [],
+        "tags": [
+          "default-opacity*"
+        ],
+        "swallowing": "0x0",
+        "focusHistoryID": 0,
+        "inhibitingIdle": false,
+        "xdgTag": "",
+        "xdgDescription": "",
+        "contentType": "none",
+        "tearingHint": false,
+        "stableId": "18000ab8"
+      },
+      "exit": 0,
+      "drained": true,
+      "persisted_mode": "normal",
+      "unknown_fields_preserved": true,
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=124741\nFILES_UI_SMOKE_OK entries=3\nFILES_WINDOW_READY seq=0 mode=fullscreen preferences=false actions=false border=true fullscreen=true maximized=true width=1728 height=1117 config_error=None\nFILES_WINDOW_COMMAND seq=1 action=preferences\nFILES_WINDOW_READY seq=1 mode=fullscreen preferences=true actions=false border=true fullscreen=true maximized=true width=1728 height=1117 config_error=None\nFILES_WINDOW_COMMAND seq=2 action=normal\nFILES_WINDOW_READY seq=2 mode=normal preferences=true actions=false border=true fullscreen=false maximized=true width=1728 height=1117 config_error=None\nFILES_WINDOW_COMMAND seq=3 action=menus-close\nFILES_WINDOW_READY seq=3 mode=normal preferences=false actions=false border=true fullscreen=false maximized=true width=845 height=1061 config_error=None\nFILES_CAPTURE_OK\nFILES_WINDOW_COMMAND seq=4 action=close\nFILES_WINDOW_DRAINED\n"
+    },
+    {
+      "initial_mode": "normal",
+      "initial_marker": "FILES_WINDOW_READY seq=0 mode=normal preferences=false actions=false border=true fullscreen=false maximized=false width=854 height=1065 config_error=None",
+      "initial_compositor": {
+        "address": "0xaaab0bcb76f0",
+        "mapped": true,
+        "hidden": false,
+        "visible": true,
+        "acceptsInput": true,
+        "at": [
+          4519,
+          48
+        ],
+        "size": [
+          845,
+          1061
+        ],
+        "workspace": {
+          "id": 2,
+          "name": "2"
+        },
+        "floating": false,
+        "monitor": 0,
+        "class": "files",
+        "title": "files",
+        "initialClass": "files",
+        "initialTitle": "files",
+        "pid": 85364,
+        "xwayland": false,
+        "pinned": false,
+        "pinFullscreened": false,
+        "fullscreen": 0,
+        "fullscreenClient": 0,
+        "fullscreenHandler": "default",
+        "allowedOverFullscreen": true,
+        "grouped": [],
+        "tags": [
+          "default-opacity*"
+        ],
+        "swallowing": "0x0",
+        "focusHistoryID": 0,
+        "inhibitingIdle": false,
+        "xdgTag": "",
+        "xdgDescription": "",
+        "contentType": "none",
+        "tearingHint": false,
+        "stableId": "18000ab9"
+      },
+      "exit": 0,
+      "drained": true,
+      "persisted_mode": "normal",
+      "unknown_fields_preserved": true,
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=84761\nFILES_UI_SMOKE_OK entries=3\nFILES_WINDOW_READY seq=0 mode=normal preferences=false actions=false border=true fullscreen=false maximized=false width=854 height=1065 config_error=None\nFILES_WINDOW_COMMAND seq=1 action=close\nFILES_WINDOW_DRAINED\n"
+    }
+  ],
+  "known_pending": [
+    "real serial-driven move/resize and grab/grabbing cursor visual proof",
+    "screen reader tree and non-Linux validation",
+    "resource/startup phase frozen"
+  ],
+  "functional_gate": "PASS",
+  "binary_sha256": "bc0e3d2bee14ea6715b04c3d3b6d0e15e42fa1acd9b31ccda117f4b7ea8764b3"
+}

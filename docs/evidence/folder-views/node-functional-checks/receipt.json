@@ -1,0 +1,15 @@
+{
+  "tests": {
+    "core": 410,
+    "helper": 94,
+    "ui": 669,
+    "passed": 1173,
+    "ignored": 3
+  },
+  "clippy": "workspace alltargets -Dwarnings PASS",
+  "release": "workspace native NODE x86_64 PASS",
+  "fmt": "PASS",
+  "scope": "scene observability plus search-first palette regression; full goal active",
+  "app_sha256": "02e0d79995d8ec9af304307615b4e15423f930a2fa19af58b306468a1e3a6e12",
+  "installation": "PENDING native HTML adapter staging set"
+}

@@ -1,0 +1,53 @@
+   Compiling jpeg-decoder v0.3.2 (/home/avillagran/Work/files/vendor/jpeg-decoder)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.46s
+     Running unittests src/lib.rs (target/debug/deps/jpeg_decoder-3252926e13755ae0)
+
+running 9 tests
+test decoder::files_bounded_tests::immediate_policy_overrides_large_frame_and_output_limit_follows_scale ... ok
+test decoder::files_bounded_tests::coefficient_budget_checked_sum_and_exact_boundary ... ok
+test idct::test_choose_idct_size ... ok
+test decoder::files_bounded_tests::output_zero_budget_fails_before_any_worker_plane_allocation ... ok
+test decoder::files_bounded_tests::progressive_zero_budget_fails_before_any_coefficient_allocation ... ok
+test idct::test_dequantize_and_idct_block_8x8 ... ok
+test idct::test_dequantize_and_idct_block_8x8_all_zero ... ok
+test idct::test_dequantize_and_idct_block_8x8_saturated ... ok
+test parser::test_update_component_sizes ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests jpeg_decoder
+
+running 2 tests
+test vendor/jpeg-decoder/src/lib.rs - (line 18) ... FAILED
+test vendor/jpeg-decoder/src/lib.rs - (line 5) ... FAILED
+
+failures:
+
+---- vendor/jpeg-decoder/src/lib.rs - (line 18) stdout ----
+Test executable failed (exit status: 101).
+
+stderr:
+
+thread 'main' (1553844) panicked at vendor/jpeg-decoder/src/lib.rs:9:67:
+failed to open file: Os { code: 2, kind: NotFound, message: "No such file or directory" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+---- vendor/jpeg-decoder/src/lib.rs - (line 5) stdout ----
+Test executable failed (exit status: 101).
+
+stderr:
+
+thread 'main' (1553843) panicked at vendor/jpeg-decoder/src/lib.rs:9:67:
+failed to open file: Os { code: 2, kind: NotFound, message: "No such file or directory" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+
+failures:
+    vendor/jpeg-decoder/src/lib.rs - (line 18)
+    vendor/jpeg-decoder/src/lib.rs - (line 5)
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.50s
+
+error: doctest failed, to rerun pass `-p jpeg-decoder --doc`

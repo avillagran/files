@@ -1,0 +1,16 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0063]: missing fields `archive` and `extracting` in initializer of `copy_dialog::Dialog`
+   --> crates/ui/src/clipboard_ui.rs:157:24
+    |
+157 |         let mut form = crate::copy_dialog::Dialog {
+    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^ missing `archive` and `extracting`
+
+error[E0063]: missing fields `archive` and `extracting` in initializer of `copy_dialog::Dialog`
+   --> crates/ui/src/search_transfer.rs:378:24
+    |
+378 |         let mut form = Dialog {
+    |                        ^^^^^^ missing `archive` and `extracting`
+
+For more information about this error, try `rustc --explain E0063`.
+error: could not compile `files-ui` (lib) due to 2 previous errors

@@ -1,0 +1,10 @@
+[
+  {
+    "log": "/var/tmp/files-catalogue-release-red.log",
+    "raw_failure": "failures:\n\n---- folder_views::fork_tests::creator_unlocks_even_while_forked_child_retains_descriptor stdout ----\n\nthread 'folder_views::fork_tests::creator_unlocks_even_while_forked_child_retains_descriptor' (3775526) panicked at crates/core/src/folder_views.rs:690:9:\nassertion failed: correct\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n---- bookmarks::fork_tests::creator_unlocks_even_while_forked_child_retains_descriptor stdout ----\n\nthread 'bookmarks::fork_tests::creator_unlocks_even_while_forked_child_retains_descriptor' (3775524) panicked at crates/core/src/bookmarks.rs:599:9:\nassertion failed: correct\n\n\nfailures:\n    bookmarks::fork_tests::creator_unlocks_even_while_forked_child_retains_descriptor\n    folder_views::fork_tests::creator_unlocks_even_while_forked_child_retains_descriptor\n\ntest result: FAILED. 6 passed; 2 failed; 0 ignored; 0 measured; 442 filtered out; finished in 0.00s\n\nerror: test failed, to rerun pass `-p files-core --lib`\n"
+  },
+  {
+    "log": "/var/tmp/files-session-release-red.log",
+    "raw_failure": "failures:\n\n---- session_store::fork_tests::creator_unlocks_even_while_forked_child_retains_descriptor stdout ----\n\nthread 'session_store::fork_tests::creator_unlocks_even_while_forked_child_retains_descriptor' (3777097) panicked at crates/ui/src/session_store.rs:399:9:\nassertion failed: correct\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    session_store::fork_tests::creator_unlocks_even_while_forked_child_retains_descriptor\n\ntest result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 736 filtered out; finished in 0.00s\n\nerror: test failed, to rerun pass `-p files-ui --lib`\n"
+  }
+]

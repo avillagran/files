@@ -1,0 +1,5 @@
+{
+  "classification": "functional PASS with visual defects",
+  "finding": "Creation/CRC/links/raw/cancel/source-change checks passed. Own review at440px still called destination a folder and clipped the metadata policy.",
+  "change": "Creation-specific ZIP-file label, three short policy lines, bounded captured-name preview and Spanish cancellation; rerun scene required with new binary. Original report and seven captures preserved."
+}

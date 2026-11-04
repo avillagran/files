@@ -167,7 +167,8 @@ impl AppWindow {
         });
         let m3 = mode.clone();
         win.draw(move |w| {
-            theme::with(|t| paint::fill(0, 0, w.w(), w.h(), 0, t.palette.background));
+            // The window background is Omarchy's glass under Glassy windows.
+            theme::with(|t| crate::glass::fill(0, 0, w.w(), w.h(), 0, t.palette.background));
             draw_stack(w);
             if m3.get() == Mode::Floating {
                 theme::with(|t| {
@@ -395,8 +396,9 @@ impl Header {
         inner.end();
         inner.draw(move |f| {
             theme::with(|t| {
-                paint::fill(f.x(), f.y(), f.w(), f.h(), 0, t.palette.background);
-                paint::hairline(f.x(), f.y() + f.h() - 1, f.w(), t.palette.foreground, t.palette.background, 0.12);
+                crate::glass::fill(f.x(), f.y(), f.w(), f.h(), 0, t.palette.background);
+                let line = t.palette.foreground.over(t.palette.background, 0.12);
+                crate::glass::fill(f.x(), f.y() + f.h() - 1, f.w(), 1, 0, line);
             });
             f.draw_children();
         });

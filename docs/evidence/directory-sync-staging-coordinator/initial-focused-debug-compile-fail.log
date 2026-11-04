@@ -1,0 +1,33 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+error[E0277]: `StagedBatch` doesn't implement `Debug`
+    --> crates/core/src/directory_sync_store.rs:2218:99
+     |
+2218 |                 let err=j.stage_batch(&physical,&prepared,&[&path],limit,&AtomicBool::new(false)).unwrap_err();
+     |                                                                                                   ^^^^^^^^^^ unsatisfied trait bound
+     |
+help: the trait `Debug` is not implemented for `StagedBatch`
+    --> crates/core/src/directory_sync_store/linux/journal/batch.rs:59:1
+     |
+  59 | pub struct StagedBatch { inventories: Vec<Inventory>, locations: Vec<WorkspaceLocation>, sources: [NamespaceSnapshot; 2], report: ...
+     | ^^^^^^^^^^^^^^^^^^^^^^
+     = note: add `#[derive(Debug)]` to `StagedBatch` or manually `impl Debug for StagedBatch`
+note: required by a bound in `Result::<T, E>::unwrap_err`
+    --> /rustc/58cf8f9c35b355199727627d07ae34a4e2846d67/library/core/src/result.rs:1323:4
+
+error[E0277]: `StagedBatch` doesn't implement `Debug`
+    --> crates/core/src/directory_sync_store.rs:2230:20
+     |
+2230 |                 }).unwrap_err();
+     |                    ^^^^^^^^^^ unsatisfied trait bound
+     |
+help: the trait `Debug` is not implemented for `StagedBatch`
+    --> crates/core/src/directory_sync_store/linux/journal/batch.rs:59:1
+     |
+  59 | pub struct StagedBatch { inventories: Vec<Inventory>, locations: Vec<WorkspaceLocation>, sources: [NamespaceSnapshot; 2], report: ...
+     | ^^^^^^^^^^^^^^^^^^^^^^
+     = note: add `#[derive(Debug)]` to `StagedBatch` or manually `impl Debug for StagedBatch`
+note: required by a bound in `Result::<T, E>::unwrap_err`
+    --> /rustc/58cf8f9c35b355199727627d07ae34a4e2846d67/library/core/src/result.rs:1323:4
+
+For more information about this error, try `rustc --explain E0277`.
+error: could not compile `files-core` (lib test) due to 2 previous errors

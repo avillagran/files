@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-10-31T09:20:56.988289+00:00",
+  "host": "omarchy",
+  "tools": {
+    "sshfs": null,
+    "ssh": "/usr/bin/ssh",
+    "sftp": "/usr/bin/sftp",
+    "fusermount3": "/usr/bin/fusermount3",
+    "sshd": "/usr/bin/sshd"
+  },
+  "dev_fuse_exists": true,
+  "dev_fuse_access_rw": true,
+  "scope": "read-only executable lookup and permission check only; no executable run, network, device open, FUSE mount, keys/config/package changes; no resource/startup measurement"
+}

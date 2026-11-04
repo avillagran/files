@@ -1,0 +1,9 @@
+{
+  "report": "audio-ui-failure-1793085547229903243.json",
+  "functional_gate": "FAIL",
+  "scope": "scene stopped at compositor geometry before playback; hyprctl clients exit4 with stale inherited HYPRLAND_INSTANCE_SIGNATURE, app had first paint/smoke",
+  "correction": "fixture environment binds unique hyprctl instances wl_socket matching WAYLAND_DISPLAY; no global config/focus/input changes",
+  "binary_sha256": "401cdf6128aa34b515003a5eea05368b626cb13b62f05a87ea7e8426ef2a6474",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "resource_gate": "NOT_MEASURED"
+}

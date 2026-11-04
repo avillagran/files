@@ -1,0 +1,14 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.50s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 7 tests
+test exdev_source::linux::sync_apply::tests::stage_metadata_name_substitution_does_not_modify_replacement ... ok
+test exdev_source::linux::sync_apply::tests::stage_metadata_reproduces_access_default_acl_and_final_modes ... ok
+test exdev_source::linux::sync_apply::tests::stage_metadata_symlink_times_do_not_follow_or_modify_target ... ok
+test exdev_source::linux::sync_apply::tests::stage_metadata_reproduces_raw_attributes_and_removes_inherited_extras ... ok
+test exdev_source::linux::sync_apply::tests::stage_metadata_rejects_stale_or_wrong_kind_or_symlink_xattrs_before_mutation ... ok
+test exdev_source::linux::sync_apply::tests::stage_metadata_failure_boundaries_preserve_partial_object_and_original_snapshot ... ok
+test directory_sync_store::linux::tests::stage_metadata_order_has_unique_cohort_leaders_and_directory_postorder ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 635 filtered out; finished in 0.02s

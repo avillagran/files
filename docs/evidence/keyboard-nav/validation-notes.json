@@ -1,0 +1,26 @@
+{
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "original_failure": {
+    "log": "target/keyboard-nav-invalidation-tests.log",
+    "test": "space_map_job::tests::linux::response_overflow_and_timeout_are_reaped_before_return",
+    "error": "PID marker read: NotFound (ENOENT), 404 UI passed / 1 failed",
+    "interpretation": "Missing helper-written marker does not establish whether the known spawned process was reaped; no host contention/startup cause claimed."
+  },
+  "fixture_correction": {
+    "scope": "cfg(test) only; parent records Child.id at successful spawn, resets observation before each attempt; direct /proc/PID/stat absence required, zombies and inaccessible metrics rejected",
+    "timeout_ms": 200,
+    "suite_serialized": false,
+    "note": "Existing local PROCESS_TEST mutex retained; no workspace test-thread reduction. Product timeout/reap behavior unchanged."
+  },
+  "deterministic_regression": "Python sleeps before writing marker; timeout must be TimedOut, marker absent, Rust-observed PID gone.",
+  "other_validation": "100k List/Groups viewport hit/text command bounds are structural functional evidence, not resource or frame-time measurements. Empty frame after navigation clears five derived section boundaries.",
+  "scope": "Native OS input, physical keyboard, lifetime coverage, kernel D/offline cancellation, global budget/startup and whole ROADMAP remain unverified.",
+  "second_preserved_failure": {
+    "log": "target/keyboard-nav-accepted-tests.log",
+    "test": "native_transfer_io::tests::kde_active_cancel_after_uri_eof_closes_both_readers",
+    "error": "Reader returned Interrupted; subsequent writer write_all(1 byte) returned Ok instead of BrokenPipe",
+    "cause": "Not established; no actual inheriting process was identified in this run."
+  },
+  "second_fixture_correction": "Test now compares both owned pipe identities against parent-process reader FDs after the joined cancellation, including possible parent duplicates; unreadable identity/access checks fail, closed/reused FD races are distinguished. Writer writability includes readers outside this process and is not a precise assertion of the two owned reader lifetimes. No production KDE I/O changes, deadline changes, or suite serialization."
+}

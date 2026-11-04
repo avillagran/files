@@ -1,0 +1,22 @@
+{
+  "archive_sha256": "82cfdc8347ebb61fbf308e29ebcb6ea5f82e894dd6a013c928deacc0446a471e",
+  "adapter_sha256": "ef33ec869dfee81c2211be7f30a78525df78acac4dcc82bae54de982a3c94e52",
+  "patch_sha256": "48fb04110df6590b55983495b8b657fe850557a10b335bea34361c7ca5bbecb6",
+  "binary_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+  "source_directory": "/home/avillagran/.cache/files-test/html-engine/patched-6fd7aaa63833c913cf1a0336e46fb2e027e4c656-71c6dfbbba1fc689-1793035093919726687",
+  "commands": [
+    [
+      "cmake",
+      "--build",
+      "/home/avillagran/.cache/files-test/html-engine/build-6fd7aaa63833c913cf1a0336e46fb2e027e4c656",
+      "--target",
+      "html-engine-probe",
+      "--parallel",
+      "1"
+    ]
+  ],
+  "build_log": "/home/avillagran/.cache/files-test/html-engine/build-6fd7aaa63833c913cf1a0336e46fb2e027e4c656/adapter-rebuild.log",
+  "prior_failed_build_log": "/home/avillagran/.cache/files-test/html-engine/build-6fd7aaa63833c913cf1a0336e46fb2e027e4c656/build.log",
+  "execution": "NOT_RUN",
+  "scope": "Incremental adapter compile/link; engine/Gumbo from prior configured pinned/patched build."
+}

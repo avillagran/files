@@ -1,0 +1,15 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0609]: no field `state` on type `&copy_job::Worker`
+   --> crates/ui/src/copy_job.rs:390:28
+    |
+390 |         let s = lock(&self.state);
+    |                            ^^^^^ unknown field
+    |
+help: one of the expressions' fields has a field of the same name
+    |
+390 |         let s = lock(&self.shared.state);
+    |                            +++++++
+
+For more information about this error, try `rustc --explain E0609`.
+error: could not compile `files-ui` (lib) due to 1 previous error

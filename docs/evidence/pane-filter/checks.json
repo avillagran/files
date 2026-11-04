@@ -1,0 +1,16 @@
+{
+  "workspace": "PASS1140Rust398core/91helper/651UI,3existingignored",
+  "clippy": "PASS workspace all-targets -D warnings",
+  "fmt": "PASS",
+  "red": "red-exact.log1testFAILED explicit zero selection lost; first0test command not evidence",
+  "preserved_failures": [
+    "diagnostic-view-debug-compile-fail.log",
+    "workspace-layout-cancel-fail.log",
+    "../folder-sizes/pane-filter-ui-1793503706798415071.json"
+  ],
+  "resource_gate": "NOT_MEASURED freeze",
+  "startup_gate": "NOT_MEASURED freeze",
+  "native_input": "UNVALIDATED",
+  "release": "PASS workspace",
+  "functional_report": "pane-filter-ui-1793504132191949858.json scopedPASS8FB/oneDU/root0ACK"
+}

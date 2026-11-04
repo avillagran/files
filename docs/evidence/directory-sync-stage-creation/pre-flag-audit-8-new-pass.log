@@ -1,0 +1,25 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 19.20s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 9 tests
+test exdev_move::linux::tests::partial_stage_creation_retains_provenance_and_uncreated_is_foreign ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::stage_creation_codec_rejects_cuts_and_materialization_before_identity ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::stage_creation_named_postimage_and_late_file_replacement_have_explicit_limits ... ok
+test directory_sync_store::linux::tests::stage_creation_materializes_empty_and_multichunk_files_with_durable_guard ... ok
+test directory_sync_store::linux::tests::stage_creation_collision_source_tamper_and_known_budget_fail_without_overwrite ... ok
+
+running 1 test
+test directory_sync_store::linux::tests::stage_creation_cross_workspace_file_and_symlink_cohorts_link_held_descriptors ... ok
+test directory_sync_store::linux::tests::stage_creation_control_pause_resume_cancel_and_source_change_after_intent ... ok
+test directory_sync_store::linux::tests::stage_creation_process_exit_before_identity_after_identity_and_ready_reopens_history ... ok
+test directory_sync_store::linux::tests::stage_creation_fault_boundaries_retain_objects_and_pending_history_without_retry ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 643 filtered out; finished in 0.39s

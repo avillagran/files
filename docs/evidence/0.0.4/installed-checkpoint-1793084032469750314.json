@@ -1,0 +1,40 @@
+{
+  "checkpoint": "1c0692003ceed7dbaad027bfc8faf7560a35f704",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-ui-1793083931390323451.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793084032347206608",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "f5a65ecc1b5c65bbddb125303fb80fcfed51fb8ec0fd2bdcb1c3072928d01cd8",
+      "release_sha256": "ca8e41fd10be814e113ea4d885ef3b1281988e4c70d5cd75ac5a80577af93c5f",
+      "installed_sha256": "ca8e41fd10be814e113ea4d885ef3b1281988e4c70d5cd75ac5a80577af93c5f"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+      "release_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+      "installed_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "release_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "installed_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "release_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "installed_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

@@ -1,0 +1,184 @@
+{
+  "source_lifecycle": true,
+  "notify_callbacks_suppressed": true,
+  "checks": [
+    "actual inherited FD proof/text after same-size+mtime replacement, inplace restore mtime, delete/recreate, file rename and parent replacement; stale display list removed",
+    "hidden HTML starts no helper during reconcile interval"
+  ],
+  "method": "internal handlers, native litehtml document layout and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-rendered-css-1793093472379475921.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-visible-selection-1793093472609779853.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-css-resize-1793093472744360693.png",
+      "framebuffer_dimensions": [
+        800,
+        500
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-blocked-resources-1793093472900946734.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-scroll-final-1793093473066454364.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-source-original-1793093473284946608.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-source-replaced-1793093475281539764.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-source-modified-1793093476304315493.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-source-deleted-1793093477278095880.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/html-parent-recovered-1793093482284612219.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "real font metrics/shaping",
+    "local HTML resources and links",
+    "safe DOM allocator/depth budget",
+    "cross-platform adapter",
+    "resource budget",
+    "selection preservation across reflow"
+  ],
+  "compositor_binding": {
+    "selected": {
+      "instance": "unknown_1793084545_122682092",
+      "time": 1793084545,
+      "pid": 3154625,
+      "wl_socket": "wayland-1"
+    },
+    "scope": "fixture-only, no focus/input/global configuration"
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab34801c90"
+  },
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        216435,
+        53624440
+      ],
+      [
+        216578,
+        53624482
+      ],
+      [
+        216590,
+        53624493
+      ],
+      [
+        216594,
+        53624497
+      ],
+      [
+        216648,
+        53624509
+      ],
+      [
+        216671,
+        53624528
+      ],
+      [
+        216684,
+        53624535
+      ],
+      [
+        216728,
+        53624635
+      ],
+      [
+        216812,
+        53624735
+      ],
+      [
+        216893,
+        53624835
+      ],
+      [
+        217283,
+        53625035
+      ],
+      [
+        217393,
+        53625235
+      ],
+      [
+        217556,
+        53625435
+      ],
+      [
+        217724,
+        53625572
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start after root exit0, not lifetime or resource sampling"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=120351\nFILES_UI_SMOKE_OK entries=6\nFILES_PREVIEW_COMMAND_OK html\nFILES_PREVIEW_COMMAND_REV action=html revision=3\nFILES_PREVIEW_HELPER pid=216435 start=53624440 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/layout.html\") revision=3 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 63, inode: 282128025, bytes: 1105, modified_seconds: 1793093472, modified_nanoseconds: 31346570, changed_seconds: 1793093472, changed_nanoseconds: 31346570 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_CAPTURE_OK\nFILES_HTML_SELECTION_OK utf8=true clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK html-select\nFILES_PREVIEW_COMMAND_REV action=html-select revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=216578 start=53624482 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/layout.html\") revision=4 width=732 height=310 bytes=247 commands=89 document_height=311 top=0 source=Revision { device: 63, inode: 282128025, bytes: 1105, modified_seconds: 1793093472, modified_nanoseconds: 31346570, changed_seconds: 1793093472, changed_nanoseconds: 31346570 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=216590 start=53624493 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/layout.html\") revision=5 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 63, inode: 282128025, bytes: 1105, modified_seconds: 1793093472, modified_nanoseconds: 31346570, changed_seconds: 1793093472, changed_nanoseconds: 31346570 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK html-blocked\nFILES_PREVIEW_COMMAND_REV action=html-blocked revision=7\nFILES_PREVIEW_HELPER pid=216594 start=53624497 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/blocked.html\") revision=7 width=932 height=460 bytes=129 commands=44 document_height=160.02 top=0 source=Revision { device: 63, inode: 282128026, bytes: 774, modified_seconds: 1793093472, modified_nanoseconds: 31346570, changed_seconds: 1793093472, changed_nanoseconds: 31346570 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 44 comandos \u00b7 129 B texto \u00b7 3 hojas CSS externas bloqueadas \u00b7 2 im\u00e1genes bloqueadas \u00b7 1 <base> ignorados\nFILES_HTML_BLOCKED_OK css=3 images=2 script_visible=false\nFILES_PREVIEW_COMMAND_OK html-assert-blocked\nFILES_PREVIEW_COMMAND_REV action=html-assert-blocked revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK html-long\nFILES_PREVIEW_COMMAND_REV action=html-long revision=9\nFILES_PREVIEW_HELPER pid=216648 start=53624509 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/long.html\") revision=9 width=932 height=460 bytes=2184 commands=772 document_height=1521.52 top=0 source=Revision { device: 63, inode: 282128027, bytes: 2536, modified_seconds: 1793093472, modified_nanoseconds: 31430654, changed_seconds: 1793093472, changed_nanoseconds: 31430654 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 772 comandos \u00b7 2184 B texto\nFILES_PREVIEW_COMMAND_OK html-scroll\nFILES_PREVIEW_COMMAND_REV action=html-scroll revision=9\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/long.html\") revision=9 width=932 height=460 bytes=2184 commands=772 document_height=1521.52 top=1062 source=Revision { device: 63, inode: 282128027, bytes: 2536, modified_seconds: 1793093472, modified_nanoseconds: 31430654, changed_seconds: 1793093472, changed_nanoseconds: 31430654 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 772 comandos \u00b7 2184 B texto\nFILES_HTML_FINAL_VISIBLE top=1062\nFILES_PREVIEW_COMMAND_OK html-assert-end\nFILES_PREVIEW_COMMAND_REV action=html-assert-end revision=9\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK html-large\nFILES_PREVIEW_COMMAND_REV action=html-large revision=11\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/large.html\") message=El original cambi\u00f3 durante la vista previa\nFILES_PREVIEW_COMMAND_OK html-rapid\nFILES_PREVIEW_COMMAND_REV action=html-rapid revision=19\nFILES_PREVIEW_HELPER pid=216671 start=53624528 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/layout.html\") revision=19 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 63, inode: 282128025, bytes: 1105, modified_seconds: 1793093472, modified_nanoseconds: 31346570, changed_seconds: 1793093472, changed_nanoseconds: 31346570 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK html-symlink\nFILES_PREVIEW_COMMAND_REV action=html-symlink revision=21\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/symlink.html\") message=Original no disponible: Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK html-source\nFILES_PREVIEW_COMMAND_REV action=html-source revision=23\nFILES_PREVIEW_HELPER pid=216684 start=53624535 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/source.html\") revision=23 width=932 height=460 bytes=13 commands=1 document_height=72.520004 top=0 source=Revision { device: 63, inode: 282128029, bytes: 22, modified_seconds: 1793093472, modified_nanoseconds: 31508988, changed_seconds: 1793093472, changed_nanoseconds: 31508988 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 1 comandos \u00b7 13 B texto\nFILES_HTML_SOURCE_OK text=FD_ORIGINAL_A revision=Revision { device: 63, inode: 282128029, bytes: 22, modified_seconds: 1793093472, modified_nanoseconds: 31508988, changed_seconds: 1793093472, changed_nanoseconds: 31508988 }\nFILES_PREVIEW_COMMAND_OK html-source-a\nFILES_PREVIEW_COMMAND_REV action=html-source-a revision=23\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=216728 start=53624635 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/source.html\") revision=24 width=932 height=460 bytes=13 commands=1 document_height=72.520004 top=0 source=Revision { device: 63, inode: 282128029, bytes: 27, modified_seconds: 1793093473, modified_nanoseconds: 317338864, changed_seconds: 1793093473, changed_nanoseconds: 317338864 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 1 comandos \u00b7 13 B texto\nFILES_PREVIEW_HELPER pid=216812 start=53624735 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/source.html\") revision=25 width=932 height=460 bytes=18 commands=1 document_height=72.520004 top=0 source=Revision { device: 63, inode: 282128173, bytes: 27, modified_seconds: 1793093473, modified_nanoseconds: 317338864, changed_seconds: 1793093474, changed_nanoseconds: 247577225 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 1 comandos \u00b7 18 B texto\nFILES_HTML_SOURCE_OK text=PATH_REPLACEMENT_B revision=Revision { device: 63, inode: 282128173, bytes: 27, modified_seconds: 1793093473, modified_nanoseconds: 317338864, changed_seconds: 1793093474, changed_nanoseconds: 247577225 }\nFILES_PREVIEW_COMMAND_OK html-source-b\nFILES_PREVIEW_COMMAND_REV action=html-source-b revision=25\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=216893 start=53624835 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/source.html\") revision=26 width=932 height=460 bytes=13 commands=1 document_height=72.520004 top=0 source=Revision { device: 63, inode: 282128173, bytes: 27, modified_seconds: 1793093473, modified_nanoseconds: 317338864, changed_seconds: 1793093475, changed_nanoseconds: 343337176 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 1 comandos \u00b7 13 B texto\nFILES_HTML_SOURCE_OK text=FD_ORIGINAL_A revision=Revision { device: 63, inode: 282128173, bytes: 27, modified_seconds: 1793093473, modified_nanoseconds: 317338864, changed_seconds: 1793093475, changed_nanoseconds: 343337176 }\nFILES_PREVIEW_COMMAND_OK html-source-a\nFILES_PREVIEW_COMMAND_REV action=html-source-a revision=26\nFILES_CAPTURE_OK\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/source.html\") message=Original no disponible: No such file or directory (os error 2)\nFILES_HTML_SOURCE_EMPTY_OK\nFILES_PREVIEW_COMMAND_OK html-source-empty\nFILES_PREVIEW_COMMAND_REV action=html-source-empty revision=27\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=217283 start=53625035 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/source.html\") revision=27 width=932 height=460 bytes=13 commands=1 document_height=72.520004 top=0 source=Revision { device: 63, inode: 282128216, bytes: 27, modified_seconds: 1793093477, modified_nanoseconds: 330768618, changed_seconds: 1793093477, changed_nanoseconds: 330768618 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 1 comandos \u00b7 13 B texto\nFILES_HTML_SOURCE_OK text=FD_ORIGINAL_A revision=Revision { device: 63, inode: 282128216, bytes: 27, modified_seconds: 1793093477, modified_nanoseconds: 330768618, changed_seconds: 1793093477, changed_nanoseconds: 330768618 }\nFILES_PREVIEW_COMMAND_OK html-source-a\nFILES_PREVIEW_COMMAND_REV action=html-source-a revision=27\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/source.html\") message=Original no disponible: No such file or directory (os error 2)\nFILES_HTML_SOURCE_EMPTY_OK\nFILES_PREVIEW_COMMAND_OK html-source-empty\nFILES_PREVIEW_COMMAND_REV action=html-source-empty revision=28\nFILES_PREVIEW_HELPER pid=217393 start=53625235 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/source.html\") revision=28 width=932 height=460 bytes=13 commands=1 document_height=72.520004 top=0 source=Revision { device: 63, inode: 282128216, bytes: 27, modified_seconds: 1793093477, modified_nanoseconds: 330768618, changed_seconds: 1793093479, changed_nanoseconds: 246603807 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 1 comandos \u00b7 13 B texto\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/source.html\") message=No se puede vigilar el original: No path was found. about [\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files\"]\nFILES_HTML_SOURCE_EMPTY_OK\nFILES_PREVIEW_COMMAND_OK html-source-empty\nFILES_PREVIEW_COMMAND_REV action=html-source-empty revision=29\nFILES_PREVIEW_HELPER pid=217556 start=53625435 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/source.html\") revision=29 width=932 height=460 bytes=13 commands=1 document_height=72.520004 top=0 source=Revision { device: 63, inode: 282128343, bytes: 27, modified_seconds: 1793093481, modified_nanoseconds: 274701888, changed_seconds: 1793093481, changed_nanoseconds: 274701888 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 1 comandos \u00b7 13 B texto\nFILES_HTML_SOURCE_OK text=FD_ORIGINAL_A revision=Revision { device: 63, inode: 282128343, bytes: 27, modified_seconds: 1793093481, modified_nanoseconds: 274701888, changed_seconds: 1793093481, changed_nanoseconds: 274701888 }\nFILES_PREVIEW_COMMAND_OK html-source-a\nFILES_PREVIEW_COMMAND_REV action=html-source-a revision=29\nFILES_CAPTURE_OK\nFILES_MEDIA_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-hide\nFILES_PREVIEW_COMMAND_REV action=media-hide revision=30\nFILES_PREVIEW_COMMAND_OK html\nFILES_PREVIEW_COMMAND_REV action=html revision=32\nFILES_PREVIEW_HELPER pid=217724 start=53625572 command=preview_html\nFILES_PREVIEW_HTML_READY path=Some(\"/home/avillagran/.cache/files-test/html-ui-w9leffrc/files/layout.html\") revision=32 width=932 height=460 bytes=247 commands=89 document_height=333 top=0 source=Revision { device: 63, inode: 282128350, bytes: 1105, modified_seconds: 1793093482, modified_nanoseconds: 339574137, changed_seconds: 1793093482, changed_nanoseconds: 339574137 } summary=HTML experimental \u00b7 m\u00e9tricas aproximadas \u00b7 89 comandos \u00b7 247 B texto \u00b7 4 bordes aproximados\nFILES_PREVIEW_COMMAND_OK close-html-pending\nFILES_PREVIEW_COMMAND_REV action=close-html-pending revision=34\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_CLOSE_DRAINED\n",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "binary_sha256": "bb32f9725d40d6327c66897aa0a1595c7a2c113e28fd81206f41f0a83a83575c",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

@@ -1,0 +1,5 @@
+{
+  "status": "FAIL preserved",
+  "finding": "Current-path Jump closed hub without asynchronous browser reload because loaded=true/no-error was treated as live filesystem proof. Fixture replaced that directory with a file while away from hub; old listing remained. Product fix always navigates/reloads explicit bookmark Jump, even same pathname; added generation/loaded regression.",
+  "checks_before_failure": "Merged writes, stale edit rejection, 440 close gate, exact captured lock retry all passed before this failure. No overall PASS."
+}

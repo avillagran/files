@@ -1,0 +1,695 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/move-native-review-1793113501468074025.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/move-paused-target-tab-1793113501656913523.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/move-native-result-target-1793113501816996875.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/move-native-source-refreshed-1793113501923853708.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/move-collision-source-preserved-1793113501987580988.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/move-exdev-explicit-pending-1793113502103469533.png"
+  ],
+  "states": [
+    {
+      "active": null,
+      "entries": [
+        "7061796c6f61642e62696e",
+        "4e6573746564",
+        "6c696e6b2e747874",
+        "7261772dff2e747874",
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": null,
+      "generation": 1,
+      "notice": false,
+      "outcome": null,
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "63616e63656c2e747874"
+      ],
+      "seq": 0
+    },
+    {
+      "active": null,
+      "entries": [
+        "7061796c6f61642e62696e",
+        "4e6573746564",
+        "6c696e6b2e747874",
+        "7261772dff2e747874",
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": {
+        "error": "",
+        "id": null,
+        "moving": true,
+        "prepared": false,
+        "preparing": false
+      },
+      "generation": 1,
+      "notice": false,
+      "outcome": null,
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "7061796c6f61642e62696e",
+        "6c696e6b2e747874",
+        "4e6573746564",
+        "7261772dff2e747874"
+      ],
+      "seq": 1
+    },
+    {
+      "active": null,
+      "entries": [
+        "7061796c6f61642e62696e",
+        "4e6573746564",
+        "6c696e6b2e747874",
+        "7261772dff2e747874",
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": {
+        "error": "",
+        "id": 1,
+        "moving": true,
+        "prepared": true,
+        "preparing": false
+      },
+      "generation": 1,
+      "notice": false,
+      "outcome": null,
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "7061796c6f61642e62696e",
+        "6c696e6b2e747874",
+        "4e6573746564",
+        "7261772dff2e747874"
+      ],
+      "seq": 2
+    },
+    {
+      "active": 1,
+      "entries": [
+        "7061796c6f61642e62696e",
+        "4e6573746564",
+        "6c696e6b2e747874",
+        "7261772dff2e747874",
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": null,
+      "generation": 1,
+      "notice": false,
+      "outcome": null,
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Paused",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "7061796c6f61642e62696e",
+        "6c696e6b2e747874",
+        "4e6573746564",
+        "7261772dff2e747874"
+      ],
+      "seq": 3
+    },
+    {
+      "active": 1,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "756e746f75636865642e747874"
+      ],
+      "form": null,
+      "generation": 3,
+      "notice": false,
+      "outcome": null,
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/target",
+      "phase": "Paused",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "636f6c6c6973696f6e2e747874"
+      ],
+      "seq": 4
+    },
+    {
+      "active": 1,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "756e746f75636865642e747874"
+      ],
+      "form": null,
+      "generation": 3,
+      "notice": false,
+      "outcome": null,
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/target",
+      "phase": "Paused",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "756e746f75636865642e747874"
+      ],
+      "seq": 5
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "756e746f75636865642e747874",
+        "6c696e6b2e747874",
+        "4e6573746564",
+        "7061796c6f61642e62696e",
+        "7261772dff2e747874"
+      ],
+      "form": null,
+      "generation": 4,
+      "notice": false,
+      "outcome": {
+        "cancelled": false,
+        "completed": 4,
+        "id": 1,
+        "moving": true,
+        "success": true
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/target",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "756e746f75636865642e747874"
+      ],
+      "seq": 6
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": null,
+      "generation": 5,
+      "notice": false,
+      "outcome": {
+        "cancelled": false,
+        "completed": 4,
+        "id": 1,
+        "moving": true,
+        "success": true
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [],
+      "seq": 7
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": {
+        "error": "",
+        "id": null,
+        "moving": true,
+        "prepared": false,
+        "preparing": false
+      },
+      "generation": 5,
+      "notice": false,
+      "outcome": {
+        "cancelled": false,
+        "completed": 4,
+        "id": 1,
+        "moving": true,
+        "success": true
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "636f6c6c6973696f6e2e747874"
+      ],
+      "seq": 8
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": {
+        "error": "El destino ya existe; origen conservado",
+        "id": 2,
+        "moving": true,
+        "prepared": false,
+        "preparing": false
+      },
+      "generation": 5,
+      "notice": false,
+      "outcome": {
+        "cancelled": false,
+        "completed": 4,
+        "id": 1,
+        "moving": true,
+        "success": true
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "636f6c6c6973696f6e2e747874"
+      ],
+      "seq": 9
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": null,
+      "generation": 5,
+      "notice": false,
+      "outcome": {
+        "cancelled": false,
+        "completed": 4,
+        "id": 1,
+        "moving": true,
+        "success": true
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "636f6c6c6973696f6e2e747874"
+      ],
+      "seq": 10
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": {
+        "error": "",
+        "id": null,
+        "moving": true,
+        "prepared": false,
+        "preparing": false
+      },
+      "generation": 5,
+      "notice": false,
+      "outcome": {
+        "cancelled": false,
+        "completed": 4,
+        "id": 1,
+        "moving": true,
+        "success": true
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "636f6c6c6973696f6e2e747874"
+      ],
+      "seq": 11
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": {
+        "error": "EXDEV: mover entre filesystems pendiente; origen conservado, sin copia ni borrado",
+        "id": 3,
+        "moving": true,
+        "prepared": false,
+        "preparing": false
+      },
+      "generation": 5,
+      "notice": false,
+      "outcome": {
+        "cancelled": false,
+        "completed": 4,
+        "id": 1,
+        "moving": true,
+        "success": true
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "636f6c6c6973696f6e2e747874"
+      ],
+      "seq": 12
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": null,
+      "generation": 5,
+      "notice": false,
+      "outcome": {
+        "cancelled": false,
+        "completed": 4,
+        "id": 1,
+        "moving": true,
+        "success": true
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "636f6c6c6973696f6e2e747874"
+      ],
+      "seq": 13
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": {
+        "error": "",
+        "id": null,
+        "moving": true,
+        "prepared": false,
+        "preparing": false
+      },
+      "generation": 5,
+      "notice": false,
+      "outcome": {
+        "cancelled": false,
+        "completed": 4,
+        "id": 1,
+        "moving": true,
+        "success": true
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "63616e63656c2e747874"
+      ],
+      "seq": 14
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": {
+        "error": "",
+        "id": 4,
+        "moving": true,
+        "prepared": true,
+        "preparing": false
+      },
+      "generation": 5,
+      "notice": false,
+      "outcome": {
+        "cancelled": false,
+        "completed": 4,
+        "id": 1,
+        "moving": true,
+        "success": true
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "63616e63656c2e747874"
+      ],
+      "seq": 15
+    },
+    {
+      "active": 4,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": null,
+      "generation": 5,
+      "notice": false,
+      "outcome": null,
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Paused",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "63616e63656c2e747874"
+      ],
+      "seq": 16
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": null,
+      "generation": 6,
+      "notice": true,
+      "outcome": {
+        "cancelled": true,
+        "completed": 0,
+        "id": 4,
+        "moving": true,
+        "success": false
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "63616e63656c2e747874"
+      ],
+      "seq": 17
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": null,
+      "generation": 6,
+      "notice": false,
+      "outcome": {
+        "cancelled": true,
+        "completed": 0,
+        "id": 4,
+        "moving": true,
+        "success": false
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "63616e63656c2e747874"
+      ],
+      "seq": 18
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": {
+        "error": "",
+        "id": null,
+        "moving": true,
+        "prepared": false,
+        "preparing": false
+      },
+      "generation": 6,
+      "notice": false,
+      "outcome": {
+        "cancelled": true,
+        "completed": 0,
+        "id": 4,
+        "moving": true,
+        "success": false
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "636c6f73652e747874"
+      ],
+      "seq": 19
+    },
+    {
+      "active": null,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": {
+        "error": "",
+        "id": 5,
+        "moving": true,
+        "prepared": true,
+        "preparing": false
+      },
+      "generation": 6,
+      "notice": false,
+      "outcome": {
+        "cancelled": true,
+        "completed": 0,
+        "id": 4,
+        "moving": true,
+        "success": false
+      },
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Idle",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "636c6f73652e747874"
+      ],
+      "seq": 20
+    },
+    {
+      "active": 5,
+      "entries": [
+        "636f6c6c6973696f6e2e747874",
+        "63616e63656c2e747874",
+        "636c6f73652e747874"
+      ],
+      "form": null,
+      "generation": 6,
+      "notice": false,
+      "outcome": null,
+      "path": "/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source",
+      "phase": "Paused",
+      "queued": 0,
+      "review_pending": false,
+      "selection": [
+        "636c6f73652e747874"
+      ],
+      "seq": 21
+    }
+  ],
+  "scope": "native same-FS move only; EXDEV refused without copy/delete; no crash journal/undo",
+  "method": "existing shared Actions/pointer handlers and real FLTK framebuffer; no native OS input or resource sampling",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab35a0d330"
+  },
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=108172\nFILES_UI_SMOKE_OK entries=7\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=7 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"7061796c6f61642e62696e\",\"4e6573746564\",\"6c696e6b2e747874\",\"7261772dff2e747874\",\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"63616e63656c2e747874\"],\"seq\":0}\nFILES_COPY_COMMAND_OK move-form\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"7061796c6f61642e62696e\",\"4e6573746564\",\"6c696e6b2e747874\",\"7261772dff2e747874\",\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":null,\"moving\":true,\"prepared\":false,\"preparing\":false},\"generation\":1,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"7061796c6f61642e62696e\",\"6c696e6b2e747874\",\"4e6573746564\",\"7261772dff2e747874\"],\"seq\":1}\nFILES_COPY_COMMAND_OK move-review\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"7061796c6f61642e62696e\",\"4e6573746564\",\"6c696e6b2e747874\",\"7261772dff2e747874\",\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":1,\"moving\":true,\"prepared\":false,\"preparing\":true},\"generation\":1,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":true,\"selection\":[\"7061796c6f61642e62696e\",\"6c696e6b2e747874\",\"4e6573746564\",\"7261772dff2e747874\"],\"seq\":2}\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"7061796c6f61642e62696e\",\"4e6573746564\",\"6c696e6b2e747874\",\"7261772dff2e747874\",\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":1,\"moving\":true,\"prepared\":true,\"preparing\":false},\"generation\":1,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"7061796c6f61642e62696e\",\"6c696e6b2e747874\",\"4e6573746564\",\"7261772dff2e747874\"],\"seq\":2}\nFILES_CAPTURE_OK\nFILES_COPY_COMMAND_OK move-confirm\nFILES_COPY_STATE phase=Queued active=None queued=1 loaded=true entries=7 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"7061796c6f61642e62696e\",\"4e6573746564\",\"6c696e6b2e747874\",\"7261772dff2e747874\",\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Queued\",\"queued\":1,\"review_pending\":false,\"selection\":[\"7061796c6f61642e62696e\",\"6c696e6b2e747874\",\"4e6573746564\",\"7261772dff2e747874\"],\"seq\":3}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_STATE phase=Queued active=Some(1) queued=0 loaded=true entries=7 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":1,\"entries\":[\"7061796c6f61642e62696e\",\"4e6573746564\",\"6c696e6b2e747874\",\"7261772dff2e747874\",\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Queued\",\"queued\":0,\"review_pending\":false,\"selection\":[\"7061796c6f61642e62696e\",\"6c696e6b2e747874\",\"4e6573746564\",\"7261772dff2e747874\"],\"seq\":3}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_STATE phase=Paused active=Some(1) queued=0 loaded=true entries=7 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":1,\"entries\":[\"7061796c6f61642e62696e\",\"4e6573746564\",\"6c696e6b2e747874\",\"7261772dff2e747874\",\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":1,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Paused\",\"queued\":0,\"review_pending\":false,\"selection\":[\"7061796c6f61642e62696e\",\"6c696e6b2e747874\",\"4e6573746564\",\"7261772dff2e747874\"],\"seq\":3}\nFILES_COPY_COMMAND_OK move-target-tab\nFILES_COPY_STATE phase=Paused active=Some(1) queued=0 loaded=false entries=0 snapshot=false notice=false\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_STATE phase=Paused active=Some(1) queued=0 loaded=true entries=2 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":1,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":3,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/target\",\"phase\":\"Paused\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636f6c6c6973696f6e2e747874\"],\"seq\":4}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_COMMAND_OK move-focus-untouched\nFILES_MOVE_STATE {\"active\":1,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":3,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/target\",\"phase\":\"Paused\",\"queued\":0,\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":5}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_CAPTURE_OK\nFILES_COPY_COMMAND_OK resume\nFILES_COPY_STATE phase=Running active=Some(1) queued=0 loaded=true entries=2 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":1,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"756e746f75636865642e747874\"],\"form\":null,\"generation\":3,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/target\",\"phase\":\"Running\",\"queued\":0,\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":6}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_PROGRESS id=1 bytes=0 entries=1 method=Rename stats=ProgressStats { callbacks: 1, published: 1, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_FINISHED id=1 cancelled_pending=0 progress_stats=Some(ProgressStats { callbacks: 4, published: 1, suppressed: 3, overwritten: 0, path_details_omitted: 0 }) cancelled=false report_bytes=0 report_files=2 completed=4\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=false entries=0 snapshot=true notice=false\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=6 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"756e746f75636865642e747874\",\"6c696e6b2e747874\",\"4e6573746564\",\"7061796c6f61642e62696e\",\"7261772dff2e747874\"],\"form\":null,\"generation\":4,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/target\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"756e746f75636865642e747874\"],\"seq\":6}\nFILES_CAPTURE_OK\nFILES_COPY_COMMAND_OK move-source-tab\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=false entries=0 snapshot=true notice=false\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=3 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[],\"seq\":7}\nFILES_CAPTURE_OK\nFILES_COPY_COMMAND_OK move-collision\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":null,\"moving\":true,\"prepared\":false,\"preparing\":false},\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636f6c6c6973696f6e2e747874\"],\"seq\":8}\nFILES_COPY_COMMAND_OK move-review\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":2,\"moving\":true,\"prepared\":false,\"preparing\":true},\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":true,\"selection\":[\"636f6c6c6973696f6e2e747874\"],\"seq\":9}\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"El destino ya existe; origen conservado\",\"id\":2,\"moving\":true,\"prepared\":false,\"preparing\":false},\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636f6c6c6973696f6e2e747874\"],\"seq\":9}\nFILES_CAPTURE_OK\nFILES_COPY_COMMAND_OK move-dialog-cancel\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636f6c6c6973696f6e2e747874\"],\"seq\":10}\nFILES_COPY_COMMAND_OK move-exdev\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":null,\"moving\":true,\"prepared\":false,\"preparing\":false},\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636f6c6c6973696f6e2e747874\"],\"seq\":11}\nFILES_COPY_COMMAND_OK move-review\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":3,\"moving\":true,\"prepared\":false,\"preparing\":true},\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":true,\"selection\":[\"636f6c6c6973696f6e2e747874\"],\"seq\":12}\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"EXDEV: mover entre filesystems pendiente; origen conservado, sin copia ni borrado\",\"id\":3,\"moving\":true,\"prepared\":false,\"preparing\":false},\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636f6c6c6973696f6e2e747874\"],\"seq\":12}\nFILES_CAPTURE_OK\nFILES_COPY_COMMAND_OK move-dialog-cancel\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636f6c6c6973696f6e2e747874\"],\"seq\":13}\nFILES_COPY_COMMAND_OK move-cancel-form\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":null,\"moving\":true,\"prepared\":false,\"preparing\":false},\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"63616e63656c2e747874\"],\"seq\":14}\nFILES_COPY_COMMAND_OK move-review\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":4,\"moving\":true,\"prepared\":false,\"preparing\":true},\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":true,\"selection\":[\"63616e63656c2e747874\"],\"seq\":15}\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":4,\"moving\":true,\"prepared\":true,\"preparing\":false},\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"63616e63656c2e747874\"],\"seq\":15}\nFILES_COPY_COMMAND_OK move-confirm\nFILES_COPY_STATE phase=Queued active=None queued=1 loaded=true entries=3 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":5,\"notice\":false,\"outcome\":{\"cancelled\":false,\"completed\":4,\"id\":1,\"moving\":true,\"success\":true},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Queued\",\"queued\":1,\"review_pending\":false,\"selection\":[\"63616e63656c2e747874\"],\"seq\":16}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_STATE phase=Paused active=Some(4) queued=0 loaded=true entries=3 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":4,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":5,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Paused\",\"queued\":0,\"review_pending\":false,\"selection\":[\"63616e63656c2e747874\"],\"seq\":16}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_COMMAND_OK cancel-active\nFILES_COPY_STATE phase=Cancelling active=Some(4) queued=0 loaded=true entries=3 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":4,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":5,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Cancelling\",\"queued\":0,\"review_pending\":false,\"selection\":[\"63616e63656c2e747874\"],\"seq\":17}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_FINISHED id=4 cancelled_pending=0 progress_stats=Some(ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }) cancelled=true report_bytes=0 report_files=0 completed=0\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=false entries=0 snapshot=true notice=true\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=3 snapshot=false notice=true\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":6,\"notice\":true,\"outcome\":{\"cancelled\":true,\"completed\":0,\"id\":4,\"moving\":true,\"success\":false},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"63616e63656c2e747874\"],\"seq\":17}\nFILES_COPY_COMMAND_OK continue\nFILES_COPY_STATE phase=Idle active=None queued=0 loaded=true entries=3 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":6,\"notice\":false,\"outcome\":{\"cancelled\":true,\"completed\":0,\"id\":4,\"moving\":true,\"success\":false},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"63616e63656c2e747874\"],\"seq\":18}\nFILES_COPY_COMMAND_OK move-close-form\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":null,\"moving\":true,\"prepared\":false,\"preparing\":false},\"generation\":6,\"notice\":false,\"outcome\":{\"cancelled\":true,\"completed\":0,\"id\":4,\"moving\":true,\"success\":false},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636c6f73652e747874\"],\"seq\":19}\nFILES_COPY_COMMAND_OK move-review\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":5,\"moving\":true,\"prepared\":false,\"preparing\":true},\"generation\":6,\"notice\":false,\"outcome\":{\"cancelled\":true,\"completed\":0,\"id\":4,\"moving\":true,\"success\":false},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":true,\"selection\":[\"636c6f73652e747874\"],\"seq\":20}\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":{\"error\":\"\",\"id\":5,\"moving\":true,\"prepared\":true,\"preparing\":false},\"generation\":6,\"notice\":false,\"outcome\":{\"cancelled\":true,\"completed\":0,\"id\":4,\"moving\":true,\"success\":false},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Idle\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636c6f73652e747874\"],\"seq\":20}\nFILES_COPY_COMMAND_OK move-confirm\nFILES_COPY_STATE phase=Queued active=None queued=1 loaded=true entries=3 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":null,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":6,\"notice\":false,\"outcome\":{\"cancelled\":true,\"completed\":0,\"id\":4,\"moving\":true,\"success\":false},\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Queued\",\"queued\":1,\"review_pending\":false,\"selection\":[\"636c6f73652e747874\"],\"seq\":21}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_STATE phase=Paused active=Some(5) queued=0 loaded=true entries=3 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":5,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":6,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Paused\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636c6f73652e747874\"],\"seq\":21}\nFILES_COPY_VIEW id=0 method=None progress_stats=ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }\nFILES_COPY_COMMAND_OK close\nFILES_MOVE_STATE {\"active\":5,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":6,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Paused\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636c6f73652e747874\"],\"seq\":22}\nFILES_CLOSE_WAIT saves_ready=false mutations_drained=true copy_closed=false preview_drained=true du_drained=true space_drained=true notice=false\nFILES_COPY_STATE phase=Closing active=Some(5) queued=0 loaded=true entries=3 snapshot=false notice=false\nFILES_MOVE_STATE {\"active\":5,\"entries\":[\"636f6c6c6973696f6e2e747874\",\"63616e63656c2e747874\",\"636c6f73652e747874\"],\"form\":null,\"generation\":6,\"notice\":false,\"outcome\":null,\"path\":\"/home/avillagran/.cache/files-test/move-ui-e7h3thjb/source\",\"phase\":\"Closing\",\"queued\":0,\"review_pending\":false,\"selection\":[\"636c6f73652e747874\"],\"seq\":22}\nFILES_COPY_FINISHED id=5 cancelled_pending=0 progress_stats=Some(ProgressStats { callbacks: 0, published: 0, suppressed: 0, overwritten: 0, path_details_omitted: 0 }) cancelled=true report_bytes=0 report_files=0 completed=0\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_COPY_DRAINED\nFILES_CLOSE_DRAINED\n",
+  "normal_exit0_after_ack": true,
+  "native_roots": 4,
+  "raw_path_and_symlink_literal": true,
+  "identity_bytes_metadata_preserved": true,
+  "xattr_fixture_supported": true,
+  "refresh_source_and_destination": true,
+  "collision_no_clobber": true,
+  "cancel_before_publication": true,
+  "close_active_paused": true,
+  "exdev_scope": "real cross-device preflight /proc refused, no copy/delete; no EXDEV transfer or simulated move success",
+  "cancel_after_some_roots": "core callback test only; not native UI cancellation timing",
+  "original_roots": {
+    "7061796c6f61642e62696e": {
+      "dev": 63,
+      "ino": 282966809,
+      "mode": 33184,
+      "uid": 1001,
+      "gid": 1001,
+      "mtime_ns": 1700000000123456789,
+      "sha256": "7daca2095d0438260fa849183dfc67faa459fdf4936e1bc91eec6b281b27e4c2",
+      "xattrs": {
+        "user.files-move-fixture": "707265736572766564"
+      }
+    },
+    "4e6573746564": {
+      "dev": 63,
+      "ino": 282966810,
+      "mode": 16872,
+      "uid": 1001,
+      "gid": 1001,
+      "mtime_ns": 1700000000123456789,
+      "xattrs": {}
+    },
+    "6c696e6b2e747874": {
+      "dev": 63,
+      "ino": 282966812,
+      "mode": 41471,
+      "uid": 1001,
+      "gid": 1001,
+      "mtime_ns": 1793113501256371495,
+      "link": "payload.bin"
+    },
+    "7261772dff2e747874": {
+      "dev": 63,
+      "ino": 282966813,
+      "mode": 33184,
+      "uid": 1001,
+      "gid": 1001,
+      "mtime_ns": 1700000000123456789,
+      "sha256": "9ab366ad455508d5f47b0128d7d243a2c0e4f5ce399b5f85cd10b343e745a4dc",
+      "xattrs": {}
+    }
+  },
+  "binary_sha256": "6696240aaf4cb2552fc3abff6d66f6d2eefc5345e449b6f7607c3e1bfaf07e11",
+  "helper_sha256": "1b06c98aa9037ee2ab1d461e874de08fab87823fcd0ef33f480b245a5ef230f5",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

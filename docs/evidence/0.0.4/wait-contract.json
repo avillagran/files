@@ -1,0 +1,9 @@
+{
+  "command": "timeout 5s /home/avillagran/.cache/files-test/coordinator/wait-contract",
+  "exit_code": 0,
+  "raw_wait": 2,
+  "callbacks": 2,
+  "errno": 0,
+  "rust_1_5_23_would_reject": true,
+  "scope": "two readable pipes, no window or clipboard; proves return contract, not raw value of original failed capture"
+}

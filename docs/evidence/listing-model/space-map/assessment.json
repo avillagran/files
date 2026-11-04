@@ -1,0 +1,37 @@
+{
+  "source_acceptance": "PASS",
+  "installed_checkpoint": "source a3f5094; installed-checkpoint-1793548043316382038.json; five installed and five backup hashes verified",
+  "workspace_tests": {
+    "core": 443,
+    "helper": 105,
+    "ui": 733,
+    "historical_ignored": 3,
+    "normal_harness_concurrency": true
+  },
+  "clippy": "workspace all targets -D warnings PASS",
+  "format": "PASS",
+  "release": "PASS",
+  "wayland": "space-map-watch-ui-1793547926193182418.json",
+  "x11_xvfb": "space-map-watch-ui-1793547929157505544.json",
+  "legacy_space_map": "../../0.0.4/space-map-ui-1793547949176254397.json",
+  "general_listing_regression": "../listing-ui-1793547976639119823.json",
+  "columns_regression": "../columns/columns-listing-ui-1793547977139485837.json",
+  "visual_review": "Wayland440 scope/recalculate and XvfbX11440 watch-gap captures show readable status and retained observed blocks; footer resource values excluded.",
+  "initial_failures_retained": [
+    "/var/tmp/files-spacemap-invalidation-tests-final.log: one new unit fixture expected Ready from missing sibling deps/files-helper; fixture now checks reload/dispatch intent, owned release UI verifies actual bytes",
+    "space-map-watch-ui-1793547586289041084.json: helper identity trace not enabled in new fixture; enabled FILES_TEST_PREVIEW only for owned identity trace",
+    "space-map-watch-ui-1793547626444949486.json: dedicated scene lacked minimum-width private command; existing resize fixture extended under space_fixture guard",
+    "../../0.0.4/space-map-ui-1793547647636728017.json: only one no-area row visible, zero entry depended on enumeration order; reserve now up to three rows (remaining rows scroll)"
+  ],
+  "limits": [
+    "nonrecursive root hints, no internal descendant monitoring",
+    "no automatic scan; fresh observation explicitly requested",
+    "complete traversal is not current/snapshot/physical/freeable data",
+    "private handlers/FB; no OS input/clipboard/AT-SPI/2x/global lifetime proof",
+    "PSS/Swap/CPU/startup freeze; no new content previews",
+    "keyboard reveal and tiny-positive-area list sizing pending separate audit",
+    "historical original X11 missing names and WouldBlock remain unconfirmed"
+  ],
+  "installed_watch": "space-map-watch-ui-1793548057716806204.json",
+  "installed_allocation_regression": "../../sizes-open/sizes-open-ui-1793548058562662926.json"
+}

@@ -1,0 +1,37 @@
+{
+  "scope": "NODE lossless CopyPath text/address editor, raw URI budget and owned UI; not native clipboard delivery",
+  "tests": {
+    "core": 447,
+    "helper": 105,
+    "ui": 759,
+    "ignored": 3,
+    "normal_concurrency": true
+  },
+  "checks": [
+    "workspace tests",
+    "Clippy all targets -D warnings",
+    "fmt",
+    "release"
+  ],
+  "wayland": "copy-path-ui-1793564495856532827.json",
+  "x11": "copy-path-ui-1793564498893454487.json",
+  "regression": "../narrow-names/narrow-names-ui-1793564510062124874.json",
+  "retained_failures": [
+    "initial-test-compile-fail.log: test import used wrong module; corrected to listing",
+    "scene-json-macro-compile-fail.log: fixture JSON macro exceeded recursion threshold; raw hex moved into existing extra object",
+    "copy-path-ui-1793564218361116520.json: fixture waited for browser scene_ready during address editing; wait corrected; same binary retry passed"
+  ],
+  "visual": "Final List URI editor notice and prior Dual raw destination inspected: explicit file://, escaped raw labels and normal status color visible. Footer resources are not evidence.",
+  "native_clipboard_delivery": "NOT_TESTED",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "source": "efe48fc;6174c8f",
+  "binary_sha256": "5c258f3a8d2125a4b8be3e1ffbc3c6a39777cdb3b349f06b1660d04f32b36fe9",
+  "installed": "copy-path-ui-1793564519081136572.json",
+  "installation": "../0.0.4/installed-checkpoint-1793564514395731217.json",
+  "final_validation_log": "workspace-notice-validation-pass.log",
+  "normal_exits_per_copy_scene": 2,
+  "captures_per_copy_scene": 12,
+  "installation_hashes": "install-verification.json",
+  "intermediate": "Earlier64e656 binary receipts/install preserved; final5c258 binary also uses separate informational notice, unit confirms existing operation error preserved. All final receipts reference the final binary."
+}

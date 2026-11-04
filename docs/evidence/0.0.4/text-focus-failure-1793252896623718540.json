@@ -1,0 +1,24 @@
+{
+  "focus_authorization": "explicit user authorization; focus fixture only; no OS keys or clicks",
+  "method": "Space UI handlers/pointer mapping and FLTK framebuffer; no native OS input",
+  "captures": [],
+  "clipboard": "not read in resource mode",
+  "resource_gate": "NOT_MEASURED",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab2930a3d0"
+  },
+  "clipboard_protocol_events": [],
+  "functional_gate": "FAIL",
+  "error": "CalledProcessError(7, ['hyprctl', 'dispatch', 'focuswindow', 'address:0xaaab2930a3d0'])",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=89437\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK open\nFILES_PREVIEW_COMMAND_REV action=open revision=3\nFILES_PREVIEW_HELPER pid=2456465 start=9952207 command=preview_text\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-gjilu4e5/files/A.txt\") encoding=UTF-8 truncated=false bytes=37 revision=3 stamp=None audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\n"
+}

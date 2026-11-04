@@ -1,0 +1,16 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "binary_sha256": "95ff2dcdb3152e3c9ce434764cf9a51b6e9fdea0dae6372cb81c60c387a69eeb",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "recalculate_scope": "PASS selected raw folder 9\u219219 via F5\u219229 via painted button440, fresh attempt IDs/selection retained, exactly two helper admissions and all other observations/IDs unchanged. Unit proof pause/active ACK/stale ID/context/report guard; no inputSO/resource/snapshot proof.",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "scene": "docs/evidence/folder-sizes/size-manager-ui-1793477083884390572.json",
+  "tests": "997 Rust334core/85helper/578UI PASS+3existing ignored; after browser-sort invalidation change focused sort/focus1PASS; final Clippyworkspace/alltargets-Dwarnings/release/fmtPASS",
+  "captures": 24,
+  "helpers": 11,
+  "cleanup": "logged PID/start identities absent or reused; Z not accepted; not lifetime coverage",
+  "native_input": "UNVALIDATED",
+  "global_gate": "PENDING; complete user goal/ROADMAP/resource gates remain open; new previews paused"
+}

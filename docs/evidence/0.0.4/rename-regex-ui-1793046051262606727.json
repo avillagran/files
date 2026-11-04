@@ -1,0 +1,22 @@
+{
+  "method": "internal UI handlers, real filesystem fixtures and FLTK framebuffer; no native OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/rename-regex-preview-1793046050294624836.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/rename-regex-invalid-1793046050577280000.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/rename-regex-expansion-limit-1793046050821676129.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/rename-regex-result-1793046051127248863.png"
+  ],
+  "batch": 2,
+  "functional_gate": "PASS",
+  "preview_keeps_originals": true,
+  "invalid_and_expansion_rejected": true,
+  "byte_exact_apply_undo_redo": true,
+  "no_staging_left": true,
+  "root_exit": 0,
+  "normal_exit_after_ack": true,
+  "cleanup_scope": "root exit0; no helper used or tree sampler",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=1\nFILES_UI_SMOKE_OK entries=3\nFILES_FIRST_PAINT_US=108261\nFILES_MUTATION_COMMAND_OK regex-preview\nFILES_RENAME_STATE id=0 regex=true ready=false changes=0 idle=false error=\"\"\nFILES_RENAME_STATE id=2 regex=true ready=false changes=0 idle=false error=\"\"\nFILES_RENAME_STATE id=2 regex=true ready=true changes=2 idle=true error=\"\"\nFILES_RENAME_PREVIEW_READY count=2 id=2\nFILES_CAPTURE_OK\nFILES_MUTATION_COMMAND_OK regex-invalid\nFILES_RENAME_STATE id=0 regex=true ready=false changes=0 idle=false error=\"\"\nFILES_RENAME_STATE id=3 regex=true ready=false changes=0 idle=false error=\"\"\nFILES_RENAME_STATE id=3 regex=true ready=false changes=0 idle=true error=\"Regex no válida o fuera del límite: regex parse error:\\n    (\\n    ^\\nerror: unclosed group\"\nFILES_MUTATION_COMMAND_OK apply-invalid\nFILES_CAPTURE_OK\nFILES_MUTATION_COMMAND_OK regex-expand\nFILES_RENAME_STATE id=0 regex=true ready=false changes=0 idle=false error=\"\"\nFILES_RENAME_STATE id=5 regex=true ready=false changes=0 idle=false error=\"\"\nFILES_RENAME_STATE id=5 regex=true ready=false changes=0 idle=true error=\"El reemplazo genera un nombre demasiado largo\"\nFILES_MUTATION_COMMAND_OK apply-invalid\nFILES_CAPTURE_OK\nFILES_MUTATION_COMMAND_OK regex-preview\nFILES_RENAME_STATE id=0 regex=true ready=false changes=0 idle=false error=\"\"\nFILES_RENAME_STATE id=8 regex=true ready=false changes=0 idle=false error=\"\"\nFILES_RENAME_STATE id=8 regex=true ready=true changes=2 idle=true error=\"\"\nFILES_RENAME_PREVIEW_READY count=2 id=8\nFILES_MUTATION_COMMAND_OK apply\nFILES_MUTATION_REQUEST id=9 command=apply\nFILES_RENAME_STATE id=9 regex=true ready=false changes=0 idle=false error=\"\"\nFILES_MUTATION_FINISHED id=9 success=true undo=true redo=false\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=2\nFILES_CAPTURE_OK\nFILES_MUTATION_COMMAND_OK undo\nFILES_MUTATION_REQUEST id=10 command=undo\nFILES_MUTATION_FINISHED id=10 success=true undo=false redo=true\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=3\nFILES_MUTATION_COMMAND_OK redo\nFILES_MUTATION_REQUEST id=11 command=redo\nFILES_MUTATION_FINISHED id=11 success=true undo=true redo=false\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=4\nFILES_MUTATION_COMMAND_OK undo\nFILES_MUTATION_REQUEST id=12 command=undo\nFILES_MUTATION_FINISHED id=12 success=true undo=false redo=true\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=5\nFILES_MUTATION_COMMAND_OK close\nFILES_MUTATIONS_DRAINED\n",
+  "binary_sha256": "a304d9af09c783e86c6bc83c8540fa72d65d35b179eb2ced0b0907855e16f19c"
+}

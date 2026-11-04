@@ -1,0 +1,31 @@
+{
+  "method": "internal handlers, actual ffprobe/ffmpeg local decode and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [],
+  "clip_enabled": false,
+  "known_pending": [
+    "audio",
+    "hardware codecs",
+    "resource budget",
+    "cross-platform verification",
+    "VFR/PTS/large/rotated media coverage"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0d49f9e0"
+  },
+  "functional_gate": "FAIL",
+  "error": "AssertionError('command failed: video\\nFILES_FONT=FiraCode Nerd Font nerd=true\\nFILES_UI_SMOKE_OK entries=3\\nFILES_PREVIEW_HELPER pid=2819902 start=52564490 command=preview_video_probe\\nFILES_FIRST_PAINT_US=88521\\nFILES_PREVIEW_HELPER pid=2819923 start=52564496 command=preview_video_frame\\nFILES_PREVIEW_COMMAND_ERROR video: preview fixture missing entry\\nFILES_PREVIEW_HELPER pid=2819976 start=52564520 command=preview_directory_du\\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-m4w5n9q7/files\") encoding=Carpeta \u00b7 tama\u00f1o aparente truncated=false bytes=245\\n')",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=3\nFILES_PREVIEW_HELPER pid=2819902 start=52564490 command=preview_video_probe\nFILES_FIRST_PAINT_US=88521\nFILES_PREVIEW_HELPER pid=2819923 start=52564496 command=preview_video_frame\nFILES_PREVIEW_COMMAND_ERROR video: preview fixture missing entry\nFILES_PREVIEW_HELPER pid=2819976 start=52564520 command=preview_directory_du\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/video-play-ui-m4w5n9q7/files\") encoding=Carpeta \u00b7 tama\u00f1o aparente truncated=false bytes=245\n"
+}

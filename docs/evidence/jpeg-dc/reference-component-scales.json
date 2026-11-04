@@ -1,0 +1,114 @@
+{
+  "scope": "functional metadata/accuracy probe, no resource/startup measurement; installed libjpeg-turbo3.2.0 reference tool only, not linked to files/helper",
+  "probe": {
+    "progressive-gradient-64x48.jpg": {
+      "output": [
+        8,
+        6
+      ],
+      "components": [
+        {
+          "id": 1,
+          "sampling": [
+            2,
+            2
+          ],
+          "dct": [
+            1,
+            1
+          ],
+          "samples": [
+            8,
+            6
+          ]
+        },
+        {
+          "id": 2,
+          "sampling": [
+            1,
+            1
+          ],
+          "dct": [
+            2,
+            2
+          ],
+          "samples": [
+            8,
+            6
+          ]
+        },
+        {
+          "id": 3,
+          "sampling": [
+            1,
+            1
+          ],
+          "dct": [
+            2,
+            2
+          ],
+          "samples": [
+            8,
+            6
+          ]
+        }
+      ]
+    },
+    "progressive-gradient-444-64x48.jpg": {
+      "output": [
+        8,
+        6
+      ],
+      "components": [
+        {
+          "id": 1,
+          "sampling": [
+            1,
+            1
+          ],
+          "dct": [
+            1,
+            1
+          ],
+          "samples": [
+            8,
+            6
+          ]
+        },
+        {
+          "id": 2,
+          "sampling": [
+            1,
+            1
+          ],
+          "dct": [
+            1,
+            1
+          ],
+          "samples": [
+            8,
+            6
+          ]
+        },
+        {
+          "id": 3,
+          "sampling": [
+            1,
+            1
+          ],
+          "dct": [
+            1,
+            1
+          ],
+          "samples": [
+            8,
+            6
+          ]
+        }
+      ]
+    }
+  },
+  "finding": "At 4:2:0 libjpeg-turbo1/8 uses 1x1 luminance IDCT but2x2 chroma; jpeg-decoder0.3.2 uses1x1 for every component. Equal output dimensions are not identical color sampling. Sparse equals existing full codec byte-for-byte; external4:2:0 parity remains unclaimed.",
+  "initial_comparison": "FAIL <=3 byte error with libjpeg-turbo4:2:0, max20 at gradient edges; original diagnostic retained as color-reference-initial-failure.log",
+  "resource_gate": "NOT_MEASURED"
+}

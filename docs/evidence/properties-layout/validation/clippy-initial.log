@@ -1,0 +1,17 @@
+    Checking files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Checking files-app v0.0.4 (/home/node/Work/files/crates/app)
+error: items after a test module
+   --> crates/ui/src/properties_dialog.rs:559:1
+    |
+559 | mod tests {
+    | ^^^^^^^^^
+...
+724 | pub fn fixture(m: &Model) -> serde_json::Value {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#items_after_test_module
+    = note: `-D clippy::items-after-test-module` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::items_after_test_module)]`
+    = help: move the items to before the test module was defined
+
+error: could not compile `files-ui` (lib test) due to 1 previous error

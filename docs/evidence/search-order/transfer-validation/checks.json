@@ -1,0 +1,22 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "owned filesystem fixtures and independent Files processes; painted handlers/private command pipes and real FLTK framebuffer; no native input",
+  "binary_sha256": "3922c3dd373c7efd3689202ce66eaf01c700269c03daa6a8fa82b24960aea1c2",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "transfer_scope": "real AuxIo capture3parents5roots; copied raw/link/dir/file bytes and source metadata unchanged, cancel review/paused copy; replacement same size+mtime after review rejects before copy, no rollback of actor; move prepared/cancel/EXDEV no mutation, late collision ledger Confirmed/Pending+occupant preserved, explicit fixture restore then NEW capture/paused\u2192move5 inodes preserved. No inputSO/wholelifetimes/resource/powerloss/EXDEVbatch support.",
+  "single_exdev_scope": "PASS single regular nlink1 on observed distinct existing runtime st_dev; captured FD proof\u2192existing journaled engine; bytes/source absence. Not trees/hardlinks/batches/powerloss.",
+  "scene": "docs/evidence/search-order/search-transfer-ui-1793470188336000116.json",
+  "tests": "964 Rust PASS:327core/85helper/552UI;3 existing core ignored; Clippyworkspace all-targets -Dwarnings/release/fmt PASS",
+  "captures": 27,
+  "helper_cleanup": "5 logged PID/start identities gone/reused; Z rejected, not lifetime coverage",
+  "native_input": "UNVALIDATED",
+  "global_gate": "PENDING; resource/startup freeze; no performance/clipboard claims",
+  "original_failures": [
+    "three retained native scene FAILs with sidecars: reader NameError, checkbox mistaken for confirm, prior copy_result read during new paused job",
+    "first UI budget assertion exposed oversized static reservation; dynamic shared core estimate replaces it without budget increase",
+    "duplicate private fixture F5 pattern and missing Arc import fixed; original logs retained"
+  ]
+}

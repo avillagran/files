@@ -1,0 +1,40 @@
+{
+  "checkpoint": "6f2eab15805b4dd6a27c35da08591a84610827e5",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/sftp-preparation/sftp-profiles-ui-1793484790015975923.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793484872222429290",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "e72bb4cc2e14127d76879436e72088715770898c90bb0719502a90e66c32762b",
+      "release_sha256": "ec5ab99217fc50bd3df4c75c62e27a3528d4e3c5db054d974c6f909204db0576",
+      "installed_sha256": "ec5ab99217fc50bd3df4c75c62e27a3528d4e3c5db054d974c6f909204db0576"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "05736746b394413d59df5ecc169341592f66b44d9b895d5388d1b4b4f9e61967",
+      "release_sha256": "05736746b394413d59df5ecc169341592f66b44d9b895d5388d1b4b4f9e61967",
+      "installed_sha256": "05736746b394413d59df5ecc169341592f66b44d9b895d5388d1b4b4f9e61967"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "release_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "release_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

@@ -1,0 +1,9 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.88s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57718b5e1c1473cd)
+
+running 1 test
+test navigation_tests::measured_folder_sort_keeps_unknown_last_and_refresh_invalidates_observations ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 577 filtered out; finished in 0.00s
+

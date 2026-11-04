@@ -1,0 +1,14 @@
+{
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "scope": "Shared path keys/pointer geometry and real FLTK framebuffer; no native OS events/clipboard/IME delivery",
+  "preserved_initial_check": "target/path-edit-first-check.log: four f32/f64 geometry compile errors; corrected to explicit width conversion",
+  "earlier_scenes": [
+    "path-edit-ui-1793399935465607616.json",
+    "path-edit-ui-1793400153034593440.json",
+    "path-edit-ui-1793400394284861984.json",
+    "path-edit-ui-1793400570940945781.json"
+  ],
+  "visual_review": "Initial path-editor scenes passed their assertions; review then found crowded narrow browse header and footer overlap. Compact view chooser, independent edit/cancel controls, footer separation and pencil entry add later coverage; original artifacts retain their scopes and hashes.",
+  "boundaries": "Unicode scalar boundaries, not full grapheme/bidi shaping. Private text-copy outcome does not prove OS clipboard publication. No cache/worker/timer/dependency added; raw URI conversion occurs only in explicit path editor, never other IPC paths."
+}

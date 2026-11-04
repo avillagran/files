@@ -1,0 +1,23 @@
+{
+  "source": "26bff90 fix; d6b11c8 fixture readiness",
+  "cause": "Periodic one-second recheck cleared display eligibility until FD reply; paint also rejected age-expired proof.",
+  "fix": "Retain last confirmed cache RGB for rendering while rechecking; fresh ready/snapshot proof remains separate; actual invalidations/errors still clear.",
+  "validation": {
+    "workspace_passed": 1621,
+    "historical_ignored": 3,
+    "unit_before": "FAIL periodic_recheck_keeps_last_image",
+    "unit_after": "PASS",
+    "clippy": "PASS all targets -D warnings",
+    "node": "source+installed X11 48 passive samples plus context menus PASS",
+    "m2": "source+installed nativeWayland 48 passive samples plus context menus PASS"
+  },
+  "harness_correction": "Earlier M2 steady-sample failures were initial directory-watch attachment/reload generation1\u21922. Trace retained. Final scene waits for watch settled + first image, does not disable watchers.",
+  "node_receipt": "docs/evidence/0.0.4/installed-checkpoint-1793781104265998475.json",
+  "m2_receipt": "docs/evidence/inspector-steady-20261104/m2/m2-installed.json",
+  "node_sha256": "264a3e12f278aeb48c133f1b3bc9ba40d504ff70742ae574d253930e72d64ba6",
+  "m2_sha256": "17ee12aaa4f4b8e6a876aa72ba9e309462272a636a1bb986bb0d6964317b9382",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "os_input": "Internal handlers; no OS pointer proof",
+  "frame_archives": "node/frames.json and m2/frames.json map capture-time paths to lossless gzipped PPMs"
+}

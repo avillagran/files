@@ -1,0 +1,20 @@
+[
+  {
+    "text": "initial-5-focused-pass.log",
+    "raw_archive": "initial-5-focused-pass.log.raw.gz",
+    "raw_sha256": "363967c4003c8d5ba6699df0b3f46f825c4cc9c05dfafe30c07f49b9df563442",
+    "normalization": "Only trailing whitespace/blank EOF lines removed"
+  },
+  {
+    "text": "pre-controlled-1514-workspace-pass.log",
+    "raw_archive": "pre-controlled-1514-workspace-pass.log.raw.gz",
+    "raw_sha256": "fa401f4dcaf25bb0cfc52e8dbde76c3171a3433bb877c1069a78918b93dedf56",
+    "normalization": "Only trailing whitespace/blank EOF lines removed"
+  },
+  {
+    "text": "accepted-1515-workspace.log",
+    "raw_archive": "accepted-1515-workspace.log.raw.gz",
+    "raw_sha256": "854d058e910599ce951a846d7c2d8605ed718cedeb2830a85cdc369ca89fc424",
+    "normalization": "Only trailing whitespace/blank EOF lines removed"
+  }
+]

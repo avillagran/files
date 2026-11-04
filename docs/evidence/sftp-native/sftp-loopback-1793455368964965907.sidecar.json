@@ -1,0 +1,8 @@
+{
+  "original": "docs/evidence/sftp-native/sftp-loopback-1793455368964965907.json",
+  "scope": "Preserved failed first UI recovered-control scene. Product reached Retained after explicit Reconcile. Harness incorrectly expected Registered; core reconcile deliberately persists Uncertain for a still-present mount. No UI connection/disconnect acceptance from this run.",
+  "correction": "Expect Retained and separately verify serving via explicit Open action; no widening to accept arbitrary states.",
+  "cleanup": "Original mount ABSENT; see original identity/read-error report.",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

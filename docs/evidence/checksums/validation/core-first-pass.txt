@@ -1,0 +1,14 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.04s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 6 tests
+test checksum::tests::batches_reject_duplicates_traversal_and_over_budget_without_io ... ok
+test checksum::tests::cancellation_before_open_and_after_final_chunk_never_publishes_digest ... ok
+test checksum::tests::replacement_during_read_rejects_original_observation ... ok
+test checksum::tests::root_replacement_during_read_rejects_even_identical_contents ... ok
+test checksum::tests::symlink_fifo_and_directory_are_rejected_without_reading ... ok
+test checksum::tests::known_vectors_and_chunked_progress_are_descriptor_verified ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 413 filtered out; finished in 0.00s
+

@@ -1,0 +1,12 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.04s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 5 tests
+test exdev_move::linux::tests::partial_stage_creation_retains_provenance_and_uncreated_is_foreign ... ok
+test directory_sync_store::linux::tests::stage_creation_codec_rejects_cuts_and_materialization_before_identity ... ok
+test directory_sync_store::linux::tests::stage_creation_materializes_empty_and_multichunk_files_with_durable_guard ... ok
+test directory_sync_store::linux::tests::stage_creation_collision_source_tamper_and_known_budget_fail_without_overwrite ... ok
+test directory_sync_store::linux::tests::stage_creation_fault_boundaries_retain_objects_and_pending_history_without_retry ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 643 filtered out; finished in 0.26s

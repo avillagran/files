@@ -1,0 +1,21 @@
+{
+  "status": "Scoped functional PASS; global/native/resource acceptance pending",
+  "preserved_findings": [
+    {
+      "log": "target/copy-conflicts-check.log",
+      "status": "FAIL E0425",
+      "finding": "Initial publication_conflict binding inserted into a cleanup closure by an overly broad edit, out of root scope. Moved to root-only publication scope; no warning suppression."
+    }
+  ],
+  "checks": {
+    "core": "target/copy-conflicts-core-tests.log 25PASS including4new collision/cleanup/cap tests",
+    "workspace": "target/copy-conflicts-report-tests.log 806PASS249core/79helper/478UI,3 existing ignored; before final toast-only visibility/wording",
+    "clippy": "target/copy-conflicts-notice-clippy.log workspace all-targets -Dwarnings exit0",
+    "release": "target/copy-conflicts-notice-release.log workspace release exit0",
+    "admission": "Guard refused foreign Cargo1595892/1614730 then admitted own tests/Clippy/release after idle snapshots. No foreign control/edit or performance comparison.",
+    "fmt": "target/copy-conflicts-notice-fmt.log fmt --all -- --check exit0"
+  },
+  "scope": "General replacement/rename/Move conflict UI remains pending. Current Skip is explicit per Copy, no overwrite/merge. Completed+skipped detail payload cap shared; old4MiB queue/2MiB ACK headroom kept, six Vec capacity derivation test. No PSSSwapCPUstartup/newpreview/native input claims. Requested skipped paths are not current-location/deletion proof. Last workspace before report wording-only clarification.",
+  "first_scene": "copy-conflicts-ui-1793425188533528112.json functional PASS8FB, visual FAIL440 clipped omit count; sidecar preserved. Inspector invisible but space subtracted. Changed actual visibility condition; counts before jobid.",
+  "final_scene": "copy-conflicts-ui-1793425513683762662.json PASS8FB, all8inspected; 440 count4 visible. Appae7461f282a3"
+}

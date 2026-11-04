@@ -1,0 +1,14 @@
+{
+  "final_report": "search-editing-ui-1793409739193969692.json",
+  "functional_gate": "PASS scoped",
+  "visual_inspection": "Inspected pointer-selected x, criteria caret, Unicode sample and max-length viewport440. Latin selection and caret visible; long query clipped to field and scrolls.",
+  "known_limits": [
+    "CJK sample uses incomplete glyph coverage in configured Nerd font; UTF8 byte/scalar selection is verified, CJK typography is not accepted. No system font/config changed.",
+    "Footer auxiliary shortcut hint still clips at440 (pre-existing narrow hint slot); main buttons/field text remain bounded. No global UI acceptance.",
+    "No native input, clipboard interoperation, IME/preedit, grapheme/bidi, native HiDPI, all-lifetimes or measured resource/startup evidence.",
+    "Ordinary browser filter remains append/backspace; next separate integration."
+  ],
+  "tests": "754 Rust235/74/445,3preexisting ignored; Clippy alltargets-Dwarnings/release/fmt clean final. Earlier initial tests warning unused backspace wrapper removed; original logs kept.",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

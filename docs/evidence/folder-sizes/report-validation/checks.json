@@ -1,0 +1,26 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "production actions/painted hits through private fixture pipe; real files-helper IPC and FLTK framebuffer; no native input",
+  "binary_sha256": "13935bb18583ace4e3f1c2a230ccf8915e08e463a6ff9a168326e1e3d44891ee",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "size_report_scope": "completed-only checked subtotal; queued unknown distinct from measured zero; failed row excluded, exact 40017/40024 bytes; frozen capture/F5/scroll/I/Esc, raw escaped names, copy-request handler only/no clipboard delivery; report no extra helper, stale context disables copy and offers explicit recapture, controls440",
+  "helper_cleanup": "logged PID/start identities absent or reused; Z not accepted; not lifetime coverage",
+  "scene": "docs/evidence/folder-sizes/size-manager-ui-1793462910855146190.json",
+  "tests": {
+    "workspace": "PASS 942 (324core/85helper/533UI),3 existing core ignored; prior to only final stale-help label",
+    "clippy": "PASS workspace all-targets -Dwarnings after final label",
+    "release": "PASS workspace after final label",
+    "fmt": "PASS"
+  },
+  "native_input": "UNVALIDATED",
+  "clipboard_delivery": "UNVALIDATED; copy request only",
+  "global_gate": "PENDING; historical FAILs preserved",
+  "previous_scene": "1793462811407106105 scoped PASS before only stale-help label",
+  "original_failures": [
+    "size-report-first-tests.log E0716 temporary label borrow",
+    "size-manager-ui-1793462686342799927.json missing stale report mouse Recapture; preserved with sidecar"
+  ]
+}

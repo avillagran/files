@@ -1,0 +1,80 @@
+{
+  "gate_status": "FAIL",
+  "limit_ms_strictly_below": 100,
+  "runs": [
+    {
+      "main_to_paint_ms": 43.436,
+      "spawn_to_paint_ms": 50.7408,
+      "metrics": null,
+      "timing_only": true
+    },
+    {
+      "main_to_paint_ms": 83.298,
+      "spawn_to_paint_ms": 88.967983,
+      "metrics": null,
+      "timing_only": true
+    },
+    {
+      "main_to_paint_ms": 76.086,
+      "spawn_to_paint_ms": 82.695634,
+      "metrics": null,
+      "timing_only": true
+    },
+    {
+      "main_to_paint_ms": 52.733,
+      "spawn_to_paint_ms": 59.525963,
+      "metrics": null,
+      "timing_only": true
+    },
+    {
+      "main_to_paint_ms": 86.211,
+      "spawn_to_paint_ms": 93.091769,
+      "metrics": null,
+      "timing_only": true
+    },
+    {
+      "main_to_paint_ms": 74.199,
+      "spawn_to_paint_ms": 80.142067,
+      "metrics": null,
+      "timing_only": true
+    },
+    {
+      "main_to_paint_ms": 101.52,
+      "spawn_to_paint_ms": 111.423145,
+      "metrics": null,
+      "timing_only": true
+    },
+    {
+      "main_to_paint_ms": 64.523,
+      "spawn_to_paint_ms": 74.021676,
+      "metrics": null,
+      "timing_only": true
+    },
+    {
+      "main_to_paint_ms": 69.736,
+      "spawn_to_paint_ms": 76.422531,
+      "metrics": null,
+      "timing_only": true
+    },
+    {
+      "main_to_paint_ms": 83.559,
+      "spawn_to_paint_ms": 90.790995,
+      "metrics": null,
+      "timing_only": true
+    }
+  ],
+  "errors": [],
+  "p50_spawn_to_paint_ms": 81.41885049999999,
+  "p95_spawn_to_paint_ms": 111.423145,
+  "max_spawn_to_paint_ms": 111.423145,
+  "p50_main_to_paint_ms": 75.1425,
+  "p95_main_to_paint_ms": 101.52,
+  "max_main_to_paint_ms": 101.52,
+  "under_limit": 9,
+  "percentile_method": "nearest rank for p95; median for p50",
+  "method": "fresh process; POSIX_FADV_DONTNEED requested for executable only; system/font/shared-library caches not globally evicted; internal marker ends at completed draw callback, not compositor presentation; external marker receipt is an upper bound affected by scheduling and instrumentation",
+  "run_policy": "serialized: no builds, captures or other benchmarks; caller must enforce",
+  "instrumentation_cost": "process-tree /proc collection delays marker receipt between event polls; use --timing-only as a separate external timing run, and retain a separate measured memory run",
+  "process_metrics_measured": false,
+  "gpu_memory": "not measured; process-tree memory sampling is a lower bound"
+}

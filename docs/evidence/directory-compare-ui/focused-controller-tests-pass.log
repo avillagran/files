@@ -1,0 +1,22 @@
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 19.79s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57a6206bf2b86e3e)
+
+running 14 tests
+test directory_compare_job::tests::invalid_intents_reject_before_worker_or_executable_lookup ... ok
+test directory_compare_job::tests::arbitrary_utf8_chunk_boundaries_preserve_complete_report ... ok
+test directory_compare_job::tests::malformed_trailing_stale_and_incomplete_streams_never_publish ... ok
+test directory_compare_job::tests::frame_and_total_byte_caps_poison_without_accepting_a_prior_terminal ... ok
+test directory_compare_job::lifecycle_tests::terminal_frame_requires_successful_process_exit_and_reap ... ok
+test directory_compare_ui::tests::close_retains_job_and_slot_until_exact_ack ... ok
+test directory_compare_ui::tests::cancel_before_dispatch_restores_pause_without_spawning ... ok
+test directory_compare_ui::tests::root_close_requests_cancel_and_cannot_skip_comparison_ack ... ok
+test directory_compare_ui::tests::manual_root_capture_is_explicit_and_stale_commands_do_not_start ... ok
+test directory_compare_ui::tests::filters_and_movement_use_retained_observations_without_starting_reader ... ok
+test directory_compare_ui::tests::paste_identity_changes_with_root_focus_cursor_and_new_intent ... ok
+test directory_compare_ui::tests::locate_is_explicit_context_bound_and_never_selects_an_unrelated_name ... ok
+test directory_compare_ui::tests::expanded_uri_root_roundtrips_and_oversize_paste_is_transactional ... ok
+test directory_compare_job::lifecycle_tests::eof_and_valid_terminal_do_not_bypass_exit_ack ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 761 filtered out; finished in 5.01s
+

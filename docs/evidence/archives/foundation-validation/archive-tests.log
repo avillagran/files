@@ -1,0 +1,30 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.52s
+     Running unittests src/lib.rs (target/debug/deps/files_core-b77c5d036427fdd3)
+
+running 22 tests
+test archive_list::tests::display_is_distinct_for_non_utf8_literal_escape_controls_and_unicode ... ok
+test archive_extract::tests::cancellation_and_empty_archive_are_explicit ... ok
+test archive_list::tests::eocd_comments_require_exact_end_and_counts ... ok
+test archive_list::tests::empty_and_raw_names_duplicates_symlink_and_directory ... ok
+test archive_list::tests::rejects_zip64_multidisk_truncation_and_offset_overflow ... ok
+test archive_list::tests::stored_metadata_and_zip64_extra_are_explicit ... ok
+test archive_extract::tests::local_name_size_flags_and_descriptor_contradictions_are_preflight_errors ... ok
+test archive_extract::tests::lexical_escape_empty_dot_drive_backslash_control_and_utf8_lies_are_rejected ... ok
+test archive_extract::tests::overlapping_valid_local_records_are_rejected_not_just_bad_names ... ok
+test archive_member::tests::crc_trailing_and_truncated_streams_never_return_success ... ok
+test archive_extract::tests::duplicate_canonical_directory_and_file_parent_aliases_fail_in_any_order ... ok
+test archive_extract::tests::links_special_types_nonempty_directory_unsupported_flags_and_method_fail ... ok
+test archive_extract::tests::declared_quota_and_zero_output_empty_tree_are_checked_without_destination ... ok
+test archive_member::tests::empty_truncated_deflate_remains_rejected_by_shared_reader ... ok
+test archive_member::tests::expansion_is_rejected_before_sink_accepts_bytes_beyond_declared_quota ... ok
+test archive_member::tests::short_interrupted_reads_and_failing_sink_are_handled ... ok
+test archive_extract::tests::max_components_and_component_bytes_are_rejected_before_output ... ok
+test archive_extract::tests::raw_names_implicit_directories_and_out_of_order_explicit_directory_are_preserved ... ok
+test archive_member::tests::streams_stored_deflate_signed_unsigned_and_empty_members ... ok
+test archive_member::tests::cancel_before_and_after_progress_never_reports_completed_output ... ok
+test archive_list::tests::rejects_limits_before_per_name_allocation ... ok
+test archive_extract::tests::node_metadata_budget_is_independent_of_entry_count_and_raw_name_bytes ... ok
+
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 346 filtered out; finished in 0.06s
+

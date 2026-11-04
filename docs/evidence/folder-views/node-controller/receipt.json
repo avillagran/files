@@ -1,0 +1,55 @@
+{
+  "host": "NODE",
+  "architecture": "x86_64",
+  "base": "7fde0d224b47a3525c7990da99aeff5b2b10e74d",
+  "date": "2026-11-01",
+  "goal": "active; full scope retained",
+  "checks": {
+    "workspace": {
+      "passed": 1172,
+      "ignored": 3,
+      "core": 410,
+      "helper": 94,
+      "ui": 668
+    },
+    "clippy_workspace_all_targets_Dwarnings": "PASS",
+    "fmt": "PASS",
+    "diff_check": "PASS",
+    "release": "PASS; workspace release built on NODE x86_64"
+  },
+  "historical_failures_preserved": [
+    "focused-first-compile-fail.txt",
+    "workspace-first-five-fail.txt"
+  ],
+  "limitations": [
+    "No native GUI acceptance, installation, OS input, clipboard, AT-SPI or 2x sharpness claim",
+    "No resource/startup experiments; previews remain paused",
+    "Catalog is per-window; explicit reload required for external changes; Save/Forget merge fresh disk"
+  ],
+  "source_sha256": {
+    "crates/ui/src/aux_io.rs": "b0d9fdee2a2950b1ceda956da19507e7cf4d1830f5a0021715a99677634356f4",
+    "crates/ui/src/command_palette.rs": "ef4b72ade8f2d13010c7bdb3b7173904b23e5f9e157210e67f625915d3ee4434",
+    "crates/ui/src/lib.rs": "74b2d5d0745b58292adddb55a26e039558360b9527ea30e3d925050e97a5061b",
+    "crates/ui/src/model.rs": "941ebdf26b26a066c2c4ff15a32a725b1568157d10ba95773d93a9b764a526f7",
+    "crates/ui/src/navigation_tests.rs": "4a4c38dc6fe9a4130ce56c9f4741a91139e6e0c8479c1896e1d5d7eb883f35b8",
+    "crates/ui/src/operation_bar.rs": "11d29615832c23bbdf89c5be78533abb9da11c4d50003862f2fb2b8dd70f3427",
+    "crates/ui/src/spatial_view.rs": "99db988ffbe46716a635668f906c716ee09da3145eef6e7e1589ea9f365f5a19",
+    "crates/ui/src/tabs_ui.rs": "33b0ac26599a4ad2ea54cef7f9b87fcb7c641c47d05dbb30c7cdc9850edab370",
+    "crates/ui/src/toolkit_menu.rs": "412d41ae9de0ca8ac7001562b408214dec2591ff453734750013fe0b051ab177",
+    "crates/ui/src/view.rs": "18597e77c4fee9b0a1c37f0af2b54f68ccb37a1da54dd59bd9f6eccf73991ab4",
+    "crates/ui/src/folder_views_state.rs": "def88a0b742c4544a0973632cb43f5d94f888dd62d039ed9493e584d7d290996",
+    "crates/ui/src/folder_views_ui.rs": "e5bc0b9651f9c9917f9221db612184c9c1b0c7c207c7e6ac2cf40125f313e029"
+  },
+  "artifacts": {
+    "target/release/files": {
+      "sha256": "0a44d0136ad50c9f2ea8a5f46d9f98b8b47c9297dca8062d5b81ecf30c56697e",
+      "format": "ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 4.4.0, BuildID[sha1]=707ed5ccca22ceabd43e8f3f5f4e92e77032a44f, stripped",
+      "installed": false
+    },
+    "target/release/files-helper": {
+      "sha256": "d2e925c49701c3ad87c8d8a66bdbc0f6433503f38a05fe06c84be2c5b1c7b66d",
+      "format": "ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 4.4.0, BuildID[sha1]=916d0f0de2d236ebe2450de2a0615e0e3fb969cf, stripped",
+      "installed": false
+    }
+  }
+}

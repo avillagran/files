@@ -1,0 +1,22 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.26s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57718b5e1c1473cd)
+
+running 1 test
+test navigation_tests::late_search_stop_does_not_erase_a_completed_page_scope ... FAILED
+
+failures:
+
+---- navigation_tests::late_search_stop_does_not_erase_a_completed_page_scope stdout ----
+
+thread 'navigation_tests::late_search_stop_does_not_erase_a_completed_page_scope' (174329) panicked at crates/ui/src/navigation_tests.rs:1759:5:
+assertion failed: m.search.pages.current.is_some_and(|p| p.sequence == 0)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    navigation_tests::late_search_stop_does_not_erase_a_completed_page_scope
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 589 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p files-ui --lib`

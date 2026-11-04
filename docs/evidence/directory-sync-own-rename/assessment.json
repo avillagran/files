@@ -1,0 +1,57 @@
+{
+  "source_commit": "52b498371511a86c62f8d58f74c783debc410b23",
+  "scope": "SOURCE ONLY Linux explicit trusted-coordinator preserve/publish namespace primitive. Not a complete synchronizer, native approval or installed Apply.",
+  "validation": {
+    "workspace_passed": 1533,
+    "core": 626,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 9,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "harness": "Normal Rust harness through original idle Cargo gate; competing Cargo untouched, gate is not exclusion of later competition",
+    "release_install_gui": "NOT_RUN"
+  },
+  "implemented": [
+    "Durable NamespaceIntent event27 binds transaction/action/exact snapshot seal before exactly one FD-relative renameat2 RENAME_NOREPLACE; no fallback/retry/overwrite",
+    "Strict full original guards and actual postwalk, moved regular/directory data and affected parent fsync, journal confirmations and final root checks before opaque non-decodable positive receipt",
+    "Failure flags separate acknowledged intent, syscall attempt and kernel success; partial writes and negative remote errno remain uncertain; no rollback/delete/truncate/resume",
+    "Prepared namespace_snapshot forks verified canonical original evidence, preserving symlink atime; immutable saved intent unchanged",
+    "Ten fault boundaries, collision and source replacement before/after last guard, publish/add/retire/whole-directory hardlinks/symlinks, strict guard replay, Control pause/cancel and three real subprocess exit83 boundaries"
+  ],
+  "acceptance_history": [
+    "Initial E0432 malformed reexport and two unused warnings corrected; core check passed",
+    "Initial four owned tests passed",
+    "Expanded fixture E0373 scoped closure capture corrected with move and owner reference",
+    "Final nine owned tests passed including three actual process exits83",
+    "Final workspace1533, Clippy and fmt passed; five installed hashes unchanged"
+  ],
+  "important_limits": [
+    "Caller MUST separately establish actual complete global staging and desired metadata reproduction, live native approval/helper lifetime and absolute root bindings. Journal declarations alone do not prove these. Current UI never invokes this route.",
+    "No conditional-inode rename syscall: late substitution can move unexpected object; postcheck rejects receipt and preserves both unexpected object and relocated original",
+    "ACK/fsync/process exit is not power-loss or remote-filesystem proof. Pending guard on reopened History prohibits implicit retry. Explicit reconciliation/recovery remains unfinished.",
+    "Full namespace rewalks and journal full readbacks have cumulative quadratic cost: BULK SCALING UNACCEPTED, no benchmark or mass-operation acceptance",
+    "No new content decoder, no resource/startup/PSS/Swap/CPU experiments. Existing freezes and native input/clipboard/AT-SPI/2x/lifetime/deadline/global gates remain open."
+  ],
+  "installed_hashes": "installed-hashes.json",
+  "source_sha256": {
+    "crates/core/src/directory_sync_journal.rs": "c71d8fba569339d1b39fd47f2316d9e65878b2ace89ceb6cd78af98020f8f18f",
+    "crates/core/src/directory_sync_journal/namespace.rs": "aea1b472dd9aa2a3a4a711eaf776144b6fa7d93b3481acb4e80ddf06846c35ea",
+    "crates/core/src/directory_sync_manifest.rs": "d695824af33f7a2cdc4428de46450180e2107ce6e6681bc63c570fb1557e8157",
+    "crates/core/src/directory_sync_store.rs": "fe6809c9af517ec6e206dd96a999ad114eda296366c2fb86b9d26df392eb0035",
+    "crates/core/src/directory_sync_store/linux/journal.rs": "b93b2d11ad0b7fb014a726bdba797fa2135d2594c88373541fbf912af6de5b79",
+    "crates/core/src/directory_sync_store/linux/journal/own.rs": "112c70a686f6d6c29ce6a53b011ffad16e0f7e876ab0a164cf3996ec5a2f9a83",
+    "crates/core/src/exdev_source.rs": "c25f2e9a4e76768bdb99772dfa3100ce0ff8a31bb0ce5a0d22b0dbd62fd72dae",
+    "crates/core/src/exdev_source/linux/sync_metadata.rs": "2de6cb46eb8482140d15be1e8d00419416709b6018051fbbcf3e830815dbf162",
+    "crates/core/src/exdev_source/linux/sync_namespace.rs": "c4cc7d0c0c79ffd6c0d4810159ce015496fd953d1add38a5ac2b84511959b508",
+    "crates/core/src/exdev_source/linux/sync_namespace/own.rs": "28e29522e35ae85426393d6cd872d1373d194b2eae4d7081eed9dfda6254b2ba",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "7de4cba1361852a20ed24570b5cba0ba7699c8a7c782099a56006f3c3a86656b",
+    "docs/DIRECTORY-SYNC-JOURNAL.md": "39a6b374873d91790ba5ea29e63699efc797aac54f10b609180f544858411226",
+    "docs/DIRECTORY-SYNC-NAMESPACE.md": "55fa06f7d118476feb0afc78d51a7ee05b2443b9724c71422e28b356a9b34fa5",
+    "docs/DIRECTORY-SYNC-OWN-RENAME.md": "bd8903ada922f23bea06fb077d6bddcbcda65c0248cb3cbf5bdce103353c27ff",
+    "docs/ROADMAP.md": "0ce7553b78c79fce0bd022a03b2b2ba060c4bc68448de61d9c4d088f7a460805"
+  },
+  "machine": "NODE",
+  "checked_at": "2026-11-02"
+}

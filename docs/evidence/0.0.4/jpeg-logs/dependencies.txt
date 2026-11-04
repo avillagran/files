@@ -1,0 +1,62 @@
+files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+├── files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+│   ├── libc v0.2.191
+│   ├── serde v1.0.229
+│   │   ├── serde_core v1.0.229
+│   │   └── serde_derive v1.0.229 (proc-macro)
+│   │       ├── proc-macro2 v1.0.107
+│   │       │   └── unicode-ident v1.0.27
+│   │       ├── quote v1.0.47
+│   │       │   └── proc-macro2 v1.0.107 (*)
+│   │       └── syn v3.0.9
+│   │           ├── proc-macro2 v1.0.107 (*)
+│   │           ├── quote v1.0.47 (*)
+│   │           └── unicode-ident v1.0.27
+│   └── toml v0.8.23
+│       ├── serde v1.0.229 (*)
+│       ├── serde_spanned v0.6.9
+│       │   └── serde v1.0.229 (*)
+│       ├── toml_datetime v0.6.11
+│       │   └── serde v1.0.229 (*)
+│       └── toml_edit v0.22.27
+│           ├── indexmap v2.14.2
+│           │   ├── equivalent v1.0.3
+│           │   └── hashbrown v0.17.1
+│           ├── serde v1.0.229 (*)
+│           ├── serde_spanned v0.6.9 (*)
+│           ├── toml_datetime v0.6.11 (*)
+│           ├── toml_write v0.1.2
+│           └── winnow v0.7.15
+├── image v0.25.10
+│   ├── bytemuck v1.25.2
+│   ├── byteorder-lite v0.1.0
+│   ├── image-webp v0.2.4
+│   │   ├── byteorder-lite v0.1.0
+│   │   └── quick-error v2.0.1
+│   ├── moxcms v0.8.1
+│   │   ├── num-traits v0.2.19
+│   │   │   [build-dependencies]
+│   │   │   └── autocfg v1.5.1
+│   │   └── pxfm v0.1.30
+│   ├── num-traits v0.2.19 (*)
+│   └── png v0.18.1
+│       ├── bitflags v2.13.2
+│       ├── crc32fast v1.5.3
+│       │   └── cfg-if v1.0.5
+│       ├── fdeflate v0.3.7
+│       │   └── simd-adler32 v0.3.10
+│       ├── flate2 v1.1.10
+│       │   ├── crc32fast v1.5.3 (*)
+│       │   └── miniz_oxide v0.9.1
+│       │       ├── adler2 v2.0.1
+│       │       └── simd-adler32 v0.3.10
+│       └── miniz_oxide v0.8.9
+│           ├── adler2 v2.0.1
+│           └── simd-adler32 v0.3.10
+├── jpeg-decoder v0.3.2 (/home/avillagran/Work/files/vendor/jpeg-decoder)
+├── libc v0.2.191
+└── serde_json v1.0.154
+    ├── itoa v1.0.18
+    ├── memchr v2.8.3
+    ├── serde_core v1.0.229
+    └── zmij v1.0.23

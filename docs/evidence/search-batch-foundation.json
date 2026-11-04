@@ -1,0 +1,22 @@
+{
+  "scope": "scanner and core codec only; no wire/UI/installed feature",
+  "workspace_test_log": "target/search-batch-foundation-workspace-tests.log",
+  "workspace_tests": {
+    "core": 256,
+    "helper": 82,
+    "ui": 492,
+    "ignored": 3
+  },
+  "additional_targeted_cases": 2,
+  "final_codec_tests": 6,
+  "clippy": "target/search-batch-clippy.log workspace all-targets -Dwarnings exit0",
+  "fmt": "target/search-batch-fmt-check.log",
+  "final_codec_log": "target/search-batch-final-core-tests.log",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "installed_unchanged": "e8302e4/c063165",
+  "preserved_failures": [
+    "target/search-updates-final-clippy.log unused API",
+    "foreign Cargo guard75 no build started"
+  ]
+}

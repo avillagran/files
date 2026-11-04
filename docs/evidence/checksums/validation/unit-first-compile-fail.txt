@@ -1,0 +1,12 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+error[E0369]: cannot subtract `{integer}` from `&model::Hit`
+   --> crates/ui/src/checksum_ui.rs:734:45
+    |
+734 |                 && h.rect.y + h.rect.h <= h - 40));
+    |                                           - ^ -- {integer}
+    |                                           |
+    |                                           &model::Hit
+
+For more information about this error, try `rustc --explain E0369`.
+error: could not compile `files-ui` (lib test) due to 1 previous error

@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-26",
+  "probe": "ctypes libEGL + libGLESv2; EGL_PLATFORM_SURFACELESS_MESA, GLES2-requested context, 1x1 pbuffer, glGetString; context and display destroyed after probe",
+  "egl_version": "1.5",
+  "vendor": "Mesa",
+  "renderer": "Apple M2 Pro (G14S B1)",
+  "gl_version": "OpenGL ES 3.2 Mesa 26.2.5-arch1.1",
+  "glsl_version": "OpenGL ES GLSL ES 3.20",
+  "software_renderer": false,
+  "software_check": "renderer excludes llvmpipe, softpipe, lavapipe, swrast",
+  "scope": "Live GL context capability. Does not verify application shaders, window integration, effect rendering, GPU memory or performance.",
+  "vulkan": "Only lvp_icd.json discovered; this does not prevent hardware EGL/OpenGL ES."
+}

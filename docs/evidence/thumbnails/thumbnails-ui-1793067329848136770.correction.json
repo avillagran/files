@@ -1,0 +1,7 @@
+{
+  "original_preserved": true,
+  "functional_gate": "FAIL",
+  "reason": "Verifier /proc read raced helper exit and raised ESRCH instead of ENOENT. New checker records confirmed directory disappearance, retries once if PID directory still exists and never suppresses alive unreadable/malformed/permission failures. Original FAIL and emergency cleanup remain unvalidated lifecycle.",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

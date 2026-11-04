@@ -1,0 +1,65 @@
+{
+  "functional_gate": "PASS",
+  "source": "9ddd253",
+  "workspace_tests": {
+    "passed": 1306,
+    "core": 447,
+    "helper": 105,
+    "ui": 754,
+    "historical_ignored": 3,
+    "result": "PASS normal concurrent harness"
+  },
+  "clippy": "PASS all targets warnings denied",
+  "format": "PASS",
+  "unit_scope": [
+    "Queued request preservation and raw names through MC/palette across view profiles",
+    "Full queue permits review; enqueue rejection retains form, names and eight pending requests",
+    "Applied mutation/closing/pending-review ACK still block another form",
+    "Filtered/hidden/stale marks do not fall back to a different focus",
+    "Real progress-control paint rectangles within viewport and above MC at440/800/1000, sidebar and dual flags"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "full_goal": "ACTIVE",
+  "release": "PASS",
+  "source_ui": {
+    "wayland": "queue-review-ui-1793560078115479975.json",
+    "xvfb_x11": "queue-review-ui-1793560081082575235.json",
+    "result": "PASS each35captures5normal exits+drain, List/Groups/Grid/Columns/Dual; no logged preview helper in this scope"
+  },
+  "map_regression": {
+    "wayland": "../listing-model/space-map/navigation/space-map-nav-ui-1793560075965694320.json",
+    "xvfb_x11_solo": "../listing-model/space-map/navigation/space-map-nav-ui-1793560198200409125.json",
+    "result": "PASS each29captures4normal exits+drain15logged helper identities gone/reused"
+  },
+  "wrapper_cleanup_issue": {
+    "report": "../listing-model/space-map/navigation/space-map-nav-ui-1793560078718740136.json",
+    "receipt_result": "PASS29captures4normal exits15helpers",
+    "command_exit": 1,
+    "stderr": "/usr/bin/xvfb-run: line185: kill:(4075091)-No such process",
+    "assessment": "Two independent xvfb-run -a wrappers started concurrently; exact cleanup cause not proven. Same binary/map fixture standalone Xvfb command returned0 and PASS. Preserve wrapper failure; run one Xvfb wrapper at a time in follow-up, no Rust harness serialization."
+  },
+  "manual_inspection": [
+    "Wayland440 expanded sidebar: paused summary/counters/resume/cancel/clear fit above MC",
+    "X11 Columns prepared Move review coexists with active paused and one pending job; requires confirmation to enqueue",
+    "X11 dual completed compact result is above compact notice/MC and outside sidebar"
+  ],
+  "known_limit": {
+    "finding": "At440 with expanded sidebar, dual metadata leaves the filename column without visible name space; wide1000 same fixture shows names. Controls pass at440; do not claim minimum-width filename readability or a fix of historical wide X11 anomaly.",
+    "evidence": "dual-completed-retained-sources-1793560081024727407.png",
+    "wide_control": "dual-first-paused-1793560079840669944.png",
+    "next": "Inspect adaptive name/metadata width in dual_view.rs and ordinary List; prioritize visible name before optional metadata."
+  },
+  "limits": [
+    "Private handlers/framebuffer do not prove native key/clipboard/AT-SPI/2x",
+    "No global process lifetime, stalled syscall deadline or resource/startup performance proof",
+    "Queue-full rejection is controller/model unit evidence, not an eight-job UI capacity experiment",
+    "Historical original X11 missing-names anomaly remains open"
+  ],
+  "installation": "docs/evidence/0.0.4/installed-checkpoint-1793560331250393795.json",
+  "installed_ui": {
+    "wayland": "queue-review-ui-1793560381173496871.json",
+    "result": "PASS35captures5normal exits+drain with exact retained-source/destination contents and pending/active identities"
+  },
+  "next": "Prioritize adaptive filename/metadata width in dual_view.rs: name rect width max(r.w-116,0) reaches zero at440 with expanded sidebar; source capture proves compact unreadability and wide control shows names. Audit ordinary List width too. Keep this distinct from unresolved original wide X11 missing-name anomaly; then invalidUTF8 CopyPath textual clipboard fidelity and full ROADMAP."
+}

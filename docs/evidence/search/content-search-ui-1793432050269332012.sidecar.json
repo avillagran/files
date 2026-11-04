@@ -1,0 +1,6 @@
+{
+  "original_report": "content-search-ui-1793432050269332012.json",
+  "original_gate": "FAIL",
+  "finding": "All functional steps including raw Locate reached normal exit; helper cleanup checker only matched old search_stream, so identities set empty after product switched to search_batches. No cleanup acceptance from this run.",
+  "change": "Accept exact known search_stream or search_batches command marker, preserve PID/start and strict no-Z identity checks. No production change."
+}

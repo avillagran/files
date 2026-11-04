@@ -1,0 +1,11 @@
+{
+  "record": "docs/evidence/0.0.4/installed-checkpoint-1793534258501090318.json",
+  "five_installed_and_backup_hashes": "PASS",
+  "files": [
+    "files",
+    "files-helper",
+    "files-html-helper",
+    "files-html-helper.LICENSES",
+    "files-html-helper.build.json"
+  ]
+}

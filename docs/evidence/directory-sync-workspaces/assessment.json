@@ -1,0 +1,67 @@
+{
+  "source_commit": "98925b2a72a205bb6ef885494231f7244f1a2aa7",
+  "machine": "NODE",
+  "checked_at": "2026-11-02",
+  "scope": "SOURCE ONLY owned workspace creation under pre-existing private disjoint same-mount containers; no durable placement registry, native approval or installed Apply",
+  "validation": {
+    "workspace_passed": 1582,
+    "core": 675,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 10,
+    "final_guard_style_change": "After full1582 pass, collapse nested condition only; ten factory fixtures re-executed PASS afterward; public O_PATH doc comment then Clippy/fmt PASS",
+    "clippy": "PASS final workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "harness": "Normal Rust harness through original idle Cargo gate; competitors untouched, idle snapshot not exclusion of later competition",
+    "release_install_gui_resources": "NOT_RUN"
+  },
+  "implemented": [
+    "Whole sealed batch/preflight before any intent:parent count/unstarted state/physical seal, absolute NOFOLLOW chain owned0700, input ancestor/descendant identity disjointness and Store disjointness, device AND mount match and all deterministic names absent",
+    "Point-in-time Linux RLIMIT_NOFILE and streaming proc FD count below soft limit:retained forecast+164 transient headroom; no limit changes or OS reservation, concurrency can consume slots later",
+    "New strict tag32 WorkspaceCreateIntent body37B binds Store+physical seal,parent identity/mount,exact job/transaction name; full durable ACK before one mkdirat0700, no fallback",
+    "Immutable empty owned0700 named-postimage capture; existing WorkspaceCreated identity ACK, verified inventory sync via readable reopened descriptors plus all container ancestors, reverify then tag33 Materialized body5B ACK and final whole-batch checks",
+    "Pending guard blocks all unrelated old/new declarations, even renewed History; batch API refuses any started batch; caps/version unchanged, older readers reject new tags",
+    "Failures after intent write become Uncertain, preserve directories/journal and return completed receipts/current path with separate ACK/attempt/success/identity/materialization flags; no cleanup/truncate/retry",
+    "Controlled pause/resume/cancel; two retained FDs per historical empty receipt, into_parts transfers pins; obsolete empty inventory must be dropped before retaining fresh full staging/shadow captures"
+  ],
+  "tests": [
+    "Complete factory→node creator→durable metadata→global staging barrier→owned namespace publication produces original source bytes in destination",
+    "Six late invalid placements reject before first artifact/intent:input root,ancestor,Store,public parent,symlink parent,relative path; actual private tmpfs /dev/shm second mount separately rejects before any first artifact",
+    "Twelve fault boundaries preserve partials and pending History; second-workspace failure/collision retains first receipt and never overwrites collision",
+    "Multiple roots and raw FF/newline container path; strict37/5B codecs/trailing/zero seal/wrong-index and pending guard checks",
+    "Pause/resume/cancel before effects; same-byte journal rewrite before mkdir prevents syscall; post-materialized-ACK root replacement rejects and preserves original plus replacement",
+    "Two child-process fixtures:actual FD softlimit64 rejects before intent and umask0777 leaves mode000 partial, no chmod of unproven inode",
+    "Three real _exit103 boundaries at durable intent,after mkdir,after final materialization ACK reopen only History; ordinary exits not power-loss proof"
+  ],
+  "acceptance_history": [
+    "Initial core check warning missing outer reexports fixed",
+    "Initial4 focused:1PASS3FAIL due EBADF fsync on O_PATH inventory root; fixed by existing verified sync_staging, then4PASS",
+    "Expanded compile E0308 incorrect Store::renew signature fixed, then9PASS",
+    "Added actual foreign-mount fixture,10PASS; full1582PASS",
+    "Initial Clippy failed collapsible_if; same guard condition collapsed,10PASS,final Clippy/fmt PASS"
+  ],
+  "limits": [
+    "Trusted caller still supplies native approval/helper/current original-source/absolute bindings; sealed data and History do not authorize effects",
+    "mkdirat returns no inode FD:equivalent empty substitution before capture indistinguishable; NamedPostimage evidence qualified, not atomic positive inode provenance",
+    "Intent seal does not encode recoverable absolute placement path:durable placement registry and container selection/creation precede production use",
+    "FD check is observation, no reservation; other consumers can cause later failures; fresh execution admission and receipt lifetime policy remain coordinator duties",
+    "Partial creation and restrictive-umask directories preserved; false ACK can leave complete bytes; complete materialization marker can clear guard before later error without granting recovery",
+    "Integrated coordinator,SharedDir AfterOwnChildren,recovery/undo/UIApply and native/global gates remain open; all-scope walks/readback potentially quadratic,bulk unaccepted",
+    "Resource/startup freeze,new-preview pause persist; no release/install/sourcepush/tag/global acceptance"
+  ],
+  "installed_hashes": "installed-hashes.json",
+  "source_sha256": {
+    "crates/core/src/directory_sync_journal.rs": "6822b913068a37121d620273121dfc7d5df76abb4a82020f0a6923e831939063",
+    "crates/core/src/directory_sync_store.rs": "a89fd391305edcf54794faac793da274a04f90dfb0aa67ead9cb5289f6e9b552",
+    "crates/core/src/directory_sync_store/linux/journal.rs": "ff1a0b540ab45ba52d9c6f202d7c07fa3301be899bb23fcc2ec266d6d5623206",
+    "docs/DIRECTORY-SYNC-ADMISSION.md": "233c7f74333b76ae0bf001155600d7f277f11a1a28ebabc90b0c51612a65105c",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "37221d0db9eeafbfa9c1a5c5f1e660d6c646f035046d5b0df2e15675aa281a56",
+    "docs/DIRECTORY-SYNC-JOURNAL.md": "e98d9e1dc53e21f746d07a788e89560b8d0164c2351aa7d3e4dedf1bb233bff7",
+    "docs/DIRECTORY-SYNC-STAGE-CREATION.md": "6bd210dc672f830926498061632106bca48605b533499e49e795477fc05590be",
+    "docs/ROADMAP.md": "29b5837444cb6eb1957b267c86e6edc3b35b118c093ca4bc35fe475e5c3a3251",
+    "crates/core/src/directory_sync_journal/workspace.rs": "328dc22494e714df1e5fa13d85c4976489e486c7d26984cb1b21c31a706c6342",
+    "crates/core/src/directory_sync_store/linux/journal/workspace.rs": "ad262e275fa72111836c3e8705ec6afdb120e8085ba25ea73efb7cffb284a3ad",
+    "docs/DIRECTORY-SYNC-WORKSPACES.md": "a9d088d7722ec33c7f6b688dd8d268f05bd0f906e4ebd2ff1f8e2b65fa307322"
+  }
+}

@@ -1,0 +1,15 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error: `<` is interpreted as a start of generic arguments for `i32`, not a comparison
+   --> crates/ui/src/view.rs:989:57
+    |
+989 |         let columns=if (available-46)/items.len() as i32<22 && w>=400 {2usize}else{1};
+    |                                                         ^--------- interpreted as generic arguments
+    |                                                         |
+    |                                                         not interpreted as comparison
+    |
+help: try comparing the cast value
+    |
+989 |         let columns=if (available-46)/(items.len() as i32)<22 && w>=400 {2usize}else{1};
+    |                                       +                  +
+
+error: could not compile `files-ui` (lib) due to 1 previous error

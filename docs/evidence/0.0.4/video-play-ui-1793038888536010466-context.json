@@ -1,0 +1,13 @@
+{
+  "supersedes": null,
+  "original": "video-play-ui-1793038888536010466.json",
+  "functional_gate": "PASS",
+  "resource_attribution_gate": "UNVALIDATED",
+  "resource_gate": "NOT_MEASURED",
+  "observed_footer_main_pss_mib": 76.6,
+  "observation_source": "video-playing-blue-1793038886785315859.png",
+  "scope": "Main process footer only, under24 in-process framebuffer readbacks plus normal captures. Excludes Swap/helpers; not a playback-only scenario or sampled peak/steady gate.",
+  "confound": "capture_window readback, RgbImage/to_rgb_data/PPM allocate inside app; no causal attribution to streaming.",
+  "discriminating_experiment": "Only after user reopens resource phase: playback with no24readbacks then separate capture-only scenario; no new measurement now.",
+  "allocation_review": "UI drops old RGB rather than returning to worker (avoidable churn); Assembler already recycles publish return. Painter RgbImage copies/cache are per-paint bounded, not proven leak. No measured savings."
+}

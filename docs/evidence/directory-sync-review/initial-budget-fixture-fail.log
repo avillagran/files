@@ -1,0 +1,41 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+warning: method `other` is never used
+  --> crates/core/src/directory_sync.rs:20:8
+   |
+19 | impl Side {
+   | --------- method in this implementation
+20 |     fn other(self) -> Self {
+   |        ^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `files-core` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.91s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 9 tests
+test directory_sync::tests::choices_are_directional_typed_reversible_and_never_bulk_resolve ... ok
+test directory_sync::tests::cancellation_callback_errors_and_stale_root_identity_do_not_publish ... ok
+test directory_sync::tests::partial_inventory_or_read_budget_blocks_every_proposal ... FAILED
+test directory_sync::tests::overlapping_roots_parent_components_and_final_links_are_rejected ... ok
+test directory_sync::tests::directions_and_modes_never_infer_bidirectional_deletion ... ok
+test directory_sync::tests::content_link_type_and_metadata_are_independent_explicit_conflicts ... ok
+test directory_sync::tests::equal_nested_and_shared_directory_metadata_do_not_hide_children ... ok
+test directory_sync::tests::preparation_rereads_instead_of_trusting_old_comparison ... ok
+test directory_sync::tests::subtree_proposals_do_not_duplicate_copy_or_removal_and_keep_raw_names ... ok
+
+failures:
+
+---- directory_sync::tests::partial_inventory_or_read_budget_blocks_every_proposal stdout ----
+
+thread 'directory_sync::tests::partial_inventory_or_read_budget_blocks_every_proposal' (826185) panicked at crates/core/src/directory_sync.rs:521:13:
+assertion failed: r.blocked()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    directory_sync::tests::partial_inventory_or_read_budget_blocks_every_proposal
+
+test result: FAILED. 8 passed; 1 failed; 0 ignored; 0 measured; 473 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p files-core --lib`

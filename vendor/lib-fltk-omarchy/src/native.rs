@@ -48,7 +48,7 @@ struct WlList {
 
 /// Prefix of FLTK 1.4's `struct wld_window` (Fl_Wayland_Window_Driver.H).
 #[repr(C)]
-struct WldWindow {
+pub(crate) struct WldWindow {
     fl_win: *mut c_void,
     outputs: WlList,
     wl_surface: *mut c_void,
@@ -66,7 +66,7 @@ extern "C" {
     #[link_name = "_Z13fl_wl_displayv"]
     fn fl_wl_display() -> *mut c_void;
     #[link_name = "_Z9fl_wl_xidPK9Fl_Window"]
-    fn fl_wl_xid(win: *const c_void) -> *mut WldWindow;
+    pub(crate) fn fl_wl_xid(win: *const c_void) -> *mut WldWindow;
     #[link_name = "_ZN2Fl13screen_driverEv"]
     fn fl_screen_driver() -> *mut c_void;
     #[link_name = "_ZN24Fl_Wayland_Screen_Driver10get_serialEv"]

@@ -1,0 +1,45 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "Files window framebuffer + toolkit focus::press/click_at fixture; no native input",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/toolkit-menu-settings-1793227643413721971.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/toolkit-menu-actions-start-1793227643569996071.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/toolkit-menu-actions-end-1793227643663656313.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/toolkit-menu-context-edge-1793227643879890415.png"
+  ],
+  "settings_rect": [
+    328,
+    48,
+    398,
+    390
+  ],
+  "actions_rect": [
+    350,
+    48,
+    420,
+    390
+  ],
+  "context_rect": [
+    301,
+    2,
+    497,
+    433
+  ],
+  "normal_exit": true,
+  "dismissal_reasons": [
+    "Escape",
+    "ClickOutside",
+    "Picked(0)",
+    "Closed"
+  ],
+  "viewport": [
+    800,
+    440
+  ],
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=56594\nFILES_UI_SMOKE_OK entries=1\nFILES_TOOLKIT_FIXTURE action=settings\nFILES_TOOLKIT_POPUP_OPEN kind=Settings rect=Some((328, 48, 398, 390))\nFILES_CAPTURE_OK\nFILES_TOOLKIT_FIXTURE action=escape\nFILES_TOOLKIT_POPUP_DISMISS kind=Settings reason=Escape valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=actions\nFILES_TOOLKIT_POPUP_OPEN kind=Actions rect=Some((350, 48, 420, 390))\nFILES_CAPTURE_OK\nFILES_TOOLKIT_FIXTURE action=end\nFILES_CAPTURE_OK\nFILES_TOOLKIT_FIXTURE action=outside\nFILES_TOOLKIT_POPUP_DISMISS kind=Actions reason=ClickOutside valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=settings\nFILES_TOOLKIT_POPUP_OPEN kind=Settings rect=Some((328, 48, 398, 390))\nFILES_TOOLKIT_FIXTURE action=pick\nFILES_TOOLKIT_POPUP_DISMISS kind=Settings reason=Picked(0) valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=context\nFILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((301, 2, 497, 433))\nFILES_CAPTURE_OK\nFILES_TOOLKIT_FIXTURE action=closed\nFILES_TOOLKIT_POPUP_DISMISS kind=Context reason=Closed valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=context\nFILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((301, 2, 497, 433))\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=pick\nFILES_TOOLKIT_POPUP_DISMISS kind=Context reason=Picked(2) valid=true focus_returned=true rename_open=true\nFILES_TOOLKIT_FIXTURE action=cancel-rename\nFILES_TOOLKIT_FIXTURE action=actions\nFILES_TOOLKIT_POPUP_OPEN kind=Actions rect=Some((350, 48, 420, 390))\nFILES_TOOLKIT_FIXTURE action=close\nFILES_TOOLKIT_POPUP_DISMISS kind=Actions reason=Closed valid=false focus_returned=false rename_open=false\n",
+  "binary_sha256": "53d624e2b2c203ceedb7b1d76c8027b2684d2b2d10ca7f69863241f1a03de12c",
+  "helper_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

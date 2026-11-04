@@ -1,0 +1,18 @@
+{
+  "functional_gate": "PASS",
+  "method": "real release files-helper CLI and JSON contract on owned fixtures",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "cases": [
+    "real_cli_proportions_8_4_2_symlink_excluded",
+    "lossless_child_name",
+    "final_symlink",
+    "trailing_final_symlink",
+    "file_root",
+    "relative_root",
+    "missing_root",
+    "command_request_mismatch",
+    "empty_zero_without_fake_nodes"
+  ],
+  "helper_sha256": "737eb1dc23cdd90192c9742762c4c5cb87bca4c45521c51e89bf0259c5b50463"
+}

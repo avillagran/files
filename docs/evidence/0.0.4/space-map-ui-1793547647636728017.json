@@ -1,0 +1,350 @@
+{
+  "functional_gate": "FAIL",
+  "method": "visible hit handlers + shared navigation/mode/callback handlers + actual FLTK framebuffer; no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-wide-1793547627162045629.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-inspector-1793547627300191107.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/space-map-folder-1793547627468127064.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    }
+  ],
+  "states": [
+    {
+      "areas": [],
+      "changed": false,
+      "complete": null,
+      "controls": [],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 0,
+      "loaded": true,
+      "nodes": null,
+      "observed": null,
+      "path": "/home/node/.cache/files-test/space-ui-w0u54iif/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 2,
+      "selected": "Fotos",
+      "seq": 0,
+      "state": "closed",
+      "total": null,
+      "view": "other",
+      "watch_gap": false,
+      "watch_pending": true,
+      "watch_settled": false,
+      "width": 0
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 160.0,
+          "name": "Fotos",
+          "w": 352.5714285714286,
+          "x": 264.4285714285714,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 160.0,
+          "name": "Documentos",
+          "w": 176.28571428571428,
+          "x": 88.14285714285712,
+          "y": 0.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 160.0,
+          "name": "video.bin",
+          "w": 88.14285714285712,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 374,
+      "loaded": true,
+      "nodes": 6,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-w0u54iif/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 4,
+      "selected": "Fotos",
+      "seq": 1,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 617
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 732.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 488.0,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 244.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 244.0,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 946,
+      "loaded": true,
+      "nodes": 6,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-w0u54iif/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 4,
+      "selected": "Fotos",
+      "seq": 2,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 732.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 488.0,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 244.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 244.0,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 1,
+      "height": 946,
+      "loaded": true,
+      "nodes": 6,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-w0u54iif/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 4,
+      "selected": "Fotos",
+      "seq": 3,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 812.0,
+          "name": "contenido",
+          "w": 1596.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 2,
+      "height": 946,
+      "loaded": true,
+      "nodes": 1,
+      "observed": 8388608,
+      "path": "/home/node/.cache/files-test/space-ui-w0u54iif/source/Fotos",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 6,
+      "selected": "contenido",
+      "seq": 4,
+      "state": "ready",
+      "total": 8388608,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    },
+    {
+      "areas": [
+        {
+          "bytes": 8388608,
+          "h": 732.0,
+          "name": "Fotos",
+          "w": 912.0,
+          "x": 684.0,
+          "y": 0.0
+        },
+        {
+          "bytes": 4194304,
+          "h": 488.0,
+          "name": "Documentos",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 244.0
+        },
+        {
+          "bytes": 2097152,
+          "h": 244.0,
+          "name": "video.bin",
+          "w": 684.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      ],
+      "changed": false,
+      "complete": true,
+      "controls": [
+        {
+          "action": "recalculate",
+          "rect": [
+            156,
+            128,
+            112,
+            28
+          ]
+        }
+      ],
+      "drained": true,
+      "error": null,
+      "generation": 3,
+      "height": 946,
+      "loaded": true,
+      "nodes": 6,
+      "observed": 14680064,
+      "path": "/home/node/.cache/files-test/space-ui-w0u54iif/source",
+      "preview_drained": true,
+      "preview_visible": false,
+      "revision": 8,
+      "selected": "Documentos",
+      "seq": 5,
+      "state": "ready",
+      "total": 14680064,
+      "view": "space_map",
+      "watch_gap": false,
+      "watch_pending": false,
+      "watch_settled": true,
+      "width": 1596
+    }
+  ],
+  "error": "AssertionError('command absent: select-zero')",
+  "log_before_cleanup": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_FIRST_PAINT_US=48148\nFILES_UI_SMOKE_OK entries=6\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[],\"drained\":true,\"error\":null,\"generation\":1,\"height\":0,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":2,\"selected\":\"Fotos\",\"seq\":0,\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"watch_gap\":false,\"watch_pending\":true,\"watch_settled\":false,\"width\":0}\nFILES_SPACE_COMMAND seq=1 action=map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":3,\"selected\":\"Fotos\",\"seq\":1,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":true,\"watch_settled\":false,\"width\":617}\nFILES_PREVIEW_HELPER pid=3574238 start=4256530 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":1,\"height\":374,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"Fotos\",\"seq\":1,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":160.0,\"name\":\"Fotos\",\"w\":352.5714285714286,\"x\":264.4285714285714,\"y\":0.0},{\"bytes\":4194304,\"h\":160.0,\"name\":\"Documentos\",\"w\":176.28571428571428,\"x\":88.14285714285712,\"y\":0.0},{\"bytes\":2097152,\"h\":160.0,\"name\":\"video.bin\",\"w\":88.14285714285712,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":374,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"Fotos\",\"seq\":1,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_COMMAND seq=2 action=full\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":160.0,\"name\":\"Fotos\",\"w\":352.5714285714286,\"x\":264.4285714285714,\"y\":0.0},{\"bytes\":4194304,\"h\":160.0,\"name\":\"Documentos\",\"w\":176.28571428571428,\"x\":88.14285714285712,\"y\":0.0},{\"bytes\":2097152,\"h\":160.0,\"name\":\"video.bin\",\"w\":88.14285714285712,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":374,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"Fotos\",\"seq\":2,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":617}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":732.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":488.0,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":244.0},{\"bytes\":2097152,\"h\":244.0,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":946,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"Fotos\",\"seq\":2,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=9 paint=9 width=1920 height=1080\nFILES_SPACE_COMMAND seq=3 action=select-photos\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":732.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":488.0,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":244.0},{\"bytes\":2097152,\"h\":244.0,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":1,\"height\":946,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":4,\"selected\":\"Fotos\",\"seq\":3,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=10 paint=10 width=1920 height=1080\nFILES_SPACE_COMMAND seq=4 action=enter-photos\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":2,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source/Fotos\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":5,\"selected\":\"contenido\",\"seq\":4,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3574264 start=4256563 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":2,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source/Fotos\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":6,\"selected\":\"contenido\",\"seq\":4,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":812.0,\"name\":\"contenido\",\"w\":1596.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":2,\"height\":946,\"loaded\":true,\"nodes\":1,\"observed\":8388608,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source/Fotos\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":6,\"selected\":\"contenido\",\"seq\":4,\"state\":\"ready\",\"total\":8388608,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_CAPTURE_OK id=0 redraw=false before=14 paint=15 width=1920 height=1080\nFILES_SPACE_COMMAND seq=5 action=back\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":7,\"selected\":\"Documentos\",\"seq\":5,\"state\":\"closed\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":false,\"width\":1596}\nFILES_PREVIEW_HELPER pid=3574275 start=4256580 command=space_map\nFILES_SPACE_STATE {\"areas\":[],\"changed\":false,\"complete\":null,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]},{\"action\":\"cancel\",\"rect\":[274,128,36,28]}],\"drained\":false,\"error\":null,\"generation\":3,\"height\":946,\"loaded\":true,\"nodes\":null,\"observed\":null,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":8,\"selected\":\"Documentos\",\"seq\":5,\"state\":\"loading\",\"total\":null,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_STATE {\"areas\":[{\"bytes\":8388608,\"h\":732.0,\"name\":\"Fotos\",\"w\":912.0,\"x\":684.0,\"y\":0.0},{\"bytes\":4194304,\"h\":488.0,\"name\":\"Documentos\",\"w\":684.0,\"x\":0.0,\"y\":244.0},{\"bytes\":2097152,\"h\":244.0,\"name\":\"video.bin\",\"w\":684.0,\"x\":0.0,\"y\":0.0}],\"changed\":false,\"complete\":true,\"controls\":[{\"action\":\"recalculate\",\"rect\":[156,128,112,28]}],\"drained\":true,\"error\":null,\"generation\":3,\"height\":946,\"loaded\":true,\"nodes\":6,\"observed\":14680064,\"path\":\"/home/node/.cache/files-test/space-ui-w0u54iif/source\",\"preview_drained\":true,\"preview_visible\":false,\"revision\":8,\"selected\":\"Documentos\",\"seq\":5,\"state\":\"ready\",\"total\":14680064,\"view\":\"space_map\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":1596}\nFILES_SPACE_COMMAND_ERROR action=select-zero error=Target Espacio no visible\n",
+  "binary_sha256": "8655efc949128cbd4898b143395ff7b4c8106a096fe3a10cb06fe1e0336179dd",
+  "helper_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd"
+}

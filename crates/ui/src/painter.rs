@@ -73,17 +73,24 @@ pub struct FltkPainter;
 fn color(c: Color) -> fltk::enums::Color {
     fltk::enums::Color::from_rgb(c.0, c.1, c.2)
 }
+/// Files paints every surface as a toolkit glass surface: opaque as before,
+/// or with Omarchy's glass opacity under Glassy windows (text and images
+/// drawn over it stay opaque).
+fn glass(c: Color) -> fltk_omarchy::theme::Rgb {
+    fltk_omarchy::theme::Rgb(u32::from(c.0) << 16 | u32::from(c.1) << 8 | u32::from(c.2))
+}
 impl Painter for FltkPainter {
     fn rect(&mut self, r: Rect, c: Color) {
-        draw::draw_rect_fill(r.x, r.y, r.w, r.h, color(c));
+        fltk_omarchy::glass::surface(glass(c), || draw::draw_rectf(r.x, r.y, r.w, r.h));
     }
     fn rounded_rect(&mut self, r: Rect, radius: i32, c: Color) {
-        draw::set_draw_color(color(c));
-        if radius == 0 {
-            draw::draw_rectf(r.x, r.y, r.w, r.h);
-        } else {
-            draw::draw_rounded_rectf(r.x, r.y, r.w, r.h, radius);
-        }
+        fltk_omarchy::glass::surface(glass(c), || {
+            if radius == 0 {
+                draw::draw_rectf(r.x, r.y, r.w, r.h);
+            } else {
+                draw::draw_rounded_rectf(r.x, r.y, r.w, r.h, radius);
+            }
+        });
     }
     fn text(&mut self, r: Rect, text: &str, size: i32, c: Color, mono: bool, right: bool) {
         draw::set_draw_color(color(c));

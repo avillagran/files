@@ -1,0 +1,89 @@
+{
+  "source_commit": "fc061bc3402733a1382f8033cbbc2fea3792c059",
+  "scope": "SOURCE ONLY physical blueprint derived from resolved logical evidence; complete selected effects/scopes/cohorts/recipes, no actual attribute acquisition, live executor, approval, journal or UI/install",
+  "validation": {
+    "workspace_passed": 1450,
+    "core": 543,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 14,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "concurrency": "Normal Rust harness; one Cargo build job through idle snapshot gate, competitors never controlled",
+    "release_helper_ui_build": "NOT_RUN; no installation"
+  },
+  "bounds": {
+    "transactions": 16384,
+    "staging_nodes": 16384,
+    "preserved_entries": 16384,
+    "max_wire": 3145856,
+    "max_stage_payload": 1099511627776,
+    "stage_payload": "Separate sealed budget from read/hash budget; every independent new inode charged, symlink target bytes included; cohort payload once; not disk space/allocated byte/xattr accounting",
+    "path_storage": "Numeric references into original evidence; no duplicated path or attribute-value payloads",
+    "format": "FLSPHY v1 + evidence/logical seals + budget/counts/full numeric graph/recipes/parents/alias impacts + domain-separated SHA256; no decoder of live state"
+  },
+  "implemented": [
+    "All5modes Add/Replace/Retire/IsolatedMetadata transactions; complete old root/descendant references and complete source stage nodes, parent-before-child, slash-precise scope excluding a- sibling",
+    "Stage steps for directories/files/literal symlinks/hardlinks to earlier staged leader; ALL source staging must precede ANY destination backup/publication",
+    "Selected source-inode cohorts can span transactions/subtrees; explicit selected/omitted source names and external link counts; skipped/retained/unchanged names never silently rewritten",
+    "Mount boundary anywhere in destination old scope blocks recoverable retirement; selected cohort crossing destination mounts blocks linking, explicit IndependentNames can plan separate stages",
+    "Full old/source metadata or Basic old-attributes/source-permissions/mtime recipes; type changes use full new-kind source metadata; shared directory metadata postorder/rootlast",
+    "Leaf metadata changes are isolated staged replacement requirements, not in-place mutation through outside aliases",
+    "Unknown cohort metadata equality is retained as actual-value requirement rather than silently splitting or falsely rejecting recipes that could converge after Basic overlay",
+    "Complete dirty parents and old linked-leaf captured/external alias impact for kernel ctime changes on backup rename",
+    "Canonical graph/seal includes all private numeric fields, recipes, source/omitted/external counts, complete preserved scopes and stage budget/payload; immutable borrow prevents choices changing while held"
+  ],
+  "acceptance_history": [
+    "Initial12 focused tests PASS",
+    "First complete1448 tests/Clippy/fmt PASS after complete preserved-scope references",
+    "Additional stage-payload budget and14tests/1450 full/Clippy/fmt PASS",
+    "Mount fixture strengthened from old-root boundary to both root and nested child boundaries; final1450full/Clippy/fmt rerun PASS"
+  ],
+  "mount_proof_scope": "Tests alter numeric mount observations in valid resealed history to exercise physical checks; no privileged live bind mount/unmount or fresh authority is claimed",
+  "cargo_admission": "Multiple exact observed Cargo PID/start identities in o3-server worktree deferred admission; e.g1111274/start7620345,1111763/start7621623,1112265/start7622801. Wait exact identities then retry idle snapshot. No competitor signal/control; snapshot is not exclusion of later Cargo.",
+  "log_archive_notes": [
+    {
+      "text": "initial-12-focused-pass.log",
+      "normalization": "Only trailing empty lines removed for git whitespace; original bytes retained",
+      "raw_archive": "initial-12-focused-pass.log.raw.gz",
+      "raw_sha256": "5538b38fd5a48244dbb6ea6e23521b96e8f2e126cbe8a21f5944f4681e1f2828"
+    },
+    {
+      "text": "first-1448-workspace.log",
+      "normalization": "Only trailing empty lines removed for git whitespace; original bytes retained",
+      "raw_archive": "first-1448-workspace.log.raw.gz",
+      "raw_sha256": "b6c4a27e49cb6f1034ab25ff8822583ad57c6a2f443d44918c33632201e00b39"
+    },
+    {
+      "text": "budget-1450-workspace.log",
+      "normalization": "Only trailing empty lines removed for git whitespace; original bytes retained",
+      "raw_archive": "budget-1450-workspace.log.raw.gz",
+      "raw_sha256": "35f613242c19f92e890f32669d9c81d5a42fef422a5033e0499e18e92c3e912f"
+    },
+    {
+      "text": "accepted-1450-workspace.log",
+      "normalization": "Only trailing empty lines removed for git whitespace; original bytes retained",
+      "raw_archive": "accepted-1450-workspace.log.raw.gz",
+      "raw_sha256": "ee654975964226ed475ac2bd4b40e7a2c5f6a9c70fc95203b3a257bcf076d4e5"
+    }
+  ],
+  "installation": "Five installed dry-run files rehashed unchanged against1793574522897173033, app289db327/helper170f995/HTML04aa7953; installed-unchanged.json",
+  "limitations": [
+    "This blueprint executes no filesystem operations and cannot prove rename/link/fsync/no-clobber/crash recovery behavior",
+    "Every metadata recipe still needs actual bounded values/proof; zero cohort constraints does not imply readiness or approval",
+    "Selected cohorts preserve links only among selected materializations; full topology of untouched equal/retained names requires new explicit review",
+    "Real mismatched final cohort values require new explicit choice/policy review before approval; different metadata hashes may converge after overlay",
+    "No live physical binding/owned stage identity/approval/journal/own-effect revision/nlink/ctime namespace ledger/durable barriers/queue/cancel-closeACK/crash recovery/undo yet",
+    "No atomic whole-batch publication; partially published hardlink cohorts need journal/recovery; old inode data/attributes preserved but rename ctime can be externally visible",
+    "No helper/UI/session integration or release/install acceptance; existing dry-run remains read-only",
+    "Absolute PSS/Swap/CPU/startup freeze and new-preview pause retained; count/byte limits are structural, not resource or native/global acceptance"
+  ],
+  "next": "Acquire bounded real metadata/ACL/xattr values, reconcile and seal cohort recipes plus physical plan/job, then explicit new review/approval and owned journal, live helper pins/ACK, global staging and durable recoverable effects with own mutation ledger and recovery. Owned fixtures only.",
+  "full_goal": "ACTIVE, original complete objective unchanged",
+  "source_sha256": {
+    "crates/core/src/directory_sync_physical.rs": "3012ce3dfeb8c41e1c6ed94f08b292aa3ff4599e861099455be87f3c9869fca6",
+    "crates/core/src/directory_sync_plan.rs": "7eb949f7327a69a3016495670a53b2c7b9335513cec5eec091c04676f465ae68",
+    "crates/core/src/lib.rs": "d710731ace60a87830af0c9f5982ba4ae2425b8c0f3015804840ae2be231d7ee"
+  }
+}

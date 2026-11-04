@@ -136,7 +136,7 @@ fn watch_loop(stop: Arc<AtomicBool>) {
     if fd < 0 {
         return;
     }
-    let mask = libc::IN_CLOSE_WRITE | libc::IN_MOVED_TO | libc::IN_CREATE | libc::IN_DELETE_SELF | libc::IN_MOVE_SELF;
+    let mask = libc::IN_CLOSE_WRITE | libc::IN_MOVED_TO | libc::IN_CREATE | libc::IN_DELETE | libc::IN_DELETE_SELF | libc::IN_MOVE_SELF;
     let add = |p: &std::path::Path| -> i32 {
         let c = CString::new(p.as_os_str().as_bytes()).unwrap_or_default();
         unsafe { libc::inotify_add_watch(fd, c.as_ptr(), mask) }
@@ -148,6 +148,11 @@ fn watch_loop(stop: Arc<AtomicBool>) {
     if let Some(dir) = user.parent() {
         add(dir);
     }
+    // Omarchy's window transparency toggles (Glassy windows). The directory
+    // only exists once a toggle was set, so its parents are watched too.
+    let toggles = crate::glass::toggles_dir();
+    let mut toggles_wd = add(&toggles);
+    let toggle_parents: Vec<i32> = toggles.ancestors().skip(1).take(2).map(add).collect();
     let mut buf = [0u8; 4096];
     let mut pending: Option<std::time::Instant> = None;
     while !stop.load(Ordering::Relaxed) {
@@ -165,7 +170,10 @@ fn watch_loop(stop: Arc<AtomicBool>) {
                     let ev = unsafe { &*(buf.as_ptr().add(off) as *const libc::inotify_event) };
                     let name_bytes = &buf[off + std::mem::size_of::<libc::inotify_event>()..off + std::mem::size_of::<libc::inotify_event>() + ev.len as usize];
                     let name = String::from_utf8_lossy(name_bytes).trim_end_matches('\0').to_string();
-                    let relevant = matches!(name.as_str(), "theme" | "theme.name" | "colors.toml" | "shell.toml") || ev.wd == theme_wd;
+                    let relevant = matches!(name.as_str(), "theme" | "theme.name" | "colors.toml" | "shell.toml")
+                        || ev.wd == theme_wd
+                        || ev.wd == toggles_wd
+                        || (toggle_parents.contains(&ev.wd) && matches!(name.as_str(), "toggles" | "hypr"));
                     if relevant {
                         pending = Some(std::time::Instant::now());
                     }
@@ -179,8 +187,12 @@ fn watch_loop(stop: Arc<AtomicBool>) {
                 // The theme directory may have been replaced: watch the new one.
                 unsafe { libc::inotify_rm_watch(fd, theme_wd) };
                 theme_wd = add(&theme::theme_dir());
+                if toggles_wd < 0 {
+                    toggles_wd = add(&toggles);
+                }
                 task::post(|| {
                     theme::reload();
+                    crate::glass::reload();
                 });
             }
         }

@@ -1,0 +1,11 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.82s
+     Running unittests src/lib.rs (target/debug/deps/files_core-5c13a5fcc688f7e4)
+
+running 3 tests
+test search_dates::tests::isolated_calendar_case ... ok
+test search_dates::tests::strict_timestamp_keeps_date_only_and_negative_epoch_semantics ... ok
+test search_dates::tests::calendar_presets_use_isolated_process_timezones_and_dst ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 322 filtered out; finished in 0.01s
+

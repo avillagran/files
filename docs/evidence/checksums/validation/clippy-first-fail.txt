@@ -1,0 +1,87 @@
+    Checking files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+error: this `if` statement can be collapsed
+   --> crates/ui/src/checksum_ui.rs:260:9
+    |
+260 | /         if !panel.busy() {
+261 | |             if let Some(paused) = panel.prior_pause.take() {
+262 | |                 if !self.closing {
+263 | |                     self.sizes.pause(paused);
+...   |
+266 | |         }
+    | |_________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+260 ~         if !panel.busy()
+261 ~             && let Some(paused) = panel.prior_pause.take() {
+262 |                 if !self.closing {
+263 |                     self.sizes.pause(paused);
+264 |                 }
+265 ~             }
+    |
+
+error: this `if` statement can be collapsed
+   --> crates/ui/src/checksum_ui.rs:261:13
+    |
+261 | /             if let Some(paused) = panel.prior_pause.take() {
+262 | |                 if !self.closing {
+263 | |                     self.sizes.pause(paused);
+264 | |                 }
+265 | |             }
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+help: collapse nested if block
+    |
+261 ~             if let Some(paused) = panel.prior_pause.take()
+262 ~                 && !self.closing {
+263 |                     self.sizes.pause(paused);
+264 ~                 }
+    |
+
+error: this `if` statement can be collapsed
+   --> crates/ui/src/checksum_ui.rs:315:9
+    |
+315 | /         if !panel.busy() {
+316 | |             if let Some(paused) = panel.prior_pause.take() {
+317 | |                 if !self.closing {
+318 | |                     self.sizes.pause(paused);
+...   |
+321 | |         }
+    | |_________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+help: collapse nested if block
+    |
+315 ~         if !panel.busy()
+316 ~             && let Some(paused) = panel.prior_pause.take() {
+317 |                 if !self.closing {
+318 |                     self.sizes.pause(paused);
+319 |                 }
+320 ~             }
+    |
+
+error: this `if` statement can be collapsed
+   --> crates/ui/src/checksum_ui.rs:316:13
+    |
+316 | /             if let Some(paused) = panel.prior_pause.take() {
+317 | |                 if !self.closing {
+318 | |                     self.sizes.pause(paused);
+319 | |                 }
+320 | |             }
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+help: collapse nested if block
+    |
+316 ~             if let Some(paused) = panel.prior_pause.take()
+317 ~                 && !self.closing {
+318 |                     self.sizes.pause(paused);
+319 ~                 }
+    |
+
+error: could not compile `files-ui` (lib) due to 4 previous errors

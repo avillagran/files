@@ -1,0 +1,22 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.39s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 1 test
+test directory_compare::tests::callback_errors_are_not_swallowed_as_filesystem_changes ... FAILED
+
+failures:
+
+---- directory_compare::tests::callback_errors_are_not_swallowed_as_filesystem_changes stdout ----
+
+thread 'directory_compare::tests::callback_errors_are_not_swallowed_as_filesystem_changes' (68935) panicked at crates/core/src/directory_compare.rs:865:27:
+called `Result::unwrap_err()` on an `Ok` value: Report { roots: [DirectoryIdentity { device: 2051, inode: 15728955 }, DirectoryIdentity { device: 2051, inode: 15728956 }], progress: Progress { phase: 3, entries: [1, 1], compared: 1, bytes_read: 4, equal: 0, different: 0, unknown: 1, reasons: 4 }, rows: [Row { path: "file", left: Some(File), right: Some(File), difference: Unknown, metadata_differs: false }] }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    directory_compare::tests::callback_errors_are_not_swallowed_as_filesystem_changes
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 458 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p files-core --lib`

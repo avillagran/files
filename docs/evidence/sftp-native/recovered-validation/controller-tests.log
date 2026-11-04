@@ -1,0 +1,13 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.90s
+     Running unittests src/lib.rs (target/debug/deps/files_core-5c13a5fcc688f7e4)
+
+running 5 tests
+test sftp_recovered::tests::readonly_reader_never_dispatches_and_never_upgrades_after_owner_drop ... ok
+test sftp_recovered::tests::live_previous_unmount_is_not_repeated ... ok
+test sftp_recovered::tests::publication_gap_without_registered_pid_cannot_repeat_previous_unmount ... ok
+test sftp_recovered::tests::stale_or_foreign_namespace_blocks_before_spawning ... ok
+test sftp_recovered::tests::observation_does_not_clear_but_explicit_reconcile_closes_after_reap ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 315 filtered out; finished in 0.00s
+

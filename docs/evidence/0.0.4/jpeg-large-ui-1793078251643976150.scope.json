@@ -1,0 +1,7 @@
+{
+  "functional_scope": "fresh Ready per command,12/24MPbaseline +12/24MPprogressiveDC +EXIF baseline/progressive; pixel variation and FD stamp; logged helpers absent/reused after exit0",
+  "close_scope": "close-jpeg-pending queues baseline24 intent then closing; active helper at that moment NOT_VALIDATED; normal preview drain/exit and all logged helper identities absent are verified",
+  "geometry_scope": "1000x650 logical, output_scale2/physical2000x1300 reported by compositor; captured framebuffer1000x650, not native2x sharpness proof",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

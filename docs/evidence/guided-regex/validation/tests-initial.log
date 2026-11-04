@@ -1,0 +1,12 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+error: recursion limit reached while expanding `$crate::json_internal!`
+    --> crates/ui/src/hidden_scene.rs:1498:73
+     |
+1498 | ...(),serde_json::json!({"capture_busy":m.search_t...ect(..))).count(),"report":m.search.report}));
+     |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: consider increasing the recursion limit by adding a `#![recursion_limit = "256"]` attribute to your crate (`files_ui`)
+     = note: this error originates in the macro `$crate::json_internal` which comes from the expansion of the macro `serde_json::json` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: could not compile `files-ui` (lib) due to 1 previous error

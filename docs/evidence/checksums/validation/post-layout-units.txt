@@ -1,0 +1,16 @@
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.05s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57a6206bf2b86e3e)
+
+running 8 tests
+test checksum_job::tests::duplicate_out_of_order_and_missing_ack_are_rejected ... ok
+test checksum_job::tests::progress_reversal_changed_total_and_overflow_are_rejected ... ok
+test checksum_ui::tests::root_close_waits_for_hash_worker_ack_even_without_other_jobs ... ok
+test checksum_ui::tests::explicit_clear_is_empty_but_focused_file_and_marks_match_browser_selection_policy ... ok
+test checksum_ui::tests::minimum_panel_targets_fit_and_report_escapes_raw_control_names ... ok
+test checksum_ui::tests::frozen_capture_cannot_redirect_after_owner_or_path_change_and_stale_hits_do_nothing ... ok
+test checksum_ui::tests::cancel_before_dispatch_restores_original_size_pause_without_starting_worker ... ok
+test checksum_ui::tests::close_keeps_slot_until_exact_worker_outcome_and_preserves_pause ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 669 filtered out; finished in 0.00s
+

@@ -1,0 +1,2547 @@
+{
+  "functional_gate": "FAIL",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "states": [
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [],
+          "enabled": false
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": false,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 3,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 0,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "Groups",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [],
+          "enabled": false
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": false,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 4,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 1,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "List",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [],
+          "enabled": false
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": false,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 4,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 1,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "List",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [
+          {
+            "index": 0,
+            "rect": [
+              2,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 1,
+            "rect": [
+              127,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 2,
+            "rect": [
+              252,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 3,
+            "rect": [
+              377,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 4,
+            "rect": [
+              502,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 5,
+            "rect": [
+              627,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 6,
+            "rect": [
+              752,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 7,
+            "rect": [
+              877,
+              585,
+              121,
+              30
+            ]
+          }
+        ],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [
+            {
+              "generation": 2,
+              "index": 0,
+              "label": "Ayuda y atajos, F1",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                2,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 1,
+              "label": "Renombrar selección, F2",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                127,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 2,
+              "label": "Previsualizar elemento enfocado, F3",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                252,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 3,
+              "label": "F5: copiar; en Espacio, recalcular",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                377,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 4,
+              "label": "Mover selección: revisar destino, F6",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                502,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 5,
+              "label": "Crear carpeta, F7",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                627,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 6,
+              "label": "Enviar selección a Papelera, F8",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                752,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 7,
+              "label": "Acciones sobre archivos, F10",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                877,
+                585,
+                121,
+                30
+              ]
+            }
+          ],
+          "enabled": true
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": true,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 4,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 2,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "List",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [
+          {
+            "index": 0,
+            "rect": [
+              2,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 1,
+            "rect": [
+              127,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 2,
+            "rect": [
+              252,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 3,
+            "rect": [
+              377,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 4,
+            "rect": [
+              502,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 5,
+            "rect": [
+              627,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 6,
+            "rect": [
+              752,
+              585,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 7,
+            "rect": [
+              877,
+              585,
+              121,
+              30
+            ]
+          }
+        ],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [
+            {
+              "generation": 2,
+              "index": 0,
+              "label": "Ayuda y atajos, F1",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                2,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 1,
+              "label": "Renombrar selección, F2",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                127,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 2,
+              "label": "Previsualizar elemento enfocado, F3",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                252,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 3,
+              "label": "F5: copiar; en Espacio, recalcular",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                377,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 4,
+              "label": "Mover selección: revisar destino, F6",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                502,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 5,
+              "label": "Crear carpeta, F7",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                627,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 6,
+              "label": "Enviar selección a Papelera, F8",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                752,
+                585,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 7,
+              "label": "Acciones sobre archivos, F10",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                877,
+                585,
+                121,
+                30
+              ]
+            }
+          ],
+          "enabled": true
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": true,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 4,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 2,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "List",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [
+          {
+            "index": 0,
+            "rect": [
+              2,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 1,
+            "rect": [
+              127,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 2,
+            "rect": [
+              252,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 3,
+            "rect": [
+              377,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 4,
+            "rect": [
+              502,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 5,
+            "rect": [
+              627,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 6,
+            "rect": [
+              752,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 7,
+            "rect": [
+              877,
+              495,
+              121,
+              30
+            ]
+          }
+        ],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [
+            {
+              "generation": 2,
+              "index": 0,
+              "label": "Ayuda y atajos, F1",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                2,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 1,
+              "label": "Renombrar selección, F2",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                127,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 2,
+              "label": "Previsualizar elemento enfocado, F3",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                252,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 3,
+              "label": "F5: copiar; en Espacio, recalcular",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                377,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 4,
+              "label": "Mover selección: revisar destino, F6",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                502,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 5,
+              "label": "Crear carpeta, F7",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                627,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 6,
+              "label": "Enviar selección a Papelera, F8",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                752,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 7,
+              "label": "Acciones sobre archivos, F10",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                877,
+                495,
+                121,
+                30
+              ]
+            }
+          ],
+          "enabled": true
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": true,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 4,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 3,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "List",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [
+          {
+            "index": 0,
+            "rect": [
+              2,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 1,
+            "rect": [
+              127,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 2,
+            "rect": [
+              252,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 3,
+            "rect": [
+              377,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 4,
+            "rect": [
+              502,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 5,
+            "rect": [
+              627,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 6,
+            "rect": [
+              752,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 7,
+            "rect": [
+              877,
+              495,
+              121,
+              30
+            ]
+          }
+        ],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [
+            {
+              "generation": 2,
+              "index": 0,
+              "label": "Ayuda y atajos, F1",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                2,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 1,
+              "label": "Renombrar selección, F2",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                127,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 2,
+              "label": "Previsualizar elemento enfocado, F3",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                252,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 3,
+              "label": "F5: copiar; en Espacio, recalcular",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                377,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 4,
+              "label": "Mover selección: revisar destino, F6",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                502,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 5,
+              "label": "Crear carpeta, F7",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                627,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 6,
+              "label": "Enviar selección a Papelera, F8",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                752,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 7,
+              "label": "Acciones sobre archivos, F10",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                877,
+                495,
+                121,
+                30
+              ]
+            }
+          ],
+          "enabled": true
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": true,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 4,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 3,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "List",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [
+          {
+            "index": 0,
+            "rect": [
+              2,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 1,
+            "rect": [
+              127,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 2,
+            "rect": [
+              252,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 3,
+            "rect": [
+              377,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 4,
+            "rect": [
+              502,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 5,
+            "rect": [
+              627,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 6,
+            "rect": [
+              752,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 7,
+            "rect": [
+              877,
+              495,
+              121,
+              30
+            ]
+          }
+        ],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [
+            {
+              "generation": 2,
+              "index": 0,
+              "label": "Ayuda y atajos, F1",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                2,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 1,
+              "label": "Renombrar selección, F2",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                127,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 2,
+              "label": "Previsualizar elemento enfocado, F3",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                252,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 3,
+              "label": "F5: copiar; en Espacio, recalcular",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                377,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 4,
+              "label": "Mover selección: revisar destino, F6",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                502,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 5,
+              "label": "Crear carpeta, F7",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                627,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 6,
+              "label": "Enviar selección a Papelera, F8",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                752,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 7,
+              "label": "Acciones sobre archivos, F10",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                877,
+                495,
+                121,
+                30
+              ]
+            }
+          ],
+          "enabled": true
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": true,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 4,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 4,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "List",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [
+          {
+            "index": 0,
+            "rect": [
+              2,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 1,
+            "rect": [
+              127,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 2,
+            "rect": [
+              252,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 3,
+            "rect": [
+              377,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 4,
+            "rect": [
+              502,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 5,
+            "rect": [
+              627,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 6,
+            "rect": [
+              752,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 7,
+            "rect": [
+              877,
+              495,
+              121,
+              30
+            ]
+          }
+        ],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [
+            {
+              "generation": 2,
+              "index": 0,
+              "label": "Ayuda y atajos, F1",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                2,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 1,
+              "label": "Renombrar selección, F2",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                127,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 2,
+              "label": "Previsualizar elemento enfocado, F3",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                252,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 3,
+              "label": "F5: copiar; en Espacio, recalcular",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                377,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 4,
+              "label": "Mover selección: revisar destino, F6",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                502,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 5,
+              "label": "Crear carpeta, F7",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                627,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 6,
+              "label": "Enviar selección a Papelera, F8",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                752,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 7,
+              "label": "Acciones sobre archivos, F10",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                877,
+                495,
+                121,
+                30
+              ]
+            }
+          ],
+          "enabled": true
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": true,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 4,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 4,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "List",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [
+          {
+            "index": 0,
+            "rect": [
+              2,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 1,
+            "rect": [
+              127,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 2,
+            "rect": [
+              252,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 3,
+            "rect": [
+              377,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 4,
+            "rect": [
+              502,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 5,
+            "rect": [
+              627,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 6,
+            "rect": [
+              752,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 7,
+            "rect": [
+              877,
+              495,
+              121,
+              30
+            ]
+          }
+        ],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [
+            {
+              "generation": 2,
+              "index": 0,
+              "label": "Ayuda y atajos, F1",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                2,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 1,
+              "label": "Renombrar selección, F2",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                127,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 2,
+              "label": "Previsualizar elemento enfocado, F3",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                252,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 3,
+              "label": "F5: copiar; en Espacio, recalcular",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                377,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 4,
+              "label": "Mover selección: revisar destino, F6",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                502,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 5,
+              "label": "Crear carpeta, F7",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                627,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 6,
+              "label": "Enviar selección a Papelera, F8",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                752,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 7,
+              "label": "Acciones sobre archivos, F10",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                877,
+                495,
+                121,
+                30
+              ]
+            }
+          ],
+          "enabled": true
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": true,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 4,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 5,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "List",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    },
+    {
+      "app": "list",
+      "state": {
+        "areas": [],
+        "bar_rects": [
+          {
+            "index": 0,
+            "rect": [
+              2,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 1,
+            "rect": [
+              127,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 2,
+            "rect": [
+              252,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 3,
+            "rect": [
+              377,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 4,
+            "rect": [
+              502,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 5,
+            "rect": [
+              627,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 6,
+            "rect": [
+              752,
+              495,
+              121,
+              30
+            ]
+          },
+          {
+            "index": 7,
+            "rect": [
+              877,
+              495,
+              121,
+              30
+            ]
+          }
+        ],
+        "can_undo": false,
+        "changed": false,
+        "clipboard_busy": false,
+        "clipboard_count": 0,
+        "clipboard_kind": "None",
+        "complete": null,
+        "controls": [],
+        "copy_active": null,
+        "copy_busy": false,
+        "copy_controls": [],
+        "copy_dialog": null,
+        "copy_id": 0,
+        "copy_phase": "Idle",
+        "copy_queue": 0,
+        "copy_queued_ids": [],
+        "descending": false,
+        "drained": true,
+        "dual": false,
+        "error": null,
+        "generation": 2,
+        "height": 0,
+        "list_rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "loaded": true,
+        "max_scroll": 0,
+        "mc": {
+          "buttons": [
+            {
+              "generation": 2,
+              "index": 0,
+              "label": "Ayuda y atajos, F1",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                2,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 1,
+              "label": "Renombrar selección, F2",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                127,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 2,
+              "label": "Previsualizar elemento enfocado, F3",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                252,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 3,
+              "label": "F5: copiar; en Espacio, recalcular",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                377,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 4,
+              "label": "Mover selección: revisar destino, F6",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                502,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 5,
+              "label": "Crear carpeta, F7",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                627,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 6,
+              "label": "Enviar selección a Papelera, F8",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                752,
+                495,
+                121,
+                30
+              ]
+            },
+            {
+              "generation": 2,
+              "index": 7,
+              "label": "Acciones sobre archivos, F10",
+              "owner": [
+                1,
+                1
+              ],
+              "reason": null,
+              "rect": [
+                877,
+                495,
+                121,
+                30
+              ]
+            }
+          ],
+          "enabled": true
+        },
+        "mutation_applied": false,
+        "mutation_busy": false,
+        "navigation_raw": [],
+        "no_area_raw": [],
+        "nodes": null,
+        "notice_open": false,
+        "observed": null,
+        "operation_bar": true,
+        "other_loaded": true,
+        "other_sort": null,
+        "page_rows": 1,
+        "palette": null,
+        "pane_owner": [
+          1,
+          1
+        ],
+        "path": "/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list",
+        "preview_drained": true,
+        "preview_ready": false,
+        "preview_visible": false,
+        "properties": null,
+        "rename_dialog": null,
+        "revision": 4,
+        "row_hits": [],
+        "scene_ready": true,
+        "scroll": 0,
+        "selected": "a-�\n",
+        "selected_raw": "612dff0a",
+        "selection_error": "",
+        "selection_menu": null,
+        "selection_raw": [
+          "612dff0a"
+        ],
+        "seq": 5,
+        "sort": "Name",
+        "state": "closed",
+        "total": null,
+        "view": "other",
+        "view_kind": "List",
+        "watch_gap": false,
+        "watch_pending": false,
+        "watch_settled": true,
+        "width": 0
+      }
+    }
+  ],
+  "captures": [
+    "/home/node/Work/files/docs/evidence/narrow-names/list-wide-raw-name-1793562480102399719.png",
+    "/home/node/Work/files/docs/evidence/narrow-names/failure-list-1793562480190509327.png"
+  ],
+  "logs": {
+    "list": "XOpenIM() failed\nFILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_FIRST_PAINT_US=35705\nFILES_UI_SMOKE_OK entries=5\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"can_undo\":false,\"changed\":false,\"clipboard_busy\":false,\"clipboard_count\":0,\"clipboard_kind\":\"None\",\"complete\":null,\"controls\":[],\"copy_active\":null,\"copy_busy\":false,\"copy_controls\":[],\"copy_dialog\":null,\"copy_id\":0,\"copy_phase\":\"Idle\",\"copy_queue\":0,\"copy_queued_ids\":[],\"descending\":false,\"drained\":true,\"dual\":false,\"error\":null,\"generation\":1,\"height\":0,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"mc\":{\"buttons\":[],\"enabled\":false},\"mutation_applied\":false,\"mutation_busy\":false,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"notice_open\":false,\"observed\":null,\"operation_bar\":false,\"other_loaded\":true,\"other_sort\":null,\"page_rows\":1,\"palette\":null,\"pane_owner\":[1,1],\"path\":\"/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list\",\"preview_drained\":true,\"preview_ready\":false,\"preview_visible\":false,\"properties\":null,\"rename_dialog\":null,\"revision\":2,\"row_hits\":[],\"scene_ready\":true,\"scroll\":0,\"selected\":\"a-�\\n\",\"selected_raw\":\"612dff0a\",\"selection_error\":\"\",\"selection_menu\":null,\"selection_raw\":[\"612dff0a\"],\"seq\":0,\"sort\":\"Name\",\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"view_kind\":\"Groups\",\"watch_gap\":false,\"watch_pending\":true,\"watch_settled\":false,\"width\":0}\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"can_undo\":false,\"changed\":false,\"clipboard_busy\":false,\"clipboard_count\":0,\"clipboard_kind\":\"None\",\"complete\":null,\"controls\":[],\"copy_active\":null,\"copy_busy\":false,\"copy_controls\":[],\"copy_dialog\":null,\"copy_id\":0,\"copy_phase\":\"Idle\",\"copy_queue\":0,\"copy_queued_ids\":[],\"descending\":false,\"drained\":true,\"dual\":false,\"error\":null,\"generation\":2,\"height\":0,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"mc\":{\"buttons\":[],\"enabled\":false},\"mutation_applied\":false,\"mutation_busy\":false,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"notice_open\":false,\"observed\":null,\"operation_bar\":false,\"other_loaded\":true,\"other_sort\":null,\"page_rows\":1,\"palette\":null,\"pane_owner\":[1,1],\"path\":\"/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list\",\"preview_drained\":true,\"preview_ready\":false,\"preview_visible\":false,\"properties\":null,\"rename_dialog\":null,\"revision\":3,\"row_hits\":[],\"scene_ready\":false,\"scroll\":0,\"selected\":\"a-�\\n\",\"selected_raw\":\"612dff0a\",\"selection_error\":\"\",\"selection_menu\":null,\"selection_raw\":[\"612dff0a\"],\"seq\":0,\"sort\":\"Name\",\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"view_kind\":\"Groups\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":0}\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"can_undo\":false,\"changed\":false,\"clipboard_busy\":false,\"clipboard_count\":0,\"clipboard_kind\":\"None\",\"complete\":null,\"controls\":[],\"copy_active\":null,\"copy_busy\":false,\"copy_controls\":[],\"copy_dialog\":null,\"copy_id\":0,\"copy_phase\":\"Idle\",\"copy_queue\":0,\"copy_queued_ids\":[],\"descending\":false,\"drained\":true,\"dual\":false,\"error\":null,\"generation\":2,\"height\":0,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"mc\":{\"buttons\":[],\"enabled\":false},\"mutation_applied\":false,\"mutation_busy\":false,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"notice_open\":false,\"observed\":null,\"operation_bar\":false,\"other_loaded\":true,\"other_sort\":null,\"page_rows\":1,\"palette\":null,\"pane_owner\":[1,1],\"path\":\"/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list\",\"preview_drained\":true,\"preview_ready\":false,\"preview_visible\":false,\"properties\":null,\"rename_dialog\":null,\"revision\":3,\"row_hits\":[],\"scene_ready\":true,\"scroll\":0,\"selected\":\"a-�\\n\",\"selected_raw\":\"612dff0a\",\"selection_error\":\"\",\"selection_menu\":null,\"selection_raw\":[\"612dff0a\"],\"seq\":0,\"sort\":\"Name\",\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"view_kind\":\"Groups\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":0}\nFILES_SPACE_COMMAND seq=1 action=palette:view-list\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[],\"can_undo\":false,\"changed\":false,\"clipboard_busy\":false,\"clipboard_count\":0,\"clipboard_kind\":\"None\",\"complete\":null,\"controls\":[],\"copy_active\":null,\"copy_busy\":false,\"copy_controls\":[],\"copy_dialog\":null,\"copy_id\":0,\"copy_phase\":\"Idle\",\"copy_queue\":0,\"copy_queued_ids\":[],\"descending\":false,\"drained\":true,\"dual\":false,\"error\":null,\"generation\":2,\"height\":0,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"mc\":{\"buttons\":[],\"enabled\":false},\"mutation_applied\":false,\"mutation_busy\":false,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"notice_open\":false,\"observed\":null,\"operation_bar\":false,\"other_loaded\":true,\"other_sort\":null,\"page_rows\":1,\"palette\":null,\"pane_owner\":[1,1],\"path\":\"/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list\",\"preview_drained\":true,\"preview_ready\":false,\"preview_visible\":false,\"properties\":null,\"rename_dialog\":null,\"revision\":4,\"row_hits\":[],\"scene_ready\":true,\"scroll\":0,\"selected\":\"a-�\\n\",\"selected_raw\":\"612dff0a\",\"selection_error\":\"\",\"selection_menu\":null,\"selection_raw\":[\"612dff0a\"],\"seq\":1,\"sort\":\"Name\",\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"view_kind\":\"List\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":0}\nFILES_SPACE_COMMAND seq=2 action=bar-toggle\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[{\"index\":0,\"rect\":[2,585,121,30]},{\"index\":1,\"rect\":[127,585,121,30]},{\"index\":2,\"rect\":[252,585,121,30]},{\"index\":3,\"rect\":[377,585,121,30]},{\"index\":4,\"rect\":[502,585,121,30]},{\"index\":5,\"rect\":[627,585,121,30]},{\"index\":6,\"rect\":[752,585,121,30]},{\"index\":7,\"rect\":[877,585,121,30]}],\"can_undo\":false,\"changed\":false,\"clipboard_busy\":false,\"clipboard_count\":0,\"clipboard_kind\":\"None\",\"complete\":null,\"controls\":[],\"copy_active\":null,\"copy_busy\":false,\"copy_controls\":[],\"copy_dialog\":null,\"copy_id\":0,\"copy_phase\":\"Idle\",\"copy_queue\":0,\"copy_queued_ids\":[],\"descending\":false,\"drained\":true,\"dual\":false,\"error\":null,\"generation\":2,\"height\":0,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"mc\":{\"buttons\":[{\"generation\":2,\"index\":0,\"label\":\"Ayuda y atajos, F1\",\"owner\":[1,1],\"reason\":null,\"rect\":[2,585,121,30]},{\"generation\":2,\"index\":1,\"label\":\"Renombrar selección, F2\",\"owner\":[1,1],\"reason\":null,\"rect\":[127,585,121,30]},{\"generation\":2,\"index\":2,\"label\":\"Previsualizar elemento enfocado, F3\",\"owner\":[1,1],\"reason\":null,\"rect\":[252,585,121,30]},{\"generation\":2,\"index\":3,\"label\":\"F5: copiar; en Espacio, recalcular\",\"owner\":[1,1],\"reason\":null,\"rect\":[377,585,121,30]},{\"generation\":2,\"index\":4,\"label\":\"Mover selección: revisar destino, F6\",\"owner\":[1,1],\"reason\":null,\"rect\":[502,585,121,30]},{\"generation\":2,\"index\":5,\"label\":\"Crear carpeta, F7\",\"owner\":[1,1],\"reason\":null,\"rect\":[627,585,121,30]},{\"generation\":2,\"index\":6,\"label\":\"Enviar selección a Papelera, F8\",\"owner\":[1,1],\"reason\":null,\"rect\":[752,585,121,30]},{\"generation\":2,\"index\":7,\"label\":\"Acciones sobre archivos, F10\",\"owner\":[1,1],\"reason\":null,\"rect\":[877,585,121,30]}],\"enabled\":true},\"mutation_applied\":false,\"mutation_busy\":false,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"notice_open\":false,\"observed\":null,\"operation_bar\":true,\"other_loaded\":true,\"other_sort\":null,\"page_rows\":1,\"palette\":null,\"pane_owner\":[1,1],\"path\":\"/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list\",\"preview_drained\":true,\"preview_ready\":false,\"preview_visible\":false,\"properties\":null,\"rename_dialog\":null,\"revision\":4,\"row_hits\":[],\"scene_ready\":true,\"scroll\":0,\"selected\":\"a-�\\n\",\"selected_raw\":\"612dff0a\",\"selection_error\":\"\",\"selection_menu\":null,\"selection_raw\":[\"612dff0a\"],\"seq\":2,\"sort\":\"Name\",\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"view_kind\":\"List\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":0}\nFILES_SPACE_COMMAND seq=3 action=fixture-wide\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[{\"index\":0,\"rect\":[2,495,121,30]},{\"index\":1,\"rect\":[127,495,121,30]},{\"index\":2,\"rect\":[252,495,121,30]},{\"index\":3,\"rect\":[377,495,121,30]},{\"index\":4,\"rect\":[502,495,121,30]},{\"index\":5,\"rect\":[627,495,121,30]},{\"index\":6,\"rect\":[752,495,121,30]},{\"index\":7,\"rect\":[877,495,121,30]}],\"can_undo\":false,\"changed\":false,\"clipboard_busy\":false,\"clipboard_count\":0,\"clipboard_kind\":\"None\",\"complete\":null,\"controls\":[],\"copy_active\":null,\"copy_busy\":false,\"copy_controls\":[],\"copy_dialog\":null,\"copy_id\":0,\"copy_phase\":\"Idle\",\"copy_queue\":0,\"copy_queued_ids\":[],\"descending\":false,\"drained\":true,\"dual\":false,\"error\":null,\"generation\":2,\"height\":0,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"mc\":{\"buttons\":[{\"generation\":2,\"index\":0,\"label\":\"Ayuda y atajos, F1\",\"owner\":[1,1],\"reason\":null,\"rect\":[2,495,121,30]},{\"generation\":2,\"index\":1,\"label\":\"Renombrar selección, F2\",\"owner\":[1,1],\"reason\":null,\"rect\":[127,495,121,30]},{\"generation\":2,\"index\":2,\"label\":\"Previsualizar elemento enfocado, F3\",\"owner\":[1,1],\"reason\":null,\"rect\":[252,495,121,30]},{\"generation\":2,\"index\":3,\"label\":\"F5: copiar; en Espacio, recalcular\",\"owner\":[1,1],\"reason\":null,\"rect\":[377,495,121,30]},{\"generation\":2,\"index\":4,\"label\":\"Mover selección: revisar destino, F6\",\"owner\":[1,1],\"reason\":null,\"rect\":[502,495,121,30]},{\"generation\":2,\"index\":5,\"label\":\"Crear carpeta, F7\",\"owner\":[1,1],\"reason\":null,\"rect\":[627,495,121,30]},{\"generation\":2,\"index\":6,\"label\":\"Enviar selección a Papelera, F8\",\"owner\":[1,1],\"reason\":null,\"rect\":[752,495,121,30]},{\"generation\":2,\"index\":7,\"label\":\"Acciones sobre archivos, F10\",\"owner\":[1,1],\"reason\":null,\"rect\":[877,495,121,30]}],\"enabled\":true},\"mutation_applied\":false,\"mutation_busy\":false,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"notice_open\":false,\"observed\":null,\"operation_bar\":true,\"other_loaded\":true,\"other_sort\":null,\"page_rows\":1,\"palette\":null,\"pane_owner\":[1,1],\"path\":\"/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list\",\"preview_drained\":true,\"preview_ready\":false,\"preview_visible\":false,\"properties\":null,\"rename_dialog\":null,\"revision\":4,\"row_hits\":[],\"scene_ready\":true,\"scroll\":0,\"selected\":\"a-�\\n\",\"selected_raw\":\"612dff0a\",\"selection_error\":\"\",\"selection_menu\":null,\"selection_raw\":[\"612dff0a\"],\"seq\":3,\"sort\":\"Name\",\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"view_kind\":\"List\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":0}\nFILES_SPACE_COMMAND seq=4 action=fixture-rail:off\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[{\"index\":0,\"rect\":[2,495,121,30]},{\"index\":1,\"rect\":[127,495,121,30]},{\"index\":2,\"rect\":[252,495,121,30]},{\"index\":3,\"rect\":[377,495,121,30]},{\"index\":4,\"rect\":[502,495,121,30]},{\"index\":5,\"rect\":[627,495,121,30]},{\"index\":6,\"rect\":[752,495,121,30]},{\"index\":7,\"rect\":[877,495,121,30]}],\"can_undo\":false,\"changed\":false,\"clipboard_busy\":false,\"clipboard_count\":0,\"clipboard_kind\":\"None\",\"complete\":null,\"controls\":[],\"copy_active\":null,\"copy_busy\":false,\"copy_controls\":[],\"copy_dialog\":null,\"copy_id\":0,\"copy_phase\":\"Idle\",\"copy_queue\":0,\"copy_queued_ids\":[],\"descending\":false,\"drained\":true,\"dual\":false,\"error\":null,\"generation\":2,\"height\":0,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"mc\":{\"buttons\":[{\"generation\":2,\"index\":0,\"label\":\"Ayuda y atajos, F1\",\"owner\":[1,1],\"reason\":null,\"rect\":[2,495,121,30]},{\"generation\":2,\"index\":1,\"label\":\"Renombrar selección, F2\",\"owner\":[1,1],\"reason\":null,\"rect\":[127,495,121,30]},{\"generation\":2,\"index\":2,\"label\":\"Previsualizar elemento enfocado, F3\",\"owner\":[1,1],\"reason\":null,\"rect\":[252,495,121,30]},{\"generation\":2,\"index\":3,\"label\":\"F5: copiar; en Espacio, recalcular\",\"owner\":[1,1],\"reason\":null,\"rect\":[377,495,121,30]},{\"generation\":2,\"index\":4,\"label\":\"Mover selección: revisar destino, F6\",\"owner\":[1,1],\"reason\":null,\"rect\":[502,495,121,30]},{\"generation\":2,\"index\":5,\"label\":\"Crear carpeta, F7\",\"owner\":[1,1],\"reason\":null,\"rect\":[627,495,121,30]},{\"generation\":2,\"index\":6,\"label\":\"Enviar selección a Papelera, F8\",\"owner\":[1,1],\"reason\":null,\"rect\":[752,495,121,30]},{\"generation\":2,\"index\":7,\"label\":\"Acciones sobre archivos, F10\",\"owner\":[1,1],\"reason\":null,\"rect\":[877,495,121,30]}],\"enabled\":true},\"mutation_applied\":false,\"mutation_busy\":false,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"notice_open\":false,\"observed\":null,\"operation_bar\":true,\"other_loaded\":true,\"other_sort\":null,\"page_rows\":1,\"palette\":null,\"pane_owner\":[1,1],\"path\":\"/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list\",\"preview_drained\":true,\"preview_ready\":false,\"preview_visible\":false,\"properties\":null,\"rename_dialog\":null,\"revision\":4,\"row_hits\":[],\"scene_ready\":true,\"scroll\":0,\"selected\":\"a-�\\n\",\"selected_raw\":\"612dff0a\",\"selection_error\":\"\",\"selection_menu\":null,\"selection_raw\":[\"612dff0a\"],\"seq\":4,\"sort\":\"Name\",\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"view_kind\":\"List\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":0}\nFILES_SPACE_COMMAND seq=5 action=select-raw:612dff0a\nFILES_SPACE_STATE {\"areas\":[],\"bar_rects\":[{\"index\":0,\"rect\":[2,495,121,30]},{\"index\":1,\"rect\":[127,495,121,30]},{\"index\":2,\"rect\":[252,495,121,30]},{\"index\":3,\"rect\":[377,495,121,30]},{\"index\":4,\"rect\":[502,495,121,30]},{\"index\":5,\"rect\":[627,495,121,30]},{\"index\":6,\"rect\":[752,495,121,30]},{\"index\":7,\"rect\":[877,495,121,30]}],\"can_undo\":false,\"changed\":false,\"clipboard_busy\":false,\"clipboard_count\":0,\"clipboard_kind\":\"None\",\"complete\":null,\"controls\":[],\"copy_active\":null,\"copy_busy\":false,\"copy_controls\":[],\"copy_dialog\":null,\"copy_id\":0,\"copy_phase\":\"Idle\",\"copy_queue\":0,\"copy_queued_ids\":[],\"descending\":false,\"drained\":true,\"dual\":false,\"error\":null,\"generation\":2,\"height\":0,\"list_rect\":[0,0,0,0],\"loaded\":true,\"max_scroll\":0,\"mc\":{\"buttons\":[{\"generation\":2,\"index\":0,\"label\":\"Ayuda y atajos, F1\",\"owner\":[1,1],\"reason\":null,\"rect\":[2,495,121,30]},{\"generation\":2,\"index\":1,\"label\":\"Renombrar selección, F2\",\"owner\":[1,1],\"reason\":null,\"rect\":[127,495,121,30]},{\"generation\":2,\"index\":2,\"label\":\"Previsualizar elemento enfocado, F3\",\"owner\":[1,1],\"reason\":null,\"rect\":[252,495,121,30]},{\"generation\":2,\"index\":3,\"label\":\"F5: copiar; en Espacio, recalcular\",\"owner\":[1,1],\"reason\":null,\"rect\":[377,495,121,30]},{\"generation\":2,\"index\":4,\"label\":\"Mover selección: revisar destino, F6\",\"owner\":[1,1],\"reason\":null,\"rect\":[502,495,121,30]},{\"generation\":2,\"index\":5,\"label\":\"Crear carpeta, F7\",\"owner\":[1,1],\"reason\":null,\"rect\":[627,495,121,30]},{\"generation\":2,\"index\":6,\"label\":\"Enviar selección a Papelera, F8\",\"owner\":[1,1],\"reason\":null,\"rect\":[752,495,121,30]},{\"generation\":2,\"index\":7,\"label\":\"Acciones sobre archivos, F10\",\"owner\":[1,1],\"reason\":null,\"rect\":[877,495,121,30]}],\"enabled\":true},\"mutation_applied\":false,\"mutation_busy\":false,\"navigation_raw\":[],\"no_area_raw\":[],\"nodes\":null,\"notice_open\":false,\"observed\":null,\"operation_bar\":true,\"other_loaded\":true,\"other_sort\":null,\"page_rows\":1,\"palette\":null,\"pane_owner\":[1,1],\"path\":\"/home/node/.cache/files-test/narrow-names-ui-uggf3a54/list\",\"preview_drained\":true,\"preview_ready\":false,\"preview_visible\":false,\"properties\":null,\"rename_dialog\":null,\"revision\":4,\"row_hits\":[],\"scene_ready\":true,\"scroll\":0,\"selected\":\"a-�\\n\",\"selected_raw\":\"612dff0a\",\"selection_error\":\"\",\"selection_menu\":null,\"selection_raw\":[\"612dff0a\"],\"seq\":5,\"sort\":\"Name\",\"state\":\"closed\",\"total\":null,\"view\":\"other\",\"view_kind\":\"List\",\"watch_gap\":false,\"watch_pending\":false,\"watch_settled\":true,\"width\":0}\nFILES_CAPTURE_OK id=0 redraw=false before=13 paint=13 width=1000 height=560\nFILES_CAPTURE_OK id=0 redraw=false before=13 paint=13 width=1000 height=560\n"
+  },
+  "error": "AssertionError()",
+  "binary_sha256": "8f88cc804da339095b0a626579b05b24bc94caa49ff39113119faead6addc1b3",
+  "helper_sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

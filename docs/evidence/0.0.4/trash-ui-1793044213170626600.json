@@ -1,0 +1,61 @@
+{
+  "method": "internal visible hit targets/handlers + actual filesystem/Trash metadata + FLTK framebuffer; no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/trash-menu-1793044212391882400.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/trash-result-1793044212600894581.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/trash-restore-conflict-1793044212720457524.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/trash-restored-1793044212836591287.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/trash-batch-limit-1793044213066952221.png",
+      "framebuffer_dimensions": [
+        845,
+        1061
+      ]
+    }
+  ],
+  "known_pending": [
+    "per-volume/cross-device trash",
+    "redo, browse/import persisted trash receipts and crash journal",
+    "batch beyond64 and resource budget",
+    "other platforms"
+  ],
+  "functional_gate": "PASS",
+  "selected_batch": 4,
+  "raw_name_roundtrip": true,
+  "no_clobber_conflict_and_retry": true,
+  "symlink_target_untouched": true,
+  "nonempty_directory_roundtrip": true,
+  "metadata_encoding_and_modes": true,
+  "65_selection_rejected_before_mutation": true,
+  "normal_exit_after_ack": true,
+  "root_exit": 0,
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=6\nFILES_TRASH_READY seq=0 id=0 entries=6 undo=false notice=false message=None\nFILES_FIRST_PAINT_US=134277\nFILES_TRASH_COMMAND seq=1 action=actions id=0 applied=false undo=false notice=false\nFILES_TRASH_READY seq=1 id=0 entries=6 undo=false notice=false message=None\nFILES_CAPTURE_OK\nFILES_TRASH_COMMAND seq=2 action=trash-basic id=1 applied=true undo=false notice=false\nFILES_MUTATION_FINISHED id=1 success=true undo=true redo=false\nFILES_TRASH_READY seq=2 id=1 entries=2 undo=true notice=false message=Some(\"Enviados a Papelera: 4\")\nFILES_CAPTURE_OK\nFILES_TRASH_COMMAND seq=3 action=restore id=2 applied=true undo=true notice=false\nFILES_MUTATION_FINISHED id=2 success=false undo=true redo=false\nFILES_TRASH_READY seq=3 id=2 entries=6 undo=true notice=true message=Some(\"Restaurados 3; pendientes 1: El nombre original está ocupado; no se reemplazó\")\nFILES_CAPTURE_OK\nFILES_TRASH_COMMAND seq=4 action=dismiss id=2 applied=false undo=true notice=false\nFILES_TRASH_READY seq=4 id=2 entries=6 undo=true notice=false message=Some(\"Restaurados 3; pendientes 1: El nombre original está ocupado; no se reemplazó\")\nFILES_TRASH_COMMAND seq=5 action=restore id=3 applied=true undo=true notice=false\nFILES_MUTATION_FINISHED id=3 success=true undo=false redo=false\nFILES_TRASH_READY seq=5 id=3 entries=6 undo=false notice=false message=Some(\"Restaurados de Papelera: 1\")\nFILES_CAPTURE_OK\nFILES_TRASH_COMMAND seq=6 action=actions id=3 applied=false undo=false notice=false\nFILES_TRASH_READY seq=6 id=3 entries=6 undo=false notice=false message=Some(\"Restaurados de Papelera: 1\")\nFILES_TRASH_COMMAND seq=7 action=trash-raw id=4 applied=true undo=false notice=false\nFILES_MUTATION_FINISHED id=4 success=true undo=true redo=false\nFILES_TRASH_READY seq=7 id=4 entries=5 undo=true notice=false message=Some(\"Enviados a Papelera: 1\")\nFILES_TRASH_COMMAND seq=8 action=restore id=5 applied=true undo=true notice=false\nFILES_MUTATION_FINISHED id=5 success=true undo=false redo=false\nFILES_TRASH_READY seq=8 id=5 entries=6 undo=false notice=false message=Some(\"Restaurados de Papelera: 1\")\nFILES_TRASH_COMMAND seq=9 action=reload id=5 applied=false undo=false notice=false\nFILES_TRASH_READY seq=9 id=5 entries=71 undo=false notice=false message=Some(\"Restaurados de Papelera: 1\")\nFILES_TRASH_COMMAND seq=10 action=actions id=5 applied=false undo=false notice=false\nFILES_TRASH_READY seq=10 id=5 entries=71 undo=false notice=false message=Some(\"Restaurados de Papelera: 1\")\nFILES_TRASH_COMMAND seq=11 action=trash-many id=5 applied=false undo=false notice=true\nFILES_TRASH_READY seq=11 id=5 entries=71 undo=false notice=true message=Some(\"Reduce el lote de papelera: máximo64elementos; no se trunca la selección\")\nFILES_CAPTURE_OK\nFILES_TRASH_COMMAND seq=12 action=dismiss id=5 applied=false undo=false notice=false\nFILES_TRASH_READY seq=12 id=5 entries=71 undo=false notice=false message=Some(\"Reduce el lote de papelera: máximo64elementos; no se trunca la selección\")\nFILES_TRASH_CLOSE busy=false applied=false id=5\nFILES_TRASH_COMMAND seq=13 action=close id=5 applied=false undo=false notice=false\nFILES_TRASH_DRAINED\n",
+  "binary_sha256": "198759016b0f30a83bc02a95f63d7da169a6e7bc13754ad20ea155096be86271",
+  "helper_used": false
+}

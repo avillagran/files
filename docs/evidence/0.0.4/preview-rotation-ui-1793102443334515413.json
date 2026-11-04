@@ -1,0 +1,583 @@
+{
+  "rotation_fixture": true,
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-image-original-1793102439902975402.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-image-clockwise-1793102440059398941.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-image-counterclockwise-1793102440378369849.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-image-reset-1793102440524601742.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-video-snapshot-1793102440919563823.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-video-playing-1793102441153415585.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-video-seek-1793102441462794975.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-gif-snapshot-1793102441781168713.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-gif-playing-1793102441989433443.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-gif-seek-1793102442294489266.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-pdf-first-1793102442537391292.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-pdf-second-1793102442756393005.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-pdf-text-return-1793102442997233143.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/preview-rotation-new-source-reset-1793102443176601531.png"
+  ],
+  "method": "shared UI Action and drawn hit targets; actual FLTK framebuffer, no native OS input/clipboard or resource sampling",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab34b04190"
+  },
+  "quadrant_checks": [
+    {
+      "capture": "preview-rotation-image-original",
+      "quarter_turns": 0,
+      "actual_framebuffer_samples": [
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          0,
+          255,
+          0
+        ],
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          255,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        460
+      ]
+    },
+    {
+      "capture": "preview-rotation-image-clockwise",
+      "quarter_turns": 1,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          255,
+          255,
+          0
+        ],
+        [
+          0,
+          255,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        460
+      ]
+    },
+    {
+      "capture": "preview-rotation-image-counterclockwise",
+      "quarter_turns": 3,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          255,
+          0
+        ],
+        [
+          255,
+          255,
+          0
+        ],
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          255
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        460
+      ]
+    },
+    {
+      "capture": "preview-rotation-image-reset",
+      "quarter_turns": 0,
+      "actual_framebuffer_samples": [
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          0,
+          255,
+          0
+        ],
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          255,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        460
+      ]
+    },
+    {
+      "capture": "preview-rotation-video-snapshot",
+      "quarter_turns": 1,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          255,
+          255,
+          0
+        ],
+        [
+          0,
+          255,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        420
+      ]
+    },
+    {
+      "capture": "preview-rotation-video-playing",
+      "quarter_turns": 1,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          255,
+          255,
+          0
+        ],
+        [
+          0,
+          255,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        420
+      ]
+    },
+    {
+      "capture": "preview-rotation-video-seek",
+      "quarter_turns": 1,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          255,
+          255,
+          0
+        ],
+        [
+          0,
+          255,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        420
+      ]
+    },
+    {
+      "capture": "preview-rotation-gif-snapshot",
+      "quarter_turns": 1,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          252,
+          0,
+          0
+        ],
+        [
+          252,
+          252,
+          0
+        ],
+        [
+          0,
+          252,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        420
+      ]
+    },
+    {
+      "capture": "preview-rotation-gif-playing",
+      "quarter_turns": 1,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          252,
+          0,
+          0
+        ],
+        [
+          252,
+          252,
+          0
+        ],
+        [
+          0,
+          252,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        420
+      ]
+    },
+    {
+      "capture": "preview-rotation-gif-seek",
+      "quarter_turns": 1,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          252,
+          0,
+          0
+        ],
+        [
+          252,
+          252,
+          0
+        ],
+        [
+          0,
+          252,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        420
+      ]
+    },
+    {
+      "capture": "preview-rotation-pdf-first",
+      "quarter_turns": 1,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          255,
+          255,
+          0
+        ],
+        [
+          0,
+          255,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        460
+      ]
+    },
+    {
+      "capture": "preview-rotation-pdf-second",
+      "quarter_turns": 1,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          255,
+          255,
+          0
+        ],
+        [
+          0,
+          255,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        460
+      ]
+    },
+    {
+      "capture": "preview-rotation-pdf-text-return",
+      "quarter_turns": 1,
+      "actual_framebuffer_samples": [
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          255,
+          255,
+          0
+        ],
+        [
+          0,
+          255,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        460
+      ]
+    },
+    {
+      "capture": "preview-rotation-new-source-reset",
+      "quarter_turns": 0,
+      "actual_framebuffer_samples": [
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          0,
+          255,
+          0
+        ],
+        [
+          0,
+          0,
+          255
+        ],
+        [
+          255,
+          255,
+          0
+        ]
+      ],
+      "body": [
+        34,
+        99,
+        932,
+        460
+      ]
+    }
+  ],
+  "source_bytes_unchanged": true,
+  "normal_callback_exit0_after_ack": true,
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        1120657,
+        54521194
+      ],
+      [
+        1120664,
+        54521197
+      ],
+      [
+        1120816,
+        54521277
+      ],
+      [
+        1120818,
+        54521290
+      ],
+      [
+        1120887,
+        54521318
+      ],
+      [
+        1120906,
+        54521343
+      ],
+      [
+        1120907,
+        54521348
+      ],
+      [
+        1120924,
+        54521375
+      ],
+      [
+        1120931,
+        54521380
+      ],
+      [
+        1120947,
+        54521402
+      ],
+      [
+        1120960,
+        54521425
+      ],
+      [
+        1120966,
+        54521430
+      ],
+      [
+        1121063,
+        54521453
+      ],
+      [
+        1121087,
+        54521456
+      ],
+      [
+        1121120,
+        54521478
+      ],
+      [
+        1121122,
+        54521479
+      ],
+      [
+        1121128,
+        54521500
+      ],
+      [
+        1121134,
+        54521501
+      ],
+      [
+        1121136,
+        54521504
+      ],
+      [
+        1121137,
+        54521505
+      ],
+      [
+        1121146,
+        54521525
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start identities after exit, not lifetime coverage"
+  },
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=98714\nFILES_UI_SMOKE_OK entries=9\nFILES_PREVIEW_HELPER pid=1120657 start=54521194 command=preview_thumbnail\nFILES_PREVIEW_COMMAND_OK rotation-open\nFILES_PREVIEW_COMMAND_REV action=rotation-open revision=3\nFILES_PREVIEW_HELPER pid=1120664 start=54521197 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/quadrants.png\") revision=3 stamp=Some(Revision { device: 63, inode: 282490490, bytes: 2968, modified_seconds: 1793102438, modified_nanoseconds: 945919054, changed_seconds: 1793102438, changed_nanoseconds: 945919054 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=0 zoom=1 body=34,99,932,460\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=3\nFILES_PREVIEW_COMMAND_OK rotation-right\nFILES_PREVIEW_COMMAND_REV action=rotation-right revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=1 zoom=1 body=34,99,932,460\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=3\nFILES_PREVIEW_COMMAND_OK rotation-left\nFILES_PREVIEW_COMMAND_REV action=rotation-left revision=3\nFILES_PREVIEW_COMMAND_OK rotation-left\nFILES_PREVIEW_COMMAND_REV action=rotation-left revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=3 zoom=1 body=34,99,932,460\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=3\nFILES_PREVIEW_COMMAND_OK rotation-reset\nFILES_PREVIEW_COMMAND_REV action=rotation-reset revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=0 zoom=1 body=34,99,932,460\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=3\nFILES_PREVIEW_COMMAND_OK video\nFILES_PREVIEW_COMMAND_REV action=video revision=5\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=1120816 start=54521277 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=1120818 start=54521290 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.mkv\") revision=5 width=640 height=480 source=640x480 duration=4.000000 position=0.000000 codec=ffv1 playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_COMMAND_OK rotation-right\nFILES_PREVIEW_COMMAND_REV action=rotation-right revision=5\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=1 zoom=1 body=34,99,932,420\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=5\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=6\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.mkv\") revision=6 width=640 height=480 source=640x480 duration=4.000000 position=0.000000 codec=ffv1 playing=true sequence=None drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_CHILD_ADMIT role=video_stream\nFILES_PREVIEW_HELPER pid=1120887 start=54521318 command=preview_video_stream audio=false video_index=0 audio_index=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.mkv\") revision=6 width=640 height=480 source=640x480 duration=4.000000 position=0.000000 codec=ffv1 playing=true sequence=Some(0) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.mkv\") revision=6 width=640 height=480 source=640x480 duration=4.000000 position=0.333333 codec=ffv1 playing=true sequence=Some(4) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.mkv\") revision=6 width=640 height=480 source=640x480 duration=4.000000 position=0.416667 codec=ffv1 playing=true sequence=Some(5) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.mkv\") revision=6 width=640 height=480 source=640x480 duration=4.000000 position=0.500000 codec=ffv1 playing=true sequence=Some(6) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_ROTATION turns=1 zoom=1 body=34,99,932,420\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=6\nFILES_PREVIEW_COMMAND_OK video-pause\nFILES_PREVIEW_COMMAND_REV action=video-pause revision=7\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.mkv\") revision=7 width=640 height=480 source=640x480 duration=4.000000 position=0.500000 codec=ffv1 playing=false sequence=Some(6) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.mkv\") revision=7 width=640 height=480 source=640x480 duration=4.000000 position=0.500000 codec=ffv1 playing=false sequence=Some(6) drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_COMMAND_OK video-mid\nFILES_PREVIEW_COMMAND_REV action=video-mid revision=8\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=1120906 start=54521343 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=1120907 start=54521348 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.mkv\") revision=8 width=640 height=480 source=640x480 duration=4.000000 position=2.000000 codec=ffv1 playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=1 zoom=1 body=34,99,932,420\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=8\nFILES_PREVIEW_COMMAND_OK gif\nFILES_PREVIEW_COMMAND_REV action=gif revision=10\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=1120924 start=54521375 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=1120931 start=54521380 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=10 width=640 height=480 source=640x480 duration=4.000000 position=0.000000 codec=gif playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_COMMAND_OK rotation-right\nFILES_PREVIEW_COMMAND_REV action=rotation-right revision=10\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=1 zoom=1 body=34,99,932,420\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=10\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=11\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=11 width=640 height=480 source=640x480 duration=4.000000 position=0.000000 codec=gif playing=true sequence=None drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_VIDEO_CHILD_ADMIT role=video_stream\nFILES_PREVIEW_HELPER pid=1120947 start=54521402 command=preview_video_stream audio=false video_index=0 audio_index=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=11 width=640 height=480 source=640x480 duration=4.000000 position=0.000000 codec=gif playing=true sequence=Some(0) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=11 width=640 height=480 source=640x480 duration=4.000000 position=0.083333 codec=gif playing=true sequence=Some(1) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=11 width=640 height=480 source=640x480 duration=4.000000 position=0.250000 codec=gif playing=true sequence=Some(3) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=11 width=640 height=480 source=640x480 duration=4.000000 position=0.333333 codec=gif playing=true sequence=Some(4) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=11 width=640 height=480 source=640x480 duration=4.000000 position=0.416667 codec=gif playing=true sequence=Some(5) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=11 width=640 height=480 source=640x480 duration=4.000000 position=0.500000 codec=gif playing=true sequence=Some(6) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_ROTATION turns=1 zoom=1 body=34,99,932,420\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=11\nFILES_PREVIEW_COMMAND_OK video-pause\nFILES_PREVIEW_COMMAND_REV action=video-pause revision=12\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=12 width=640 height=480 source=640x480 duration=4.000000 position=0.500000 codec=gif playing=false sequence=Some(6) drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=12 width=640 height=480 source=640x480 duration=4.000000 position=0.500000 codec=gif playing=false sequence=Some(6) drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_COMMAND_OK video-mid\nFILES_PREVIEW_COMMAND_REV action=video-mid revision=13\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=1120960 start=54521425 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=1120966 start=54521430 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/clip.gif\") revision=13 width=640 height=480 source=640x480 duration=4.000000 position=2.000000 codec=gif playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=1 zoom=1 body=34,99,932,420\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=13\nFILES_PREVIEW_COMMAND_OK pdf\nFILES_PREVIEW_COMMAND_REV action=pdf revision=15\nFILES_PREVIEW_HELPER pid=1121063 start=54521453 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=1121087 start=54521456 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/pages.pdf\") revision=15 page=1 pages=2 width=960 height=720 zoom=1 source=Some(Revision { device: 63, inode: 282490495, bytes: 856, modified_seconds: 1793102439, modified_nanoseconds: 626215294, changed_seconds: 1793102439, changed_nanoseconds: 626215294 })\nFILES_PREVIEW_COMMAND_OK rotation-right\nFILES_PREVIEW_COMMAND_REV action=rotation-right revision=15\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=1 zoom=1 body=34,99,932,460\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=15\nFILES_PREVIEW_COMMAND_OK pdf-next\nFILES_PREVIEW_COMMAND_REV action=pdf-next revision=16\nFILES_PREVIEW_HELPER pid=1121120 start=54521478 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=1121122 start=54521479 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/pages.pdf\") revision=16 page=2 pages=2 width=960 height=720 zoom=1 source=Some(Revision { device: 63, inode: 282490495, bytes: 856, modified_seconds: 1793102439, modified_nanoseconds: 626215294, changed_seconds: 1793102439, changed_nanoseconds: 626215294 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=1 zoom=1 body=34,99,932,460\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=16\nFILES_PREVIEW_COMMAND_OK pdf-text\nFILES_PREVIEW_COMMAND_REV action=pdf-text revision=17\nFILES_PREVIEW_HELPER pid=1121128 start=54521500 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=1121134 start=54521501 command=preview_pdf_text\nFILES_PREVIEW_PDF_TEXT_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/pages.pdf\") revision=17 page=2 pages=Some(2) bytes=0 stamp=Some(Revision { device: 63, inode: 282490495, bytes: 856, modified_seconds: 1793102439, modified_nanoseconds: 626215294, changed_seconds: 1793102439, changed_nanoseconds: 626215294 })\nFILES_PREVIEW_COMMAND_OK pdf-text\nFILES_PREVIEW_COMMAND_REV action=pdf-text revision=18\nFILES_PREVIEW_HELPER pid=1121136 start=54521504 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=1121137 start=54521505 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/pages.pdf\") revision=18 page=2 pages=2 width=960 height=720 zoom=1 source=Some(Revision { device: 63, inode: 282490495, bytes: 856, modified_seconds: 1793102439, modified_nanoseconds: 626215294, changed_seconds: 1793102439, changed_nanoseconds: 626215294 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=1 zoom=1 body=34,99,932,460\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=18\nFILES_PREVIEW_COMMAND_OK rotation-open\nFILES_PREVIEW_COMMAND_REV action=rotation-open revision=20\nFILES_PREVIEW_HELPER pid=1121146 start=54521525 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-neighbor-nuurpcgq/files/quadrants.png\") revision=20 stamp=Some(Revision { device: 63, inode: 282490490, bytes: 2968, modified_seconds: 1793102438, modified_nanoseconds: 945919054, changed_seconds: 1793102438, changed_nanoseconds: 945919054 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_ROTATION turns=0 zoom=1 body=34,99,932,460\nFILES_PREVIEW_COMMAND_OK rotation-state\nFILES_PREVIEW_COMMAND_REV action=rotation-state revision=20\nFILES_PREVIEW_COMMAND_OK callback\nFILES_PREVIEW_COMMAND_REV action=callback revision=20\nFILES_MEDIA_PROBE_STOPPED=false scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "a682485cf39a00fe2695a4b020338c55d156277f4b5ef08ba01d3964fb73fc3a",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

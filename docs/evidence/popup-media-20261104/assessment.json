@@ -1,0 +1,21 @@
+{
+  "source": "7f7baee",
+  "toolkit": "9dd9ac2",
+  "cause": "Plain FLTK production initialization did not install focus runtime; repaint guard had been registered only by that runtime. Fixture incorrectly installed it.",
+  "fixed": "Overlay open installs independent UI-thread check; fixture-only router installation removed.",
+  "tests": {
+    "toolkit": "33 unit/UI harness/9 doctests passed; raw-FLTK no-router framebuffer FAIL\u2192PASS",
+    "files": "1620 workspace tests; Clippy -Dwarnings; passive capture tests",
+    "node": "X11 media fixture source+installed PASS, press/hold/release and inspector-overlapping menu, periodic thumbnail refresh",
+    "m2": "Native Wayland same fixture source+installed PASS without fixture-specific focus initialization"
+  },
+  "installed_node_receipt": "docs/evidence/0.0.4/installed-checkpoint-1793777818073346235.json",
+  "installed_m2_receipt": "docs/evidence/popup-media-20261104/m2/m2-installed.json",
+  "node_sha256": "0f7bdae5db351dd6d8f519a7c1bbde7ec55acac4c802d95653a451c43675ae8e",
+  "m2_sha256": "acb64b049f55af7069f57860a435c692c86c0dde37a1ac88150a126d015e8b4c",
+  "frame_archive": "frame-archive.json maps gzip raw frames; original reports retain capture-time paths",
+  "limits": [
+    "internal FLTK input, not OS pointer injection",
+    "no new resource measurements or global acceptance"
+  ]
+}

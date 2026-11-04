@@ -1,0 +1,37 @@
+{
+  "method": "read-only cua-driver MCP inventory while own fixture window is compositor-mapped before/after; no focus/keys/clicks",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_input": "NOT_VALIDATED",
+  "compositor_before": {
+    "pid": 3597252,
+    "address": "0xaaab33bed2d0",
+    "mapped": true,
+    "hidden": false,
+    "xwayland": false,
+    "size": [
+      845,
+      1061
+    ]
+  },
+  "driver": {
+    "status": "TARGET_UNAVAILABLE",
+    "window_count": 0,
+    "own_window_count": 0,
+    "own_window_ids": []
+  },
+  "compositor_after": {
+    "pid": 3597252,
+    "address": "0xaaab33bed2d0",
+    "mapped": true,
+    "hidden": false,
+    "xwayland": false,
+    "size": [
+      845,
+      1061
+    ]
+  },
+  "normal_auto_close": true,
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=91794\nFILES_UI_SMOKE_OK entries=1\nFILES_CLOSE_REQUEST callback=false\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_CLOSE_DRAINED\n",
+  "binary_sha256": "5f91ed73b9c56dbd2429a1c9fa5374f7f634bc6c2e93d39e8e9b48f2ff6897ba"
+}

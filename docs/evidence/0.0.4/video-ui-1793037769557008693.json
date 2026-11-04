@@ -1,0 +1,73 @@
+{
+  "method": "internal handlers, actual ffprobe/ffmpeg local decode and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/video-first-frame-1793037768407534565.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/video-seek-blue-1793037768616689738.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/video-timeline-red-1793037768961877192.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/video-error-1793037769259297879.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "playback/audio",
+    "hardware codecs",
+    "resource budget",
+    "cross-platform verification",
+    "anamorphic/rotation and unusual metadata coverage"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0f4a3c30"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=108895\nFILES_UI_SMOKE_OK entries=3\nFILES_PREVIEW_COMMAND_OK video\nFILES_PREVIEW_COMMAND_REV action=video revision=2\nFILES_PREVIEW_HELPER pid=3792564 start=48054030 command=preview_video_probe\nFILES_PREVIEW_HELPER pid=3792571 start=48054041 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-ui-5cxny672/files/clip.mkv\") revision=2 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1\nFILES_VIDEO_FRAME_OK red=true position=0.000000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-red\nFILES_PREVIEW_COMMAND_REV action=video-assert-red revision=2\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK video-forward\nFILES_PREVIEW_COMMAND_REV action=video-forward revision=3\nFILES_PREVIEW_HELPER pid=3792656 start=48054062 command=preview_video_probe\nFILES_PREVIEW_HELPER pid=3792664 start=48054065 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-ui-5cxny672/files/clip.mkv\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=5.000000 codec=ffv1\nFILES_VIDEO_FRAME_OK red=false position=5.000000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-blue\nFILES_PREVIEW_COMMAND_REV action=video-assert-blue revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK video-end\nFILES_PREVIEW_COMMAND_REV action=video-end revision=4\nFILES_PREVIEW_HELPER pid=3792789 start=48054080 command=preview_video_probe\nFILES_PREVIEW_HELPER pid=3792790 start=48054084 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-ui-5cxny672/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=7.800000 codec=ffv1\nFILES_VIDEO_FRAME_OK red=false position=7.800000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-blue\nFILES_PREVIEW_COMMAND_REV action=video-assert-blue revision=4\nFILES_PREVIEW_COMMAND_OK video-quarter\nFILES_PREVIEW_COMMAND_REV action=video-quarter revision=5\nFILES_PREVIEW_HELPER pid=3792808 start=48054093 command=preview_video_probe\nFILES_PREVIEW_HELPER pid=3792809 start=48054096 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-ui-5cxny672/files/clip.mkv\") revision=5 width=640 height=360 source=640x360 duration=8.000000 position=2.000000 codec=ffv1\nFILES_VIDEO_FRAME_OK red=true position=2.000000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-red\nFILES_PREVIEW_COMMAND_REV action=video-assert-red revision=5\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK video-rapid\nFILES_PREVIEW_COMMAND_REV action=video-rapid revision=7\nFILES_PREVIEW_HELPER pid=3792820 start=48054115 command=preview_video_probe\nFILES_PREVIEW_HELPER pid=3792826 start=48054118 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-ui-5cxny672/files/clip.mkv\") revision=7 width=640 height=360 source=640x360 duration=8.000000 position=6.000000 codec=ffv1\nFILES_VIDEO_FRAME_OK red=false position=6.000000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-blue\nFILES_PREVIEW_COMMAND_REV action=video-assert-blue revision=7\nFILES_PREVIEW_COMMAND_OK video-bad\nFILES_PREVIEW_COMMAND_REV action=video-bad revision=9\nFILES_PREVIEW_HELPER pid=3792833 start=48054130 command=preview_video_probe\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/video-ui-5cxny672/files/bad.mkv\") message=El helper de vista previa termin\u00f3 con error\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK video-symlink\nFILES_PREVIEW_COMMAND_REV action=video-symlink revision=11\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/video-ui-5cxny672/files/symlink.mkv\") message=Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK video\nFILES_PREVIEW_COMMAND_REV action=video revision=13\nFILES_PREVIEW_HELPER pid=3792851 start=48054148 command=preview_video_probe\nFILES_PREVIEW_HELPER pid=3792853 start=48054152 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-ui-5cxny672/files/clip.mkv\") revision=13 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1\nFILES_PREVIEW_COMMAND_OK close-video-pending\nFILES_PREVIEW_COMMAND_REV action=close-video-pending revision=15\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "0826d5198cd58ccea19a4e95d4318598ed6e630dcc8aae52ebb3734b82f2cdab",
+  "external_tools": {
+    "ffprobe": {
+      "path": "/usr/bin/ffprobe",
+      "sha256": "7c0a626038e42714f99c85b70412e1607f1f3ce5f92e41124f611014e02a7caa",
+      "version": "ffprobe version n9.0.2 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "ffmpeg": {
+      "path": "/usr/bin/ffmpeg",
+      "sha256": "fc5db7b88a2a96e9a9036fbc9533d8b3ec16abbc31526b285e996ae1d81b9fcd",
+      "version": "ffmpeg version n9.0.2 Copyright (c) 2000-2026 the FFmpeg developers"
+    }
+  }
+}

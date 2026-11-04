@@ -1,0 +1,35 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.16s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 8 tests
+test directory_sync_store::linux::tests::stage_coordinator_control_pause_resume_and_cancel_precede_private_effects ... ok
+test directory_sync_store::linux::tests::stage_coordinator_failures_keep_workspaces_and_never_publish_or_retry ... ok
+test directory_sync_store::linux::tests::stage_coordinator_independent_names_and_retire_only_keep_distinct_contracts ... FAILED
+test directory_sync_store::linux::tests::stage_coordinator_late_source_change_and_absolute_workspace_rename_fail_closed ... ok
+test directory_sync_store::linux::tests::stage_coordinator_multiple_workspaces_raw_tree_and_cross_scope_link_cohorts ... ok
+test directory_sync_store::linux::tests::stage_coordinator_real_exits_reopen_history_and_preserve_original_destinations ...
+running 1 test
+
+running 1 test
+
+running 1 test
+ok
+test directory_sync_store::linux::tests::stage_coordinator_rejects_budget_and_private_parent_before_hashing_or_artifacts ... ok
+test directory_sync_store::linux::tests::stage_coordinator_single_file_exact_budget_and_publication_pipeline ... ok
+
+failures:
+
+---- directory_sync_store::linux::tests::stage_coordinator_independent_names_and_retire_only_keep_distinct_contracts stdout ----
+
+thread 'directory_sync_store::linux::tests::stage_coordinator_independent_names_and_retire_only_keep_distinct_contracts' (2765557) panicked at crates/core/src/directory_sync_store.rs:2269:346:
+called `Result::unwrap()` on an `Err` value: Custom { kind: InvalidInput, error: "Plan o decisión de sincronización inválido/obsoleto" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    directory_sync_store::linux::tests::stage_coordinator_independent_names_and_retire_only_keep_distinct_contracts
+
+test result: FAILED. 7 passed; 1 failed; 0 ignored; 0 measured; 695 filtered out; finished in 2.08s
+
+error: test failed, to rerun pass `-p files-core --lib`

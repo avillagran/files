@@ -1,0 +1,60 @@
+{
+  "milestone": "M29b receiver partial",
+  "functional_report": "clipboard-ui-1793135944759735086.json",
+  "checks": [
+    {
+      "command": "cargo test --workspace",
+      "log": "target/native-dnd-workspace-first-test.log",
+      "exit_code": 0,
+      "passed": 642,
+      "core": 208,
+      "helper": 67,
+      "ui": 367,
+      "ignored": 3
+    },
+    {
+      "command": "cargo clippy --workspace --all-targets -- -D warnings",
+      "log": "target/native-dnd-workspace-first-clippy.log",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo fmt --all --check",
+      "log": "target/native-dnd-workspace-final-fmt.log",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo build --release",
+      "log": "target/native-dnd-workspace-release.log",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/native-dnd-receiver-check.py",
+      "log": "target/native-dnd-receiver-final-test.log",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/tabs-ui-check.py --clipboard",
+      "log": "target/native-dnd-ui-first.log",
+      "exit_code": 0
+    }
+  ],
+  "scope": "private pipes, wrapped mock proxies and injected state/handlers; actual compositor gesture, offer negotiation, ownership and interop are UNVALIDATED",
+  "private_dnd_pipe_auxio_review_copy": true,
+  "private_dnd_cancel_preserves_source": true,
+  "native_protocol": "UNVALIDATED_NO_NATIVE_INPUT",
+  "sender": "PENDING",
+  "kde": "PENDING",
+  "multi_parent": "PENDING",
+  "resource_gate": "NOT_MEASURED_FREEZE",
+  "startup_gate": "NOT_MEASURED_FREEZE",
+  "preserved_failures": [
+    "target/native-dnd-hook-first-check.log",
+    "target/native-dnd-hook-second-check.log",
+    "target/native-dnd-input-guard-first-check.log",
+    "target/native-dnd-wiring-first-check.log",
+    "target/native-dnd-wiring-first-test.log (interrupted)"
+  ],
+  "files_sha256": "7b68a3eed3e93d6e82c23594ea1769e83f28db80d98ed091afe6afb55740efd9",
+  "files-helper_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+  "files-html-helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

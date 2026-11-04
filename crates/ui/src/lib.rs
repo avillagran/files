@@ -937,6 +937,18 @@ pub fn run_since(start: Instant) -> bool {
     if !theme_override {
         omarchy_theme::apply(&mut model.borrow_mut());
     }
+    // Scripted checks compare pixels, so they paint opaque whatever the
+    // desktop's Window Opacity is, unless they ask with OMARCHY_FLTK_GLASS.
+    let glass_pinned = smoke && std::env::var_os("OMARCHY_FLTK_GLASS").is_none();
+    // `smoke` is cleared once the smoke actions ran; the exit report is not.
+    let glass_report = smoke || trace;
+    if glass_pinned {
+        fltk_omarchy::glass::set(fltk_omarchy::glass::Setting {
+            mode: fltk_omarchy::glass::Mode::Opaque,
+            opacity: 1.0,
+            overridden: true,
+        });
+    }
     let toolkit_changed = Rc::new(Cell::new(false));
     let change_flag = toolkit_changed.clone();
     fltk_omarchy::theme::on_change(move |_| change_flag.set(true));
@@ -1271,6 +1283,16 @@ pub fn run_since(start: Instant) -> bool {
         eprintln!("FILES_PRE_SHOW_US={}", start.elapsed().as_micros());
     }
     win.show();
+    if smoke || trace {
+        let g = fltk_omarchy::glass::setting();
+        eprintln!(
+            "FILES_GLASS mode={} opacity={:.2} overridden={} wayland={}",
+            g.mode.name(),
+            g.opacity,
+            g.overridden,
+            fltk_omarchy::glass::wayland()
+        );
+    }
     if !isolate_fixture_input {
         model.borrow_mut().native_transfer.enable(&win);
     }
@@ -1483,6 +1505,16 @@ pub fn run_since(start: Instant) -> bool {
             continue;
         }
         if watcher.changed() {
+            if !glass_pinned && fltk_omarchy::glass::reload() {
+                let g = fltk_omarchy::glass::setting();
+                eprintln!(
+                    "FILES_GLASS_CHANGED mode={} opacity={:.2} active={}",
+                    g.mode.name(),
+                    g.opacity,
+                    fltk_omarchy::glass::active()
+                );
+                dirty = true;
+            }
             if theme_override {
                 let valid = m.reload_theme();
                 dirty = true;
@@ -2518,6 +2550,13 @@ pub fn run_since(start: Instant) -> bool {
     }
     toolkit_menus.close();
     model.borrow_mut().native_transfer.shutdown();
+    if glass_report {
+        let g = fltk_omarchy::glass::stats();
+        eprintln!(
+            "FILES_GLASS_STATS glass_fills={} opaque_fills={} regions_cleared={} regions_restored={}",
+            g.glass_fills, g.opaque_fills, g.regions_cleared, g.regions_restored
+        );
+    }
     !runtime_failed
 }
 fn smoke_test(model: &Rc<RefCell<Model>>, canvas: &mut Frame) {

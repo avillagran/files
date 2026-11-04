@@ -1,0 +1,19 @@
+{
+  "tests": {
+    "core": 398,
+    "helper": 91,
+    "ui": 625,
+    "passed": 1114,
+    "existing_ignored": 3,
+    "workspace_exit_code": 0
+  },
+  "clippy": "PASS workspace/all-targets -Dwarnings",
+  "fmt": "PASS",
+  "release": "PASS",
+  "scene": "docs/evidence/0.0.4/archive-create-ui-1793498375771482261.json",
+  "framebuffers": 7,
+  "native_input": "UNVALIDATED",
+  "resources": "NOT_MEASURED_FREEZE",
+  "startup": "NOT_MEASURED_FREEZE",
+  "scope": "Linux ZIP32 creation, regular files/directories/literal links. Not full Z01."
+}

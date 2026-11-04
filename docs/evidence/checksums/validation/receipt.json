@@ -1,0 +1,47 @@
+{
+  "status": "scoped PASS; installation pending",
+  "base": "de150eb53d0402bd5d9c0add6ff2f71b1f7fd2cb",
+  "source_sha256": {
+    "crates/core/src/lib.rs": "45e55654582a29c578b483b8527dda1c909f3f266f7976d53b43bebb8d54e148",
+    "crates/core/src/protocol.rs": "9fc98119dc23592c89ba8351a22cb6dd3673fdd5b41b65bb66711f0094c1c6b4",
+    "crates/helper/src/main.rs": "2860c47cd1838124e643ae238c2d53515ab2830f133340c4b54036d28f8731e2",
+    "crates/ui/src/command_palette.rs": "58cf5e929dc98b1a667c0eb86b919bf3ca393de272ea1db0f823f57eb5d37a1b",
+    "crates/ui/src/help_view.rs": "eb380e2706e39ecef466897c5e996ebbf6b8f39447f494769c2449ccf3636538",
+    "crates/ui/src/hidden_scene.rs": "80774729479b37f18836a73aec4de1e20254dda176b71b11f4acba4a67fe283e",
+    "crates/ui/src/lib.rs": "2d217f8e4c7f61bf817345a1098c303013dcad5fc1329720854119e35981aeb3",
+    "crates/ui/src/model.rs": "dccdd719128a68a2f1042cfe392b43b73de998186d37c6786084249ec2b9933d",
+    "crates/ui/src/spatial_view.rs": "347333aebaf1c891609654b59bcc86650beca451779decce2e9151e4cc7cbbac",
+    "crates/ui/src/toolkit_menu.rs": "dde01f7319300548af578d9ad29d923e7c3af6ca6e9c9b2de84319b6559d7a73",
+    "crates/ui/src/view.rs": "5e499c9d64f5019802e984e1862377bd6cf115988784777b6bc06aca539f07f2",
+    "crates/ui/src/window_chrome.rs": "e0074a52fe267b0f290a3a0f8bdf65ad87495d22523188fe23fbb47081074fbf",
+    "crates/core/src/checksum.rs": "28028bdb202ed4f234300d14bba4a46fc29ff0d7dd205aee7609a7ccdb3d3ced",
+    "crates/helper/src/checksum.rs": "1e1de50d0b58d5550918382d2592e58aad03c5aa33d7de1beab9640df7bfd665",
+    "crates/ui/src/checksum_job.rs": "f7ee45f438928a366a7523e1ec9d9ba184580ccf94960edd7762412228f3068d",
+    "crates/ui/src/checksum_ui.rs": "4dc8fc6d5ca3c2b3ad5251429506c6f3d87752ef422b44b7164adfdef6f47cbf"
+  },
+  "functional": [
+    "docs/evidence/checksums/node-functional-1793517471420967043/receipt.json",
+    "docs/evidence/checksums/node-functional-1793517472873839910/receipt.json"
+  ],
+  "scheduling": "several build admissions NOT_STARTED while foreign o3-server Cargo live; never controlled competitor; own builds used build-if-idle one job",
+  "resource_gate": "NOT_MEASURED; freeze",
+  "startup_gate": "NOT_MEASURED; freeze",
+  "scope": "C01 selected files SHA256/comparison only; recursive duplicate/action workflows remain pending",
+  "tests": {
+    "core": 416,
+    "helper": 95,
+    "ui": 677,
+    "passed": 1188,
+    "ignored": 3,
+    "post_layout_checksum_tests": 8
+  },
+  "checks": {
+    "workspace_final": "PASS",
+    "clippy_alltargets_Dwarnings": "PASS",
+    "release": "PASS",
+    "fmt": "PASS",
+    "diff_check": "PASS"
+  },
+  "app_sha256": "4279419032a95f7648d2a2dd6242fca4086a8fb4ceb5fab44e0c456f8a0d0cc8",
+  "helper_sha256": "48e017b4b4b20942f9e5152a8249614f1db9b21352f6d64dc291c88e06964048"
+}

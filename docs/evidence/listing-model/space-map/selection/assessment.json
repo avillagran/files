@@ -1,0 +1,40 @@
+{
+  "functional_gate": "PASS",
+  "source": "de6c3a4 (Rust cd12a06)",
+  "workspace_tests": {
+    "passed": 1294,
+    "core": 447,
+    "helper": 105,
+    "ui": 742,
+    "historical_ignored": 3,
+    "source": "95648ec",
+    "scope": "Final difference is shorter disabled-menu label; behavior unchanged"
+  },
+  "clippy": "PASS final all-targets warnings denied",
+  "format": "PASS final check",
+  "initial_source_ui": {
+    "wayland": "../navigation/space-map-nav-ui-1793555470847134874.json",
+    "xvfb_x11": "../navigation/space-map-nav-ui-1793555481605599814.json",
+    "result": "PASS15captures2roots5helpers each; compact disabled-label clipping observed manually and shortened in cd12a06"
+  },
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "limits": [
+    "Handlers/framebuffer are not native OS input, clipboard, AT-SPI or 2x acceptance",
+    "No closure of original intermittent X11 missing-name anomaly",
+    "No claim of global helper lifetime or atomic filesystem snapshot"
+  ],
+  "goal": "FULL ACTIVE",
+  "source_ui": {
+    "wayland": "../navigation/space-map-nav-ui-1793555586348347425.json",
+    "xvfb_x11": "../navigation/space-map-nav-ui-1793555590497549394.json",
+    "result": "PASS each16captures3normal exits+drain6logged helpers gone/reused"
+  },
+  "installed_ui": {
+    "report": "../navigation/space-map-nav-ui-1793555616429200227.json",
+    "result": "PASS16captures3normal exits+drain6logged helpers gone/reused"
+  },
+  "installation": "docs/evidence/0.0.4/installed-checkpoint-1793555602802600273.json",
+  "manual_inspection": "Compact disabled label fits; partial unknown row marked alongside measured file; no resource inference from footer",
+  "next": "Audit inspector and context-menu shortcut captions in actual SpaceMap: view.rs still paints Copy F5 although global Map F5 recalculates. No change/fix claimed here. Full ROADMAP remains active."
+}

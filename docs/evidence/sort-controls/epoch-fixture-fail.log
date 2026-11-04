@@ -1,0 +1,35 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.78s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-6cb802029f4441f7)
+
+running 12 tests
+test dual_pane::tests::inactive_size_order_does_not_treat_directory_metadata_as_a_total ... ok
+test dual_pane::tests::size_completion_reorders_quiet_inactive_browser_even_when_active_sort_is_name ... ok
+test dual_pane::tests::context_other_batch_background_keyboard_and_stale_revision_are_safe ... ok
+test dual_pane::tests::sorting_inactive_header_preserves_owner_selection_sizes_and_rejects_stale_revision ... FAILED
+test dual_pane::tests::raw_opposite_destination_copy_move_and_closed_panel_do_not_redirect_queue ... ok
+test dual_pane::tests::forgetting_size_reorders_both_views_without_changing_their_selection ... ok
+test dual_pane::tests::sort_header_targets_are_disjoint_inside_narrow_and_wide_panels ... ok
+test dual_pane::tests::independent_paths_history_filter_selection_and_namespaced_tab_ids ... ok
+test dual_pane::tests::shared_tab_budget_includes_passive_and_hidden_group_state ... ok
+test dual_pane::tests::late_direct_summary_is_retained_by_the_inactive_browser ... ok
+test dual_pane::tests::size_recalculation_invalidates_inactive_order_via_browser_and_manager ... ok
+test dual_pane::tests::both_views_of_same_path_reload_after_rename_and_undo_without_focus_change ... ok
+
+failures:
+
+---- dual_pane::tests::sorting_inactive_header_preserves_owner_selection_sizes_and_rejects_stale_revision stdout ----
+
+thread 'dual_pane::tests::sorting_inactive_header_preserves_owner_selection_sizes_and_rejects_stale_revision' (2597639) panicked at crates/ui/src/dual_pane/tests.rs:617:5:
+assertion `left == right` failed
+  left: 1
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    dual_pane::tests::sorting_inactive_header_preserves_owner_selection_sizes_and_rejects_stale_revision
+
+test result: FAILED. 11 passed; 1 failed; 0 ignored; 0 measured; 632 filtered out; finished in 0.26s
+
+error: test failed, to rerun pass `-p files-ui --lib`

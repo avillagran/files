@@ -1,0 +1,270 @@
+{
+  "text_mode": true,
+  "source_lifecycle": true,
+  "notify_callbacks_suppressed": true,
+  "checks": [
+    "on-demand text mode page2 and page1, effective source proof, pointer selection equals extracted page text; Copy handler invoked, OS clipboard NOT_VALIDATED; return to raster releases extracted text",
+    "stable unsupported PDF256MiB+1 and HTML32KiB+1 remain errors with unchanged revision and no new child over reconcile interval; not a CPU/resource metric",
+    "effective FD proof after same-size/mtime replacement, same inode in-place mutation restoring mtime, delete/recreate, file rename and parent replacement; stale pixels hidden before recovery",
+    "hidden preview launches no helper during one reconciliation interval"
+  ],
+  "method": "internal handlers, actual pdfinfo/pdftoppm local raster and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-page-first-1793094175913208173.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-page-second-1793094176135600700.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-zoom-pan-1793094176287678878.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-extracted-text-page2-1793094176606507149.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-extracted-text-selected-1793094176734948612.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-extracted-first-page-1793094176955206960.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-return-to-page-1793094177153744021.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-source-replaced-blue-1793094180956679560.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-source-modified-red-1793094181937980928.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-source-deleted-1793094182888233331.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-parent-recovered-1793094187999235807.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/pdf-error-1793094189316235790.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "selection mapped to original PDF page geometry and Unicode PDF font coverage",
+    "complex/password/hostile PDF coverage",
+    "resource budget",
+    "cross-platform verification"
+  ],
+  "compositor_binding": {
+    "selected": {
+      "instance": "unknown_1793084545_122682092",
+      "time": 1793084545,
+      "pid": 3154625,
+      "wl_socket": "wayland-1"
+    },
+    "scope": "fixture-only environment, no focus/input/global configuration"
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab348ce070"
+  },
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        286803,
+        53694791
+      ],
+      [
+        286804,
+        53694793
+      ],
+      [
+        286863,
+        53694814
+      ],
+      [
+        286864,
+        53694816
+      ],
+      [
+        286981,
+        53694851
+      ],
+      [
+        286982,
+        53694852
+      ],
+      [
+        286985,
+        53694864
+      ],
+      [
+        286986,
+        53694866
+      ],
+      [
+        287084,
+        53694900
+      ],
+      [
+        287123,
+        53694902
+      ],
+      [
+        287206,
+        53694917
+      ],
+      [
+        287207,
+        53694918
+      ],
+      [
+        287602,
+        53695197
+      ],
+      [
+        287603,
+        53695198
+      ],
+      [
+        287698,
+        53695296
+      ],
+      [
+        287699,
+        53695297
+      ],
+      [
+        287742,
+        53695396
+      ],
+      [
+        287780,
+        53695397
+      ],
+      [
+        288050,
+        53695596
+      ],
+      [
+        288054,
+        53695597
+      ],
+      [
+        288268,
+        53695796
+      ],
+      [
+        288272,
+        53695797
+      ],
+      [
+        288418,
+        53695997
+      ],
+      [
+        288438,
+        53695998
+      ],
+      [
+        288498,
+        53696141
+      ],
+      [
+        288562,
+        53696153
+      ],
+      [
+        288564,
+        53696155
+      ],
+      [
+        288566,
+        53696164
+      ],
+      [
+        288567,
+        53696166
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start identities after root exit0, not lifetime or resource sampling"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=132582\nFILES_UI_SMOKE_OK entries=4\nFILES_PREVIEW_COMMAND_OK pdf\nFILES_PREVIEW_COMMAND_REV action=pdf revision=3\nFILES_PREVIEW_HELPER pid=286803 start=53694791 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=286804 start=53694793 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=3 page=1 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282168910, bytes: 920, modified_seconds: 1793094175, modified_nanoseconds: 561915806, changed_seconds: 1793094175, changed_nanoseconds: 561915806 })\nFILES_PDF_PAGE_OK page=1 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-first\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-first revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-next\nFILES_PREVIEW_COMMAND_REV action=pdf-next revision=4\nFILES_PREVIEW_HELPER pid=286863 start=53694814 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=286864 start=53694816 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=4 page=2 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282168910, bytes: 920, modified_seconds: 1793094175, modified_nanoseconds: 561915806, changed_seconds: 1793094175, changed_nanoseconds: 561915806 })\nFILES_PDF_PAGE_OK page=2 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-second\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-second revision=4\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-zoom\nFILES_PREVIEW_COMMAND_REV action=pdf-zoom revision=4\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=4 page=2 pages=2 width=721 height=960 zoom=2 source=Some(Revision { device: 63, inode: 282168910, bytes: 920, modified_seconds: 1793094175, modified_nanoseconds: 561915806, changed_seconds: 1793094175, changed_nanoseconds: 561915806 })\nFILES_PREVIEW_COMMAND_OK pdf-pan\nFILES_PREVIEW_COMMAND_REV action=pdf-pan revision=4\nFILES_CAPTURE_OK\nFILES_PDF_ZOOM_PAN_OK zoom=2 pan=0,60\nFILES_PREVIEW_COMMAND_OK pdf-assert-pan\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-pan revision=4\nFILES_PREVIEW_COMMAND_OK pdf-rapid\nFILES_PREVIEW_COMMAND_REV action=pdf-rapid revision=6\nFILES_PREVIEW_HELPER pid=286981 start=53694851 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=286982 start=53694852 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=6 page=2 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282168910, bytes: 920, modified_seconds: 1793094175, modified_nanoseconds: 561915806, changed_seconds: 1793094175, changed_nanoseconds: 561915806 })\nFILES_PDF_PAGE_OK page=2 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-second\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-second revision=6\nFILES_PREVIEW_COMMAND_OK pdf-text\nFILES_PREVIEW_COMMAND_REV action=pdf-text revision=7\nFILES_PREVIEW_HELPER pid=286985 start=53694864 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=286986 start=53694866 command=preview_pdf_text\nFILES_PREVIEW_PDF_TEXT_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=7 page=2 pages=Some(2) bytes=13 stamp=Some(Revision { device: 63, inode: 282168910, bytes: 920, modified_seconds: 1793094175, modified_nanoseconds: 561915806, changed_seconds: 1793094175, changed_nanoseconds: 561915806 })\nFILES_CAPTURE_OK\nFILES_PDF_TEXT_SELECTION_OK page=2 copy_handler=invoked clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK pdf-text-select\nFILES_PREVIEW_COMMAND_REV action=pdf-text-select revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-prev\nFILES_PREVIEW_COMMAND_REV action=pdf-prev revision=8\nFILES_PREVIEW_HELPER pid=287084 start=53694900 command=preview_pdf_info\nFILES_THEME_RELOADED background=#121212\nFILES_PREVIEW_HELPER pid=287123 start=53694902 command=preview_pdf_text\nFILES_PREVIEW_PDF_TEXT_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=8 page=1 pages=Some(2) bytes=13 stamp=Some(Revision { device: 63, inode: 282168910, bytes: 920, modified_seconds: 1793094175, modified_nanoseconds: 561915806, changed_seconds: 1793094175, changed_nanoseconds: 561915806 })\nFILES_PDF_TEXT_SELECTION_OK page=1 copy_handler=invoked clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK pdf-text-select\nFILES_PREVIEW_COMMAND_REV action=pdf-text-select revision=8\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-text\nFILES_PREVIEW_COMMAND_REV action=pdf-text revision=9\nFILES_PREVIEW_HELPER pid=287206 start=53694917 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=287207 start=53694918 command=preview_pdf_page\nFILES_THEME_RELOADED background=#121212\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=9 page=1 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282168910, bytes: 920, modified_seconds: 1793094175, modified_nanoseconds: 561915806, changed_seconds: 1793094175, changed_nanoseconds: 561915806 })\nFILES_PDF_PAGE_OK page=1 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-first\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-first revision=9\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-bad\nFILES_PREVIEW_COMMAND_REV action=pdf-bad revision=11\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/bad.pdf\") message=PDF debe ser archivo no vac\u00edo de hasta256MiB\nFILES_PDF_UNAVAILABLE_OK\nFILES_PREVIEW_COMMAND_OK pdf-assert-unavailable\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-unavailable revision=11\nFILES_PDF_UNAVAILABLE_OK\nFILES_PREVIEW_COMMAND_OK pdf-assert-unavailable\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-unavailable revision=11\nFILES_PREVIEW_COMMAND_OK html-large\nFILES_PREVIEW_COMMAND_REV action=html-large revision=13\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/large.html\") message=HTML fuera del l\u00edmite32KiB\nFILES_PDF_UNAVAILABLE_OK\nFILES_PREVIEW_COMMAND_OK pdf-assert-unavailable\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-unavailable revision=13\nFILES_PDF_UNAVAILABLE_OK\nFILES_PREVIEW_COMMAND_OK pdf-assert-unavailable\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-unavailable revision=13\nFILES_PREVIEW_COMMAND_OK pdf\nFILES_PREVIEW_COMMAND_REV action=pdf revision=15\nFILES_PREVIEW_HELPER pid=287602 start=53695197 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=287603 start=53695198 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=15 page=1 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282168910, bytes: 920, modified_seconds: 1793094175, modified_nanoseconds: 561915806, changed_seconds: 1793094175, changed_nanoseconds: 561915806 })\nFILES_PREVIEW_HELPER pid=287698 start=53695296 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=287699 start=53695297 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=16 page=1 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282169087, bytes: 920, modified_seconds: 1793094175, modified_nanoseconds: 561915806, changed_seconds: 1793094179, changed_nanoseconds: 897674261 })\nFILES_PDF_PAGE_OK page=1 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-blue-first\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-blue-first revision=16\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=287742 start=53695396 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=287780 start=53695397 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=17 page=1 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282169087, bytes: 920, modified_seconds: 1793094175, modified_nanoseconds: 561915806, changed_seconds: 1793094181, changed_nanoseconds: 5354331 })\nFILES_PDF_PAGE_OK page=1 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-first\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-first revision=17\nFILES_CAPTURE_OK\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") message=Original no disponible: No such file or directory (os error 2)\nFILES_PDF_UNAVAILABLE_OK\nFILES_PREVIEW_COMMAND_OK pdf-assert-unavailable\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-unavailable revision=18\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=288050 start=53695596 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=288054 start=53695597 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=18 page=1 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282169108, bytes: 920, modified_seconds: 1793094182, modified_nanoseconds: 940834915, changed_seconds: 1793094182, changed_nanoseconds: 940834915 })\nFILES_PDF_PAGE_OK page=1 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-first\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-first revision=18\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") message=Original no disponible: No such file or directory (os error 2)\nFILES_PDF_UNAVAILABLE_OK\nFILES_PREVIEW_COMMAND_OK pdf-assert-unavailable\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-unavailable revision=19\nFILES_PREVIEW_HELPER pid=288268 start=53695796 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=288272 start=53695797 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=19 page=1 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282169108, bytes: 920, modified_seconds: 1793094182, modified_nanoseconds: 940834915, changed_seconds: 1793094184, changed_nanoseconds: 868458873 })\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") message=No se puede vigilar el original: No path was found. about [\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files\"]\nFILES_PDF_UNAVAILABLE_OK\nFILES_PREVIEW_COMMAND_OK pdf-assert-unavailable\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-unavailable revision=20\nFILES_PREVIEW_HELPER pid=288418 start=53695997 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=288438 start=53695998 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=20 page=1 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282169228, bytes: 920, modified_seconds: 1793094186, modified_nanoseconds: 880637634, changed_seconds: 1793094186, changed_nanoseconds: 880637634 })\nFILES_PDF_PAGE_OK page=1 pages=2 bytes=2076480 pan=0,0\nFILES_PREVIEW_COMMAND_OK pdf-assert-first\nFILES_PREVIEW_COMMAND_REV action=pdf-assert-first revision=20\nFILES_CAPTURE_OK\nFILES_MEDIA_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-hide\nFILES_PREVIEW_COMMAND_REV action=media-hide revision=21\nFILES_PREVIEW_COMMAND_OK pdf-bad\nFILES_PREVIEW_COMMAND_REV action=pdf-bad revision=23\nFILES_PREVIEW_HELPER pid=288498 start=53696141 command=preview_pdf_info\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/bad.pdf\") message=No se pudo leer PDF (protegido, da\u00f1ado o fuera de l\u00edmites): El helper de vista previa termin\u00f3 con error\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK pdf-symlink\nFILES_PREVIEW_COMMAND_REV action=pdf-symlink revision=25\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/symlink.pdf\") message=Original no disponible: Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK pdf\nFILES_PREVIEW_COMMAND_REV action=pdf revision=27\nFILES_PREVIEW_HELPER pid=288562 start=53696153 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=288564 start=53696155 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=27 page=1 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282169228, bytes: 920, modified_seconds: 1793094186, modified_nanoseconds: 880637634, changed_seconds: 1793094186, changed_nanoseconds: 880637634 })\nFILES_PREVIEW_COMMAND_OK pdf-next\nFILES_PREVIEW_COMMAND_REV action=pdf-next revision=28\nFILES_PREVIEW_HELPER pid=288566 start=53696164 command=preview_pdf_info\nFILES_PREVIEW_HELPER pid=288567 start=53696166 command=preview_pdf_page\nFILES_PREVIEW_PDF_READY path=Some(\"/home/avillagran/.cache/files-test/pdf-ui-50poy7ao/files/pages.pdf\") revision=28 page=2 pages=2 width=721 height=960 zoom=1 source=Some(Revision { device: 63, inode: 282169228, bytes: 920, modified_seconds: 1793094186, modified_nanoseconds: 880637634, changed_seconds: 1793094186, changed_nanoseconds: 880637634 })\nFILES_PREVIEW_COMMAND_OK close-pdf-pending\nFILES_PREVIEW_COMMAND_REV action=close-pdf-pending revision=30\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_CLOSE_DRAINED\n",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "binary_sha256": "786c52d7c9afef200ad7c258514af96a531b4cf805be4e2b66f67614aad6be92",
+  "external_tools": {
+    "pdfinfo": {
+      "path": "/usr/bin/pdfinfo",
+      "sha256": "40f8ebaaf1b36d8d006a558ea472b874656fb89fdca4a71c119d6d4c4d5fe8b2",
+      "version": "pdfinfo version 26.08.0"
+    },
+    "pdftoppm": {
+      "path": "/usr/bin/pdftoppm",
+      "sha256": "5ccfc897238587cea18d22ae5a8de746ce51d37511ce055b736a46ae0af28f2b",
+      "version": "pdftoppm version 26.08.0"
+    }
+  }
+}

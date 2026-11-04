@@ -1,0 +1,40 @@
+{
+  "checkpoint": "8003944d88bbb5f9e33411c281fb1a3d11df025d",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/raw-path/raw-path-ui-1793071898429792393.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793072387321556737",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "644d3ed6a9dc18a463af9ddb5dbb1fbabae78ac4bfa7a6fb7549c234ba5b60c6",
+      "release_sha256": "3b4f6e787172e46ab260bd029491caa63f6c973d84839b5d97cb4df59a3aa08c",
+      "installed_sha256": "3b4f6e787172e46ab260bd029491caa63f6c973d84839b5d97cb4df59a3aa08c"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "76d279c3ac70bdbfdae4c8e82b12a27f09ef28808ab73c946dc52002f143b5ff",
+      "release_sha256": "7222619952a58c93d2361568e8aa0beea8bee4ee2f3477cf3307720a4d9fac2d",
+      "installed_sha256": "7222619952a58c93d2361568e8aa0beea8bee4ee2f3477cf3307720a4d9fac2d"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "release_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "installed_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "release_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "installed_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

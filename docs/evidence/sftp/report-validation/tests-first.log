@@ -1,0 +1,14 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0600]: cannot apply unary operator `!` to type `std::option::Option<u64>`
+  --> crates/ui/src/sftp_report_ui.rs:88:51
+   |
+88 |         assert!(!m.sftp.transport.busy());assert!(!m.sftp.active);assert!(m.text_context().is_none());
+   |                                                   ^^^^^^^^^^^^^^ cannot apply unary operator `!`
+   |
+note: `std::option::Option<u64>` does not implement `Not`
+  --> /rustc/58cf8f9c35b355199727627d07ae34a4e2846d67/library/core/src/option.rs:598:0
+   |
+   = note: `std::option::Option<u64>` is defined in another crate
+
+For more information about this error, try `rustc --explain E0600`.
+error: could not compile `files-ui` (lib test) due to 1 previous error

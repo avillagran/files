@@ -1,0 +1,10 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.59s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 3 tests
+test exdev_source::linux::sync_namespace::tests::batch_namespace_structural_budget_boundaries_without_filesystem_claims ... ok
+test exdev_source::linux::sync_namespace::tests::batch_namespace_updates_all_observers_and_composes_next_move ... ok
+test exdev_source::linux::sync_namespace::tests::batch_namespace_late_observer_failure_keeps_every_owner_unchanged ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 703 filtered out; finished in 0.04s

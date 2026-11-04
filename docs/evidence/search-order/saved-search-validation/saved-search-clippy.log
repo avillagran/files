@@ -1,0 +1,20 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0308]: mismatched types
+  --> crates/ui/src/hidden_scene.rs:84:16
+   |
+24 | pub fn command(m: &mut Model, action: &str, w: i32, h: i32) -> Result<(), String> {
+   |                                                                ------------------ expected `std::result::Result<(), std::string::String>` because of return type
+...
+84 |         return crate::saved_search_ui::fixture_command(m, action);
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `Result<(), String>`, found `Result<(), &str>`
+   |
+   = note: expected enum `Result<_, std::string::String>`
+              found enum `Result<_, &'static str>`
+help: use `?` to coerce and return an appropriate `Err`, and wrap the resulting value in `Ok` so the expression remains of type `Result`
+   |
+84 |         return Ok(crate::saved_search_ui::fixture_command(m, action)?);
+   |                +++                                                  ++
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `files-ui` (lib) due to 1 previous error

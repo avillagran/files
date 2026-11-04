@@ -1,0 +1,144 @@
+{
+  "method": "serialized warm-cache fixtures; external process time includes startup; hashes checked after timing; no fsync/durability or physical-throughput claim",
+  "scope": "isolated core engine versus cp, not integrated UI PSS",
+  "bulk_mib": 16,
+  "small_files": 1000,
+  "repetitions": 1,
+  "rows": [
+    {
+      "scenario": "bulk",
+      "method": "engine-auto",
+      "repetition": 0,
+      "verified_bytes_mode_mtime": true,
+      "status": "PASS",
+      "external_elapsed_ms": 7.0426949532702565,
+      "returncode": 0,
+      "stderr": "",
+      "engine": {
+        "elapsed_ms": 6.1116909999999995,
+        "logical_bytes": 16777216,
+        "files": 1,
+        "directories": 0,
+        "reflink_files": 1,
+        "kernel_files": 0,
+        "stream_files": 0,
+        "auxiliary_accounted_peak_bytes": 12372440,
+        "cleanup_paths": 0,
+        "cleanup_errors": 0
+      }
+    },
+    {
+      "scenario": "bulk",
+      "method": "cp-auto",
+      "repetition": 0,
+      "verified_bytes_mode_mtime": true,
+      "status": "PASS",
+      "external_elapsed_ms": 14.940434019081295,
+      "returncode": 0,
+      "stderr": "",
+      "engine": null
+    },
+    {
+      "scenario": "bulk",
+      "method": "engine-stream",
+      "repetition": 0,
+      "verified_bytes_mode_mtime": true,
+      "status": "PASS",
+      "external_elapsed_ms": 5.128270015120506,
+      "returncode": 0,
+      "stderr": "",
+      "engine": {
+        "elapsed_ms": 4.174391,
+        "logical_bytes": 16777216,
+        "files": 1,
+        "directories": 0,
+        "reflink_files": 0,
+        "kernel_files": 0,
+        "stream_files": 1,
+        "auxiliary_accounted_peak_bytes": 12372444,
+        "cleanup_paths": 0,
+        "cleanup_errors": 0
+      }
+    },
+    {
+      "scenario": "bulk",
+      "method": "cp-no-reflink",
+      "repetition": 0,
+      "verified_bytes_mode_mtime": true,
+      "status": "PASS",
+      "external_elapsed_ms": 3.4837640123441815,
+      "returncode": 0,
+      "stderr": "",
+      "engine": null
+    },
+    {
+      "scenario": "small-files",
+      "method": "engine-auto",
+      "repetition": 0,
+      "verified_bytes_mode_mtime": true,
+      "status": "PASS",
+      "external_elapsed_ms": 24.815807002596557,
+      "returncode": 0,
+      "stderr": "",
+      "engine": {
+        "elapsed_ms": 24.084761999999998,
+        "logical_bytes": 989000,
+        "files": 1000,
+        "directories": 1,
+        "reflink_files": 1000,
+        "kernel_files": 0,
+        "stream_files": 0,
+        "auxiliary_accounted_peak_bytes": 12593472,
+        "cleanup_paths": 0,
+        "cleanup_errors": 0
+      }
+    },
+    {
+      "scenario": "small-files",
+      "method": "cp-auto",
+      "repetition": 0,
+      "verified_bytes_mode_mtime": true,
+      "status": "PASS",
+      "external_elapsed_ms": 20.05841297795996,
+      "returncode": 0,
+      "stderr": "",
+      "engine": null
+    },
+    {
+      "scenario": "small-files",
+      "method": "engine-stream",
+      "repetition": 0,
+      "verified_bytes_mode_mtime": true,
+      "status": "PASS",
+      "external_elapsed_ms": 59.37561101745814,
+      "returncode": 0,
+      "stderr": "",
+      "engine": {
+        "elapsed_ms": 58.296397,
+        "logical_bytes": 989000,
+        "files": 1000,
+        "directories": 1,
+        "reflink_files": 0,
+        "kernel_files": 0,
+        "stream_files": 1000,
+        "auxiliary_accounted_peak_bytes": 12593476,
+        "cleanup_paths": 0,
+        "cleanup_errors": 0
+      }
+    },
+    {
+      "scenario": "small-files",
+      "method": "cp-no-reflink",
+      "repetition": 0,
+      "verified_bytes_mode_mtime": true,
+      "status": "PASS",
+      "external_elapsed_ms": 35.889059014152735,
+      "returncode": 0,
+      "stderr": "",
+      "engine": null
+    }
+  ],
+  "reflink_note": "logical clones do not transfer all logical bytes; cp-no-reflink may still use kernel copy_file_range",
+  "resource_gate": "NOT_MEASURED",
+  "functional_gate": "PASS"
+}

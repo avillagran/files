@@ -1,0 +1,9 @@
+{
+  "historical_report": "video-play-ui-failure-1793082885016655179.json",
+  "functional_gate": "FAIL",
+  "observation": "After initial probe/frame, explicit video command found no clip.mkv entry and later previewed fixture directory. Original script lacked ambient-input isolation; trigger not established. No codec/ownership failure proven.",
+  "next_fixture_change": "Use existing smoke-only FILES_TEST_ISOLATE_INPUT and FILES_TEST_FIXED_SIZE, same handlers and same binary. Do not claim native input.",
+  "binary_sha256": "f5a65ecc1b5c65bbddb125303fb80fcfed51fb8ec0fd2bdcb1c3072928d01cd8",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "resource_gate": "NOT_MEASURED"
+}

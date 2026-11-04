@@ -1,0 +1,17 @@
+    Checking files-core v0.0.4 (/home/node/Work/files/crates/core)
+error[E0282]: type annotations needed for `&mut _`
+   --> crates/core/src/directory_sync_record.rs:251:21
+    |
+251 |                 let hash = directory_hashes
+    |                     ^^^^
+...
+255 |                 hash.update((name.len() as u64).to_le_bytes());
+    |                 ---- type must be known at this point
+    |
+help: consider giving `hash` an explicit type, where the type for type parameter `T` is specified
+    |
+251 |                 let hash: &mut T = directory_hashes
+    |                         ++++++++
+
+For more information about this error, try `rustc --explain E0282`.
+error: could not compile `files-core` (lib) due to 1 previous error

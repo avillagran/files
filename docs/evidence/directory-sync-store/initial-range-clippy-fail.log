@@ -1,0 +1,14 @@
+    Checking files-core v0.0.4 (/home/node/Work/files/crates/core)
+error: manual `!RangeInclusive::contains` implementation
+   --> crates/core/src/directory_sync_store.rs:143:16
+    |
+143 |               || m < 80
+    |  ________________^
+144 | |             || m > crate::directory_sync_plan::MAX_WIRE
+    | |_______________________________________________________^ help: use: `!(80..=crate::directory_sync_plan::MAX_WIRE).contains(&m)`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_range_contains
+    = note: `-D clippy::manual-range-contains` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::manual_range_contains)]`
+
+error: could not compile `files-core` (lib) due to 1 previous error

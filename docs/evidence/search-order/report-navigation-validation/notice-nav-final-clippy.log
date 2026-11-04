@@ -1,0 +1,21 @@
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Checking files-app v0.0.4 (/home/avillagran/Work/files/crates/app)
+error: called `filter(..).next_back()` on an `DoubleEndedIterator`
+   --> crates/ui/src/mutations.rs:951:13
+    |
+951 | /             p.lines
+952 | |                 .iter()
+953 | |                 .filter(|l| l.starts_with("LINE "))
+954 | |                 .next_back()
+    | |____________________________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#filter_next
+    = note: `-D clippy::filter-next` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::filter_next)]`
+help: use `.rfind(..)` instead
+    |
+951 ~             p.lines
+952 +                 .iter().rfind(|l| l.starts_with("LINE "))
+    |
+
+error: could not compile `files-ui` (lib test) due to 1 previous error

@@ -1,0 +1,61 @@
+{
+  "source_commit": "7c25b0fda3eee424f2f0891d156b7bc5e4ce4511",
+  "machine": "NODE",
+  "checked_at": "2026-11-02",
+  "scope": "SOURCE ONLY pure whole-batch geometry and retained-FD policy forecast; no workspace factory, host FD reservation or installed Apply",
+  "validation": {
+    "workspace_passed": 1572,
+    "core": 665,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 8,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "harness": "Normal Rust harness, original idle Cargo gate; competitors untouched; idle snapshot is not exclusion of later competitors",
+    "release_install_gui_resources": "NOT_RUN"
+  },
+  "implemented": [
+    "Physical report bound to physical seal, per-workspace staged and new+old union shapes; original input directory-promoted envelope bounds all destination intermediates under current target-name invariant",
+    "Raw byte paths; charge counts/names/wire before joined allocation; parent graph and duplicate checks; relative path/depth and pending ancestor child-list upper bounds",
+    "Shared namespace limits unchanged:16385 entries,2MiB names,16760832 wire,4096 path,33 depth,4MiB pending work; input limits unchanged",
+    "Retained-FD forecast:2T+peak receipts/cohort leaders during creation versus3T during metadata with steps; compare caller staging allowance; no availability/reservation guarantee",
+    "Schema caches report or error; Journal creation rejects before artifact and all four owned effect entry paths reject before effect intent; old invalid-geometry journal headers remain readable/renewable History"
+  ],
+  "tests": [
+    "Six pure tests: exact entry/name budgets and first excess, raw path/remap/depth, directory promotion both orders, malformed/duplicate parent graphs, ancestor pending work bound",
+    "Real Physical add/replace/retire with cross-workspace hardlink cohort:receipt peak2,retained slots9,8 reject/9 pass,physical seal and workspace/input envelopes",
+    "FD-built original4096-byte path captured successfully then new-prefix admission rejected; Journal::create leaves no new artifact; manually constructed legacy empty sealed header opens and renews as History",
+    "Existing complete owned creator→durable metadata→barrier→namespace fixtures pass"
+  ],
+  "failures": [
+    "Initial test compilation failed: test-only Kind::Regular spelling (actual variant File) and missing mutable Journal binding; corrected before focused and full PASS"
+  ],
+  "limits": [
+    "Valid original input can fail remapped workspace path/name geometry; rejection explicit before partial staging, no silent quota widening",
+    "Retained-FD policy excludes Prepared sources,Store/Journal,unrelated process descriptors,transient operations/headroom; future coordinator must implement lifetime policy and actual host allowance",
+    "Geometry/data do not grant native approval,fresh source/absolute binding,workspace provenance or execution permission",
+    "Workspace-root factory/placement/durability,SharedDir AfterOwnChildren,native queue/helper/source/absolute binding,recovery/undo/UIApply remain open",
+    "Repeated all-scope walks/journal readbacks potentially quadratic; bulk scaling unaccepted; resource/startup freeze and new-preview pause persist",
+    "No source push/tag/release/install/GUI/native/global acceptance"
+  ],
+  "installed_hashes": "installed-hashes.json",
+  "source_sha256": {
+    "crates/core/src/directory_sync_journal.rs": "a5e9a303a00c5fa6697ecf31bd96f0aaf9da856baf6881841bbbd8492ee71827",
+    "crates/core/src/directory_sync_physical.rs": "a955e8aaee42cade529050021044ea5e5e24612a4853d431835cf163953b2dc6",
+    "crates/core/src/directory_sync_store.rs": "627e3608b9e7b9bd27113d22937e04c245ef671b16270d5021bec0b104913f8f",
+    "crates/core/src/directory_sync_store/linux/journal.rs": "b9c4c114f1673659286d43ed78d5e9860082bc70f7e9a0227ea8da7eb3f583e6",
+    "crates/core/src/directory_sync_store/linux/journal/create.rs": "eb9bb427e275b75b29c62f36975c0e50c4e4ddb381a06c8ec2ded1e8af74cc39",
+    "crates/core/src/directory_sync_store/linux/journal/metadata.rs": "988ccdc32cdd1a50208f4ae807d137a075dc8755475c5af439655ec7a69730a0",
+    "crates/core/src/directory_sync_store/linux/journal/own.rs": "89ab17d458f2177f5e82ec800d5d415ab470361ea507d684ca3476558d339e3a",
+    "crates/core/src/directory_sync_store/linux/journal/staging.rs": "7ffb429d60b8c6f1e6dc1a780189a8569cdc8da176ac2e6f45401bd5f8a032ef",
+    "crates/core/src/exdev_source.rs": "d14a1ce32ac2367b5c5ca593a0186873b51a478965c26dfe6cd3f6b5181451d1",
+    "crates/core/src/lib.rs": "9d4d1924c0145bd2419ba409f7d9a38ab97187974356bde32771e0609864188a",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "a199a60f2a8bbe5939429f2aaf20b6fa5477ba7a05ed2ce3b672ac4aa71005c1",
+    "docs/DIRECTORY-SYNC-METADATA-JOURNAL.md": "1f143da20361abd7388254ed6f7db6459ed4d43c9dae0525ffa30780fcc1ab5d",
+    "docs/DIRECTORY-SYNC-STAGE-CREATION.md": "9d04a1378b1901c6062b117687565317d31e56a0a003035cf886509663196504",
+    "docs/ROADMAP.md": "6a6d54e8f67663e22e7036f719ae6933c3325aebb72e3d6382a1639bd98f722a",
+    "crates/core/src/directory_sync_admission.rs": "833c3244dda50b1e291397bda8988c21bcedbf2ccf2c5cb73461821dbedf383e",
+    "docs/DIRECTORY-SYNC-ADMISSION.md": "b2719032057b51691135867771467fb1456556b7ddde48ffa81a07fcae48a8c7"
+  }
+}

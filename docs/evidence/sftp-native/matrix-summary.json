@@ -1,0 +1,64 @@
+{
+  "scope": "native loopback transport and core compatibility; not UI or product mount worker",
+  "attempts": [
+    {
+      "report": "sftp-loopback-1793441407601397594.json",
+      "mount_gate": "PASS",
+      "copy_engine_gate": "NOT_TESTED",
+      "rename_noreplace_gate": "NOT_TESTED",
+      "overall_gate": "NOT_RECORDED",
+      "cleanup": "ABSENT",
+      "logged_processes": 6,
+      "observed_survivors": [],
+      "identity_errors": []
+    },
+    {
+      "report": "sftp-loopback-1793441566821275255.json",
+      "mount_gate": "PASS",
+      "copy_engine_gate": "UNSUPPORTED",
+      "rename_noreplace_gate": "NOT_TESTED",
+      "overall_gate": "NOT_RECORDED",
+      "cleanup": "ABSENT",
+      "logged_processes": 6,
+      "observed_survivors": [],
+      "identity_errors": []
+    },
+    {
+      "report": "sftp-loopback-1793441683924377602.json",
+      "mount_gate": "PASS",
+      "copy_engine_gate": "FAIL",
+      "rename_noreplace_gate": "UNSUPPORTED",
+      "overall_gate": "NOT_RECORDED",
+      "cleanup": "ABSENT",
+      "logged_processes": 6,
+      "observed_survivors": [],
+      "identity_errors": []
+    },
+    {
+      "report": "sftp-loopback-1793441829445121634.json",
+      "mount_gate": "PASS",
+      "copy_engine_gate": "FAIL",
+      "rename_noreplace_gate": "UNSUPPORTED",
+      "overall_gate": "NOT_RECORDED",
+      "cleanup": "ABSENT",
+      "logged_processes": 6,
+      "observed_survivors": [],
+      "identity_errors": []
+    },
+    {
+      "report": "sftp-loopback-1793442486810260624.json",
+      "mount_gate": "PASS",
+      "copy_engine_gate": "FAIL",
+      "rename_noreplace_gate": "UNSUPPORTED",
+      "overall_gate": "FAIL",
+      "cleanup": "ABSENT",
+      "logged_processes": 6,
+      "observed_survivors": [],
+      "identity_errors": []
+    }
+  ],
+  "installed": "SFTP preparation86bf3ff/f0df843 unchanged",
+  "functional_gate": "NOT_APPLICABLE",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

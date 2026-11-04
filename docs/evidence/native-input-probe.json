@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-26",
+  "app_running": true,
+  "first_paint_observed": true,
+  "compositor_has_test_window": true,
+  "driver_window_count": 0,
+  "driver_target_found": false,
+  "native_input_validated": false,
+  "method": "Read-only driver discovery with live test window; no input injected"
+}

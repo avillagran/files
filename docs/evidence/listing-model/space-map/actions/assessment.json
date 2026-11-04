@@ -1,0 +1,49 @@
+{
+  "functional_gate": "PASS",
+  "source": "6d9c5dd",
+  "fixture_fix": "924f8d4",
+  "workspace_tests": {
+    "passed": 1301,
+    "core": 447,
+    "helper": 105,
+    "ui": 749,
+    "historical_ignored": 3,
+    "result": "PASS normal concurrent harness"
+  },
+  "clippy": "PASS all targets warnings denied",
+  "format": "PASS",
+  "release": "PASS",
+  "source_ui": {
+    "wayland": "../navigation/space-map-nav-ui-1793557957164468049.json",
+    "xvfb_x11": "../navigation/space-map-nav-ui-1793557960140989528.json",
+    "result": "PASS each29captures4normal exits+drain14SpaceMap+1existingText helper identities gone/reused"
+  },
+  "initial_ui_failures": [
+    "../navigation/space-map-nav-ui-1793557907659366067.json",
+    "../navigation/space-map-nav-ui-1793557910566001875.json"
+  ],
+  "failure_assessment": "Initial sourceUI28captures stopped at Trash; owned XDG_DATA_HOME parent absent, violating documented TrashContext::open precondition(core/trash.rs98). Recipe now creates owned-data parent. Same app/helper binary passes on both backends, no Trash production change or loosened security. Added failure framebuffer capture for future failures. Earlier compile macro-depth error in expanded fixture metadata fixed by splitting JSON groups, no global recursion limit increase.",
+  "selection_contract": "Existing root marks or focus; inherited marks outside bounded size report remain common operation selection; bulk AllInvert projection only. Full invalid/hidden marks checked once at dispatch before sanitize, no fallback to unrelated focus. Raw names/preflight/FDs preserved. Report bytes not operation authority.",
+  "queue_scope": "Queued-copy coexistence with another Copy/Move review verified in unit controller/model test; no UI throughput/resource experiment. Backend queue admission and ACK policies unchanged.",
+  "native_scope": "Fixture private handlers have no native gesture permit; private Copy/Cut/Paste review only, no OS MIME publication/receipt proven. Existing text preview route exposed, no new content format/decoder. CopyPath remains existing lossy-string clipboard implementation for invalid UTF8; do not claim lossless OS path delivery.",
+  "limits": [
+    "No native OS key delivery, clipboard, AT-SPI or2x acceptance",
+    "No global helper lifetime or stalled syscall deadline proof",
+    "No closure of historical original X11 missing-name anomaly",
+    "Ordinary-listing MC/palette review-while-copy-busy parity still needs audit"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "full_goal": "ACTIVE",
+  "installation": "docs/evidence/0.0.4/installed-checkpoint-1793558033383070484.json",
+  "installed_ui": {
+    "wayland": "../navigation/space-map-nav-ui-1793558055069373867.json",
+    "result": "PASS29captures4normal exits+drain14SpaceMap+1existingText helper identities gone/reused"
+  },
+  "manual_inspection": [
+    "Wayland MC actions enabled for focused owned file with F5 still Recalcular",
+    "X11 prepared Move review requires Confirmar y encolar before mutation",
+    "X11 Trash Undo restored owned other.txt payload and empty selection shows disabled MC operations"
+  ],
+  "next": "Audit queued-review availability parity outside Map: ordinary MC/palette still blanket-block while Copy is busy although the queue supports another review. Continue full ROADMAP; investigate invalid-UTF8 CopyPath clipboard separately before claiming byte-fidelity."
+}

@@ -1,0 +1,75 @@
+{
+  "source_commit": "2fa485c2512c364bad07fedf0db21d060a6fb0ae",
+  "scope": "SOURCE ONLY bounded ephemeral index of fully validated original preparation values, expected-proof positional reads and final private-stage metadata ordering; no effect journal/approval/executor/helper/UI/install",
+  "validation": {
+    "workspace_passed": 1493,
+    "core": 586,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 11,
+    "focused_store_tests_initial": 27,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "concurrency": "Normal Rust harness; one Cargo build job after idle snapshot, no competitors controlled",
+    "release_helper_ui_build": "NOT_RUN; no installation"
+  },
+  "index": {
+    "max_slots": 32770,
+    "slot_layout_on_NODE": 48,
+    "slot_vector_byte_allowance": 1572960,
+    "allocation_scope": "Reserved derived slot count only; offsets/checksums/span/policy, no retained value payloads, bookkeeping separate. Structural bound, not PSS measurement",
+    "max_single_requested_span": 131594,
+    "checksum": "SHA256(domain Files:sync-index-record:v1\\0 + relative offset LEu64 + exact original10B header + original value bytes)",
+    "publication": "Local slots discarded on parse/semantic/cohort/hash/EOF/length/proof/binding failure; Store exposes only after complete readback acceptance",
+    "format_change": "NONE: FLSSAV/FLSYNC/FLSPLN/FLSPHY/FLSMET/FLSMST remain unchanged; no stored offset table or stdout response-cap widening"
+  },
+  "implemented": [
+    "Shared existing semantic metadata parser; ordinary inspect does not calculate unused per-record hashes, internal indexed visitor hashes original validated bytes",
+    "Index collected at Store create readback and every open_saved, with contiguous offsets/count/ranges bounded by nested stream and complete file length/trailer",
+    "O(1) Stage/Directory/Undo ordinal lookup, exact expected preparation proof and pre/post namespace/file/creator-PID binding checks",
+    "Positional I/O requests only selected encoded span, checks target/tag/index/policy/length/original checksum and bounded Values decoding, preserves shared FD cursor",
+    "Original raw record checksum independent of file timestamp guard; controlled stat-stand-in tamper test still rejects changed body, header and relocation",
+    "History/Uncertain reads are original snapshot data, never ACK/source freshness/operator authority; read Values retain explicit directory desired versus undo mtime policy",
+    "Physical stage metadata order computes parent depths once, visits each selected cohort leader once and directories deepest first; explicit IndependentNames retains every inode",
+    "Concurrent readers, reopen/offline source-path removal, empty plan and full16384-record>8MiB artifact reuse accepted"
+  ],
+  "acceptance_history": [
+    "Initial27 focused Store tests PASS, including ten new index/order tests and all existing artifact/crash/fork cases",
+    "Added empty preparation/index and explicit IndependentNames metadata-order branch checks",
+    "Final1493 workspace/Clippy/fmt PASS; no failed tests or lints"
+  ],
+  "failures": [],
+  "read_span_scope": "Test adapter counts one requested span of10+encoded value bytes and zero reads for invalid targets. read_exact_at may use multiple syscalls on partial/EINTR. This is structural I/O coverage, not latency/CPU/startup/memory experiment.",
+  "cargo_admission": "Exact observed competing Cargo identity1561332/start8469998 in o3-server worktree t3-ed52bd20 deferred admission; further observed identities waited/retried through existing gate. No competitor controlled; idle snapshot is not exclusion of later Cargo.",
+  "log_archive_notes": [
+    {
+      "text": "initial-27-focused-pass.log",
+      "normalization": "Only trailing spaces/tabs per line and empty EOF lines removed; raw bytes retained",
+      "raw_archive": "initial-27-focused-pass.log.raw.gz",
+      "raw_sha256": "e18cf37193178d227d98c6dd223d3936d0c8d16e408f69892e047249cefdc399"
+    },
+    {
+      "text": "accepted-1493-workspace.log",
+      "normalization": "Only trailing spaces/tabs per line and empty EOF lines removed; raw bytes retained",
+      "raw_archive": "accepted-1493-workspace.log.raw.gz",
+      "raw_sha256": "7788c080368723457b0117cf6f8cc8858b35908e3776bc5d336173413596a82f"
+    }
+  ],
+  "installation": "Five existing dry-run hashes revalidated unchanged against1793574522897173033, app289db327/helper170f995/HTML04aa7953; installed-unchanged.json",
+  "limitations": [
+    "Selective lookup verifies selected original record, not current checksum of every other record/trailer or current source state; it is not filesystem snapshot/MAC/provenance/approval",
+    "No persisted index trusted, no source dependency for history; returned data can outlive valid disk/source bindings and is not an effect token",
+    "No actual stage metadata writes/publication/queue/undo; ordering requires all private creation/content/cohort links complete first, and shared-directory metadata remains separate after child publication",
+    "No owned effect journal/explicit visible approval/helper session ACK/own namespace-revision-nlink-ctime mutation ledger or recovery execution yet",
+    "Absolute PSS/Swap/CPU/startup freeze/new-preview pause retained; native/global/other OS/mount/syscall-deadline gates remain open"
+  ],
+  "next": "Owned sequenced effect journal referring exact complete preparation proof, explicit visible approval and live helper/source pins/ACK, own mutation ledger, global staging and verified metadata reproduction, recoverable no-clobber preservation/publication/barriers, bounded queue and explicit recovery/undo. Owned fixtures only.",
+  "full_goal": "ACTIVE, complete original objective unchanged",
+  "source_sha256": {
+    "crates/core/src/directory_sync_metadata.rs": "194fb9b2bd3654261e945359a96238cad442235dd49a23039e958257f813be44",
+    "crates/core/src/directory_sync_physical.rs": "1fda677a4e164814a597f08275b186542ee353ab549816d69a3c0ee43faa55e6",
+    "crates/core/src/directory_sync_store.rs": "caf853e1652f6f0118af1802c290d08ae12bad1aba50d85fb332d1063734af40",
+    "crates/core/src/directory_sync_store/linux/index.rs": "43eb9e0120f56fb8b236a3b2a77d48df1a04325f26f0bcde230eac06ba169747"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "shared UI callback and actual FLTK framebuffer, fixture-only30s readonly hold; NOT real kernelD/native OS input",
+  "cases": [
+    {
+      "role": "video_snapshot",
+      "simulated_readonly_hold": true,
+      "worker_drained": false,
+      "geometry": {
+        "window_logical": [
+          1000,
+          650
+        ],
+        "output_scale": 2,
+        "window_physical": [
+          2000,
+          1300
+        ],
+        "native_wayland": true,
+        "address": "0xaaab349846f0"
+      },
+      "capture": {
+        "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/readonly-video_snapshot-1793099665639841801.png",
+        "framebuffer_dimensions": [
+          1000,
+          650
+        ]
+      },
+      "functional_gate": "PASS",
+      "normal_callback_exit0": true,
+      "exit_permission": true,
+      "no_late_child_admission": true,
+      "logged_helper_cleanup": {
+        "identities": [
+          [
+            854437,
+            54243769
+          ]
+        ],
+        "complete": true,
+        "zombies_accepted": false,
+        "scope": "only logged identities, not lifetime coverage"
+      },
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=102195\nFILES_UI_SMOKE_OK entries=1\nFILES_PREVIEW_HELPER pid=854437 start=54243769 command=preview_video_probe\nFILES_PREVIEW_COMMAND_OK gif\nFILES_PREVIEW_COMMAND_REV action=gif revision=1\nFILES_READONLY_HELD role=video_snapshot simulated=true\nFILES_CAPTURE_OK\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_PREVIEW_COMMAND_OK callback\nFILES_PREVIEW_COMMAND_REV action=callback revision=1\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=false du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=false scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_EXIT_ALLOWED drained=false readonly_pending=true no_future_helper=true\nFILES_CLOSE_DRAINED\n"
+    },
+    {
+      "role": "video_stream",
+      "simulated_readonly_hold": true,
+      "worker_drained": false,
+      "geometry": {
+        "window_logical": [
+          1000,
+          650
+        ],
+        "output_scale": 2,
+        "window_physical": [
+          2000,
+          1300
+        ],
+        "native_wayland": true,
+        "address": "0xaaab349846f0"
+      },
+      "capture": {
+        "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/readonly-video_stream-1793099665997839658.png",
+        "framebuffer_dimensions": [
+          1000,
+          650
+        ]
+      },
+      "functional_gate": "PASS",
+      "normal_callback_exit0": true,
+      "exit_permission": true,
+      "no_late_child_admission": true,
+      "logged_helper_cleanup": {
+        "identities": [
+          [
+            854550,
+            54243791
+          ],
+          [
+            854587,
+            54243794
+          ],
+          [
+            854601,
+            54243796
+          ],
+          [
+            854625,
+            54243800
+          ]
+        ],
+        "complete": true,
+        "zombies_accepted": false,
+        "scope": "only logged identities, not lifetime coverage"
+      },
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=36185\nFILES_UI_SMOKE_OK entries=1\nFILES_PREVIEW_HELPER pid=854550 start=54243791 command=preview_video_probe\nFILES_PREVIEW_HELPER pid=854587 start=54243794 command=preview_video_frame\nFILES_PREVIEW_COMMAND_OK gif\nFILES_PREVIEW_COMMAND_REV action=gif revision=1\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=854601 start=54243796 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=854625 start=54243800 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-readonly-dcdn9wfj/files/clip.gif\") revision=1 width=320 height=180 source=320x180 duration=4.000000 position=0.000000 codec=gif playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=2\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/video-readonly-dcdn9wfj/files/clip.gif\") revision=2 width=320 height=180 source=320x180 duration=4.000000 position=0.000000 codec=gif playing=true sequence=None drained=false video_index=0 audio_index=None audio_enabled=false notice=None\nFILES_READONLY_HELD role=video_stream simulated=true\nFILES_CAPTURE_OK\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_PREVIEW_COMMAND_OK callback\nFILES_PREVIEW_COMMAND_REV action=callback revision=2\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=false du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_EXIT_ALLOWED drained=false readonly_pending=true no_future_helper=true\nFILES_CLOSE_DRAINED\n"
+    }
+  ],
+  "binary_sha256": "a7ab09cab0c7f89414fb6b650d586e1d46ee9d62155848373556bde5944ff2b8",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

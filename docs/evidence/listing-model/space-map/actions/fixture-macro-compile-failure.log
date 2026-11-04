@@ -1,0 +1,11 @@
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+error: recursion limit reached while expanding `$crate::__private::vec!`
+   --> crates/ui/src/space_map_scene.rs:239:2453
+    |
+239 | ...list.y+list.h { Some(serde_json::json!({"raw":hex(i),"rect":[hit.rect.x,hit.rect.y,hit.rect.w,hit.rect.h]})) }else{None} }else{N...
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: consider increasing the recursion limit by adding a `#![recursion_limit = "256"]` attribute to your crate (`files_ui`)
+    = note: this error originates in the macro `$crate::json_internal` which comes from the expansion of the macro `serde_json::json` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: could not compile `files-ui` (lib) due to 1 previous error

@@ -1,0 +1,18 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.21s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 11 tests
+test directory_sync_manifest::tests::cancellation_and_one_shot_consumer_failure_are_not_partial_success ... ok
+test directory_sync_manifest::tests::independent_roots_on_different_filesystems_are_allowed ... ok
+test directory_sync_manifest::tests::capture_detects_nested_changes_between_the_two_inventories ... ok
+test directory_sync_manifest::tests::overlap_final_link_special_object_and_terminal_root_swap_never_produce_manifest ... ok
+test directory_sync_manifest::tests::hardlinks_across_roots_and_outside_are_recorded_without_double_counting_within_side ... ok
+test directory_sync_manifest::tests::extended_attribute_values_are_part_of_captured_metadata_digest ... ok
+test directory_sync_manifest::tests::root_and_parent_replacements_and_captured_id_mismatch_are_rejected ... ok
+test directory_sync_manifest::tests::regular_read_budget_is_shared_between_roots_and_rejects_before_large_body ... ok
+test directory_sync_manifest::tests::later_content_metadata_namespace_and_symlink_changes_are_rejected ... ok
+test directory_sync_manifest::tests::raw_complete_evidence_contains_revision_content_metadata_mounts_and_empty_dirs ... ok
+test directory_sync_manifest::tests::both_full_retained_namespaces_include_root_without_losing_a_child ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 493 filtered out; finished in 1.60s

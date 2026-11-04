@@ -1,0 +1,24 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Checking files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+error: for loop over a single element
+   --> crates/ui/src/window_chrome.rs:205:9
+    |
+205 | /         for mode in [WindowMode::Fullscreen] {
+206 | |             assert_eq!(zone(700, 440, 2, 2, mode, false, std::iter::empty()), None);
+207 | |         }
+    | |_________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#single_element_loop
+    = note: `-D clippy::single-element-loop` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::single_element_loop)]`
+help: try
+    |
+205 ~         {
+206 +             let mode = WindowMode::Fullscreen;
+207 +             assert_eq!(zone(700, 440, 2, 2, mode, false, std::iter::empty()), None);
+208 +         }
+    |
+
+error: could not compile `files-ui` (lib test) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

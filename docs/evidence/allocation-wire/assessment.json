@@ -1,0 +1,51 @@
+{
+  "status": "SOURCE_HELPER_CORE_ACCEPTED_UI_PENDING",
+  "installed": false,
+  "workspace_passed": 1249,
+  "counts": {
+    "core": 442,
+    "helper": 105,
+    "ui": 702,
+    "historical_ignored": 3
+  },
+  "clippy": "PASS",
+  "release_helper": "PASS",
+  "cli": {
+    "status": "PASS",
+    "tests": 7,
+    "identity_limit": true,
+    "source_helper_sha256": "3945c77c0d011e8dd93a3c0917a6397ff693d39e8f12ad38f9b00ac4a6fddbbd"
+  },
+  "installed_files_unchanged": [
+    {
+      "path": "/home/node/.local/bin/files",
+      "sha256": "13253b6adcd6eedab16252e4992b5bbf01c6e475830d0501eae2699339b0a5b7"
+    },
+    {
+      "path": "/home/node/.local/bin/files-helper",
+      "sha256": "ec246445e70aba1558771d43cf1bc9144d34fabbc6d279c8297f79c94f6a0609"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper",
+      "sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper.LICENSES",
+      "sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper.build.json",
+      "sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee"
+    }
+  ],
+  "initial_compile_failure": "E0282 Reader closure result type; corrected by explicit Result<(),String>, preserved raw log",
+  "cargo_contention": "Guard rejected Clippy/release/fmt attempts while live o3-server Cargo existed; subsequent own builds admitted only after idle snapshot. No competing process controlled.",
+  "limits": [
+    "No UI worker/queue/report integration yet",
+    "No X11/Wayland allocation acceptance",
+    "No installation change",
+    "No PSS/Swap/CPU/startup measurements",
+    "No physical/exclusive/freeable or cross-root identity union claim"
+  ],
+  "rustfmt_core_helper_recursive": "PASS"
+}

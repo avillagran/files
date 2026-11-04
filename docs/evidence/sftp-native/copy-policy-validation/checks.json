@@ -1,0 +1,185 @@
+{
+  "functional_gate": "PASS",
+  "scope": "Explicit per-dialog copy publication/symlink-date policy, production review/options/queue on real SSHFS; not full N01/global resource/interop acceptance",
+  "native_ui_report": "docs/evidence/sftp-native/sftp-loopback-1793457917645506527.json",
+  "names_regression_report": "docs/evidence/copy-names/copy-names-ui-1793458033930156264.json",
+  "tests": {
+    "core": 319,
+    "helper": 85,
+    "ui": 521,
+    "total": 925,
+    "core_ignored_existing": 3
+  },
+  "checks": {
+    "workspace_tests": "PASS",
+    "clippy_workspace_all_targets_Dwarnings": "PASS",
+    "release": "PASS",
+    "format": "PASS"
+  },
+  "copy_policy": {
+    "gate": "PASS",
+    "successful_roots": 4,
+    "raw_filename": "7261772dff2e747874",
+    "symlink_dates_omitted": 1,
+    "external_target_mtime_unchanged": true,
+    "cancelled_partial_entries": 57,
+    "source_bulk_entries": 3000,
+    "staged_default_rejected": true,
+    "unsafe_fuse_link_dates_rejected": true,
+    "visible_link_dates_not_silently_omitted": true,
+    "collision_no_clobber": true
+  },
+  "native_ui_gate": "PASS",
+  "native_default_copy_preserved": "FAIL",
+  "native_overall_preserved": "FAIL",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_input_gate": "UNVALIDATED",
+  "observed_process_identities": 24,
+  "observed_survivors": [],
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-registered-1793457911966928315.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-explicit-control-1793457912093581186.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-open-verified-mount-1793457912205539655.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-busy-retained-1793457912376839195.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-disconnected-1793457913208128373.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-fresh-connected-1793457914180050360.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-fresh-open-1793457914311599392.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-default-publication-rejected-1793457914564534671.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-copy-options-visible-omission-1793457915271019532.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-copy-options-initial-minimum-1793457915385580394.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-copy-review-visible-minimum-1793457915469025647.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-copy-visible-paused-1793457915647329823.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-copy-visible-result-report-1793457915773721524.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-copy-visible-no-clobber-1793457916110156931.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-copy-visible-cancel-partial-1793457916721693867.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-fresh-disconnected-1793457917471406675.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    }
+  ],
+  "method": "injected production painted handlers/keyboard handlers and real FLTK framebuffer; real private loopback SSHFS/FUSE; private PATH wrapper only adds fixture -F config. No OS input/global package install.",
+  "preserved_failures": [
+    "first compile variable name in copy-policy-first-test.log",
+    "native1793457503490291773 functional PASS but minimum options warning visual FAIL in sidecar; original screenshots retained"
+  ],
+  "pending": [
+    "Multi-connection catalog, profiles and full diagnostic UX",
+    "EXDEV trees/hardlinks/move/general durable operation recovery",
+    "Native OS input/focus/clipboard/HiDPI and other systems",
+    "Global PSS/Swap/CPU/startup and full ROADMAP under freeze; new previews paused"
+  ],
+  "binary_sha256": "fee00a4d1260bdd2163dd84798eafc6e1d3f3626d3de7feb86a812ecd53e611c",
+  "helper_sha256": "2a177cc39814f29aeb3e7c73cfdf850936debf990499a8a2955d14a5cbbacea8",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "validation_logs": {
+    "copy-policy-first-test.log": "6417ebfb63e529d1dffaed471a3bead2e42e2d9b29fb9523748ae48b328eb739",
+    "copy-policy-workspace-tests.log": "9dc3f2d89bff5b3495f8096cbbce47bd6692f6c45128e650e44c22028d9206a8",
+    "copy-policy-clippy.log": "845e505ce242c243804db52560c0ded709c62b383d6e83d9c407a5f826384de9",
+    "copy-policy-release.log": "7771df5b25182c2e3c6278870674d54209f29254f9da7d642b0608ab20fe0e02",
+    "copy-policy-final-tests.log": "a69b8cb3d0af5d07c55fc5dd6f89670c60ad46d4f059bf3e2f323e83840a647c",
+    "copy-policy-final-clippy.log": "72f8130b2b34aa302bfe1b3027ffda7a34a73084a2f4fcd541be07f9863a53eb",
+    "copy-policy-final-release.log": "4a07e556fb4dbf1589eed0ead8770f4549a395ec53ef3cae2f184240db1bfe80",
+    "copy-policy-final-format.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "source_sha256": {
+    "crates/core/src/copy_engine.rs": "4fe7346dbf56ad91a9f60242f8b2eb232ff45d0257dcf7137ae8a789ba55dcf0",
+    "crates/ui/src/copy_dialog.rs": "7b3eb3917243ce0e9d8145dd24ff100063f9b7ec1ff17cf027ff497787f26b55",
+    "crates/ui/src/copy_ui.rs": "6a3e0e78cee2c815b2c33b8f9a6067e3250699cd054e19a24d66d1094bfa6748",
+    "crates/ui/src/model.rs": "d501fb87bfab9bfcf58db6f4e01c8a653770aab829df263061acf1a33fbbfbe0",
+    "scripts/sftp-ui-control.py": "9b0a17c68b3ff818e4e83273ca37dd50c73707a2c2efb44cef88a15083a7963d"
+  }
+}

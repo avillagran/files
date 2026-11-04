@@ -1,0 +1,12 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 16.27s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 5 tests
+test exdev_source::linux::sync_alias::tests::alias_batch_requires_original_coherent_sync_capture_and_exact_new_revision ... ok
+test exdev_source::linux::sync_alias::tests::alias_batch_rejects_overlapping_physical_names_not_distinct_hardlink_names ... ok
+test exdev_source::linux::sync_alias::tests::alias_batch_reconciles_every_known_name_and_keeps_other_entries_exact ... ok
+test exdev_source::linux::sync_alias::tests::alias_batch_failure_in_last_scope_never_partially_advances_first ... ok
+test exdev_source::linux::sync_alias::tests::alias_batch_full_combined_entry_budget_and_one_over_are_not_truncated ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 603 filtered out; finished in 4.23s

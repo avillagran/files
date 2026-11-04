@@ -1,0 +1,17 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0716]: temporary value dropped while borrowed
+   --> crates/ui/src/size_panel.rs:527:14
+    |
+524 |     p.literal_text(
+    |       ------------ borrow later used by call
+...
+527 |             &summary.label()
+    |              ^^^^^^^^^^^^^^-
+    |              |             |
+    |              |             temporary value is freed at the end of this statement
+    |              creates a temporary value which is freed while still in use
+    |
+    = note: consider using a `let` binding to create a longer lived value
+
+For more information about this error, try `rustc --explain E0716`.
+error: could not compile `files-ui` (lib test) due to 1 previous error

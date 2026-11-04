@@ -1,0 +1,40 @@
+{
+  "checkpoint": "39bb6700fa7fce992b64fc1ebd679acfdde7b02e",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/hidden-context/hidden-context-ui-1793059768952742165.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793059855256894747",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "6dcb6c9b0079d04aa4d3d59477d91570e6922e020d6e03802b239a2c8f17655a",
+      "release_sha256": "101ecb706ed100681e45b21078b160b2d5afba014025d19454dd1586a2298e55",
+      "installed_sha256": "101ecb706ed100681e45b21078b160b2d5afba014025d19454dd1586a2298e55"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "737eb1dc23cdd90192c9742762c4c5cb87bca4c45521c51e89bf0259c5b50463",
+      "release_sha256": "4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0",
+      "installed_sha256": "4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "release_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "installed_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "release_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "installed_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

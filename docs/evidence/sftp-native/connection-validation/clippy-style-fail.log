@@ -1,0 +1,26 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+error: this `if` statement can be collapsed
+   --> crates/core/src/sftp_connection.rs:309:9
+    |
+309 | /         if self
+310 | |             .control
+311 | |             .current()
+312 | |             .is_some_and(|t| t.mounted().is_none())
+...   |
+321 | |         }
+    | |_________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+312 ~             .is_some_and(|t| t.mounted().is_none())
+313 ~             && let Some(server) = &mut self.server {
+314 |                 // Child is unreaped, so its PID cannot be reused. Do not signal
+...
+318 |                 }
+319 ~             }
+    |
+
+error: could not compile `files-core` (lib) due to 1 previous error

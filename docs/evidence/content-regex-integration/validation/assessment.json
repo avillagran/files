@@ -1,0 +1,17 @@
+{
+  "scope": "Advanced regex query integrated; typed main query and UI indicators, no new guided regex mode",
+  "rust": "1228 PASS434/98/696,3 historical ignored; final workspace Clippy/fmt/release PASS",
+  "cli": "cli-source.json10 tests PASS, includes503 empty-file credit pages and literal protocol regressions",
+  "wayland": "docs/evidence/search/content-search-ui-1793531765299825055.json",
+  "x11": "docs/evidence/search/content-search-ui-1793531779602361024.json",
+  "initial_fail": "1793531461186329110 used1cc4a8b8d0611534826931a3e737f3bc9fbcf0c638db5a47734bd00c3ac6423a compiled before final error-caption edit. Preserved; final source rebuilt and full tests rerun.",
+  "superseded_scope": "IntermediatePASS1793531672382874868 paged image is not proof of paged empty EOF; F9 starts scan, not a toggle. Final harness waits for mode/current0/terminal and includes page helper identities.",
+  "visual_review": "Wayland440 regex highlighted row and empty EOF, wide one-line invalid reason and actual terminal paged EOF inspected. Input/query clipping remains horizontally scrollable; no new overlap observed.",
+  "limits": [
+    "No native input/clipboard/AT-SPI/2x/resource/startup/lifetime evidence",
+    "Regex preset-specific runtime and guided mode pending",
+    "Engine has no Unicode data/casefold/backrefs/lookaround",
+    "Original X11 intermittent pane anomaly remains unconfirmed"
+  ],
+  "installed": "docs/evidence/search/content-search-ui-1793531932464138170.json28 captures/23 logged helpers gone-reused/root0; cli-installed10PASS; record1793531922897412847 five installed+five backups verified"
+}

@@ -1,0 +1,41 @@
+{
+  "tests": {
+    "core": 260,
+    "helper": 85,
+    "ui": 498,
+    "ignored": 3
+  },
+  "checks": "workspace tests/Clippy all-targets -Dwarnings/release/fmt PASS",
+  "reports": [
+    "search/content-search-ui-1793434023389723179.json",
+    "search-batches/search-batches-ui-1793434087267418740.json"
+  ],
+  "captures": {
+    "content": 20,
+    "batches": 7,
+    "inspected": 5
+  },
+  "proofs": [
+    "single read/whole bounded UTF8 validation before publication",
+    "UTF8 chunks/one-byte reads/normalization/1024B literal clipped display",
+    "JSON worst-case escaping within unchanged wire caps",
+    "literal rendering/highlight within compact geometry",
+    "FD/name revalidation still gates content+snippet",
+    "provisional snippet data/mark and final exact agreement"
+  ],
+  "preserved_failures": [
+    "search-snippet-check.log E0282 Option inference",
+    "search-snippet-workspace-tests.log E0063 old navigation fixture",
+    "edit-script ValueError; corrected before final UI suite"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "not_proven": [
+    "OS input/clipboard",
+    "full lifetimes/kernelD",
+    "natural latency/performance/PSS",
+    "native HiDPI/graphemes"
+  ],
+  "installation": "0.0.4/installed-checkpoint-1793434441549030735.json",
+  "independent_hashes": "5installed+5backup exact"
+}

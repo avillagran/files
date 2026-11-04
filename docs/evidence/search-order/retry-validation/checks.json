@@ -1,0 +1,23 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "owned filesystem fixtures and independent Files processes; painted handlers/private command pipes and real FLTK framebuffer; no native input",
+  "binary_sha256": "da5c24312ca1c330cf9d4601153ac382c1ac11c18a49349285df06b4a67332d5",
+  "helper_sha256": "59187351e32c01e56925bbb4fc70da053151bd9c585b28c23426c1216790a6dd",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "retry_scope": "PASS painted pending-only retry440: occupied target rejects without replaying Confirmed; explicit fixture occupant removal then original Pending moves with same inode, completed1 in THIS attempt. Same proof/token, fresh IDs; no recapture/rollback/globalresource/nativeinput claim.",
+  "transfer_scope": "real AuxIo capture3parents5roots; copied raw/link/dir/file bytes and source metadata unchanged, cancel review/paused copy; replacement same size+mtime after review rejects before copy, no rollback of actor; move prepared/cancel/EXDEV no mutation, late collision ledger Confirmed/Pending+occupant preserved, explicit fixture restore then NEW capture/paused\u2192move5 inodes preserved. No inputSO/wholelifetimes/resource/powerloss/EXDEVbatch support.",
+  "single_exdev_scope": "PASS single regular nlink1 on observed distinct existing runtime st_dev; captured FD proof\u2192existing journaled engine; bytes/source absence. Not trees/hardlinks/batches/powerloss.",
+  "scene": "docs/evidence/search-order/search-retry-ui-1793471063548051155.json",
+  "tests": "970 Rust PASS327core/85helper/558UI;3 existing core ignored; full suite precedes only title text and its extra assertion; targeted report-reopen test PASS; final Clippyworkspacealltargets-Dwarnings/release/fmt PASS",
+  "captures": 29,
+  "helper_cleanup": "6 logged PID/start identities gone/reused; Z rejected, not lifetime coverage",
+  "native_input": "UNVALIDATED",
+  "global_gate": "PENDING; full goal/ROADMAP and resource/startup freeze intact",
+  "original_failures": [
+    "scene1793470881264098930 FAIL unknown clip retry command: script prefix corrected to existing dest branch; no product gate changed",
+    "scene1793470923378577822 scoped functional PASS29FB; inherited success-title copy label corrected from Outcome.moving; original JSON/PNGs +sidecar preserved"
+  ],
+  "unit_scope": "actual worker pending-only retry, confirmed replacement preserved; pending substitution rejected; queue-full repeated rejection preserves exact reservation/outcome and bounded single diagnostic; cancel-before-execute retains ledger through ACK; unrelated notice cannot trigger retry"
+}

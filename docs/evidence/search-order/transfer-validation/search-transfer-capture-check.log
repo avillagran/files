@@ -1,0 +1,63 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+warning: variant `PrepareMultiMove` is never constructed
+  --> crates/ui/src/aux_io.rs:14:5
+   |
+12 | pub enum Request {
+   |          ------- variant in this enum
+13 |     SearchCapture(crate::search_transfer::Input),
+14 |     PrepareMultiMove(
+   |     ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: variant `SearchTransfer` is never constructed
+  --> crates/ui/src/model.rs:88:5
+   |
+26 | pub enum Action {
+   |          ------ variant in this enum
+...
+88 |     SearchTransfer(bool),
+   |     ^^^^^^^^^^^^^^
+   |
+   = note: `Action` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: field `fds` is never read
+  --> crates/ui/src/search_transfer.rs:31:5
+   |
+22 | pub struct Pending {
+   |            ------- field in this struct
+...
+31 |     fds: usize,
+   |     ^^^
+
+warning: method `fds` is never used
+  --> crates/ui/src/search_transfer.rs:41:12
+   |
+37 | impl State {
+   | ---------- method in this implementation
+...
+41 |     pub fn fds(&self) -> usize {
+   |            ^^^
+
+warning: function `build` is never used
+  --> crates/ui/src/search_transfer.rs:87:8
+   |
+87 | pub fn build(
+   |        ^^^^^
+
+warning: methods `search_transfer_fds` and `begin_search_transfer` are never used
+   --> crates/ui/src/search_transfer.rs:141:12
+    |
+140 | impl Model {
+    | ---------- methods in this implementation
+141 |     pub fn search_transfer_fds(&self) -> usize {
+    |            ^^^^^^^^^^^^^^^^^^^
+...
+159 |     pub fn begin_search_transfer(&mut self, moving: bool) {
+    |            ^^^^^^^^^^^^^^^^^^^^^
+
+warning: `files-ui` (lib) generated 6 warnings
+    Checking files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+    Checking files-app v0.0.4 (/home/avillagran/Work/files/crates/app)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.45s

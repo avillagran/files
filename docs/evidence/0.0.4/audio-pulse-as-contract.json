@@ -1,0 +1,16 @@
+{
+  "method": "functional 0.25s zero-PCM Pulse context/output probe at imposed virtual caps; no PSS/Swap/CPU/startup sampling",
+  "resource_gate": "NOT_MEASURED",
+  "results": [
+    {
+      "virtual_rlimit_as_mib": 512,
+      "returncode": 244,
+      "stderr": "mmap() failed: Cannot allocate memory\nmmap() failed: Cannot allocate memory\n[PulseAudio outdev @ 0xaaaaff08cca0] Cannot create context.\n[out#0/pulse @ 0xaaaaff08c940] Could not write header (incorrect codec parameters ?): Cannot allocate memory\n[af#0:0 @ 0xaaaaff08d7b0] Error sending frames to consumers: Cannot allocate memory\n[af#0:0 @ 0xaaaaff08d7b0] Task finished with error code: -12 (Cannot allocate memory)\n[af#0:0 @ 0xaaaaff08d7b0] Terminating thread with return code -12 (Cannot allocate memory)\n[out#0/pulse @ 0xaaaaff08c940] Nothing was written into output file, because at least one of its streams received no packets.\n"
+    },
+    {
+      "virtual_rlimit_as_mib": 768,
+      "returncode": 0,
+      "stderr": ""
+    }
+  ]
+}

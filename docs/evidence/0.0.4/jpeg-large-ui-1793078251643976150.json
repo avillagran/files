@@ -1,0 +1,72 @@
+{
+  "method": "Space image UI handlers and FLTK framebuffer; no native OS input",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg12-idct-1793078249825772023.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg24-idct-1793078249946804591.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg24-oriented-idct-1793078250068482123.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg-progressive12-dc-preview-1793078250212584095.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg-progressive24-dc-preview-1793078250350970518.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg-progressive24-dc-oriented-1793078250497825930.png"
+  ],
+  "clipboard": "not read in resource mode",
+  "resource_gate": "NOT_MEASURED",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0df3abb0"
+  },
+  "cleanup": {
+    "complete": true,
+    "survivors": [],
+    "logged_identities": [
+      [
+        1873842,
+        52102168
+      ],
+      [
+        1873883,
+        52102190
+      ],
+      [
+        1873894,
+        52102202
+      ],
+      [
+        1874004,
+        52102214
+      ],
+      [
+        1874070,
+        52102226
+      ],
+      [
+        1874081,
+        52102239
+      ],
+      [
+        1874142,
+        52102254
+      ],
+      [
+        1874154,
+        52102268
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start identities after exit0, no lifetime/resource sampling"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "fixtures": "baseline JPEG12/24MP RGB-pattern IDCT, EXIF24MP and actual progressive12/24 reducedDC previews/orientation in capture only; resource mode two baseline files only/no pending-close spawn",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=122319\nFILES_UI_SMOKE_OK entries=6\nFILES_PREVIEW_HELPER pid=1873842 start=52102168 command=preview_thumbnail\nFILES_PREVIEW_COMMAND_OK jpeg12\nFILES_PREVIEW_COMMAND_REV action=jpeg12 revision=3\nFILES_PREVIEW_HELPER pid=1873883 start=52102190 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=1000 height=750 source=4000x3000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-dx22kqg7/files/baseline12.jpg\") revision=3 stamp=Some(Revision { device: 63, inode: 281469280, bytes: 233410, modified_seconds: 1793078243, modified_nanoseconds: 804608320, changed_seconds: 1793078243, changed_nanoseconds: 804608320 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK jpeg24\nFILES_PREVIEW_COMMAND_REV action=jpeg24 revision=5\nFILES_PREVIEW_HELPER pid=1873894 start=52102202 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=750 height=500 source=6000x4000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-dx22kqg7/files/baseline24.jpg\") revision=5 stamp=Some(Revision { device: 63, inode: 281469384, bytes: 447167, modified_seconds: 1793078248, modified_nanoseconds: 312646564, changed_seconds: 1793078248, changed_nanoseconds: 312646564 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK jpeg24-oriented\nFILES_PREVIEW_COMMAND_REV action=jpeg24-oriented revision=7\nFILES_PREVIEW_HELPER pid=1874004 start=52102214 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=500 height=750 source=6000x4000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-dx22kqg7/files/oriented24.jpg\") revision=7 stamp=Some(Revision { device: 63, inode: 281469397, bytes: 447203, modified_seconds: 1793078249, modified_nanoseconds: 391383755, changed_seconds: 1793078249, changed_nanoseconds: 391383755 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK progressive12\nFILES_PREVIEW_COMMAND_REV action=progressive12 revision=9\nFILES_PREVIEW_HELPER pid=1874070 start=52102226 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=500 height=375 source=4000x3000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-dx22kqg7/files/progressive12.jpg\") revision=9 stamp=Some(Revision { device: 63, inode: 281469283, bytes: 113652, modified_seconds: 1793078244, modified_nanoseconds: 299612520, changed_seconds: 1793078244, changed_nanoseconds: 299612520 })\nFILES_JPEG_PROGRESSIVE_PIXELS width=500 height=375 colors_at_least=33 actual_source_fd=true\nFILES_PREVIEW_COMMAND_OK jpeg-progressive-assert\nFILES_PREVIEW_COMMAND_REV action=jpeg-progressive-assert revision=9\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK progressive24\nFILES_PREVIEW_COMMAND_REV action=progressive24 revision=11\nFILES_PREVIEW_HELPER pid=1874081 start=52102239 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=750 height=500 source=6000x4000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-dx22kqg7/files/progressive24.jpg\") revision=11 stamp=Some(Revision { device: 63, inode: 281469388, bytes: 207016, modified_seconds: 1793078249, modified_nanoseconds: 292654876, changed_seconds: 1793078249, changed_nanoseconds: 292654876 })\nFILES_JPEG_PROGRESSIVE_PIXELS width=750 height=500 colors_at_least=33 actual_source_fd=true\nFILES_PREVIEW_COMMAND_OK jpeg-progressive-assert\nFILES_PREVIEW_COMMAND_REV action=jpeg-progressive-assert revision=11\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK progressive24-oriented\nFILES_PREVIEW_COMMAND_REV action=progressive24-oriented revision=13\nFILES_PREVIEW_HELPER pid=1874142 start=52102254 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=500 height=750 source=6000x4000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-dx22kqg7/files/progressive-oriented24.jpg\") revision=13 stamp=Some(Revision { device: 63, inode: 281469398, bytes: 207052, modified_seconds: 1793078249, modified_nanoseconds: 392440347, changed_seconds: 1793078249, changed_nanoseconds: 392440347 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK jpeg24\nFILES_PREVIEW_COMMAND_REV action=jpeg24 revision=15\nFILES_PREVIEW_HELPER pid=1874154 start=52102268 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=750 height=500 source=6000x4000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-dx22kqg7/files/baseline24.jpg\") revision=15 stamp=Some(Revision { device: 63, inode: 281469384, bytes: 447167, modified_seconds: 1793078248, modified_nanoseconds: 312646564, changed_seconds: 1793078248, changed_nanoseconds: 312646564 })\nFILES_PREVIEW_COMMAND_OK close-jpeg-pending\nFILES_PREVIEW_COMMAND_REV action=close-jpeg-pending revision=16\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "9748f0c0996c77a5b1e7f9f41aa5aafb20c868786d595618a6aa5c267137809e",
+  "helper_sha256": "3872dd9dae0bab4eb06f659dc33b595f45d4029134dd85a7d24e4298f7f55d5a"
+}

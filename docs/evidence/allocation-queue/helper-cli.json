@@ -1,0 +1,654 @@
+{
+  "scope": "private fixture functional wire only; no UI/native input/install/resource claim",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "helper": "/home/node/Work/files/target/release/files-helper",
+  "sha256": "a8fc8abaf26c55f799fc77b5c86e7c1e9150c94105fc61f987acf81c0ee0cfbd",
+  "cases": [
+    {
+      "test": "__main__.Contract.test_command_binding_and_malformed_request_reject_before_output",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-2h4sym44"
+      },
+      "exit": 2,
+      "stdout": "",
+      "stderr": "missing field `version`\n"
+    },
+    {
+      "test": "__main__.Contract.test_command_binding_and_malformed_request_reject_before_output",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "version": -1,
+        "path": "/home/node/.cache/files-test/allocation-cli-2h4sym44"
+      },
+      "exit": 2,
+      "stdout": "",
+      "stderr": "invalid value: integer `-1`, expected u8\n"
+    },
+    {
+      "test": "__main__.Contract.test_command_binding_and_malformed_request_reject_before_output",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "version": true,
+        "path": "/home/node/.cache/files-test/allocation-cli-2h4sym44"
+      },
+      "exit": 2,
+      "stdout": "",
+      "stderr": "invalid type: boolean `true`, expected u8\n"
+    },
+    {
+      "test": "__main__.Contract.test_command_binding_and_malformed_request_reject_before_output",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "version": 1,
+        "path": "/bad\u0000path"
+      },
+      "exit": 2,
+      "stdout": "",
+      "stderr": "Ruta fuera del l\u00edmite de4096B o con NUL\n"
+    },
+    {
+      "test": "__main__.Contract.test_command_binding_and_malformed_request_reject_before_output",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "version": 1,
+        "path": "/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "exit": 2,
+      "stdout": "",
+      "stderr": "Ruta fuera del l\u00edmite de4096B o con NUL\n"
+    },
+    {
+      "test": "__main__.Contract.test_command_binding_and_malformed_request_reject_before_output",
+      "request": {
+        "command": "measure_directory",
+        "id": 41,
+        "version": 1,
+        "path": "/home/node/.cache/files-test/allocation-cli-2h4sym44"
+      },
+      "exit": 2,
+      "stdout": "",
+      "stderr": "El comando no coincide con la petici\u00f3n\n"
+    },
+    {
+      "test": "__main__.Contract.test_empty_success_has_measured_zero",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-qh1t5vqf",
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 0
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 0
+        },
+        {
+          "status": "allocated_usage",
+          "id": 41,
+          "report": {
+            "version": 1,
+            "bytes": 0,
+            "entries": 0,
+            "allocation": {
+              "by_name": {
+                "state": "bytes",
+                "value": 0
+              },
+              "by_identity": {
+                "state": "bytes",
+                "value": 0
+              }
+            }
+          }
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_future_versions_and_zero_id_reject_before_traversal",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-7q1kzsgp/does-not-exist",
+        "version": 0
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "error",
+          "id": 41,
+          "message": "Versi\u00f3n o identidad de c\u00e1lculo inv\u00e1lida"
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_future_versions_and_zero_id_reject_before_traversal",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-7q1kzsgp/does-not-exist",
+        "version": 2
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "error",
+          "id": 41,
+          "message": "Versi\u00f3n o identidad de c\u00e1lculo inv\u00e1lida"
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_future_versions_and_zero_id_reject_before_traversal",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 0,
+        "path": "/home/node/.cache/files-test/allocation-cli-7q1kzsgp/does-not-exist",
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "error",
+          "id": 0,
+          "message": "Versi\u00f3n o identidad de c\u00e1lculo inv\u00e1lida"
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_identity_boundary_alias_at_cap_and_explicit_unavailable_beyond_cap",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-uc0jlstn",
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 0
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 33208
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 65502
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 65536
+        },
+        {
+          "status": "allocated_usage",
+          "id": 41,
+          "report": {
+            "version": 1,
+            "bytes": 0,
+            "entries": 65536,
+            "allocation": {
+              "by_name": {
+                "state": "bytes",
+                "value": 0
+              },
+              "by_identity": {
+                "state": "bytes",
+                "value": 0
+              }
+            }
+          }
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_identity_boundary_alias_at_cap_and_explicit_unavailable_beyond_cap",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-uc0jlstn",
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 0
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 33459
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 65537
+        },
+        {
+          "status": "allocated_usage",
+          "id": 41,
+          "report": {
+            "version": 1,
+            "bytes": 0,
+            "entries": 65537,
+            "allocation": {
+              "by_name": {
+                "state": "bytes",
+                "value": 0
+              },
+              "by_identity": {
+                "state": "bytes",
+                "value": 0
+              }
+            }
+          }
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_identity_boundary_alias_at_cap_and_explicit_unavailable_beyond_cap",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-uc0jlstn",
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 0
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 33642
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 63505
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 65538
+        },
+        {
+          "status": "allocated_usage",
+          "id": 41,
+          "report": {
+            "version": 1,
+            "bytes": 0,
+            "entries": 65538,
+            "allocation": {
+              "by_name": {
+                "state": "bytes",
+                "value": 0
+              },
+              "by_identity": {
+                "state": "unavailable",
+                "value": "identity_limit"
+              }
+            }
+          }
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_raw_root_roundtrips_and_cross_root_identity_is_not_global_union",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": [
+          47,
+          104,
+          111,
+          109,
+          101,
+          47,
+          110,
+          111,
+          100,
+          101,
+          47,
+          46,
+          99,
+          97,
+          99,
+          104,
+          101,
+          47,
+          102,
+          105,
+          108,
+          101,
+          115,
+          45,
+          116,
+          101,
+          115,
+          116,
+          47,
+          97,
+          108,
+          108,
+          111,
+          99,
+          97,
+          116,
+          105,
+          111,
+          110,
+          45,
+          99,
+          108,
+          105,
+          45,
+          98,
+          95,
+          101,
+          120,
+          106,
+          122,
+          105,
+          100,
+          47,
+          114,
+          97,
+          119,
+          45,
+          255
+        ],
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 0
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 3,
+          "entries": 1
+        },
+        {
+          "status": "allocated_usage",
+          "id": 41,
+          "report": {
+            "version": 1,
+            "bytes": 3,
+            "entries": 1,
+            "allocation": {
+              "by_name": {
+                "state": "bytes",
+                "value": 4096
+              },
+              "by_identity": {
+                "state": "bytes",
+                "value": 4096
+              }
+            }
+          }
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_raw_root_roundtrips_and_cross_root_identity_is_not_global_union",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-b_exjzid/second",
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 0
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 3,
+          "entries": 1
+        },
+        {
+          "status": "allocated_usage",
+          "id": 41,
+          "report": {
+            "version": 1,
+            "bytes": 3,
+            "entries": 1,
+            "allocation": {
+              "by_name": {
+                "state": "bytes",
+                "value": 4096
+              },
+              "by_identity": {
+                "state": "bytes",
+                "value": 4096
+              }
+            }
+          }
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_relative_and_final_symlink_reject_without_partial_result",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": ".",
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "error",
+          "id": 41,
+          "message": "Ruta de c\u00e1lculo inv\u00e1lida"
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_relative_and_final_symlink_reject_without_partial_result",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-vczxwshj/link",
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "error",
+          "id": 41,
+          "message": "Se requiere una carpeta real, sin enlace simb\u00f3lico final"
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_relative_and_final_symlink_reject_without_partial_result",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-vczxwshj/missing",
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "error",
+          "id": 41,
+          "message": "No such file or directory (os error 2)"
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_sparse_hardlinks_and_legacy_apparent_agree_with_owned_metadata",
+      "request": {
+        "command": "measure_directory_allocated",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-dilx864v",
+        "version": 1
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 0
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 33562624,
+          "entries": 6
+        },
+        {
+          "status": "allocated_usage",
+          "id": 41,
+          "report": {
+            "version": 1,
+            "bytes": 33562624,
+            "entries": 6,
+            "allocation": {
+              "by_name": {
+                "state": "bytes",
+                "value": 8192
+              },
+              "by_identity": {
+                "state": "bytes",
+                "value": 4096
+              }
+            }
+          }
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_sparse_hardlinks_and_legacy_apparent_agree_with_owned_metadata",
+      "request": {
+        "command": "du",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-dilx864v"
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "usage",
+          "id": 41,
+          "bytes": 33562624,
+          "entries": 6
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_sparse_hardlinks_and_legacy_apparent_agree_with_owned_metadata",
+      "request": {
+        "command": "measure_directory",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-dilx864v"
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 0,
+          "entries": 0
+        },
+        {
+          "status": "usage_progress",
+          "id": 41,
+          "bytes": 33562624,
+          "entries": 6
+        },
+        {
+          "status": "usage",
+          "id": 41,
+          "bytes": 33562624,
+          "entries": 6
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "test": "__main__.Contract.test_sparse_hardlinks_and_legacy_apparent_agree_with_owned_metadata",
+      "request": {
+        "command": "preview_directory",
+        "id": 41,
+        "path": "/home/node/.cache/files-test/allocation-cli-dilx864v"
+      },
+      "exit": 0,
+      "messages": [
+        {
+          "status": "usage",
+          "id": 41,
+          "bytes": 33562624,
+          "entries": 6
+        }
+      ],
+      "stderr": ""
+    }
+  ],
+  "status": "PASS",
+  "tests": 7,
+  "skipped": 0
+}

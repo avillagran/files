@@ -1,0 +1,8 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.82s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-6cb802029f4441f7)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 645 filtered out; finished in 0.00s
+

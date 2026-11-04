@@ -1,0 +1,60 @@
+{
+  "scope": "SOURCE ONLY comparison request/core wire/helper/background supervisor; no visible panel, synchronization or new installation",
+  "tests": {
+    "core": 470,
+    "helper": 109,
+    "ui": 767,
+    "historical_ignored": 3,
+    "new": 23,
+    "normal_concurrency": true
+  },
+  "checks": [
+    "workspace tests PASS",
+    "Clippy workspace/all-targets -D warnings PASS",
+    "fmt PASS",
+    "debug helper build PASS",
+    "real helper CLI seven cases PASS"
+  ],
+  "wire": {
+    "request_bytes": 65536,
+    "frame_bytes": 65536,
+    "page_rows": 128,
+    "page_raw_path_bytes": 4096,
+    "max_updates": 512,
+    "stream_bytes": 21237760,
+    "per_side_rows": 8192,
+    "per_side_retained_names": 1048576,
+    "non_comparison_supervisor_limits": "unchanged: ordinary4MiB,duplicates32MiB",
+    "helper_address_space_limit": "existing96MiB unchanged; not a PSS or whole-process gate"
+  },
+  "helper_cli": "helper-wire-1793567017338791814.json",
+  "helper_debug_sha256": "b3954a0f91a3092011eb365698916e6f65ef0cadbcc2df97a77efb8321054a48",
+  "claims": [
+    "typed ledger validates relative canonical namespace, strictly ordered paths, kinds/ancestors/summaries/counters/reasons/intent/read budget and poisons malformed streams",
+    "maximum retained control-name report serializes fully in derived stream bound, larger than old4MiB cap, each page fits64KiB",
+    "fragmented Unicode JSON, trailing/wrongID/missingterminal/frame and total bounds rejected",
+    "final report requires successful child exit+EOF+reap; valid terminal+nonzeroexit or held-open process is rejected",
+    "cancel reaps owned helper; comparison allowance does not expand ordinary commands",
+    "actual helper preserves raw roots/names and Unicode shadow, emits full multiple pages, explicit readlimit/rootidentity errors, rejects mismatched command/NUL/oversize request and preserves source payloads"
+  ],
+  "retained_failure": "initial-tests-pass-clippy-fail.log:1346 tests passed; two int_plus_one assertions linted, rewritten to equivalent strict inequalities; final full checks PASS",
+  "installed": "Unchanged CopyPath app5c258f3a8d21/helpera8fc8abaf26c; no new release/install accepted",
+  "pending": [
+    "Model modal guards and single comparison slot, shared reader admission and close/cancel ACK lifecycle",
+    "root selection/editing including explicit local URI roundtrip; no traversal/hashing on UI thread",
+    "visible virtualized results/filter/navigation/locate/diagnostics and scoped source/installed acceptance",
+    "fresh synchronization plan/proofs/conflict review/recovery; comparison is never mutation authority",
+    "native input/clipboard/AT-SPI/2x/otherOS/offline blocked syscalls/global lifetimes/full goal"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "source_sha256": {
+    "crates/core/src/directory_compare.rs": "5eb00fd51b520cb4fc34910997793ac785c35de15a295e956942d0b970180acd",
+    "crates/core/src/directory_compare_wire.rs": "e347547ae8a5fde936a5e2b851aa34393b8f2769619bac599bbadf391c57ae82",
+    "crates/core/src/protocol.rs": "5cfddcf2fc18804fcd6e380ca432fa74c57501a1c35a5e09b296e2961f16b16f",
+    "crates/helper/src/directory_compare.rs": "4c031d7a87e356c08b1d203df9186d9a0bf3a2aac19687cd6b33fc58afec66a6",
+    "crates/helper/src/main.rs": "e9c11fafaf02796079ce299aa5f7f9b4a117b11457e498e18fbc4f8bc88ce0c4",
+    "crates/ui/src/directory_compare_job.rs": "3e895215db12ec23c0873d257092cea7aed529eaff16215d78a2e322dc1a16ba",
+    "crates/ui/src/space_map_job.rs": "aea010ef4f7ff00cef03fc6c544a82e52513b9177f8ec69b16d9b335bbf5a21f"
+  }
+}

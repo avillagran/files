@@ -1,0 +1,135 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "shared preview handlers + real FLTK framebuffer; filesystem changes in private fixtures; no native input",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/media-lifecycle/source-red-1793064135183720859.png",
+    "/home/avillagran/Work/files/docs/evidence/media-lifecycle/source-replaced-blue-1793064135412671759.png",
+    "/home/avillagran/Work/files/docs/evidence/media-lifecycle/source-deleted-1793064135748303516.png",
+    "/home/avillagran/Work/files/docs/evidence/media-lifecycle/playing-source-deleted-1793064136995252218.png"
+  ],
+  "checks": [
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=3 stamp=Some(Revision { device: 63, inode: 280915222, bytes: 666, modified_seconds: 1793064134, modified_nanoseconds: 842839068, changed_seconds: 1793064134, changed_nanoseconds: 842839068 })",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=4 stamp=Some(Revision { device: 63, inode: 280915270, bytes: 666, modified_seconds: 1793064134, modified_nanoseconds: 842839068, changed_seconds: 1793064135, changed_nanoseconds: 249879746 })",
+    "same-path replacement: inode changes; checked FD/Ready stamp and all RGB blue",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=5 stamp=Some(Revision { device: 63, inode: 280915270, bytes: 665, modified_seconds: 1793064135, modified_nanoseconds: 465350017, changed_seconds: 1793064135, changed_nanoseconds: 465350017 })",
+    "in-place modification: old pixels replaced",
+    "external deletion: Error, bitmap released",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=6 stamp=Some(Revision { device: 63, inode: 280915280, bytes: 666, modified_seconds: 1793064135, modified_nanoseconds: 798532050, changed_seconds: 1793064135, changed_nanoseconds: 798532050 })",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=7 stamp=Some(Revision { device: 63, inode: 280915280, bytes: 666, modified_seconds: 1793064135, modified_nanoseconds: 798532050, changed_seconds: 1793064136, changed_nanoseconds: 59633950 })",
+    "rename away/back: unavailable then fresh source",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=8 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })",
+    "parent rename/replacement: fresh path revision, watcher recovered",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/oriented.jpg\") revision=14 stamp=Some(Revision { device: 63, inode: 280915289, bytes: 1038, modified_seconds: 1793064136, modified_nanoseconds: 356860791, changed_seconds: 1793064136, changed_nanoseconds: 356860791 })",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=16 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })",
+    "FILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/clip.mkv\") revision=18 width=320 height=180 source=320x180 duration=4.000000 position=0.000000 codec=ffv1 playing=false sequence=None drained=true",
+    "video snapshot/stream carry FD stamp; deleting playing source cancels/releases media",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=22 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })",
+    "hidden preview: no replacement helper launched during reconciliation interval",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=24 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })",
+    "own Trash hides preview before file mutation ACK"
+  ],
+  "cache": "no product disk cache; RAM/pipe preview only; Grid thumbnails/LRU pending",
+  "source_scope": "standalone image/video, not embedded Markdown/PDF/audio",
+  "cleanup": {
+    "normal_exit": 0,
+    "preview_ack": true,
+    "logged_helper_identities": [
+      [
+        3364211,
+        50690725
+      ],
+      [
+        3364230,
+        50690749
+      ],
+      [
+        3364474,
+        50690770
+      ],
+      [
+        3364545,
+        50690804
+      ],
+      [
+        3364557,
+        50690830
+      ],
+      [
+        3364567,
+        50690846
+      ],
+      [
+        3364570,
+        50690852
+      ],
+      [
+        3364573,
+        50690856
+      ],
+      [
+        3364580,
+        50690861
+      ],
+      [
+        3364583,
+        50690866
+      ],
+      [
+        3364724,
+        50690875
+      ],
+      [
+        3364764,
+        50690919
+      ],
+      [
+        3364912,
+        50691047
+      ]
+    ],
+    "survivors": [],
+    "complete": true,
+    "scope": "logged PID/starttime helpers after root exit0; not lifetime/metrics coverage",
+    "readonly_probe_stop": [
+      "true"
+    ]
+  },
+  "product_disk_cache_created": false,
+  "remaining_paths": [
+    "app.log",
+    "capture.ppm",
+    "old-media/oriented.jpg",
+    "old-media/tiny.webp",
+    "old-media/clip.mkv",
+    "old-media/alpha.png",
+    "media/oriented.jpg",
+    "media/tiny.webp",
+    "data/Trash/files/alpha.png.files-3364187-0",
+    "data/Trash/info/alpha.png.files-3364187-0.trashinfo"
+  ],
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=138708\nFILES_UI_SMOKE_OK entries=4\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_COMMAND_REV action=png revision=3\nFILES_PREVIEW_HELPER pid=3364211 start=50690725 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=3 stamp=Some(Revision { device: 63, inode: 280915222, bytes: 666, modified_seconds: 1793064134, modified_nanoseconds: 842839068, changed_seconds: 1793064134, changed_nanoseconds: 842839068 })\nFILES_MEDIA_PIXELS_OK action=media-red generation=3 stamp=Some(Revision { device: 63, inode: 280915222, bytes: 666, modified_seconds: 1793064134, modified_nanoseconds: 842839068, changed_seconds: 1793064134, changed_nanoseconds: 842839068 })\nFILES_PREVIEW_COMMAND_OK media-red\nFILES_PREVIEW_COMMAND_REV action=media-red revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=3364230 start=50690749 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=4 stamp=Some(Revision { device: 63, inode: 280915270, bytes: 666, modified_seconds: 1793064134, modified_nanoseconds: 842839068, changed_seconds: 1793064135, changed_nanoseconds: 249879746 })\nFILES_MEDIA_PIXELS_OK action=media-blue generation=4 stamp=Some(Revision { device: 63, inode: 280915270, bytes: 666, modified_seconds: 1793064134, modified_nanoseconds: 842839068, changed_seconds: 1793064135, changed_nanoseconds: 249879746 })\nFILES_PREVIEW_COMMAND_OK media-blue\nFILES_PREVIEW_COMMAND_REV action=media-blue revision=4\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=3364474 start=50690770 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=5 stamp=Some(Revision { device: 63, inode: 280915270, bytes: 665, modified_seconds: 1793064135, modified_nanoseconds: 465350017, changed_seconds: 1793064135, changed_nanoseconds: 465350017 })\nFILES_MEDIA_PIXELS_OK action=media-green generation=5 stamp=Some(Revision { device: 63, inode: 280915270, bytes: 665, modified_seconds: 1793064135, modified_nanoseconds: 465350017, changed_seconds: 1793064135, changed_nanoseconds: 465350017 })\nFILES_PREVIEW_COMMAND_OK media-green\nFILES_PREVIEW_COMMAND_REV action=media-green revision=5\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") message=Original no disponible: No such file or directory (os error 2)\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=3364545 start=50690804 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=6 stamp=Some(Revision { device: 63, inode: 280915280, bytes: 666, modified_seconds: 1793064135, modified_nanoseconds: 798532050, changed_seconds: 1793064135, changed_nanoseconds: 798532050 })\nFILES_MEDIA_PIXELS_OK action=media-red generation=6 stamp=Some(Revision { device: 63, inode: 280915280, bytes: 666, modified_seconds: 1793064135, modified_nanoseconds: 798532050, changed_seconds: 1793064135, changed_nanoseconds: 798532050 })\nFILES_PREVIEW_COMMAND_OK media-red\nFILES_PREVIEW_COMMAND_REV action=media-red revision=6\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") message=Original no disponible: No such file or directory (os error 2)\nFILES_PREVIEW_HELPER pid=3364557 start=50690830 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=7 stamp=Some(Revision { device: 63, inode: 280915280, bytes: 666, modified_seconds: 1793064135, modified_nanoseconds: 798532050, changed_seconds: 1793064136, changed_nanoseconds: 59633950 })\nFILES_MEDIA_PIXELS_OK action=media-red generation=7 stamp=Some(Revision { device: 63, inode: 280915280, bytes: 666, modified_seconds: 1793064135, modified_nanoseconds: 798532050, changed_seconds: 1793064136, changed_nanoseconds: 59633950 })\nFILES_PREVIEW_COMMAND_OK media-red\nFILES_PREVIEW_COMMAND_REV action=media-red revision=7\nFILES_PREVIEW_HELPER pid=3364567 start=50690846 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=8 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })\nFILES_MEDIA_PIXELS_OK action=media-blue generation=8 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })\nFILES_PREVIEW_COMMAND_OK media-blue\nFILES_PREVIEW_COMMAND_REV action=media-blue revision=8\nFILES_PREVIEW_COMMAND_OK image-rapid\nFILES_PREVIEW_COMMAND_REV action=image-rapid revision=14\nFILES_PREVIEW_HELPER pid=3364570 start=50690852 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/oriented.jpg\") revision=14 stamp=Some(Revision { device: 63, inode: 280915289, bytes: 1038, modified_seconds: 1793064136, modified_nanoseconds: 356860791, changed_seconds: 1793064136, changed_nanoseconds: 356860791 })\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_COMMAND_REV action=png revision=16\nFILES_PREVIEW_HELPER pid=3364573 start=50690856 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=16 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })\nFILES_MEDIA_PIXELS_OK action=media-blue generation=16 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })\nFILES_PREVIEW_COMMAND_OK media-blue\nFILES_PREVIEW_COMMAND_REV action=media-blue revision=16\nFILES_PREVIEW_COMMAND_OK video\nFILES_PREVIEW_COMMAND_REV action=video revision=18\nFILES_PREVIEW_HELPER pid=3364580 start=50690861 command=preview_video_probe\nFILES_PREVIEW_HELPER pid=3364583 start=50690866 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/clip.mkv\") revision=18 width=320 height=180 source=320x180 duration=4.000000 position=0.000000 codec=ffv1 playing=false sequence=None drained=true\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=19\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/clip.mkv\") revision=19 width=320 height=180 source=320x180 duration=4.000000 position=0.000000 codec=ffv1 playing=true sequence=None drained=false\nFILES_PREVIEW_HELPER pid=3364724 start=50690875 command=preview_video_stream\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/clip.mkv\") revision=19 width=320 height=180 source=320x180 duration=4.000000 position=0.166667 codec=ffv1 playing=true sequence=Some(2) drained=false\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/clip.mkv\") revision=19 width=320 height=180 source=320x180 duration=4.000000 position=0.416667 codec=ffv1 playing=true sequence=Some(5) drained=false\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/clip.mkv\") message=Original no disponible: No such file or directory (os error 2)\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_COMMAND_REV action=png revision=22\nFILES_PREVIEW_HELPER pid=3364764 start=50690919 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=22 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })\nFILES_MEDIA_PIXELS_OK action=media-blue generation=22 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })\nFILES_PREVIEW_COMMAND_OK media-blue\nFILES_PREVIEW_COMMAND_REV action=media-blue revision=22\nFILES_MEDIA_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-hide\nFILES_PREVIEW_COMMAND_REV action=media-hide revision=23\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_COMMAND_REV action=png revision=24\nFILES_PREVIEW_HELPER pid=3364912 start=50691047 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/media-life-ggof2aqz/media/alpha.png\") revision=24 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })\nFILES_MEDIA_PIXELS_OK action=media-blue generation=24 stamp=Some(Revision { device: 63, inode: 280915286, bytes: 666, modified_seconds: 1793064136, modified_nanoseconds: 215595501, changed_seconds: 1793064136, changed_nanoseconds: 215595501 })\nFILES_PREVIEW_COMMAND_OK media-blue\nFILES_PREVIEW_COMMAND_REV action=media-blue revision=24\nFILES_MEDIA_OWN_DELETE_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-trash\nFILES_PREVIEW_COMMAND_REV action=media-trash revision=25\nFILES_MUTATION_FINISHED id=1 success=true undo=true redo=false\nFILES_PREVIEW_COMMAND_OK close\nFILES_PREVIEW_COMMAND_REV action=close revision=25\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_PREVIEW_DRAINED\nFILES_CLOSE_DRAINED\n",
+  "binary_sha256": "b8526adaf439ed73f8113d7eb4a82d014bf8a45ab9da1d558714ebe550c5edab",
+  "helper_sha256": "1936ffe2b9c6004c37c791ab9e0755427528e4e6cbe60c330078e0556de2e904",
+  "capture_dimensions": {
+    "/home/avillagran/Work/files/docs/evidence/media-lifecycle/source-red-1793064135183720859.png": [
+      1000,
+      650
+    ],
+    "/home/avillagran/Work/files/docs/evidence/media-lifecycle/source-replaced-blue-1793064135412671759.png": [
+      1000,
+      650
+    ],
+    "/home/avillagran/Work/files/docs/evidence/media-lifecycle/source-deleted-1793064135748303516.png": [
+      1000,
+      650
+    ],
+    "/home/avillagran/Work/files/docs/evidence/media-lifecycle/playing-source-deleted-1793064136995252218.png": [
+      1000,
+      650
+    ]
+  },
+  "footer_scope": "Existing footer is main-process PSS only, not a tree+Swap budget. Not used for acceptance.",
+  "disk_cache_scope": "No product media cache under isolated source/config/data; RAM/pipe implementation, not an audit of all filesystem paths."
+}

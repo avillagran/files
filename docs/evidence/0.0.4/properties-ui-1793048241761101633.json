@@ -1,0 +1,18 @@
+{
+  "method": "internal visible hit handlers + FLTK framebuffer + actual fixture modes/bytes; no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/properties-file-1793048229654305540.png"
+  ],
+  "runs": [
+    {
+      "close_during_request": false,
+      "functional_gate": "FAIL",
+      "error": "AssertionError('command failed: group-read\\nFILES_FONT=FiraCode Nerd Font nerd=true\\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=1\\nFILES_UI_SMOKE_OK entries=3\\nFILES_PROPERTIES_READY seq=0 id=0 dialog=false\\nFILES_FIRST_PAINT_US=144333\\nFILES_PROPERTIES_COMMAND seq=1 action=actions id=0 applied=false\\nFILES_PROPERTIES_READY seq=1 id=0 dialog=false\\nFILES_PROPERTIES_COMMAND seq=2 action=properties-file id=1 applied=false\\nFILES_PROPERTIES_ACK id=1 success=true changed=false snapshot=true message=\"Propiedades leídas\"\\nFILES_PROPERTIES_READY seq=2 id=1 dialog=true observed=0600 requested=0600 stale=false editable=true message=\"Propiedades leídas\"\\nFILES_CAPTURE_OK\\nFILES_PROPERTIES_COMMAND_ERROR action=group-read error=visible property hit missing\\n')",
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=1\nFILES_UI_SMOKE_OK entries=3\nFILES_PROPERTIES_READY seq=0 id=0 dialog=false\nFILES_FIRST_PAINT_US=144333\nFILES_PROPERTIES_COMMAND seq=1 action=actions id=0 applied=false\nFILES_PROPERTIES_READY seq=1 id=0 dialog=false\nFILES_PROPERTIES_COMMAND seq=2 action=properties-file id=1 applied=false\nFILES_PROPERTIES_ACK id=1 success=true changed=false snapshot=true message=\"Propiedades leídas\"\nFILES_PROPERTIES_READY seq=2 id=1 dialog=true observed=0600 requested=0600 stale=false editable=true message=\"Propiedades leídas\"\nFILES_CAPTURE_OK\nFILES_PROPERTIES_COMMAND_ERROR action=group-read error=visible property hit missing\n"
+    }
+  ],
+  "functional_gate": "FAIL",
+  "binary_sha256": "5b199d2eb5348fc0e8486c81b6703e95839026f4b49733f6c8594e50cb0dc495"
+}

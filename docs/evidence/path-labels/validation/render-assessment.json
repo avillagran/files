@@ -1,0 +1,20 @@
+{
+  "observed": "Initial X11 raw-path-dual-title capture has active-pane names/icons missing while metadata remains. Automated handler receipt still PASS; pixel labels were inspected manually.",
+  "initial": "docs/evidence/duplicates/node-functional-1793524131083329478/raw-path-dual-title.png",
+  "wayland": "1793524163344046032: both panes render",
+  "installed_baseline": "1793524260354395471: prior app bc9871535945, both panes render; same new fixture root",
+  "unchanged_x11_retry": "1793524327844009335: same new app, both panes render",
+  "cause": "UNCONFIRMED; no claim that rendering or capture issue is fixed or pre-existing",
+  "scope": "Current label/navigation functional acceptance supported by test destinations, Wayland and inspected X11 retry; no universal rendering claim",
+  "capture_audit_followup": {
+    "contract": "docs/CAPTURE-AUDIT-CONTRACT.md",
+    "samples": [
+      "1793525549303666587 X11",
+      "1793525589163827526 X11",
+      "1793525580202075468 Wayland"
+    ],
+    "observed": "Per sample observed/repeated/fresh names-icons ROI hashes equal; fresh paint counter advanced. Original anomaly not reproduced.",
+    "causal_status": "Original cause remains UNCONFIRMED; publication contract improved, not a proven original-rendering fix.",
+    "installed": "e9281b5, receipt1793525803034684286 Wayland: observed/repeated/fresh ROI equal and observed frame inspected with names/icons. Original cause remains unconfirmed."
+  }
+}

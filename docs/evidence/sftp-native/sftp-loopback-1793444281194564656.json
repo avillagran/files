@@ -1,0 +1,231 @@
+{
+  "mount_gate": "PASS",
+  "functional_gate": "NOT_APPLICABLE",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "fixture": "/home/avillagran/Work/files/.cargo/tmp/sftp-lab/loopback-8_vk7a1t",
+  "captures": [],
+  "method": "actual private loopback OpenSSH internal-sftp and real SSHFS/FUSE; core Target argv and strict mountinfo parser; no UI or OS input; no global install/config/key change",
+  "mounted_identity": {
+    "device": [
+      0,
+      71
+    ],
+    "id": 306,
+    "parent": 259,
+    "point": [
+      47,
+      104,
+      111,
+      109,
+      101,
+      47,
+      97,
+      118,
+      105,
+      108,
+      108,
+      97,
+      103,
+      114,
+      97,
+      110,
+      47,
+      87,
+      111,
+      114,
+      107,
+      47,
+      102,
+      105,
+      108,
+      101,
+      115,
+      47,
+      46,
+      99,
+      97,
+      114,
+      103,
+      111,
+      47,
+      116,
+      109,
+      112,
+      47,
+      115,
+      102,
+      116,
+      112,
+      45,
+      108,
+      97,
+      98,
+      47,
+      108,
+      111,
+      111,
+      112,
+      98,
+      97,
+      99,
+      107,
+      45,
+      56,
+      95,
+      118,
+      107,
+      55,
+      97,
+      49,
+      116,
+      47,
+      109,
+      111,
+      117,
+      110,
+      116
+    ],
+    "present": true,
+    "root": [
+      47
+    ],
+    "source": [
+      102,
+      105,
+      108,
+      101,
+      115,
+      45,
+      115,
+      102,
+      116,
+      112,
+      45,
+      49,
+      55,
+      57,
+      51,
+      52,
+      52,
+      52,
+      50,
+      56,
+      49,
+      48,
+      48,
+      54,
+      53,
+      55,
+      49,
+      56,
+      54,
+      48
+    ]
+  },
+  "sshfs_identity": [
+    427162,
+    "12050905"
+  ],
+  "sshd_identity": [
+    427154,
+    "12050902"
+  ],
+  "rename_noreplace": {
+    "return": -1,
+    "errno": 22
+  },
+  "rename_noreplace_gate": "UNSUPPORTED",
+  "exclusive_link_probes": [
+    {
+      "kind": "file",
+      "success": true,
+      "same_inode": false,
+      "source_inode": 7,
+      "destination_inode": 9,
+      "collision_rejected": true
+    },
+    {
+      "kind": "symlink",
+      "success": true,
+      "same_inode": false,
+      "source_inode": 10,
+      "destination_inode": 12,
+      "collision_rejected": true
+    }
+  ],
+  "core_copy": {
+    "cleanup_errors": [],
+    "completed": 0,
+    "errno": 22,
+    "kind": "InvalidInput",
+    "message": "Invalid argument (os error 22)",
+    "ok": false,
+    "rescue_paths": []
+  },
+  "copy_engine_gate": "FAIL",
+  "visible_copy": {
+    "bytes": 37,
+    "completed": 1,
+    "ok": true,
+    "publication": "VisibleExclusive",
+    "symlink_times_omitted": 1,
+    "visible_completed": 1,
+    "visible_started": 1,
+    "visible_uncertain": 0
+  },
+  "visible_collision": {
+    "cleanup_errors": [],
+    "completed": 0,
+    "errno": null,
+    "kind": "AlreadyExists",
+    "message": "Destination already exists",
+    "ok": false,
+    "rescue_paths": []
+  },
+  "visible_adapter_gate": "PASS",
+  "busy_unmount": {
+    "status": 1,
+    "message": "/usr/bin/fusermount3: failed to unmount /home/avillagran/Work/files/.cargo/tmp/sftp-lab/loopback-8_vk7a1t/mount: Device or resource busy\n"
+  },
+  "scope": "actual kernel FUSE mount verified by core strict mountinfo identity, OpenSSH internal-sftp with ephemeral fixture keys/knownhost and no real user SSH config, core Target source literalUnicode/percent/$() path, raw0xFF read, symlink literal, independent cat read and mounted write, busy ordinary unmount rejected/identity intact, unmount→absent and SSHFS0; no UI/input/performance/whole-lifetime/hostile-mount/powerloss/global acceptance",
+  "mount_cleanup": "ABSENT",
+  "logged_process_identities": [
+    [
+      427154,
+      "12050902"
+    ],
+    [
+      427161,
+      "12050904"
+    ],
+    [
+      427162,
+      "12050905"
+    ],
+    [
+      427169,
+      "12050905"
+    ],
+    [
+      427170,
+      "12050905"
+    ],
+    [
+      427171,
+      "12050906"
+    ]
+  ],
+  "identity_errors": [],
+  "observed_survivors": [],
+  "overall_gate": "FAIL",
+  "sshfs_binary": {
+    "path": "/home/avillagran/Work/files/.cargo/tmp/sftp-lab/build/sshfs",
+    "sha256": "3ef66a200b8b5c2bb34662c8e67123f2e4ff5f585cd01f30a5ca5a1f07f03cf7"
+  },
+  "logs": {
+    "sshd.log": "",
+    "sshfs.log": ""
+  },
+  "fixture_retained": "Owned0700 fixture retained; no recursive deletion around mountpoints; test-only keys not printed or installed"
+}

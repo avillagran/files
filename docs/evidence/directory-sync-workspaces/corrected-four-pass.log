@@ -1,0 +1,11 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.17s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 4 tests
+test directory_sync_store::linux::tests::workspace_factory_all_placements_preflight_before_any_artifact_or_intent ... ok
+test directory_sync_store::linux::tests::workspace_factory_batch_keeps_completed_receipts_and_rejects_collisions ... ok
+test directory_sync_store::linux::tests::workspace_factory_complete_creator_metadata_barrier_and_publication ... ok
+test directory_sync_store::linux::tests::workspace_factory_faults_preserve_partials_and_pending_history_blocks_retry ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 668 filtered out; finished in 0.78s

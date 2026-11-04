@@ -1,0 +1,123 @@
+    Checking files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+error[E0061]: this method takes 4 arguments but 6 arguments were supplied
+   --> crates/ui/src/copy_dialog.rs:435:7
+    |
+435 |     p.literal_text(
+    |       ^^^^^^^^^^^^
+...
+469 |         true,
+    |         ---- unexpected argument #5 of type `bool`
+470 |         false,
+    |         ----- unexpected argument #6 of type `bool`
+    |
+note: method defined here
+   --> crates/ui/src/painter.rs:40:8
+    |
+ 40 |     fn literal_text(&mut self, r: Rect, text: &str, size: i32, c: Color) {
+    |        ^^^^^^^^^^^^
+help: remove the extra arguments
+    |
+468 -         c.dark_foreground,
+469 -         true,
+470 -         false,
+468 +         c.dark_foreground,
+    |
+
+error[E0061]: this method takes 4 arguments but 6 arguments were supplied
+   --> crates/ui/src/copy_ui.rs:884:15
+    |
+884 |             p.literal_text(
+    |               ^^^^^^^^^^^^
+...
+889 |                 true,
+    |                 ---- unexpected argument #5 of type `bool`
+890 |                 false,
+    |                 ----- unexpected argument #6 of type `bool`
+    |
+note: method defined here
+   --> crates/ui/src/painter.rs:40:8
+    |
+ 40 |     fn literal_text(&mut self, r: Rect, text: &str, size: i32, c: Color) {
+    |        ^^^^^^^^^^^^
+help: remove the extra arguments
+    |
+888 -                 c.dark_foreground,
+889 -                 true,
+890 -                 false,
+888 +                 c.dark_foreground,
+    |
+
+error[E0061]: this method takes 4 arguments but 6 arguments were supplied
+   --> crates/ui/src/rename_dialog.rs:223:7
+    |
+223 |     p.literal_text(
+    |       ^^^^^^^^^^^^
+...
+228 |         true,
+    |         ---- unexpected argument #5 of type `bool`
+229 |         false,
+    |         ----- unexpected argument #6 of type `bool`
+    |
+note: method defined here
+   --> crates/ui/src/painter.rs:40:8
+    |
+ 40 |     fn literal_text(&mut self, r: Rect, text: &str, size: i32, c: Color) {
+    |        ^^^^^^^^^^^^
+help: remove the extra arguments
+    |
+227 -         c.dark_foreground,
+228 -         true,
+229 -         false,
+227 +         c.dark_foreground,
+    |
+
+error[E0061]: this method takes 4 arguments but 6 arguments were supplied
+   --> crates/ui/src/rename_dialog.rs:362:19
+    |
+362 |                 p.literal_text(
+    |                   ^^^^^^^^^^^^
+...
+367 |                     true,
+    |                     ---- unexpected argument #5 of type `bool`
+368 |                     false,
+    |                     ----- unexpected argument #6 of type `bool`
+    |
+note: method defined here
+   --> crates/ui/src/painter.rs:40:8
+    |
+ 40 |     fn literal_text(&mut self, r: Rect, text: &str, size: i32, c: Color) {
+    |        ^^^^^^^^^^^^
+help: remove the extra arguments
+    |
+366 -                     c.foreground,
+367 -                     true,
+368 -                     false,
+366 +                     c.foreground,
+    |
+
+error[E0061]: this method takes 4 arguments but 6 arguments were supplied
+   --> crates/ui/src/rename_dialog.rs:370:19
+    |
+370 |                 p.literal_text(
+    |                   ^^^^^^^^^^^^
+...
+375 |                     true,
+    |                     ---- unexpected argument #5 of type `bool`
+376 |                     false,
+    |                     ----- unexpected argument #6 of type `bool`
+    |
+note: method defined here
+   --> crates/ui/src/painter.rs:40:8
+    |
+ 40 |     fn literal_text(&mut self, r: Rect, text: &str, size: i32, c: Color) {
+    |        ^^^^^^^^^^^^
+help: remove the extra arguments
+    |
+374 -                     c.green,
+375 -                     true,
+376 -                     false,
+374 +                     c.green,
+    |
+
+For more information about this error, try `rustc --explain E0061`.
+error: could not compile `files-ui` (lib) due to 5 previous errors

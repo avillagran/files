@@ -1,0 +1,32 @@
+[
+  {
+    "text": "initial-4-new-pass.log",
+    "raw_archive": "initial-4-new-pass.log.raw.gz",
+    "raw_sha256": "1036f1909180b3bfaec0e68034cfa505f4c0507b8d6a54ca29ed0d834ee37eb7",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "expanded-7-new-pass.log",
+    "raw_archive": "expanded-7-new-pass.log.raw.gz",
+    "raw_sha256": "f0e22309f0bf807b5a5c8ff950a3877b7b80b46e9d1e0e9c4ce16215afe1656d",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "pre-flag-audit-8-new-pass.log",
+    "raw_archive": "pre-flag-audit-8-new-pass.log.raw.gz",
+    "raw_sha256": "6a9332af28f9d7d70b005aa8140c9a6cc7a01f33ccc5785ac0129051a2ba7cb8",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "initial-workspace-pass.log",
+    "raw_archive": "initial-workspace-pass.log.raw.gz",
+    "raw_sha256": "c1f1f448c7591423dae212a31be201465344192c5d81a31dff14a985dc932d19",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  },
+  {
+    "text": "workspace-final-pass.log",
+    "raw_archive": "workspace-final-pass.log.raw.gz",
+    "raw_sha256": "6c38b8a92fef3881239bbbbc4b2882f07a34ba57f8b0365af5961a5db8fcb508",
+    "normalization": "Only trailing whitespace/empty EOF lines removed"
+  }
+]

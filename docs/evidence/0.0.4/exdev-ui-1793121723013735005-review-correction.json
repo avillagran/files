@@ -1,0 +1,8 @@
+{
+  "original_report": "exdev-ui-1793121723013735005.json",
+  "original_sha256": "8d369f32bd3dc098546f1319dca72a4b6759248cfe4a44d0a540739803107072",
+  "correction": "The image named restore-controls-440 is 1000x650. Functional flows passed but this report does NOT validate narrow framebuffer/resize. Original preserved. New harness requires matching Window/canvas/full-paint revision and exact PPM dimensions before accepting.",
+  "narrow_framebuffer_gate": "UNVALIDATED",
+  "functional_scope": "single-file EXDEV, explicit restore/finish, filesystem contents and normal exit ACK only",
+  "resource_gate": "NOT_MEASURED_FREEZE"
+}

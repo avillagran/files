@@ -1,0 +1,36 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+error[E0433]: cannot find module or crate `fs` in this scope
+   --> crates/core/src/directory_sync_store/linux/journal/create.rs:358:20
+    |
+358 |                 if fs::read_dir(path)?.next().is_some() {
+    |                    ^^ use of unresolved module or unlinked crate `fs`
+    |
+    = help: if you wanted to use a crate named `fs`, use `cargo add fs` to add it to your `Cargo.toml`
+    = note: module `crate::saved_search::fork_tests::fs` exists but is inaccessible
+help: consider importing this module
+    |
+  1 + use std::fs;
+    |
+
+error[E0599]: no associated function or constant named `new` found for struct `CoreWrapper<T>` in the current scope
+   --> crates/core/src/directory_sync_store/linux/journal/create.rs:404:43
+    |
+404 |                 let mut h = sha2::Sha256::new();
+    |                                           ^^^ associated function or constant not found in `CoreWrapper<CtVariableCoreWrapper<Sha256VarCore, UInt<_, B0>, _>>`
+    |
+note: if you're trying to build a new `CoreWrapper<CtVariableCoreWrapper<Sha256VarCore, UInt<UInt<UInt<UInt<UInt<UInt<UTerm, B1>, B0>, B0>, B0>, B0>, B0>, sha2::OidSha256>>`, consider using `CoreWrapper::<T>::from_core` which returns `CoreWrapper<_>`
+   --> /home/node/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/digest-0.10.7/src/core_api/wrapper.rs:70:5
+    |
+ 70 |     pub fn from_core(core: T) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = help: items from traits can only be used if the trait is in scope
+    = note: the full name for the type has been written to '/home/node/Work/files/target/debug/deps/files_core-8c28fd9968ccc775.long-type-15610793142425484056.txt'
+    = note: consider using `--verbose` to print the full type name to the console
+help: trait `Digest` which provides `new` is implemented but not in scope; perhaps you want to import it
+    |
+  1 + use sha2::Digest;
+    |
+
+Some errors have detailed explanations: E0433, E0599.
+For more information about an error, try `rustc --explain E0433`.
+error: could not compile `files-core` (lib test) due to 2 previous errors

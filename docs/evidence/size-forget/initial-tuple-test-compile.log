@@ -1,0 +1,35 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0061]: method takes 1 argument but 2 arguments were supplied
+   --> crates/ui/src/size_queue.rs:782:11
+    |
+782 |         s.progress(7, 2);
+    |           ^^^^^^^^
+    |
+note: method defined here
+   --> crates/ui/src/size_queue.rs:320:12
+    |
+320 |     pub fn progress(&mut self, value: (u64, u64)) -> bool {
+    |            ^^^^^^^^            -----------------
+help: wrap these arguments in parentheses to construct a tuple
+    |
+782 |         s.progress((7, 2));
+    |                    +    +
+
+error[E0061]: method takes 1 argument but 2 arguments were supplied
+   --> crates/ui/src/size_queue.rs:787:11
+    |
+787 |         s.progress(9, 3);
+    |           ^^^^^^^^
+    |
+note: method defined here
+   --> crates/ui/src/size_queue.rs:320:12
+    |
+320 |     pub fn progress(&mut self, value: (u64, u64)) -> bool {
+    |            ^^^^^^^^            -----------------
+help: wrap these arguments in parentheses to construct a tuple
+    |
+787 |         s.progress((9, 3));
+    |                    +    +
+
+For more information about this error, try `rustc --explain E0061`.
+error: could not compile `files-ui` (lib test) due to 2 previous errors

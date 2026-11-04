@@ -1,0 +1,16 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+   Compiling files-app v0.0.4 (/home/avillagran/Work/files/crates/app)
+error[E0433]: cannot find type `Key` in this scope
+    --> crates/ui/src/navigation_tests.rs:1704:31
+     |
+1704 |     crate::size_panel::key(m, Key::F5, Shortcut::None);
+     |                               ^^^ use of undeclared type `Key`
+
+error[E0433]: cannot find type `Shortcut` in this scope
+    --> crates/ui/src/navigation_tests.rs:1704:40
+     |
+1704 |     crate::size_panel::key(m, Key::F5, Shortcut::None);
+     |                                        ^^^^^^^^ use of undeclared type `Shortcut`
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `files-ui` (lib test) due to 2 previous errors

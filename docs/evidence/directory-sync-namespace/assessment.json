@@ -1,0 +1,72 @@
+{
+  "source_commit": "b711f0ac7d4074223ffeb0ba5d6a94d9f440d0f2",
+  "scope": "SOURCE ONLY Linux expected namespace rename/transfer reconciliation across one/two disjoint inventories, full-union execution snapshot profile, compact canonical metadata template. No actual syscall executor, durable effect/approval or UI Apply.",
+  "validation": {
+    "workspace_passed": 1524,
+    "core": 617,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 9,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "concurrency": "Normal Rust harness, one Cargo build job through original idle snapshot gate; competing Cargo untouched, idle snapshot not exclusion of later competition",
+    "release_install_gui_acceptance": "NOT_RUN"
+  },
+  "implemented": [
+    "Borrowed one/two-scope plan from raw relative descendants, absent target, directory parents, no cycles, disjoint directory identities, coherent moved-inode old capture and same root/source-parent/destination-parent mount",
+    "Candidate count/name/path/depth/wire charged BEFORE each mapped/cloned path allocation, entry/mount pairs sorted together, exact expected child-name digest for affected parents",
+    "Two complete before-verification passes around parent metadata acquisition, compact mode/uid/gid/access/attribute-digest templates instead of retained raw attributes; existing canonical metadata digest unchanged",
+    "Complete after-walks with exact planned names/identities/mounts and all unrelated entries strict; moved inode alone may change ctime coherently, all descendants retain exact revisions",
+    "Touched parents permit only directory size/mtime/ctime dynamics, exact mode/uid/gid/access/attributes/child set and predicted nlink; constant1 and original2+directDirChildren models, otherwise reject cross-parent directory move before syscall",
+    "Final root FD/name/revision/mount/control checks then all recorded entries/mounts/profiles publish without fallible operations; any failure preserves all original owners, not rollback of caller filesystem effects",
+    "Success yields exact RenameChange for further untouched-namespace alias reconciliation, separate preparation/post payload accounting; Control in preparation/capture/reconcile uses existing checkpoints, no production worker/timer",
+    "Distinct execution profile max16385 entries/2097152 retained-name bytes/wire16760832B and directory-only controlled capture/reopen; original legacy and sync input profiles/capture/record/transport caps unchanged"
+  ],
+  "tests": [
+    "Same-parent file/directory rename keeps nlink exact; same-scope cross-parent and two-scope nonempty file moves validate parent metadata and compose outside alias receipts",
+    "Two-scope rawFF directory transfer with hardlinked/symlink/empty subtree preserves exact descendant revisions/content/metadata",
+    "Late-scope unexpected names, missing/replaced object, unrelated content/ctime, parent permissions/xattrs, nlink, root replacement, budget17 vs18 and cancel: all original recorded owners and source profiles unchanged",
+    "Preflight rejects root/missing/invalid/absolute/parent traversal/repeated separators/cycle/non-directory parent/existing target and insufficient prepare budget",
+    "Actual full input union8193+8193 -> remaining source root1 and destination16385; verify/reopen execution profile exact, original source capture still rejects that destination; one-over16386 rejects before rename",
+    "Retained-name/depth growth reject before rename, including255-byte subtree prefix and depth34 result",
+    "Worker pause waits, resume succeeds, cancel wakes Interrupted and leaves original records; functional wait not blocked-syscall deadline",
+    "Controlled directory-link models1/classic/unsupported and mount mismatch, real duplicate-directory scope rejection, non-sync and non-directory execution-capture rejection"
+  ],
+  "acceptance_history": [
+    "Initial16 focused PASS with seven new namespace tests; expanded same-parent and cross-file coverage yielded1523 workspace PASS",
+    "Static allocation audit moved candidate budget charges before path clones; guarded1523 workspace PASS retained separately",
+    "Full sync boundary audit separated initial source cap from execution-union cap; focused17 PASS with16385 union/reopen and original source-limit checks",
+    "Added model/profile/overlap/mount rejection assertions; final1524 workspace/Clippy/fmt PASS, no failures"
+  ],
+  "failures": [],
+  "limits": {
+    "input_entries": 8193,
+    "input_retained_names": 1048576,
+    "execution_entries": 16385,
+    "execution_retained_names": 2097152,
+    "execution_wire": 16760832,
+    "max_scopes": 2,
+    "scope_read_allowance_max": 1099511627776,
+    "note": "Structural counters/allowances, not PSS/CPU/startup/throughput evidence; raw attribute and working buffers/bookkeeping separate"
+  },
+  "log_archive_notes": "log-archive-notes.json",
+  "installation": "Five installed hashes unchanged against1793574522897173033; installed-unchanged.json. No release or installation",
+  "limitations": [
+    "Expected rename is caller-provided data, not reviewed intent binding or proof of who performed a syscall; caller must provide no-clobber execution, durable intent/barriers, actual parent absolute bindings and fresh approval/helper lifetime",
+    "Post-check does not roll back caller rename; consuming a failed plan is not an implicit retry/recovery token and operation-wide error/retry accounting remains caller work",
+    "Sequential observations are not simultaneous filesystem snapshot; touched-parent mtime/ctime-only changes cannot be attributed to a writer, symlink-atime-only changes retain existing exclusion policy",
+    "Original capture byte counters and per-scope default read allowance preserved; gained payload requires explicit verification allowance",
+    "Creation/removal/link-count transitions beyond rename, staged metadata reproduction, actual preservation/publication, queue/recovery UI and journal scaling remain pending",
+    "Controlled link models and mount mismatch are record stand-ins, not proof of other filesystem compatibility; no native input/clipboard/AT-SPI/2x/lifetime/offline deadline/otherOS/global acceptance",
+    "Absolute resource experiment freeze and new-preview pause preserved",
+    "Two full before-walks and one full after-walk per rename can make large repeated namespace batches quadratic. Bulk namespace execution scaling remains unaccepted, alongside journal scaling; no resource experiment performed."
+  ],
+  "next": "Bind actual FD-rooted no-clobber own rename syscalls and positive provenance to durable journal barriers and these namespace/alias guards on owned fixtures, then complete staging/metadata/execution/recovery and visible approval/helper pins. Full explorer goal active. Bulk execution requires selective positively bound namespace guards as well as journal scaling work.",
+  "full_goal": "ACTIVE; complete original objective unchanged",
+  "source_sha256": {
+    "crates/core/src/exdev_source.rs": "37e89d4d53c957b3195ed55ef3f3a03c5be155387907406accb34cd4e67b06a3",
+    "crates/core/src/exdev_source/linux/sync_namespace.rs": "662e7d1bbf9bf4e2179b91dca2f9647cece18ff556732ecc7a4cf9d4d2d254b8",
+    "crates/core/src/directory_sync_metadata.rs": "b528754d2708b163ca0591c2ee3ed88185a0155623afbcf187395542bf248205"
+  }
+}

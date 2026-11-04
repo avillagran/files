@@ -1,0 +1,13 @@
+    Checking files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Checking files-app v0.0.4 (/home/node/Work/files/crates/app)
+error: useless use of `vec!`
+   --> crates/ui/src/capture_frame.rs:162:13
+    |
+162 |             &vec![b'x'; 129],
+    |             ^^^^^^^^^^^^^^^^ help: you can use a slice directly: `&[b'x'; 129]`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#useless_vec
+    = note: `-D clippy::useless-vec` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::useless_vec)]`
+
+error: could not compile `files-ui` (lib test) due to 1 previous error

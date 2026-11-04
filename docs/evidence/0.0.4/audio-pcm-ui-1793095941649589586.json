@@ -1,0 +1,29 @@
+{
+  "functional_gate": "FAIL",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "shared UI handlers, actual FLTK framebuffer and private Pulse monitor PCM; no native input/clipboard or physical speaker audibility",
+  "captures": [],
+  "checks": [],
+  "pcm": [],
+  "server_transport": "local user Unix socket, fixture-only environment",
+  "created_module": {
+    "name": "files_test_498260_1793095940890381467",
+    "id": 536870916
+  },
+  "private_sink": {
+    "name": "files_test_498260_1793095940890381467",
+    "module_id": 536870916,
+    "sink_index": 56074,
+    "explicit_device": true,
+    "global_default_changed": false
+  },
+  "error": "CalledProcessError(4, ['hyprctl', 'clients', '-j'])",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=92142\nFILES_UI_SMOKE_OK entries=2\n",
+  "private_module_removed": true,
+  "default_sink_unchanged": true,
+  "cleanup_errors": [],
+  "binary_sha256": "b76ecfdb6c4f3d76d93f4ca6e02bbb8e14b044212cc570123bf70502e899749d",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

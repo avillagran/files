@@ -1,0 +1,70 @@
+{
+  "source_commit": "5c647485e3fe14f4ab3697c08987fcb949f3a943",
+  "machine": "NODE",
+  "checked_at": "2026-11-02",
+  "scope": "SOURCE ONLY grouped resource admission and shared-container preparation integrated in owned factory; not full production coordinator/native approval or process resource acceptance",
+  "validation": {
+    "workspace_passed": 1599,
+    "core": 692,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 9,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "harness": "Normal Rust harness through original idle Cargo gate; competitors untouched; idle snapshot not exclusion of later competition",
+    "release_install_gui_resources": "NOT_RUN"
+  },
+  "implemented": [
+    "Pure WorkspaceBatchReport:validate exact count/normalized raw path syntax, group borrowed byte-identical keys only, no filesystem access/approval",
+    "16MiB requested subtotal before path/component clones,container pins/artifacts:exact transaction/receipt headers,46B names,group and borrowed-ref slots; uniqueDirectory/Arc/path/component/chain/parent-vector payloads; original capture/registry/journal caps unchanged",
+    "Directory component/ancestor arrays/layout arrays exact requested capacities; root receipt fallible reserve after admission; metadata accounting audited to include reference/vector slots",
+    "Open one Arc<Directory> per unique raw absolute path; per-transaction names/seals/registry rows remain complete; WorkspaceParent clone/into_parts share pin without dup and verify absolute chain on demand",
+    "Grouped retention forecast subtracts T-U from legacy max:creationT+U+R,metadata2T+U orT+U; real factory RLIMIT/proc snapshot uses this plus164 existing headroom, no reservation",
+    "Build source directory/ancestor exclusion and root ID sets once rather than rescanning complete record per candidate; keep live parent/name/effect guards",
+    "Store ancestry protection strengthened to underlying device/inode across differing mount IDs, alongside separate planned mount checks; no assumption that mount aliases are disjoint"
+  ],
+  "tests": [
+    "Three pure layout fixtures:all16384 transactions share one4096B128-component parent,exact budget/one-byte-lower refusal/raw malformed aliases,distinct deep parents fail aggregate budget before any open",
+    "Actual eight-workspace FD lifecycle:T roots+U1 parent+registry1 new descriptors; parent_handle clone and into_parts add none; root/clone/Journal drops return to pre-owner snapshot",
+    "Distinct case/raw containers have distinct pins and persistent rows; moved parent fails verify while other remains valid",
+    "All-private source root/descendant/ancestor/Store/Store-descendant exclusions reject before any registry/workspace/journal change, avoiding mode-only stand-ins",
+    "Late shared-parent replacement after admission/intent ACK prevents mkdir and preserves both directories",
+    "Child actual softFD limit admits grouped17 slots where conservative24-slot policy refuses, then creates all8 workspaces; child restores limit, parent unaffected",
+    "Synthetic dev/inode/mount arrays verify Store-alias predicate across mount IDs and differing-device independence; predicate-only coverage, not real bind-mount acceptance",
+    "Existing complete factory/registry→creator→durable metadata→global barrier→owned namespace pipeline and history/fault/control/exit tests pass"
+  ],
+  "acceptance_history": [
+    "Initial E0432 missing Linux public WorkspaceParent reexport plus related unused import warning corrected; core check PASS",
+    "First focused7PASS1FAIL at final close assertion:fixture omitted Journal directory FD; compare pre-owner snapshot instead→8PASS",
+    "Initial1598workspace PASS; accounting audit adds exact borrowed-ref and parent-vector slots→1598workspace PASS",
+    "Store-alias exclusion now compares underlying dev/inode even across mounts; added synthetic predicate test→final1599workspace PASS",
+    "FinalClippy/fmt PASS, no lint failures; five installed hashes unchanged"
+  ],
+  "limits": [
+    "Requested metadata subtotal excludes allocator overhead,temporary maps/exclusion/verification buffers,kernel FD storage,caller inputs,Schema/Prepared/artifact data and inventory entries; not a process PSS or global memory acceptance",
+    "The metadata budget can refuse valid input batches under a caller-selected many-distinct-deep-container layout; alternative sharing/container selection remains coordinator work",
+    "FD forecasts depend on dropping obsolete empty inventories and retaining only cohort leaders/current creation receipt; subsequent phase/current headroom admission still required; other consumers can take descriptors after observation",
+    "Different raw paths never merge by inode; every absolute binding remains independent; parent verify and artifacts do not grant approval or lasting freshness",
+    "Store-alias cross-mount test uses synthetic IDs; no actual bind-mount/native/global acceptance inferred",
+    "Container selection/creation,integrated coordinator,fresh native/source/helper/absolute bindings,SharedDir AfterOwnChildren,recovery/undo/UIApply remain open",
+    "Full-scope walks and journal readback potentially quadratic; bulk/resource/startup/native/global acceptance open; freeze and new-preview pause retained",
+    "No release/install/sourcepush/tag/GUI or resource/startup experiment"
+  ],
+  "installed_hashes": "installed-hashes.json",
+  "source_sha256": {
+    "crates/core/src/directory_sync_admission.rs": "46f067a5a3bdab7286cf6aba38f007125f6e1e362553a713c69ed40bf78b332b",
+    "crates/core/src/directory_sync_physical.rs": "04612dcaf9395bfc119f18b9e62345bd29c2cb48ab98fa7409a527dbe46a47c6",
+    "crates/core/src/directory_sync_store.rs": "eeab0ef4ee170e99b087f2854adc4ca4f7053acaebbf4eb5f8e5196f730a93c1",
+    "crates/core/src/directory_sync_store/linux/journal.rs": "62ccc3a7b11b297406ac9804150e7d653b2eddd20ed9be3dd28bd5bf51393051",
+    "crates/core/src/directory_sync_store/linux/journal/workspace.rs": "2eb1b97ae1f5df0821a243650591bb466b6b07c761129b120c2269e93dc0df6e",
+    "crates/core/src/directory_sync_store/linux/placements.rs": "7784d0eb7e567e61539f3be4394797c495989236466f8856cf1605c81e75544b",
+    "docs/DIRECTORY-SYNC-ADMISSION.md": "676be15794d58b19712bc0cfed273b1f0f85c4a790a8cdb952b0416781bc026c",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "b82f6564120a0d6cd33fcc49ffbb0e1266f01f4217383f43ed4754fd46d3d306",
+    "docs/DIRECTORY-SYNC-PLACEMENTS.md": "8a6e151c81883b76d36e2c5bc26f91569b0f2b84a715d8fc9508667a770b57a3",
+    "docs/DIRECTORY-SYNC-WORKSPACES.md": "4d2ccf94b5bdcfcf2ee94612942e633170830a454a94d78754c4695b01fbac86",
+    "docs/ROADMAP.md": "2604b91220ea1c1c9751417a2efe5b477fee54f5681e1c8eb3972549a3940f2e",
+    "crates/core/src/directory_sync_store/linux/workspace_batch.rs": "f5cfc6ea33f650532a24d0a15112a2a87f8a1645ad874d5611db9f770b499361",
+    "docs/DIRECTORY-SYNC-BATCH-PREPARATION.md": "0f862b671900fa3f2dc1d30118ff51d10e5b75f2f08c7774ecd36ed62394b9eb"
+  }
+}

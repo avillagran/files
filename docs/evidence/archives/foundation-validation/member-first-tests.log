@@ -1,0 +1,16 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+   Compiling files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+error[E0425]: cannot find function `u32_at` in this scope
+  --> crates/helper/src/zip_member.rs:99:19
+   |
+99 |         let end = u32_at(&b, b.len() - 6) as usize;
+   |                   ^^^^^^ not found in this scope
+
+error[E0425]: cannot find function `u32_at` in this scope
+   --> crates/helper/src/zip_member.rs:110:19
+    |
+110 |         let end = u32_at(&b, b.len() - 6) as usize;
+    |                   ^^^^^^ not found in this scope
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `files-helper` (bin "files-helper" test) due to 2 previous errors

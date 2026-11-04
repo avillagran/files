@@ -1,0 +1,34 @@
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.97s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57a6206bf2b86e3e)
+
+running 7 tests
+test checksum_job::tests::duplicate_out_of_order_and_missing_ack_are_rejected ... ok
+test checksum_job::tests::progress_reversal_changed_total_and_overflow_are_rejected ... ok
+test checksum_ui::tests::empty_selection_never_falls_back_to_focused_file_and_non_regular_is_explicit ... ok
+test checksum_ui::tests::frozen_capture_cannot_redirect_after_owner_or_path_change_and_stale_hits_do_nothing ... ok
+test checksum_ui::tests::minimum_panel_targets_fit_and_report_escapes_raw_control_names ... ok
+test checksum_ui::tests::close_keeps_slot_until_exact_worker_outcome_and_preserves_pause ... FAILED
+test checksum_ui::tests::cancel_before_dispatch_restores_original_size_pause_without_starting_worker ... FAILED
+
+failures:
+
+---- checksum_ui::tests::close_keeps_slot_until_exact_worker_outcome_and_preserves_pause stdout ----
+
+thread 'checksum_ui::tests::close_keeps_slot_until_exact_worker_outcome_and_preserves_pause' (1121779) panicked at crates/ui/src/checksum_ui.rs:702:9:
+assertion failed: f.m.checksums.is_none() && f.m.sizes.paused()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- checksum_ui::tests::cancel_before_dispatch_restores_original_size_pause_without_starting_worker stdout ----
+
+thread 'checksum_ui::tests::cancel_before_dispatch_restores_original_size_pause_without_starting_worker' (1121778) panicked at crates/ui/src/checksum_ui.rs:675:9:
+assertion failed: f.m.sizes.paused()
+
+
+failures:
+    checksum_ui::tests::cancel_before_dispatch_restores_original_size_pause_without_starting_worker
+    checksum_ui::tests::close_keeps_slot_until_exact_worker_outcome_and_preserves_pause
+
+test result: FAILED. 5 passed; 2 failed; 0 ignored; 0 measured; 669 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p files-ui --lib`

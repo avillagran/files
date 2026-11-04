@@ -1,0 +1,31 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+warning: unused import: `Path`
+   --> crates/core/src/archive_extract_fs.rs:253:117
+    |
+253 |     use std::{ffi::{OsStr,OsString},fs,os::unix::{ffi::OsStringExt,fs::{symlink,MetadataExt,PermissionsExt}},path::{Path,PathBuf},s...
+    |                                                                                                                     ^^^^
+    |
+    = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `PermissionsExt`
+   --> crates/core/src/archive_extract_fs.rs:253:93
+    |
+253 |     use std::{ffi::{OsStr,OsString},fs,os::unix::{ffi::OsStringExt,fs::{symlink,MetadataExt,PermissionsExt}},path::{Path,PathBuf},s...
+    |                                                                                             ^^^^^^^^^^^^^^
+
+warning: `files-core` (lib test) generated 2 warnings (run `cargo fix --lib -p files-core --tests` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.64s
+     Running unittests src/lib.rs (target/debug/deps/files_core-b77c5d036427fdd3)
+
+running 8 tests
+test archive_extract_fs::linux::tests::final_source_and_destination_parent_symlinks_are_rejected_including_trailing_slash ... ok
+test archive_extract_fs::linux::tests::changed_source_or_parent_between_review_and_apply_is_rejected_before_staging ... ok
+test archive_extract_fs::linux::tests::occupied_symlink_and_directory_targets_reject_without_mutation ... ok
+test archive_extract_fs::linux::tests::owner_execute_is_retained_but_privileged_and_group_modes_are_not ... ok
+test archive_extract_fs::linux::tests::opaque_source_destination_and_output_names_remain_exact ... ok
+test archive_extract_fs::linux::tests::prepare_does_not_create_output_and_success_publishes_crc_checked_tree ... ok
+test archive_extract_fs::linux::tests::bad_crc_and_runtime_cancel_remove_only_own_unpublished_staging ... ok
+test archive_extract_fs::linux::tests::cancellation_before_apply_and_pause_then_cancel_do_not_create_staging ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 370 filtered out; finished in 0.02s
+

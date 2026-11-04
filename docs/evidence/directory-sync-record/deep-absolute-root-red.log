@@ -1,0 +1,22 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.21s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 1 test
+test directory_sync_record::tests::deep_absolute_root_paths_do_not_consume_descendant_depth_budget ... FAILED
+
+failures:
+
+---- directory_sync_record::tests::deep_absolute_root_paths_do_not_consume_descendant_depth_budget stdout ----
+
+thread 'directory_sync_record::tests::deep_absolute_root_paths_do_not_consume_descendant_depth_budget' (1016269) panicked at crates/core/src/directory_sync_record.rs:1019:49:
+deep absolute root lost descendant budget: Registro de evidencia de sincronización inválido
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    directory_sync_record::tests::deep_absolute_root_paths_do_not_consume_descendant_depth_budget
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 520 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `-p files-core --lib`

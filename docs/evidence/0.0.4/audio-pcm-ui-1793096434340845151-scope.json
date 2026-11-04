@@ -1,0 +1,7 @@
+{
+  "scope": "private PCM440/880 and silence checks passed; historical initial lavfi source generator",
+  "correction": "lavfi timing filters produced FLAC duration10.042667 although intended12; no claim of exact source duration/preamble timing from this report",
+  "followup": "final report1793096793305882328 uses WAV96000zero+480000tone samples, encoded without timing filters, both sources12s crosschecked",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

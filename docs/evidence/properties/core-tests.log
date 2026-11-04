@@ -1,0 +1,129 @@
+   Compiling files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.45s
+     Running unittests src/lib.rs (target/debug/deps/files_core-ec753d5d09c625ae)
+
+running 115 tests
+test archive_list::tests::display_is_distinct_for_non_utf8_literal_escape_controls_and_unicode ... ok
+test copy_engine::linux::accounting_tests::details_bound_unicode_text_paths_and_count_every_omission ... ok
+test archive_list::tests::eocd_comments_require_exact_end_and_counts ... ok
+test archive_list::tests::empty_and_raw_names_duplicates_symlink_and_directory ... ok
+test archive_list::tests::rejects_zip64_multidisk_truncation_and_offset_overflow ... ok
+test archive_list::tests::stored_metadata_and_zip64_extra_are_explicit ... ok
+test copy_engine::linux::accounting_tests::registry_budget_fails_before_capacity_or_name_allocation ... ok
+test copy_engine::tests::cancellation_discards_only_staged_copy ... ok
+test copy_engine::tests::destination_race_no_clobber_source_unchanged ... ok
+test copy_engine::tests::moved_staging_replacement_is_retained_and_actual_rescue_reported ... ok
+test copy_engine::tests::automatic_system_transfer_preserves_bytes ... ok
+test copy_engine::tests::copied_readonly_directories_are_cleaned_on_cancel ... ok
+test copy_engine::tests::paused_worker_cancels_without_waiting_for_resume ... ok
+test copy_engine::tests::completed_report_is_capped_with_explicit_total_and_omitted_count ... ok
+test copy_engine::tests::request_and_hard_auxiliary_bounds_precede_any_filesystem_copy ... ok
+test copy_engine::tests::tiny_auxiliary_budget_rejects_before_staging ... ok
+test copy_engine::tests::paused_worker_resumes_and_completes ... ok
+test copy_engine::tests::byte_depth_entry_bounds_and_self_copy_leave_no_destination ... ok
+test copy_engine::tests::source_mutation_rejected_before_publication ... ok
+test copy_engine::tests::symlink_limit_and_special_files_are_explicit_errors ... ok
+test file_properties::platform::tests::captures_unicode_and_raw_names_then_changes_mode_without_changing_bytes ... ok
+test archive_list::tests::rejects_limits_before_per_name_allocation ... ok
+test file_properties::platform::tests::directory_parent_rename_is_preserved_and_cancel_is_before_mutation ... ok
+test file_properties::platform::tests::external_mode_change_rejects_stale_dialog_and_own_confirmed_changes_can_continue ... ok
+test file_properties::platform::tests::mode_zero_can_be_changed_back_without_read_access_and_special_modes_are_refused ... ok
+test copy_engine::tests::partial_kernel_copy_then_stream_uses_current_offsets ... ok
+test copy_engine::tests::stream_bytes_metadata_and_empty_file ... ok
+test file_properties::tests::path_and_permission_preflight_are_bounded ... ok
+test copy_engine::tests::unsupported_reflink_and_kernel_fall_back_to_bounded_stream ... ok
+test mime::tests::table_integrity ... ok
+test natural_sort::tests::borrowed_keys_match_owned_order_without_copying_ascii_names ... ok
+test natural_sort::tests::invalid_utf8_names_keep_distinct_identity ... ok
+test file_properties::platform::tests::symlink_target_is_lossless_and_mode_change_never_follows_it ... ok
+test natural_sort::tests::numeric_order_without_integer_overflow ... ok
+test copy_engine::tests::unrelated_staged_replacement_is_not_deleted ... ok
+test natural_sort::tests::unicode_case_and_stable_ties ... ok
+test places::tests::escaped_mount ... ok
+test natural_sort::tests::order_is_total_and_transitive ... ok
+test file_properties::platform::tests::owner_and_group_observation_guard_rejects_stale_snapshot_without_chown ... ok
+test file_properties::platform::tests::replaced_inode_is_rejected_and_foreign_symlink_target_is_untouched ... ok
+test rename_plan::rename_regex::tests::empty_matches_keep_unicode_boundaries_and_do_not_skip_text ... ok
+test file_properties::platform::tests::post_commit_diagnostic_failure_is_reported_as_applied_warning ... ok
+test copy_engine::tests::partial_job_reports_previous_commits ... ok
+test copy_engine::tests::nested_staged_replacement_prevents_publication_and_survives_cleanup ... ok
+test rename_plan::rename_regex::tests::diagnostics_are_utf8_bounded_and_cancellation_is_checked_between_matches ... ok
+test rename_plan::tests::defaults_preserve_names_and_cycles_can_be_planned ... ok
+test rename_plan::tests::literal_replace_and_case_preserve_extension ... ok
+test rename_plan::tests::preserves_dotfile_and_handles_literal_braces ... ok
+test rename_plan::tests::refuses_collision_with_hidden_or_unselected_file ... ok
+test rename_plan::tests::cancellation_never_returns_partial_plans_and_allows_retry ... ok
+test rename_plan::rename_regex::tests::unicode_named_numbered_optional_and_literal_dollar_captures ... ok
+test rename_plan::tests::regex_still_rejects_collisions_and_keeps_cycles_as_a_plan ... ok
+test rename_plan::rename_regex::tests::unicode_scalar_matching_works_without_unlicensed_property_tables ... ok
+test rename_plan::tests::regex_replacement_is_opt_in_and_preserves_extension_and_literal_dollars ... ok
+test rename_plan::tests::rejects_duplicate_destinations_and_case_collisions ... ok
+test rename_plan::tests::sequence_overflow_is_error_not_wraparound ... ok
+test rename_plan::tests::rejects_traversal_reserved_names_and_bad_tokens ... ok
+test rename_plan::tests::sequence_unicode_and_extension ... ok
+test rename_plan::tests::shared_name_validation_preserves_portability_rules ... ok
+test copy_engine::tests::many_cleanup_conflicts_keep_replacements_with_bounded_root_report ... ok
+test copy_engine::tests::directory_symlinks_invalid_utf8_never_followed ... ok
+test rename_plan::tests::expansion_and_aggregate_limits_are_checked ... ok
+test rename_transaction::tests::cancelled_undo_preserves_applied_names_and_token_remains_usable ... ok
+test rename_transaction::tests::changed_identity_after_preview_is_rejected ... ok
+test rename_plan::rename_regex::tests::expansion_and_engine_caps_fail_closed ... ok
+test rename_transaction::tests::case_only_rename_and_undo ... ok
+test rename_transaction::tests::destination_race_never_overwrites_and_rolls_back ... ok
+test rename_transaction::tests::prepared_preview_borrows_names_and_cancel_before_start_is_clean ... ok
+test rename_transaction::tests::rescue_path_budget_aggregates_before_repeated_parent_allocation ... ok
+test rename_transaction::tests::refuses_preexisting_destination_and_invalid_names ... ok
+test rename_transaction::tests::pinned_directory_handles_survive_path_rename ... ok
+test rename_transaction::tests::rollback_diagnostics_bound_strings_and_report_omitted_errors ... ok
+test rename_plan::tests::regex_plans_cancel_between_matches_and_retry_without_partial_result ... ok
+test rename_transaction::tests::nonempty_directory_swap_and_undo_preserve_nested_contents ... ok
+test rename_transaction::tests::cycles_swap_and_undo_redo_without_clobber ... ok
+test rename_transaction::tests::rollback_conflict_reports_preserved_data ... ok
+test rename_transaction::tests::rollback_rescue_paths_follow_relocated_staging_descriptor ... ok
+test rename_transaction::tests::relocated_staging_cleanup_keeps_replacement_and_reports_real_path ... ok
+test persistence::tests::failed_write_preserves_destination_and_removes_temp ... ok
+test rename_transaction::tests::transaction_budget_counts_both_lossless_names_and_exact_boundary ... ok
+test spatial::tests::encoded_budget_boundary_without_large_allocations ... ok
+test spatial::tests::multi_icon_update_is_unchanged_if_any_candidate_is_invalid ... ok
+test spatial::tests::malformed_truncated_and_mismatched_layouts_are_not_overwritten ... ok
+test tests::spanish_units_and_relative_time ... ok
+test theme::tests::parse_palette ... ok
+test theme::tests::window_mode_default_and_explicit_values ... ok
+test rename_transaction::tests::undo_refuses_replacement_and_unselected_original_name ... ok
+test rename_transaction::tests::transaction_budget_bounds_count_before_copying_names ... ok
+test rename_transaction::tests::unicode_invalid_utf8_and_symlink_are_lossless ... ok
+test spatial::tests::invalid_existing_fields_and_future_version_preserve_exact_bytes ... ok
+test trash::platform::tests::diagnostic_failure_after_confirmed_restore_is_success_not_pending_undo ... ok
+test rename_transaction::tests::each_injected_failure_restores_cycle ... ok
+test rename_transaction::tests::cancellation_between_each_move_uses_complete_cycle_rollback ... ok
+test trash::platform::tests::cancelled_restore_is_retryable_only_with_both_expected_slots ... ok
+test persistence::tests::config_preserves_unknown_fields_and_rejects_corruption ... ok
+test spatial::tests::roundtrip_zoom_and_directory_identity ... ok
+test spatial::tests::non_utf8_names_are_distinct_and_canonical_aliases_share_layout ... ok
+test trash::platform::tests::managed_directory_relocation_after_move_rolls_back_without_touching_replacement ... ok
+test trash::platform::tests::post_restore_replacement_is_not_moved_back_to_trash ... ok
+test trash::platform::tests::failed_cleanup_does_not_unlink_replaced_metadata ... ok
+test trash::platform::tests::file_roundtrip_metadata_lossless_and_no_clobber ... ok
+test trash::platform::tests::cancel_before_commit_cleans_own_info_and_preserves_source ... ok
+test trash::platform::tests::partial_rollback_reports_actual_expected_object_and_preserves_new_occupants ... ok
+test trash::tests::percent_encoding_and_metadata_limits_preserve_bytes ... ok
+test spatial::tests::position_and_serialized_size_caps_are_enforced ... ok
+test trash::platform::tests::receipt_pins_original_parent_after_rename_and_replacement ... ok
+test trash::platform::tests::relocated_trash_paths_are_current_and_restore_uses_pinned_context ... ok
+test trash::platform::tests::occupied_files_destination_retries_without_overwrite ... ok
+test trash::platform::tests::source_replacement_before_commit_is_not_trashed ... ok
+test trash::platform::tests::rejects_trash_ancestry_symlink_root_and_insecure_existing_modes ... ok
+test trash::platform::tests::trash_post_move_replacement_is_not_rolled_back_into_empty_original ... ok
+test trash::platform::tests::replaced_object_or_info_is_never_deleted_by_restore ... ok
+test trash::platform::tests::two_same_names_are_distinct_and_shared_root_is_private ... ok
+test trash::platform::tests::symlink_and_nonempty_directory_move_without_following ... ok
+test listing::tests::ten_thousand_streaming_lazy_sort_filter ... ok
+
+test result: ok. 115 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.60s
+
+   Doc-tests files_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

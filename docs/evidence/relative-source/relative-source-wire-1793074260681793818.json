@@ -1,0 +1,15 @@
+{
+  "method": "real release helper protocol, own filesystem fixtures and deterministic replacement between probe/decode",
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "cases": [
+    "actual document FD root and checked image FD match returned proofs/RGB",
+    "probe A -> same path/size/mtime replacement B -> checked A rejected; fresh B accepted",
+    "document root renamed/replaced -> both old probe authorization and checked image rejected",
+    "intermediate directory replacement cannot satisfy previous file proof",
+    "final/intermediate symlinks, parent traversal and absolute resources rejected",
+    "opaque Unix component roundtrip remains lossless in probe and checked decoder"
+  ],
+  "helper_sha256": "fcf3a913c39b5173137a904d435a166bb7ae3c39052c17e382905786e3ca9fa7"
+}

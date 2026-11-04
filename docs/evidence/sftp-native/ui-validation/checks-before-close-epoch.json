@@ -1,0 +1,165 @@
+{
+  "functional_gate": "PASS",
+  "scope": "SFTP product controls only: fresh reviewed Connect/Open/Disconnect, recovered Open with serving proof, ordinary busy-retain/GUIclose/relaunch/retry, durable Absent; explicit missing-tools no mutation. NOT full N01/copy interoperability/global acceptance.",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_ui_report": "docs/evidence/sftp-native/sftp-loopback-1793455941407692094.json",
+  "negative_capability_report": "docs/evidence/sftp-preparation/sftp-preparation-ui-1793455971563736333.json",
+  "native_overall_gate_preserved": "FAIL",
+  "default_copy_engine_gate_preserved": "FAIL",
+  "native_input_gate": "UNVALIDATED",
+  "tests": {
+    "core": 318,
+    "helper": 85,
+    "ui": 516,
+    "total": 919,
+    "existing_core_ignored": 3
+  },
+  "checks": {
+    "workspace_tests": "PASS",
+    "clippy_workspace_all_targets_Dwarnings": "PASS",
+    "release": "PASS",
+    "format": "PASS"
+  },
+  "method": "real SSHFS/FUSE with private loopback config/known-host keys; production painted handlers, framebuffer, no OS input. Fresh fixture-only PATH wrapper execs actual sshfs adding private -F; no product config override/global install.",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-registered-1793455938198067748.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-explicit-control-1793455938321332843.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-open-verified-mount-1793455938438465028.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-busy-retained-1793455938616743154.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-disconnected-1793455939427259893.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-fresh-connected-1793455940424691348.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-fresh-open-1793455940534910034.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-native/sftp-ui-fresh-disconnected-1793455941233058574.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "app": "sftp-preparation",
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-preparation/sftp-missing-capability-1793455970494629311.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "app": "sftp-preparation",
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-preparation/sftp-reviewed-literal-target-1793455970735015962.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "app": "sftp-preparation",
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-preparation/sftp-connect-missing-tools-no-mutation-1793455970948734083.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "app": "sftp-preparation",
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-preparation/sftp-review-controls-440-1793455971119789330.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    },
+    {
+      "app": "sftp-preparation",
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-preparation/sftp-invalid-port-440-1793455971258816473.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    },
+    {
+      "app": "sftp-preparation",
+      "path": "/home/avillagran/Work/files/docs/evidence/sftp-preparation/sftp-catalog-reopen-empty-440-1793455971488414061.png",
+      "dimensions": [
+        440,
+        440
+      ]
+    }
+  ],
+  "observed_identities": 25,
+  "observed_survivors": [],
+  "original_failures_preserved": [
+    "target original logs copied in this directory: seven-control expectation and Clippy style",
+    "docs/evidence/sftp-native/sftp-loopback-1793455368964965907.json with sidecar: wrong harness Registered expectation after explicit Reconcile"
+  ],
+  "pending": [
+    "Explicit visible-exclusive SFTP copy review and queue policy",
+    "Connection catalog, unsupported/offline/kernelD/PID publication gap recovery, other systems",
+    "Native focus/input/clipboard/HiDPI",
+    "PSS/Swap/CPU/startup under existing freeze; full ROADMAP/global goals"
+  ],
+  "binary_sha256": "f4ec45df56f6f26d771361751d5ffff1cfab8c8a7285025e257b06f60515b339",
+  "helper_sha256": "2a177cc39814f29aeb3e7c73cfdf850936debf990499a8a2955d14a5cbbacea8",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "validation_logs": {
+    "sftp-executor-check.log": "0fa46e3a15a241f58afe1b8bc2b3504458b1ce42505ad9dac7b7db8c56851567",
+    "sftp-executor-tests.log": "713405da4379910574896e11164f90ffb9e11351ebaf525f86398a8eaa6b8d97",
+    "sftp-executor-clippy.log": "f1c7de492cc6be8745619031908d5329be643498a003b14fe970f5b19e3b1a4c",
+    "sftp-executor-clippy-final.log": "818c56f264702a09e0409b5740a5b6e64200f6be33bd3f54eb32b5120a202ca1",
+    "sftp-executor-tests-final.log": "43581a56a6c95344706e8430404ba0683ee71a6f7fa8e579f09f0ca7e37eed07",
+    "sftp-executor-checks-final.log": "83f3f1d8f3c84c9b70b393c36a626cbc9c9c60b70014d3127df366b89b786afe",
+    "sftp-executor-accepted-tests.log": "c8f3a7919b12ff5cfd8f0c6d2abd16ce542707cbe01fdd68408f4894097f7884",
+    "sftp-executor-accepted-clippy.log": "da9e89c15b12d6acfe3a68a32bda8790fa33f10663805330edb2daadb91e9cde",
+    "format.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sftp-executor-accepted-release.log": "c9f22d236ddca2c342120b9878a625ed5c9a61ca249edec7c26e99dc5f4126ba",
+    "sftp-executor-accepted-format.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "source_sha256": {
+    "crates/ui/src/sftp_executor.rs": "a02fb2f60f343f61f5e82d1ff83040d02c22254b2604f0e8a4267b13ef028a54",
+    "crates/ui/src/sftp_ui.rs": "57e46245803e30cb5b5a3e0e5dfebae090a1cb273dbff0bcbb32e92ea126b05f",
+    "crates/core/src/sftp_recovered.rs": "427707df5d788911d71cf22b865019dfcb11a247f72c67c263492cd7d519c928",
+    "scripts/sftp-ui-control.py": "684774d84dbc8642085691ad445db9a5ced93b5d16e48b39c5acae7291e6c248"
+  }
+}

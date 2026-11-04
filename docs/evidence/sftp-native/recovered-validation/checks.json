@@ -1,0 +1,48 @@
+{
+  "stage": "explicit recovered controller; shared executor and UI pending",
+  "rust_passed": 913,
+  "ignored": 3,
+  "controller_tests": 5,
+  "source_sha256": {
+    "crates/core/src/sftp_recovered.rs": "a154f927b60afe6f6fa8baccede90a56a752fe260c9c9cb33174944b267c281f",
+    "crates/core/src/sftp_registry.rs": "4b91c72dcf6c3c90830b5dd1566f48f7e84e18b881e0feb252fed813743f8ebb",
+    "crates/core/src/sftp_connection.rs": "b4a3919013f8c776be60ee4009339dd2587bab08eb68ec9a34d49e92b977eef9"
+  },
+  "logs": {
+    "tests.log": {
+      "original": "target/sftp-recovered-final-tests.log",
+      "sha256": "64c8ddd287c57187f188d920c96dc9572b38f968be092c161f63d77c031e89ac"
+    },
+    "controller-tests.log": {
+      "original": "target/sftp-recovered-tests.log",
+      "sha256": "3eb8155e43364f6ba48cb7765a556b775c58d919ec3a2427d6ee9f81da8ccfce"
+    },
+    "clippy.log": {
+      "original": "target/sftp-recovered-final-clippy.log",
+      "sha256": "17518ccea9feb058e66cd4dd4271be116a0ab9b033eb473b274766a73e41e9eb"
+    },
+    "release.log": {
+      "original": "target/sftp-recovered-release.log",
+      "sha256": "c00d358d1474618b6988779ec137e77e784b8e5df72e4b37d64c9cc7d7a54b3e"
+    },
+    "format.log": {
+      "original": "target/sftp-recovered-format-check.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "native_reports": [
+    "1793453058010388848",
+    "1793453782020109493"
+  ],
+  "native_scope": "real SSHFS/FUSE, readonly denial, recovered busy/retry/durableAbsent; Python private subreaper handled original SSHFS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "product_install": "UNCHANGED",
+  "feature_acceptance": "INCOMPLETE",
+  "limits": [
+    "No actual-window close/native input proof",
+    "Unknown prior PID publication gap is blocked, not automatically recovered",
+    "No whole-lifetime/PID1 latency/kernel-D/hostile race guarantee",
+    "Default staged-copy FAIL and overallFAIL/exit1 preserved"
+  ]
+}

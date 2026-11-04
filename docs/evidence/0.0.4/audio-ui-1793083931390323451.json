@@ -1,0 +1,155 @@
+{
+  "method": "internal handlers, actual ffprobe local metadata and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-metadata-1793083921278017670.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-metadata-selection-1793083921390760875.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-wav-metadata-1793083921527055379.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-tags-truncated-1793083921667654206.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-source-replaced-1793083923043652838.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-source-modified-1793083924035023802.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-source-deleted-1793083924982487107.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-parent-recovered-1793083930021602192.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "source_lifecycle": true,
+  "notify_callbacks_suppressed": true,
+  "checks": [
+    "same path/size/mtime replacement publishes different effective FD identity and new title",
+    "in-place write with restored mtime invalidates old title by revision/ctime",
+    "delete/recreate, file rename away/back and parent replacement clear old metadata and recover through fresh FD proof",
+    "closed audio preview does not launch new metadata helper during reconcile interval"
+  ],
+  "known_pending": [
+    "audio playback/waveform",
+    "resource budget",
+    "cross-platform verification",
+    "additional formats/cover art"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0dd220e0"
+  },
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        3042224,
+        52669328
+      ],
+      [
+        3042375,
+        52669357
+      ],
+      [
+        3042441,
+        52669371
+      ],
+      [
+        3042468,
+        52669386
+      ],
+      [
+        3042535,
+        52669396
+      ],
+      [
+        3042549,
+        52669406
+      ],
+      [
+        3042666,
+        52669506
+      ],
+      [
+        3042849,
+        52669606
+      ],
+      [
+        3043077,
+        52669806
+      ],
+      [
+        3043479,
+        52670006
+      ],
+      [
+        3043732,
+        52670206
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start after exit0, not lifetime or resource sampling"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=5\nFILES_FIRST_PAINT_US=159406\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=3\nFILES_PREVIEW_HELPER pid=3042224 start=52669328 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=202 revision=3 stamp=Some(Revision { device: 63, inode: 281710651, bytes: 34952, modified_seconds: 1793083920, modified_nanoseconds: 704570112, changed_seconds: 1793083920, changed_nanoseconds: 704570112 })\nFILES_AUDIO_METADATA_OK unicode=true content=actual-tags\nFILES_PREVIEW_COMMAND_OK audio-assert\nFILES_PREVIEW_COMMAND_REV action=audio-assert revision=3\nFILES_CAPTURE_OK\nFILES_AUDIO_SELECTION_OK utf8=true clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK audio-select\nFILES_PREVIEW_COMMAND_REV action=audio-select revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-wav\nFILES_PREVIEW_COMMAND_REV action=audio-wav revision=5\nFILES_PREVIEW_HELPER pid=3042375 start=52669357 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/sound.wav\") encoding=Audio \u00b7 metadatos truncated=false bytes=153 revision=5 stamp=Some(Revision { device: 63, inode: 281710649, bytes: 192078, modified_seconds: 1793083920, modified_nanoseconds: 464568344, changed_seconds: 1793083920, changed_nanoseconds: 464568344 })\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-long\nFILES_PREVIEW_COMMAND_REV action=audio-long revision=7\nFILES_PREVIEW_HELPER pid=3042441 start=52669371 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/long.flac\") encoding=Audio \u00b7 metadatos truncated=true bytes=2289 revision=7 stamp=Some(Revision { device: 63, inode: 281710652, bytes: 39437, modified_seconds: 1793083920, modified_nanoseconds: 793570768, changed_seconds: 1793083920, changed_nanoseconds: 793570768 })\nFILES_AUDIO_TRUNCATED_OK bytes=2289\nFILES_PREVIEW_COMMAND_OK audio-assert-truncated\nFILES_PREVIEW_COMMAND_REV action=audio-assert-truncated revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-rapid\nFILES_PREVIEW_COMMAND_REV action=audio-rapid revision=13\nFILES_PREVIEW_HELPER pid=3042468 start=52669386 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=202 revision=13 stamp=Some(Revision { device: 63, inode: 281710651, bytes: 34952, modified_seconds: 1793083920, modified_nanoseconds: 704570112, changed_seconds: 1793083920, changed_nanoseconds: 704570112 })\nFILES_AUDIO_METADATA_OK unicode=true content=actual-tags\nFILES_PREVIEW_COMMAND_OK audio-assert\nFILES_PREVIEW_COMMAND_REV action=audio-assert revision=13\nFILES_PREVIEW_COMMAND_OK audio-bad\nFILES_PREVIEW_COMMAND_REV action=audio-bad revision=15\nFILES_PREVIEW_HELPER pid=3042535 start=52669396 command=preview_audio_metadata\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/bad.flac\") message=Frecuencia de audio fuera del l\u00edmite\nFILES_PREVIEW_COMMAND_OK audio-symlink\nFILES_PREVIEW_COMMAND_REV action=audio-symlink revision=17\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/symlink.flac\") message=Original no disponible: Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=19\nFILES_PREVIEW_HELPER pid=3042549 start=52669406 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=202 revision=19 stamp=Some(Revision { device: 63, inode: 281710651, bytes: 34952, modified_seconds: 1793083920, modified_nanoseconds: 704570112, changed_seconds: 1793083920, changed_nanoseconds: 704570112 })\nFILES_AUDIO_SOURCE_OK {\"revision\":19,\"source\":{\"bytes\":34952,\"changed_nanoseconds\":704570112,\"changed_seconds\":1793083920,\"device\":63,\"inode\":281710651,\"modified_nanoseconds\":704570112,\"modified_seconds\":1793083920},\"title\":\"Canci\u00f3n \u6f22 \u00e1\"}\nFILES_PREVIEW_COMMAND_OK audio-source-a\nFILES_PREVIEW_COMMAND_REV action=audio-source-a revision=19\nFILES_PREVIEW_HELPER pid=3042666 start=52669506 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=202 revision=20 stamp=Some(Revision { device: 63, inode: 281710781, bytes: 34952, modified_seconds: 1793083920, modified_nanoseconds: 704570112, changed_seconds: 1793083922, changed_nanoseconds: 56580071 })\nFILES_AUDIO_SOURCE_OK {\"revision\":20,\"source\":{\"bytes\":34952,\"changed_nanoseconds\":56580071,\"changed_seconds\":1793083922,\"device\":63,\"inode\":281710781,\"modified_nanoseconds\":704570112,\"modified_seconds\":1793083920},\"title\":\"Canci\u00f3n \u6f22 \u00f3\"}\nFILES_PREVIEW_COMMAND_OK audio-source-b\nFILES_PREVIEW_COMMAND_REV action=audio-source-b revision=20\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=3042849 start=52669606 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=202 revision=21 stamp=Some(Revision { device: 63, inode: 281710781, bytes: 34952, modified_seconds: 1793083920, modified_nanoseconds: 704570112, changed_seconds: 1793083923, changed_nanoseconds: 146352803 })\nFILES_AUDIO_SOURCE_OK {\"revision\":21,\"source\":{\"bytes\":34952,\"changed_nanoseconds\":146352803,\"changed_seconds\":1793083923,\"device\":63,\"inode\":281710781,\"modified_nanoseconds\":704570112,\"modified_seconds\":1793083920},\"title\":\"Canci\u00f3n \u6f22 \u00e9\"}\nFILES_PREVIEW_COMMAND_OK audio-source-c\nFILES_PREVIEW_COMMAND_REV action=audio-source-c revision=21\nFILES_CAPTURE_OK\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") message=Original no disponible: No such file or directory (os error 2)\nFILES_AUDIO_SOURCE_EMPTY\nFILES_PREVIEW_COMMAND_OK audio-source-empty\nFILES_PREVIEW_COMMAND_REV action=audio-source-empty revision=22\nFILES_CAPTURE_OK\nFILES_PREVIEW_HELPER pid=3043077 start=52669806 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=202 revision=22 stamp=Some(Revision { device: 63, inode: 281710789, bytes: 34952, modified_seconds: 1793083923, modified_nanoseconds: 120587905, changed_seconds: 1793083925, changed_nanoseconds: 16601858 })\nFILES_AUDIO_SOURCE_OK {\"revision\":22,\"source\":{\"bytes\":34952,\"changed_nanoseconds\":16601858,\"changed_seconds\":1793083925,\"device\":63,\"inode\":281710789,\"modified_nanoseconds\":120587905,\"modified_seconds\":1793083923},\"title\":\"Canci\u00f3n \u6f22 \u00e9\"}\nFILES_PREVIEW_COMMAND_OK audio-source-c\nFILES_PREVIEW_COMMAND_REV action=audio-source-c revision=22\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") message=Original no disponible: No such file or directory (os error 2)\nFILES_PREVIEW_HELPER pid=3043479 start=52670006 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=202 revision=23 stamp=Some(Revision { device: 63, inode: 281710789, bytes: 34952, modified_seconds: 1793083923, modified_nanoseconds: 120587905, changed_seconds: 1793083926, changed_nanoseconds: 947616060 })\nFILES_AUDIO_SOURCE_OK {\"revision\":23,\"source\":{\"bytes\":34952,\"changed_nanoseconds\":947616060,\"changed_seconds\":1793083926,\"device\":63,\"inode\":281710789,\"modified_nanoseconds\":120587905,\"modified_seconds\":1793083923},\"title\":\"Canci\u00f3n \u6f22 \u00e9\"}\nFILES_PREVIEW_COMMAND_OK audio-source-c\nFILES_PREVIEW_COMMAND_REV action=audio-source-c revision=23\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") message=No se puede vigilar el original: No path was found. about [\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files\"]\nFILES_PREVIEW_HELPER pid=3043732 start=52670206 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-leynxoby/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=202 revision=24 stamp=Some(Revision { device: 63, inode: 281710923, bytes: 34952, modified_seconds: 1793083928, modified_nanoseconds: 25623985, changed_seconds: 1793083928, changed_nanoseconds: 935630672 })\nFILES_AUDIO_SOURCE_OK {\"revision\":24,\"source\":{\"bytes\":34952,\"changed_nanoseconds\":935630672,\"changed_seconds\":1793083928,\"device\":63,\"inode\":281710923,\"modified_nanoseconds\":25623985,\"modified_seconds\":1793083928},\"title\":\"Canci\u00f3n \u6f22 \u00e1\"}\nFILES_PREVIEW_COMMAND_OK audio-source-a\nFILES_PREVIEW_COMMAND_REV action=audio-source-a revision=24\nFILES_CAPTURE_OK\nFILES_MEDIA_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-hide\nFILES_PREVIEW_COMMAND_REV action=media-hide revision=25\nFILES_PREVIEW_COMMAND_OK close-audio-pending\nFILES_PREVIEW_COMMAND_REV action=close-audio-pending revision=27\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\n",
+  "helper_sha256": "187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9",
+  "binary_sha256": "ca8e41fd10be814e113ea4d885ef3b1281988e4c70d5cd75ac5a80577af93c5f",
+  "external_tools": {
+    "ffprobe": {
+      "path": "/usr/bin/ffprobe",
+      "sha256": "7c0a626038e42714f99c85b70412e1607f1f3ce5f92e41124f611014e02a7caa",
+      "version": "ffprobe version n9.0.2 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

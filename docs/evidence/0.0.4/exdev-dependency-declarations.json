@@ -1,0 +1,77 @@
+{
+  "scope": "Local declarations and LICENSE files for eight new SHA256 dependencies; not full source audit or process budget",
+  "packages": [
+    {
+      "name": "block-buffer",
+      "version": "0.10.4",
+      "license": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ]
+    },
+    {
+      "name": "cpufeatures",
+      "version": "0.2.17",
+      "license": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ]
+    },
+    {
+      "name": "crypto-common",
+      "version": "0.1.7",
+      "license": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ]
+    },
+    {
+      "name": "digest",
+      "version": "0.10.7",
+      "license": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ]
+    },
+    {
+      "name": "generic-array",
+      "version": "0.14.7",
+      "license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "sha2",
+      "version": "0.10.9",
+      "license": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ]
+    },
+    {
+      "name": "typenum",
+      "version": "1.20.1",
+      "license": "MIT OR Apache-2.0",
+      "license_files": [
+        "LICENSE",
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ]
+    },
+    {
+      "name": "version_check",
+      "version": "0.9.5",
+      "license": "MIT/Apache-2.0",
+      "license_files": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,823 @@
+{
+  "functional_gate": "FAIL",
+  "method": "shared Grid/inspector/preview/FLTK callback handlers + private FS fixtures + real framebuffer; no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/thumbnails/grid-visible-media-1793067328025412979.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/thumbnails/grid-and-inspector-shared-1793067328099952103.png",
+      "dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "lost_notify_fixture": false,
+      "checks": [
+        "nonUTF8 filename decoded via raw byte IPC; source identity preserved",
+        "stable image/video cache revalidated by FD probes without new decoder processes"
+      ],
+      "states": [
+        {
+          "closing": false,
+          "media_visible": true,
+          "paint_revision": 8,
+          "path": "/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media",
+          "preview": "closed",
+          "preview_drained": true,
+          "seq": 1,
+          "thumbnails": {
+            "authorized": true,
+            "busy": true,
+            "cached": 6,
+            "demand": 7,
+            "errors": 0,
+            "notice": null,
+            "painted": 7,
+            "ready": [
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\"",
+                "pixel": [
+                  20,
+                  50,
+                  230
+                ],
+                "revision": {
+                  "bytes": 666,
+                  "changed_nanoseconds": 836604599,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035698,
+                  "modified_nanoseconds": 836604599,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 90,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\"",
+                "pixel": [
+                  0,
+                  0,
+                  253
+                ],
+                "revision": {
+                  "bytes": 29738,
+                  "changed_nanoseconds": 595638392,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035705,
+                  "modified_nanoseconds": 595638392,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\"",
+                "pixel": [
+                  30,
+                  200,
+                  70
+                ],
+                "revision": {
+                  "bytes": 665,
+                  "changed_nanoseconds": 837167770,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035699,
+                  "modified_nanoseconds": 837167770,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 120,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\"",
+                "pixel": [
+                  30,
+                  69,
+                  128
+                ],
+                "revision": {
+                  "bytes": 94199,
+                  "changed_nanoseconds": 369636878,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035703,
+                  "modified_nanoseconds": 369636878,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\xFF.png\"",
+                "pixel": [
+                  180,
+                  40,
+                  200
+                ],
+                "revision": {
+                  "bytes": 665,
+                  "changed_nanoseconds": 838913406,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035701,
+                  "modified_nanoseconds": 838913406,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\"",
+                "pixel": [
+                  220,
+                  30,
+                  40
+                ],
+                "revision": {
+                  "bytes": 666,
+                  "changed_nanoseconds": 835991928,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035697,
+                  "modified_nanoseconds": 835991928,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              }
+            ],
+            "rgb_capacity": 294300,
+            "scratch_capacity": 62400
+          }
+        },
+        {
+          "closing": false,
+          "media_visible": true,
+          "paint_revision": 9,
+          "path": "/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media",
+          "preview": "closed",
+          "preview_drained": true,
+          "seq": 1,
+          "thumbnails": {
+            "authorized": true,
+            "busy": false,
+            "cached": 7,
+            "demand": 7,
+            "errors": 0,
+            "notice": null,
+            "painted": 8,
+            "ready": [
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\"",
+                "pixel": [
+                  20,
+                  50,
+                  230
+                ],
+                "revision": {
+                  "bytes": 666,
+                  "changed_nanoseconds": 836604599,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035698,
+                  "modified_nanoseconds": 836604599,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 90,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\"",
+                "pixel": [
+                  0,
+                  0,
+                  253
+                ],
+                "revision": {
+                  "bytes": 29738,
+                  "changed_nanoseconds": 595638392,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035705,
+                  "modified_nanoseconds": 595638392,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\"",
+                "pixel": [
+                  30,
+                  200,
+                  70
+                ],
+                "revision": {
+                  "bytes": 665,
+                  "changed_nanoseconds": 837167770,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035699,
+                  "modified_nanoseconds": 837167770,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 120,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\"",
+                "pixel": [
+                  30,
+                  69,
+                  128
+                ],
+                "revision": {
+                  "bytes": 94199,
+                  "changed_nanoseconds": 369636878,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035703,
+                  "modified_nanoseconds": 369636878,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\xFF.png\"",
+                "pixel": [
+                  180,
+                  40,
+                  200
+                ],
+                "revision": {
+                  "bytes": 665,
+                  "changed_nanoseconds": 838913406,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035701,
+                  "modified_nanoseconds": 838913406,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\"",
+                "pixel": [
+                  220,
+                  30,
+                  40
+                ],
+                "revision": {
+                  "bytes": 666,
+                  "changed_nanoseconds": 835991928,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035697,
+                  "modified_nanoseconds": 835991928,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\"",
+                "pixel": [
+                  218,
+                  32,
+                  42
+                ],
+                "revision": {
+                  "bytes": 204,
+                  "changed_nanoseconds": 415637186,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035704,
+                  "modified_nanoseconds": 415637186,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              }
+            ],
+            "rgb_capacity": 342600,
+            "scratch_capacity": 62400
+          }
+        },
+        {
+          "closing": false,
+          "media_visible": true,
+          "paint_revision": 10,
+          "path": "/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media",
+          "preview": "closed",
+          "preview_drained": true,
+          "seq": 2,
+          "thumbnails": {
+            "authorized": true,
+            "busy": false,
+            "cached": 7,
+            "demand": 7,
+            "errors": 0,
+            "notice": null,
+            "painted": 8,
+            "ready": [
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\"",
+                "pixel": [
+                  220,
+                  30,
+                  40
+                ],
+                "revision": {
+                  "bytes": 666,
+                  "changed_nanoseconds": 835991928,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035697,
+                  "modified_nanoseconds": 835991928,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\"",
+                "pixel": [
+                  20,
+                  50,
+                  230
+                ],
+                "revision": {
+                  "bytes": 666,
+                  "changed_nanoseconds": 836604599,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035698,
+                  "modified_nanoseconds": 836604599,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 90,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\"",
+                "pixel": [
+                  0,
+                  0,
+                  253
+                ],
+                "revision": {
+                  "bytes": 29738,
+                  "changed_nanoseconds": 595638392,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035705,
+                  "modified_nanoseconds": 595638392,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\"",
+                "pixel": [
+                  30,
+                  200,
+                  70
+                ],
+                "revision": {
+                  "bytes": 665,
+                  "changed_nanoseconds": 837167770,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035699,
+                  "modified_nanoseconds": 837167770,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 120,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\"",
+                "pixel": [
+                  30,
+                  69,
+                  128
+                ],
+                "revision": {
+                  "bytes": 94199,
+                  "changed_nanoseconds": 369636878,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035703,
+                  "modified_nanoseconds": 369636878,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\xFF.png\"",
+                "pixel": [
+                  180,
+                  40,
+                  200
+                ],
+                "revision": {
+                  "bytes": 665,
+                  "changed_nanoseconds": 838913406,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035701,
+                  "modified_nanoseconds": 838913406,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\"",
+                "pixel": [
+                  218,
+                  32,
+                  42
+                ],
+                "revision": {
+                  "bytes": 204,
+                  "changed_nanoseconds": 415637186,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035704,
+                  "modified_nanoseconds": 415637186,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              }
+            ],
+            "rgb_capacity": 342600,
+            "scratch_capacity": 62400
+          }
+        },
+        {
+          "closing": false,
+          "media_visible": true,
+          "paint_revision": 11,
+          "path": "/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media",
+          "preview": "closed",
+          "preview_drained": true,
+          "seq": 3,
+          "thumbnails": {
+            "authorized": true,
+            "busy": false,
+            "cached": 7,
+            "demand": 7,
+            "errors": 0,
+            "notice": null,
+            "painted": 8,
+            "ready": [
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\xFF.png\"",
+                "pixel": [
+                  180,
+                  40,
+                  200
+                ],
+                "revision": {
+                  "bytes": 665,
+                  "changed_nanoseconds": 838913406,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035701,
+                  "modified_nanoseconds": 838913406,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\"",
+                "pixel": [
+                  20,
+                  50,
+                  230
+                ],
+                "revision": {
+                  "bytes": 666,
+                  "changed_nanoseconds": 836604599,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035698,
+                  "modified_nanoseconds": 836604599,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 90,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\"",
+                "pixel": [
+                  0,
+                  0,
+                  253
+                ],
+                "revision": {
+                  "bytes": 29738,
+                  "changed_nanoseconds": 595638392,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035705,
+                  "modified_nanoseconds": 595638392,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\"",
+                "pixel": [
+                  30,
+                  200,
+                  70
+                ],
+                "revision": {
+                  "bytes": 665,
+                  "changed_nanoseconds": 837167770,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035699,
+                  "modified_nanoseconds": 837167770,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 120,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\"",
+                "pixel": [
+                  30,
+                  69,
+                  128
+                ],
+                "revision": {
+                  "bytes": 94199,
+                  "changed_nanoseconds": 369636878,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035703,
+                  "modified_nanoseconds": 369636878,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\"",
+                "pixel": [
+                  220,
+                  30,
+                  40
+                ],
+                "revision": {
+                  "bytes": 666,
+                  "changed_nanoseconds": 835991928,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035697,
+                  "modified_nanoseconds": 835991928,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\"",
+                "pixel": [
+                  218,
+                  32,
+                  42
+                ],
+                "revision": {
+                  "bytes": 204,
+                  "changed_nanoseconds": 415637186,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035704,
+                  "modified_nanoseconds": 415637186,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              }
+            ],
+            "rgb_capacity": 342600,
+            "scratch_capacity": 62400
+          }
+        },
+        {
+          "closing": false,
+          "media_visible": true,
+          "paint_revision": 12,
+          "path": "/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media",
+          "preview": "closed",
+          "preview_drained": true,
+          "seq": 4,
+          "thumbnails": {
+            "authorized": true,
+            "busy": false,
+            "cached": 7,
+            "demand": 7,
+            "errors": 0,
+            "notice": null,
+            "painted": 8,
+            "ready": [
+              {
+                "height": 90,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\"",
+                "pixel": [
+                  0,
+                  0,
+                  253
+                ],
+                "revision": {
+                  "bytes": 29738,
+                  "changed_nanoseconds": 595638392,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035705,
+                  "modified_nanoseconds": 595638392,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\"",
+                "pixel": [
+                  20,
+                  50,
+                  230
+                ],
+                "revision": {
+                  "bytes": 666,
+                  "changed_nanoseconds": 836604599,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035698,
+                  "modified_nanoseconds": 836604599,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\"",
+                "pixel": [
+                  30,
+                  200,
+                  70
+                ],
+                "revision": {
+                  "bytes": 665,
+                  "changed_nanoseconds": 837167770,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035699,
+                  "modified_nanoseconds": 837167770,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 120,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\"",
+                "pixel": [
+                  30,
+                  69,
+                  128
+                ],
+                "revision": {
+                  "bytes": 94199,
+                  "changed_nanoseconds": 369636878,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035703,
+                  "modified_nanoseconds": 369636878,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\xFF.png\"",
+                "pixel": [
+                  180,
+                  40,
+                  200
+                ],
+                "revision": {
+                  "bytes": 665,
+                  "changed_nanoseconds": 838913406,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035701,
+                  "modified_nanoseconds": 838913406,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\"",
+                "pixel": [
+                  220,
+                  30,
+                  40
+                ],
+                "revision": {
+                  "bytes": 666,
+                  "changed_nanoseconds": 835991928,
+                  "changed_seconds": 1793067326,
+                  "device": 63,
+                  "inode": 281035697,
+                  "modified_nanoseconds": 835991928,
+                  "modified_seconds": 1793067326
+                },
+                "width": 160
+              },
+              {
+                "height": 100,
+                "path": "\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\"",
+                "pixel": [
+                  218,
+                  32,
+                  42
+                ],
+                "revision": {
+                  "bytes": 204,
+                  "changed_nanoseconds": 415637186,
+                  "changed_seconds": 1793067327,
+                  "device": 63,
+                  "inode": 281035704,
+                  "modified_nanoseconds": 415637186,
+                  "modified_seconds": 1793067327
+                },
+                "width": 160
+              }
+            ],
+            "rgb_capacity": 342600,
+            "scratch_capacity": 62400
+          }
+        },
+        {
+          "closing": false,
+          "media_visible": true,
+          "paint_revision": 28,
+          "path": "/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media",
+          "preview": "video",
+          "preview_drained": true,
+          "seq": 5,
+          "thumbnails": {
+            "authorized": false,
+            "busy": false,
+            "cached": 0,
+            "demand": 0,
+            "errors": 0,
+            "notice": null,
+            "painted": 0,
+            "ready": [],
+            "rgb_capacity": 0,
+            "scratch_capacity": 0
+          }
+        }
+      ],
+      "error": "ProcessLookupError(3, 'No such process')",
+      "normal": false,
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=9\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":0,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":0,\"thumbnails\":{\"authorized\":false,\"busy\":false,\"cached\":0,\"demand\":0,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":0,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":0,\"thumbnails\":{\"authorized\":false,\"busy\":false,\"cached\":0,\"demand\":1,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}}\nFILES_FIRST_PAINT_US=115265\nFILES_SPACE_COMMAND seq=1 action=grid\nFILES_PREVIEW_HELPER pid=3939278 start=51009994 command=preview_thumbnail\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":1,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":0,\"demand\":1,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":1,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":1,\"demand\":1,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":48299,\"scratch_capacity\":0}}\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":650,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"626c75652e706e67\",\"selection\":[\"626c75652e706e67\"],\"seq\":1,\"show_hidden\":false,\"tip\":\"Navegador de archivos \u00b7 Preferencias (Ctrl+,) \u00b7 Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"width\":1000}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":2,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":1,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":2,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":48299,\"scratch_capacity\":62400}}\nFILES_PREVIEW_HELPER pid=3939316 start=51009996 command=preview_video_probe\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":3,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":1,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":2,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":48299,\"scratch_capacity\":62400}}\nFILES_PREVIEW_HELPER pid=3939324 start=51010001 command=preview_video_frame\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":3,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":2,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":2,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":91499,\"scratch_capacity\":62400}}\nFILES_PREVIEW_HELPER pid=3939337 start=51010007 command=preview_thumbnail\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":4,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":2,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":3,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":91499,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":4,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":3,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":3,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":139798,\"scratch_capacity\":62400}}\nFILES_PREVIEW_HELPER pid=3939339 start=51010009 command=preview_thumbnail\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":5,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":3,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":4,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":139798,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":5,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":4,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":4,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":197702,\"scratch_capacity\":62400}}\nFILES_PREVIEW_HELPER pid=3939340 start=51010010 command=preview_thumbnail\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":6,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":4,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":5,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":197702,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":6,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":5,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":5,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":246001,\"scratch_capacity\":62400}}\nFILES_PREVIEW_HELPER pid=3939341 start=51010011 command=preview_thumbnail\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":7,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":5,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":6,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":246001,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":7,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":6,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":6,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":294300,\"scratch_capacity\":62400}}\nFILES_PREVIEW_HELPER pid=3939342 start=51010012 command=preview_thumbnail\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":8,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":6,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":7,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":294300,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":8,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":7,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":9,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":1,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=2 action=thumb-select-red\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":650,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"7265642e706e67\",\"selection\":[\"7265642e706e67\"],\"seq\":2,\"show_hidden\":false,\"tip\":\"Navegador de archivos \u00b7 Preferencias (Ctrl+,) \u00b7 Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"width\":1000}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":10,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":2,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":10,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":2,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=3 action=thumb-select-raw\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":650,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"726177ff2e706e67\",\"selection\":[\"726177ff2e706e67\"],\"seq\":3,\"show_hidden\":false,\"tip\":\"Navegador de archivos \u00b7 Preferencias (Ctrl+,) \u00b7 Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"width\":1000}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":11,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":3,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":11,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":3,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_SPACE_COMMAND seq=4 action=thumb-select-video\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":650,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"636c69702e6d6b76\",\"selection\":[\"636c69702e6d6b76\"],\"seq\":4,\"show_hidden\":false,\"tip\":\"Navegador de archivos \u00b7 Preferencias (Ctrl+,) \u00b7 Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"width\":1000}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":12,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":12,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":12,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":13,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":7,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":14,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":14,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":15,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":6,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":16,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":17,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":7,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":18,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":7,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":19,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":20,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":7,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":21,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":7,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":22,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":7,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":23,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":7,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":24,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":7,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":25,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":26,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":4,\"thumbnails\":{\"authorized\":true,\"busy\":false,\"cached\":7,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":8,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/raw\\\\xFF.png\\\"\",\"pixel\":[180,40,200],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":838913406,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035701,\"modified_nanoseconds\":838913406,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/red.png\\\"\",\"pixel\":[220,30,40],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":835991928,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035697,\"modified_nanoseconds\":835991928,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/tiny.webp\\\"\",\"pixel\":[218,32,42],\"revision\":{\"bytes\":204,\"changed_nanoseconds\":415637186,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035704,\"modified_nanoseconds\":415637186,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":342600,\"scratch_capacity\":62400}}\nFILES_SPACE_COMMAND seq=5 action=thumb-click-preview\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":650,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"636c69702e6d6b76\",\"selection\":[\"636c69702e6d6b76\"],\"seq\":5,\"show_hidden\":false,\"tip\":\"Navegador de archivos \u00b7 Preferencias (Ctrl+,) \u00b7 Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"width\":1000}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":27,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"loading\",\"preview_drained\":false,\"seq\":5,\"thumbnails\":{\"authorized\":false,\"busy\":false,\"cached\":0,\"demand\":0,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}}\nFILES_PREVIEW_HELPER pid=3939820 start=51010164 command=preview_video_probe\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":28,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"loading\",\"preview_drained\":false,\"seq\":5,\"thumbnails\":{\"authorized\":false,\"busy\":false,\"cached\":0,\"demand\":0,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}}\nFILES_PREVIEW_HELPER pid=3939826 start=51010176 command=preview_video_frame\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":28,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"video\",\"preview_drained\":true,\"seq\":5,\"thumbnails\":{\"authorized\":false,\"busy\":false,\"cached\":0,\"demand\":0,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}}\nFILES_SPACE_COMMAND seq=6 action=thumb-preview-close\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":650,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"636c69702e6d6b76\",\"selection\":[\"636c69702e6d6b76\"],\"seq\":6,\"show_hidden\":false,\"tip\":\"Navegador de archivos \u00b7 Preferencias (Ctrl+,) \u00b7 Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6f6e65\",\"626c75652e706e67\",\"636c69702e6d6b76\",\"677265656e2e706e67\",\"6e6f7465732e747874\",\"70686f746f2e6a7067\",\"726177ff2e706e67\",\"7265642e706e67\",\"74696e792e77656270\"],\"width\":1000}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":30,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":false,\"busy\":false,\"cached\":0,\"demand\":0,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":30,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":false,\"busy\":false,\"cached\":0,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":30,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":0,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}}\nFILES_PREVIEW_HELPER pid=3939838 start=51010184 command=preview_video_probe\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":31,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":0,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}}\nFILES_PREVIEW_HELPER pid=3939840 start=51010187 command=preview_video_frame\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":31,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":1,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":43200,\"scratch_capacity\":0}}\nFILES_PREVIEW_HELPER pid=3939854 start=51010192 command=preview_thumbnail\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":32,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":2,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":2,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":91499,\"scratch_capacity\":62400}}\nFILES_PREVIEW_HELPER pid=3939855 start=51010193 command=preview_thumbnail\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":33,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":2,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":3,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":91499,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":33,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":3,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":3,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":139798,\"scratch_capacity\":62400}}\nFILES_PREVIEW_HELPER pid=3939856 start=51010194 command=preview_thumbnail\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":34,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":3,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":4,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160}],\"rgb_capacity\":139798,\"scratch_capacity\":62400}}\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":34,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":4,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":4,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":197702,\"scratch_capacity\":62400}}\nFILES_PREVIEW_HELPER pid=3939857 start=51010196 command=preview_thumbnail\nFILES_THUMBNAILS_STATE {\"closing\":false,\"media_visible\":true,\"paint_revision\":35,\"path\":\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media\",\"preview\":\"closed\",\"preview_drained\":true,\"seq\":6,\"thumbnails\":{\"authorized\":true,\"busy\":true,\"cached\":4,\"demand\":7,\"errors\":0,\"notice\":null,\"painted\":5,\"ready\":[{\"height\":90,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/clip.mkv\\\"\",\"pixel\":[0,0,253],\"revision\":{\"bytes\":29738,\"changed_nanoseconds\":595638392,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035705,\"modified_nanoseconds\":595638392,\"modified_seconds\":1793067327},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/blue.png\\\"\",\"pixel\":[20,50,230],\"revision\":{\"bytes\":666,\"changed_nanoseconds\":836604599,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035698,\"modified_nanoseconds\":836604599,\"modified_seconds\":1793067326},\"width\":160},{\"height\":100,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/green.png\\\"\",\"pixel\":[30,200,70],\"revision\":{\"bytes\":665,\"changed_nanoseconds\":837167770,\"changed_seconds\":1793067326,\"device\":63,\"inode\":281035699,\"modified_nanoseconds\":837167770,\"modified_seconds\":1793067326},\"width\":160},{\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/thumbnails-ui-e3uqf7po/media/photo.jpg\\\"\",\"pixel\":[30,69,128],\"revision\":{\"bytes\":94199,\"changed_nanoseconds\":369636878,\"changed_seconds\":1793067327,\"device\":63,\"inode\":281035703,\"modified_nanoseconds\":369636878,\"modified_seconds\":1793067327},\"width\":160}],\"rgb_capacity\":197702,\"scratch_capacity\":62400}}\n"
+    }
+  ],
+  "local_budget_scope": "cache RGB capacities + active wire reservation4MiB,32entries; cache keys64KiB/demand paths64KiB; scratch<=76800B, not process-tree memory",
+  "footer_scope": "main-only PSS footer not used as a budget",
+  "limitations": [
+    "PNG/WebP source4Mipix; JPEG baseline12/24 reduced; progressive coefficient cap still partial",
+    "standalone Grid/inspector; embedded/PDF/audio cache integration pending",
+    "FLTK mapped-visibility gate; native minimization/input not proved"
+  ],
+  "error": "ProcessLookupError(3, 'No such process')",
+  "binary_sha256": "f0cabebb377639d88de130d1afc72755dd08a2fc0d5bdb920dcd4cd593534f90",
+  "helper_sha256": "76d279c3ac70bdbfdae4c8e82b12a27f09ef28808ab73c946dc52002f143b5ff"
+}

@@ -1,0 +1,7 @@
+{
+  "source_report": "archive-extract-ui-1793491193816772458.json",
+  "filesystem_gate": "PASS_SCOPED",
+  "visual_review_gate": "FAIL",
+  "finding": "At440 the review shows only source directory; selected ZIP filename is missing. Do not install from this original positive report. Source label corrected to filename-first and parent on next line; subsequent scene required.",
+  "original_report_and_pngs": "preserved without alteration"
+}

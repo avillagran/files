@@ -1,0 +1,549 @@
+{
+  "functional_gate": "PASS",
+  "method": "visible Preferences help button, shared F1/help-key handlers, own-window fixture resize and FLTK callback; real framebuffer, no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/help/help-navigation-1793061761466156901.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/help/help-selection-1793061761612264915.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/help/help-operations-preview-1793061761748069283.png",
+      "dimensions": [
+        1000,
+        560
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/help/help-narrow-1793061761845989629.png",
+      "dimensions": [
+        800,
+        500
+      ]
+    }
+  ],
+  "states": [
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 3,
+      "grid_zoom": 1.0,
+      "height": 1065,
+      "help": null,
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": false,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 0,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "groups",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 854
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 4,
+      "grid_zoom": 1.0,
+      "height": 560,
+      "help": null,
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": false,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 1,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "grid",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 4,
+      "grid_zoom": 1.0,
+      "height": 560,
+      "help": null,
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": true,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 2,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "grid",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 4,
+      "grid_zoom": 1.0,
+      "height": 560,
+      "help": {
+        "page": 12,
+        "top": 0
+      },
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": false,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 3,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "grid",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 4,
+      "grid_zoom": 1.0,
+      "height": 560,
+      "help": {
+        "page": 12,
+        "top": 12
+      },
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": false,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 4,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "grid",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 4,
+      "grid_zoom": 1.0,
+      "height": 560,
+      "help": {
+        "page": 12,
+        "top": 26
+      },
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": false,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 5,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "grid",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 1000
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 3,
+      "grid_zoom": 1.0,
+      "height": 500,
+      "help": {
+        "page": 10,
+        "top": 26
+      },
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": false,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 6,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "grid",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 800
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 3,
+      "grid_zoom": 1.0,
+      "height": 500,
+      "help": null,
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": false,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 7,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "grid",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 800
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 3,
+      "grid_zoom": 1.0,
+      "height": 500,
+      "help": {
+        "page": 10,
+        "top": 0
+      },
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": false,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 8,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "grid",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 800
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 3,
+      "grid_zoom": 1.0,
+      "height": 500,
+      "help": null,
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": false,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 9,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "grid",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 800
+    },
+    {
+      "config_dirty": false,
+      "context": null,
+      "dialog": null,
+      "edit": "",
+      "editing": false,
+      "entry_hits": [],
+      "error": "",
+      "generation": 1,
+      "grid_columns": 3,
+      "grid_zoom": 1.0,
+      "height": 500,
+      "help": {
+        "page": 10,
+        "top": 0
+      },
+      "history_back": false,
+      "history_forward": false,
+      "map": null,
+      "native_frame_label": "",
+      "order": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "path": "/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección",
+      "preferences": false,
+      "replace_edit": false,
+      "scroll": 0,
+      "selected": "6f6e65",
+      "selection": [
+        "6f6e65"
+      ],
+      "seq": 10,
+      "show_hidden": false,
+      "tip": "Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.",
+      "tip_offset": 0,
+      "view": "grid",
+      "visible": [
+        "6272616e6368",
+        "6f6e65",
+        "74776f"
+      ],
+      "width": 800
+    }
+  ],
+  "tabs_and_session": "PENDING; per-instance location history only",
+  "preferences_visible_help_button": true,
+  "help_key_toggle_escape": true,
+  "keyboard_pages_and_resize": true,
+  "underlying_file_hits_removed": true,
+  "selection_and_path_preserved": true,
+  "callback_with_help_open_exit0": true,
+  "scope": "Static implemented-shortcut help. Internal shared handlers and actual framebuffer; no native F1/scroll/clipboard. No preview/du/treemap helpers requested; root lifecycle only. Does not complete all F1-F10/terminal/i18n/accessibility roadmap.",
+  "log_before_cleanup": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=3\nFILES_FIRST_PAINT_US=177450\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"error\":\"\",\"generation\":1,\"grid_columns\":3,\"grid_zoom\":1.0,\"height\":1065,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":0,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"groups\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":854}\nFILES_SPACE_COMMAND seq=1 action=grid\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":560,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":1,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":1000}\nFILES_SPACE_COMMAND seq=2 action=preferences\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":560,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":true,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":2,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":1000}\nFILES_SPACE_COMMAND seq=3 action=help\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":560,\"help\":{\"page\":12,\"top\":0},\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":3,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":1000}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=4 action=help-page\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":560,\"help\":{\"page\":12,\"top\":12},\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":4,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":1000}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=5 action=help-end\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[],\"error\":\"\",\"generation\":1,\"grid_columns\":4,\"grid_zoom\":1.0,\"height\":560,\"help\":{\"page\":12,\"top\":26},\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":5,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":1000}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=6 action=fixture-narrow\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[],\"error\":\"\",\"generation\":1,\"grid_columns\":3,\"grid_zoom\":1.0,\"height\":500,\"help\":{\"page\":10,\"top\":26},\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":6,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":800}\nFILES_CAPTURE_OK\nFILES_SPACE_COMMAND seq=7 action=help-close\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"error\":\"\",\"generation\":1,\"grid_columns\":3,\"grid_zoom\":1.0,\"height\":500,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":7,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":800}\nFILES_SPACE_COMMAND seq=8 action=help-key\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[],\"error\":\"\",\"generation\":1,\"grid_columns\":3,\"grid_zoom\":1.0,\"height\":500,\"help\":{\"page\":10,\"top\":0},\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":8,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":800}\nFILES_SPACE_COMMAND seq=9 action=help-escape\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"error\":\"\",\"generation\":1,\"grid_columns\":3,\"grid_zoom\":1.0,\"height\":500,\"help\":null,\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":9,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":800}\nFILES_SPACE_COMMAND seq=10 action=help-key\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[],\"error\":\"\",\"generation\":1,\"grid_columns\":3,\"grid_zoom\":1.0,\"height\":500,\"help\":{\"page\":10,\"top\":0},\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":10,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":800}\nFILES_CLOSE_CALLBACK source=fltk_callback\nFILES_SPACE_COMMAND seq=11 action=callback\nFILES_HIDDEN_STATE {\"config_dirty\":false,\"context\":null,\"dialog\":null,\"edit\":\"\",\"editing\":false,\"entry_hits\":[],\"error\":\"\",\"generation\":1,\"grid_columns\":3,\"grid_zoom\":1.0,\"height\":500,\"help\":{\"page\":10,\"top\":0},\"history_back\":false,\"history_forward\":false,\"map\":null,\"native_frame_label\":\"\",\"order\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"path\":\"/home/avillagran/.cache/files-test/help-ui-ugil_3lq/Colección\",\"preferences\":false,\"replace_edit\":false,\"scroll\":0,\"selected\":\"6f6e65\",\"selection\":[\"6f6e65\"],\"seq\":11,\"show_hidden\":false,\"tip\":\"Navegador de archivos · Preferencias (Ctrl+,) · Acciones (F10). Ctrl+H muestra u oculta archivos ocultos.\",\"tip_offset\":0,\"view\":\"grid\",\"visible\":[\"6272616e6368\",\"6f6e65\",\"74776f\"],\"width\":800}\nFILES_CLOSE_REQUEST callback=true\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_SPACE_DRAINED\nFILES_CLOSE_DRAINED\n",
+  "binary_sha256": "a8a563c1898ae8ea5ae4e60617448d85e98de5e5c48e4eb3e95e09096cdacfcf",
+  "helper_sha256": "4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0"
+}

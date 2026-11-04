@@ -1,0 +1,36 @@
+{
+  "method": "Space image UI handlers and FLTK framebuffer; no native OS input",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/image-alpha-1793027536655107375.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/image-zoom-1793027536782006782.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/image-oriented-1793027536903397276.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/image-corrupt-1793027537089729755.png"
+  ],
+  "clipboard": "not read in resource mode",
+  "resource_gate": "NOT_MEASURED",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0e0a55b0"
+  },
+  "cleanup": {
+    "complete": true,
+    "survivors": [],
+    "errors": [],
+    "scope": "root exit0 only; no descendant sampler"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "fixtures": "RGBA PNG4Mipixels, JPEG EXIF6 landscape\u2192portrait, tiny lossless WebP, corrupt PNG, valid PNG9Mpixels rejected; rapid changes, zoom/pan and close pending",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=96655\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_HELPER pid=2703455 start=47030870 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=1024 height=1024 source=2048x2048 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-sn8y5oxv/files/alpha.png\")\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK image-zoom\nFILES_PREVIEW_IMAGE_READY width=1024 height=1024 source=2048x2048 format=png zoom=2 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-sn8y5oxv/files/alpha.png\")\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK jpeg\nFILES_PREVIEW_HELPER pid=2703505 start=47030897 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=320 height=480 source=480x320 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-sn8y5oxv/files/oriented.jpg\")\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK webp\nFILES_PREVIEW_HELPER pid=2703561 start=47030910 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=1 height=1 source=1x1 format=webp zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-sn8y5oxv/files/tiny.webp\")\nFILES_PREVIEW_COMMAND_OK image-rapid\nFILES_PREVIEW_HELPER pid=2703569 start=47030914 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=320 height=480 source=480x320 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-sn8y5oxv/files/oriented.jpg\")\nFILES_PREVIEW_COMMAND_OK image-corrupt\nFILES_PREVIEW_HELPER pid=2703571 start=47030918 command=preview_image\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-ui-sn8y5oxv/files/broken.png\") message=Formato no admitido: PNG, JPEG o WebP est\u00e1tico\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK image-large\nFILES_PREVIEW_HELPER pid=2703582 start=47030928 command=preview_image\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-ui-sn8y5oxv/files/large.png\") message=Imagen fuera del l\u00edmite: 8192 por eje y 4 Mip\u00edxeles\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_HELPER pid=2703584 start=47030933 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=1024 height=1024 source=2048x2048 format=png zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-sn8y5oxv/files/alpha.png\")\nFILES_PREVIEW_COMMAND_OK close-image-pending\nFILES_PREVIEW_HELPER pid=2703689 start=47031040 command=preview_image\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "ac7a03743957a933d9f3723bb6d8c4c60934c365e1e4f72d0b5637d2c859ac6e",
+  "helper_sha256": "5a448d062eef3052fb29890a356ab4fb8ab2381ebdffd85e47f26ee0600eb55e"
+}

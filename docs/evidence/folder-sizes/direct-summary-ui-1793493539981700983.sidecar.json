@@ -1,0 +1,6 @@
+{
+  "original_report": "direct-summary-ui-1793493539981700983.json",
+  "finding": "Harness incorrectly expected first Size sort to be ascending; production intentionally starts Size descending (Model Action::Sort). Actual order8B,0B,unknown is correct for descending. Product sorting not changed for this failure. Harness now verifies both directions with a recorded direction flag.",
+  "visual_finding": "Original2PNGs confirm direct-vs-total labels. Inspector no-follow/shortcut combined line clips; split policy and shortcut across existing policy row and Calculate button. New captures required before installation.",
+  "original": "FAIL report/log/2PNGs preserved"
+}

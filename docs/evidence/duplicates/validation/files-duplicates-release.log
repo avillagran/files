@@ -1,0 +1,5 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+   Compiling files-helper v0.0.4 (/home/node/Work/files/crates/helper)
+   Compiling files-app v0.0.4 (/home/node/Work/files/crates/app)
+    Finished `release` profile [optimized] target(s) in 1m 32s

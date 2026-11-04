@@ -1,0 +1,36 @@
+{
+  "method": "Space image UI handlers and FLTK framebuffer; no native OS input",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg12-idct-1793029179591967984.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg24-idct-1793029179722701476.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg24-oriented-idct-1793029179855553812.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/jpeg-progressive-budget-1793029179982556157.png"
+  ],
+  "clipboard": "not read in resource mode",
+  "resource_gate": "NOT_MEASURED",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0e0a55b0"
+  },
+  "cleanup": {
+    "complete": true,
+    "survivors": [],
+    "errors": [],
+    "scope": "root exit0 only; no descendant sampler"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "fixtures": "baseline JPEG12/24MP RGB-pattern IDCT, EXIF24MP and progressive12/24 rejection in capture only; resource mode two baseline files only/no pending-close spawn",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=119851\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK jpeg12\nFILES_PREVIEW_HELPER pid=2860861 start=47195166 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=1000 height=750 source=4000x3000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-qxjor7sd/files/baseline12.jpg\")\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK jpeg24\nFILES_PREVIEW_HELPER pid=2860866 start=47195179 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=750 height=500 source=6000x4000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-qxjor7sd/files/baseline24.jpg\")\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK jpeg24-oriented\nFILES_PREVIEW_HELPER pid=2861064 start=47195190 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=500 height=750 source=6000x4000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-qxjor7sd/files/oriented24.jpg\")\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK progressive12\nFILES_PREVIEW_HELPER pid=2861274 start=47195203 command=preview_image\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-ui-qxjor7sd/files/progressive12.jpg\") message=JPEG progresivo supera 32 MiB de coeficientes; no se decodifica\nFILES_PREVIEW_COMMAND_OK progressive24\nFILES_PREVIEW_HELPER pid=2861285 start=47195208 command=preview_image\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-ui-qxjor7sd/files/progressive24.jpg\") message=JPEG progresivo supera 32 MiB de coeficientes; no se decodifica\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK jpeg24\nFILES_PREVIEW_HELPER pid=2861300 start=47195216 command=preview_image\nFILES_PREVIEW_IMAGE_READY width=750 height=500 source=6000x4000 format=jpeg zoom=1 path=Some(\"/home/avillagran/.cache/files-test/preview-ui-qxjor7sd/files/baseline24.jpg\")\nFILES_PREVIEW_COMMAND_OK close-jpeg-pending\nFILES_PREVIEW_HELPER pid=2861329 start=47195321 command=preview_image\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "121d88b93d75dfefea29108b9e2e78c63876e54b95f6c5ff4acf4ada7ae17068",
+  "helper_sha256": "b826e2eca4c14628adcccd02dd4769c57f0ed2695b7c3da42dc27ae21b7368e0"
+}

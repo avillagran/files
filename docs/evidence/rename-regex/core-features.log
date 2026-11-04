@@ -1,0 +1,113 @@
+files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+├── libc feature "default"
+│   ├── libc v0.2.191
+│   └── libc feature "std"
+│       └── libc v0.2.191
+├── regex feature "std"
+│   ├── regex v1.13.1
+│   │   ├── regex-syntax v0.8.11
+│   │   ├── regex-automata feature "alloc"
+│   │   │   └── regex-automata v0.4.18
+│   │   │       └── regex-syntax v0.8.11
+│   │   ├── regex-automata feature "meta"
+│   │   │   ├── regex-automata v0.4.18 (*)
+│   │   │   ├── regex-automata feature "nfa-pikevm"
+│   │   │   │   ├── regex-automata v0.4.18 (*)
+│   │   │   │   └── regex-automata feature "nfa-thompson"
+│   │   │   │       ├── regex-automata v0.4.18 (*)
+│   │   │   │       └── regex-automata feature "alloc" (*)
+│   │   │   └── regex-automata feature "syntax"
+│   │   │       ├── regex-automata v0.4.18 (*)
+│   │   │       └── regex-automata feature "alloc" (*)
+│   │   ├── regex-automata feature "nfa-pikevm" (*)
+│   │   └── regex-automata feature "syntax" (*)
+│   ├── regex-automata feature "std"
+│   │   ├── regex-automata v0.4.18 (*)
+│   │   ├── regex-automata feature "alloc" (*)
+│   │   └── regex-syntax feature "std"
+│   │       └── regex-syntax v0.8.11
+│   └── regex-syntax feature "std" (*)
+├── serde feature "default"
+│   ├── serde v1.0.229
+│   │   ├── serde_core feature "result"
+│   │   │   └── serde_core v1.0.229
+│   │   └── serde_derive feature "default"
+│   │       └── serde_derive v1.0.229 (proc-macro)
+│   │           ├── proc-macro2 feature "proc-macro"
+│   │           │   └── proc-macro2 v1.0.107
+│   │           │       └── unicode-ident feature "default"
+│   │           │           └── unicode-ident v1.0.27
+│   │           ├── quote feature "proc-macro"
+│   │           │   ├── quote v1.0.47
+│   │           │   │   └── proc-macro2 v1.0.107 (*)
+│   │           │   └── proc-macro2 feature "proc-macro" (*)
+│   │           ├── syn feature "clone-impls"
+│   │           │   └── syn v3.0.9
+│   │           │       ├── proc-macro2 v1.0.107 (*)
+│   │           │       ├── quote v1.0.47 (*)
+│   │           │       └── unicode-ident feature "default" (*)
+│   │           ├── syn feature "derive"
+│   │           │   └── syn v3.0.9 (*)
+│   │           ├── syn feature "parsing"
+│   │           │   └── syn v3.0.9 (*)
+│   │           ├── syn feature "printing"
+│   │           │   └── syn v3.0.9 (*)
+│   │           └── syn feature "proc-macro"
+│   │               ├── syn v3.0.9 (*)
+│   │               ├── proc-macro2 feature "proc-macro" (*)
+│   │               └── quote feature "proc-macro" (*)
+│   └── serde feature "std"
+│       ├── serde v1.0.229 (*)
+│       └── serde_core feature "std"
+│           └── serde_core v1.0.229
+├── serde feature "derive"
+│   ├── serde v1.0.229 (*)
+│   └── serde feature "serde_derive"
+│       └── serde v1.0.229 (*)
+└── toml feature "default"
+    ├── toml v0.8.23
+    │   ├── serde feature "default" (*)
+    │   ├── serde_spanned feature "default"
+    │   │   └── serde_spanned v0.6.9
+    │   │       └── serde feature "default" (*)
+    │   ├── serde_spanned feature "serde"
+    │   │   └── serde_spanned v0.6.9 (*)
+    │   ├── toml_datetime feature "default"
+    │   │   └── toml_datetime v0.6.11
+    │   │       └── serde feature "default" (*)
+    │   ├── toml_datetime feature "serde"
+    │   │   └── toml_datetime v0.6.11 (*)
+    │   └── toml_edit feature "serde"
+    │       ├── toml_edit v0.22.27
+    │       │   ├── serde feature "default" (*)
+    │       │   ├── serde_spanned feature "default" (*)
+    │       │   ├── serde_spanned feature "serde" (*)
+    │       │   ├── toml_datetime feature "default" (*)
+    │       │   ├── indexmap feature "default"
+    │       │   │   ├── indexmap v2.14.2
+    │       │   │   │   ├── equivalent v1.0.3
+    │       │   │   │   └── hashbrown v0.17.1
+    │       │   │   └── indexmap feature "std"
+    │       │   │       └── indexmap v2.14.2 (*)
+    │       │   ├── indexmap feature "std" (*)
+    │       │   ├── toml_write feature "default"
+    │       │   │   ├── toml_write v0.1.2
+    │       │   │   └── toml_write feature "std"
+    │       │   │       ├── toml_write v0.1.2
+    │       │   │       └── toml_write feature "alloc"
+    │       │   │           └── toml_write v0.1.2
+    │       │   └── winnow feature "default"
+    │       │       ├── winnow v0.7.15
+    │       │       └── winnow feature "std"
+    │       │           ├── winnow v0.7.15
+    │       │           └── winnow feature "alloc"
+    │       │               └── winnow v0.7.15
+    │       └── toml_datetime feature "serde" (*)
+    ├── toml feature "display"
+    │   ├── toml v0.8.23 (*)
+    │   └── toml_edit feature "display"
+    │       └── toml_edit v0.22.27 (*)
+    └── toml feature "parse"
+        ├── toml v0.8.23 (*)
+        └── toml_edit feature "parse"
+            └── toml_edit v0.22.27 (*)

@@ -1,0 +1,8 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.04s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 1 test
+test directory_sync_store::linux::tests::admission_oversized_remapped_workspace_rejects_before_journal_but_history_opens ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 667 filtered out; finished in 0.23s

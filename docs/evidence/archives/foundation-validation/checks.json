@@ -1,0 +1,60 @@
+{
+  "status": "source foundation validated, execution/queue/UI pending; NOT_INSTALLED",
+  "checked_at": "2026-10-31T23:04:41.091604+00:00",
+  "rust_tests": {
+    "passed": 1068,
+    "ignored": 3,
+    "core": 367,
+    "helper": 91,
+    "ui": 610,
+    "new_core_tests": 18,
+    "log": "workspace-tests.log"
+  },
+  "clippy": {
+    "exit": 0,
+    "log": "clippy.log",
+    "command": "cargo clippy --workspace --all-targets -- -D warnings"
+  },
+  "release": {
+    "exit": 0,
+    "log": "release.log",
+    "command": "cargo build --release --workspace",
+    "helper_sha256": "34aa00eff15933478363a8530235da3e16eacee68a9a0e9fccd48baa39925883"
+  },
+  "fmt": {
+    "exit": 0,
+    "log": "fmt-check.log",
+    "command": "cargo fmt --all --check",
+    "additional_direct_check": "rustfmt-check.log"
+  },
+  "office_wire_cases": 30,
+  "provenance": "provenance.json",
+  "installed_unchanged": "installed-unchanged.json",
+  "preserved_failures": [
+    {
+      "log": "member-first-tests.log",
+      "reason": "moved test u32_at helper omitted; test-only helper restored"
+    },
+    {
+      "log": "member-tests.log",
+      "reason": "5PASS/1FAIL: legacy DeflateDecoder already rejects empty truncated stream, contrary to test premise. Corrected comparison, no old decoder vulnerability claimed."
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "ui_gate": "NOT_IMPLEMENTED",
+  "extraction_gate": "NOT_IMPLEMENTED",
+  "creation_gate": "NOT_IMPLEMENTED",
+  "global_pass": false,
+  "source_sha256": {
+    "Cargo.lock": "47f5443db73b77a35f7cd916fae51bb824ee72da79f75bfba8c280e387adfc56",
+    "crates/core/Cargo.toml": "3dc14de710dfab8e2cc6bbccac98a1f6c8dcbcd23123465b064003b275b4180b",
+    "crates/core/src/archive_list.rs": "ff1e552de0c125806c6f448d2328ffe3435de768227d308d22a61f6e46f8c821",
+    "crates/core/src/lib.rs": "b6b9980d2344972b4d4b7799d02014cfa62bfcd1eb679fc7c78ed4f723ca22e2",
+    "crates/helper/src/archive_preview.rs": "41bc30961cb6bccf4a815d7d6947dc6080c7075ea4b25cd08ee5c3f1a1e2768b",
+    "crates/helper/src/zip_member.rs": "cb9d8818ebb613785f53a7659cd48bbf204d3f1824027eb46d184c81c08e56fa",
+    "scripts/office-xml-wire-check.py": "975bec4a7041eecb1894fc8955f05240d4e00e81dfaaea4301774b1dcc79e17b",
+    "crates/core/src/archive_member.rs": "90d410d4224f810dc54dee9808034db2a3157fbb2d1da48642a3c05e077b8eca",
+    "crates/core/src/archive_extract.rs": "42d76859deefca1dd2919746b3ed8e70552b30addde983b6d2f375b253635400"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "workspace": {
+    "passed": 1104,
+    "core": 390,
+    "helper": 91,
+    "ui": 623,
+    "existing_ignored": 3,
+    "exit_code": 0
+  },
+  "clippy": "PASS workspace/all-targets -Dwarnings",
+  "fmt": "PASS",
+  "release": "PASS",
+  "scene": "docs/evidence/0.0.4/archive-recovery-ui-1793496524673844308.json",
+  "resources": "NOT_MEASURED_FREEZE",
+  "startup": "NOT_MEASURED_FREEZE",
+  "native_input": "UNVALIDATED"
+}

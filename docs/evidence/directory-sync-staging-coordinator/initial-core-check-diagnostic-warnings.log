@@ -1,0 +1,93 @@
+    Checking files-core v0.0.4 (/home/node/Work/files/crates/core)
+warning: unused import: `Observation`
+ --> crates/core/src/directory_sync_store/linux/journal/batch.rs:3:102
+  |
+3 | use crate::{directory_sync_manifest::{NamespaceSnapshot, Prepared}, directory_sync_journal::{Object, Observation}, exdev_source::{Inv...
+  |                                                                                                      ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `StageBatchFailure`, `StageBatchPhase`, `StageBatchReport`, `StagedBatch`, and `WorkspaceLocation`
+   --> crates/core/src/directory_sync_store.rs:445:44
+    |
+445 |         WorkspaceFailure, WorkspaceParent, StageBatchReport, StageBatchPhase, StageBatchFailure, StagedBatch, WorkspaceLocation,
+    |                                            ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^
+
+warning: field `0` is never read
+  --> crates/core/src/directory_sync_store/linux/journal/batch.rs:74:112
+   |
+74 | ...{ Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMu...
+   |                                                    ---------- ^^^
+   |                                                    |
+   |                                                    field in this variant
+   |
+   = note: `BatchPoint` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+74 - pub(in crate::directory_sync_store) enum BatchPoint { Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+74 + pub(in crate::directory_sync_store) enum BatchPoint { Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(()), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+   |
+
+warning: field `0` is never read
+  --> crates/core/src/directory_sync_store/linux/journal/batch.rs:74:135
+   |
+74 | ...aptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(u32), Metadat...
+   |                                                 ---------------- ^^^
+   |                                                 |
+   |                                                 field in this variant
+   |
+   = note: `BatchPoint` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+74 - pub(in crate::directory_sync_store) enum BatchPoint { Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+74 + pub(in crate::directory_sync_store) enum BatchPoint { Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(()), Captured, BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+   |
+
+warning: field `0` is never read
+  --> crates/core/src/directory_sync_store/linux/journal/batch.rs:74:166
+   |
+74 | ...reNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked,...
+   |                                                  -------------- ^^^
+   |                                                  |
+   |                                                  field in this variant
+   |
+   = note: `BatchPoint` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+74 - pub(in crate::directory_sync_store) enum BatchPoint { Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+74 + pub(in crate::directory_sync_store) enum BatchPoint { Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(()), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+   |
+
+warning: field `0` is never read
+  --> crates/core/src/directory_sync_store/linux/journal/batch.rs:74:189
+   |
+74 | ...ialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknow...
+   |                                                 ---------------- ^^^
+   |                                                 |
+   |                                                 field in this variant
+   |
+   = note: `BatchPoint` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+74 - pub(in crate::directory_sync_store) enum BatchPoint { Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+74 + pub(in crate::directory_sync_store) enum BatchPoint { Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(()), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+   |
+
+warning: field `0` is never read
+  --> crates/core/src/directory_sync_store/linux/journal/batch.rs:74:211
+   |
+74 | ..., BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+   |                                                  --------------- ^^^
+   |                                                  |
+   |                                                  field in this variant
+   |
+   = note: `BatchPoint` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+74 - pub(in crate::directory_sync_store) enum BatchPoint { Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(u32), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+74 + pub(in crate::directory_sync_store) enum BatchPoint { Admitted, SourcesCaptured, WorkspacesCreated, BeforeNode(u32), NodeMaterialized(u32), Captured, BeforeMetadata(u32), MetadataMutation(u32), MetadataApplied(()), SourcesRechecked, BeforeBarrier, Acknowledged, BeforeReturn }
+   |
+
+warning: `files-core` (lib) generated 7 warnings (run `cargo fix --lib -p files-core` to apply 2 suggestions)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.60s

@@ -1,0 +1,43 @@
+{
+  "scope": "SOURCE ONLY read-only Linux directory comparison foundation; no helper request, visible tool, synchronization or new installation",
+  "tests": {
+    "core": 459,
+    "helper": 105,
+    "ui": 759,
+    "historical_ignored": 3,
+    "focused_new": 12,
+    "normal_concurrency": true
+  },
+  "checks": [
+    "workspace tests PASS",
+    "workspace all-target Clippy -D warnings PASS",
+    "fmt PASS"
+  ],
+  "meaningful_cases": [
+    "equal nested files/empty directories",
+    "different equal-sized binary content and different lengths",
+    "type conflicts and hidden one-sided names",
+    "nonUTF8 names distinct from replacement-character shadow; raw JSON roundtrip",
+    "literal symlink equality/differences; directory symlink not traversed; root symlink rejected",
+    "hardlink names retained separately; ancestor summaries reflect differing/unknown descendants",
+    "zero-name/item/depth/read limits do not prove absence/equality",
+    "FIFO classification without opening it",
+    "pre-open and mid-read cancellation; expected root identity mismatch",
+    "file/nested directory/root replacement after enumeration revokes observations/absence",
+    "file mutation after both hashes detected at final revalidation",
+    "basic permission difference separated from content",
+    "one-shot callback failure propagates BrokenPipe rather than partial report"
+  ],
+  "retained_failure": "callback-once-red.log: original callback test always failed and could conceal swallowing; strengthened to one-shot failure, reproduced Ok partial result incorrectly; fixed by preserving original consumer error across checksum callback; focused/full suites PASS",
+  "installed_checkpoint": "Unchanged CopyPath5c258f3a8d21 from1793564514395731217",
+  "pending": [
+    "strict report/progress/frame validators and byte-budgeted paged helper transport",
+    "supervised helper, cancellation/reap ACK and decoder rejection tests",
+    "visible two-root controls/results/locate/diagnostics; keyboard/mouse handlers and actual framebuffer acceptance",
+    "fresh validation and explicit synchronization conflict planning/execution/recovery",
+    "native input/clipboard/AT-SPI/2x/other OS/offline-blocked syscalls/global lifetimes/full goal"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "new_preview_formats": "PAUSED"
+}

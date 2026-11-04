@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-10-31T10:30:45.653865+00:00",
+  "release": "sshfs-3.7.6",
+  "upstream_url": "https://github.com/libfuse/sshfs/releases/tag/sshfs-3.7.6",
+  "archive_url": "https://github.com/libfuse/sshfs/releases/download/sshfs-3.7.6/sshfs-3.7.6.tar.xz",
+  "method": "private Meson/Ninja -j1 build, no install; existing system fuse3/glib dependencies; standalone upstream GPL tool only, not linked or bundled into Files; archive/binary hashes are provenance not a verified detached signature",
+  "artifacts": {
+    ".cargo/tmp/sftp-lab/sshfs-3.7.6.tar.xz": {
+      "sha256": "6a1bcb31450a077e9cb1b7ff158c71de34db697c3c0da6cb362502131e495893",
+      "bytes": 57096
+    },
+    ".cargo/tmp/sftp-lab/build/sshfs": {
+      "sha256": "3ef66a200b8b5c2bb34662c8e67123f2e4ff5f585cd01f30a5ca5a1f07f03cf7",
+      "bytes": 150136
+    },
+    ".cargo/tmp/sftp-lab/build.log": {
+      "sha256": "0f941968db69543d6a94ef3fedd63dd71edbc1540e04045c8c2068ec1a40ee8f",
+      "bytes": 1600
+    },
+    "target/sftp-native-matrix-build.log": {
+      "sha256": "66efa4597f0d6cd88429118cd31d2816429442f0b9fdc57d9fb5f8e0ca6a9451",
+      "bytes": 145
+    },
+    "target/sftp-native-lab-clippy.log": {
+      "sha256": "93862503cbce41bfe9da2e2074d33151f7beeee83dc4a8b0c2e53184c059b2ff",
+      "bytes": 145
+    },
+    "target/sftp-native-matrix-fmt.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "source_files": {
+    "crates/core/examples/copy-once.rs": "d2c42d0aebb993ee0b24fff8e784ae0151cf2bfcf46eb523ab203ee09e12e156",
+    "crates/core/examples/sftp-target-plan.rs": "28edd74fcb05e3f406093d26064cda89074ddd1668c74622321bc545249b1285",
+    "crates/core/examples/mount-table-probe.rs": "a1df6d73b2ab1e7e193f39c4ccc54f8ba17930770e310b0c0099047c03e5c526",
+    "scripts/sftp-loopback-check.py": "30ba004552cebcbe433e2fedea8c7c17bee64e3920cc705ed449311d4e58ff0d"
+  },
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "global_install": false,
+  "existing_system_library_versions": {
+    "fuse3": "3.18.3",
+    "glib-2.0": "2.90.1"
+  }
+}

@@ -1,0 +1,24 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.57s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-6cb802029f4441f7)
+
+running 1 test
+test dual_pane::tests::size_completion_reorders_quiet_inactive_browser_even_when_active_sort_is_name ... FAILED
+
+failures:
+
+---- dual_pane::tests::size_completion_reorders_quiet_inactive_browser_even_when_active_sort_is_name stdout ----
+
+thread 'dual_pane::tests::size_completion_reorders_quiet_inactive_browser_even_when_active_sort_is_name' (2436109) panicked at crates/ui/src/dual_pane/tests.rs:536:5:
+assertion `left == right` failed
+  left: [1, 0]
+ right: [0, 1]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    dual_pane::tests::size_completion_reorders_quiet_inactive_browser_even_when_active_sort_is_name
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 639 filtered out; finished in 0.02s
+
+error: test failed, to rerun pass `-p files-ui --lib`

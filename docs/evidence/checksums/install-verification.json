@@ -1,0 +1,16 @@
+{
+  "source": "5da9265ebad690d8de5ac26d386021a12f00a8f6",
+  "installation_record": "docs/evidence/0.0.4/installed-checkpoint-1793518010519338180.json",
+  "backup": "/home/node/.cache/files-test/installed-backups/1793518010367256703",
+  "backups_verified": 5,
+  "installed_hashes_verified": 5,
+  "app": "4279419032a95f7648d2a2dd6242fca4086a8fb4ceb5fab44e0c456f8a0d0cc8",
+  "helper": "48e017b4b4b20942f9e5152a8249614f1db9b21352f6d64dc291c88e06964048",
+  "html_helper": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "installed_functional": "docs/evidence/checksums/node-functional-1793518010567122297/receipt.json",
+  "html_regression": "docs/evidence/0.0.4/html-ui-1793518012909603951.json",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "scope": "scoped handlers/framebuffers and logged identity reap; no OS input/clipboard/AT-SPI/2x/lifetime/global budget claim",
+  "production_toolkit_installed": "docs/evidence/checksums/node-functional-1793518408960367323/receipt.json"
+}

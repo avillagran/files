@@ -1,0 +1,16 @@
+{
+  "method": "internal visible hit handlers + FLTK framebuffer + actual fixture modes/bytes; no native input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [],
+  "runs": [
+    {
+      "close_during_request": false,
+      "functional_gate": "FAIL",
+      "error": "AssertionError('command failed: properties-file\\nFILES_FONT=FiraCode Nerd Font nerd=true\\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=1\\nFILES_UI_SMOKE_OK entries=3\\nFILES_PROPERTIES_READY seq=0 id=0 dialog=false\\nFILES_FIRST_PAINT_US=202426\\nFILES_PROPERTIES_COMMAND seq=1 action=actions id=0 applied=false\\nFILES_PROPERTIES_READY seq=1 id=0 dialog=false\\nFILES_PROPERTIES_COMMAND_ERROR action=properties-file error=visible property hit missing\\n')",
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=1\nFILES_UI_SMOKE_OK entries=3\nFILES_PROPERTIES_READY seq=0 id=0 dialog=false\nFILES_FIRST_PAINT_US=202426\nFILES_PROPERTIES_COMMAND seq=1 action=actions id=0 applied=false\nFILES_PROPERTIES_READY seq=1 id=0 dialog=false\nFILES_PROPERTIES_COMMAND_ERROR action=properties-file error=visible property hit missing\n"
+    }
+  ],
+  "functional_gate": "FAIL",
+  "binary_sha256": "907f1e2ca72e56932d1d0bfbe66a9c85695d6af0b559ac0a65dbb6b642e14138"
+}

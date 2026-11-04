@@ -1,0 +1,7 @@
+{
+  "report": "audio-ui-failure-1793086437393143500.json",
+  "functional_gate": "FAIL",
+  "cause_scope": "Pulse context mmap failed at virtual AS512MiB. Functional zero-PCM probe also fails at512 and succeeds at768; no PSS/Swap/CPU/startup sampled.",
+  "correction": "Use same virtualAS768MiB containment as video, max_alloc32MiB unchanged. Real150MB tree ceiling and ideal50MB remain unchanged/unvalidated.",
+  "resource_gate": "NOT_MEASURED"
+}

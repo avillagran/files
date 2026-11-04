@@ -1,0 +1,21 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.49s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 8 tests
+test directory_sync_store::linux::tests::workspace_batch_cached_exclusions_preserve_private_source_and_store_rejection ... ok
+test directory_sync_store::linux::tests::workspace_batch_distinct_raw_parent_paths_keep_distinct_bindings ... ok
+test directory_sync_store::linux::tests::workspace_batch_shared_fd_admission_succeeds_below_legacy_forecast_in_child ...
+running 1 test
+test directory_sync_store::linux::tests::workspace_batch_shared_fd_admission_succeeds_below_legacy_forecast_in_child ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 693 filtered out; finished in 0.09s
+
+ok
+test directory_sync_store::linux::tests::workspace_batch_shared_parent_replacement_after_admission_stops_before_mkdir ... ok
+test directory_sync_store::linux::tests::workspace_batch_shared_parent_retains_one_fd_and_parts_do_not_duplicate_it ... ok
+test directory_sync_store::linux::workspace_batch::tests::batch_layout_distinct_deep_paths_exceed_metadata_budget_without_opening_paths ... ok
+test directory_sync_store::linux::workspace_batch::tests::batch_layout_exact_budget_and_raw_syntax_are_checked_before_pinning ... ok
+test directory_sync_store::linux::workspace_batch::tests::batch_layout_full_transaction_count_shares_one_maximum_depth_path ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 686 filtered out; finished in 0.55s

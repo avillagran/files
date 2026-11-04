@@ -1,0 +1,51 @@
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0618]: expected function, found `u64`
+   --> crates/ui/src/size_panel.rs:298:35
+    |
+ 15 | fn stamp() -> u64 {
+    | ----------------- this function of the same name is available here, but it's shadowed by the local binding
+...
+201 |     pub fn size_panel_command(&mut self, stamp: u64, command: Command) {
+    |                                          ----- `stamp` has type `u64`
+...
+298 |                         s.stamp = stamp();
+    |                                   ^^^^^--
+    |                                   |
+    |                                   call expression requires function
+    |
+   ::: crates/ui/src/archive_recovery.rs:15:1
+    |
+ 15 | fn stamp() -> u64 {
+    | ----------------- this function of the same name is available here, but it's shadowed by the local binding
+    |
+   ::: crates/ui/src/size_report.rs:83:1
+    |
+ 83 | fn stamp(time: SystemTime) -> String {
+    | ------------------------------------ this function of the same name is available here, but it's shadowed by the local binding
+
+error[E0618]: expected function, found `u64`
+   --> crates/ui/src/size_panel.rs:339:39
+    |
+ 15 | fn stamp() -> u64 {
+    | ----------------- this function of the same name is available here, but it's shadowed by the local binding
+...
+201 |     pub fn size_panel_command(&mut self, stamp: u64, command: Command) {
+    |                                          ----- `stamp` has type `u64`
+...
+339 |                             s.stamp = stamp();
+    |                                       ^^^^^--
+    |                                       |
+    |                                       call expression requires function
+    |
+   ::: crates/ui/src/archive_recovery.rs:15:1
+    |
+ 15 | fn stamp() -> u64 {
+    | ----------------- this function of the same name is available here, but it's shadowed by the local binding
+    |
+   ::: crates/ui/src/size_report.rs:83:1
+    |
+ 83 | fn stamp(time: SystemTime) -> String {
+    | ------------------------------------ this function of the same name is available here, but it's shadowed by the local binding
+
+For more information about this error, try `rustc --explain E0618`.
+error: could not compile `files-ui` (lib) due to 2 previous errors

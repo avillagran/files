@@ -1,0 +1,8 @@
+{
+  "failed": "files-duplicates-review-tests-final.log",
+  "observed": "Existing folder-view explicit save test failed at navigation_tests.rs:2036 with WouldBlock on its private config store. New review/location tests passed.",
+  "isolated": "files-duplicates-review-folder-save-isolated.log: PASS unchanged",
+  "cause": "Unconfirmed; do not attribute to review or claim fixed.",
+  "next": "Repeat full parallel workspace suite unchanged. Preserve original failure and do not serialize tests.",
+  "parallel_retry": "files-duplicates-review-tests-retry.log:1203 PASS/3 existing ignored, unchanged code; cause remains unconfirmed"
+}

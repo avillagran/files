@@ -1,0 +1,54 @@
+    Checking files-core v0.0.4 (/home/node/Work/files/crates/core)
+error: manual implementation of `.is_multiple_of()`
+   --> crates/core/src/directory_sync_metadata.rs:253:28
+    |
+253 |     if bytes.len() < 28 || (bytes.len() - 4) % 8 != 0 || bytes[..4] != 2u32.to_le_bytes() {
+    |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^ help: replace with: `!(bytes.len() - 4).is_multiple_of(8)`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_is_multiple_of
+    = note: `-D clippy::manual-is-multiple-of` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::manual_is_multiple_of)]`
+
+error: using `chunks_exact` with a constant chunk size
+   --> crates/core/src/directory_sync_metadata.rs:262:30
+    |
+262 |     for (i, e) in bytes[4..].chunks_exact(8).enumerate() {
+    |                              ^^^^^^^^^^^^^^^ help: consider using `as_chunks` instead: `as_chunks::<8>().0.iter()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#chunks_exact_to_as_chunks
+    = note: `-D clippy::chunks-exact-to-as-chunks` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::chunks_exact_to_as_chunks)]`
+
+error: manual implementation of `.is_multiple_of()`
+   --> crates/core/src/directory_sync_metadata.rs:585:20
+    |
+585 |                 if offset % 2 == 0 {
+    |                    ^^^^^^^^^^^^^^^ help: replace with: `offset.is_multiple_of(2)`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#manual_is_multiple_of
+
+error: this `if` statement can be collapsed
+   --> crates/core/src/directory_sync_metadata.rs:669:13
+    |
+669 | /             if tag == 0 {
+670 | |                 if let Some(g) = physical.nodes()[i].cohort() {
+671 | |                     let digest = v.evidence_digest();
+672 | |                     if groups[g].is_some_and(|p| p != digest) {
+...   |
+677 | |             }
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+669 ~             if tag == 0
+670 ~                 && let Some(g) = physical.nodes()[i].cohort() {
+671 |                     let digest = v.evidence_digest();
+...
+675 |                     groups[g] = Some(digest);
+676 ~                 }
+    |
+
+error: could not compile `files-core` (lib) due to 4 previous errors

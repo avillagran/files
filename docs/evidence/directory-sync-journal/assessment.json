@@ -1,0 +1,71 @@
+{
+  "source_commit": "14d7138b91601176882cd18c2ed6cbbee6e3e4b4",
+  "scope": "SOURCE ONLY sequenced sync effect declarations, strict replay and owned Linux persistence; no actual sync executor, human approval, helper/UI/release/install",
+  "validation": {
+    "workspace_passed": 1502,
+    "core": 595,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 9,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace check",
+    "concurrency": "Normal Rust test harness, one Cargo build job through original idle snapshot gate; competitors untouched",
+    "chronology": "Full hardened workspace1502 PASS; then two collapsible_if test-only style diagnostics fixed; final Clippy/all-targets, fmt check and all three affected state tests PASS.",
+    "final_targeted_state_tests": 3
+  },
+  "format": {
+    "header_bytes": 252,
+    "preparation_proof_bytes": 212,
+    "max_event_body_bytes": 192,
+    "max_events": 589848,
+    "max_journal_bytes": 268435456,
+    "integrity": "SHA256 domain-separated header and sequence/previous-digest/body chain; not authentication",
+    "replay": "Streaming, strict transitions, sequence/chain/EOF; torn tail is error, never truncation"
+  },
+  "implemented": [
+    "Schema derived from complete saved intent and indexed actual metadata, exact evidence/logical/physical preparation binding",
+    "All workspace and staged-object identities/metadata/content/cohort declarations before any destination effect; old preservation and backup sync before publication; sequential transactions, shared-directory metadata then reversible ordered declarations",
+    "Private owned journal reuses Store namespace/mount/type/owner/linkcount/creator-PID locks; exclusive creation and current binding checks",
+    "Complete chain readback after every append checks expected new sequence/length/tail under a pre-readback captured stamp; catches prior-record mutation masked by own write",
+    "File and child-first ancestor namespace fsync plus final ACK/binding revalidation before published in-memory state; errors latch Uncertain, reopening History needs explicit artifact and journal renewal",
+    "External retained identity comparison rejects byte-identical replacement; no automatic authority from replay or approval ticket"
+  ],
+  "tests": [
+    "Five modes, actual saved fixture schemas, new/replace/retire/link/directory declarations, root/shared-dir metadata, forward and undo replay; raw source paths removed before pure replay",
+    "Wrong ordering, aliases/protected identities, cohort incoherence, wrong observed uid, pending undo and out-of-range sequence",
+    "Every byte cut of final frame, digest corruption, sequence gap, wrong header, invalid event and extra bytes",
+    "Linux exclusive create/open, 0600/nlink ownership, cancellation and no-op completed/undone stream, unchanged user fixture data",
+    "Injected write/readback/file-sync/directory-sync/ACK failure, uncertain owner rejection and historical reopen",
+    "Actual subprocess _exit(73) after write, file sync and ACK, lock release and historical reinspection; not power loss",
+    "Prior frame tamper during own append, namespace replacement/hardlink alias and foreign metadata preparation"
+  ],
+  "acceptance_history": [
+    "Initial cargo check unused-frame warning before writer integration",
+    "Initial 3 persistence tests PASS",
+    "Test compilation E0283 ambiguous AsRef slice corrected to explicit slice reference",
+    "Three state/codec tests PASS; expanded journal-related focused22 PASS",
+    "Pre-readback-audit workspace1501 PASS; audit added full-chain readback and prior-record tamper regression",
+    "Hardened workspace1502 PASS; two test-style collapsible_if diagnostics corrected, final Clippy and fmt PASS",
+    "Final affected state/codec three tests PASS after mechanical test-only lint cleanup"
+  ],
+  "limitations": [
+    "All approval/observation/scope events are declarations; no syscall truth or native human approval",
+    "No source freshness/live helper pins or mutation/namespace/nlink/ctime ledger, no actual staging/backup/publication/metadata application/queue/recovery executor",
+    "Complete readback on each append is linear in current journal size; cumulative append I/O is quadratic. No throughput/CPU/memory/startup claim. Optimization remains pending before executor scaling acceptance",
+    "Completed/Undone retain private artifacts; unresolved effects require reconciliation, torn streams need explicit handling and are never silently repaired",
+    "Linux backend only; no native OS input/clipboard/AT-SPI/2x/lifetime/offline-syscall-deadline/global acceptance",
+    "PSS/Swap/CPU/startup freeze and new-preview pause unchanged"
+  ],
+  "installation": "Five installed hashes unchanged against1793574522897173033; installed-unchanged.json. No release/helper/UI build or install",
+  "next": "Own mutation/namespace/revision/nlink/ctime ledger and positive live source/helper/approval binding, then actual global staging/content+metadata verification, recoverable no-clobber backup/publication and explicit crash reconciliation/undo. Full explorer goal remains active.",
+  "source_sha256": {
+    "crates/core/src/directory_sync_journal.rs": "51e17155ec668e08f8584cc619f4ac84f1ecd4ef13209486f268db14e84a1db9",
+    "crates/core/src/directory_sync_store/linux/journal.rs": "47eafac03e7cc6abae0b75dc02e37d2d57e56d3f038cb523a59ea6ac4adf6316",
+    "crates/core/src/directory_sync_store.rs": "dad81cdbe6d2fbd3095ae7efa04ad1b072bd826e5803e828d8e7b843d3d7003c",
+    "crates/core/src/directory_sync_metadata.rs": "d1e8bbad8bf1d08b37f5df0356e416cc4ac41c32b7a0802bd704c512a47f7351",
+    "crates/core/src/lib.rs": "c47caf92254f06307e469ecb6e7164e8ecb3707d14206c25eb506e012b39f2b8"
+  },
+  "full_goal": "ACTIVE; full original scope, no milestone completion",
+  "log_archive_notes": "log-archive-notes.json"
+}

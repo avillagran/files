@@ -1,0 +1,50 @@
+{
+  "scope": "core folder view storage foundation only",
+  "feature_visible": false,
+  "installed": false,
+  "core_tests": {
+    "passed": 410,
+    "ignored": 3,
+    "log": "folder-views-core-final-test.log"
+  },
+  "final_focused_tests": {
+    "passed": 9,
+    "log": "folder-views-final-focused-test.log"
+  },
+  "clippy_core_all_targets": "PASS",
+  "fmt": "PASS",
+  "historical_clippy_style_failure_preserved": true,
+  "source_sha256": "a10e899be8fc917e65aaedb276e5e46d199557d4347854d534fdada194d338cf",
+  "logs": [
+    {
+      "file": "folder-views-core-test.log",
+      "sha256": "c02047969e76c28631dfa3e262dc697a9f4a1c53deec11a17c7c3b304c2311f9"
+    },
+    {
+      "file": "folder-views-core-final-test.log",
+      "sha256": "bff4bddeacc0adb6753282a057026a4a22be19d16c1ea1a8e29d50c4d78463c1"
+    },
+    {
+      "file": "folder-views-core-clippy.log",
+      "sha256": "4f050fe55f401da7a306a210bde3b2305f4db47ca514a63bdba0cae1266169ec"
+    },
+    {
+      "file": "folder-views-core-clippy-final.log",
+      "sha256": "372fbe2ac40774f5f8306c16ec04bdcb5e7c8512b32ab1ac164f05de2a8473a4"
+    },
+    {
+      "file": "folder-views-final-focused-test.log",
+      "sha256": "1929699bafeac7da9a106d31d36cbb9ecccb4f7cca79bee44936414e0a6a8323"
+    }
+  ],
+  "resources": "NOT_MEASURED freeze",
+  "startup": "NOT_MEASURED freeze",
+  "previews": "PAUSED",
+  "pending": [
+    "AuxIo/controller and close ACK",
+    "visible save/forget and navigation restore",
+    "stale restore rejection, tab/session and dual constraints",
+    "functional UI evidence and authorized install"
+  ],
+  "installed_checkpoint": "2a4d018 (Terminal) unchanged"
+}

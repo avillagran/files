@@ -1,0 +1,9 @@
+{
+  "scope": "fixture geometry and app shell reached, but no preview-open/playback command or monitor",
+  "failure": "new script incorrectly assumed --ui-scene audio auto-opens preview; existing scenes require explicit audio shared action",
+  "correction": "send audio command and require its fresh revision before recorder/playback",
+  "private_module_removed": true,
+  "default_sink_unchanged": true,
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

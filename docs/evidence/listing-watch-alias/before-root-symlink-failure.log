@@ -1,0 +1,22 @@
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 15.48s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57a6206bf2b86e3e)
+
+running 1 test
+test listing_watch::tests::linux::root_symlink_replacement_rearms_the_open_path_and_tracks_the_new_directory ... FAILED
+
+failures:
+
+---- listing_watch::tests::linux::root_symlink_replacement_rearms_the_open_path_and_tracks_the_new_directory stdout ----
+
+thread 'listing_watch::tests::linux::root_symlink_replacement_rearms_the_open_path_and_tracks_the_new_directory' (3450527) panicked at crates/ui/src/listing_watch.rs:433:17:
+watch notification absent: []
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    listing_watch::tests::linux::root_symlink_replacement_rearms_the_open_path_and_tracks_the_new_directory
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 715 filtered out; finished in 6.01s
+
+error: test failed, to rerun pass `-p files-ui --lib`

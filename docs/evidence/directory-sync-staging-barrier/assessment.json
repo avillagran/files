@@ -1,0 +1,63 @@
+{
+  "source_commit": "5bcd5ee6c2d720af8d03a5884e63414390fd0919",
+  "machine": "NODE",
+  "checked_at": "2026-11-02",
+  "scope": "SOURCE ONLY actual all-workspace staging verification/synchronization/reverification and durable journal confirmation; not object creation, metadata reproduction, native approval or installed Apply",
+  "validation": {
+    "workspace_passed": 1540,
+    "core": 633,
+    "helper": 112,
+    "ui": 795,
+    "historical_ignored": 3,
+    "new_tests": 7,
+    "clippy": "PASS workspace all-targets -D warnings",
+    "fmt": "PASS workspace --check",
+    "harness": "Normal Rust test harness and original idle Cargo gate; competitors untouched; idle snapshot not exclusion",
+    "release_install_gui_resources": "NOT_RUN"
+  },
+  "implemented": [
+    "Exact physical transaction/workspace count/order/identity/mount/euid/private0700/raw root name; complete new subtree or empty retire scope, every exact verified observation checked against desired sealed values by replay",
+    "Full read-only rewalk all scopes, pinned NOFOLLOW/NOATIME regular/directory fsync in reverse path order plus external workspace parent; symlinks pinned never followed/fsynced as O_PATH",
+    "Second complete all-scope rewalk under SAME shared regular-read budget <=1TiB, final root and Store/Journal owner guards before all WorkspaceSynced+StagingComplete full readback/file/ancestorfsync/ACK",
+    "Private non-decodable historical StagingReceipt with proof/transaction/rawroot/relative/exact-observation seal, sequence and consumed payload; no native approval/source freshness/lasting capability",
+    "Pre-append failure leaves staging declarations unchanged; after appends begin any failure Uncertain, partial ACK retained, History reopen/renew cannot implicitly resume/repeat/reconstruct receipt",
+    "Existing cooperative Control pause/resume/cancel in walkers, sync objects and journal frames; no production worker/timer; kernel calls retain unbounded deadline limitation",
+    "Existing nine owned-namespace fixtures now use actual staging barrier, including whole directories/hardlinks/symlinks/retire and subprocess exits"
+  ],
+  "acceptance_history": [
+    "Initial E0425 missing OsStr import corrected and failure retained",
+    "Initial five fixtures passed; expanded exact fresh-value and partial-workspace ACK coverage gave six passed",
+    "Control added; seven focused passed",
+    "Initial1540 workspace passed with unused u32 test-hook index warning; index removed instead of suppressed",
+    "Final1540 workspace clean, Clippy warnings denied and fmt check passed; five installed hashes unchanged"
+  ],
+  "tests": [
+    "Missing/extra/duplicate scopes, content/permission/root-path mutation, fresh self-consistent unwanted metadata rejected before ACK",
+    "Two actual workspaces shared24-byte two-pass read accepted,23 rejected, late second-workspace mutation rejects entire barrier",
+    "Injected verified/synced/reverified/acknowledged errors and partial first-workspace ACK: no success receipt; partial owner Uncertain; History reopen blocks implicit continuation",
+    "Mutation/cancel after fsync and cooperative pause/resume/cancel, receipt payload/seal/sequence, repeat/history prohibitions"
+  ],
+  "limits": [
+    "Sequential checks are not an atomic filesystem snapshot; later effects must revalidate current state",
+    "Current absolute ancestors, fresh original sources, visible native approval and helper/session lifetime still separate coordinator preconditions",
+    "Object creation/metadata reproduction/full execution/recovery/undo/UI Apply unfinished; manual append remains data declarations and produces no positive receipt",
+    "Full namespace walks and full journal readbacks cumulatively quadratic: BULK SCALING UNACCEPTED, no benchmark",
+    "fsync ACK and ordinary test/process exits do not prove power-loss durability or remote-filesystem outcomes",
+    "Resource/startup freeze, new-preview pause and native input/clipboard/AT-SPI/2x/lifetime/deadline/global gates remain open"
+  ],
+  "installed_hashes": "installed-hashes.json",
+  "source_sha256": {
+    "crates/core/src/directory_sync_journal.rs": "8b82002a1d16deba7b83b135084e59a2e89260d4c08cb705d4728240f0e8eb62",
+    "crates/core/src/directory_sync_journal/staging.rs": "7e193584c9151ac0063fbe0c67de591df3dddaa803a6b0ee648e68c20dc65298",
+    "crates/core/src/directory_sync_store.rs": "51226d0804591594d1418fe0f03d054d78ff2dc50d4465c78edb081cc9dd16d6",
+    "crates/core/src/directory_sync_store/linux/journal.rs": "c46a7d5447de346c332dd4c3418b3eb3e3f03542483413207e6ccda54bfa4353",
+    "crates/core/src/directory_sync_store/linux/journal/staging.rs": "98657e9485eb3c80a300903688aad5f818f64e7abfd1cbe9f1c42ce10b5ec690",
+    "crates/core/src/exdev_source.rs": "1fd9e3ea15e4f4620cb5c9f561ceb1c4a07f80ffc8b5e3c8d90ce61362c947ec",
+    "crates/core/src/exdev_source/linux/sync_metadata.rs": "2663c75fef8cbed10f50724bc5005973e7f0a4e30b7f61e60884b934ba717569",
+    "docs/DIRECTORY-SYNC-CONTRACT.md": "1a852ff669346d44abafaf48336edb40cbe2bdbb961febed87c3302dbe189098",
+    "docs/DIRECTORY-SYNC-JOURNAL.md": "2cb2652fb90d3b6d368420f1588a5e0fc30b5978a4cf009b662cb8402a2a4283",
+    "docs/DIRECTORY-SYNC-OWN-RENAME.md": "b64f3875d7c314e05d5373a23e5fb9f8e78025891cb2ead048bd42341b0cf93c",
+    "docs/DIRECTORY-SYNC-STAGING-BARRIER.md": "5f3bc63a117a4224f56bd95651950d0e331be28ca279ded417632c508e21a57b",
+    "docs/ROADMAP.md": "fbd509f49ae08f4b0713e56e25be02e8a582b6a85c967548ea7dc4c3fd487593"
+  }
+}

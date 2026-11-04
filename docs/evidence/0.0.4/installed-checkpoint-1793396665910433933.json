@@ -1,0 +1,40 @@
+{
+  "checkpoint": "09ca26c332b7567e4e1b6131eeb044430d548215",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/selection-tools/selection-tools-ui-1793396623817639503.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793396665852298200",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "b229969d45f5ca9c0669fb3d262790bc1a50e23cb2df8028dcc45f6684311912",
+      "release_sha256": "686ddaf2db84324a3ee6872ec19a51394686d23d53b7a2af38114552c6a59ba3",
+      "installed_sha256": "686ddaf2db84324a3ee6872ec19a51394686d23d53b7a2af38114552c6a59ba3"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "9df14eb603083ebaadcf0263403a129cfe72f969327defae221b218a064ef5a5",
+      "release_sha256": "9df14eb603083ebaadcf0263403a129cfe72f969327defae221b218a064ef5a5",
+      "installed_sha256": "9df14eb603083ebaadcf0263403a129cfe72f969327defae221b218a064ef5a5"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "release_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "release_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

@@ -1,0 +1,11 @@
+{
+  "scope": "fixture failed before app spawn; no source media played",
+  "failure": "pactl JSON modules omit index on this host, so ownership and cleanup parser failed",
+  "private_sink": "files_test_494443_1793095899839381418",
+  "recovered_module_id": 536870916,
+  "recovery": "exact module-null-sink and sink_name nonce matched in pactl short list; only that ID unloaded and absence verified",
+  "application_run": false,
+  "default_sink_changed": false,
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

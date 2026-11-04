@@ -1,0 +1,18 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Checking files-helper v0.0.4 (/home/avillagran/Work/files/crates/helper)
+error: called `unwrap` on `page` after checking its variant with `is_some`
+   --> crates/helper/src/search.rs:418:17
+    |
+408 |             if page.is_some()
+    |                -------------- the check is happening here
+...
+418 |                 page.as_mut().unwrap()(sequence, found_total, true, &report)?;
+    |                 ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: try using `if let` or `match`
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#unnecessary_unwrap
+    = note: `-D clippy::unnecessary-unwrap` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::unnecessary_unwrap)]`
+
+error: could not compile `files-helper` (bin "files-helper") due to 1 previous error

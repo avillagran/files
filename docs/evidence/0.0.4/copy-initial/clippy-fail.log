@@ -1,0 +1,38 @@
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error: field `closed` is never read
+   --> crates/ui/src/copy_job.rs:207:9
+    |
+202 | pub struct Poll {
+    |            ---- field in this struct
+...
+207 |     pub closed: bool,
+    |         ^^^^^^
+    |
+    = note: `Poll` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+    = note: `-D dead-code` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[expect(dead_code)]` or `#[allow(dead_code)]`
+
+error: field `request` is never read
+  --> crates/ui/src/copy_state.rs:83:9
+   |
+80 | pub struct Rejected {
+   |            -------- field in this struct
+...
+83 |     pub request: Request,
+   |         ^^^^^^^
+   |
+   = note: `Rejected` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+error: this expression creates a reference which is immediately dereferenced by the compiler
+  --> crates/ui/src/copy_dialog.rs:39:35
+   |
+39 |         self.destination.push_str(&text);
+   |                                   ^^^^^ help: change this to: `text`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#needless_borrow
+   = note: `-D clippy::needless-borrow` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::needless_borrow)]`
+
+error: could not compile `files-ui` (lib test) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `files-ui` (lib) due to 3 previous errors

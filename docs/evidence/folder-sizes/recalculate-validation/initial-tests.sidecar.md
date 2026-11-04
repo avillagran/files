@@ -1,0 +1,1 @@
+Original tests.log preserves E0433 in the new test: local Key/Shortcut imports were omitted. Added local imports; production queue behavior was not relaxed. final-tests.log is the subsequent full workspace 997 PASS; sorted-tests.log covers the later browser-sort invalidation path and retained focus. No test serialization.

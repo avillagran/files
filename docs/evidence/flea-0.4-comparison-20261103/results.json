@@ -1,0 +1,1098 @@
+[
+  {
+    "app": "files",
+    "count": 10000,
+    "rep": 0,
+    "pid": 825351,
+    "mapped_s": 0.09848784900532337,
+    "listing_state_ready_s": 0.09854248100600671,
+    "cpu_quiet_s": 0.847670018003555,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 19141,
+    "stable_pss_swap_kib": 19141,
+    "last_processes": [
+      {
+        "pid": 825351,
+        "start": 4801580,
+        "pss_kib": 19141,
+        "swap_pss_kib": 0,
+        "threads": 9,
+        "fds": 14
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [],
+    "flea_listing_state": null,
+    "loadavg": [
+      1.3662109375,
+      0.76806640625,
+      0.41845703125
+    ],
+    "samples": 122,
+    "sample_max_gap_s": 0.04749797499971464,
+    "exit_status": -15
+  },
+  {
+    "app": "flea",
+    "count": 10000,
+    "rep": 0,
+    "pid": 825412,
+    "mapped_s": 0.39766564599995036,
+    "listing_state_ready_s": 0.40208781199908117,
+    "cpu_quiet_s": 0.9272596750015509,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 110405,
+    "stable_pss_swap_kib": 109588,
+    "last_processes": [
+      {
+        "pid": 825412,
+        "start": 4802154,
+        "pss_kib": 96300,
+        "swap_pss_kib": 0,
+        "threads": 48,
+        "fds": 93
+      },
+      {
+        "pid": 825473,
+        "start": 4802188,
+        "pss_kib": 9272,
+        "swap_pss_kib": 0,
+        "threads": 6,
+        "fds": 8
+      },
+      {
+        "pid": 825482,
+        "start": 4802188,
+        "pss_kib": 3050,
+        "swap_pss_kib": 0,
+        "threads": 1,
+        "fds": 3
+      },
+      {
+        "pid": 825498,
+        "start": 4802189,
+        "pss_kib": 966,
+        "swap_pss_kib": 0,
+        "threads": 4,
+        "fds": 8
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "825412",
+        "type": "G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "3 MiB"
+      },
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "825412",
+        "type": "C+G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "30 MiB"
+      }
+    ],
+    "flea_listing_state": {
+      "held": 0,
+      "loaded": 320,
+      "windowSize": 330,
+      "total": 10000,
+      "shownTotal": 10000
+    },
+    "loadavg": [
+      1.25634765625,
+      0.7548828125,
+      0.416015625
+    ],
+    "samples": 107,
+    "sample_max_gap_s": 0.05706647400074871,
+    "exit_status": -15
+  },
+  {
+    "app": "flea",
+    "count": 10000,
+    "rep": 1,
+    "pid": 825608,
+    "mapped_s": 0.3505130530029419,
+    "listing_state_ready_s": 0.3541587020008592,
+    "cpu_quiet_s": 1.3478312770021148,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 111296,
+    "stable_pss_swap_kib": 110561.0,
+    "last_processes": [
+      {
+        "pid": 825608,
+        "start": 4802736,
+        "pss_kib": 97224,
+        "swap_pss_kib": 0,
+        "threads": 48,
+        "fds": 93
+      },
+      {
+        "pid": 825678,
+        "start": 4802767,
+        "pss_kib": 9224,
+        "swap_pss_kib": 0,
+        "threads": 6,
+        "fds": 8
+      },
+      {
+        "pid": 825687,
+        "start": 4802768,
+        "pss_kib": 3141,
+        "swap_pss_kib": 0,
+        "threads": 1,
+        "fds": 3
+      },
+      {
+        "pid": 825705,
+        "start": 4802769,
+        "pss_kib": 972,
+        "swap_pss_kib": 0,
+        "threads": 4,
+        "fds": 8
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "825608",
+        "type": "G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "3 MiB"
+      },
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "825608",
+        "type": "C+G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "30 MiB"
+      }
+    ],
+    "flea_listing_state": {
+      "held": 0,
+      "loaded": 320,
+      "windowSize": 330,
+      "total": 10000,
+      "shownTotal": 10000
+    },
+    "loadavg": [
+      1.1552734375,
+      0.7421875,
+      0.41357421875
+    ],
+    "samples": 108,
+    "sample_max_gap_s": 0.057488218997605145,
+    "exit_status": -15
+  },
+  {
+    "app": "files",
+    "count": 10000,
+    "rep": 1,
+    "pid": 825771,
+    "mapped_s": 0.09686881300149253,
+    "listing_state_ready_s": 0.09691950799606275,
+    "cpu_quiet_s": 0.8035797929987893,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 19369,
+    "stable_pss_swap_kib": 19363,
+    "last_processes": [
+      {
+        "pid": 825771,
+        "start": 4803311,
+        "pss_kib": 19369,
+        "swap_pss_kib": 0,
+        "threads": 9,
+        "fds": 14
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [],
+    "flea_listing_state": null,
+    "loadavg": [
+      1.0625,
+      0.7294921875,
+      0.4111328125
+    ],
+    "samples": 121,
+    "sample_max_gap_s": 0.04619949399784673,
+    "exit_status": -15
+  },
+  {
+    "app": "files",
+    "count": 10000,
+    "rep": 2,
+    "pid": 825861,
+    "mapped_s": 0.09692915999767138,
+    "listing_state_ready_s": 0.09698391299752984,
+    "cpu_quiet_s": 0.8855523270030972,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 19570,
+    "stable_pss_swap_kib": 19570,
+    "last_processes": [
+      {
+        "pid": 825861,
+        "start": 4803879,
+        "pss_kib": 19570,
+        "swap_pss_kib": 0,
+        "threads": 9,
+        "fds": 14
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [],
+    "flea_listing_state": null,
+    "loadavg": [
+      1.05712890625,
+      0.734375,
+      0.41455078125
+    ],
+    "samples": 122,
+    "sample_max_gap_s": 0.04644211100094253,
+    "exit_status": -15
+  },
+  {
+    "app": "flea",
+    "count": 10000,
+    "rep": 2,
+    "pid": 825906,
+    "mapped_s": 0.4024181860004319,
+    "listing_state_ready_s": 0.4062780469976133,
+    "cpu_quiet_s": 0.9338354379942757,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 111573,
+    "stable_pss_swap_kib": 110848.0,
+    "last_processes": [
+      {
+        "pid": 825906,
+        "start": 4804450,
+        "pss_kib": 97479,
+        "swap_pss_kib": 0,
+        "threads": 48,
+        "fds": 93
+      },
+      {
+        "pid": 825972,
+        "start": 4804485,
+        "pss_kib": 9401,
+        "swap_pss_kib": 0,
+        "threads": 6,
+        "fds": 8
+      },
+      {
+        "pid": 825982,
+        "start": 4804485,
+        "pss_kib": 2998,
+        "swap_pss_kib": 0,
+        "threads": 1,
+        "fds": 3
+      },
+      {
+        "pid": 825998,
+        "start": 4804487,
+        "pss_kib": 970,
+        "swap_pss_kib": 0,
+        "threads": 4,
+        "fds": 8
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "825906",
+        "type": "G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "3 MiB"
+      },
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "825906",
+        "type": "C+G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "30 MiB"
+      }
+    ],
+    "flea_listing_state": {
+      "held": 0,
+      "loaded": 320,
+      "windowSize": 330,
+      "total": 10000,
+      "shownTotal": 10000
+    },
+    "loadavg": [
+      1.0478515625,
+      0.74365234375,
+      0.42138671875
+    ],
+    "samples": 107,
+    "sample_max_gap_s": 0.05802246699749958,
+    "exit_status": -15
+  },
+  {
+    "app": "flea",
+    "count": 10000,
+    "rep": 3,
+    "pid": 826075,
+    "mapped_s": 0.4011234930003411,
+    "listing_state_ready_s": 0.4043455169958179,
+    "cpu_quiet_s": 0.941665763995843,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 111128,
+    "stable_pss_swap_kib": 110429.0,
+    "last_processes": [
+      {
+        "pid": 826075,
+        "start": 4805037,
+        "pss_kib": 97214,
+        "swap_pss_kib": 0,
+        "threads": 48,
+        "fds": 93
+      },
+      {
+        "pid": 826178,
+        "start": 4805069,
+        "pss_kib": 9349,
+        "swap_pss_kib": 0,
+        "threads": 6,
+        "fds": 8
+      },
+      {
+        "pid": 826187,
+        "start": 4805069,
+        "pss_kib": 2899,
+        "swap_pss_kib": 0,
+        "threads": 1,
+        "fds": 3
+      },
+      {
+        "pid": 826204,
+        "start": 4805071,
+        "pss_kib": 967,
+        "swap_pss_kib": 0,
+        "threads": 4,
+        "fds": 8
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "826075",
+        "type": "G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "3 MiB"
+      },
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "826075",
+        "type": "C+G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "30 MiB"
+      }
+    ],
+    "flea_listing_state": {
+      "held": 0,
+      "loaded": 320,
+      "windowSize": 330,
+      "total": 10000,
+      "shownTotal": 10000
+    },
+    "loadavg": [
+      0.9638671875,
+      0.73095703125,
+      0.4189453125
+    ],
+    "samples": 107,
+    "sample_max_gap_s": 0.055708978994516656,
+    "exit_status": -15
+  },
+  {
+    "app": "files",
+    "count": 10000,
+    "rep": 3,
+    "pid": 826309,
+    "mapped_s": 0.09631551100028446,
+    "listing_state_ready_s": 0.09636571600276511,
+    "cpu_quiet_s": 0.8029494950023945,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 19330,
+    "stable_pss_swap_kib": 19330,
+    "last_processes": [
+      {
+        "pid": 826309,
+        "start": 4805624,
+        "pss_kib": 19330,
+        "swap_pss_kib": 0,
+        "threads": 9,
+        "fds": 14
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [],
+    "flea_listing_state": null,
+    "loadavg": [
+      1.126953125,
+      0.76904296875,
+      0.43310546875
+    ],
+    "samples": 122,
+    "sample_max_gap_s": 0.04578968299756525,
+    "exit_status": -15
+  },
+  {
+    "app": "files",
+    "count": 100000,
+    "rep": 0,
+    "pid": 826358,
+    "mapped_s": 0.09877508899808163,
+    "listing_state_ready_s": 0.6029418090038234,
+    "cpu_quiet_s": 1.1058053450033185,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 33095,
+    "stable_pss_swap_kib": 33095,
+    "last_processes": [
+      {
+        "pid": 826358,
+        "start": 4806225,
+        "pss_kib": 33095,
+        "swap_pss_kib": 0,
+        "threads": 9,
+        "fds": 14
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [],
+    "flea_listing_state": null,
+    "loadavg": [
+      1.03662109375,
+      0.755859375,
+      0.4306640625
+    ],
+    "samples": 121,
+    "sample_max_gap_s": 0.04729539999971166,
+    "exit_status": -15
+  },
+  {
+    "app": "flea",
+    "count": 100000,
+    "rep": 0,
+    "pid": 826460,
+    "mapped_s": 0.40752232300292235,
+    "listing_state_ready_s": 0.4115506509988336,
+    "cpu_quiet_s": 0.9413182600037544,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 113615,
+    "stable_pss_swap_kib": 112894,
+    "last_processes": [
+      {
+        "pid": 826460,
+        "start": 4806793,
+        "pss_kib": 97321,
+        "swap_pss_kib": 0,
+        "threads": 49,
+        "fds": 93
+      },
+      {
+        "pid": 826520,
+        "start": 4806826,
+        "pss_kib": 11535,
+        "swap_pss_kib": 0,
+        "threads": 6,
+        "fds": 8
+      },
+      {
+        "pid": 826529,
+        "start": 4806826,
+        "pss_kib": 3076,
+        "swap_pss_kib": 0,
+        "threads": 1,
+        "fds": 3
+      },
+      {
+        "pid": 826541,
+        "start": 4806828,
+        "pss_kib": 962,
+        "swap_pss_kib": 0,
+        "threads": 4,
+        "fds": 8
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "826460",
+        "type": "G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "3 MiB"
+      },
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "826460",
+        "type": "C+G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "30 MiB"
+      }
+    ],
+    "flea_listing_state": {
+      "held": 0,
+      "loaded": 320,
+      "windowSize": 330,
+      "total": 100000,
+      "shownTotal": 100000
+    },
+    "loadavg": [
+      0.953125,
+      0.7431640625,
+      0.42822265625
+    ],
+    "samples": 107,
+    "sample_max_gap_s": 0.05795765500079142,
+    "exit_status": -15
+  },
+  {
+    "app": "flea",
+    "count": 100000,
+    "rep": 1,
+    "pid": 826614,
+    "mapped_s": 0.4047846910034423,
+    "listing_state_ready_s": 0.40911672900256235,
+    "cpu_quiet_s": 0.9373404110010597,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 113835,
+    "stable_pss_swap_kib": 113148.0,
+    "last_processes": [
+      {
+        "pid": 826614,
+        "start": 4807370,
+        "pss_kib": 97379,
+        "swap_pss_kib": 0,
+        "threads": 48,
+        "fds": 93
+      },
+      {
+        "pid": 826674,
+        "start": 4807403,
+        "pss_kib": 11731,
+        "swap_pss_kib": 0,
+        "threads": 6,
+        "fds": 8
+      },
+      {
+        "pid": 826683,
+        "start": 4807403,
+        "pss_kib": 3067,
+        "swap_pss_kib": 0,
+        "threads": 1,
+        "fds": 3
+      },
+      {
+        "pid": 826695,
+        "start": 4807406,
+        "pss_kib": 971,
+        "swap_pss_kib": 0,
+        "threads": 4,
+        "fds": 8
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "826614",
+        "type": "G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "3 MiB"
+      },
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "826614",
+        "type": "C+G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "30 MiB"
+      }
+    ],
+    "flea_listing_state": {
+      "held": 0,
+      "loaded": 320,
+      "windowSize": 330,
+      "total": 100000,
+      "shownTotal": 100000
+    },
+    "loadavg": [
+      1.037109375,
+      0.76416015625,
+      0.43701171875
+    ],
+    "samples": 108,
+    "sample_max_gap_s": 0.056496133998734877,
+    "exit_status": -15
+  },
+  {
+    "app": "files",
+    "count": 100000,
+    "rep": 1,
+    "pid": 826778,
+    "mapped_s": 0.0996737059977022,
+    "listing_state_ready_s": 0.6027006419972167,
+    "cpu_quiet_s": 1.143799831996148,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 33399,
+    "stable_pss_swap_kib": 33399,
+    "last_processes": [
+      {
+        "pid": 826778,
+        "start": 4807957,
+        "pss_kib": 33399,
+        "swap_pss_kib": 0,
+        "threads": 9,
+        "fds": 14
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [],
+    "flea_listing_state": null,
+    "loadavg": [
+      1.03759765625,
+      0.7724609375,
+      0.443359375
+    ],
+    "samples": 121,
+    "sample_max_gap_s": 0.04706804799934616,
+    "exit_status": -15
+  },
+  {
+    "app": "files",
+    "count": 100000,
+    "rep": 2,
+    "pid": 826942,
+    "mapped_s": 0.09969792500487529,
+    "listing_state_ready_s": 0.6013184510011342,
+    "cpu_quiet_s": 1.1423143850042834,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 33446,
+    "stable_pss_swap_kib": 33446,
+    "last_processes": [
+      {
+        "pid": 826942,
+        "start": 4808527,
+        "pss_kib": 33446,
+        "swap_pss_kib": 0,
+        "threads": 9,
+        "fds": 14
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [],
+    "flea_listing_state": null,
+    "loadavg": [
+      0.9541015625,
+      0.75927734375,
+      0.44091796875
+    ],
+    "samples": 121,
+    "sample_max_gap_s": 0.04729915300413268,
+    "exit_status": -15
+  },
+  {
+    "app": "flea",
+    "count": 100000,
+    "rep": "2-retry",
+    "pid": 827310,
+    "mapped_s": 0.40367269300622866,
+    "listing_state_ready_s": 0.4071947420015931,
+    "cpu_quiet_s": 0.9364635550009552,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 114022,
+    "stable_pss_swap_kib": 113256.0,
+    "last_processes": [
+      {
+        "pid": 827310,
+        "start": 4811379,
+        "pss_kib": 97433,
+        "swap_pss_kib": 0,
+        "threads": 48,
+        "fds": 93
+      },
+      {
+        "pid": 827373,
+        "start": 4811413,
+        "pss_kib": 11754,
+        "swap_pss_kib": 0,
+        "threads": 6,
+        "fds": 8
+      },
+      {
+        "pid": 827382,
+        "start": 4811413,
+        "pss_kib": 3089,
+        "swap_pss_kib": 0,
+        "threads": 1,
+        "fds": 3
+      },
+      {
+        "pid": 827394,
+        "start": 4811415,
+        "pss_kib": 980,
+        "swap_pss_kib": 0,
+        "threads": 4,
+        "fds": 8
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "827310",
+        "type": "G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "3 MiB"
+      },
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "827310",
+        "type": "C+G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "30 MiB"
+      }
+    ],
+    "flea_listing_state": {
+      "held": 0,
+      "loaded": 320,
+      "windowSize": 330,
+      "total": 100000,
+      "shownTotal": 100000
+    },
+    "loadavg": [
+      1.0380859375,
+      0.79443359375,
+      0.4609375
+    ],
+    "samples": 108,
+    "sample_max_gap_s": 0.0588703239991446,
+    "exit_status": -15
+  },
+  {
+    "app": "flea",
+    "count": 100000,
+    "rep": 3,
+    "pid": 827476,
+    "mapped_s": 0.4043914170033531,
+    "listing_state_ready_s": 0.4086625210038619,
+    "cpu_quiet_s": 1.0293724130024202,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 114017,
+    "stable_pss_swap_kib": 113203.0,
+    "last_processes": [
+      {
+        "pid": 827476,
+        "start": 4811963,
+        "pss_kib": 97618,
+        "swap_pss_kib": 0,
+        "threads": 48,
+        "fds": 93
+      },
+      {
+        "pid": 827536,
+        "start": 4811996,
+        "pss_kib": 11578,
+        "swap_pss_kib": 0,
+        "threads": 6,
+        "fds": 8
+      },
+      {
+        "pid": 827545,
+        "start": 4811996,
+        "pss_kib": 3029,
+        "swap_pss_kib": 0,
+        "threads": 1,
+        "fds": 3
+      },
+      {
+        "pid": 827557,
+        "start": 4811998,
+        "pss_kib": 978,
+        "swap_pss_kib": 0,
+        "threads": 4,
+        "fds": 8
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "827476",
+        "type": "G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "3 MiB"
+      },
+      {
+        "gpu_instance_id": "N/A",
+        "compute_instance_id": "N/A",
+        "pid": "827476",
+        "type": "C+G",
+        "process_name": "/var/tmp/files-flea-comparison-20261103/flea/flea-0.4.0-linux-x86_64/flea-gui",
+        "used_memory": "30 MiB"
+      }
+    ],
+    "flea_listing_state": {
+      "held": 0,
+      "loaded": 320,
+      "windowSize": 330,
+      "total": 100000,
+      "shownTotal": 100000
+    },
+    "loadavg": [
+      1.2529296875,
+      0.8505859375,
+      0.48291015625
+    ],
+    "samples": 108,
+    "sample_max_gap_s": 0.057299778003653046,
+    "exit_status": -15
+  },
+  {
+    "app": "files",
+    "count": 100000,
+    "rep": 3,
+    "pid": 827616,
+    "mapped_s": 0.09902057699946454,
+    "listing_state_ready_s": 0.6028599060009583,
+    "cpu_quiet_s": 1.391234454997175,
+    "geometry": {
+      "size": [
+        655,
+        836
+      ],
+      "at": [
+        1253,
+        232
+      ],
+      "xwayland": false,
+      "floating": false,
+      "monitor": 0
+    },
+    "peak_pss_swap_kib": 33423,
+    "stable_pss_swap_kib": 33423,
+    "last_processes": [
+      {
+        "pid": 827616,
+        "start": 4812540,
+        "pss_kib": 33423,
+        "swap_pss_kib": 0,
+        "threads": 9,
+        "fds": 14
+      }
+    ],
+    "sample_errors": [],
+    "gpu_nvidia": [],
+    "flea_listing_state": null,
+    "loadavg": [
+      1.15234375,
+      0.83642578125,
+      0.47998046875
+    ],
+    "samples": 121,
+    "sample_max_gap_s": 0.04636465099611087,
+    "exit_status": -15
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/toolkit-theme-initial-1793181908994446894.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/toolkit-theme-partial-retained-1793181909278541652.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/toolkit-theme-reloaded-1793181909582413081.png"
+  ],
+  "method": "FLTK framebuffer and internal smoke actions; no native input",
+  "initial_pixels": 374884,
+  "retained_pixels": 374884,
+  "reloaded_pixels": 374884,
+  "normal_exit": true,
+  "symlink_swap": true,
+  "partial_write_retained": true,
+  "user_shell_font_read": true,
+  "square_survives_reload": true,
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=66658\nFILES_UI_SMOKE_OK entries=1\nFILES_CAPTURE_OK\nFILES_THEME_TOOLKIT_REJECTED initial=false\nFILES_CAPTURE_OK\nFILES_THEME_TOOLKIT_REJECTED initial=false\nFILES_THEME_TOOLKIT background=#243749 corners=square radius=0 font_base=14\nFILES_CAPTURE_OK\n",
+  "binary_sha256": "3e02f1a9837021e8806d23303a178c946cb84fb27ad824a4c15edaa02139c8c6",
+  "helper_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

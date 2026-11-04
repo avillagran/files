@@ -1,0 +1,8 @@
+{
+  "first_workspace_attempt": "NOT_STARTED, gate wrapper exit75 after original known Cargo exited and next observed Cargo2358539 remained live; no workspace test log created",
+  "observed_initial_pid": 2347883,
+  "observed_next_pid": 2358539,
+  "competition_untouched": true,
+  "next_source_change": "Preserve identical symlink attributes while refusing changes; add wrong desired owner preflight assertion",
+  "performance_experiment": false
+}

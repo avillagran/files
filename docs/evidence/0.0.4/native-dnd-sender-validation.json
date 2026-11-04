@@ -1,0 +1,24 @@
+{
+  "scope": "M29c sender partial; native input and Wayland interoperability unvalidated",
+  "workspace_tests": {
+    "core_pass": 208,
+    "core_ignored": 3,
+    "helper_pass": 67,
+    "ui_pass": 373,
+    "exit": 0
+  },
+  "clippy_exit": 0,
+  "fmt_exit": 0,
+  "release_exit": 0,
+  "native_fixture": "target/native-dnd-sender-native-test.log",
+  "native_fixture_scope": "actual C++ translation unit; fake proxies; successful dispatch enters already-admitted helper; no compositor, real focus or button grab; completion marks cleanup, no complete proxy teardown claim",
+  "scene_pass": "clipboard-ui-1793136958438850356.json",
+  "scene_scope": "13 real framebuffer captures, isolated handlers and AuxIo source proof, COPY payload, final dispatch stub, private Cut preserved, two normal exit0 after drain; no OS input",
+  "scene_failure": "clipboard-ui-1793136933634122245.json",
+  "scene_failure_scope": "FAIL own-text paste after event loop; retry PASS, cause unknown; no global stable clipboard claim",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "binary_sha256": "68736073cda95a93b2609482c201f34c6a494c0602b6ad5bec57353c366bf807",
+  "helper_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

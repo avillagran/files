@@ -1,0 +1,43 @@
+{
+  "checkpoint": "a043bd895f9ab400b33bb64b4c3c7a71b6970bd1",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/usability/usability-ui-1793391790104300795.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793391834040083857",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "390a4f1f03de681118be6f385a6e77505166ef64e132dc27d835a11d881be295",
+      "release_sha256": "11c95e69974231ab25085947349b1fb456f3ec362f19c1f82014683e635e40a4",
+      "installed_sha256": "11c95e69974231ab25085947349b1fb456f3ec362f19c1f82014683e635e40a4"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7",
+      "release_sha256": "e7f835ba69a90bf0619d696abc1da3faf0c06a68a66d5ffcef82074cf23594e3",
+      "installed_sha256": "e7f835ba69a90bf0619d696abc1da3faf0c06a68a66d5ffcef82074cf23594e3"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "release_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "release_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "validated_source_commit": "0f410196aaa60359076f324cb791bb670a74ea72",
+  "source_state_at_install": "Installed from validated working tree before source commit; artifact hashes match functional scenes. checkpoint field records actual HEAD at installation.",
+  "additional_validation_report": "docs/evidence/usability/usability-ui-1793391860625293505.json"
+}

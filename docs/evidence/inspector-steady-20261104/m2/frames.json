@@ -1,0 +1,1118 @@
+[
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-0-1793780313927166769.ppm",
+    "archive": "wayland-steady-0-1793780313927166769.ppm.gz",
+    "raw_sha256": "35ef9953544374965886606d9909e1808c0e7e2d188cae76a57b9163dccc9345",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-1-1793780314009015340.ppm",
+    "archive": "wayland-steady-1-1793780314009015340.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-2-1793780314090455034.ppm",
+    "archive": "wayland-steady-2-1793780314090455034.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-3-1793780314172039395.ppm",
+    "archive": "wayland-steady-3-1793780314172039395.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-4-1793780314253318339.ppm",
+    "archive": "wayland-steady-4-1793780314253318339.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-5-1793780314335049451.ppm",
+    "archive": "wayland-steady-5-1793780314335049451.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-6-1793780314418154944.ppm",
+    "archive": "wayland-steady-6-1793780314418154944.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-7-1793780314489767094.ppm",
+    "archive": "wayland-steady-7-1793780314489767094.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-8-1793780314572415752.ppm",
+    "archive": "wayland-steady-8-1793780314572415752.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-9-1793780314644783489.ppm",
+    "archive": "wayland-steady-9-1793780314644783489.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-10-1793780314716541432.ppm",
+    "archive": "wayland-steady-10-1793780314716541432.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-11-1793780314788236666.ppm",
+    "archive": "wayland-steady-11-1793780314788236666.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-12-1793780314860036817.ppm",
+    "archive": "wayland-steady-12-1793780314860036817.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-13-1793780314932098470.ppm",
+    "archive": "wayland-steady-13-1793780314932098470.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-14-1793780315003903330.ppm",
+    "archive": "wayland-steady-14-1793780315003903330.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-15-1793780315076140025.ppm",
+    "archive": "wayland-steady-15-1793780315076140025.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-16-1793780315159445227.ppm",
+    "archive": "wayland-steady-16-1793780315159445227.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-17-1793780315232148215.ppm",
+    "archive": "wayland-steady-17-1793780315232148215.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-18-1793780315314548789.ppm",
+    "archive": "wayland-steady-18-1793780315314548789.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-19-1793780315397715615.ppm",
+    "archive": "wayland-steady-19-1793780315397715615.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-20-1793780315481064026.ppm",
+    "archive": "wayland-steady-20-1793780315481064026.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-21-1793780315564611146.ppm",
+    "archive": "wayland-steady-21-1793780315564611146.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-22-1793780315647650556.ppm",
+    "archive": "wayland-steady-22-1793780315647650556.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-23-1793780315731238218.ppm",
+    "archive": "wayland-steady-23-1793780315731238218.ppm.gz",
+    "raw_sha256": "962789f8240f2d3d12f71784f5f3a807f1c9193ebf35963ee35e987c1bd41bf5",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-24-1793780315804205541.ppm",
+    "archive": "wayland-steady-24-1793780315804205541.ppm.gz",
+    "raw_sha256": "16929d871261b0bbb9c5d5ba78fd9bf7e771f887974ef6f71945843fdc7a4fba",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-25-1793780315887364284.ppm",
+    "archive": "wayland-steady-25-1793780315887364284.ppm.gz",
+    "raw_sha256": "16929d871261b0bbb9c5d5ba78fd9bf7e771f887974ef6f71945843fdc7a4fba",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-26-1793780315960342357.ppm",
+    "archive": "wayland-steady-26-1793780315960342357.ppm.gz",
+    "raw_sha256": "16929d871261b0bbb9c5d5ba78fd9bf7e771f887974ef6f71945843fdc7a4fba",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-27-1793780316032077633.ppm",
+    "archive": "wayland-steady-27-1793780316032077633.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-28-1793780316113661953.ppm",
+    "archive": "wayland-steady-28-1793780316113661953.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-29-1793780316184994352.ppm",
+    "archive": "wayland-steady-29-1793780316184994352.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-30-1793780316267028424.ppm",
+    "archive": "wayland-steady-30-1793780316267028424.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-31-1793780316350753337.ppm",
+    "archive": "wayland-steady-31-1793780316350753337.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-32-1793780316433906413.ppm",
+    "archive": "wayland-steady-32-1793780316433906413.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-33-1793780316506960237.ppm",
+    "archive": "wayland-steady-33-1793780316506960237.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-34-1793780316589941438.ppm",
+    "archive": "wayland-steady-34-1793780316589941438.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-35-1793780316673318474.ppm",
+    "archive": "wayland-steady-35-1793780316673318474.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-36-1793780316755521129.ppm",
+    "archive": "wayland-steady-36-1793780316755521129.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-37-1793780316838595414.ppm",
+    "archive": "wayland-steady-37-1793780316838595414.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-38-1793780316921310780.ppm",
+    "archive": "wayland-steady-38-1793780316921310780.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-39-1793780317003495186.ppm",
+    "archive": "wayland-steady-39-1793780317003495186.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-40-1793780317086579387.ppm",
+    "archive": "wayland-steady-40-1793780317086579387.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-41-1793780317158492164.ppm",
+    "archive": "wayland-steady-41-1793780317158492164.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-42-1793780317230068064.ppm",
+    "archive": "wayland-steady-42-1793780317230068064.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-43-1793780317312068844.ppm",
+    "archive": "wayland-steady-43-1793780317312068844.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-44-1793780317384750250.ppm",
+    "archive": "wayland-steady-44-1793780317384750250.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-45-1793780317456439400.ppm",
+    "archive": "wayland-steady-45-1793780317456439400.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-46-1793780317538409555.ppm",
+    "archive": "wayland-steady-46-1793780317538409555.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-47-1793780317610777292.ppm",
+    "archive": "wayland-steady-47-1793780317610777292.ppm.gz",
+    "raw_sha256": "830875bba56a9683007a4219e1eece37d5c8c2c1550cfb4a423c0191b640b662",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-held-1793780317703396661.ppm",
+    "archive": "wayland-held-1793780317703396661.ppm.gz",
+    "raw_sha256": "704a649b44fd9e6affb3d3de8ee412970f74114de54d28c40661a34aac1e99a8",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-released-1793780317796016779.ppm",
+    "archive": "wayland-released-1793780317796016779.ppm.gz",
+    "raw_sha256": "ee7727c5b7e1de9a3743dd19e1f579f1b7c108ab5f83b506e273e3d9f38cca3d",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-0-1793780318469902389.ppm",
+    "archive": "wayland-async-0-1793780318469902389.ppm.gz",
+    "raw_sha256": "ee7727c5b7e1de9a3743dd19e1f579f1b7c108ab5f83b506e273e3d9f38cca3d",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-1-1793780319143126288.ppm",
+    "archive": "wayland-async-1-1793780319143126288.ppm.gz",
+    "raw_sha256": "ee7727c5b7e1de9a3743dd19e1f579f1b7c108ab5f83b506e273e3d9f38cca3d",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-2-1793780319817749609.ppm",
+    "archive": "wayland-async-2-1793780319817749609.ppm.gz",
+    "raw_sha256": "43aefa780a9af648c20251aafcddc6272025d13f99c338eed8694223bc12dc84",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-3-1793780320481322673.ppm",
+    "archive": "wayland-async-3-1793780320481322673.ppm.gz",
+    "raw_sha256": "43aefa780a9af648c20251aafcddc6272025d13f99c338eed8694223bc12dc84",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-4-1793780321144296776.ppm",
+    "archive": "wayland-async-4-1793780321144296776.ppm.gz",
+    "raw_sha256": "43aefa780a9af648c20251aafcddc6272025d13f99c338eed8694223bc12dc84",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-1793780321270542543.ppm",
+    "archive": "wayland-overlap-1793780321270542543.ppm.gz",
+    "raw_sha256": "c0eeaa9fc848fe738a4423549f3a5531b7189182eeac27950c6aba4c048beb2f",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-0-1793780321933229854.ppm",
+    "archive": "wayland-overlap-0-1793780321933229854.ppm.gz",
+    "raw_sha256": "c0eeaa9fc848fe738a4423549f3a5531b7189182eeac27950c6aba4c048beb2f",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-1-1793780322597090794.ppm",
+    "archive": "wayland-overlap-1-1793780322597090794.ppm.gz",
+    "raw_sha256": "c0eeaa9fc848fe738a4423549f3a5531b7189182eeac27950c6aba4c048beb2f",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-2-1793780323260817942.ppm",
+    "archive": "wayland-overlap-2-1793780323260817942.ppm.gz",
+    "raw_sha256": "c0eeaa9fc848fe738a4423549f3a5531b7189182eeac27950c6aba4c048beb2f",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-3-1793780323924678424.ppm",
+    "archive": "wayland-overlap-3-1793780323924678424.ppm.gz",
+    "raw_sha256": "c0eeaa9fc848fe738a4423549f3a5531b7189182eeac27950c6aba4c048beb2f",
+    "report": "report-1793780323993594104.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-0-1793780389487985592.ppm",
+    "archive": "wayland-steady-0-1793780389487985592.ppm.gz",
+    "raw_sha256": "5a03d61a99f202f3d621b13efbf1a8175f55344776a50b5b0ec41ac47d940598",
+    "report": "report-1793780389576728819.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-1-1793780389560147287.ppm",
+    "archive": "wayland-steady-1-1793780389560147287.ppm.gz",
+    "raw_sha256": "da64bb543af3a2740f19da59ddd0f41a0d0399947bdb0fbcbf3fb7b8539af667",
+    "report": "report-1793780389576728819.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-0-1793780517087754359.ppm",
+    "archive": "wayland-steady-0-1793780517087754359.ppm.gz",
+    "raw_sha256": "9ec7fa0eda0b88c06a5139f86ac2f61d83b19faa86cfefae279f825d54837087",
+    "report": "report-1793780517195966922.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-1-1793780517160290097.ppm",
+    "archive": "wayland-steady-1-1793780517160290097.ppm.gz",
+    "raw_sha256": "4ae0df1023e9e53ddc6405b6119f02e0827a4b85ac41a6e2719671abac897913",
+    "report": "report-1793780517195966922.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-0-1793780795182310543.ppm",
+    "archive": "wayland-steady-0-1793780795182310543.ppm.gz",
+    "raw_sha256": "cc2b901607be722c3d0401f0c83b89998673af6da0990be978d407920b2ca7f2",
+    "report": "report-1793780795299912023.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-1-1793780795254916490.ppm",
+    "archive": "wayland-steady-1-1793780795254916490.ppm.gz",
+    "raw_sha256": "00c08ac8681f13f10fef4d2a38f3c279da1ac09aa1ef644ae3112b4452daeaba",
+    "report": "report-1793780795299912023.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-0-1793781054670286340.ppm",
+    "archive": "wayland-steady-0-1793781054670286340.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-1-1793781054743025912.ppm",
+    "archive": "wayland-steady-1-1793781054743025912.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-2-1793781054814694939.ppm",
+    "archive": "wayland-steady-2-1793781054814694939.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-3-1793781054886522090.ppm",
+    "archive": "wayland-steady-3-1793781054886522090.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-4-1793781054958135866.ppm",
+    "archive": "wayland-steady-4-1793781054958135866.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-5-1793781055029767476.ppm",
+    "archive": "wayland-steady-5-1793781055029767476.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-6-1793781055111971632.ppm",
+    "archive": "wayland-steady-6-1793781055111971632.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-7-1793781055195312876.ppm",
+    "archive": "wayland-steady-7-1793781055195312876.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-8-1793781055278494995.ppm",
+    "archive": "wayland-steady-8-1793781055278494995.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-9-1793781055351709028.ppm",
+    "archive": "wayland-steady-9-1793781055351709028.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-10-1793781055424159849.ppm",
+    "archive": "wayland-steady-10-1793781055424159849.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-11-1793781055495541624.ppm",
+    "archive": "wayland-steady-11-1793781055495541624.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-12-1793781055567007816.ppm",
+    "archive": "wayland-steady-12-1793781055567007816.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-13-1793781055638211507.ppm",
+    "archive": "wayland-steady-13-1793781055638211507.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-14-1793781055711309914.ppm",
+    "archive": "wayland-steady-14-1793781055711309914.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-15-1793781055787420085.ppm",
+    "archive": "wayland-steady-15-1793781055787420085.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-16-1793781055862873086.ppm",
+    "archive": "wayland-steady-16-1793781055862873086.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-17-1793781055938859798.ppm",
+    "archive": "wayland-steady-17-1793781055938859798.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-18-1793781056014895011.ppm",
+    "archive": "wayland-steady-18-1793781056014895011.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-19-1793781056100494682.ppm",
+    "archive": "wayland-steady-19-1793781056100494682.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-20-1793781056188374280.ppm",
+    "archive": "wayland-steady-20-1793781056188374280.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-21-1793781056274757204.ppm",
+    "archive": "wayland-steady-21-1793781056274757204.ppm.gz",
+    "raw_sha256": "ae5cb241bf51385a0460dcab697eca28a0ee7eabe056cfeee4182f7fe0fae6ec",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-22-1793781056357111195.ppm",
+    "archive": "wayland-steady-22-1793781056357111195.ppm.gz",
+    "raw_sha256": "b8ead9ccb441136e63303086ad86fd17c074183d9f0582b888067b26f0e68d94",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-23-1793781056429198348.ppm",
+    "archive": "wayland-steady-23-1793781056429198348.ppm.gz",
+    "raw_sha256": "b8ead9ccb441136e63303086ad86fd17c074183d9f0582b888067b26f0e68d94",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-24-1793781056511534629.ppm",
+    "archive": "wayland-steady-24-1793781056511534629.ppm.gz",
+    "raw_sha256": "b8ead9ccb441136e63303086ad86fd17c074183d9f0582b888067b26f0e68d94",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-25-1793781056593333784.ppm",
+    "archive": "wayland-steady-25-1793781056593333784.ppm.gz",
+    "raw_sha256": "b8ead9ccb441136e63303086ad86fd17c074183d9f0582b888067b26f0e68d94",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-26-1793781056675138438.ppm",
+    "archive": "wayland-steady-26-1793781056675138438.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-27-1793781056757684346.ppm",
+    "archive": "wayland-steady-27-1793781056757684346.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-28-1793781056840181045.ppm",
+    "archive": "wayland-steady-28-1793781056840181045.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-29-1793781056912943951.ppm",
+    "archive": "wayland-steady-29-1793781056912943951.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-30-1793781056984843937.ppm",
+    "archive": "wayland-steady-30-1793781056984843937.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-31-1793781057056522213.ppm",
+    "archive": "wayland-steady-31-1793781057056522213.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-32-1793781057139463789.ppm",
+    "archive": "wayland-steady-32-1793781057139463789.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-33-1793781057222335406.ppm",
+    "archive": "wayland-steady-33-1793781057222335406.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-34-1793781057304172311.ppm",
+    "archive": "wayland-steady-34-1793781057304172311.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-35-1793781057387049387.ppm",
+    "archive": "wayland-steady-35-1793781057387049387.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-36-1793781057469656253.ppm",
+    "archive": "wayland-steady-36-1793781057469656253.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-37-1793781057552378036.ppm",
+    "archive": "wayland-steady-37-1793781057552378036.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-38-1793781057643996109.ppm",
+    "archive": "wayland-steady-38-1793781057643996109.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-39-1793781057725873931.ppm",
+    "archive": "wayland-steady-39-1793781057725873931.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-40-1793781057808160379.ppm",
+    "archive": "wayland-steady-40-1793781057808160379.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-41-1793781057890836371.ppm",
+    "archive": "wayland-steady-41-1793781057890836371.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-42-1793781057964296988.ppm",
+    "archive": "wayland-steady-42-1793781057964296988.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-43-1793781058036659184.ppm",
+    "archive": "wayland-steady-43-1793781058036659184.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-44-1793781058109336714.ppm",
+    "archive": "wayland-steady-44-1793781058109336714.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-45-1793781058182150329.ppm",
+    "archive": "wayland-steady-45-1793781058182150329.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-46-1793781058264051775.ppm",
+    "archive": "wayland-steady-46-1793781058264051775.ppm.gz",
+    "raw_sha256": "913e46b2fddaa1825f122a213861c3c688622e4400f0144dce429101e899ac0d",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-47-1793781058347284978.ppm",
+    "archive": "wayland-steady-47-1793781058347284978.ppm.gz",
+    "raw_sha256": "d1214828e21c6508fd795bb0cb986c2676a0da907ca3e98953030c6fbbb363b0",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-held-1793781058451135522.ppm",
+    "archive": "wayland-held-1793781058451135522.ppm.gz",
+    "raw_sha256": "7bde68e3fb4136975d82e81abd801bcab9203c083de0be0a0b3bd0d31a14afd5",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-released-1793781058545090563.ppm",
+    "archive": "wayland-released-1793781058545090563.ppm.gz",
+    "raw_sha256": "7bde68e3fb4136975d82e81abd801bcab9203c083de0be0a0b3bd0d31a14afd5",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-0-1793781059210001470.ppm",
+    "archive": "wayland-async-0-1793781059210001470.ppm.gz",
+    "raw_sha256": "7bde68e3fb4136975d82e81abd801bcab9203c083de0be0a0b3bd0d31a14afd5",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-1-1793781059888162644.ppm",
+    "archive": "wayland-async-1-1793781059888162644.ppm.gz",
+    "raw_sha256": "7bde68e3fb4136975d82e81abd801bcab9203c083de0be0a0b3bd0d31a14afd5",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-2-1793781060557108943.ppm",
+    "archive": "wayland-async-2-1793781060557108943.ppm.gz",
+    "raw_sha256": "a8663fb2635ecd881f1aa42ae136b6a22fbff7747de2edfec5930f5033858046",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-3-1793781061236060162.ppm",
+    "archive": "wayland-async-3-1793781061236060162.ppm.gz",
+    "raw_sha256": "a8663fb2635ecd881f1aa42ae136b6a22fbff7747de2edfec5930f5033858046",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-4-1793781061915208466.ppm",
+    "archive": "wayland-async-4-1793781061915208466.ppm.gz",
+    "raw_sha256": "a8663fb2635ecd881f1aa42ae136b6a22fbff7747de2edfec5930f5033858046",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-1793781062066959722.ppm",
+    "archive": "wayland-overlap-1793781062066959722.ppm.gz",
+    "raw_sha256": "861fd9447b598fa3dd1c829504612651e4384a6c6066952e60c3042650df7f20",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-0-1793781062734496015.ppm",
+    "archive": "wayland-overlap-0-1793781062734496015.ppm.gz",
+    "raw_sha256": "861fd9447b598fa3dd1c829504612651e4384a6c6066952e60c3042650df7f20",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-1-1793781063402928188.ppm",
+    "archive": "wayland-overlap-1-1793781063402928188.ppm.gz",
+    "raw_sha256": "861fd9447b598fa3dd1c829504612651e4384a6c6066952e60c3042650df7f20",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-2-1793781064082120949.ppm",
+    "archive": "wayland-overlap-2-1793781064082120949.ppm.gz",
+    "raw_sha256": "861fd9447b598fa3dd1c829504612651e4384a6c6066952e60c3042650df7f20",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-3-1793781064762141423.ppm",
+    "archive": "wayland-overlap-3-1793781064762141423.ppm.gz",
+    "raw_sha256": "861fd9447b598fa3dd1c829504612651e4384a6c6066952e60c3042650df7f20",
+    "report": "report-1793781064842110986.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-0-1793781089915039792.ppm",
+    "archive": "wayland-steady-0-1793781089915039792.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-1-1793781089986888194.ppm",
+    "archive": "wayland-steady-1-1793781089986888194.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-2-1793781090058526553.ppm",
+    "archive": "wayland-steady-2-1793781090058526553.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-3-1793781090140831293.ppm",
+    "archive": "wayland-steady-3-1793781090140831293.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-4-1793781090224294330.ppm",
+    "archive": "wayland-steady-4-1793781090224294330.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-5-1793781090307065614.ppm",
+    "archive": "wayland-steady-5-1793781090307065614.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-6-1793781090379133517.ppm",
+    "archive": "wayland-steady-6-1793781090379133517.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-7-1793781090451887672.ppm",
+    "archive": "wayland-steady-7-1793781090451887672.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-8-1793781090524945913.ppm",
+    "archive": "wayland-steady-8-1793781090524945913.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-9-1793781090597847570.ppm",
+    "archive": "wayland-steady-9-1793781090597847570.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-10-1793781090670804477.ppm",
+    "archive": "wayland-steady-10-1793781090670804477.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-11-1793781090743410715.ppm",
+    "archive": "wayland-steady-11-1793781090743410715.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-12-1793781090815275326.ppm",
+    "archive": "wayland-steady-12-1793781090815275326.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-13-1793781090887159394.ppm",
+    "archive": "wayland-steady-13-1793781090887159394.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-14-1793781090958973213.ppm",
+    "archive": "wayland-steady-14-1793781090958973213.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-15-1793781091031042282.ppm",
+    "archive": "wayland-steady-15-1793781091031042282.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-16-1793781091113393481.ppm",
+    "archive": "wayland-steady-16-1793781091113393481.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-17-1793781091186279387.ppm",
+    "archive": "wayland-steady-17-1793781091186279387.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-18-1793781091268352543.ppm",
+    "archive": "wayland-steady-18-1793781091268352543.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-19-1793781091350992701.ppm",
+    "archive": "wayland-steady-19-1793781091350992701.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-20-1793781091433038107.ppm",
+    "archive": "wayland-steady-20-1793781091433038107.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-21-1793781091516334768.ppm",
+    "archive": "wayland-steady-21-1793781091516334768.ppm.gz",
+    "raw_sha256": "34366036a9ad98293d85e89f8b0cdda0072bd6dc41a790b776a423c4f9ffdbc7",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-22-1793781091599540803.ppm",
+    "archive": "wayland-steady-22-1793781091599540803.ppm.gz",
+    "raw_sha256": "ed90c637934507f10ae615e65029e224f0443b52208b59610c9ff5d645426da5",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-23-1793781091681725876.ppm",
+    "archive": "wayland-steady-23-1793781091681725876.ppm.gz",
+    "raw_sha256": "ed90c637934507f10ae615e65029e224f0443b52208b59610c9ff5d645426da5",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-24-1793781091764838370.ppm",
+    "archive": "wayland-steady-24-1793781091764838370.ppm.gz",
+    "raw_sha256": "ed90c637934507f10ae615e65029e224f0443b52208b59610c9ff5d645426da5",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-25-1793781091837820693.ppm",
+    "archive": "wayland-steady-25-1793781091837820693.ppm.gz",
+    "raw_sha256": "ed90c637934507f10ae615e65029e224f0443b52208b59610c9ff5d645426da5",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-26-1793781091911288894.ppm",
+    "archive": "wayland-steady-26-1793781091911288894.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-27-1793781091983109587.ppm",
+    "archive": "wayland-steady-27-1793781091983109587.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-28-1793781092055073282.ppm",
+    "archive": "wayland-steady-28-1793781092055073282.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-29-1793781092127378560.ppm",
+    "archive": "wayland-steady-29-1793781092127378560.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-30-1793781092209723592.ppm",
+    "archive": "wayland-steady-30-1793781092209723592.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-31-1793781092281803412.ppm",
+    "archive": "wayland-steady-31-1793781092281803412.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-32-1793781092354790111.ppm",
+    "archive": "wayland-steady-32-1793781092354790111.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-33-1793781092427458016.ppm",
+    "archive": "wayland-steady-33-1793781092427458016.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-34-1793781092500075838.ppm",
+    "archive": "wayland-steady-34-1793781092500075838.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-35-1793781092572441159.ppm",
+    "archive": "wayland-steady-35-1793781092572441159.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-36-1793781092655380735.ppm",
+    "archive": "wayland-steady-36-1793781092655380735.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-37-1793781092743913336.ppm",
+    "archive": "wayland-steady-37-1793781092743913336.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-38-1793781092821351388.ppm",
+    "archive": "wayland-steady-38-1793781092821351388.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-39-1793781092898222354.ppm",
+    "archive": "wayland-steady-39-1793781092898222354.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-40-1793781092975456904.ppm",
+    "archive": "wayland-steady-40-1793781092975456904.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-41-1793781093052749081.ppm",
+    "archive": "wayland-steady-41-1793781093052749081.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-42-1793781093128595792.ppm",
+    "archive": "wayland-steady-42-1793781093128595792.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-43-1793781093201081447.ppm",
+    "archive": "wayland-steady-43-1793781093201081447.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-44-1793781093283073394.ppm",
+    "archive": "wayland-steady-44-1793781093283073394.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-45-1793781093366057262.ppm",
+    "archive": "wayland-steady-45-1793781093366057262.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-46-1793781093438693084.ppm",
+    "archive": "wayland-steady-46-1793781093438693084.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-47-1793781093521832369.ppm",
+    "archive": "wayland-steady-47-1793781093521832369.ppm.gz",
+    "raw_sha256": "07dc320dcc9d527f5f4cb6dece9f0aabe87d5c3676573ee99a91e71bdab0c8c9",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-held-1793781093615150824.ppm",
+    "archive": "wayland-held-1793781093615150824.ppm.gz",
+    "raw_sha256": "56f4ae55723885d0fc197b99142d8f03b4da41735ef0f0d08e1923dc8c566fd4",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-released-1793781093708395571.ppm",
+    "archive": "wayland-released-1793781093708395571.ppm.gz",
+    "raw_sha256": "56f4ae55723885d0fc197b99142d8f03b4da41735ef0f0d08e1923dc8c566fd4",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-0-1793781094372764851.ppm",
+    "archive": "wayland-async-0-1793781094372764851.ppm.gz",
+    "raw_sha256": "56f4ae55723885d0fc197b99142d8f03b4da41735ef0f0d08e1923dc8c566fd4",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-1-1793781095047091633.ppm",
+    "archive": "wayland-async-1-1793781095047091633.ppm.gz",
+    "raw_sha256": "56f4ae55723885d0fc197b99142d8f03b4da41735ef0f0d08e1923dc8c566fd4",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-2-1793781095711594787.ppm",
+    "archive": "wayland-async-2-1793781095711594787.ppm.gz",
+    "raw_sha256": "2d7aa77a01376775f8634b72b0f06f4f1ed77832ecd7dd2126b7fe41abc11b57",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-3-1793781096385209608.ppm",
+    "archive": "wayland-async-3-1793781096385209608.ppm.gz",
+    "raw_sha256": "2d7aa77a01376775f8634b72b0f06f4f1ed77832ecd7dd2126b7fe41abc11b57",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-4-1793781097047531545.ppm",
+    "archive": "wayland-async-4-1793781097047531545.ppm.gz",
+    "raw_sha256": "2d7aa77a01376775f8634b72b0f06f4f1ed77832ecd7dd2126b7fe41abc11b57",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-1793781097180630718.ppm",
+    "archive": "wayland-overlap-1793781097180630718.ppm.gz",
+    "raw_sha256": "0c2303d6352da8d299103ee5a34fe93216929ef0f715f5fce4cc90df262b372a",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-0-1793781097842771405.ppm",
+    "archive": "wayland-overlap-0-1793781097842771405.ppm.gz",
+    "raw_sha256": "0c2303d6352da8d299103ee5a34fe93216929ef0f715f5fce4cc90df262b372a",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-1-1793781098505297676.ppm",
+    "archive": "wayland-overlap-1-1793781098505297676.ppm.gz",
+    "raw_sha256": "0c2303d6352da8d299103ee5a34fe93216929ef0f715f5fce4cc90df262b372a",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-2-1793781099178606745.ppm",
+    "archive": "wayland-overlap-2-1793781099178606745.ppm.gz",
+    "raw_sha256": "0c2303d6352da8d299103ee5a34fe93216929ef0f715f5fce4cc90df262b372a",
+    "report": "report-1793781099913669171.json"
+  },
+  {
+    "original": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-3-1793781099851622604.ppm",
+    "archive": "wayland-overlap-3-1793781099851622604.ppm.gz",
+    "raw_sha256": "0c2303d6352da8d299103ee5a34fe93216929ef0f715f5fce4cc90df262b372a",
+    "report": "report-1793781099913669171.json"
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "checkpoint": "a56cb071b1a371d29fa0e88546e4d8d01236e3a8",
+  "validation_report": "/home/avillagran/Work/files/docs/evidence/media-lifecycle/media-lifecycle-ui-1793064138443049803.json",
+  "scope": "per-user authorized installation; all staged then individual atomic replacements; no running windows controlled",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793064237026568102",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "a8a563c1898ae8ea5ae4e60617448d85e98de5e5c48e4eb3e95e09096cdacfcf",
+      "release_sha256": "b8526adaf439ed73f8113d7eb4a82d014bf8a45ab9da1d558714ebe550c5edab",
+      "installed_sha256": "b8526adaf439ed73f8113d7eb4a82d014bf8a45ab9da1d558714ebe550c5edab"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0",
+      "release_sha256": "1936ffe2b9c6004c37c791ab9e0755427528e4e6cbe60c330078e0556de2e904",
+      "installed_sha256": "1936ffe2b9c6004c37c791ab9e0755427528e4e6cbe60c330078e0556de2e904"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "release_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111",
+      "installed_sha256": "a5c37981b28b73c95b443122748b46345b398b07b54941ad1d96d9378726e111"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "release_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "release_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188",
+      "installed_sha256": "36d3d512505231af533bd7b45198b6604322f1ca0c0504256f11480b859bf188"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

@@ -1,0 +1,22 @@
+{
+  "method": "Space UI handlers/pointer mapping and FLTK framebuffer; no native OS input",
+  "captures": [],
+  "clipboard": "not read in resource mode",
+  "resource_gate": "NOT_MEASURED",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab0e141280"
+  },
+  "functional_gate": "FAIL",
+  "error": "CalledProcessError(1, ['wl-paste', '--no-newline'])",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=166548\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK open\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-_uyd__r4/files/A.txt\") encoding=UTF-8 truncated=false bytes=37\nFILES_PREVIEW_SELECTION=\"rea\\t\u6f22\u5b57\\r\\n@x\"\nFILES_PREVIEW_COMMAND_OK select\nFILES_WAIT_RAW=4 errno_snapshot=2 success=true\nFILES_WAIT_RAW=2 errno_snapshot=2 success=true\n"
+}

@@ -1,0 +1,10 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.58s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57a6206bf2b86e3e)
+
+running 1 test
+test navigation_tests::folder_view_explicit_save_keeps_captured_path_through_navigation_and_forget_is_cas ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 684 filtered out; finished in 0.14s
+

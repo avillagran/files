@@ -1,0 +1,15 @@
+   Compiling files-ui v0.0.4 (/home/node/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.38s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57a6206bf2b86e3e)
+
+running 7 tests
+test path_edit::tests::uri_is_explicit_local_single_decoded_once_and_raw_roundtrips ... ok
+test path_edit::tests::ime_replaces_bytes_at_cursor_atomically_and_undo_restores_cursor ... ok
+test path_edit::tests::switching_to_search_releases_path_geometry_and_invalidates_pending_paste ... ok
+test path_edit::tests::paint_preserves_paste_revision_and_short_replacement_resets_horizontal_scroll ... ok
+test path_edit::tests::field_keys_and_late_paste_do_not_mutate_browser_or_accept_old_cursor ... ok
+test path_edit::tests::copied_raw_path_roundtrips_without_replacement_or_label_decoding ... ok
+test path_edit::tests::expanded_uri_roundtrips_at_raw_limit_and_oversize_refuses_copy ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 752 filtered out; finished in 0.01s
+

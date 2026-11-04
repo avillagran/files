@@ -1,0 +1,26 @@
+{
+  "scope": "read-only hash check; synchronization not installed",
+  "receipt": "docs/evidence/0.0.4/installed-checkpoint-1793571784648344250.json",
+  "files": [
+    {
+      "path": "/home/node/.local/bin/files",
+      "sha256": "188b95956b9e5571e7ea0f3f0020743841525967f37f13179bc366175ef727c2"
+    },
+    {
+      "path": "/home/node/.local/bin/files-helper",
+      "sha256": "d2c5cdca4dd4f572a5a9e69f5131f0d3453a2c3904cc76f56e612f83a6c9ec0a"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper",
+      "sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper.LICENSES",
+      "sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "path": "/home/node/.local/bin/files-html-helper.build.json",
+      "sha256": "a56ceed5c834002c3bc454e0ab2171471366eafb32f84fd3c93d654b7123d3ee"
+    }
+  ]
+}

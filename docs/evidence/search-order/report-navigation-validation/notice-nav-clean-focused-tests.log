@@ -1,0 +1,10 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.36s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57718b5e1c1473cd)
+
+running 2 tests
+test mutations::tests::report_empty_controls_are_disabled_and_pan_is_limited_to_actual_visible_width ... ok
+test mutations::tests::report_keyboard_and_mouse_pages_share_viewport_and_resize_clamps_full_last_page ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 561 filtered out; finished in 0.00s
+

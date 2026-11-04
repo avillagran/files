@@ -1,0 +1,23 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.47s
+     Running unittests src/lib.rs (target/debug/deps/files_core-8c28fd9968ccc775)
+
+running 16 tests
+test directory_compare::tests::recursive_namespace_content_types_and_empty_directories ... ok
+test exdev_source::linux::sync_namespace::tests::namespace_file_move_updates_both_parents_then_composes_external_alias_receipt ... ok
+test directory_sync_record::tests::distinct_filesystem_parent_chains_share_the_namespace_root_and_encode ... ok
+test directory_sync_record::tests::duplicated_out_of_order_or_missing_parent_namespace_is_rejected_after_reseal ... ok
+test exdev_source::linux::sync_namespace::tests::namespace_directory_transfer_rebases_subtree_and_keeps_child_revisions_exact ... ok
+test directory_sync_store::linux::tests::input_limits_foreign_capture_and_private_disjoint_namespace_checked_before_creation ... ok
+test directory_sync_manifest::tests::later_content_metadata_namespace_and_symlink_changes_are_rejected ... ok
+test exdev_source::linux::sync_namespace::tests::namespace_preflight_rejects_invalid_paths_cycles_existing_targets_and_budget ... ok
+test sftp_recovered::tests::stale_or_foreign_namespace_blocks_before_spawning ... ok
+test exdev_source::linux::sync_namespace::tests::namespace_two_owner_failures_never_publish_partial_recorded_state ... ok
+test sftp_registry::tests::absent_publication_requires_real_namespace_absence_and_process_reap ... ok
+test directory_sync_store::linux::tests::create_readback_namespace_sync_and_reopen_require_new_barriers ... ok
+test exdev_source::linux::sync_namespace::tests::namespace_control_pause_resume_and_cancel_keep_recorded_state_atomic ... ok
+test directory_sync_wire::tests::full_retained_control_namespace_fits_wrapped_stream_without_four_mib_truncation ... ok
+test exdev_source::linux::sync_namespace::tests::namespace_resulting_name_and_depth_budgets_are_checked_before_rename ... ok
+test exdev_source::linux::sync_namespace::tests::namespace_full_destination_count_and_one_over_are_preflighted_without_truncation ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 602 filtered out; finished in 2.01s

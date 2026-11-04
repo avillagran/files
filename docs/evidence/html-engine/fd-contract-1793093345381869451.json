@@ -1,0 +1,13 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "scope": "native adapter inherited-FD reading; parent expected revision/publication covered separately by Rust tests and UI scene",
+  "checks": [
+    "FD inherits original inode after name replacement and leaves shared offset unchanged",
+    "legacy path mode remains compatible and reads current named inode",
+    "invalid inherited FD mode rejects without partial output",
+    "FIFO/nonregular and source above32KiB rejected before layout, no partial output"
+  ],
+  "binary_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

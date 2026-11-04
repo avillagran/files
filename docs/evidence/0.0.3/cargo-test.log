@@ -1,0 +1,145 @@
+   Compiling files-ui v0.0.3 (/home/avillagran/Work/files/crates/ui)
+   Compiling files-app v0.0.3 (/home/avillagran/Work/files/crates/app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.55s
+     Running unittests src/main.rs (target/debug/deps/files-51a31de6ddfc505b)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/files_core-be4f5c2ed04b87de)
+
+running 73 tests
+test copy_engine::linux::accounting_tests::details_bound_unicode_text_paths_and_count_every_omission ... ok
+test copy_engine::linux::accounting_tests::registry_budget_fails_before_capacity_or_name_allocation ... ok
+test copy_engine::tests::cancellation_discards_only_staged_copy ... ok
+test copy_engine::tests::destination_race_no_clobber_source_unchanged ... ok
+test copy_engine::tests::paused_worker_cancels_without_waiting_for_resume ... ok
+test copy_engine::tests::automatic_system_transfer_preserves_bytes ... ok
+test copy_engine::tests::partial_job_reports_previous_commits ... ok
+test copy_engine::tests::moved_staging_replacement_is_retained_and_actual_rescue_reported ... ok
+test copy_engine::tests::copied_readonly_directories_are_cleaned_on_cancel ... ok
+test copy_engine::tests::request_and_hard_auxiliary_bounds_precede_any_filesystem_copy ... ok
+test copy_engine::tests::partial_kernel_copy_then_stream_uses_current_offsets ... ok
+test copy_engine::tests::tiny_auxiliary_budget_rejects_before_staging ... ok
+test copy_engine::tests::source_mutation_rejected_before_publication ... ok
+test mime::tests::table_integrity ... ok
+test copy_engine::tests::paused_worker_resumes_and_completes ... ok
+test natural_sort::tests::invalid_utf8_names_keep_distinct_identity ... ok
+test natural_sort::tests::numeric_order_without_integer_overflow ... ok
+test natural_sort::tests::borrowed_keys_match_owned_order_without_copying_ascii_names ... ok
+test natural_sort::tests::unicode_case_and_stable_ties ... ok
+test copy_engine::tests::nested_staged_replacement_prevents_publication_and_survives_cleanup ... ok
+test copy_engine::tests::symlink_limit_and_special_files_are_explicit_errors ... ok
+test places::tests::escaped_mount ... ok
+test copy_engine::tests::unrelated_staged_replacement_is_not_deleted ... ok
+test rename_plan::tests::defaults_preserve_names_and_cycles_can_be_planned ... ok
+test copy_engine::tests::byte_depth_entry_bounds_and_self_copy_leave_no_destination ... ok
+test rename_plan::tests::cancellation_never_returns_partial_plans_and_allows_retry ... ok
+test natural_sort::tests::order_is_total_and_transitive ... ok
+test rename_plan::tests::literal_replace_and_case_preserve_extension ... ok
+test rename_plan::tests::preserves_dotfile_and_handles_literal_braces ... ok
+test rename_plan::tests::refuses_collision_with_hidden_or_unselected_file ... ok
+test rename_plan::tests::rejects_duplicate_destinations_and_case_collisions ... ok
+test rename_plan::tests::sequence_overflow_is_error_not_wraparound ... ok
+test rename_plan::tests::rejects_traversal_reserved_names_and_bad_tokens ... ok
+test rename_plan::tests::shared_name_validation_preserves_portability_rules ... ok
+test rename_plan::tests::sequence_unicode_and_extension ... ok
+test copy_engine::tests::completed_report_is_capped_with_explicit_total_and_omitted_count ... ok
+test copy_engine::tests::directory_symlinks_invalid_utf8_never_followed ... ok
+test copy_engine::tests::unsupported_reflink_and_kernel_fall_back_to_bounded_stream ... ok
+test copy_engine::tests::stream_bytes_metadata_and_empty_file ... ok
+test rename_transaction::tests::changed_identity_after_preview_is_rejected ... ok
+test copy_engine::tests::many_cleanup_conflicts_keep_replacements_with_bounded_root_report ... ok
+test rename_transaction::tests::destination_race_never_overwrites_and_rolls_back ... ok
+test persistence::tests::config_preserves_unknown_fields_and_rejects_corruption ... ok
+test persistence::tests::failed_write_preserves_destination_and_removes_temp ... ok
+test rename_transaction::tests::cancelled_undo_preserves_applied_names_and_token_remains_usable ... ok
+test rename_transaction::tests::case_only_rename_and_undo ... ok
+test rename_transaction::tests::prepared_preview_borrows_names_and_cancel_before_start_is_clean ... ok
+test rename_transaction::tests::refuses_preexisting_destination_and_invalid_names ... ok
+test rename_transaction::tests::pinned_directory_handles_survive_path_rename ... ok
+test rename_plan::tests::expansion_and_aggregate_limits_are_checked ... ok
+test rename_transaction::tests::relocated_staging_cleanup_keeps_replacement_and_reports_real_path ... ok
+test rename_transaction::tests::nonempty_directory_swap_and_undo_preserve_nested_contents ... ok
+test rename_transaction::tests::rescue_path_budget_aggregates_before_repeated_parent_allocation ... ok
+test rename_transaction::tests::rollback_diagnostics_bound_strings_and_report_omitted_errors ... ok
+test spatial::tests::encoded_budget_boundary_without_large_allocations ... ok
+test spatial::tests::malformed_truncated_and_mismatched_layouts_are_not_overwritten ... ok
+test spatial::tests::multi_icon_update_is_unchanged_if_any_candidate_is_invalid ... ok
+test rename_transaction::tests::rollback_rescue_paths_follow_relocated_staging_descriptor ... ok
+test rename_transaction::tests::undo_refuses_replacement_and_unselected_original_name ... ok
+test rename_transaction::tests::cycles_swap_and_undo_redo_without_clobber ... ok
+test tests::spanish_units_and_relative_time ... ok
+test spatial::tests::invalid_existing_fields_and_future_version_preserve_exact_bytes ... ok
+test theme::tests::parse_palette ... ok
+test spatial::tests::non_utf8_names_are_distinct_and_canonical_aliases_share_layout ... ok
+test rename_transaction::tests::rollback_conflict_reports_preserved_data ... ok
+test rename_transaction::tests::unicode_invalid_utf8_and_symlink_are_lossless ... ok
+test spatial::tests::roundtrip_zoom_and_directory_identity ... ok
+test rename_transaction::tests::each_injected_failure_restores_cycle ... ok
+test rename_transaction::tests::cancellation_between_each_move_uses_complete_cycle_rollback ... ok
+test rename_transaction::tests::transaction_budget_counts_both_lossless_names_and_exact_boundary ... ok
+test rename_transaction::tests::transaction_budget_bounds_count_before_copying_names ... ok
+test spatial::tests::position_and_serialized_size_caps_are_enforced ... ok
+test listing::tests::ten_thousand_streaming_lazy_sort_filter ... ok
+
+test result: ok. 73 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.60s
+
+     Running unittests src/main.rs (target/debug/deps/files_helper-24cd849bb2d1dca2)
+
+running 8 tests
+test text_preview::tests::utf16_both_endiannesses_and_invalid_units ... ok
+test du::tests::bounds_return_errors_not_partial_totals ... ok
+test du::tests::totals_nested_files_without_following_links_or_cycles ... ok
+test du::tests::apparent_bytes_count_sparse_files_and_hardlink_names ... ok
+test text_preview::tests::line_limit_preserves_complete_lines_and_flags_remaining_content ... ok
+test text_preview::tests::empty_unicode_bom_and_exact_limit ... ok
+test text_preview::tests::utf8_boundary_is_trimmed_only_when_truncated ... ok
+test text_preview::tests::bounded_read_never_consumes_more_than_limit_plus_one ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (target/debug/deps/files_ui-bb8739fca47a5921)
+
+running 25 tests
+test rename_job::tests::creation_rejects_reserved_names_and_never_clobbers ... ok
+test rename_job::tests::every_directory_entry_counts_toward_limit_even_when_not_utf8 ... ok
+test rename_job::tests::cancelled_history_retains_token_for_retry ... ok
+test mutations::tests::selection_preflight_is_bounded_before_cloning_and_preserves_raw_names ... ok
+test save_queue::tests::closing_is_pending_until_ack_and_failure_keeps_latest_snapshot ... ok
+test save_queue::tests::disconnected_worker_retains_snapshot_and_bounded_error ... ok
+test save_queue::tests::latest_revision_coalesces_and_stale_ack_cannot_clear_it ... ok
+test save_queue::tests::separate_directory_failures_are_both_retained ... ok
+test mutations::tests::stale_dialog_plan_cannot_be_accepted_after_edit_or_reopen ... ok
+test save_queue::tests::saturated_sender_and_rejected_navigation_preserve_owned_snapshots ... ok
+test save_queue::tests::save_error_survives_navigation_and_requires_explicit_retry ... ok
+test spatial_view::tests::navigation_and_close_retain_failed_snapshot_until_retry_ack ... ok
+test spatial_view::tests::preference_write_failure_blocks_close_and_retries_latest_value ... ok
+test spatial_view::tests::alias_load_restores_pending_canonical_snapshot_instead_of_old_disk_layout ... ok
+test spatial_view::tests::navigation_invalidates_visible_indices_before_next_draw ... ok
+test rename_job::tests::prepared_response_must_be_consumed_before_next_request ... ok
+test spatial_view::tests::readiness_requires_loaded_entries_and_metadata_or_spatial_layout ... ok
+test mutations::tests::close_even_with_discard_waits_for_mutation_ack_and_exposes_errors ... ok
+test spatial_view::tests::full_save_budget_refuses_navigation_without_losing_active_layout ... ok
+test spatial_view::tests::selection_drag_zoom_virtualization_share_actual_hit_targets ... ok
+test rename_job::tests::failed_creation_keeps_undo_and_redo_accessible ... ok
+test mutations::tests::file_creation_does_not_copy_selection_and_ui_history_survives_collision ... ok
+test du_job::tests::supervisor_accepts_matching_response_and_rejects_wrong_id ... ok
+test du_job::tests::supervisor_cancels_and_reaps_without_waiting_for_helper_deadline ... ok
+test theme_watch::tests::atomic_symlink_and_palette_replacement ... ok
+
+test result: ok. 25 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+
+   Doc-tests files_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests files_ui
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

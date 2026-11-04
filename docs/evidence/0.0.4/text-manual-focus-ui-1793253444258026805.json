@@ -1,0 +1,59 @@
+{
+  "focus_authorization": "focus by user; fixture selection/copy through internal handlers; no synthetic OS keys or clicks",
+  "method": "Space UI handlers/pointer mapping and FLTK framebuffer; no native OS input",
+  "captures": [
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/text-selection-manual-focused-1793253444258026805.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/text-binary-error-manual-focused-1793253444258026805.png",
+    "/home/avillagran/Work/files/docs/evidence/0.0.4/text-truncated-manual-focused-1793253444258026805.png"
+  ],
+  "clipboard": "PASS exact Wayland clipboard bytes Unicode+TAB+CRLF after own CopyPreview; clipboard not read before copy",
+  "resource_gate": "NOT_MEASURED",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab28e70240"
+  },
+  "focus_before_copy": {
+    "target_pid": 2536085,
+    "target_address": "0xaaab28e70240",
+    "active_pid": 2536085,
+    "active_address": "0xaaab28e70240",
+    "target_is_active": true,
+    "method": "user/compositor focus; no focus IPC issued"
+  },
+  "clipboard_transfer": {
+    "attempts": [
+      {
+        "returncode": 0,
+        "exact_match": true,
+        "stderr": ""
+      }
+    ],
+    "app_alive_after_transfer": true,
+    "async_offer_deadline_seconds": 2
+  },
+  "clipboard_gate": "PASS",
+  "cleanup": {
+    "complete": true,
+    "survivors": [],
+    "errors": [],
+    "scope": "root exit0 only; no descendant sampler"
+  },
+  "functional_checks_passed": true,
+  "functional_gate": "PASS",
+  "required_clipboard_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "selection_bytes_verified": "Unicode+TAB+CRLF source preserved; pointer handlers with measured shaped width",
+  "rapid_navigation": "A started then B\u2192C latest wins; C Ready observed; controller tests cover stale same-path/errors",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=52849\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK open\nFILES_PREVIEW_COMMAND_REV action=open revision=3\nFILES_PREVIEW_HELPER pid=2536104 start=10006967 command=preview_text\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-_awprgt3/files/A.txt\") encoding=UTF-8 truncated=false bytes=37 revision=3 stamp=None audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_PREVIEW_SELECTION=\"rea\\t\u6f22\u5b57\\r\\n@x\"\nFILES_PREVIEW_COMMAND_OK select\nFILES_PREVIEW_COMMAND_REV action=select revision=3\nFILES_WAIT_RAW=4 errno_snapshot=2 success=true\nFILES_WAIT_RAW=2 errno_snapshot=2 success=true\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK rapid\nFILES_PREVIEW_COMMAND_REV action=rapid revision=8\nFILES_PREVIEW_HELPER pid=2536167 start=10006986 command=preview_text\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-_awprgt3/files/C.txt\") encoding=UTF-8 truncated=false bytes=9 revision=8 stamp=None audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_PREVIEW_COMMAND_OK binary\nFILES_PREVIEW_COMMAND_REV action=binary revision=10\nFILES_PREVIEW_HELPER pid=2536169 start=10006989 command=preview_text\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/preview-ui-_awprgt3/files/binary.bin\") message=Archivo binario o con controles no representables\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK truncated\nFILES_PREVIEW_COMMAND_REV action=truncated revision=12\nFILES_PREVIEW_HELPER pid=2536226 start=10006997 command=preview_text\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/preview-ui-_awprgt3/files/long.txt\") encoding=UTF-8 truncated=true bytes=48000 revision=12 stamp=None audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK close-pending\nFILES_PREVIEW_COMMAND_REV action=close-pending revision=14\nFILES_PREVIEW_HELPER pid=2536570 start=10007105 command=preview_text\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\n",
+  "binary_sha256": "390a4f1f03de681118be6f385a6e77505166ef64e132dc27d835a11d881be295",
+  "helper_sha256": "d10e4813d8ffa4c738c925ab819fdbec0617c4c39cfb824ac479716d0e631be7"
+}

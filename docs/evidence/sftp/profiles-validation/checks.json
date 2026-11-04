@@ -1,0 +1,94 @@
+{
+  "status": "scoped functional PASS and installed; global goal open",
+  "checked_at": "2026-10-31T22:14:15.814745+00:00",
+  "tests": {
+    "workspace": {
+      "passed": 1040,
+      "ignored": 3,
+      "core": 349,
+      "helper": 91,
+      "ui": 600,
+      "log": "tests-revision.log",
+      "scope": "final full logic including catalogue epoch; only caption shortening afterwards"
+    },
+    "final_sftp_ui": {
+      "passed": 21,
+      "log": "sftp-tests-final.log"
+    },
+    "clippy": {
+      "command": "cargo clippy --workspace --all-targets -- -D warnings",
+      "exit": 0,
+      "log": "clippy-caption.log"
+    }
+  },
+  "preserved_failures": [
+    {
+      "log": "core-tests.log",
+      "scope": "7 PASS/1 FAIL: fixture test_dir already created directory; now uses missing child directory; not product read mutation"
+    },
+    {
+      "log": "wiring-tests.log",
+      "scope": "compile error missing command names and variable; corrected"
+    },
+    {
+      "log": "wiring-tests-fixed.log",
+      "scope": "compile error self in free event function; corrected"
+    },
+    {
+      "log": "wiring-tests-final.log",
+      "scope": "old expected12 targets vs actual13; updated layout contract"
+    },
+    {
+      "log": "tests.log",
+      "scope": "same layout assertion plus dialogue test had missing TEST_SPAWN_PID; original underlying spawn/result error not recorded, cause OPEN; stronger assertion now demands exact bounded-control rejection before checking reap; no runtime change or test serialization"
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_input": "UNVALIDATED",
+  "network": "NOT_EXERCISED",
+  "global_pass": false,
+  "new_dependencies": false,
+  "scene": "docs/evidence/sftp-preparation/sftp-profiles-ui-1793484790015975923.json",
+  "scene_gate": "PASS",
+  "captures": 7,
+  "normal_exits": 3,
+  "binary_sha256": "ec5ab99217fc50bd3df4c75c62e27a3528d4e3c5db054d974c6f909204db0576",
+  "helper_sha256": "05736746b394413d59df5ecc169341592f66b44d9b895d5388d1b4b4f9e61967",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "release": {
+    "command": "cargo build --release --workspace",
+    "exit": 0,
+    "log": "release-caption.log"
+  },
+  "fmt": {
+    "exit": 0,
+    "log": "fmt-caption.log"
+  },
+  "preserved_positive": {
+    "scene": "docs/evidence/sftp-preparation/sftp-profiles-ui-1793484676038671057.json",
+    "sidecar": "docs/evidence/sftp-preparation/sftp-profiles-ui-1793484676038671057.sidecar.json",
+    "finding": "subtitle clipped at440; caption only shortened for final release/scene"
+  },
+  "source_sha256": {
+    "crates/core/src/lib.rs": "e067714f7684f815b323d300bbba2c35186e1279f88e44d5dd2737019208f59f",
+    "crates/core/src/sftp_target.rs": "220782a0f5f3f1a880183b82cf8e48c826a241506c8b3925aae8f839523ba6ba",
+    "crates/ui/src/aux_io.rs": "f3cf584f5e8131fba25bf96131a1d845a9451f9036f6d82088ddad4350eeaedf",
+    "crates/ui/src/help_view.rs": "258ba571b0e0ef36ffc14cd6c585d44b93cc7ec69b3ec24d40727fa28afcdda8",
+    "crates/ui/src/hidden_scene.rs": "65de17d940d7493ab1d7a3f126182fc1240e2d8cff3bc391e633f7f878c5c23e",
+    "crates/ui/src/lib.rs": "ae31f79a79788212607b4fadb312bf5c170e01dca67f584174eb80d0adf679e3",
+    "crates/ui/src/model.rs": "f6cfce6ef6831f5fae0cbc629026a2ffc56c27092018b4795fb5a7fb1a6998be",
+    "crates/ui/src/sftp_state.rs": "c4b2afa4604d04abc560fc38f99caf19eb57a205057617f617f976fd49f3bb86",
+    "crates/ui/src/sftp_ui.rs": "c1f5c9a0019e563f18bb289eea80de935912fb9bdfc9babec4ff344b649f9c29",
+    "crates/ui/src/space_map_job.rs": "6a805158c9bff12bd3ce846cecc3a5a5554c18cd761329758611de22594ccc46",
+    "crates/ui/src/spatial_view.rs": "b5e35df29d7ae8312ae3f3c470cde952eb20ed1bd83827b755663a0c0da747d9",
+    "crates/ui/src/view.rs": "9ee05f054de7f337f01d71c6e359079fa3a9039222b85b2e7578da6fb758b72b",
+    "scripts/sftp-preparation-ui-check.py": "02ee4327eae4ca7c881eea17480251474fba9866ec7cc5e149888170ef498c06",
+    "crates/core/src/sftp_profiles.rs": "fb269e3d8488c9764d40a082037bedb228d8f9636729b4305dd1eb2665bea5cb",
+    "crates/ui/src/sftp_profiles_state.rs": "c0c63b07b9b596c66b4914dca60ae663d2bda214b9311bcfc00043c73c7621e4",
+    "crates/ui/src/sftp_profiles_ui.rs": "d8c5a6b4c15e35a14c3a58499b8240f5e71ba10e1d795c958708ff6e53b5c49f"
+  },
+  "source_commit": "6f2eab1",
+  "installation": "docs/evidence/0.0.4/installed-checkpoint-1793484872289248556.json",
+  "independent_install_verification": "docs/evidence/sftp/profiles-validation/install-verification.json"
+}

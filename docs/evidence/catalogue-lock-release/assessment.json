@@ -1,0 +1,36 @@
+{
+  "source_acceptance": "PASS",
+  "installation": "source ebfbd46; installed-checkpoint-1793553641613427210.json; five installed and five backup hashes verified",
+  "scope": "explicit creator-PID advisory unlock in folder_views/bookmarks/session_store; formats and acquisition/CAS policies unchanged",
+  "baseline": {
+    "core_fork_pass": 6,
+    "core_fork_fail": 2,
+    "session_fork_pass": 1,
+    "session_fork_fail": 1
+  },
+  "corrected": {
+    "core_fork_pass": 8,
+    "workspace_core": 447,
+    "workspace_helper": 105,
+    "workspace_ui": 738,
+    "historical_core_ignored": 3,
+    "normal_harness_concurrency": true
+  },
+  "clippy": "workspace all targets -D warnings PASS",
+  "format": "PASS",
+  "release": "PASS",
+  "folder_views": "../folder-views/node-functional-1793553295569501392/receipt.json",
+  "bookmarks": "../bookmarks/bookmarks-ui-1793553007936334141.json",
+  "session": "../0.0.4/tabs-session-ui-1793553007697099900.json",
+  "popup_attempt_retained": "../folder-views/node-functional-1793553005640958982/receipt.json: concurrent fixture run reached toolkit Settings then Enter caused no Picked/dismissal or catalogue request; no lock error. Same binary and fixture passed solo Wayland without popup code changes. Cause not assigned.",
+  "historical_attribution": "Inherited-description false WouldBlock is deterministically reproduced and repaired. No historical PID/FD snapshots exist, so exact actor for every older failure remains unproven. Genuine active-writer WouldBlock must remain.",
+  "limits": [
+    "Linux NODE fork tests and owned process/UI scope only",
+    "No global lifetime/power-loss/offline syscall deadline proof",
+    "Internal handlers/framebuffer, not OS input/clipboard/AT-SPI/2x",
+    "PSS/Swap/CPU/startup freeze; new previews paused"
+  ],
+  "installed_folder_views": "../folder-views/node-functional-1793553696558344229/receipt.json",
+  "installed_bookmarks": "../bookmarks/bookmarks-ui-1793553763277963787.json",
+  "installed_session": "../0.0.4/tabs-session-ui-1793553762994981888.json"
+}

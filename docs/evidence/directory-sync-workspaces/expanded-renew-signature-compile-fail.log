@@ -1,0 +1,25 @@
+   Compiling files-core v0.0.4 (/home/node/Work/files/crates/core)
+error[E0308]: arguments to this method are incorrect
+    --> crates/core/src/directory_sync_store.rs:1282:23
+     |
+1282 |                 store.renew(&flag, |_| Ok(())).unwrap();
+     |                       ^^^^^ -----  ---------- unexpected argument #2 of type `{closure@crates/core/src/directory_sync_store.rs:1282:36: 1282:39}`
+     |                             |
+     |                             argument #1 of type `&directory_sync_physical::Physical<'_, '_>` is missing
+     |
+note: method defined here
+    --> crates/core/src/directory_sync_store.rs:811:16
+     |
+ 811 |         pub fn renew(
+     |                ^^^^^
+ 812 |             &mut self,
+ 813 |             physical: &Physical<'_, '_>,
+     |             ---------------------------
+help: did you mean
+     |
+1282 -                 store.renew(&flag, |_| Ok(())).unwrap();
+1282 +                 store.renew(/* &Physical<'_, '_> */, &flag).unwrap();
+     |
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `files-core` (lib test) due to 1 previous error

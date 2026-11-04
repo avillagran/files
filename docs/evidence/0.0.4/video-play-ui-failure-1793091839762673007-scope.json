@@ -1,0 +1,7 @@
+{
+  "report": "video-play-ui-failure-1793091839762673007.json",
+  "functional_gate": "FAIL",
+  "cause": "Fixture applied private PULSE_SERVER to Python env dictionary AFTER Popen, so product received normal working Pulse server. Expected injected notice never occurred; native AV proceeded to EOF. No product recovery failure established.",
+  "correction": "Set private env before app spawn, retain fresh notice assertion and retry same binary.",
+  "resource_gate": "NOT_MEASURED"
+}

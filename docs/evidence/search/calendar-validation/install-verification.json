@@ -1,0 +1,7 @@
+{
+  "report": "docs/evidence/0.0.4/installed-checkpoint-1793461261514927889.json",
+  "installed": 5,
+  "backups": 5,
+  "hashes_exact": true,
+  "scope": "independent SHA256 recheck, no running windows controlled"
+}

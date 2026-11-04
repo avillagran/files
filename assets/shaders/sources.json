@@ -1,0 +1,27 @@
+{
+  "source_repository": "/home/avillagran/Work/omarchy-t3-code",
+  "source_head": "9274498e904f5eac4eea0cb8fe36926d9fbf1606",
+  "scope": "GLES 3 source port, not UI integration",
+  "files": {
+    "threadaura": {
+      "source_sha256": "bb1b4acd1997a846fd00c905d124c51513e83b61d7c2e6c80409fbb552fa50a9",
+      "port_sha256": "4794aa6bf33511d63cb802ee1649a37e7f33168c3aa57da8ea5d552e14205b5c"
+    },
+    "reveal": {
+      "source_sha256": "606e64149897aadc78ab3ef3dfe0acff90260bbee3700fce50b0e88c511debd2",
+      "port_sha256": "e1c1d6415c51fe9cd47ed9c9de0add439043ed4847b9e64c0ef52368aaeecec0"
+    },
+    "starfield": {
+      "source_sha256": "e2437492afb1124d337ed4b2feb8dd64ed561f8823015ec596b63b412dc2c69f",
+      "port_sha256": "d18c803d1483c77c7e0a635dcb6e946f7b29db3ecdd291f0993c4ded71786b42"
+    },
+    "activity": {
+      "source_sha256": "a4214a95a4d3296250033fcdb706e574a5d7caaf38bef4590d3ab19b411a8fb1",
+      "port_sha256": "684e9ed2b2f7235e344a18c4040f573390b4cd7a8754723176dac38aa728a62c"
+    }
+  },
+  "adaptations": [
+    "GLSL440 Qt uniform block replaced by GLES300 individual u_ uniforms; unused matrix removed; v_uv varying shared with quad.vert.",
+    "Reversed smoothstep edges replaced by 1-smoothstep with ascending edges for portable defined falloff."
+  ]
+}

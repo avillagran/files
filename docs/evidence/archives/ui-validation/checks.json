@@ -1,0 +1,75 @@
+{
+  "functional_gate": "PASS_SCOPED",
+  "product_scope": "ZIP32 regular files/directories, one source, new exclusive child, reviewed and queued; Z01 partial",
+  "workspace_tests": {
+    "passed": 1093,
+    "core": 387,
+    "helper": 91,
+    "ui": 615,
+    "existing_ignored": 3,
+    "log": "archive-ui-reservation-tests.log"
+  },
+  "clippy": {
+    "gate": "PASS",
+    "log": "archive-ui-reservation-clippy.log",
+    "flags": "--workspace --all-targets -- -D warnings"
+  },
+  "release": {
+    "gate": "PASS",
+    "log": "archive-ui-reservation-release.log"
+  },
+  "fmt": {
+    "gate": "PASS",
+    "log": "archive-ui-final-fmt.log"
+  },
+  "scene": "docs/evidence/0.0.4/archive-extract-ui-1793491842976117966.json",
+  "binary_sha256": "7e264dd0c3c927cecd5116e3547fd477e7e96acab94c73944a8865e356570170",
+  "visual_review": {
+    "gate": "PASS_SCOPED",
+    "checked": [
+      "ZIP filename first plus parent at440",
+      "new destination and all review/apply/cancel controls at440",
+      "status separates unpublished output and completed cleanup",
+      "other tab selection preserved"
+    ],
+    "original_positive_visual_failure": "../../0.0.4/archive-extract-ui-1793491193816772458.visual-review.json"
+  },
+  "method": "private handlers and actual FLTK framebuffer/owned filesystem; no native input, clipboard receiver, blocked syscall or powerloss proof",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "limits": [
+    "one ZIP per review, ZIP32 stored/DEFLATE regular/dirs",
+    "same4MiB controller,8pending+1active,256FD operation admission; large plans can reject",
+    "outcome bound proven <= existing2MiB report slot; prior result dropped before next dispatch",
+    "no dedicated archive retry buttons/recovery catalogue/crash journal",
+    "no archive creation/ZIP64/TAR/links/timestamps/ACL/xattrs/otherOS",
+    "no full hostile namespace guarantee",
+    "historical global resource/startup/clipboard FAILs open"
+  ],
+  "source_sha256": {
+    "crates/core/src/archive_extract_fs.rs": "30afd73ce7b644df4a86bbbe5dfc272d6d574b0f237a60f35ff88a5c7bf2fef6",
+    "crates/ui/src/archive_operation.rs": "8b37df8da92b5546866b2abfb6c1cb17f68c666d4f4728e101dee9ca273ffc48",
+    "crates/ui/src/archive_ui.rs": "96091df1d22725dd3d4e054e4eda033f6929d3118d43fe93dec8a7ff1ab57561",
+    "crates/ui/src/archive_ui/tests.rs": "02e33401d94d8f702f8f147399522f4f98b1fd9fc1305081977981bd785c331b",
+    "crates/ui/src/aux_io.rs": "df63fc487f997a99fcbb860d3cffcf7026d76100dcd4d09c068cf09c15a80671",
+    "crates/ui/src/clipboard_ui.rs": "fafe3670aa273ec4b111fc65cfd327340459030cfb1b68b096afb9c8c7ac2321",
+    "crates/ui/src/command_palette.rs": "6ae592ec3a9c7b0cf2804d95932c4ae7bc26bfae0ed3d42617349fee85f3915b",
+    "crates/ui/src/context_menu.rs": "b0b2cb63f4822d3468957c2ecbe5afa0720aa720efd6d0cc90d54a3ed9b0a899",
+    "crates/ui/src/copy_dialog.rs": "21af24559143725f75cbdc5eba41ac255f57f7eff8c07be9342c9860dea7c3c1",
+    "crates/ui/src/copy_job.rs": "515397357529aa1e22225bf03490868728c78f75ec9cdb587915ee3bf34f9e2e",
+    "crates/ui/src/copy_report.rs": "bf42ad78c071b5e6d0bd099b5a3e63f8b9be816a80c85267a143c729287f55f7",
+    "crates/ui/src/copy_scene.rs": "1604f9ea401ff2a931137a538f69e5791ca80c723f7f9cf3236fcf5a4d349705",
+    "crates/ui/src/copy_state.rs": "0b87eaf3569d9546e9b5f981fcff6335d7f15d8684605d0b6dfbbba93a6db25f",
+    "crates/ui/src/copy_ui.rs": "4be42fe01941cbd47b612683d86a27eb5f03f97eefa85b407e734113e0ce4a1f",
+    "crates/ui/src/lib.rs": "baf242004757a93628ba12c5698a68b9dede9fb203310214052ac53f41e8c494",
+    "crates/ui/src/model.rs": "528869c161d39aa5415147350900a0a8b794afaa4e695be4ea44bf1c1b753527",
+    "crates/ui/src/move_operation/tests.rs": "8f29b289f9d25cdacb46d9cad414813ac1c1138454d85271e3a8fdbd996912f9",
+    "crates/ui/src/mutations.rs": "d534aee8f37b4ddb63a435dbb5d5e59a0e7803b5e8fb7bc4dff87bcc58305f28",
+    "crates/ui/src/native_transfer.rs": "9816b04fd1049ea688c0662a867575ed103f588674a5a83f85fd7f0e011e6658",
+    "crates/ui/src/search_transfer.rs": "251c82d8d329827bf6122828ec067936e240b70da7acd98bd03c5dbf664c3a88",
+    "crates/ui/src/toolkit_menu.rs": "833f0980ccfb2b6144c493beb5cc07aa7124a7d99571a1f57790fcd6551cd0ff",
+    "crates/ui/src/view.rs": "6d81c1cdf71422647de4fde0ea6684e3f2f5a6bb18cf852500d594bb2b950380",
+    "crates/ui/src/window_scene.rs": "9a386868ac2ebdd928416358aff695545e1afd026a7b07b1a57e72d9b7dbeec7",
+    "scripts/copy-ui-check.py": "5b0e78449f9b097c6858950f3ebeefbb971a039ff638838205a62c905c27e35d"
+  }
+}

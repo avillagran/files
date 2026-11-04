@@ -1,0 +1,73 @@
+{
+  "method": "internal handlers, actual ffprobe local metadata and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-metadata-1793085632458240945.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-metadata-selection-1793085632578841485.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-wav-metadata-1793085632766800129.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/avillagran/Work/files/docs/evidence/0.0.4/audio-tags-truncated-1793085633109302762.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "playback": true,
+  "audio_output": "system default SDL with zero PCM, not audible verification",
+  "source_lifecycle": false,
+  "notify_callbacks_suppressed": false,
+  "checks": [],
+  "known_pending": [
+    "waveform/cover art and audible verification",
+    "resource budget",
+    "cross-platform verification",
+    "additional formats/cover art"
+  ],
+  "compositor_binding": {
+    "previous_signature": "unknown_1792557238_2092186919",
+    "selected": {
+      "instance": "unknown_1793084545_122682092",
+      "time": 1793084545,
+      "pid": 3154625,
+      "wl_socket": "wayland-1"
+    },
+    "scope": "fixture-only environment, unique Wayland socket match; no focus/input/global changes"
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 2,
+    "window_physical": [
+      2000,
+      1300
+    ],
+    "native_wayland": true,
+    "address": "0xaaab34837060"
+  },
+  "functional_gate": "FAIL",
+  "error": "AssertionError('audio backend error: FILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 281777538, bytes: 9127, modified_seconds: 1793085632, modified_nanoseconds: 43146719, changed_seconds: 1793085632, changed_nanoseconds: 43146719 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=Some(\"No se pudo reproducir audio: Argument \\'/proc/self/fd/13\\' provided as input filename, but \\'0\\' was already specified. . Comprueba el dispositivo de salida.\")')",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=84404\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=3\nFILES_PREVIEW_HELPER pid=3325211 start=52840440 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=3 stamp=Some(Revision { device: 63, inode: 281777538, bytes: 9127, modified_seconds: 1793085632, modified_nanoseconds: 43146719, changed_seconds: 1793085632, changed_nanoseconds: 43146719 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_METADATA_OK unicode=true content=actual-tags\nFILES_PREVIEW_COMMAND_OK audio-assert\nFILES_PREVIEW_COMMAND_REV action=audio-assert revision=3\nFILES_CAPTURE_OK\nFILES_AUDIO_SELECTION_OK utf8=true clipboard=not-validated\nFILES_PREVIEW_COMMAND_OK audio-select\nFILES_PREVIEW_COMMAND_REV action=audio-select revision=3\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-wav\nFILES_PREVIEW_COMMAND_REV action=audio-wav revision=5\nFILES_PREVIEW_HELPER pid=3325378 start=52840478 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/sound.wav\") encoding=Audio \u00b7 metadatos truncated=false bytes=159 revision=5 stamp=Some(Revision { device: 63, inode: 281777537, bytes: 576078, modified_seconds: 1793085631, modified_nanoseconds: 956146209, changed_seconds: 1793085631, changed_nanoseconds: 956146209 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-long\nFILES_PREVIEW_COMMAND_REV action=audio-long revision=7\nFILES_PREVIEW_HELPER pid=3325466 start=52840496 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/long.flac\") encoding=Audio \u00b7 metadatos truncated=true bytes=2294 revision=7 stamp=Some(Revision { device: 63, inode: 281777539, bytes: 13612, modified_seconds: 1793085632, modified_nanoseconds: 104147077, changed_seconds: 1793085632, changed_nanoseconds: 104147077 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_TRUNCATED_OK bytes=2294\nFILES_PREVIEW_COMMAND_OK audio-assert-truncated\nFILES_PREVIEW_COMMAND_REV action=audio-assert-truncated revision=7\nFILES_CAPTURE_OK\nFILES_PREVIEW_COMMAND_OK audio-rapid\nFILES_PREVIEW_COMMAND_REV action=audio-rapid revision=13\nFILES_PREVIEW_HELPER pid=3325484 start=52840533 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=13 stamp=Some(Revision { device: 63, inode: 281777538, bytes: 9127, modified_seconds: 1793085632, modified_nanoseconds: 43146719, changed_seconds: 1793085632, changed_nanoseconds: 43146719 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_METADATA_OK unicode=true content=actual-tags\nFILES_PREVIEW_COMMAND_OK audio-assert\nFILES_PREVIEW_COMMAND_REV action=audio-assert revision=13\nFILES_PREVIEW_COMMAND_OK audio-bad\nFILES_PREVIEW_COMMAND_REV action=audio-bad revision=15\nFILES_PREVIEW_HELPER pid=3325534 start=52840553 command=preview_audio_metadata\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/bad.flac\") message=Frecuencia de audio fuera del l\u00edmite\nFILES_PREVIEW_COMMAND_OK audio-symlink\nFILES_PREVIEW_COMMAND_REV action=audio-symlink revision=17\nFILES_PREVIEW_ERROR path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/symlink.flac\") message=Original no disponible: Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=19\nFILES_PREVIEW_HELPER pid=3325543 start=52840571 command=preview_audio_metadata\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=19 stamp=Some(Revision { device: 63, inode: 281777538, bytes: 9127, modified_seconds: 1793085632, modified_nanoseconds: 43146719, changed_seconds: 1793085632, changed_nanoseconds: 43146719 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_AUDIO_TRANSPORT_OK {\"drained\":true,\"notice\":null,\"position\":0.0,\"requested\":false,\"running\":false}\nFILES_PREVIEW_COMMAND_OK audio-assert-paused\nFILES_PREVIEW_COMMAND_REV action=audio-assert-paused revision=19\nFILES_PREVIEW_COMMAND_OK audio-play\nFILES_PREVIEW_COMMAND_REV action=audio-play revision=20\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 281777538, bytes: 9127, modified_seconds: 1793085632, modified_nanoseconds: 43146719, changed_seconds: 1793085632, changed_nanoseconds: 43146719 }) audio_requested=true audio_running=false position=0.0 drained=false audio_error=None\nFILES_PREVIEW_HELPER pid=3325546 start=52840582 command=preview_audio_playback\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 281777538, bytes: 9127, modified_seconds: 1793085632, modified_nanoseconds: 43146719, changed_seconds: 1793085632, changed_nanoseconds: 43146719 }) audio_requested=true audio_running=true position=0.0 drained=false audio_error=None\nFILES_PREVIEW_READY path=Some(\"/home/avillagran/.cache/files-test/audio-ui-2nssz_7q/files/song.flac\") encoding=Audio \u00b7 metadatos truncated=false bytes=207 revision=20 stamp=Some(Revision { device: 63, inode: 281777538, bytes: 9127, modified_seconds: 1793085632, modified_nanoseconds: 43146719, changed_seconds: 1793085632, changed_nanoseconds: 43146719 }) audio_requested=false audio_running=false position=0.0 drained=true audio_error=Some(\"No se pudo reproducir audio: Argument '/proc/self/fd/13' provided as input filename, but '0' was already specified. . Comprueba el dispositivo de salida.\")\n"
+}

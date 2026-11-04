@@ -1,0 +1,10 @@
+   Compiling files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.33s
+     Running unittests src/lib.rs (target/debug/deps/files_ui-57718b5e1c1473cd)
+
+running 2 tests
+test search_state::page_tests::paged_failure_hides_old_targets_and_close_never_fabricates_reap ... ok
+test search_state::page_tests::pages_preserve_active_job_until_reap_clear_marks_on_switch_and_reject_old_keys ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 586 filtered out; finished in 0.00s
+

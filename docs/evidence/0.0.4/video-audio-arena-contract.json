@@ -1,0 +1,18 @@
+{
+  "method": "functional encoded0.5s zero-PCM AV file, rawvideo+nativePulse outputs at samevirtualcap; no memory/CPU/startup sampling",
+  "resource_gate": "NOT_MEASURED",
+  "results": [
+    {
+      "virtual_cap_mib": 768,
+      "MALLOC_ARENA_MAX": null,
+      "returncode": 244,
+      "stderr": "mmap() failed: Cannot allocate memory\nmmap() failed: Cannot allocate memory\n[PulseAudio outdev @ 0xaaababca0d30] Cannot create context.\n[out#1/pulse @ 0xaaababca09d0] Could not write header (incorrect codec parameters ?): Cannot allocate memory\n[af#1:0 @ 0xaaababca1d20] Error sending frames to consumers: Cannot allocate memory\n[af#1:0 @ 0xaaababca1d20] Task finished with error code: -12 (Cannot allocate memory)\n[af#1:0 @ 0xaaababca1d20] Terminating thread with return code -12 (Cannot allocate memory)\n[out#1/pulse @ 0xaaababca09d0] Nothing was written into output file, because at least one of its streams received no packets.\n"
+    },
+    {
+      "virtual_cap_mib": 768,
+      "MALLOC_ARENA_MAX": "2",
+      "returncode": 0,
+      "stderr": ""
+    }
+  ]
+}

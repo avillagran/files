@@ -1,0 +1,23 @@
+{
+  "scope": "KDE paired MIME partial; actual compositor and external input unvalidated",
+  "workspace_tests": {
+    "core_pass": 208,
+    "core_ignored": 3,
+    "helper_pass": 67,
+    "ui_pass": 377,
+    "exit": 0
+  },
+  "clippy_exit": 0,
+  "fmt_exit": 0,
+  "release_exit": 0,
+  "reader_tests": "target/native-kde-reader-final2.log",
+  "native_fixture": "target/native-kde-pair-test.log",
+  "native_fixture_scope": "same simulated offer, paired pipes, selection changed between EOFs and ACK rejected; no compositor",
+  "scene": "clipboard-ui-1793137466717410666.json",
+  "scene_scope": "two private pipes, AuxIo, cut-to-move review and cancellation, simulated ACK, two real framebuffer captures, normal exit0 after drain",
+  "native_input": "UNVALIDATED",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "prior_clipboard_failure": "clipboard-ui-1793136933634122245.json remains unresolved",
+  "binary_sha256": "e5aac37f51e95d8127ce63b2ff5bad2936f1a489fc5f7cfa255da186a1dfd679"
+}

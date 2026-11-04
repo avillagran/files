@@ -1,0 +1,10 @@
+    Checking files-core v0.0.4 (/home/avillagran/Work/files/crates/core)
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error[E0599]: no method named `hit` found for mutable reference `&mut model::Model` in the current scope
+   --> crates/ui/src/copy_scene.rs:237:24
+    |
+237 |             m.action(m.hit(r.x + r.w / 2, r.y + r.h / 2));
+    |                        ^^^ method not found in `&mut model::Model`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `files-ui` (lib) due to 1 previous error

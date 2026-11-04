@@ -1,0 +1,57 @@
+{
+  "functional_gate": "PASS",
+  "scope": "Toolkit overlays and bounded wheel motion; Files integration and read-only home Trash catalog. No global acceptance.",
+  "source_checkpoint": "ab777110d5b679c66cc1d940a7223eb121fcda14",
+  "toolkit_commit": "fb581c7fdf5145426701863401874368663f8463",
+  "binary_sha256": "74799b5f56edb0dd1bd77f828afa974c7eb4bb502105b3654f22aa5f20d22eeb",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "functional_reports": [
+    "docs/evidence/toolkit-input-20261104/x11-functional-1793772335636735160.json",
+    "docs/evidence/toolkit-input-20261104/wayland-functional-1793772333868016590.json",
+    "docs/evidence/0.0.4/toolkit-menu-ui-1793772440185667759.json"
+  ],
+  "native_focus_retained": true,
+  "workspace_tests": {
+    "core": 708,
+    "helper": 112,
+    "ui": 800,
+    "ignored_historical": 3
+  },
+  "toolkit_tests": {
+    "unit": 33,
+    "ui": 30,
+    "doctest": 9
+  },
+  "clippy": "PASS --workspace --all-targets -D warnings",
+  "format": "PASS explicit Files packages; toolkit export unchanged",
+  "initial_harness_failures": [
+    {
+      "file": "wayland-functional-1793772096452543040.json",
+      "cause": "Harness assumed800x440 before compositor settled, capture664x844. Preserved; no app patch."
+    },
+    {
+      "file": "wayland-functional-1793772140138274881.json",
+      "cause": "Client queried before Hyprland mapped registration. Bounded wait fixed harness, preserved."
+    },
+    {
+      "file": "../0.0.4/toolkit-menu-ui-1793772368346196199.json",
+      "cause": "Old harness selected Open(index2), expected Rename. Existing Entries menu now prepends Invert/Clear; actual Rename isindex4. Updated fixture expectation, no app patch."
+    }
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "limits": [
+    "Internal handlers/controllers, not OS pointer input",
+    "Wheel smoothing; physical touchpad/native momentum acceptance pending",
+    "Trash read-only, home only; restore/empty/other volumes pending",
+    "Intel100k profiling and full original goal unfinished",
+    "No source push, tag or release"
+  ],
+  "installed": {
+    "receipt": "docs/evidence/0.0.4/installed-checkpoint-1793772472114089109.json",
+    "post_install_report": "docs/evidence/toolkit-input-20261104/wayland-functional-1793772488359371978.json",
+    "five_hashes_and_backups_verified": true,
+    "native_focus_retained": true
+  }
+}

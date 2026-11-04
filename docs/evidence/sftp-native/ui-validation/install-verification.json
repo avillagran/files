@@ -1,0 +1,7 @@
+{
+  "report": "docs/evidence/0.0.4/installed-checkpoint-1793456472288022118.json",
+  "installed": 5,
+  "backups": 5,
+  "all_hashes_exact": true,
+  "scope": "independent read-only SHA256 recheck after installer; no window control"
+}

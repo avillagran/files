@@ -1,0 +1,17 @@
+{
+  "scope": "Preserved diagnostics, not a global acceptance gate",
+  "logs": {
+    "content-search-first-tests.log": "E0283 ambiguous borrowed Read fixture; changed to explicit byte slice",
+    "content-search-wiring-tests.log": "Existing navigation fixture missing new optional Hit.content; set None",
+    "content-search-final-tests.log": "New fake-controller test expected final drain without acknowledging successor. Product retained pending ACK correctly; fixture now explicitly supplies second ACK",
+    "content-search-clippy.log": "collapsible_if in new report validation; combined without allow"
+  },
+  "original_ui": {
+    "report": "content-search-ui-1793418314346868379.json",
+    "functional_gate": "PASS",
+    "captures": 24,
+    "visual_limit": "Legacy bottom hint clipped at440; content candidate count called Texto. Final source hides hint without width and labels Archivos; final footer identifies Nombres/UTF8. Original report/images unchanged."
+  },
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

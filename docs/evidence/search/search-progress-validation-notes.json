@@ -1,0 +1,16 @@
+{
+  "failed_scene": "search-progress-ui-1793406487049744417.json",
+  "failure": "Helper exited2 before any progress; no app snapshot/positive counter observed. Root and40k data fixtures cleaned only by their owned context. Original FAIL/log intact.",
+  "confirmed_cause": "New search_stream request/handler was present, but initial CLI admission whitelist omitted search_stream. Existing release standalone invocation exited2 with usage; search-stream-admission-before-fix.json preserves exact evidence.",
+  "fix": "Admit search_stream in CLI whitelist, preserving request/command matching and96MiB helperAS; no limit relaxation. Release CLI contract added before final UI regression.",
+  "remaining": "Resource/startup NOT_MEASURED, native input/OS clipboard/offline/kernelD/result-batch streaming and fullROADMAP remain pending; no globalPASS.",
+  "second_scene": "search-progress-ui-1793406698673456631.json",
+  "second_scope": "Positive128visited counters and cancelbeforeACK observed. FAIL later in combined controls fixture: query was needle ext:rsext:bin. It appended new text instead of explicitly focusing/replacing query after progress flow. Sourceparser behaved correctly (0results).",
+  "fixture_fix": "Use shared Ctrl+F policy before entering ext:bin. No product change or weakened assertion; preserve report and allcaptures.",
+  "third_scene": "search-progress-ui-1793406826248172232.json",
+  "third_cause": "Preserved log proves positive128 counter, then completed40622visited/0hits BEFORE the Enter command. Enter correctly refreshed the completed empty query; old fixture incorrectly required progress to remain immediately populated. Product behavior unchanged.",
+  "third_fixture_fix": "Record pre-key current/form/hits/epoch and post-key epoch/current in the existing private key handler. Assert no restart if active, explicit refresh if finished empty; no relaxed product condition or inflated deadlines.",
+  "final_scene": "search-progress-ui-1793407162101821172.json",
+  "final_scope": "PASS20framebuffers,40k private files, positive128visited before summary,0rowtargets, cancelbeforeACK\u2192new raw query,20captures inclcontrols/800/440. Enter occurred after completed empty report, correctly refreshed; active-Enter no-restart is covered by UI unit.15loggedhelperPID/start identities absent/reused strictZno; not lifetime or exact livechildclose proof.",
+  "cli_contract": "helper-search-cli-contract.json PASS3releaseCLIcases; helper hash matches finalUIscene. Legacy one-summary/raw names, stream initial/final counters, request/command mismatch and query error."
+}

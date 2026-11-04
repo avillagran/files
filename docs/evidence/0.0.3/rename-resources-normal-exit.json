@@ -1,0 +1,243 @@
+{
+  "method": "in-process UI handlers and FLTK framebuffer; no native OS input",
+  "captures": [],
+  "runs": [
+    {
+      "scenario": "preview/apply/undo/redo/create file+folder",
+      "exit_code": 0,
+      "normal_exit_after_ack": true,
+      "filesystem_contents_and_no_staging": "PASS",
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=113056\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=1\nFILES_UI_SMOKE_OK entries=3\nFILES_MUTATION_COMMAND_OK rename-preview\nFILES_RENAME_PREVIEW_READY count=2 id=2\nFILES_MUTATION_COMMAND_OK apply\nFILES_MUTATION_REQUEST id=3 command=apply\nFILES_MUTATION_FINISHED id=3 success=true undo=true redo=false\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=2\nFILES_MUTATION_COMMAND_OK continue\nFILES_MUTATION_COMMAND_OK undo\nFILES_MUTATION_REQUEST id=4 command=undo\nFILES_MUTATION_FINISHED id=4 success=true undo=false redo=true\nFILES_MUTATION_COMMAND_OK continue\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=3\nFILES_MUTATION_COMMAND_OK redo\nFILES_MUTATION_REQUEST id=5 command=redo\nFILES_MUTATION_FINISHED id=5 success=true undo=true redo=false\nFILES_MUTATION_COMMAND_OK continue\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=4\nFILES_MUTATION_COMMAND_OK create-file\nFILES_MUTATION_COMMAND_OK apply\nFILES_MUTATION_REQUEST id=7 command=apply\nFILES_MUTATION_FINISHED id=7 success=true undo=false redo=false\nFILES_SCENE_READY view=groups loaded=true entries=4 stats_ready=true layout_ready=false generation=5\nFILES_MUTATION_COMMAND_OK continue\nFILES_MUTATION_COMMAND_OK create-folder\nFILES_MUTATION_COMMAND_OK apply\nFILES_MUTATION_REQUEST id=9 command=apply\nFILES_MUTATION_FINISHED id=9 success=true undo=false redo=false\nFILES_SCENE_READY view=groups loaded=true entries=5 stats_ready=true layout_ready=false generation=6\nFILES_MUTATION_COMMAND_OK continue\nFILES_MUTATION_COMMAND_OK close\n",
+      "geometry": {
+        "window_logical": [
+          1000,
+          650
+        ],
+        "output_scale": 2,
+        "window_physical": [
+          2000,
+          1300
+        ],
+        "native_wayland": true,
+        "address": "0xaaab0e04b220"
+      },
+      "cleanup": {
+        "complete": true,
+        "surviving_observed_processes": [],
+        "errors": [],
+        "method": "read-only PID/starttime verification after exit0; no termination signals",
+        "scope": "observed tree identities"
+      },
+      "preview_ready_monotonic": 461524.636897307,
+      "stable_since_monotonic": 461524.815235113,
+      "stable_until_monotonic": 461525.838372711,
+      "stable_phase": "after final creation and dismissal",
+      "metrics": {
+        "complete": true,
+        "sample_count": 58,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 85.10366297559813,
+        "stable_sample_count": 27,
+        "sampled_maxima": {
+          "pss_kib": 34095,
+          "swap_pss_kib": 64,
+          "memory_kib": 34159,
+          "fds": 14,
+          "threads": 6,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 34095,
+          "swap_pss_kib": 64,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 34159,
+          "time_monotonic": 461524.363557677,
+          "cpu_percent_observed": 28.242450016409187,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1849860,
+              "start": 46152416,
+              "pss_kib": 34095,
+              "swap_pss_kib": 64,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 30483,
+          "swap_pss_kib": 48,
+          "memory_kib": 30531,
+          "fds": 11,
+          "threads": 6,
+          "process_count": 1
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 27.14585473258304,
+        "observed_process_identities": [
+          [
+            1849860,
+            46152416
+          ]
+        ],
+        "exited_process_identities": [],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "terminal_exit_observations": [
+        {
+          "reason": "terminal root-dead empty observation deferred; valid only after confirmed exit0 and verified cleanup",
+          "sample": {
+            "pss_kib": 0,
+            "swap_pss_kib": 0,
+            "threads": 0,
+            "fds": 0,
+            "memory_kib": 0,
+            "time_monotonic": 461525.854990591,
+            "cpu_percent_observed": 0.0,
+            "root_alive": false,
+            "process_count": 0,
+            "complete": false,
+            "errors": [],
+            "processes": [],
+            "exited_during_read": [],
+            "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "close with pending Apply",
+      "exit_code": 0,
+      "normal_exit_after_ack": true,
+      "filesystem_contents_and_no_staging": "PASS",
+      "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_FIRST_PAINT_US=83973\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=1\nFILES_UI_SMOKE_OK entries=3\nFILES_MUTATION_COMMAND_OK rename-preview\nFILES_RENAME_PREVIEW_READY count=2 id=2\nFILES_MUTATION_COMMAND_OK apply-close\nFILES_MUTATION_REQUEST id=3 command=apply-close\nFILES_MUTATION_FINISHED id=3 success=false undo=false redo=false\nFILES_SCENE_READY view=groups loaded=true entries=3 stats_ready=true layout_ready=false generation=2\nFILES_MUTATION_COMMAND_OK continue\nFILES_MUTATION_COMMAND_OK close\n",
+      "geometry": {
+        "window_logical": [
+          1000,
+          650
+        ],
+        "output_scale": 2,
+        "window_physical": [
+          2000,
+          1300
+        ],
+        "native_wayland": true,
+        "address": "0xaaab0e04b220"
+      },
+      "cleanup": {
+        "complete": true,
+        "surviving_observed_processes": [],
+        "errors": [],
+        "method": "read-only PID/starttime verification after exit0; no termination signals",
+        "scope": "observed tree identities"
+      },
+      "preview_ready_monotonic": 461526.278225847,
+      "stable_since_monotonic": 461526.278312306,
+      "stable_until_monotonic": 461527.312656448,
+      "stable_phase": "preview before pending-Apply close",
+      "metrics": {
+        "complete": true,
+        "sample_count": 42,
+        "sample_interval_requested_ms": 25.0,
+        "max_observed_interval_ms": 97.0091309864074,
+        "stable_sample_count": 27,
+        "sampled_maxima": {
+          "pss_kib": 34239,
+          "swap_pss_kib": 0,
+          "memory_kib": 34239,
+          "fds": 13,
+          "threads": 6,
+          "process_count": 1
+        },
+        "sample_at_memory_max": {
+          "pss_kib": 34239,
+          "swap_pss_kib": 0,
+          "threads": 5,
+          "fds": 11,
+          "memory_kib": 34239,
+          "time_monotonic": 461525.98861384,
+          "cpu_percent_observed": 28.032220002558226,
+          "root_alive": true,
+          "process_count": 1,
+          "complete": true,
+          "errors": [],
+          "processes": [
+            {
+              "pid": 1850075,
+              "start": 46152587,
+              "pss_kib": 34239,
+              "swap_pss_kib": 0,
+              "threads": 5,
+              "fds": 11
+            }
+          ],
+          "exited_during_read": [],
+          "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+        },
+        "stable_medians": {
+          "pss_kib": 30415,
+          "swap_pss_kib": 0,
+          "memory_kib": 30415,
+          "fds": 12,
+          "threads": 6,
+          "process_count": 1
+        },
+        "stable_cpu_percent_observed_median": 0.0,
+        "stable_cpu_percent_observed_max": 0.0,
+        "observed_process_identities": [
+          [
+            1850075,
+            46152587
+          ]
+        ],
+        "exited_process_identities": [],
+        "exited_during_read": [],
+        "exited_during_read_count": 0,
+        "completeness_scope": "complete verifies surviving readable identities, not lifetime coverage; confirmed exits can have unavailable memory",
+        "errors": [],
+        "peak_scope": "sampled lower bound; not an exact peak; GPU memory excluded",
+        "snapshot_scope": "process reads are not simultaneous; CPU omits first/new and final/exited intervals"
+      },
+      "terminal_exit_observations": [
+        {
+          "reason": "terminal root-dead empty observation deferred; valid only after confirmed exit0 and verified cleanup",
+          "sample": {
+            "pss_kib": 0,
+            "swap_pss_kib": 0,
+            "threads": 0,
+            "fds": 0,
+            "memory_kib": 0,
+            "time_monotonic": 461527.372653624,
+            "cpu_percent_observed": 0.0,
+            "root_alive": false,
+            "process_count": 0,
+            "complete": false,
+            "errors": [],
+            "processes": [],
+            "exited_during_read": [],
+            "completeness_scope": "complete verifies surviving readable identities, not full lifetimes; confirmed exits with unread memory are explicit; sampled peaks are lower bounds"
+          }
+        }
+      ]
+    }
+  ],
+  "resource_gate": "PASS",
+  "binary_sha256": "5c54617793ef7dc20a32bb9632b59fe82a0b6ca4707f2aa616f1289ca70cadec",
+  "sampled_peak_memory_mb_decimal": 35.060736,
+  "sampled_goal_met": true,
+  "goal_met": true,
+  "resource_scope": "sampled tree PSS+Swap; lower bound, not full lifetimes, GPU excluded; scenario is 3 files + created entries, not baseline10k/1080p",
+  "functional_gate": "PASS"
+}

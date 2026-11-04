@@ -1,0 +1,69 @@
+    Checking files-ui v0.0.4 (/home/avillagran/Work/files/crates/ui)
+error: this `if` statement can be collapsed
+   --> crates/ui/src/saved_search_ui.rs:639:13
+    |
+639 | /             if let Some(p) = m
+640 | |                 .saved_searches
+641 | |                 .panel
+642 | |                 .as_mut()
+...   |
+660 | |             }
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+643 ~                 .filter(|p| p.editing() && p.geometry.contains(x, y))
+644 ~                 && let Some(at) = p.geometry.position(x, p.edit_epoch) {
+645 |                     let anchor = if app::event_state().intersects(Shortcut::Shift) {
+...
+657 |                     field = true;
+658 ~                 }
+    |
+
+error: this `if` statement can be collapsed
+   --> crates/ui/src/saved_search_ui.rs:661:13
+    |
+661 | /             if !field {
+662 | |                 if let Some(a) = m
+663 | |                     .hits
+664 | |                     .iter()
+...   |
+671 | |             }
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+help: collapse nested if block
+    |
+661 ~             if !field
+662 ~                 && let Some(a) = m
+663 |                     .hits
+...
+669 |                     m.action(a)
+670 ~                 }
+    |
+
+error: this `if` statement can be collapsed
+   --> crates/ui/src/saved_search_ui.rs:674:13
+    |
+674 | /             if let Some(p) = m.saved_searches.panel.as_mut().filter(|p| p.dragging) {
+675 | |                 if let Some(at) = p.geometry.position(app::event_x(), p.edit_epoch) {
+676 | |                     p.cursor.select(&p.label, p.cursor.anchor, at);
+677 | |                     p.edit_epoch = epoch()
+678 | |                 }
+679 | |             }
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.99.0/index.html#collapsible_if
+help: collapse nested if block
+    |
+674 ~             if let Some(p) = m.saved_searches.panel.as_mut().filter(|p| p.dragging)
+675 ~                 && let Some(at) = p.geometry.position(app::event_x(), p.edit_epoch) {
+676 |                     p.cursor.select(&p.label, p.cursor.anchor, at);
+677 |                     p.edit_epoch = epoch()
+678 ~                 }
+    |
+
+error: could not compile `files-ui` (lib) due to 3 previous errors

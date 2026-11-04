@@ -78,6 +78,17 @@ impl ThemeWatch {
                     paths.push(parent.to_path_buf());
                 }
             }
+            // Omarchy's window transparency toggles (Glassy windows) are
+            // followed even with FILES_THEME: they are not part of the theme.
+            // The directory appears only once a toggle is set, so the nearest
+            // existing ancestor is watched until it does.
+            if let Some(dir) = fltk_omarchy::glass::toggles_dir()
+                .ancestors()
+                .take(3)
+                .find(|p| p.is_dir())
+            {
+                paths.push(dir.to_path_buf());
+            }
             paths.sort();
             paths.dedup();
             for p in paths {
