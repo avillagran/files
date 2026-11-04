@@ -1,0 +1,53 @@
+{
+  "functional_gate": "PASS",
+  "label": "source",
+  "backend": "wayland",
+  "binary_path": "/home/node/Work/files/target/release/files",
+  "binary_sha256": "d3ea217f028658328d69dd5fb40e2e2de91681034b6de7be9818bf8eea409d19",
+  "method": "Mapped Files framebuffer captures and app log; no OS input, user toggles untouched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "scenes": {
+    "pinned": {
+      "pinned_opaque": true,
+      "stats": "glass_fills=0 opaque_fills=500 regions_cleared=0 regions_restored=0",
+      "startup": "FILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true",
+      "changes": []
+    },
+    "forced": {
+      "opacity": 0.65,
+      "wayland": true,
+      "stats": "glass_fills=500 opaque_fills=0 regions_cleared=1 regions_restored=0",
+      "startup": "FILES_GLASS mode=glassy opacity=0.65 overridden=true wayland=true",
+      "changes": []
+    },
+    "live": {
+      "transparent_equals_opaque": true,
+      "glassy_equals_forced_outside_status": true,
+      "status_rows_excluded": 32,
+      "back_equals_opaque": true,
+      "stats": "glass_fills=66 opaque_fills=565 regions_cleared=1 regions_restored=1",
+      "startup": "FILES_GLASS mode=transparent opacity=1.00 overridden=false wayland=true",
+      "changes": [
+        "FILES_GLASS_CHANGED mode=glassy opacity=0.65 active=true",
+        "FILES_GLASS_CHANGED mode=transparent opacity=1.00 active=false"
+      ]
+    }
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-wayland-pinned-opaque-1793814359318703429.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-wayland-forced-glass-1793814373338825923.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-wayland-live-system-transparent-1793814387641686909.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-wayland-live-system-glassy-1793814388115417068.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-wayland-live-system-back-1793814388588797567.png"
+  ],
+  "opaque_vs_glass": {
+    "pixels": 352000,
+    "changed": 349659,
+    "premultiplied_match": 340232,
+    "changed_fraction": 0.9933,
+    "match_fraction": 0.973,
+    "unchanged_bright_pixels": 2263
+  },
+  "fixture_unchanged": true
+}

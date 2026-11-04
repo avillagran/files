@@ -937,6 +937,20 @@ pub fn run_since(start: Instant) -> bool {
     if !theme_override {
         omarchy_theme::apply(&mut model.borrow_mut());
     }
+    // Scripted media checks were written for a paused, muted first frame.
+    // They keep it unless they ask for the product behaviour (autoplay and,
+    // with no saved preference, sound on).
+    if smoke {
+        let mut m = model.borrow_mut();
+        if std::env::var_os("FILES_TEST_VIDEO_AUTOPLAY").as_deref()
+            != Some(std::ffi::OsStr::new("1"))
+        {
+            m.preview.set_autoplay(false);
+            if !m.preview_muted_configured {
+                m.preview.set_muted(true);
+            }
+        }
+    }
     // Scripted checks compare pixels, so they paint opaque whatever the
     // desktop's Window Opacity is, unless they ask with OMARCHY_FLTK_GLASS.
     let glass_pinned = smoke && std::env::var_os("OMARCHY_FLTK_GLASS").is_none();
@@ -1003,11 +1017,13 @@ pub fn run_since(start: Instant) -> bool {
     let drawn_size = painted_size.clone();
     let m = model.clone();
     let mut painted = false;
+    let scale_window = win.clone();
     canvas.draw(move |f| {
         if !painted && trace {
             eprintln!("FILES_PAINT_START_US={}", start.elapsed().as_micros());
         }
         let mut p = painter::FltkPainter;
+        painter::set_device_scale(scale_window.pixels_per_unit());
         let mut m = m.borrow_mut();
         if f.damage_type() == Damage::User1 {
             view::status(&mut p, &mut m, f.w(), f.h());
@@ -2380,7 +2396,7 @@ pub fn run_since(start: Instant) -> bool {
                     ready.frame.bitmap.source
                 ),
                 text_preview_state::View::Video(ready) => format!(
-                    "FILES_PREVIEW_VIDEO_READY path={:?} revision={} width={} height={} source={}x{} duration={:.6} position={:.6} codec={} playing={} sequence={:?} drained={} video_index={} audio_index={:?} audio_enabled={} notice={:?}",
+                    "FILES_PREVIEW_VIDEO_READY path={:?} revision={} width={} height={} source={}x{} duration={:.6} position={:.6} codec={} playing={} sequence={:?} drained={} video_index={} audio_index={:?} audio_enabled={} notice={:?} muted={} audio_failed={} target={:?} device_scale={:.2} rate={:?}",
                     state.preview.path(),
                     state.preview.revision(),
                     ready.frame.bitmap.width,
@@ -2396,7 +2412,12 @@ pub fn run_since(start: Instant) -> bool {
                     ready.frame.video_index,
                     ready.frame.audio.as_ref().map(|a| a.index),
                     state.preview.video_audio(),
-                    ready.notice
+                    ready.notice,
+                    state.preview.muted(),
+                    state.preview.video_audio_failed(),
+                    state.preview.video_target(),
+                    painter::device_scale(),
+                    ready.frame.frame_rate
                 ),
                 text_preview_state::View::Html(ready) => format!(
                     "FILES_PREVIEW_HTML_READY path={:?} revision={} width={} height={} bytes={} commands={} document_height={} top={} source={:?} summary={}",

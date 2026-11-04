@@ -124,6 +124,9 @@ pub struct Preferences {
     /// Optional MC-style operation strip; compact browser remains the default.
     #[serde(default)]
     pub operation_bar: bool,
+    /// Global mute of media previews; absent means sound on.
+    #[serde(default)]
+    pub preview_muted: Option<bool>,
 }
 pub fn home() -> PathBuf {
     std::env::var_os("HOME")

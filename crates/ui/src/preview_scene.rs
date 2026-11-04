@@ -535,6 +535,7 @@ pub fn command(m: &mut Model, action: &str) -> Result<(), String> {
         }
         "gif" => open(m, "clip.gif")?,
         "video" => open(m, "clip.mkv")?,
+        "preview-close" => m.action(Action::ClosePreview),
         "video-audio" => m.action(Action::PreviewVideoAudio),
         "video-assert-audio-tracks" => {
             let View::Video(r) = m.preview.view() else {

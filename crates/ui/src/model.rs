@@ -540,6 +540,8 @@ pub struct Model {
     pub toolkit_popup: bool,
     pub show_hidden: bool,
     pub operation_bar: bool,
+    /// True when config.toml says whether previews start muted.
+    pub preview_muted_configured: bool,
     pub grid_zoom: f32,
     pub status_tips: crate::status_tips::State,
     pub open_job: Option<crate::open_job::Job>,
@@ -703,6 +705,7 @@ impl Model {
             toolkit_popup: false,
             show_hidden: prefs.show_hidden,
             operation_bar: prefs.operation_bar,
+            preview_muted_configured: prefs.preview_muted.is_some(),
             grid_zoom: 1.0,
             status_tips: Default::default(),
             open_job: None,
@@ -738,6 +741,9 @@ impl Model {
             stats_requested: HashSet::new(),
             all_stat: false,
         };
+        model
+            .preview
+            .set_muted(prefs.preview_muted.unwrap_or(false));
         model.arm_folder_restore();
         model
     }
@@ -2220,6 +2226,7 @@ impl Model {
                     self.window_mode,
                     self.show_hidden,
                     self.operation_bar,
+                    self.preview.muted(),
                 ))
                 .is_ok()
         {
@@ -2695,7 +2702,16 @@ impl Model {
             }
             Action::PreviewAudioToggle => self.preview.toggle_audio(),
             Action::PreviewAudioSeek(delta) => self.preview.seek_audio_by(delta),
-            Action::PreviewVideoAudio => self.preview.toggle_video_audio(),
+            Action::PreviewVideoAudio => {
+                if self.preview.toggle_video_audio() {
+                    // Global and saved: every later preview starts like this.
+                    self.preview_muted_configured = true;
+                    self.config_revision += 1;
+                    self.config_dirty = true;
+                    self.config_error = None;
+                    self.dispatch_config();
+                }
+            }
             Action::PreviewVideoToggle => self.preview.toggle_video(),
             Action::PreviewPdfPage(delta) => self.preview.change_pdf_page(delta),
             Action::PreviewPdfText => self.preview.toggle_pdf_text(),

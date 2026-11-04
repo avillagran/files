@@ -60,6 +60,12 @@ pub trait Painter {
         self.text_width(text, size, true)
     }
     fn image(&mut self, r: Rect, image: &Image<'_>);
+    /// Draws `image` (device pixels, e.g. 2× on a HiDPI output) into the
+    /// logical rectangle `r`, keeping every device pixel. Headless painters
+    /// treat it as [`Painter::image`].
+    fn image_scaled(&mut self, r: Rect, image: &Image<'_>) {
+        self.image(r, image);
+    }
     fn clip(&mut self, r: Rect);
     fn unclip(&mut self);
     fn effect(&mut self, _region: Rect, _id: EffectId, _u: &Uniforms) -> bool {
@@ -68,6 +74,22 @@ pub trait Painter {
     fn capture(&mut self, _region: Rect) -> Option<TextureId> {
         None
     }
+}
+thread_local! {
+    static DEVICE_SCALE: std::cell::Cell<f32> = const { std::cell::Cell::new(1.0) };
+}
+/// Device pixels per FLTK unit of the window being painted (Wayland output
+/// scale × FLTK scaling). The canvas sets it before painting.
+pub fn set_device_scale(scale: f32) {
+    let scale = if scale.is_finite() {
+        scale.clamp(1.0, 4.0)
+    } else {
+        1.0
+    };
+    DEVICE_SCALE.with(|s| s.set(scale));
+}
+pub fn device_scale() -> f32 {
+    DEVICE_SCALE.with(|s| s.get())
 }
 pub struct FltkPainter;
 fn color(c: Color) -> fltk::enums::Color {
@@ -131,6 +153,22 @@ impl Painter for FltkPainter {
             img.height,
             fltk::enums::ColorDepth::Rgb8,
         ) {
+            i.draw(r.x, r.y, r.w, r.h);
+        }
+    }
+    fn image_scaled(&mut self, r: Rect, img: &Image<'_>) {
+        if img.width == r.w && img.height == r.h {
+            return self.image(r, img);
+        }
+        if let Ok(mut i) = RgbImage::new(
+            img.rgb,
+            img.width,
+            img.height,
+            fltk::enums::ColorDepth::Rgb8,
+        ) {
+            // FLTK keeps the full data and draws it at the drawing size: on a
+            // scaled output every device pixel of `img` reaches the screen.
+            i.scale(r.w, r.h, false, true);
             i.draw(r.x, r.y, r.w, r.h);
         }
     }

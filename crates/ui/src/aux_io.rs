@@ -74,7 +74,8 @@ pub enum Request {
     SessionSave(u64, Arc<Vec<u8>>),
     Load(u64, PathBuf),
     Save(u64, PathBuf, Arc<SpatialLayout>),
-    Preferences(u64, Corners, WindowMode, bool, bool),
+    /// revision, corners, window mode, hidden, operation bar, preview muted
+    Preferences(u64, Corners, WindowMode, bool, bool, bool),
 }
 pub enum Response {
     TrashCatalog(u64, Result<files_core::trash::Catalog, String>),
@@ -269,7 +270,7 @@ impl AuxIo {
                     Request::Save(g, p, l) => {
                         Response::Saved(p.clone(), g, l.save(&p).map_err(|e| e.to_string()))
                     }
-                    Request::Preferences(revision, c, mode, show_hidden, operation_bar) => {
+                    Request::Preferences(revision, c, mode, show_hidden, operation_bar, muted) => {
                         Response::Config(
                             revision,
                             files_core::persistence::update_config_values(
@@ -287,6 +288,7 @@ impl AuxIo {
                                     ("window_mode", mode.key().into()),
                                     ("show_hidden", show_hidden.into()),
                                     ("operation_bar", operation_bar.into()),
+                                    ("preview_muted", muted.into()),
                                 ],
                             ),
                         )

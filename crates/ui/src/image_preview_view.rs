@@ -124,23 +124,33 @@ impl Viewport {
         p.rect(body, c.background);
         let w = body.w.clamp(1, 1160);
         let h = body.h.clamp(1, 800);
+        // Sample in device pixels (2× on a HiDPI output) so frames decoded at
+        // the preview's real resolution reach the screen pixel for pixel.
+        // Pan and pointer math stay in logical units.
+        let s = crate::painter::device_scale();
+        let (dev_w, dev_h) = (
+            ((w as f32 * s).round() as i32).max(1),
+            ((h as f32 * s).round() as i32).max(1),
+        );
         let zoom = self.zoom.max(1.0).clamp(1.0, 8.0);
         let (source_w, source_h) = if self.quarter_turns % 2 == 1 {
             (b.height, b.width)
         } else {
             (b.width, b.height)
         };
-        let scale = (w as f32 / source_w as f32)
-            .min(h as f32 / source_h as f32)
-            .min(1.0)
+        // Never larger than one source pixel per logical pixel at zoom 1, as
+        // before; on a 2× output that is two device pixels.
+        let scale = (dev_w as f32 / source_w as f32)
+            .min(dev_h as f32 / source_h as f32)
+            .min(s)
             * zoom;
         let dw = source_w as f32 * scale;
         let dh = source_h as f32 * scale;
-        self.pan_x = self.pan_x.clamp(0.0, (dw - w as f32).max(0.0));
-        self.pan_y = self.pan_y.clamp(0.0, (dh - h as f32).max(0.0));
+        self.pan_x = self.pan_x.clamp(0.0, ((dw - dev_w as f32) / s).max(0.0));
+        self.pan_y = self.pan_y.clamp(0.0, ((dh - dev_h as f32) / s).max(0.0));
         let key = SampleKey {
-            width: w,
-            height: h,
+            width: dev_w,
+            height: dev_h,
             zoom: zoom.to_bits(),
             pan: [self.pan_x.to_bits(), self.pan_y.to_bits()],
             background: [c.background.0, c.background.1, c.background.2],
@@ -148,20 +158,36 @@ impl Viewport {
             quarter_turns: self.quarter_turns,
         };
         if self.key != Some(key) {
-            let needed = w as usize * h as usize * 3;
+            let needed = dev_w as usize * dev_h as usize * 3;
             if self.buffer.capacity() < needed {
                 self.buffer.reserve_exact(needed - self.buffer.len());
             }
             self.buffer.resize(needed, 0);
-            let left = (w as f32 - dw).max(0.0) / 2.0 - self.pan_x;
-            let top = (h as f32 - dh).max(0.0) / 2.0 - self.pan_y;
-            for y in 0..h {
-                for x in 0..w {
+            let left = (dev_w as f32 - dw).max(0.0) / 2.0 - self.pan_x * s;
+            let top = (dev_h as f32 - dh).max(0.0) / 2.0 - self.pan_y * s;
+            let background = [c.background.0, c.background.1, c.background.2];
+            let radius = (radius as f32 * s).min(dw / 2.).min(dh / 2.);
+            // Source column per device column, computed once per frame.
+            let columns: Vec<i32> = (0..dev_w)
+                .map(|x| {
                     let sx = ((x as f32 - left) / scale).floor() as i32;
-                    let sy = ((y as f32 - top) / scale).floor() as i32;
-                    let i = (y as usize * w as usize + x as usize) * 3;
-                    let rgb = if sx >= 0 && sy >= 0 && sx < source_w as i32 && sy < source_h as i32
-                    {
+                    if sx >= 0 && sx < source_w as i32 {
+                        sx
+                    } else {
+                        -1
+                    }
+                })
+                .collect();
+            let row_bytes = b.width as usize * 3;
+            for y in 0..dev_h {
+                let sy = ((y as f32 - top) / scale).floor() as i32;
+                let row = y as usize * dev_w as usize * 3;
+                let inside_y = sy >= 0 && sy < source_h as i32;
+                let fy = y as f32 - top;
+                let corner_row = radius > 0. && (fy < radius || fy > dh - radius - 1.);
+                for (x, &sx) in columns.iter().enumerate() {
+                    let i = row + x * 3;
+                    let rgb = if inside_y && sx >= 0 {
                         let (sx, sy) = (sx as u32, sy as u32);
                         let (raw_x, raw_y) = match self.quarter_turns {
                             1 => (sy, b.height - 1 - sx),
@@ -169,45 +195,54 @@ impl Viewport {
                             3 => (b.width - 1 - sy, sx),
                             _ => (sx, sy),
                         };
-                        let j = (raw_y as usize * b.width as usize + raw_x as usize) * 3;
+                        let j = raw_y as usize * row_bytes + raw_x as usize * 3;
                         [b.rgb[j], b.rgb[j + 1], b.rgb[j + 2]]
                     } else {
-                        [c.background.0, c.background.1, c.background.2]
+                        background
                     };
                     // Round the displayed image itself, including letterboxed
                     // thumbnails, rather than the surrounding sampling viewport.
-                    let radius = (radius as f32).min(dw / 2.).min(dh / 2.);
-                    let dx = (radius - 0.5 - (x as f32 - left))
-                        .max((x as f32 - left) - (dw - radius - 0.5))
-                        .max(0.);
-                    let dy = (radius - 0.5 - (y as f32 - top))
-                        .max((y as f32 - top) - (dh - radius - 0.5))
-                        .max(0.);
-                    let alpha = if radius > 0. && dx > 0. && dy > 0. {
-                        (radius + 0.5 - (dx * dx + dy * dy).sqrt()).clamp(0., 1.)
+                    let fx = x as f32 - left;
+                    if corner_row && (fx < radius || fx > dw - radius - 1.) {
+                        let dx = (radius - 0.5 - fx).max(fx - (dw - radius - 0.5)).max(0.);
+                        let dy = (radius - 0.5 - fy).max(fy - (dh - radius - 0.5)).max(0.);
+                        let alpha = if dx > 0. && dy > 0. {
+                            (radius + 0.5 - (dx * dx + dy * dy).sqrt()).clamp(0., 1.)
+                        } else {
+                            1.
+                        };
+                        for channel in 0..3 {
+                            self.buffer[i + channel] = (rgb[channel] as f32 * alpha
+                                + background[channel] as f32 * (1. - alpha))
+                                .round()
+                                as u8;
+                        }
                     } else {
-                        1.
-                    };
-                    let background = [c.background.0, c.background.1, c.background.2];
-                    for channel in 0..3 {
-                        self.buffer[i + channel] = (rgb[channel] as f32 * alpha
-                            + background[channel] as f32 * (1. - alpha))
-                            .round() as u8;
+                        self.buffer[i..i + 3].copy_from_slice(&rgb);
                     }
                 }
             }
             self.key = Some(key);
         }
         p.clip(body);
-        p.image(
+        p.image_scaled(
             Rect::new(body.x, body.y, w, h),
             &Image {
                 rgb: &self.buffer,
-                width: w,
-                height: h,
+                width: dev_w,
+                height: dev_h,
             },
         );
         p.unclip();
+    }
+    /// Device-pixel box this viewport shows images in (aspect-fit target for
+    /// decoders), for a body of `w`×`h` logical pixels.
+    pub fn device_box(w: i32, h: i32) -> (u32, u32) {
+        let s = crate::painter::device_scale();
+        (
+            ((w.clamp(1, 1160) as f32 * s).round() as u32).max(1),
+            ((h.clamp(1, 800) as f32 * s).round() as u32).max(1),
+        )
     }
 }
 

@@ -302,11 +302,18 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
     let body = Rect::new(x + 18, y + 77, width - 36, height - 146);
     let revision = m.preview.revision();
     m.preview.configure_viewport(body.w, body.h);
+    // Video decodes for the device pixels of the frame area (body minus timeline).
+    m.preview
+        .set_video_target(crate::image_preview_view::Viewport::device_box(
+            body.w,
+            (body.h - 40).max(1),
+        ));
     if revision != m.preview.revision() {
         m.text_viewport.dragging = false;
     }
     let playing = m.preview.video_playing();
     let video_audio = m.preview.video_audio();
+    let video_audio_failed = m.preview.video_audio_failed();
     let video_has_audio = matches!(m.preview.view(),View::Video(r)if r.frame.audio.is_some());
     let video_error = matches!(m.preview.view(),View::Video(r)if r.notice.is_some());
     let audio_available = m.preview.audio_info().is_some();
@@ -480,7 +487,9 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
                         " · pausado"
                     },
                     if ready.frame.audio.is_some() {
-                        if video_audio {
+                        if video_audio_failed {
+                            "sin audio (salida no disponible)"
+                        } else if video_audio {
                             "audio activado"
                         } else {
                             "silenciado"
@@ -688,7 +697,9 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
                 p,
                 m,
                 Rect::new(x + width - 450, y + height - 34, 100, 25),
-                if video_audio {
+                if video_audio_failed {
+                    "  Sin audio"
+                } else if video_audio {
                     "  Audio"
                 } else {
                     "  Silencio"
@@ -909,7 +920,7 @@ pub fn event(m: &mut Model, ev: Event) -> bool {
                     m.preview.toggle_video();
                 }
                 if !ctrl && key == Key::from_char('m') {
-                    m.preview.toggle_video_audio();
+                    m.action(Action::PreviewVideoAudio);
                 }
                 if key == Key::Left {
                     m.preview.seek_video_by(-5.0);

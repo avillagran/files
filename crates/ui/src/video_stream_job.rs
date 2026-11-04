@@ -3,8 +3,10 @@
 //! Root owns the preview's single-flight lifecycle: cancel and drain Finished
 //! before replacing this job. The worker owns at most a partial RGB frame and
 //! one replaceable latest frame; a bitmap already taken by the UI is additional.
-//! Input pacing (-re) and a 12fps output filter prevent unbounded turbo decoding.
-//! Position is an estimate from the clamped seek plus output sequence/12, NOT a
+//! Input pacing (-re) and an output fps filter at the source's declared rate
+//! (capped at 60, 30 when unknown) prevent unbounded turbo decoding; frames come
+//! at the source size reduced only to the device pixels of the preview (4K cap).
+//! Position is an estimate from the clamped seek plus output sequence/rate, NOT a
 //! decoded presentation timestamp. Audio is opt-in in the same child; no hardware
 //! acceleration. GIF ignores source loops and plays one bounded pass.
 //!
@@ -28,8 +30,26 @@ use std::{
     },
 };
 
-const FPS: u32 = 12;
-const MAX_FRAME_BYTES: usize = 960 * 540 * 3;
+const MAX_FRAME_BYTES: usize = crate::video_preview_job::MAX_OUTPUT_PIXELS as usize * 3;
+/// Highest output rate; faster sources are resampled to it.
+const MAX_RATE: u32 = 60;
+/// Output clock (num, den): the declared source rate, at most 60, 30 if unknown.
+fn output_rate(rate: Option<(u32, u32)>) -> (u32, u32) {
+    match rate {
+        Some((n, d)) if n > 0 && d > 0 && u64::from(n) <= u64::from(d) * u64::from(MAX_RATE) => {
+            (n, d)
+        }
+        Some(_) => (MAX_RATE, 1),
+        None => (30, 1),
+    }
+}
+/// Decoder/filter threads: native-size frames need more than one core.
+fn decode_threads() -> u64 {
+    std::thread::available_parallelism()
+        .map(|n| n.get() as u64)
+        .unwrap_or(1)
+        .clamp(1, 8)
+}
 const MAX_STDERR: usize = 64 * 1024;
 use crate::video_preview_job::{
     CODECS, codec_whitelist, demuxer, duration_limit, input_byte_limit, pixel_limit,
@@ -38,6 +58,8 @@ use crate::video_preview_job::{
 #[derive(Debug)]
 pub struct Frame {
     pub rgb: Vec<u8>,
+    pub width: u32,
+    pub height: u32,
     pub source: Option<files_core::media_source::Revision>,
     /// Estimated requested timeline position, not the source frame's PTS.
     pub position: f64,
@@ -73,6 +95,7 @@ pub struct Options {
     pub duration: f64,
     pub video_index: u32,
     pub audio: Option<crate::video_preview_job::AudioTrack>,
+    pub frame_rate: Option<(u32, u32)>,
 }
 struct Input {
     video_index: u32,
@@ -86,6 +109,7 @@ struct Input {
     source_height: u32,
     codec: String,
     duration: f64,
+    rate: (u32, u32),
 }
 impl Job {
     pub fn start(
@@ -103,6 +127,7 @@ impl Job {
             duration,
             video_index,
             audio,
+            frame_rate,
         } = options;
         let gate = Arc::new(Mutex::new(Gate {
             phase: Phase::ReadOnly,
@@ -129,6 +154,7 @@ impl Job {
             source_height,
             codec,
             duration,
+            rate: output_rate(frame_rate),
         };
         std::thread::spawn(move || {
             crate::readonly_gate::hold_fixture("video_stream");
@@ -207,8 +233,8 @@ fn invalid(message: &str) -> io::Error {
     io::Error::other(message)
 }
 fn frame_bytes(width: u32, height: u32) -> io::Result<usize> {
-    if width == 0 || height == 0 || width > 960 || height > 540 {
-        return Err(invalid("Frame de vídeo fuera del límite960×540"));
+    if !crate::video_preview_job::output_fits(width, height) {
+        return Err(invalid("Frame de vídeo fuera del límite 4K"));
     }
     (width as usize)
         .checked_mul(height as usize)
@@ -262,6 +288,8 @@ struct Assembler {
     rgb: Vec<u8>,
     filled: usize,
     expected: usize,
+    width: u32,
+    height: u32,
 }
 impl Assembler {
     fn new(width: u32, height: u32) -> io::Result<Self> {
@@ -270,6 +298,8 @@ impl Assembler {
             rgb: Vec::new(),
             filled: 0,
             expected,
+            width,
+            height,
         };
         result.recycle(None)?;
         Ok(result)
@@ -307,6 +337,8 @@ impl Assembler {
         Frame {
             source: None,
             rgb: std::mem::take(&mut self.rgb),
+            width: self.width,
+            height: self.height,
             position,
             sequence,
         }
@@ -373,8 +405,14 @@ fn command(
     if !(3..256).contains(&fd) {
         return Err(invalid("Demasiados descriptores para reproducir vídeo"));
     }
-    let cpu_seconds =
-        (((input.duration - input.position).ceil() * 2.0 + 10.0) as u64).clamp(10, 86400);
+    let threads = decode_threads();
+    let cpu_seconds = ((((input.duration - input.position).ceil() * 2.0 + 10.0) as u64)
+        .saturating_mul(threads))
+    .clamp(10, 86400);
+    // Virtual-space containment grows with the decoder/scaler threads (each
+    // has a stack and its frame/slice buffers); still not a PSS budget.
+    let address_space = (768 + 192 * threads) * 1024 * 1024;
+    let threads = threads.to_string();
     let mut command = std::process::Command::new("ffmpeg");
     // Bound glibc arena reservations in this child so AV+Pulse fits the SAME
     // virtual AS cap. No claim about whole-process/tree PSS or throughput.
@@ -386,9 +424,9 @@ fn command(
         "-max_alloc",
         "33554432",
         "-threads",
-        "1",
+        &threads,
         "-filter_threads",
-        "1",
+        &threads,
         "-hwaccel",
         "none",
         "-re",
@@ -430,8 +468,12 @@ fn command(
         &format!("{:.6}", input.duration - input.position),
         "-vf",
         &format!(
-            "fps={FPS},scale={}:{}:flags=bilinear,setsar=1",
-            input.width, input.height
+            "fps={}/{},scale={}:{}:flags={},setsar=1",
+            input.rate.0,
+            input.rate.1,
+            input.width,
+            input.height,
+            crate::video_preview_job::SCALE_FLAGS
         ),
         "-threads",
         "1",
@@ -458,7 +500,7 @@ fn command(
                 return Err(io::Error::last_os_error());
             }
             for (resource, value) in [
-                (libc::RLIMIT_AS, 768 * 1024 * 1024),
+                (libc::RLIMIT_AS, address_space),
                 (libc::RLIMIT_CPU, cpu_seconds),
                 (libc::RLIMIT_NOFILE, u64::from(fd as u32 + 8).max(64)),
                 (libc::RLIMIT_CORE, 0),
@@ -585,6 +627,10 @@ fn run(
             .ok_or_else(|| invalid("Sin diagnóstico de vídeo"))?;
         nonblocking(stdout.as_raw_fd())?;
         nonblocking(stderr.as_raw_fd())?;
+        // Native-size frames are megabytes: a 1MiB pipe (the usual
+        // pipe-max-size) lets ffmpeg write ahead; a failure keeps the default.
+        unsafe { libc::fcntl(stdout.as_raw_fd(), libc::F_SETPIPE_SZ, 1 << 20) };
+        let (out_fd, err_fd) = (stdout.as_raw_fd(), stderr.as_raw_fd());
         let mut assembler = Assembler::new(input.width, input.height)?;
         let mut diagnostic = Vec::new();
         diagnostic
@@ -596,7 +642,8 @@ fn run(
         let started = Instant::now();
         let mut last_frame = started;
         let mut sequence = 0u64;
-        let frame_limit = ((input.duration - input.position) * f64::from(FPS)).ceil() as u64 + 2;
+        let fps = f64::from(input.rate.0) / f64::from(input.rate.1);
+        let frame_limit = ((input.duration - input.position) * fps).ceil() as u64 + 2;
         loop {
             cancelled(cancel)?;
             if started.elapsed().as_secs_f64() > input.duration - input.position + 10.0 {
@@ -647,8 +694,8 @@ fn run(
                             if sequence >= frame_limit {
                                 return Err(invalid("El vídeo produjo demasiados frames"));
                             }
-                            let position = (input.position + sequence as f64 / f64::from(FPS))
-                                .min(input.duration);
+                            let position =
+                                (input.position + sequence as f64 / fps).min(input.duration);
                             source_result(source_invalid, revision.revalidate(&file, &input.path))?;
                             let mut frame = assembler.take(position, sequence);
                             frame.source = Some(revision);
@@ -684,7 +731,27 @@ fn run(
                     source_result(source_invalid, revision.revalidate(&file, &input.path))
                 };
             }
-            std::thread::sleep(Duration::from_millis(2));
+            // Wake as soon as either pipe has data (or at most every 2ms for
+            // the cancel/child/deadline checks); a fixed sleep capped the
+            // throughput at one pipe buffer per tick.
+            let mut fds = [
+                libc::pollfd {
+                    fd: if output_eof { -1 } else { out_fd },
+                    events: libc::POLLIN,
+                    revents: 0,
+                },
+                libc::pollfd {
+                    fd: if stderr_eof { -1 } else { err_fd },
+                    events: libc::POLLIN,
+                    revents: 0,
+                },
+            ];
+            if unsafe { libc::poll(fds.as_mut_ptr(), 2, 2) } < 0 {
+                let error = io::Error::last_os_error();
+                if error.kind() != io::ErrorKind::Interrupted {
+                    return Err(error);
+                }
+            }
         }
     })();
     // Even failure during pipe setup/read/cancel reaps the direct process. The
@@ -726,14 +793,25 @@ mod tests {
             source_height: 1080,
             codec: "h264".into(),
             duration: 8.0,
+            rate: (30, 1),
         }
     }
     #[test]
     fn caps_reject_before_frame_allocation() {
-        for (width, height) in [(0, 1), (1, 0), (961, 1), (1, 541), (u32::MAX, u32::MAX)] {
+        for (width, height) in [
+            (0, 1),
+            (1, 0),
+            (3841, 1),
+            (3840, 2161),
+            (u32::MAX, u32::MAX),
+        ] {
             assert!(Assembler::new(width, height).is_err());
         }
-        assert_eq!(frame_bytes(960, 540).unwrap(), MAX_FRAME_BYTES);
+        assert_eq!(frame_bytes(3840, 2160).unwrap(), MAX_FRAME_BYTES);
+        assert_eq!(output_rate(None), (30, 1));
+        assert_eq!(output_rate(Some((30000, 1001))), (30000, 1001));
+        assert_eq!(output_rate(Some((120, 1))), (60, 1));
+        assert_eq!(output_rate(Some((60, 1))), (60, 1));
         for duration in [f64::NAN, f64::INFINITY, 0.0, -1.0, MAX_DURATION + 1.0] {
             let mut i = input();
             i.duration = duration;

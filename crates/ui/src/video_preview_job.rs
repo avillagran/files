@@ -36,8 +36,50 @@ pub struct AudioTrack {
     pub index: u32,
     pub info: crate::audio_preview_job::Info,
 }
+/// Largest side and area of a preview frame: a 4K frame fits the 32MiB
+/// per-allocation cap of the decoders. The open preview asks for the
+/// source's own pixels, only reduced to the device pixels it is shown in.
+pub const MAX_OUTPUT_SIDE: u32 = 3840;
+pub const MAX_OUTPUT_PIXELS: u64 = 3840 * 2160;
+/// Output size for a source shown in a box of device pixels: the source
+/// size when it fits (never upscaled), otherwise aspect-fit to the box,
+/// always within [`MAX_OUTPUT_SIDE`]/[`MAX_OUTPUT_PIXELS`].
+pub fn fit(display_width: f64, display_height: f64, box_width: u32, box_height: u32) -> (u32, u32) {
+    let side = f64::from(MAX_OUTPUT_SIDE);
+    let (bw, bh) = (
+        f64::from(box_width.max(1)).min(side),
+        f64::from(box_height.max(1)).min(side),
+    );
+    let (w, h) = dimensions_to(display_width, display_height, bw, bh);
+    let area = u64::from(w) * u64::from(h);
+    if area <= MAX_OUTPUT_PIXELS {
+        return (w, h);
+    }
+    let factor = (MAX_OUTPUT_PIXELS as f64 / area as f64).sqrt();
+    dimensions_to(
+        display_width,
+        display_height,
+        (f64::from(w) * factor).floor(),
+        (f64::from(h) * factor).floor(),
+    )
+}
+pub(crate) fn output_fits(width: u32, height: u32) -> bool {
+    width > 0
+        && height > 0
+        && width <= MAX_OUTPUT_SIDE
+        && height <= MAX_OUTPUT_SIDE
+        && u64::from(width) * u64::from(height) <= MAX_OUTPUT_PIXELS
+}
+/// Scaler for preview frames: Lanczos with full chroma for downscaling, an
+/// exact format conversion when the source is shown at its own size.
+pub(crate) const SCALE_FLAGS: &str = "lanczos+accurate_rnd+full_chroma_int";
 #[derive(Debug)]
 pub struct Ready {
+    /// Display size of the source (sample aspect and rotation applied).
+    pub display_width: f64,
+    pub display_height: f64,
+    /// Declared frame rate (num, den) when ffprobe gives a valid one.
+    pub frame_rate: Option<(u32, u32)>,
     pub video_index: u32,
     pub audio: Option<AudioTrack>,
     pub audio_notice: Option<String>,
@@ -57,6 +99,7 @@ impl Job {
         path: PathBuf,
         position: f64,
         expected: Option<files_core::media_source::Revision>,
+        target: (u32, u32),
     ) -> Self {
         let gate = Arc::new(Mutex::new(Gate {
             phase: Phase::ReadOnly,
@@ -68,7 +111,8 @@ impl Job {
         let (tx, result) = mpsc::sync_channel(1);
         std::thread::spawn(move || {
             crate::readonly_gate::hold_fixture("video_snapshot");
-            let result = run(path, position, expected, &flag, &state).map_err(|e| e.to_string());
+            let result =
+                run(path, position, expected, target, &flag, &state).map_err(|e| e.to_string());
             if let Ok(mut g) = state.lock() {
                 g.phase = Phase::Stopped;
             }
@@ -121,6 +165,7 @@ struct Metadata {
     index: u32,
     duration: f64,
     frame_interval: f64,
+    frame_rate: Option<(u32, u32)>,
     codec: String,
 }
 fn invalid(message: &str) -> io::Error {
@@ -173,6 +218,23 @@ pub(crate) fn codec_whitelist(demux: &str) -> String {
 }
 fn number(value: &serde_json::Value) -> Option<f64> {
     value.as_f64().or_else(|| value.as_str()?.parse().ok())
+}
+/// Declared rate as a rational, for the player's output clock.
+fn frame_rate(stream: &serde_json::Value) -> Option<(u32, u32)> {
+    let rate = |key| {
+        let value = stream.get(key)?.as_str().filter(|s| s.len() <= 32)?;
+        let (n, d) = value.split_once('/')?;
+        let part = |p: &str| {
+            (!p.is_empty() && p.bytes().all(|b| b.is_ascii_digit()))
+                .then(|| p.parse::<u32>().ok())
+                .flatten()
+                .filter(|n| *n > 0)
+        };
+        let (n, d) = (part(n)?, part(d)?);
+        let fps = f64::from(n) / f64::from(d);
+        (fps.is_finite() && (0.1..=1000.0).contains(&fps)).then_some((n, d))
+    };
+    rate("avg_frame_rate").or_else(|| rate("r_frame_rate"))
 }
 fn frame_interval(stream: &serde_json::Value) -> f64 {
     // FFprobe emits rational integers. Parse those directly rather than accepting
@@ -355,6 +417,7 @@ fn metadata(wire: &[u8], demux: &str) -> io::Result<Metadata> {
         index,
         duration,
         frame_interval: frame_interval(stream),
+        frame_rate: frame_rate(stream),
         codec: codec.into(),
     })
 }
@@ -379,7 +442,7 @@ fn position(requested: f64, duration: f64, frame_interval: f64) -> io::Result<f6
     Ok(requested.min((duration - frame_interval).max(0.0)))
 }
 fn frame(rgb: Vec<u8>, source: &Metadata, width: u32, height: u32) -> io::Result<Bitmap> {
-    if width == 0 || height == 0 || width > 960 || height > 540 {
+    if !output_fits(width, height) {
         return Err(invalid("Dimensiones del frame fuera del límite"));
     }
     if rgb.len() != width as usize * height as usize * 3 {
@@ -499,10 +562,19 @@ fn run(
     path: PathBuf,
     requested: f64,
     expected: Option<files_core::media_source::Revision>,
+    target: (u32, u32),
     cancel: &AtomicBool,
     gate: &Mutex<Gate>,
 ) -> io::Result<Ready> {
-    run_to(path, requested, expected, cancel, 960., 540., Some(gate))
+    run_to(
+        path,
+        requested,
+        expected,
+        cancel,
+        f64::from(target.0),
+        f64::from(target.1),
+        Some(gate),
+    )
 }
 #[cfg(target_os = "linux")]
 pub(crate) fn thumbnail(
@@ -569,11 +641,11 @@ fn run_to(
         demux,
     )?;
     let position = position(requested, source.duration, source.frame_interval)?;
-    let (width, height) = dimensions_to(
+    let (width, height) = fit(
         source.display_width,
         source.display_height,
-        max_width,
-        max_height,
+        max_width as u32,
+        max_height as u32,
     );
     let mut decoder = command("ffmpeg", fd)?;
     decoder.args([
@@ -603,7 +675,7 @@ fn run_to(
         "-frames:v",
         "1",
         "-vf",
-        &format!("scale={width}:{height}:flags=bilinear,setsar=1"),
+        &format!("scale={width}:{height}:flags={SCALE_FLAGS},setsar=1"),
         "-threads",
         "1",
         "-c:v",
@@ -629,6 +701,9 @@ fn run_to(
     revision.revalidate(&file, &path)?;
     bitmap.source = Some(revision);
     Ok(Ready {
+        display_width: source.display_width,
+        display_height: source.display_height,
+        frame_rate: source.frame_rate,
         video_index: source.index,
         audio: source.audio,
         audio_notice: source.audio_notice,
@@ -643,6 +718,7 @@ fn run(
     _: PathBuf,
     _: f64,
     _: Option<files_core::media_source::Revision>,
+    _: (u32, u32),
     _: &AtomicBool,
     _: &Mutex<Gate>,
 ) -> io::Result<Ready> {
@@ -740,6 +816,34 @@ mod tests {
         assert!(parse(v).is_err());
         assert!(metadata(&vec![b' '; MAX_METADATA + 1], "mov").is_err());
         assert!(metadata(b"{", "mov").is_err());
+    }
+    #[test]
+    fn open_preview_keeps_source_pixels_up_to_the_device_box_and_4k() {
+        // Shown at its own size when it fits: the original pixels.
+        assert_eq!(fit(1920., 1080., 2320, 1520), (1920, 1080));
+        assert_eq!(fit(640., 360., 2320, 1520), (640, 360));
+        // Larger than the device pixels it is shown in: aspect-fit.
+        assert_eq!(fit(3840., 2160., 2320, 1520), (2320, 1305));
+        // A huge box never exceeds the 4K area/side caps.
+        let (w, h) = fit(7680., 4320., 8000, 8000);
+        assert!(output_fits(w, h), "{w}x{h}");
+        assert_eq!(fit(3840., 2160., 3840, 3840), (3840, 2160));
+        let (w, h) = fit(2160., 3840., 3840, 3840);
+        assert!(output_fits(w, h) && h == 3840 && w == 2160);
+        assert!(!output_fits(3841, 1) && !output_fits(3840, 2161) && !output_fits(0, 1));
+    }
+    #[test]
+    fn frame_rate_is_a_bounded_rational() {
+        let mut v = wire();
+        v["streams"][0]["avg_frame_rate"] = "30000/1001".into();
+        assert_eq!(parse(v).unwrap().frame_rate, Some((30000, 1001)));
+        let mut v = wire();
+        v["streams"][0]["avg_frame_rate"] = "0/0".into();
+        v["streams"][0]["r_frame_rate"] = "25/1".into();
+        assert_eq!(parse(v).unwrap().frame_rate, Some((25, 1)));
+        let mut v = wire();
+        v["streams"][0]["avg_frame_rate"] = "1/0".into();
+        assert_eq!(parse(v).unwrap().frame_rate, None);
     }
     #[test]
     fn scaling_never_upscales_or_exceeds_frame_bounds() {

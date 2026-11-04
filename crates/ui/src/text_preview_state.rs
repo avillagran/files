@@ -327,7 +327,19 @@ pub struct State {
     audio_origin: f64,
     audio_playing: bool,
     audio_notice: Option<String>,
-    video_audio: bool,
+    /// Global "mute" for media previews: survives closing and opening other
+    /// files (and is saved by the model). Sound is on by default.
+    muted: bool,
+    /// The audio output failed for this preview; it plays silently instead.
+    audio_failed: bool,
+    /// Videos start playing when they open (fixtures may turn it off).
+    autoplay: bool,
+    autoplay_pending: bool,
+    /// A playback start was requested while consuming a result: start it on
+    /// the next pump, whose options are computed from the new view.
+    defer_start: bool,
+    /// Device-pixel box the open preview shows video in (decoder target).
+    video_target: (u32, u32),
     video_position: f64,
     video_playing: bool,
     video_duration: Option<f64>,
@@ -366,7 +378,12 @@ impl State {
             audio_origin: 0.0,
             audio_playing: false,
             audio_notice: None,
-            video_audio: false,
+            muted: false,
+            audio_failed: false,
+            autoplay: true,
+            autoplay_pending: false,
+            defer_start: false,
+            video_target: (1920, 1080),
             video_position: 0.0,
             video_playing: false,
             video_duration: None,
@@ -395,6 +412,7 @@ impl State {
         self.source_blocked = source_required(&path);
         self.path = Some(path);
         self.needs_start = true;
+        self.autoplay_pending = true;
         self.view = View::Loading;
     }
     pub fn open_directory(&mut self, path: PathBuf) {
@@ -430,7 +448,9 @@ impl State {
         self.audio_origin = 0.0;
         self.audio_playing = false;
         self.audio_notice = None;
-        self.video_audio = false;
+        self.audio_failed = false;
+        self.autoplay_pending = false;
+        self.defer_start = false;
         self.video_position = 0.0;
         self.video_playing = false;
         self.video_duration = None;
@@ -586,7 +606,7 @@ impl State {
         self.audio_origin = 0.0;
         self.audio_playing = false;
         self.audio_notice = None;
-        self.video_audio = false;
+        self.audio_failed = false;
         self.video_position = 0.0;
         self.video_duration = None;
         self.video_transform = Default::default();
@@ -838,14 +858,46 @@ impl State {
         }
         self.needs_start = self.audio_playing;
     }
+    /// Sound requested for the current video: not muted and the output works.
     pub fn video_audio(&self) -> bool {
-        self.video_audio
+        !self.muted && !self.audio_failed
     }
-    pub fn toggle_video_audio(&mut self) {
-        if self.source_blocked || !matches!(&self.view,View::Video(r)if r.frame.audio.is_some()) {
-            return;
+    /// The audio output failed for this preview and it plays silently.
+    pub fn video_audio_failed(&self) -> bool {
+        self.audio_failed
+    }
+    pub fn muted(&self) -> bool {
+        self.muted
+    }
+    /// Global mute preference (from the saved configuration).
+    pub fn set_muted(&mut self, muted: bool) {
+        self.muted = muted;
+    }
+    pub fn set_autoplay(&mut self, autoplay: bool) {
+        self.autoplay = autoplay;
+    }
+    /// The device-pixel box the preview shows video in; the next decode uses it.
+    pub fn set_video_target(&mut self, target: (u32, u32)) {
+        self.video_target = (target.0.max(1), target.1.max(1));
+    }
+    pub fn video_target(&self) -> (u32, u32) {
+        self.video_target
+    }
+    fn video_box(&self) -> (u32, u32) {
+        if self.video_transform.quarter_turns % 2 == 1 {
+            (self.video_target.1, self.video_target.0)
+        } else {
+            self.video_target
         }
-        self.video_audio = !self.video_audio;
+    }
+    /// Toggles the global mute. Returns true when it changed (to be saved).
+    pub fn toggle_video_audio(&mut self) -> bool {
+        if self.source_blocked || !matches!(&self.view,View::Video(r)if r.frame.audio.is_some()) {
+            return false;
+        }
+        self.muted = !self.muted;
+        // An explicit choice retries a failed output.
+        self.audio_failed = false;
         if let View::Video(r) = &mut self.view {
             r.notice = None;
         }
@@ -862,6 +914,7 @@ impl State {
                 r.sequence = None;
             }
         }
+        true
     }
     pub fn video_playing(&self) -> bool {
         self.video_playing
@@ -904,6 +957,8 @@ impl State {
             self.video_transform = ready.viewport.transform();
         }
         self.video_position = position;
+        // Playing continues from the new position once its frame is ready.
+        self.autoplay_pending = self.video_playing && self.autoplay;
         self.video_playing = false;
         self.revision = self
             .revision
@@ -993,22 +1048,34 @@ impl State {
             );
         let html_size = self.html_size;
         let video_position = self.video_position;
+        let video_box = self.video_box();
         let stream = if self.video_playing && self.needs_start {
             match &self.view {
-                View::Video(r) => Some(crate::video_stream_job::Options {
-                    width: r.frame.bitmap.width,
-                    height: r.frame.bitmap.height,
-                    source_width: r.frame.bitmap.source_width,
-                    source_height: r.frame.bitmap.source_height,
-                    codec: r.frame.codec.clone(),
-                    duration: r.frame.duration,
-                    video_index: r.frame.video_index,
-                    audio: if self.video_audio {
-                        r.frame.audio.clone()
-                    } else {
-                        None
-                    },
-                }),
+                View::Video(r) => {
+                    // The source's own pixels, reduced only to the device
+                    // pixels of the preview (4K cap); not the snapshot's size.
+                    let (width, height) = crate::video_preview_job::fit(
+                        r.frame.display_width,
+                        r.frame.display_height,
+                        video_box.0,
+                        video_box.1,
+                    );
+                    Some(crate::video_stream_job::Options {
+                        width,
+                        height,
+                        source_width: r.frame.bitmap.source_width,
+                        source_height: r.frame.bitmap.source_height,
+                        codec: r.frame.codec.clone(),
+                        duration: r.frame.duration,
+                        video_index: r.frame.video_index,
+                        frame_rate: r.frame.frame_rate,
+                        audio: if self.video_audio() {
+                            r.frame.audio.clone()
+                        } else {
+                            None
+                        },
+                    })
+                }
                 _ => None,
             }
         } else {
@@ -1105,6 +1172,7 @@ impl State {
                     path,
                     video_position,
                     expected,
+                    video_box,
                 )) as Box<dyn Task>
             } else if html {
                 Box::new(crate::html_preview_job::Job::start(
@@ -1126,6 +1194,8 @@ impl State {
     }
     fn pump_with(&mut self, start: impl FnOnce(PathBuf) -> Box<dyn Task>) -> bool {
         let mut changed = false;
+        // A start deferred by the previous pump uses this pump's options.
+        self.defer_start = false;
         if self
             .active
             .as_ref()
@@ -1157,6 +1227,8 @@ impl State {
             {
                 self.video_position = frame.position;
                 ready.frame.position = frame.position;
+                ready.frame.bitmap.width = frame.width;
+                ready.frame.bitmap.height = frame.height;
                 let previous = std::mem::replace(&mut ready.frame.bitmap.rgb, frame.rgb);
                 active.task.recycle_rgb(previous);
                 ready.sequence = Some(frame.sequence);
@@ -1197,6 +1269,9 @@ impl State {
                     _ => None,
                 };
                 let was_video_playback = self.video_playing && matches!(self.view, View::Video(_));
+                let sound_was_requested = was_video_playback
+                    && self.video_audio()
+                    && matches!(&self.view, View::Video(r) if r.frame.audio.is_some());
                 let was_audio_playback = self.audio_playing && self.audio_info().is_some();
                 let ready_source = match &result {
                     Ok(Payload::Audio(a)) => Some(a.source),
@@ -1288,6 +1363,11 @@ impl State {
                         self.video_position = frame.position;
                         let mut viewport = crate::image_preview_view::Viewport::default();
                         viewport.restore_transform(self.video_transform);
+                        if std::mem::take(&mut self.autoplay_pending) && self.autoplay {
+                            self.video_playing = true;
+                            self.needs_start = true;
+                            self.defer_start = true;
+                        }
                         View::Video(VideoReady {
                             notice: None,
                             frame,
@@ -1321,7 +1401,22 @@ impl State {
                         if was_audio_playback {
                             self.audio_notice = Some(error);
                             std::mem::replace(&mut self.view, View::Loading)
+                        } else if sound_was_requested {
+                            // Audio output unavailable: keep playing, silently,
+                            // for this preview only; the mute preference stays.
+                            self.audio_failed = true;
+                            self.video_playing = true;
+                            self.needs_start = true;
+                            self.defer_start = true;
+                            if let View::Video(r) = &mut self.view {
+                                r.sequence = None;
+                                r.notice = Some(format!("sin sonido: {error}"));
+                            }
+                            std::mem::replace(&mut self.view, View::Loading)
                         } else if was_video_playback {
+                            // A silent retry failing too means the cause was
+                            // not the audio output: do not blame it.
+                            self.audio_failed = false;
                             if let View::Video(r) = &mut self.view {
                                 r.notice = Some(error);
                             }
@@ -1336,6 +1431,7 @@ impl State {
         }
         if self.active.is_none()
             && self.needs_start
+            && !self.defer_start
             && !self.source_blocked
             && !self.document_suspended
         {
@@ -1875,6 +1971,9 @@ mod tests {
     }
     fn complete_video(stub: &Stub, position: f64) {
         *stub.result.borrow_mut() = Some(Ok(Payload::Video(crate::video_preview_job::Ready {
+            display_width: 1.0,
+            display_height: 1.0,
+            frame_rate: None,
             video_index: 0,
             audio: None,
             audio_notice: None,
@@ -2077,8 +2176,18 @@ mod tests {
         assert!(state.is_drained());
         assert!(matches!(state.view(), View::Closed));
     }
-    fn video_with_audio() -> State {
+    /// The pre-autoplay contract (paused first frame, muted) that the
+    /// lifecycle tests below were written for; scripted checks keep it too.
+    fn paused_muted() -> State {
         let mut state = State::new();
+        state.set_autoplay(false);
+        state.set_muted(true);
+        state
+    }
+    fn video_with_audio() -> State {
+        video_with_audio_in(paused_muted())
+    }
+    fn video_with_audio_in(mut state: State) -> State {
         let meta = Rc::new(Stub::default());
         state.open("/fixture/clip.mkv".into());
         state.source_blocked = false;
@@ -2098,6 +2207,70 @@ mod tests {
             });
         }
         state
+    }
+    #[test]
+    fn video_autoplays_after_first_frame_and_seek_keeps_playing() {
+        let mut state = State::new();
+        let snapshot = Rc::new(Stub::default());
+        state.open("/fixture/clip.mkv".into());
+        state.source_blocked = false;
+        state.pump_with(|_| Box::new(snapshot.clone()));
+        complete_video(&snapshot, 0.0);
+        // The first frame shows at once; playback starts on the next pump
+        // with options computed from that frame (never the snapshot again).
+        state.pump_with(no_start);
+        assert!(state.video_playing());
+        assert!(matches!(state.view(), View::Video(_)));
+        let stream = Rc::new(Stub::default());
+        let started = Cell::new(false);
+        state.pump_with(|_| {
+            started.set(true);
+            Box::new(stream.clone())
+        });
+        assert!(started.get());
+        // Seeking while playing shows the new frame and keeps playing.
+        state.seek_video_to(3.0);
+        assert!(stream.cancelled.get());
+        *stream.result.borrow_mut() = Some(Err("cancelado".into()));
+        let snapshot = Rc::new(Stub::default());
+        state.pump_with(|_| Box::new(snapshot.clone()));
+        complete_video(&snapshot, 3.0);
+        state.pump_with(no_start);
+        assert!(state.video_playing());
+        // Paused, a seek stays paused.
+        state.toggle_video();
+        assert!(!state.video_playing());
+    }
+    #[test]
+    fn mute_is_global_sound_by_default_and_audio_failure_plays_silently() {
+        let mut state = video_with_audio_in(State::new());
+        // Default: sound on, playing.
+        assert!(state.video_audio() && !state.muted());
+        assert!(state.video_playing());
+        let stream = Rc::new(Stub::default());
+        state.pump_with(|_| Box::new(stream.clone()));
+        // The audio output fails: keep playing, silently, only for this file.
+        *stream.result.borrow_mut() = Some(Err("Pulse unavailable".into()));
+        state.pump_with(no_start);
+        assert!(state.video_playing());
+        assert!(state.video_audio_failed() && !state.video_audio() && !state.muted());
+        let retry = Rc::new(Stub::default());
+        let started = Cell::new(false);
+        state.pump_with(|_| {
+            started.set(true);
+            Box::new(retry.clone())
+        });
+        assert!(started.get(), "silent retry started");
+        // The user mutes: global, survives closing and opening another file.
+        assert!(state.toggle_video_audio());
+        assert!(state.muted());
+        assert!(retry.cancelled.get());
+        *retry.result.borrow_mut() = Some(Err("cancelado".into()));
+        state.close();
+        let mut state = video_with_audio_in(state);
+        assert!(state.muted() && !state.video_audio() && !state.video_audio_failed());
+        assert!(state.toggle_video_audio());
+        assert!(state.video_audio());
     }
     #[test]
     fn video_sound_is_opt_in_and_live_toggle_waits_for_previous_reap() {
@@ -2161,7 +2334,7 @@ mod tests {
     }
     #[test]
     fn playback_updates_latest_frame_and_eof_keeps_paused_bitmap() {
-        let mut state = State::new();
+        let mut state = paused_muted();
         let snapshot = Rc::new(Stub::default());
         state.open("/fixture/clip.mkv".into());
         // Isolate playback lifecycle from the separately tested source guard.
@@ -2181,6 +2354,8 @@ mod tests {
         *stream.frame.borrow_mut() = Some(crate::video_stream_job::Frame {
             source: None,
             rgb: vec![9, 8, 7],
+            width: 1,
+            height: 1,
             position: 0.5,
             sequence: 6,
         });
@@ -2205,7 +2380,7 @@ mod tests {
     }
     #[test]
     fn pause_resume_and_close_drain_old_stream_before_replacement() {
-        let mut state = State::new();
+        let mut state = paused_muted();
         let snapshot = Rc::new(Stub::default());
         state.open("/fixture/clip.mkv".into());
         // Isolate playback lifecycle from the separately tested source guard.
@@ -2226,6 +2401,8 @@ mod tests {
         *old.frame.borrow_mut() = Some(crate::video_stream_job::Frame {
             source: None,
             rgb: vec![9; 3],
+            width: 1,
+            height: 1,
             position: 5.0,
             sequence: 60,
         });
@@ -2240,6 +2417,8 @@ mod tests {
         *latest.frame.borrow_mut() = Some(crate::video_stream_job::Frame {
             source: None,
             rgb: vec![9; 3],
+            width: 1,
+            height: 1,
             position: 5.0,
             sequence: 60,
         });

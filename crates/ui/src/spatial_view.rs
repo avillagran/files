@@ -678,7 +678,7 @@ mod tests {
         m.aux = AuxIo { tx, rx };
         m.view = View::List;
         m.set_corners(files_core::theme::Corners::Square);
-        let Request::Preferences(rev, _, _, _, _) = input.try_recv().unwrap() else {
+        let Request::Preferences(rev, _, _, _, _, _) = input.try_recv().unwrap() else {
             panic!()
         };
         m.set_corners(files_core::theme::Corners::Rounded);
@@ -692,7 +692,7 @@ mod tests {
         assert!(!m.close_ready());
         assert!(m.config_error.is_some());
         m.retry_saves();
-        let Request::Preferences(latest, corners, mode, _, _) = input.try_recv().unwrap() else {
+        let Request::Preferences(latest, corners, mode, _, _, _) = input.try_recv().unwrap() else {
             panic!()
         };
         assert!(latest > rev && corners == files_core::theme::Corners::Rounded);

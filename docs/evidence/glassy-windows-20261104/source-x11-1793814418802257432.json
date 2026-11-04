@@ -1,0 +1,46 @@
+{
+  "functional_gate": "PASS",
+  "label": "source",
+  "backend": "x11",
+  "binary_path": "/home/node/Work/files/target/release/files",
+  "binary_sha256": "d3ea217f028658328d69dd5fb40e2e2de91681034b6de7be9818bf8eea409d19",
+  "method": "Mapped Files framebuffer captures and app log; no OS input, user toggles untouched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "scenes": {
+    "pinned": {
+      "pinned_opaque": true,
+      "stats": "glass_fills=0 opaque_fills=1139 regions_cleared=0 regions_restored=0",
+      "startup": "FILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=false",
+      "changes": []
+    },
+    "forced": {
+      "opacity": 0.65,
+      "wayland": false,
+      "stats": "glass_fills=0 opaque_fills=1137 regions_cleared=0 regions_restored=0",
+      "startup": "FILES_GLASS mode=glassy opacity=0.65 overridden=true wayland=false",
+      "changes": []
+    },
+    "live": {
+      "transparent_equals_opaque": true,
+      "glassy_equals_forced_outside_status": true,
+      "status_rows_excluded": 32,
+      "back_equals_opaque": true,
+      "stats": "glass_fills=0 opaque_fills=1271 regions_cleared=0 regions_restored=0",
+      "startup": "FILES_GLASS mode=transparent opacity=1.00 overridden=false wayland=false",
+      "changes": [
+        "FILES_GLASS_CHANGED mode=glassy opacity=0.65 active=false",
+        "FILES_GLASS_CHANGED mode=transparent opacity=1.00 active=false"
+      ]
+    }
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-x11-pinned-opaque-1793814419466082549.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-x11-forced-glass-1793814433547340593.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-x11-live-system-transparent-1793814447555557889.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-x11-live-system-glassy-1793814448029198575.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-x11-live-system-back-1793814448502534346.png"
+  ],
+  "opaque_vs_glass": "identical (backend without per-pixel alpha)",
+  "fixture_unchanged": true
+}

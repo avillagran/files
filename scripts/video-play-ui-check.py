@@ -134,12 +134,15 @@ with tempfile.TemporaryDirectory(prefix='video-play-ui-',dir=base) as tmp:
             command('video-pan');command('video-assert-transform');capture('video-zoom-panned')
         if args.with_audio:command('video-assert-audio-tracks');capture('video-audio-default-muted')
         if args.pulse_failure:
+            # Since 2026-11-04 an unavailable audio output no longer stops the
+            # video: it keeps playing silently for this file ("Sin audio"),
+            # without changing the saved mute preference.
             command('video-audio');revision,after=command('video-play')
-            def noticed():
-                return next((r for r in log.read_text()[after:].splitlines() if r.startswith('FILES_PREVIEW_VIDEO_READY ') and f'revision={revision} ' in r and 'playing=false ' in r and 'notice=Some(' in r),False)
-            wait(noticed,'Pulse failure did not preserve retry controls');command('video-assert-backend-notice');capture('video-audio-output-error')
-            command('video-audio');revision,after=command('video-play');wait(lambda:frame_marker(after,True,4,revision),'muted retry produced no frames')
-            identity=observed_helper(after);report['muted_retry_after_pulse_failure']=True
+            def silent():
+                return next((r for r in log.read_text()[after:].splitlines() if r.startswith('FILES_PREVIEW_VIDEO_READY ') and 'playing=true ' in r and 'audio_failed=true ' in r and 'muted=false ' in r and re.search(r'sequence=Some\((\d+)\)',r) and int(re.search(r'sequence=Some\((\d+)\)',r)[1])>=4),False)
+            wait(silent,'Pulse failure did not continue silently');capture('video-audio-output-silent-fallback')
+            assert 'audio=false ' in log.read_text()[after:],'silent fallback still requested audio'
+            identity=observed_helper(after);report['silent_fallback_after_pulse_failure']=True
         else:
             revision,after=command('video-play');wait(lambda:frame_marker(after,True,4,revision),'stream produced no frames')
             identity=observed_helper(after)
@@ -156,7 +159,9 @@ with tempfile.TemporaryDirectory(prefix='video-play-ui-',dir=base) as tmp:
             delay=started+index*.25-time.monotonic()
             if delay>0:time.sleep(delay)
             samples.append(clip_frame(index))
-        if args.no_clip:wait(lambda:frame_marker(after,True,55),'blue segment not reached')
+        # Blue starts at 4s; frames now come at the source rate (5fps here),
+        # not a fixed 12fps: 4.8s of output is sequence 24.
+        if args.no_clip:wait(lambda:frame_marker(after,True,24),'blue segment not reached')
         command('video-assert-blue')
         if args.zoom:command('video-assert-transform')
         capture('video-playing-blue')

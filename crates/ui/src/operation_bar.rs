@@ -384,7 +384,7 @@ mod tests {
         let (output, rx) = mpsc::channel();
         m.aux = AuxIo { tx, rx };
         m.toggle_operation_bar();
-        let Request::Preferences(rev, _, _, _, bar) = input.try_recv().unwrap() else {
+        let Request::Preferences(rev, _, _, _, bar, _) = input.try_recv().unwrap() else {
             panic!()
         };
         assert!(!bar);
@@ -392,7 +392,7 @@ mod tests {
         assert!(m.config_dirty);
         output.send(Response::Config(rev, Ok(()))).unwrap();
         m.pump();
-        let Request::Preferences(next, _, _, _, bar) = input.try_recv().unwrap() else {
+        let Request::Preferences(next, _, _, _, bar, _) = input.try_recv().unwrap() else {
             panic!()
         };
         assert!(bar && next > rev);
