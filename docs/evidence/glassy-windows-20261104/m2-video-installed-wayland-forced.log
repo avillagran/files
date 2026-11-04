@@ -1,0 +1,6 @@
+FILES_FONT=FiraCode Nerd Font nerd=true
+FILES_GLASS mode=glassy opacity=0.65 overridden=true wayland=true
+FILES_UI_SMOKE_OK entries=41
+FILES_FIRST_PAINT_US=83689
+FILES_CAPTURE_OK id=0 redraw=false before=6 paint=6 width=800 height=440
+FILES_GLASS_STATS glass_fills=1063 opaque_fills=0 regions_cleared=1 regions_restored=0

@@ -1023,7 +1023,8 @@ pub fn run_since(start: Instant) -> bool {
             eprintln!("FILES_PAINT_START_US={}", start.elapsed().as_micros());
         }
         let mut p = painter::FltkPainter;
-        painter::set_device_scale(scale_window.pixels_per_unit());
+        // Includes the Wayland output scale (2 on a Retina/HiDPI output).
+        painter::set_device_scale(fltk_omarchy::native::pixels_per_unit(&scale_window));
         let mut m = m.borrow_mut();
         if f.damage_type() == Damage::User1 {
             view::status(&mut p, &mut m, f.w(), f.h());

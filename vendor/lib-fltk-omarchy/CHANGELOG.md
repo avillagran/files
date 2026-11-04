@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- `native::pixels_per_unit(&widget)`: device pixels per FLTK unit including
+  the Wayland output scale. fltk-rs' `Window::pixels_per_unit` ignores it on
+  Linux (1.0 on a 2× output), which halves the resolution of images sized
+  from it.
+
 - Glassy windows: `glass` follows Omarchy's window transparency
   (Appearance > Windows > Window Opacity: opaque, transparent, glassy) from
   `$XDG_STATE_HOME/omarchy/toggles/hypr`, live through `ThemeWatcher`.

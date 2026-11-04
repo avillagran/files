@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/avillagran/lib-fltk-omarchy",
   "base_commit": "24a3825",
-  "fix_commit": "ff3d31554c7baeb686e4972af892d8a6e8509791",
+  "fix_commit": "a9670079f05d322928280d389857f9e4adeadcc8",
   "status": "Local toolkit fixes, not published or tagged. Exact source export to keep Files reproducible without a sibling checkout.",
-  "scope": "overlay redraw, shared wheel motion and Omarchy Glassy windows"
+  "scope": "overlay redraw, shared wheel motion, Omarchy Glassy windows and Wayland device scale"
 }

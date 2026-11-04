@@ -73,6 +73,8 @@ extern "C" {
     fn wayland_get_serial(this: *mut c_void) -> u32;
     #[link_name = "_ZN24Fl_Wayland_Screen_Driver11get_wl_seatEv"]
     fn wayland_get_wl_seat(this: *mut c_void) -> *mut c_void;
+    #[link_name = "_Z18fl_wl_buffer_scaleP9Fl_Window"]
+    fn fl_wl_buffer_scale(win: *mut c_void) -> c_int;
     fn fl_libdecor_frame_move(frame: *mut c_void, seat: *mut c_void, serial: u32);
     fn fl_libdecor_frame_resize(frame: *mut c_void, seat: *mut c_void, serial: u32, edge: c_int);
 }
@@ -128,4 +130,26 @@ pub fn begin_resize<W: WidgetExt>(w: &W, edge: Edge) -> bool {
     unsafe { fl_libdecor_frame_resize(frame, seat, serial, edge as c_int) };
     RESIZES.fetch_add(1, Ordering::Relaxed);
     true
+}
+
+/// Device pixels per FLTK unit of `w`'s window: FLTK's own scaling times the
+/// Wayland output scale (2 on a HiDPI/Retina output). fltk-rs'
+/// `Window::pixels_per_unit` only returns FLTK's scaling on Linux, so images
+/// meant to keep every device pixel (video, photos) would be sized for half
+/// the real resolution on a 2× output. X11 and unshown windows: FLTK's scaling.
+pub fn pixels_per_unit<W: WidgetExt>(w: &W) -> f32 {
+    let Some(win) = w.top_window() else { return 1.0 };
+    let fltk_scale = app::screen_scale(win.screen_num());
+    // SAFETY: FLTK calls on the UI thread; the Wayland query only runs on the
+    // Wayland backend, for a shown window (its scale is the output's, or the
+    // largest output's before the surface entered one).
+    let output = unsafe {
+        if fl_wl_display().is_null() || !win.shown() {
+            1
+        } else {
+            fl_wl_buffer_scale(win.as_widget_ptr() as *mut c_void).max(1)
+        }
+    };
+    let ppu = fltk_scale * output as f32;
+    if ppu.is_finite() && ppu > 0.0 { ppu } else { 1.0 }
 }
