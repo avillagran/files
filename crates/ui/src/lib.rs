@@ -1206,9 +1206,8 @@ pub fn run_since(start: Instant) -> bool {
     let mut toolkit_menus = toolkit_menu::Manager::default();
     let toolkit_menu_enabled = !smoke || std::env::var_os("FILES_TEST_TOOLKIT_POPUP").is_some();
     let toolkit_fixture = smoke && std::env::var_os("FILES_TEST_TOOLKIT_POPUP").is_some();
-    if toolkit_fixture {
-        fltk_omarchy::focus::install();
-    }
+    // Fixtures use the same plain-FLTK initialization as the application.
+    // Overlays must initialize their own repaint protection.
     let mut spatial_probe_done = false;
     let mut du_probe_done = false;
     let mut rename_preview_emitted = None;
@@ -1541,6 +1540,47 @@ pub fn run_since(start: Instant) -> bool {
             if let Ok(text) = std::fs::read_to_string(&command) {
                 let _ = std::fs::remove_file(command);
                 match text.trim() {
+                    "right-hold" | "right-release" => {
+                        let rect =
+                            model.borrow().hits.iter().find_map(|h| {
+                                matches!(h.action, Action::Entry(_)).then_some(h.rect)
+                            });
+                        if let Some(r) = rect {
+                            fixture_dispatch.set(true);
+                            toolkit_menu::fixture_right_button(
+                                &win,
+                                r.x + 8,
+                                r.y + 8,
+                                text.trim() == "right-hold",
+                            );
+                            fixture_dispatch.set(false);
+                        }
+                    }
+                    "media-inspector" => {
+                        let mut state = model.borrow_mut();
+                        if let Some(i) = state.entries.iter().position(|e| e.name == "red.png") {
+                            state.select_entry(i, false, false);
+                        }
+                        state.inspector = true;
+                    }
+                    "media-state" => {
+                        let mut state = model.borrow_mut();
+                        let thumbnails = state.thumbnails.snapshot();
+                        eprintln!(
+                            "FILES_INSPECTOR_STATE loaded={} selected={:?} inspector={} refresh={} watch_settled={}",
+                            state.loaded,
+                            state.selected,
+                            state.inspector,
+                            state.selection_refreshing(),
+                            state.listing_sync.settled()
+                        );
+                        eprintln!(
+                            "FILES_POPUP_MEDIA menu={} generation={} thumbnails={}",
+                            state.context_menu.is_some(),
+                            state.generation,
+                            thumbnails
+                        );
+                    }
                     "release-redraw" => {
                         fixture_dispatch.set(true);
                         canvas.handle_event(Event::Released);
@@ -2380,7 +2420,9 @@ pub fn run_since(start: Instant) -> bool {
                 if capture.redraw && !win.was_deleted() && !canvas.was_deleted() {
                     canvas.redraw();
                 }
-                fltk_omarchy::app::flush();
+                if !capture.passive {
+                    fltk_omarchy::app::flush();
+                }
                 if win.was_deleted() || canvas.was_deleted() {
                     eprintln!(
                         "FILES_BACKEND_WIDGET_LOST phase=capture_flush; cancelling and draining without widget access"

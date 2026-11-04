@@ -1,0 +1,40 @@
+{
+  "source_checkpoint": "d6b11c89c7dd411b5baa88a73e45971e37b98d74",
+  "machine": "M2 aarch64",
+  "user_authorization": "Install each new validated Files version on M2 (2026-11-04)",
+  "report": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/report-1793781064842110986.json",
+  "backup": "/home/avillagran/.cache/files-test/installed-backups/1793781089288297054",
+  "files": [
+    {
+      "name": "files",
+      "old_sha256": "80cdbeda1aa0c777d7bcaa0ab9662f0f0b31154c2671b7c2a78f1c425628c5c2",
+      "installed_sha256": "17ee12aaa4f4b8e6a876aa72ba9e309462272a636a1bb986bb0d6964317b9382"
+    },
+    {
+      "name": "files-helper",
+      "old_sha256": "a6d4af2753d1d7f019810f7de29cdc48708964bc04265b87abdf70212e29d4d9",
+      "installed_sha256": "a6d4af2753d1d7f019810f7de29cdc48708964bc04265b87abdf70212e29d4d9"
+    },
+    {
+      "name": "files-html-helper",
+      "old_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+      "installed_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+    },
+    {
+      "name": "files-html-helper.LICENSES",
+      "old_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+      "installed_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b"
+    },
+    {
+      "name": "files-html-helper.build.json",
+      "old_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838",
+      "installed_sha256": "bcadb92537d91eaf916df1d5678603a433664040686932b7a0b9f685b3477838"
+    }
+  ],
+  "defaults_changed": false,
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "focus_retained": true,
+  "five_hashes_and_backups_verified": true,
+  "post_install_report": "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/report-1793781099913669171.json"
+}

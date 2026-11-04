@@ -8,6 +8,45 @@ use fltk::{frame::Frame, prelude::*};
 use fltk_omarchy::popups::{Dismiss, PopupHandle, PopupItem, PopupMenu};
 use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
+/// Internal FLTK regression input, called only by the opt-in popup fixture.
+/// Separate phases preserve FLTK's pushed widget across asynchronous work.
+pub fn fixture_right_button(window: &fltk::window::Window, x: i32, y: i32, pressed: bool) {
+    unsafe extern "C" {
+        #[link_name = "_ZN2Fl3e_xE"]
+        static mut X: i32;
+        #[link_name = "_ZN2Fl3e_yE"]
+        static mut Y: i32;
+        #[link_name = "_ZN2Fl8e_x_rootE"]
+        static mut ROOT_X: i32;
+        #[link_name = "_ZN2Fl8e_y_rootE"]
+        static mut ROOT_Y: i32;
+        #[link_name = "_ZN2Fl8e_clicksE"]
+        static mut CLICKS: i32;
+        #[link_name = "_ZN2Fl8e_keysymE"]
+        static mut KEYSYM: i32;
+        #[link_name = "_ZN2Fl7e_stateE"]
+        static mut STATE: i32;
+    }
+    // UI thread only, same event globals as the toolkit's focus::click_at.
+    unsafe {
+        X = x;
+        Y = y;
+        ROOT_X = window.x() + x;
+        ROOT_Y = window.y() + y;
+        CLICKS = 0;
+        KEYSYM = 0xfee8 + 3;
+        STATE = if pressed { 0x0400_0000 } else { 0 };
+    }
+    let _ = fltk::app::handle(
+        if pressed {
+            fltk::enums::Event::Push
+        } else {
+            fltk::enums::Event::Released
+        },
+        window,
+    );
+}
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum Kind {
     Settings,

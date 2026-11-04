@@ -15,9 +15,18 @@ use std::rc::Rc;
 thread_local! {
     // Deletion-tracked handles only; a layer does not own its window.
     static LAYERS: RefCell<Vec<Widget>> = const { RefCell::new(Vec::new()) };
+    static REDRAW_CHECK: Cell<bool> = const { Cell::new(false) };
 }
 
-/// Called by the toolkit's existing pre-flush check. Plain FLTK windows
+fn install_redraw_guard() {
+    if !REDRAW_CHECK.with(|installed| installed.replace(true)) {
+        // A PopupMenu also supports applications initialized with plain FLTK.
+        // Do not depend on App::new or install a keyboard router as a side effect.
+        app::add_check(|_| prepare_redraw());
+    }
+}
+
+/// Called by the overlay's own shared pre-flush check. Plain FLTK windows
 /// redraw damaged children independently: a canvas can therefore paint over
 /// an undamaged overlay, and a translucent layer can accumulate on itself.
 /// Redraw the stack together, only when an open overlay's window is dirty.
@@ -58,6 +67,7 @@ pub(crate) fn bg(t: &Theme) -> Rgb {
 /// back on close).
 pub(crate) fn open_layer<A: WidgetExt>(anchor: &A, rect: Option<(i32, i32, i32, i32)>, modal: bool) -> Option<Widget> {
     let win = anchor.top_window()?;
+    install_redraw_guard();
     let mut group = fltk::group::Group::from_dyn_widget_ptr(win.as_widget_ptr())?;
     let prev = fltk::group::Group::try_current();
     fltk::group::Group::set_current(None::<&fltk::group::Group>);

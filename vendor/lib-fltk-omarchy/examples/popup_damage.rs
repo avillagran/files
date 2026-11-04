@@ -4,7 +4,6 @@
 use fltk::{app, draw, enums::Color, frame::Frame, prelude::*, window::Window};
 use fltk_omarchy::{
     popups::{PopupItem, PopupMenu},
-    App,
 };
 use std::time::{Duration, Instant};
 use std::{cell::Cell, rc::Rc};
@@ -18,7 +17,9 @@ fn settle() {
 }
 
 fn main() {
-    let _app = App::new("dev.omarchy.popup-damage");
+    // Files initializes plain FLTK and its theme, not App::new/focus::install.
+    let _app = app::App::default();
+    fltk_omarchy::theme::set(fltk_omarchy::theme::Theme::load());
     let mut win = Window::default()
         .with_size(480, 320)
         .with_label("popup-damage");

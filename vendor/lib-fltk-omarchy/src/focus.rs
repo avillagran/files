@@ -51,7 +51,6 @@ pub fn install() {
     // `take_focus` from a timer): reported before the loop waits again.
     app::add_check(|_| {
         sync_panels(PanelFocusCause::Other);
-        crate::overlay::prepare_redraw();
     });
 }
 

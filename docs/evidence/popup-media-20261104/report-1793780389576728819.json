@@ -1,0 +1,26 @@
+{
+  "functional_gate": "FAIL",
+  "method": "FLTK right press/hold/release phases, passive capture without flush; async thumbnail and periodic refresh; NOT OS input",
+  "captures": [
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-0-1793780389487985592.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-steady-1-1793780389560147287.ppm"
+  ],
+  "inspector_samples": [
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      172,
+      80,
+      80
+    ]
+  ],
+  "error": "AssertionError('inspector blinked at steady sample 1')",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=1\nFILES_FIRST_PAINT_US=41010\nFILES_TOOLKIT_FIXTURE action=media-inspector\nFILES_POPUP_MEDIA menu=false generation=1 thumbnails={\"authorized\":true,\"busy\":true,\"cached\":0,\"demand\":1,\"errors\":0,\"notice\":null,\"painted\":0,\"ready\":[],\"rgb_capacity\":0,\"scratch_capacity\":0}\nFILES_TOOLKIT_FIXTURE action=media-state\nFILES_POPUP_MEDIA menu=false generation=1 thumbnails={\"authorized\":true,\"busy\":false,\"cached\":1,\"demand\":1,\"errors\":0,\"notice\":null,\"painted\":1,\"ready\":[{\"format\":\"png\",\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/popup-media-pd187v8p/files/red.png\\\"\",\"pixel\":[210,30,70],\"revision\":{\"bytes\":27825,\"changed_nanoseconds\":305604159,\"changed_seconds\":1793780389,\"device\":64,\"inode\":317709480,\"modified_nanoseconds\":305604159,\"modified_seconds\":1793780389},\"source_height\":2400,\"source_width\":3200,\"width\":160}],\"rgb_capacity\":57903,\"scratch_capacity\":47040}\nFILES_TOOLKIT_FIXTURE action=media-state\nFILES_CAPTURE_OK id=1 redraw=false before=5 paint=5 width=1000 height=650\nFILES_CAPTURE_OK id=2 redraw=false before=9 paint=9 width=1000 height=650\n",
+  "binary_path": "/home/avillagran/.local/bin/files",
+  "binary_sha256": "80cdbeda1aa0c777d7bcaa0ab9662f0f0b31154c2671b7c2a78f1c425628c5c2",
+  "helper_sha256": "a6d4af2753d1d7f019810f7de29cdc48708964bc04265b87abdf70212e29d4d9",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

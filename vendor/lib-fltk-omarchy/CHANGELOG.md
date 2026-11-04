@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Overlay redraw protection now initializes automatically when any layer opens,
+  including consumers using plain FLTK rather than App::new or focus::install.
+  The previous fix incorrectly depended on keyboard runtime initialization.
+  The regression example now deliberately uses plain FLTK.
+
 - Overlays remain visible on plain FLTK windows when a custom canvas or
   another child repaints. The existing pre-flush check redraws the window
   stack only while it is dirty and has an open overlay; no idle timer.

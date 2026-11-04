@@ -1,0 +1,35 @@
+{
+  "previous_fix": "fb581c7",
+  "cause": "Overlay repaint guard was installed only through focus::install/App::new; Files uses plain FLTK and installed the router only in its popup fixture. Production never registered the automatic guard.",
+  "before": {
+    "initialization": "plain FLTK, theme loaded, no focus router",
+    "menu_open": true,
+    "before_pixel": [
+      37,
+      39,
+      52
+    ],
+    "after_canvas_redraw": [
+      17,
+      97,
+      47
+    ],
+    "exit": 101
+  },
+  "after": {
+    "same_initialization": true,
+    "before_pixel": [
+      37,
+      39,
+      52
+    ],
+    "after_canvas_redraw": [
+      37,
+      39,
+      52
+    ],
+    "exit": 0
+  },
+  "fix": "open_layer installs its own idempotent UI-thread pre-flush check, independent of keyboard runtime; focus check no longer owns overlay protection",
+  "limits": "mapped framebuffer/internal handlers, not OS pointer proof"
+}

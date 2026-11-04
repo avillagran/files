@@ -1,0 +1,86 @@
+{
+  "functional_gate": "PASS",
+  "method": "FLTK right press/hold/release phases, passive capture without flush; async thumbnail and periodic refresh; NOT OS input",
+  "captures": [
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-held-1793777711843448495.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-released-1793777711937294058.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-0-1793777712602499946.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-1-1793777713277391908.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-2-1793777713942217088.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-3-1793777714607024269.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-async-4-1793777715270981739.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-1793777715394655403.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-0-1793777716060443005.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-1-1793777716727376155.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-2-1793777717405976927.ppm",
+    "/home/avillagran/.cache/files-m2-updates/popup-media/source/docs/evidence/popup-media-20261104/wayland-overlap-3-1793777718084729284.ppm"
+  ],
+  "inspector_samples": [
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ],
+    [
+      210,
+      30,
+      70
+    ]
+  ],
+  "state": "menu=true generation=1 thumbnails={\"authorized\":true,\"busy\":false,\"cached\":1,\"demand\":1,\"errors\":0,\"notice\":null,\"painted\":1,\"ready\":[{\"format\":\"png\",\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/popup-media-ynr_i1n5/files/red.png\\\"\",\"pixel\":[210,30,70],\"revision\":{\"bytes\":27825,\"changed_nanoseconds\":650429601,\"changed_seconds\":1793777711,\"device\":64,\"inode\":317632263,\"modified_nanoseconds\":650429601,\"modified_seconds\":1793777711},\"source_height\":2400,\"source_width\":3200,\"width\":160}],\"rgb_capacity\":57903,\"scratch_capacity\":47040}",
+  "log": "FILES_FONT=FiraCode Nerd Font nerd=true\nFILES_UI_SMOKE_OK entries=1\nFILES_FIRST_PAINT_US=70714\nFILES_TOOLKIT_FIXTURE action=media-inspector\nFILES_TOOLKIT_FIXTURE action=right-hold\nFILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((76, 130, 323, 456))\nFILES_CAPTURE_OK id=1 redraw=false before=4 paint=4 width=1000 height=650\nFILES_TOOLKIT_FIXTURE action=right-release\nFILES_CAPTURE_OK id=2 redraw=false before=5 paint=5 width=1000 height=650\nFILES_CAPTURE_OK id=3 redraw=false before=5 paint=5 width=1000 height=650\nFILES_CAPTURE_OK id=4 redraw=false before=7 paint=7 width=1000 height=650\nFILES_CAPTURE_OK id=5 redraw=false before=10 paint=10 width=1000 height=650\nFILES_CAPTURE_OK id=6 redraw=false before=10 paint=10 width=1000 height=650\nFILES_CAPTURE_OK id=7 redraw=false before=12 paint=12 width=1000 height=650\nFILES_POPUP_MEDIA menu=true generation=1 thumbnails={\"authorized\":true,\"busy\":false,\"cached\":1,\"demand\":1,\"errors\":0,\"notice\":null,\"painted\":1,\"ready\":[{\"format\":\"png\",\"height\":120,\"path\":\"\\\"/home/avillagran/.cache/files-test/popup-media-ynr_i1n5/files/red.png\\\"\",\"pixel\":[210,30,70],\"revision\":{\"bytes\":27825,\"changed_nanoseconds\":650429601,\"changed_seconds\":1793777711,\"device\":64,\"inode\":317632263,\"modified_nanoseconds\":650429601,\"modified_seconds\":1793777711},\"source_height\":2400,\"source_width\":3200,\"width\":160}],\"rgb_capacity\":57903,\"scratch_capacity\":47040}\nFILES_TOOLKIT_FIXTURE action=media-state\nFILES_TOOLKIT_FIXTURE action=escape\nFILES_TOOLKIT_POPUP_DISMISS kind=Context reason=Escape valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=context\nFILES_CAPTURE_OK id=8 redraw=false before=20 paint=20 width=1000 height=650\nFILES_CAPTURE_OK id=9 redraw=false before=20 paint=20 width=1000 height=650\nFILES_CAPTURE_OK id=10 redraw=false before=22 paint=22 width=1000 height=650\nFILES_CAPTURE_OK id=11 redraw=false before=25 paint=25 width=1000 height=650\nFILES_CAPTURE_OK id=12 redraw=false before=25 paint=25 width=1000 height=650\nFILES_TOOLKIT_FIXTURE action=escape\nFILES_TOOLKIT_FIXTURE action=close\nFILES_CLOSE_WAIT saves_ready=false mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_CLOSE_DRAINED\n",
+  "binary_path": "/home/avillagran/.cache/files-m2-updates/1edc2cd/source/target/release/files",
+  "binary_sha256": "acb64b049f55af7069f57860a435c692c86c0dde37a1ac88150a126d015e8b4c",
+  "helper_sha256": "a6d4af2753d1d7f019810f7de29cdc48708964bc04265b87abdf70212e29d4d9",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4"
+}

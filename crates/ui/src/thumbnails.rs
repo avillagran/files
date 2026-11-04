@@ -229,8 +229,10 @@ impl State {
             return changed;
         }
         let now = Instant::now();
-        // Expired proof hides pixels while a fresh FD probe is pending, even if
-        // notify lost its event. No path stat is ever done in draw/UI.
+        // Recheck expiry schedules a fresh FD probe, not a blank frame. Keep
+        // the last confirmed bitmap while probing. A real change notification,
+        // unavailable source or failed reply still revokes it immediately.
+        // This display snapshot is not fresh proof or mutation authority.
         let next = self
             .demand
             .iter()
@@ -250,7 +252,6 @@ impl State {
             && self.cache.reserve()
         {
             let d = &mut self.demand[i];
-            d.verified = None;
             let previous = self.cache.revision(&d.path).or(d.failed);
             self.next_id = self
                 .next_id
@@ -283,10 +284,9 @@ impl State {
         let Some(d) = self.demand.iter().find(|d| d.path == path) else {
             return false;
         };
-        let Some(revision) = d.verified.filter(|_| {
-            d.checked
-                .is_some_and(|t| t.elapsed() < Duration::from_secs(1))
-        }) else {
+        // Proof freshness remains visible through ready()/snapshot(). Rendering
+        // may retain the last confirmed image until an actual invalidation.
+        let Some(revision) = d.verified else {
             return false;
         };
         let Some(bitmap) = self.cache.get(path, revision) else {
@@ -452,6 +452,63 @@ mod tests {
         assert_eq!(s.ready(), 0);
         assert!(s.snapshot()["ready"].as_array().unwrap().is_empty());
         assert!(s.bytes() > 0);
+    }
+    #[test]
+    fn periodic_recheck_keeps_last_image_but_known_invalidation_hides_it() {
+        struct ImageCount(usize);
+        impl Painter for ImageCount {
+            fn rect(&mut self, _: Rect, _: files_core::theme::Color) {}
+            fn rounded_rect(&mut self, _: Rect, _: i32, _: files_core::theme::Color) {}
+            fn text(
+                &mut self,
+                _: Rect,
+                _: &str,
+                _: i32,
+                _: files_core::theme::Color,
+                _: bool,
+                _: bool,
+            ) {
+            }
+            fn image(&mut self, _: Rect, _: &crate::painter::Image<'_>) {
+                self.0 += 1;
+            }
+            fn clip(&mut self, _: Rect) {}
+            fn unclip(&mut self) {}
+        }
+        let mut s = state();
+        active(&mut s, 1);
+        s.accept_reply(crate::thumbnail_job::Reply {
+            id: 1,
+            result: Ok(Value::Bitmap(bitmap(1))),
+        });
+        let bytes = s.bytes();
+        let palette = Palette::parse(include_str!("../../../themes/tokyo-night.toml")).unwrap();
+        let mut painter = ImageCount(0);
+        s.demand[0].checked = Some(Instant::now() - Duration::from_secs(2));
+        assert_eq!(s.ready(), 0, "an expired check is not fresh proof");
+        assert!(s.paint(
+            &mut painter,
+            Path::new("/fixture/red.png"),
+            Rect::new(0, 0, 160, 100),
+            &palette
+        ));
+        assert!(s.poll(true), "dispatch the asynchronous recheck");
+        assert!(s.paint(
+            &mut painter,
+            Path::new("/fixture/red.png"),
+            Rect::new(0, 0, 160, 100),
+            &palette
+        ));
+        assert_eq!(painter.0, 2);
+        assert_eq!(s.bytes(), bytes, "reuse the existing cached RGB");
+        s.invalidate();
+        assert!(!s.paint(
+            &mut painter,
+            Path::new("/fixture/red.png"),
+            Rect::new(0, 0, 160, 100),
+            &palette
+        ));
+        assert_eq!(s.bytes(), 0);
     }
     #[test]
     fn demand_preflight_rejects_excess_bytes_and_bounds_infinite_input() {

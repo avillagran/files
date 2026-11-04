@@ -1,0 +1,89 @@
+   Compiling lib-fltk-omarchy v0.0.10 (/home/node/Work/lib-fltk-omarchy)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.68s
+     Running unittests src/lib.rs (target/debug/deps/fltk_omarchy-338eba394c1c3095)
+
+running 33 tests
+test gfx::canvas::tests::clip_layer_blend ... ok
+test gfx::canvas::tests::strokes_joins_caps ... ok
+test gfx::path::tests::contains_and_outline ... ok
+test gfx::canvas::tests::unit_scale_keeps_widget_coordinates ... ok
+test gfx::sl::tests::evaluates_like_the_formula ... ok
+test gfx::sl::tests::glsl_is_generated ... ok
+test gfx::canvas::tests::fill_antialias_and_shapes ... ok
+test keys::tests::parses_common_shortcuts ... ok
+test overlay::tests::menu_filter_ranks_exact_prefix_contains ... ok
+test gfx::sl::tests::rows_match_single_pixels_and_uniforms_are_hoisted ... ok
+test panel::tests::ids_survive_reorder_and_removal ... ok
+test panel::tests::list_cursor_selection_and_ranges ... ok
+test panel::tests::grid_moves_and_partial_last_row ... ok
+test png::tests::png_signature_and_crc ... ok
+test scroll::tests::clamps_huge_deltas_and_changed_bounds_without_overshoot ... ok
+test scroll::tests::external_navigation_and_explicit_jump_cancel_travel ... ok
+test scroll::tests::frame_rate_does_not_change_motion_or_distance ... ok
+test scroll::tests::keeps_magnitude_and_accumulated_distance_without_extra_momentum ... ok
+test gfx::canvas::tests::gradients ... ok
+test scroll::tests::reduced_motion_is_immediate_and_invalid_deltas_are_ignored ... ok
+test scroll::tests::reversal_moves_back_immediately_instead_of_finishing_old_travel ... ok
+test state::tests::dropping_subscription_unsubscribes ... ok
+test state::tests::map_and_combine ... ok
+test state::tests::notifies_on_change_only ... ok
+test theme::tests::alpha_over ... ok
+test theme::tests::defaults_follow_omarchy_style_tokens ... ok
+test theme::tests::corner_preference ... ok
+test toml::tests::sections_strings_numbers_comments ... ok
+test theme::tests::shell_toml_overrides_and_font_scale ... ok
+test toml::tests::strict_rejects_cut_and_malformed_lines ... ok
+test theme::tests::extended_background_and_foreground_tokens ... ok
+test gfx::canvas::tests::shadow_blur_shader ... ok
+test gfx::canvas::tests::parallel_shading_matches_single_thread ... ok
+
+test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/ui.rs (target/debug/deps/ui-5c1116b4dd140e13)
+XOpenIM() failed
+ok   theme loads omarchy colors and shell tokens
+ok   primary button is painted with the accent
+ok   text field two-way binding and placeholder
+ok   toggle, switch, slider, button group follow their State
+ok   button click, bound text and enabled state
+ok   virtual list builds only visible rows of 1 000 000
+ok   menu overlay opens on top and filter ranks
+ok   notification toast is stacked and counted
+ok   task progress/done run on the UI thread; cancel stops work
+ok   corner preference: square vs rounded button corner pixel
+ok   popup menu, tab bar, searchable filter, window mode parse
+ok   operation toast pause/cancel callbacks
+ok   bindings live as long as the widget, not the Rust handle
+ok   opening a layer while a dropdown is open does not crash
+ok   popup menu: 12 entries in 800x440 at a large font clamp, scroll and stay usable
+ok   popup menu fits 800x440 at font sizes 12, 18 and 24
+ok   popup menu lifecycle: Esc, click outside, close(), deleted window
+ok   keyboard panels: dual pane in one canvas, path field, app Ctrl+Tab once, menus
+ok   gfx View: paint with alpha, area limit, budget, hit shape, keyboard, pause, theme
+ok   label bound before fit keeps its text width
+ok   transitions: Omarchy durations, intermediate colors, timer stops, can be turned off
+ok   portable shaders: same pixels as sl eval, backend choice, display rate on the CPU
+ok   issue #6: app shortcuts reach the window while a popup is open; j/k only unmodified
+ok   issue #7: keyboard panel focus events are synchronous, ordered and carry the panel
+ok   file manager pieces: overflowing tabs, bounded help, localized toast, popup card
+ok   virtual table and tree on keyboard panels; native gesture guard
+ok   real clicks (fltk event path) on every clickable control: no re-entrancy panic
+ok   keyboard only: Tab order, arrows, shortcuts, focus comes back
+ok   live theme switch: omarchy-theme-set style rename is picked up
+ok   theme: partial writes keep the last valid theme, recovery and overrides apply
+all ui checks passed
+   Doc-tests fltk_omarchy
+
+running 9 tests
+test src/layout.rs - layout (line 6) - compile ... ok
+test src/gfx/view.rs - gfx::view::View (line 180) - compile ... ok
+test src/state.rs - state (line 3) - compile ... ok
+test src/panel.rs - panel (line 11) - compile ... ok
+test src/popups.rs - popups::PopupCard (line 965) - compile ... ok
+test src/list.rs - list (line 4) - compile ... ok
+test src/table.rs - table (line 6) - compile ... ok
+test src/task.rs - task (line 3) - compile ... ok
+test src/gfx/sl.rs - gfx::sl (line 5) ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+

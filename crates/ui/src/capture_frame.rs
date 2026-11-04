@@ -9,6 +9,8 @@ use std::{
 pub struct Request {
     pub id: u64,
     pub redraw: bool,
+    /// Observe the current buffer without flushing pending paints first.
+    pub passive: bool,
 }
 pub fn request(path: &Path) -> io::Result<Request> {
     let mut data = Vec::new();
@@ -24,7 +26,10 @@ pub fn request(path: &Path) -> io::Result<Request> {
     let value: serde_json::Value = serde_json::from_slice(&data)?;
     let invalid = || io::Error::other("Petición de captura inválida");
     let object = value.as_object().ok_or_else(invalid)?;
-    if object.keys().any(|key| key != "id" && key != "redraw") {
+    if object
+        .keys()
+        .any(|key| key != "id" && key != "redraw" && key != "passive")
+    {
         return Err(invalid());
     }
     let id = object
@@ -36,7 +41,18 @@ pub fn request(path: &Path) -> io::Result<Request> {
         None => false,
         Some(value) => value.as_bool().ok_or_else(invalid)?,
     };
-    let request = Request { id, redraw };
+    let passive = match object.get("passive") {
+        None => false,
+        Some(value) => value.as_bool().ok_or_else(invalid)?,
+    };
+    if passive && redraw {
+        return Err(invalid());
+    }
+    let request = Request {
+        id,
+        redraw,
+        passive,
+    };
     Ok(request)
 }
 struct Temporary(PathBuf);
@@ -156,9 +172,14 @@ mod tests {
         assert!(!request(&path).unwrap().redraw);
         fs::write(&path, br#"{"id":2,"redraw":true}"#).unwrap();
         assert!(request(&path).unwrap().redraw);
+        fs::write(&path, br#"{"id":3,"passive":true}"#).unwrap();
+        let observed = request(&path).unwrap();
+        assert!(observed.passive && !observed.redraw);
         for bytes in [
             br#"{"id":0}"#.as_slice(),
             br#"{"id":1,"other":2}"#,
+            br#"{"id":1,"redraw":true,"passive":true}"#,
+            br#"{"id":1,"passive":4}"#,
             &[b'x'; 129],
         ] {
             fs::write(&path, bytes).unwrap();
