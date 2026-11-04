@@ -41,9 +41,23 @@ fn main() {
                 })
                 .collect::<Vec<_>>();
             candidates.sort();
-            assert_eq!(
-                candidates.len(),
-                1,
+            // The same crate unpacked under two registry indexes (another
+            // project or toolchain) is not ambiguous when the sources this
+            // adapter compiles against are byte-identical.
+            let key = |root: &PathBuf| {
+                [
+                    "src/drivers/Wayland/Fl_Wayland_Window_Driver.H",
+                    "src/drivers/Wayland/Fl_Wayland_Screen_Driver.H",
+                    "src/drivers/Wayland/fl_wayland_clipboard_dnd.cxx",
+                    "FL/Fl_Window.H",
+                    "FL/platform.H",
+                ]
+                .iter()
+                .map(|f| fs::read(root.join(f)).unwrap_or_default())
+                .collect::<Vec<_>>()
+            };
+            assert!(
+                !candidates.is_empty() && candidates.iter().all(|c| key(c) == key(&candidates[0])),
                 "Ambiguous/missing pinned FLTK sources; set FILES_FLTK_SOURCE_DIR"
             );
             candidates.remove(0)

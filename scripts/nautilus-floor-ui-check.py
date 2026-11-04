@@ -188,6 +188,32 @@ def main():
             wait(lambda: 'watched=5 directas' in state(), 'watched count not updated', 20)
             report['checks']['child_refresh'] = 'watched 2 -> 5 directas'
 
+            # Rubber band from the empty space below the rows, up over the
+            # last two rows; then additive over one more; a plain click clears.
+            after = command('nf-hits')
+            hits = marker(after, r'FILES_NF_HITS listing=(\d+),(\d+),(\d+),(\d+) (.*)', 'hits')
+            lx, ly, lw, lh = map(int, hits.groups()[:4])
+            rows = []
+            for item in hits.group(5).split(';'):
+                name, geo = item.rsplit('@', 1)
+                x, y, w, h = map(int, geo.split(','))
+                rows.append((y, x, w, h, name))
+            files_rows = sorted(r for r in rows if r[3] < 60)  # list rows, not folder tiles
+            assert len(files_rows) >= 3, rows
+            last, prev, third = files_rows[-1], files_rows[-2], files_rows[-3]
+            empty_y = last[0] + last[3] + 12
+            assert empty_y < ly + lh, ('no empty space below rows', empty_y, ly + lh)
+            x0 = last[1] + 30
+            after = command(f'nf-marquee:{x0},{empty_y},{x0 + 120},{prev[0] + 5},0')
+            got = marker(after, r'FILES_NF_SELECTION (.*)', 'band').group(1).split('|')
+            assert sorted(got) == sorted([last[4], prev[4]]), (got, last, prev)
+            after = command(f'nf-marquee:{x0},{empty_y},{x0 + 120},{third[0] + 5},1')
+            got3 = marker(after, r'FILES_NF_SELECTION (.*)', 'band additive').group(1).split('|')
+            assert sorted(got3) == sorted([last[4], prev[4], third[4]]), got3
+            after = command(f'nf-marquee:{x0},{empty_y},{x0},{empty_y},0')
+            assert marker(after, r'FILES_NF_SELECTION (.*)', 'click clears').group(1) == ''
+            report['checks']['rubber_band'] = {'two': got, 'additive': got3, 'click_empty_clears': True}
+
             # Trash: restore, purge one, empty.
             command('nf-select:keep.txt')
             command('nf-trash')

@@ -1,0 +1,57 @@
+{
+  "functional_gate": "PASS",
+  "label": "installed",
+  "binary_sha256": "06799d817b368a6fe1963cb710d4d45f29ac00d45c42cc3868b7cec78095a6dc",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal Actions, real window, recorder launcher, private XDG dirs; user mimeapps untouched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "open_default": [
+      "-t",
+      "service",
+      "--",
+      "viewer.desktop",
+      "/home/node/.cache/files-test/open-with-gz3by21v/listing/photo.png"
+    ],
+    "no_handler": "error shown, nothing launched",
+    "open_with": {
+      "default_saved": "painter.desktop",
+      "launches": [
+        [
+          "-t",
+          "service",
+          "--",
+          "viewer.desktop",
+          "/home/node/.cache/files-test/open-with-gz3by21v/listing/photo.png"
+        ],
+        [
+          "-t",
+          "service",
+          "--",
+          "editor.desktop",
+          "/home/node/.cache/files-test/open-with-gz3by21v/listing/notes"
+        ],
+        [
+          "-t",
+          "service",
+          "--",
+          "painter.desktop",
+          "/home/node/.cache/files-test/open-with-gz3by21v/listing/photo.png"
+        ],
+        [
+          "-t",
+          "service",
+          "--",
+          "painter.desktop",
+          "/home/node/.cache/files-test/open-with-gz3by21v/listing/photo.png"
+        ]
+      ]
+    }
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/open-with-20261104/installed-open-with-recommended-1793834720172277367.png",
+    "/home/node/Work/files/docs/evidence/open-with-20261104/installed-open-with-default-saved-1793834720451563963.png"
+  ]
+}

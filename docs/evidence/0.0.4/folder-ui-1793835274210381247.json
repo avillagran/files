@@ -1,0 +1,55 @@
+{
+  "method": "internal handlers, actual files-helper du traversal and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/folder-summary-1793835273816296012.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/folder-empty-summary-1793835273954242893.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/folder-replaced-error-1793835274067189756.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "treemap",
+    "recursive mutation snapshot",
+    "resource budget",
+    "cross-platform verification",
+    "offline mounts"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 1,
+    "window_physical": [
+      1000,
+      650
+    ],
+    "native_wayland": true,
+    "address": "0x55f35b200300"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true\nFILES_UI_SMOKE_OK entries=3\nFILES_FIRST_PAINT_US=45857\nFILES_PREVIEW_COMMAND_OK folder\nFILES_PREVIEW_COMMAND_REV action=folder revision=2\nFILES_PREVIEW_HELPER pid=55518 start=12497493 command=preview_directory_du\nFILES_PREVIEW_READY path=Some(\"/home/node/.cache/files-test/folder-ui-xh6nq2_w/files/folder\") encoding=Carpeta \u00b7 tama\u00f1o aparente truncated=false bytes=237 revision=2 stamp=None audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_FOLDER_SUMMARY_OK bytes=8 entries=5 symlink_followed=false\nFILES_PREVIEW_COMMAND_OK folder-assert\nFILES_PREVIEW_COMMAND_REV action=folder-assert revision=2\nFILES_CAPTURE_OK id=0 redraw=false before=8 paint=8 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK folder-empty\nFILES_PREVIEW_COMMAND_REV action=folder-empty revision=4\nFILES_PREVIEW_HELPER pid=55546 start=12497506 command=preview_directory_du\nFILES_PREVIEW_READY path=Some(\"/home/node/.cache/files-test/folder-ui-xh6nq2_w/files/empty\") encoding=Carpeta \u00b7 tama\u00f1o aparente truncated=false bytes=237 revision=4 stamp=None audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_FOLDER_EMPTY_OK bytes=0 entries=0\nFILES_PREVIEW_COMMAND_OK folder-assert-empty\nFILES_PREVIEW_COMMAND_REV action=folder-assert-empty revision=4\nFILES_CAPTURE_OK id=0 redraw=false before=12 paint=12 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK folder-replaced\nFILES_PREVIEW_COMMAND_REV action=folder-replaced revision=6\nFILES_PREVIEW_HELPER pid=55553 start=12497520 command=preview_directory_du\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/folder-ui-xh6nq2_w/files/replaced\") message=Se requiere una carpeta real, sin enlace simb\u00f3lico final\nFILES_CAPTURE_OK id=0 redraw=false before=15 paint=15 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK folder-rapid\nFILES_PREVIEW_COMMAND_REV action=folder-rapid revision=12\nFILES_PREVIEW_HELPER pid=55558 start=12497531 command=preview_directory_du\nFILES_PREVIEW_READY path=Some(\"/home/node/.cache/files-test/folder-ui-xh6nq2_w/files/folder\") encoding=Carpeta \u00b7 tama\u00f1o aparente truncated=false bytes=237 revision=12 stamp=None audio_requested=false audio_running=false position=0.0 drained=true audio_error=None\nFILES_FOLDER_SUMMARY_OK bytes=8 entries=5 symlink_followed=false\nFILES_PREVIEW_COMMAND_OK folder-assert\nFILES_PREVIEW_COMMAND_REV action=folder-assert revision=12\nFILES_PREVIEW_COMMAND_OK close-folder-pending\nFILES_PREVIEW_COMMAND_REV action=close-folder-pending revision=14\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_GLASS_STATS glass_fills=0 opaque_fills=1060 regions_cleared=0 regions_restored=0\n",
+  "binary_sha256": "f2e67b6436d908d4fff7ea09f1e8a040ff616a87b1c8fd8fac75d3200e8498c6",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b"
+}

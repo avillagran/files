@@ -575,6 +575,17 @@ extern "C" int files_transfer_start_drag(uint64_t id,
   state.drag_permit = {}; // Consume even on failure; a retry needs a new press.
   return result;
 }
+// 1 while the selection we published last is still the system clipboard
+// (no other client replaced it: the compositor cancels our source then).
+extern "C" int files_transfer_selection_ours() {
+  if (!state.publication)
+    return 0;
+  for (const auto &source : state.sources)
+    if (source && !source->drag && source->id == state.publication &&
+        !source->cancelled)
+      return 1;
+  return 0;
+}
 extern "C" int files_transfer_outgoing_active() {
   for (const auto &source : state.sources)
     if (source && source->id == state.drag_source && !source->cancelled)

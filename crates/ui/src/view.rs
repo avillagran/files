@@ -720,6 +720,7 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
     let top = 94;
     let bottom = crate::operation_bar::browser_height(m, h) - 40;
     let vh = bottom - top;
+    m.listing_rect = r(left, top, width, vh);
     m.native_transfer
         .painted(m.pane_owner(), m.generation, r(left, top, width, vh));
     p.clip(r(left - 4, top, width + 8, vh));
@@ -1143,6 +1144,21 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
     if !m.closing {
         crate::copy_ui::paint(p, m, w, h);
         crate::text_preview::paint(p, m, w, h);
+        if let Some(band) = m.marquee.as_ref().filter(|b| b.moved) {
+            // Rubber band: accent outline over a light tint.
+            let b = band.rect();
+            let c = m.palette.clone();
+            p.clip(m.listing_rect);
+            for edge in [
+                r(b.x, b.y, b.w, 1),
+                r(b.x, b.y + b.h - 1, b.w, 1),
+                r(b.x, b.y, 1, b.h),
+                r(b.x + b.w - 1, b.y, 1, b.h),
+            ] {
+                p.rect(edge, c.accent);
+            }
+            p.unclip();
+        }
         crate::mutations::paint(p, m, w, h);
         crate::properties_ui::paint(p, m, w, h);
         if !m.toolkit_popup {

@@ -1429,8 +1429,21 @@ pub fn command(m: &mut Model, action: &str, w: i32, h: i32) -> Result<(), String
         }
         "escape" => context_menu::key(m, Key::Escape),
         "outside" => context_menu::pointer(m, 1, 1, true),
-        "menu-rename" => click(m, |a| matches!(a, Action::ContextItem(2)))?,
-        "menu-create" => click(m, |a| matches!(a, Action::ContextItem(0)))?,
+        // By action, not position: the menus have section titles now.
+        "menu-rename" | "menu-create" => {
+            let i = m
+                .context_menu
+                .as_ref()
+                .ok_or("Sin menú")?
+                .items
+                .iter()
+                .position(|item| match action {
+                    "menu-rename" => matches!(item.action, Some(Action::Rename)),
+                    _ => matches!(item.action, Some(Action::NewEntry(false))),
+                })
+                .ok_or("Entrada de menú no visible")?;
+            click(m, |a| matches!(a, Action::ContextItem(j) if *j == i))?;
+        }
         "dialog-cancel" => m.action(Action::RenameCancel),
         "refresh" => m.action(Action::Refresh),
         "tip-advance" => {

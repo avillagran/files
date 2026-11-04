@@ -43,6 +43,55 @@ fn floor_command(m: &mut Model, action: &str) -> Option<Result<(), String>> {
         m.action(Action::OpenWithCmd(crate::open_with_ui::Command::Select(i)));
         return Some(Ok(()));
     }
+    if let Some(spec) = action.strip_prefix("nf-marquee:") {
+        let v: Vec<i32> = spec.split(',').filter_map(|n| n.parse().ok()).collect();
+        if v.len() != 5 {
+            return Some(Err("nf-marquee: x0,y0,x1,y1,additive".into()));
+        }
+        m.pointer_down(v[0], v[1], v[4] == 1, false, false);
+        m.pointer_drag((v[0] + v[2]) / 2, (v[1] + v[3]) / 2);
+        m.pointer_drag(v[2], v[3]);
+        m.pointer_up();
+        let mut names: Vec<String> = m
+            .selection
+            .iter()
+            .filter_map(|i| m.entries.get(*i))
+            .map(|e| e.name.to_string_lossy().into_owned())
+            .collect();
+        names.sort();
+        eprintln!("FILES_NF_SELECTION {}", names.join("|"));
+        return Some(Ok(()));
+    }
+    if action == "nf-hits" {
+        let rows: Vec<String> = m
+            .hits
+            .iter()
+            .filter(|h| h.generation == m.generation)
+            .filter_map(|h| match h.action {
+                Action::Entry(i) => m.entries.get(i).map(|e| {
+                    format!(
+                        "{}@{},{},{},{}",
+                        e.name.to_string_lossy(),
+                        h.rect.x,
+                        h.rect.y,
+                        h.rect.w,
+                        h.rect.h
+                    )
+                }),
+                _ => None,
+            })
+            .collect();
+        let l = m.listing_rect;
+        eprintln!(
+            "FILES_NF_HITS listing={},{},{},{} {}",
+            l.x,
+            l.y,
+            l.w,
+            l.h,
+            rows.join(";")
+        );
+        return Some(Ok(()));
+    }
     if let Some(name) = action.strip_prefix("nf-select:") {
         let names: Vec<&str> = name.split('|').collect();
         m.selection.clear();

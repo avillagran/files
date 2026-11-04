@@ -425,6 +425,29 @@ impl Action {
         }
     }
 }
+/// Rubber-band selection: entries whose hit area touches the rectangle are
+/// selected (added to `base` when Ctrl/Shift was held), like Nautilus.
+#[derive(Clone, Debug)]
+pub struct Marquee {
+    pub generation: u64,
+    pub start: (i32, i32),
+    pub current: (i32, i32),
+    pub base: std::collections::HashSet<usize>,
+    pub moved: bool,
+}
+impl Marquee {
+    pub fn rect(&self) -> Rect {
+        let (x0, x1) = (
+            self.start.0.min(self.current.0),
+            self.start.0.max(self.current.0),
+        );
+        let (y0, y1) = (
+            self.start.1.min(self.current.1),
+            self.start.1.max(self.current.1),
+        );
+        Rect::new(x0, y0, x1 - x0, y1 - y0)
+    }
+}
 pub struct Hit {
     pub generation: u64,
     pub rect: Rect,
@@ -445,6 +468,10 @@ pub struct Model {
     /// Permanent deletion and trash administration.
     pub delete: crate::delete_ui::State,
     pub open_with: Option<crate::open_with_ui::Panel>,
+    /// Listing area of the last paint (rubber-band selection starts here).
+    pub listing_rect: Rect,
+    /// Rubber-band selection in progress.
+    pub marquee: Option<Marquee>,
     pub archive_preparing: Option<(u64, files_core::copy_engine::Control)>,
     pub move_preparing: Option<(u64, Arc<std::sync::atomic::AtomicBool>)>,
     pub move_review_fds: usize,
@@ -616,6 +643,8 @@ impl Model {
             archive_confirmation: None,
             delete: Default::default(),
             open_with: None,
+            listing_rect: Rect::default(),
+            marquee: None,
             child_watch: Default::default(),
             child_pending: Default::default(),
             archive_preparing: None,

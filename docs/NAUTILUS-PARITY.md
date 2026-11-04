@@ -20,9 +20,9 @@ Estados: **sí** · **parcial** · **no**. Prioridad: P1 = se nota en el uso dia
 | 6 | Escribir para filtrar | sí | — | — |
 | 7 | Ocultos Ctrl+H | sí | — | — |
 | 8 | Miniaturas imagen/vídeo/PDF/carátulas | parcial | PDF, carátula audio, lista | P2 |
-| 9 | Selección por rectángulo (marquee) | no | gesto de ratón básico | P1 |
+| 9 | Selección por rectángulo (marquee) | **sí** | bloque 3: Grupos/Lista/Grilla, Ctrl/Shift suma, clic en vacío limpia | — |
 | 10 | Seleccionar por patrón Ctrl+S | parcial | dos pasos (filtro + marcar) | P2 |
-| 11 | Portapapeles con otras apps | parcial | Ctrl+V no pega lo copiado fuera | P1 |
+| 11 | Portapapeles con otras apps | parcial | bloque 3: Ctrl+V pega lo último copiado (Files o sistema); sin prueba de punta a punta (no se toca el portapapeles personal) | P2 |
 | 12 | Arrastrar y soltar con otras apps | parcial | soltar siempre pasa por revisión | P2 |
 | 13 | Papelera: vaciar, restaurar elegidos, Shift+Supr | **sí** | bloque 1: Shift+Supr con confirmación, Restaurar/Eliminar/Vaciar en el catálogo | — |
 | 14 | Deshacer/rehacer operaciones | parcial | sólo renombrar y último lote a papelera | P2 |
@@ -130,3 +130,22 @@ Validación: `scripts/open-with-ui-check.py` (lanzador grabador, XDG
 privados; nunca toca las asociaciones del usuario) 3/3 + final;
 716/112/807 pruebas, Clippy. `open-close-ui-check.py` queda SKIPPED en
 Linux: ejecutarlo lanzaría la aplicación real del usuario.
+
+## Bloque 3 — 2026-11-04: Ctrl+V del sistema y selección por rectángulo
+
+- Ctrl+V pega lo último copiado, como Nautilus: el búfer de Files mientras
+  siga siendo la selección del sistema (conserva «cortar») o si el sistema
+  no ofrece archivos; si otra app copió archivos después, se importan esos.
+  El puente nativo expone `selection_ours` (fuente publicada no cancelada)
+  y `files_offered`. Decisión cubierta por pruebas; la importación real
+  exige gesto real y portapapeles del usuario: NO validada de punta a punta.
+- Selección por rectángulo en Grupos/Lista/Grilla con borde de acento;
+  Ctrl/Shift suma; clic en vacío limpia (antes no hacía nada).
+- `build.rs`: dos copias idénticas de fltk-sys en distintos índices del
+  registro (otro proyecto) ya no rompen la compilación; distintas siguen
+  fallando.
+- Fixtures de menú buscan la entrada por acción (las secciones movieron los
+  índices). `keyboard-nav-ui-check` falla en Espacio (Ctrl+Shift+Fin) igual
+  con el binario previo a la paridad (fa50e53): fallo preexistente pendiente.
+- Las ventanas de prueba deben lanzarse con un `exec` de Hyprland por script:
+  encadenados, la regla de workspace caduca y aparecían en el escritorio.

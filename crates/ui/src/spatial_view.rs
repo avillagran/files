@@ -297,6 +297,31 @@ impl Model {
             }
         } else if let Some(action) = action {
             self.action(action);
+        } else if !self.dual.enabled
+            && matches!(self.view, View::Groups | View::List | View::Grid)
+            && self.listing_rect.contains(x, y)
+            && !self.selection_refreshing()
+            && self.loaded
+        {
+            // Empty space of the listing: start a rubber band. Without
+            // modifiers the selection is cleared first, like Nautilus.
+            let base = if toggle || extend {
+                self.selection.clone()
+            } else {
+                self.selection.clear();
+                self.selected = None;
+                self.preserve_empty_selection = true;
+                Default::default()
+            };
+            self.settings = false;
+            self.actions_menu = false;
+            self.marquee = Some(crate::model::Marquee {
+                generation: self.generation,
+                start: (x, y),
+                current: (x, y),
+                base,
+                moved: false,
+            });
         } else if self.view == View::Spatial && y >= 94 && !self.selection_refreshing() {
             self.selection.clear();
             self.selected = None;
@@ -308,6 +333,39 @@ impl Model {
         }
     }
     pub fn pointer_drag(&mut self, x: i32, y: i32) {
+        if let Some(mut band) = self.marquee.take() {
+            if band.generation != self.generation || self.selection_refreshing() {
+                return;
+            }
+            let lr = self.listing_rect;
+            band.current = (x.clamp(lr.x, lr.x + lr.w), y.clamp(lr.y, lr.y + lr.h));
+            band.moved |= (x - band.start.0).abs() + (y - band.start.1).abs() >= 4;
+            if band.moved {
+                let r = band.rect();
+                let mut selection = band.base.clone();
+                let mut last = None;
+                for hit in self.hits.iter().filter(|h| h.generation == self.generation) {
+                    if let Action::Entry(i) = hit.action
+                        && hit.rect.x < r.x + r.w
+                        && r.x < hit.rect.x + hit.rect.w
+                        && hit.rect.y < r.y + r.h
+                        && r.y < hit.rect.y + hit.rect.h
+                        && self.entries.get(i).is_some_and(|e| {
+                            files_core::visibility::accepts(&e.name, self.show_hidden)
+                        })
+                    {
+                        selection.insert(i);
+                        last = Some(i);
+                    }
+                }
+                self.selection = selection;
+                if last.is_some() {
+                    self.selected = last;
+                }
+            }
+            self.marquee = Some(band);
+            return;
+        }
         let Some(drag) = &mut self.drag else {
             return;
         };
@@ -343,6 +401,12 @@ impl Model {
         self.layout_changed();
     }
     pub fn pointer_up(&mut self) {
+        if let Some(band) = self.marquee.take()
+            && band.moved
+            && std::env::var_os("FILES_TEST_PREVIEW").is_some()
+        {
+            eprintln!("FILES_MARQUEE selected={}", self.selection.len());
+        }
         if self.drag.take().is_some_and(|d| d.moved) {
             self.save_layout();
         }

@@ -340,7 +340,14 @@ pub fn request_paste(model: &std::rc::Rc<std::cell::RefCell<Model>>, frame: &flt
     };
     if context.is_none() {
         if let Ok(mut m) = model.try_borrow_mut() {
-            m.action(Action::ClipboardPaste);
+            let system = m.native_transfer.enabled
+                && crate::native_transfer::prefer_system_paste(m.clipboard_state.count());
+            eprintln_paste(system);
+            m.action(if system {
+                Action::NativePaste
+            } else {
+                Action::ClipboardPaste
+            });
         }
         let mut f = frame.clone();
         f.redraw();
@@ -404,4 +411,13 @@ pub fn text_available() -> bool {
     }
     #[cfg(not(target_os = "linux"))]
     fltk::app::clipboard_contains(fltk::app::ClipboardContent::Text)
+}
+
+fn eprintln_paste(system: bool) {
+    if std::env::var_os("FILES_PASTE_TRACE").is_some() {
+        eprintln!(
+            "FILES_PASTE_SOURCE {}",
+            if system { "system" } else { "files" }
+        );
+    }
 }

@@ -180,7 +180,7 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
                 !m.mutations.busy && !m.mutation_applied,
             ),
             item(
-                "  Pegar en files · Ctrl+V",
+                "  Pegar · Ctrl+V (lo último copiado)",
                 Action::ClipboardPaste,
                 !m.mutations.busy
                     && !m.mutation_applied
@@ -230,7 +230,7 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
             item("  Crear archivo · Ctrl+N", Action::NewEntry(false), !busy),
             header("PEGAR"),
             item(
-                "  Pegar en files · Ctrl+V",
+                "  Pegar · Ctrl+V (lo último copiado)",
                 Action::ClipboardPaste,
                 !m.mutations.busy
                     && !m.mutation_applied

@@ -29,7 +29,7 @@ struct DragEvent {
 }
 #[derive(Default)]
 pub struct State {
-    enabled: bool,
+    pub(crate) enabled: bool,
     gesture: Option<u64>,
     wanted: Option<(u64, u64)>,
     next: u64,
@@ -79,6 +79,7 @@ mod platform {
         fn files_transfer_cancel_drag();
         fn files_transfer_start_drag(permit: u64, bytes: *const u8, size: usize) -> c_int;
         fn files_transfer_outgoing_active() -> c_int;
+        fn files_transfer_selection_ours() -> c_int;
         fn files_transfer_publish(permit: u64, bytes: *const u8, size: usize) -> c_int;
         fn files_transfer_offer(flags: *mut u32) -> u64;
         fn files_transfer_receive(permit: u64, id: u64, format: u32) -> c_int;
@@ -121,6 +122,16 @@ mod platform {
     }
     pub fn outgoing_active() -> bool {
         unsafe { files_transfer_outgoing_active() == 1 }
+    }
+    /// Our last published selection is still the system clipboard.
+    pub fn selection_ours() -> bool {
+        unsafe { files_transfer_selection_ours() == 1 }
+    }
+    /// The system clipboard currently offers a file list we can import.
+    pub fn files_offered() -> bool {
+        let mut flags = 0;
+        let id = unsafe { files_transfer_offer(&mut flags) };
+        id != 0 && flags & 7 != 0
     }
     pub fn publish(permit: u64, bytes: &[u8]) -> i32 {
         unsafe { files_transfer_publish(permit, bytes.as_ptr(), bytes.len()) }
@@ -238,6 +249,12 @@ mod platform {
         -1
     }
     pub fn outgoing_active() -> bool {
+        false
+    }
+    pub fn selection_ours() -> bool {
+        false
+    }
+    pub fn files_offered() -> bool {
         false
     }
     pub fn publish(_: u64, _: &[u8]) -> i32 {
@@ -390,6 +407,35 @@ impl EventGuard {
         Self {
             model: Rc::downgrade(model),
         }
+    }
+}
+/// Ctrl+V like Nautilus: the most recent copy wins. Files' own buffer is
+/// used while it is still the system selection (keeps cut semantics) or when
+/// the system offers no files; a file list copied later in another app is
+/// pasted from the system.
+pub fn prefer_system_paste(private_items: usize) -> bool {
+    paste_from_system(
+        platform::files_offered(),
+        platform::selection_ours(),
+        private_items,
+    )
+}
+fn paste_from_system(files_offered: bool, ours: bool, private_items: usize) -> bool {
+    files_offered && (private_items == 0 || !ours)
+}
+#[cfg(test)]
+mod paste_source_tests {
+    #[test]
+    fn most_recent_copy_wins() {
+        use super::paste_from_system as d;
+        // Copied in Files and still the system selection: Files (keeps cut).
+        assert!(!d(true, true, 3));
+        // Another app copied files afterwards: system.
+        assert!(d(true, false, 3));
+        // Nothing copied in Files: system files if offered.
+        assert!(d(true, false, 0) && d(true, true, 0));
+        // System offers no files (e.g. text): Files' buffer.
+        assert!(!d(false, false, 3) && !d(false, false, 0));
     }
 }
 pub fn window_event(
