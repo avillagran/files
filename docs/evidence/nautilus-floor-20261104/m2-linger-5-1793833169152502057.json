@@ -1,0 +1,33 @@
+{
+  "functional_gate": "PASS",
+  "label": "m2-linger-5",
+  "binary_sha256": "a7298e28e489df6a488581a6fd60990d1c6b8e249e4efdd519e011036c91bfc1",
+  "helper_sha256": "a6d4af2753d1d7f019810f7de29cdc48708964bc04265b87abdf70212e29d4d9",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "method": "internal Actions + real FLTK window/framebuffer, private fixtures and trash; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "grouped_context_sections": [
+      "#ABRIR",
+      "#EDITAR",
+      "#ORGANIZAR",
+      "#COMPRIMIR",
+      "#ELIMINAR",
+      "#SELECCI\u00d3N"
+    ],
+    "permanent_delete": "8 elementos eliminados (4.1 kB)",
+    "create_link": "Enlace creado: Enlace a linkme.txt",
+    "child_refresh": "watched 2 -> 5 directas",
+    "trash": "restore, purge one, empty; files/ and info/ empty"
+  },
+  "captures": [
+    "/home/avillagran/.cache/files-m2-updates/floor-42587aa/source/docs/evidence/nautilus-floor-20261104/m2-linger-5-groups-add-new-1793833169305190876.png",
+    "/home/avillagran/.cache/files-m2-updates/floor-42587aa/source/docs/evidence/nautilus-floor-20261104/m2-linger-5-context-grouped-1793833169853454725.png",
+    "/home/avillagran/.cache/files-m2-updates/floor-42587aa/source/docs/evidence/nautilus-floor-20261104/m2-linger-5-delete-confirm-1793833170040447715.png",
+    "/home/avillagran/.cache/files-m2-updates/floor-42587aa/source/docs/evidence/nautilus-floor-20261104/m2-linger-5-trash-catalog-1793833172011455152.png",
+    "/home/avillagran/.cache/files-m2-updates/floor-42587aa/source/docs/evidence/nautilus-floor-20261104/m2-linger-5-trash-empty-confirm-1793833172448490229.png",
+    "/home/avillagran/.cache/files-m2-updates/floor-42587aa/source/docs/evidence/nautilus-floor-20261104/m2-linger-5-trash-emptied-1793833172607018917.png"
+  ],
+  "context_retries": 1
+}

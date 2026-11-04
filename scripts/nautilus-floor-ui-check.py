@@ -75,7 +75,7 @@ def main():
             log = EVIDENCE / f'{args.label}-{time.time_ns()}-app.log'
             env = {**os.environ, 'FILES_CONFIG_DIR': str(base / 'config'), 'XDG_DATA_HOME': str(data),
                    'FILES_TEST_CAPTURE': str(capture), 'FILES_TEST_PREVIEW': '1', 'FILES_TEST_FIXED_SIZE': '1',
-                   'FILES_TEST_ISOLATE_INPUT': '1', 'TMPDIR': str(base), 'MAGICK_TEMPORARY_PATH': str(base)}
+                   'FILES_TEST_ISOLATE_INPUT': '1', 'FILES_CHILD_WATCH_TRACE': '1', 'TMPDIR': str(base), 'MAGICK_TEMPORARY_PATH': str(base)}
             with log.open('w') as output:
                 process = subprocess.Popen([str(args.binary), str(listing), '--size', '1000x650', '--scale', '1',
                                             '--no-session', '--ui-smoke', '--ui-scene', 'folder', '--exit-after', '90'],

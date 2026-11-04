@@ -213,10 +213,18 @@ const SIZE_EVERY: std::time::Duration = std::time::Duration::from_secs(60);
 /// The visible set is re-sent at most this often while scrolling.
 const SET_EVERY: std::time::Duration = std::time::Duration::from_millis(300);
 
+/// A folder leaving the view keeps its watch this long: reloads reorder
+/// rows for a moment and must not open a gap where changes are missed.
+const LINGER: std::time::Duration = std::time::Duration::from_secs(5);
+
 #[derive(Default)]
 pub struct Pending {
     changed: std::collections::HashMap<OsString, std::time::Instant>,
     sized: std::collections::HashMap<OsString, std::time::Instant>,
+    /// Watched names and when they were last on screen.
+    seen: std::collections::HashMap<OsString, std::time::Instant>,
+    /// Names whose watch was dropped (a later watch re-reads the row).
+    dropped: HashSet<OsString>,
     last_set: Option<std::time::Instant>,
     path: PathBuf,
 }
@@ -247,7 +255,7 @@ impl crate::model::Model {
                 .last_set
                 .is_none_or(|t| now - t >= SET_EVERY)
         {
-            let names = self
+            let visible: Vec<OsString> = self
                 .visible
                 .iter()
                 .filter_map(|i| self.entries.get(*i))
@@ -255,12 +263,53 @@ impl crate::model::Model {
                 .take(MAX_WATCHES)
                 .map(|e| e.name.clone())
                 .collect();
+            let pending = &mut self.child_pending;
+            for name in visible {
+                if pending.seen.insert(name.clone(), now).is_none() && pending.dropped.remove(&name)
+                {
+                    // Watched again after a gap: changes may have been missed.
+                    pending
+                        .changed
+                        .entry(name)
+                        .or_insert(now.checked_sub(QUIET).unwrap_or(now));
+                }
+            }
+            let expired: Vec<OsString> = pending
+                .seen
+                .iter()
+                .filter(|(_, t)| now - **t > LINGER)
+                .map(|(n, _)| n.clone())
+                .collect();
+            for name in expired {
+                pending.seen.remove(&name);
+                pending.dropped.insert(name);
+            }
+            while pending.seen.len() > MAX_WATCHES {
+                let oldest = pending
+                    .seen
+                    .iter()
+                    .min_by_key(|(_, t)| **t)
+                    .map(|(n, _)| n.clone())
+                    .expect("non-empty");
+                pending.seen.remove(&oldest);
+                pending.dropped.insert(oldest);
+            }
+            if pending.dropped.len() > 4096 {
+                pending.dropped.clear();
+            }
+            let names: Vec<OsString> = pending.seen.keys().cloned().collect();
+            pending.last_set = Some(now);
             let path = self.path.clone();
+            if std::env::var_os("FILES_CHILD_WATCH_TRACE").is_some() {
+                eprintln!("FILES_CHILD_WATCH_SET {:?}", names);
+            }
             self.child_watch.set(&path, names);
-            self.child_pending.last_set = Some(now);
         }
         let path = self.path.clone();
         for name in self.child_watch.poll(&path) {
+            if std::env::var_os("FILES_CHILD_WATCH_TRACE").is_some() {
+                eprintln!("FILES_CHILD_WATCH_EVENT {name:?}");
+            }
             self.child_pending.changed.insert(name, now);
         }
         let due: Vec<OsString> = self
