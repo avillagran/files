@@ -1,0 +1,44 @@
+{
+  "functional_gate": "PASS",
+  "label": "b3-final",
+  "binary_sha256": "2c3556914335714542eeba63ea6da57e023eb20421d30708d004e02f4a9f3e2b",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal Actions + real FLTK window/framebuffer, private fixtures and trash; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "grouped_context_sections": [
+      "#ABRIR",
+      "#EDITAR",
+      "#ORGANIZAR",
+      "#COMPRIMIR",
+      "#ELIMINAR",
+      "#SELECCI\u00d3N"
+    ],
+    "permanent_delete": "8 elementos eliminados (4.1 kB)",
+    "create_link": "Enlace creado: Enlace a linkme.txt",
+    "child_refresh": "watched 2 -> 5 directas",
+    "rubber_band": {
+      "two": [
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "additive": [
+        "extra.txt",
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "click_empty_clears": true
+    },
+    "trash": "restore, purge one, empty; files/ and info/ empty"
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b3-final-groups-add-new-1793835518006774302.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b3-final-context-grouped-1793835518162563256.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b3-final-delete-confirm-1793835518348549465.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b3-final-trash-catalog-1793835520524567677.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b3-final-trash-empty-confirm-1793835520952548781.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b3-final-trash-emptied-1793835521107723571.png"
+  ]
+}

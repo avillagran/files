@@ -62,6 +62,62 @@ fn floor_command(m: &mut Model, action: &str) -> Option<Result<(), String>> {
         eprintln!("FILES_NF_SELECTION {}", names.join("|"));
         return Some(Ok(()));
     }
+    if let Some(spec) = action.strip_prefix("nf-device:") {
+        let (node, op) = spec.rsplit_once(':').unwrap_or((spec, ""));
+        let op = match op {
+            "mount" => Some(files_core::devices::Op::Mount),
+            "unmount" => Some(files_core::devices::Op::Unmount),
+            "eject" => Some(files_core::devices::Op::Eject),
+            _ => None,
+        };
+        m.action(Action::Device(node.into(), op));
+        return Some(Ok(()));
+    }
+    if action == "nf-rail" {
+        m.rail = true;
+        return Some(Ok(()));
+    }
+    if action == "nf-bookmark-add" {
+        m.action(Action::BookmarkAdd);
+        return Some(Ok(()));
+    }
+    if action == "nf-devices" {
+        let list: Vec<String> = m
+            .devices
+            .list
+            .iter()
+            .map(|d| {
+                format!(
+                    "{}={}@{}",
+                    d.node.display(),
+                    d.title(),
+                    d.mount
+                        .as_ref()
+                        .map(|p| p.display().to_string())
+                        .unwrap_or_default()
+                )
+            })
+            .collect();
+        let rail: Vec<String> = m
+            .hits
+            .iter()
+            .filter(|h| h.generation == m.generation && h.rect.x < 170)
+            .filter_map(|h| match &h.action {
+                Action::Device(n, op) => Some(format!("device:{}:{:?}", n.display(), op)),
+                Action::Navigate(p) => Some(format!("nav:{}", p.display())),
+                _ => None,
+            })
+            .collect();
+        eprintln!(
+            "FILES_NF_DEVICES path={} busy={} message={:?} list={} rail={}",
+            m.path.display(),
+            m.devices.busy(),
+            m.operation_message,
+            list.join(";"),
+            rail.join(";")
+        );
+        return Some(Ok(()));
+    }
     if action == "nf-hits" {
         let rows: Vec<String> = m
             .hits

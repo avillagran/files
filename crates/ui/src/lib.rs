@@ -30,6 +30,7 @@ mod copy_scene;
 mod copy_state;
 mod copy_ui;
 mod delete_ui;
+mod devices_ui;
 /// Background transport owned by the visible directory comparison panel.
 mod directory_compare_job;
 mod directory_compare_ui;
@@ -974,6 +975,7 @@ pub fn run_since(start: Instant) -> bool {
     if !theme_override {
         omarchy_theme::apply(&mut model.borrow_mut());
     }
+    model.borrow_mut().start_devices();
     // Scripted media checks were written for a paused, muted first frame.
     // They keep it unless they ask for the product behaviour (autoplay and,
     // with no saved preference, sound on).

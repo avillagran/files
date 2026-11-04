@@ -32,6 +32,8 @@ pub enum Action {
     CreateLinks,
     /// Ctrl+Shift+O: choose the application for the focused file.
     OpenWith,
+    /// Sidebar device: open (mounting first) or an explicit operation.
+    Device(PathBuf, Option<files_core::devices::Op>),
     OpenWithCmd(crate::open_with_ui::Command),
     OpenTrash,
     TrashBrowser(u64, crate::trash_browser::Command),
@@ -468,6 +470,8 @@ pub struct Model {
     /// Permanent deletion and trash administration.
     pub delete: crate::delete_ui::State,
     pub open_with: Option<crate::open_with_ui::Panel>,
+    /// Drives in the sidebar (event-driven watcher thread).
+    pub devices: crate::devices_ui::State,
     /// Listing area of the last paint (rubber-band selection starts here).
     pub listing_rect: Rect,
     /// Rubber-band selection in progress.
@@ -643,6 +647,7 @@ impl Model {
             archive_confirmation: None,
             delete: Default::default(),
             open_with: None,
+            devices: Default::default(),
             listing_rect: Rect::default(),
             marquee: None,
             child_watch: Default::default(),
@@ -1235,7 +1240,7 @@ impl Model {
         self.media_guard.stopped()
     }
     pub fn pump(&mut self) -> bool {
-        let deleted = self.pump_delete() | self.pump_open_with();
+        let deleted = self.pump_delete() | self.pump_open_with() | self.pump_devices();
         if let Some((id, control)) = &self.archive_preparing
             && (self.closing
                 || self
@@ -2625,6 +2630,7 @@ impl Model {
             Action::DeleteAnswer(_) => {}
             Action::CreateLinks => self.create_links(),
             Action::OpenWith => self.open_with(),
+            Action::Device(node, op) => self.device_action(node, op),
             Action::OpenWithCmd(_) => {}
             Action::OpenTrash => self.open_trash_browser(),
             Action::TrashBrowser(..) => {}

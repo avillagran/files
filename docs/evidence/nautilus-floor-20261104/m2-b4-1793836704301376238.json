@@ -1,0 +1,44 @@
+{
+  "functional_gate": "PASS",
+  "label": "m2-b4",
+  "binary_sha256": "f9d4f7df1579eaa242efd45810ca303e94eb9d0d2affb323343b3aefaab855a4",
+  "helper_sha256": "e5401c541f6ca42ca9eb3415d8277df5c6bfb114835913cbe48d2bd9245b942c",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "method": "internal Actions + real FLTK window/framebuffer, private fixtures and trash; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "grouped_context_sections": [
+      "#ABRIR",
+      "#EDITAR",
+      "#ORGANIZAR",
+      "#COMPRIMIR",
+      "#ELIMINAR",
+      "#SELECCI\u00d3N"
+    ],
+    "permanent_delete": "8 elementos eliminados (4.1 kB)",
+    "create_link": "Enlace creado: Enlace a linkme.txt",
+    "child_refresh": "watched 2 -> 5 directas",
+    "rubber_band": {
+      "two": [
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "additive": [
+        "extra.txt",
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "click_empty_clears": true
+    },
+    "trash": "restore, purge one, empty; files/ and info/ empty"
+  },
+  "captures": [
+    "/home/avillagran/.cache/files-m2-updates/b4-8391809/source/docs/evidence/nautilus-floor-20261104/m2-b4-groups-add-new-1793836704454162049.png",
+    "/home/avillagran/.cache/files-m2-updates/b4-8391809/source/docs/evidence/nautilus-floor-20261104/m2-b4-context-grouped-1793836704610038349.png",
+    "/home/avillagran/.cache/files-m2-updates/b4-8391809/source/docs/evidence/nautilus-floor-20261104/m2-b4-delete-confirm-1793836704796810113.png",
+    "/home/avillagran/.cache/files-m2-updates/b4-8391809/source/docs/evidence/nautilus-floor-20261104/m2-b4-trash-catalog-1793836706921258104.png",
+    "/home/avillagran/.cache/files-m2-updates/b4-8391809/source/docs/evidence/nautilus-floor-20261104/m2-b4-trash-empty-confirm-1793836707319666535.png",
+    "/home/avillagran/.cache/files-m2-updates/b4-8391809/source/docs/evidence/nautilus-floor-20261104/m2-b4-trash-emptied-1793836707476310172.png"
+  ]
+}

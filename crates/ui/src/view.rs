@@ -653,22 +653,34 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
         hit(m, rect, Action::Navigate(place.path.clone()));
         y += 40;
     }
-    p.rect(r(14, y + 6, rail - 28, 1), c.lighter_background);
-    y += 18;
-    for mount in m
-        .mounts
-        .clone()
-        .into_iter()
-        .filter(|d| d.source.starts_with("/dev/") && !d.path.starts_with("/boot"))
-        .take(6)
-    {
-        p.text(r(15, y, 22, 36), "▤", 17, c.dark_foreground, false, false);
+    // Bookmarks (Nautilus sidebar): up to eight, then devices.
+    let marks: Vec<(std::path::PathBuf, String)> = m
+        .bookmarks
+        .document
+        .rows
+        .iter()
+        .take(8)
+        .map(|e| (e.path.clone(), e.label.clone()))
+        .collect();
+    if !marks.is_empty() {
+        p.rect(r(14, y + 6, rail - 28, 1), c.lighter_background);
+        y += 18;
+    }
+    for (path, label) in marks {
+        let on = m.path == path;
+        let rect = r(8, y, rail - 16, 36);
+        if on {
+            p.rounded_rect(rect, 8 * rad, c.lighter_background);
+        }
+        p.text(
+            r(16, y + 6, 26, 26),
+            crate::fonts::icon("\u{f02e}", "B"),
+            16,
+            if on { c.accent } else { c.dark_foreground },
+            true,
+            false,
+        );
         if m.rail {
-            let label = mount
-                .path
-                .file_name()
-                .map(|s| files_core::name_label::label(s).into_owned())
-                .unwrap_or_else(|| "Sistema".into());
             p.text(
                 r(48, y, 108, 36),
                 &label,
@@ -678,7 +690,82 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
                 false,
             );
         }
-        hit(m, r(8, y, rail - 16, 36), Action::Navigate(mount.path));
+        hit(m, rect, Action::Navigate(path));
+        y += 40;
+    }
+    let devices = m.devices.list.clone();
+    if !devices.is_empty() {
+        p.rect(r(14, y + 6, rail - 28, 1), c.lighter_background);
+        y += 18;
+    }
+    let busy = m.devices.busy_node().cloned();
+    for d in devices {
+        let on = d.mount.as_deref().is_some_and(|mp| m.path.starts_with(mp));
+        let rect = r(8, y, rail - 16, 36);
+        if on {
+            p.rounded_rect(rect, 8 * rad, c.lighter_background);
+        }
+        let mounted = d.mount.is_some();
+        let tint = if on {
+            c.accent
+        } else if mounted {
+            c.foreground
+        } else {
+            c.dark_foreground
+        };
+        p.text(
+            r(16, y + 6, 26, 26),
+            crate::fonts::icon(if d.removable { "\u{f287}" } else { "\u{f0a0}" }, "D"),
+            16,
+            tint,
+            true,
+            false,
+        );
+        if m.rail {
+            let detail = if busy.as_ref() == Some(&d.node) {
+                "…".to_string()
+            } else {
+                match (d.mount.is_some(), d.free) {
+                    (true, Some(free)) => format!("{} libres", files_core::format_size(free)),
+                    (true, None) => "montado".into(),
+                    (false, _) => "sin montar".into(),
+                }
+            };
+            p.text(r(48, y, 82, 20), &d.title(), 12, tint, false, false);
+            p.text(
+                r(48, y + 18, 82, 16),
+                &detail,
+                9,
+                c.dark_foreground,
+                false,
+                false,
+            );
+        }
+        hit(m, rect, Action::Device(d.node.clone(), None));
+        // Eject / unmount button for mounted devices (expanded sidebar).
+        if mounted && m.rail {
+            let eject = r(rail - 38, y + 6, 24, 24);
+            p.text(
+                eject,
+                crate::fonts::icon("\u{f052}", "^"),
+                13,
+                c.dark_foreground,
+                true,
+                false,
+            );
+            hit(
+                m,
+                eject,
+                Action::Device(
+                    d.node.clone(),
+                    Some(if d.removable {
+                        files_core::devices::Op::Eject
+                    } else {
+                        files_core::devices::Op::Unmount
+                    }),
+                ),
+            );
+        }
         y += 40;
     }
     p.unclip();

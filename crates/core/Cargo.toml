@@ -14,6 +14,7 @@ regex = { version = "=1.13.1", default-features = false, features = ["std"] }
 # Existing lockfile packages/backends, shared with the Office adapter.
 flate2 = { version = "=1.1.10", default-features = false, features = ["rust_backend"] }
 crc32fast = "=1.5.3"
+# Already in the lockfile (UI/helper); parses `lsblk -J` for devices.
+serde_json = "1"
 
 [dev-dependencies]
-serde_json = "1"

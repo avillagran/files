@@ -298,6 +298,24 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
             ),
         ],
     };
+    let mut items = items;
+    if target == Target::Background
+        && let Some((unmount, eject, removable)) = crate::devices_ui::current_device_actions(m)
+    {
+        items.push(header("DISPOSITIVO"));
+        items.push(item(
+            "\u{f052}  Desmontar este dispositivo",
+            unmount,
+            !m.devices.busy(),
+        ));
+        if removable {
+            items.push(item(
+                "\u{f052}  Expulsar (retirar con seguridad)",
+                eject,
+                !m.devices.busy(),
+            ));
+        }
+    }
     let first = items.iter().position(|i| i.action.is_some()).unwrap_or(0);
     let mut menu = Menu {
         target,

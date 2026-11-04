@@ -87,6 +87,8 @@ mod tests {
 
 /// Desktop applications and default handlers (Open, Open with).
 pub mod apps;
+/// Drives for the sidebar; mount / unmount / eject via udisksctl.
+pub mod devices;
 /// "Create link" to selected items.
 pub mod links;
 /// Permanent deletion (Shift+Delete, empty trash).

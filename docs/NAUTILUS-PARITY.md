@@ -38,8 +38,8 @@ Estados: **sí** · **parcial** · **no**. Prioridad: P1 = se nota en el uso dia
 | 24 | Progreso de operaciones | sí | — | — |
 | 25 | Destacados (estrellas) | no | — | P2 |
 | 26 | Recientes | no | — | P2 |
-| 27 | Lateral: marcadores, dispositivos vivos, red | parcial | marcadores no listados, montajes leídos al inicio | P1 |
-| 28 | Montar/desmontar/expulsar, espacio por dispositivo | no | — | P1 |
+| 27 | Lateral: marcadores, dispositivos vivos, red | parcial | bloque 4: marcadores y dispositivos vivos; falta red | P3 |
+| 28 | Montar/desmontar/expulsar, espacio por dispositivo | **sí** | bloque 4: udisksctl, espacio libre, expulsar con apagado | — |
 | 29 | Red: sftp/smb/ftp/dav/nfs | parcial | sólo SFTP | P3 |
 | 30 | Búsqueda con filtros y texto completo | sí | — | — |
 | 31 | Ejecutables y `.desktop` | no | — | P2 |
@@ -149,3 +149,20 @@ Linux: ejecutarlo lanzaría la aplicación real del usuario.
   con el binario previo a la paridad (fa50e53): fallo preexistente pendiente.
 - Las ventanas de prueba deben lanzarse con un `exec` de Hyprland por script:
   encadenados, la regla de workspace caduca y aparecían en el escritorio.
+
+## Bloque 4 — 2026-11-04: dispositivos y marcadores en el lateral
+
+- `files_core::devices`: `lsblk -J` (sin montajes de sistema, sin
+  particiones EFI/reservadas/recuperación/arranque Apple, sin sistemas de
+  archivos que el kernel no soporta), espacio libre, y montar/desmontar/
+  expulsar (desmontar + `power-off` del disco) con `udisksctl` (polkit, sin
+  root). Vigilancia por eventos: `/proc/self/mountinfo` (POLLPRI) e inotify
+  en `/dev/disk/by-uuid`, retardo 400 ms, y una relectura cada 2 min para el
+  espacio libre. Antes los montajes se leían una sola vez al arrancar.
+- Lateral: hasta 8 marcadores y los dispositivos (icono USB/disco, montado
+  o atenuado, espacio libre, botón expulsar/desmontar con el lateral
+  expandido). Clic en un dispositivo sin montar lo monta y lo abre; al
+  expulsar el actual se vuelve a Inicio. Menú de fondo: sección DISPOSITIVO.
+- NODE real listaría `/mnt/ubuntu`, Gbte, Peliculas y `/mnt/avd`.
+- Validación: `scripts/devices-ui-check.py` (lsblk de fixture + udisksctl
+  grabador; ningún disco real tocado), pruebas 719/112/808, Clippy.
