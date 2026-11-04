@@ -1,0 +1,70 @@
+{
+  "base": "24a3825",
+  "fix": "ae2fd91",
+  "baseline_observation": {
+    "method": "mapped Xvfb framebuffer, canvas.redraw after opening PopupMenu",
+    "open": true,
+    "before": [
+      37,
+      39,
+      52
+    ],
+    "after": [
+      17,
+      97,
+      47
+    ],
+    "exit": 101,
+    "note": "Observed earlier in this session; original stdout retained in the conversation."
+  },
+  "fixed": {
+    "x11": {
+      "open": true,
+      "before": [
+        37,
+        39,
+        52
+      ],
+      "after": [
+        37,
+        39,
+        52
+      ],
+      "exit": 0
+    },
+    "wayland": {
+      "open": true,
+      "before": [
+        37,
+        39,
+        52
+      ],
+      "after": [
+        37,
+        39,
+        52
+      ],
+      "exit": 0,
+      "hidden_workspace": true,
+      "focus_retained": true,
+      "remaining_fixture_windows": 0
+    },
+    "checks": [
+      "release handler does not dismiss",
+      "canvas updates preserve menu",
+      "idle canvas paint count unchanged",
+      "close restores canvas",
+      "explicit toolkit app::flush preserves overlay"
+    ]
+  },
+  "tests": {
+    "unit": 33,
+    "ui": 30,
+    "doctest": 9
+  },
+  "limits": [
+    "Internal FLTK handlers and mapped pixels, not OS pointer input",
+    "No physical touchpad inertia acceptance: FLTK lacks axis source/stop in exposed events",
+    "No resource measurements or publication"
+  ]
+}

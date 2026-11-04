@@ -1,0 +1,85 @@
+--- a/fl_wayland_clipboard_dnd.cxx
++++ b/fl_wayland_clipboard_dnd.cxx
+@@ -437,12 +437,53 @@
+ static struct wl_data_offer *current_drag_offer = NULL;
+ static uint32_t fl_dnd_serial;
+ 
++// files opt-in v1: only a registered application's own window delegates DnD.
++// FLTK still owns these offer proxies; the application owns a DIFFERENT device.
++// Default windows keep the upstream path unchanged. No foreign listener swap.
++typedef int (*Files_Dnd_Delegate_V1)(Fl_Window *);
++static Files_Dnd_Delegate_V1 files_dnd_delegate_v1 = NULL;
++static struct wl_data_offer *files_delegated_offer = NULL;
++static bool files_delegated_sequence = false;
++
++static void files_release_delegated_offer() {
++  if (files_delegated_offer) {
++    wl_data_offer_destroy(files_delegated_offer);
++    files_delegated_offer = NULL;
++  }
++}
++
++extern "C" int fl_files_set_dnd_delegate_v1(Files_Dnd_Delegate_V1 delegate) {
++  files_dnd_delegate_v1 = delegate;
++  // Unregister may happen on close/seat loss without leave/drop. Release only
++  // the FLTK-owned delegated proxy. Keep sequence suppression until next enter:
++  // late motion/drop must never restart upstream reads on the old drag.
++  if (!delegate) files_release_delegated_offer();
++  return 1;
++}
++
++
+ 
+ static void data_device_handle_enter(void *data, struct wl_data_device *data_device,
+                                      uint32_t serial, struct wl_surface *surface,
+                                      wl_fixed_t x, wl_fixed_t y,
+                                      struct wl_data_offer *offer) {
+   Fl_Window *win = Fl_Wayland_Window_Driver::surface_to_window(surface);
++  files_release_delegated_offer();
++  files_delegated_sequence = false;
++  Fl_Window *top = win ? win->top_window() : NULL;
++  if (top && files_dnd_delegate_v1 && files_dnd_delegate_v1(top)) {
++    // Do not set_actions/accept/roundtrip/read/finish on this FLTK offer.
++    // Its peer on the app-owned device negotiates and reads bounded bytes.
++    if (current_drag_offer && current_drag_offer != offer &&
++        current_drag_offer != fl_selection_offer)
++      wl_data_offer_destroy(current_drag_offer);
++    current_drag_offer = NULL;
++    fl_dnd_target_window = NULL;
++    fl_dnd_target_surface = NULL;
++    files_delegated_sequence = true;
++    files_delegated_offer = offer;
++    return;
++  }
+ //printf("Drag entered our surface %p(win=%p) at %dx%d\n", surface, win, wl_fixed_to_int(x), wl_fixed_to_int(y));
+   if (win) {
+     fl_dnd_target_surface = surface;
+@@ -469,6 +510,7 @@
+ 
+ static void data_device_handle_motion(void *data, struct wl_data_device *data_device,
+                                       uint32_t time, wl_fixed_t x, wl_fixed_t y) {
++  if (files_delegated_sequence) return;
+   if (!current_drag_offer) return;
+ //printf("data_device_handle_motion fl_dnd_target_window=%p\n", fl_dnd_target_window);
+   int ret = 0;
+@@ -497,12 +539,20 @@
+ 
+ 
+ static void data_device_handle_leave(void *data, struct wl_data_device *data_device) {
++  if (files_delegated_sequence) {
++    files_release_delegated_offer();
++    return;
++  }
+   //printf("Drag left our surface\n");
+   if (current_drag_offer)  Fl::handle(FL_DND_LEAVE, fl_dnd_target_window);
+ }
+ 
+ 
+ static void data_device_handle_drop(void *data, struct wl_data_device *data_device) {
++  if (files_delegated_sequence) {
++    files_release_delegated_offer();
++    return;
++  }
+   if (!current_drag_offer) return;
+   Fl::handle(FL_ENTER, fl_dnd_target_window); // useful to set the belowmouse widget
+   int ret = Fl::handle(FL_DND_RELEASE, fl_dnd_target_window);

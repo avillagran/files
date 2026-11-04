@@ -1,0 +1,15 @@
+{
+  "source_url": "https://bjoern.hoehrmann.de/utf-8/decoder/dfa/",
+  "retrieved_utc": "2026-10-26T17:13:31.501629+00:00",
+  "source_html_sha256": "314f61c15c71dfda867404df5100f3d5416f0e9aed87a691ba91650d7a62db53",
+  "gumbo_utf8_c_sha256": "721d317237d4cf1be279b8037d7e6941fb90980c61a20771758ed6942e5af914",
+  "official_table_index": 1,
+  "table_entries": 364,
+  "table_identical": true,
+  "table_bytes_sha256": "b364bcfa7d553dcc17f5941eb28078862b133da34a520b7e44cf14e6620955ce",
+  "decode_body_equal_ignoring_whitespace": true,
+  "decode_body_normalized_sha256": "2127a99a0fb4bfb0188907d5dc002e5df4a415fae3d6c8953041cb4e6b322714",
+  "notice_file": "scripts/fixtures/html-engine/THIRD-PARTY.txt",
+  "notice_sha256": "a9eeea963c462b675d27cee32880e590faf81b52afef8fc0cd669a6bdfd2e62b",
+  "scope": "Official improved DFA table and decode body match bundled Gumbo; wrapper code remains Apache-2.0. No compile/run/performance evidence."
+}

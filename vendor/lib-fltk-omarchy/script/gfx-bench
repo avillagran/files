@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Shader cost, same session: a 520×400 window with a 400×300 View, static vs
+# animated (30 fps), two shaders and two area limits, 3 runs each, on the
+# hidden Hyprland workspace special:omarchy-fltk-test (focus untouched).
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+BIN="$ROOT/target/release/examples/gfx_bench"
+SECS="${SECS:-5}"
+OUT_ALL="$ROOT/build/gfx-bench.jsonl"
+mkdir -p "$ROOT/build"; : >"$OUT_ALL"
+SPECS=("static noise 160000 1" "animated noise 160000 1" "animated noise 160000 4" "animated noise 40000 1" "animated gradient 160000 1")
+for run in 1 2 3; do
+  for spec in "${SPECS[@]}"; do
+    set -- $spec
+    OUT="$ROOT/build/gfx-bench-run.json"; rm -f "$OUT"
+    hyprctl dispatch "hl.dsp.exec_cmd(\"$BIN $1 $SECS $OUT $2 $3 ${4:-1}\", { workspace = \"special:omarchy-fltk-test silent\" })" >/dev/null
+    for _ in $(seq 1 $(( (SECS + 10) * 10 ))); do [[ -s "$OUT" ]] && break; sleep 0.1; done
+    cat "$OUT" | tee -a "$OUT_ALL"
+  done
+done

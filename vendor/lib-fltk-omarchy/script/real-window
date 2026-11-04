@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Runs examples/real_window as a real Wayland client on the hidden Hyprland
+# workspace special:omarchy-fltk-test (silent: the user's focus is untouched).
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+REPORT="$ROOT/build/real-window.json"; SHOTS="$ROOT/build/real-window"
+mkdir -p "$SHOTS"; rm -f "$REPORT"
+BIN="$ROOT/target/release/examples/real_window"
+hyprctl dispatch "hl.dsp.exec_cmd(\"$BIN $REPORT $SHOTS\", { workspace = \"special:omarchy-fltk-test silent\" })" >/dev/null
+for _ in $(seq 1 200); do [[ -s "$REPORT" ]] && { cat "$REPORT"; exit 0; }; sleep 0.1; done
+echo "timeout" >&2; exit 1

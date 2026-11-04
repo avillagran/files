@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# GPU shader check and cost vs the CPU path, same session. FLTK's Wayland
+# GL subwindow needs its window on an output, so these windows open on the
+# current workspace, floating and silent (visible; focus untouched).
+# Needs: cargo build --release --features gpu --example gpu_bench, then
+# cargo build --release --example gfx_bench (CPU binary without GL).
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+GPU="$ROOT/target/release/examples/gpu_bench"; CPU="$ROOT/target/release/examples/gfx_bench"
+SECS="${SECS:-5}"; OUT_ALL="$ROOT/build/gpu-bench.jsonl"
+WS="$(hyprctl activeworkspace -j | python3 -c 'import json,sys; print(json.load(sys.stdin)["name"])')"
+mkdir -p "$ROOT/build"; : >"$OUT_ALL"
+run() { # report-path cmd...
+  local out="$1"; shift; rm -f "$out"
+  hyprctl dispatch "hl.dsp.exec_cmd(\"$*\", { workspace = \"$WS silent\", float = true })" >/dev/null
+  for _ in $(seq 1 $(( (SECS + 10) * 10 ))); do [[ -s "$out" ]] && break; sleep 0.1; done
+  cat "$out" | tee -a "$OUT_ALL"
+}
+run "$ROOT/build/gpu-check.json" "$GPU" check "$ROOT/build/gpu-check.json"
+for r in 1 2 3; do
+  O="$ROOT/build/gpu-run.json"
+  run "$O" "$GPU" static "$SECS" "$O"
+  run "$O" "$GPU" animated "$SECS" "$O"
+  run "$O" "$CPU" static "$SECS" "$O" noise 160000 1
+  run "$O" "$CPU" animated "$SECS" "$O" noise 160000 1
+  run "$O" "$CPU" animated "$SECS" "$O" noise 160000 4
+done

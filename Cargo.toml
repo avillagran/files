@@ -1,0 +1,20 @@
+[workspace]
+members = ["crates/core", "crates/ui", "crates/app", "crates/helper"]
+resolver = "2"
+exclude = ["vendor/jpeg-decoder", "vendor/lib-fltk-omarchy"]
+
+[workspace.package]
+version = "0.0.4"
+edition = "2024"
+license = "MIT"
+
+[workspace.dependencies]
+files-core = { path = "crates/core" }
+files-ui = { path = "crates/ui" }
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true

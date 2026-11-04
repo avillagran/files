@@ -1,0 +1,1312 @@
+--- a/src/arch/wasm.rs
++++ b/src/arch/wasm.rs
+@@ -92,8 +92,8 @@
+-    let d01l = i16x8_shuffle::<0,  8,  1,  9,  2, 10, 3, 11>(data[0], data[1]);
+-    let d23l = i16x8_shuffle::<0,  8,  1,  9,  2, 10, 3, 11>(data[2], data[3]);
+-    let d45l = i16x8_shuffle::<0,  8,  1,  9,  2, 10, 3, 11>(data[4], data[5]);
+-    let d67l = i16x8_shuffle::<0,  8,  1,  9,  2, 10, 3, 11>(data[6], data[7]);
+-    let d01h = i16x8_shuffle::<4, 12,  5, 13,  6, 14, 7, 15>(data[0], data[1]);
+-    let d23h = i16x8_shuffle::<4, 12,  5, 13,  6, 14, 7, 15>(data[2], data[3]);
+-    let d45h = i16x8_shuffle::<4, 12,  5, 13,  6, 14, 7, 15>(data[4], data[5]);
+-    let d67h = i16x8_shuffle::<4, 12,  5, 13,  6, 14, 7, 15>(data[6], data[7]);
++    let d01l = i16x8_shuffle::<0, 8, 1, 9, 2, 10, 3, 11>(data[0], data[1]);
++    let d23l = i16x8_shuffle::<0, 8, 1, 9, 2, 10, 3, 11>(data[2], data[3]);
++    let d45l = i16x8_shuffle::<0, 8, 1, 9, 2, 10, 3, 11>(data[4], data[5]);
++    let d67l = i16x8_shuffle::<0, 8, 1, 9, 2, 10, 3, 11>(data[6], data[7]);
++    let d01h = i16x8_shuffle::<4, 12, 5, 13, 6, 14, 7, 15>(data[0], data[1]);
++    let d23h = i16x8_shuffle::<4, 12, 5, 13, 6, 14, 7, 15>(data[2], data[3]);
++    let d45h = i16x8_shuffle::<4, 12, 5, 13, 6, 14, 7, 15>(data[4], data[5]);
++    let d67h = i16x8_shuffle::<4, 12, 5, 13, 6, 14, 7, 15>(data[6], data[7]);
+@@ -179,4 +179 @@
+-                u8x16_narrow_i16x8(
+-                    i16x8_shr(data_with_offset, SHIFT + 3),
+-                    i16x8_splat(0),
+-                ),
++                u8x16_narrow_i16x8(i16x8_shr(data_with_offset, SHIFT + 3), i16x8_splat(0)),
+@@ -191,2 +188,6 @@
+-pub fn color_convert_line_ycbcr(y_slice: &[u8], cb_slice: &[u8], cr_slice: &[u8], output: &mut [u8]) -> usize {
+-
++pub fn color_convert_line_ycbcr(
++    y_slice: &[u8],
++    cb_slice: &[u8],
++    cr_slice: &[u8],
++    output: &mut [u8],
++) -> usize {
+@@ -245,22 +246,40 @@
+-        let rg_lanes = i8x16_shuffle::<0, 16,
+-                                       1, 17,
+-                                       2, 18,
+-                                       3, 19,
+-                                       4, 20,
+-                                       5, 21,
+-                                       6, 22,
+-                                       7, 23>(r, g);
+-
+-        let rgb_low = i8x16_shuffle::<0, 1, 16,         // r0, g0, b0
+-                                      2, 3, 17,         // r1, g1, b1
+-                                      4, 5, 18,         // r2, g2, b2
+-                                      6, 7, 19,         // r3, g3, b3
+-                                      8, 9, 20,         // r4, g4, b4
+-                                      10>(rg_lanes, b); // r5
+-
+-        let rgb_hi = i8x16_shuffle::<11, 21, 12,       // g5, b5, r6
+-                                     13, 22, 14,       // g6, b6, r7
+-                                     15, 23,  0,       // g7, b7, --
+-                                      0,  0,  0,       // --, --, --
+-                                      0,  0,  0,       // --, --, --
+-                                      0>(rg_lanes, b); // --
++        let rg_lanes =
++            i8x16_shuffle::<0, 16, 1, 17, 2, 18, 3, 19, 4, 20, 5, 21, 6, 22, 7, 23>(r, g);
++
++        let rgb_low = i8x16_shuffle::<
++            0,
++            1,
++            16, // r0, g0, b0
++            2,
++            3,
++            17, // r1, g1, b1
++            4,
++            5,
++            18, // r2, g2, b2
++            6,
++            7,
++            19, // r3, g3, b3
++            8,
++            9,
++            20, // r4, g4, b4
++            10,
++        >(rg_lanes, b); // r5
++
++        let rgb_hi = i8x16_shuffle::<
++            11,
++            21,
++            12, // g5, b5, r6
++            13,
++            22,
++            14, // g6, b6, r7
++            15,
++            23,
++            0, // g7, b7, --
++            0,
++            0,
++            0, // --, --, --
++            0,
++            0,
++            0, // --, --, --
++            0,
++        >(rg_lanes, b); // --
+@@ -272 +291,4 @@
+-            v128_store64_lane::<0>(rgb_hi, output.as_mut_ptr().wrapping_add(24 * i + 16) as *mut _);
++            v128_store64_lane::<0>(
++                rgb_hi,
++                output.as_mut_ptr().wrapping_add(24 * i + 16) as *mut _,
++            );
+--- a/src/decoder.rs
++++ b/src/decoder.rs
+@@ -126,0 +127,4 @@
++    // Opt-in 1/8 preview: retain only DC per block and deliberately skip AC
++    // entropy. Not a full JPEG integrity validator; default decoding unchanged.
++    progressive_dc_preview: bool,
++    dc_preview_approximation: [Option<u8>; MAX_COMPONENTS],
+@@ -129,0 +134,2 @@
++    coefficient_buffer_size_limit: usize,
++    parallel_decoding: bool,
+@@ -151,0 +158,2 @@
++            progressive_dc_preview: false,
++            dc_preview_approximation: [None; MAX_COMPONENTS],
+@@ -152,0 +161,2 @@
++            coefficient_buffer_size_limit: usize::MAX,
++            parallel_decoding: true,
+@@ -164,0 +175,62 @@
++    }
++
++    /// Set an upper bound on the sum of progressive coefficient Vec payloads.
++    /// Checked before any of those Vecs are allocated; excludes allocator overhead,
++    /// output planes, row buffers, metadata, and compressed input. Not a PSS cap.
++    pub fn set_max_coefficient_buffer_size(&mut self, max: usize) {
++        self.coefficient_buffer_size_limit = max;
++    }
++
++    /// Enable or disable per-component workers and parallel color conversion.
++    /// Opt-in low-frequency preview for progressive images at exactly 1/8
++    /// scale. Stores one DC coefficient per padded block, skips AC entropy,
++    /// validates DC scan/refinement ordering. This deliberately does NOT
++    /// validate ignored AC entropy and must not be used as an integrity check.
++    pub fn set_progressive_dc_preview(&mut self, enabled: bool) {
++        self.progressive_dc_preview = enabled;
++    }
++
++    /// False selects the immediate worker, avoiding unbounded coefficient queues.
++    /// The default remains true for compatibility with upstream callers.
++    pub fn set_parallel_decoding(&mut self, enabled: bool) {
++        self.parallel_decoding = enabled;
++    }
++
++    fn check_decoding_buffer_size(&self, frame: &FrameInfo) -> Result<()> {
++        if frame
++            .components
++            .len()
++            .checked_mul(if frame.precision > 8 { 2 } else { 1 })
++            .and_then(|n| n.checked_mul(frame.output_size.width.into()))
++            .and_then(|n| n.checked_mul(frame.output_size.height.into()))
++            .map_or(true, |n| n > self.decoding_buffer_size_limit)
++        {
++            return Err(Error::Format(
++                "size of decoded image exceeds maximum allowed size".to_owned(),
++            ));
++        }
++        Ok(())
++    }
++
++    fn check_coefficient_buffer_size(&self, frame: &FrameInfo) -> Result<()> {
++        let bytes = frame
++            .components
++            .iter()
++            .try_fold(0usize, |total, component| {
++                usize::from(component.block_size.width)
++                    .checked_mul(usize::from(component.block_size.height))
++                    .and_then(|n| {
++                        n.checked_mul(if self.progressive_dc_preview {
++                            core::mem::size_of::<i16>()
++                        } else {
++                            64 * core::mem::size_of::<i16>()
++                        })
++                    })
++                    .and_then(|n| total.checked_add(n))
++            });
++        if bytes.map_or(true, |n| n > self.coefficient_buffer_size_limit) {
++            return Err(Error::Format(
++                "progressive coefficient buffer exceeds maximum allowed size".to_owned(),
++            ));
++        }
++        Ok(())
+@@ -245 +317,8 @@
+-    fn select_worker(frame: &FrameInfo, worker_preference: PreferWorkerKind) -> PreferWorkerKind {
++    fn select_worker(
++        &self,
++        frame: &FrameInfo,
++        worker_preference: PreferWorkerKind,
++    ) -> PreferWorkerKind {
++        if !self.parallel_decoding {
++            return PreferWorkerKind::Immediate;
++        }
+@@ -398,0 +478,44 @@
++                    // Before worker plane/row allocation, not merely after decode.
++                    self.check_decoding_buffer_size(&frame)?;
++                    if self.progressive_dc_preview
++                        && frame.coding_process == CodingProcess::DctProgressive
++                    {
++                        if frame.components.iter().any(|c| c.dct_scale != 1) {
++                            return Err(Error::Format(
++                                "DC preview requires 1/8 IDCT scale".to_owned(),
++                            ));
++                        }
++                        if scan.spectral_selection.start != 0 {
++                            // Structural markers/tables still parse normally. No
++                            // AC coefficient allocation or AC entropy validation.
++                            loop {
++                                let marker = self.read_marker()?;
++                                if !matches!(marker, Marker::RST(_)) {
++                                    pending_marker = Some(marker);
++                                    break;
++                                }
++                            }
++                            previous_marker = Marker::SOS;
++                            continue;
++                        }
++                        if scan.spectral_selection.end != 1 {
++                            return Err(Error::Format("Invalid progressive DC range".to_owned()));
++                        }
++                        for &i in &scan.component_indices {
++                            if scan.successive_approximation_high == 0 {
++                                if self.dc_preview_approximation[i].is_some() {
++                                    return Err(Error::Format(
++                                        "Duplicate DC initial scan".to_owned(),
++                                    ));
++                                }
++                            } else if self.dc_preview_approximation[i]
++                                != Some(scan.successive_approximation_high)
++                                || scan.successive_approximation_high
++                                    != scan.successive_approximation_low + 1
++                            {
++                                return Err(Error::Format(
++                                    "Invalid DC refinement order".to_owned(),
++                                ));
++                            }
++                        }
++                    }
+@@ -402,0 +526 @@
++                        self.check_coefficient_buffer_size(&frame)?;
+@@ -409 +533,4 @@
+-                                vec![0; block_count * 64]
++                                vec![
++                                    0;
++                                    block_count * if self.progressive_dc_preview { 1 } else { 64 }
++                                ]
+@@ -458 +585 @@
+-                            Self::select_worker(&frame, PreferWorkerKind::Multithreaded);
++                            self.select_worker(&frame, PreferWorkerKind::Multithreaded);
+@@ -464,0 +592,8 @@
++                        if self.progressive_dc_preview
++                            && frame.coding_process == CodingProcess::DctProgressive
++                        {
++                            for &i in &scan.component_indices {
++                                self.dc_preview_approximation[i] =
++                                    Some(scan.successive_approximation_low);
++                            }
++                        }
+@@ -610 +745 @@
+-        let preference = Self::select_worker(frame, PreferWorkerKind::Multithreaded);
++        let preference = self.select_worker(frame, PreferWorkerKind::Multithreaded);
+@@ -630,7 +765,5 @@
+-
+-        if frame
+-            .components
+-            .len()
+-            .checked_mul(frame.output_size.width.into())
+-            .and_then(|m| m.checked_mul(frame.output_size.height.into()))
+-            .map_or(true, |m| self.decoding_buffer_size_limit < m)
++        if self.progressive_dc_preview
++            && frame.coding_process == CodingProcess::DctProgressive
++            && self.dc_preview_approximation[..frame.components.len()]
++                .iter()
++                .any(Option::is_none)
+@@ -638,4 +771,3 @@
+-            return Err(Error::Format(
+-                "size of decoded image exceeds maximum allowed size".to_owned(),
+-            ));
+-        }
++            return Err(Error::Format("Missing DC component in preview".to_owned()));
++        }
++        self.check_decoding_buffer_size(frame)?;
+@@ -674,2 +806,13 @@
+-                    let row_coefficients =
+-                        self.coefficients[i][offset..offset + coefficients_per_mcu_row].to_vec();
++                    let row_coefficients = if self.progressive_dc_preview {
++                        let count = coefficients_per_mcu_row / 64;
++                        let mut row = vec![0i16; coefficients_per_mcu_row];
++                        for (block, dc) in self.coefficients[i][offset / 64..offset / 64 + count]
++                            .iter()
++                            .enumerate()
++                        {
++                            row[block * 64] = *dc;
++                        }
++                        row
++                    } else {
++                        self.coefficients[i][offset..offset + coefficients_per_mcu_row].to_vec()
++                    };
+@@ -693,0 +837 @@
++                self.parallel_decoding,
+@@ -788,6 +932,7 @@
+-                return Ok(Marker::from_u8(byte).unwrap());
+-            }
+-        }
+-    }
+-
+-#[allow(clippy::type_complexity)]
++                return Marker::from_u8(byte)
++                    .ok_or_else(|| Error::Format("Unknown JPEG marker".to_owned()));
++            }
++        }
++    }
++
++    #[allow(clippy::type_complexity)]
+@@ -961 +1106,13 @@
+-                            let coefficients = if is_progressive {
++                            let mut dc_preview_index = None;
++                            let coefficients: &mut [i16; 64] = if is_progressive
++                                && self.progressive_dc_preview
++                            {
++                                let block_y = (mcu_y * mcu_vertical_samples[i] + v_pos) as usize;
++                                let block_x = (mcu_x * mcu_horizontal_samples[i] + h_pos) as usize;
++                                let index = block_y * component.block_size.width as usize + block_x;
++                                dummy_block.fill(0);
++                                dummy_block[0] =
++                                    self.coefficients[scan.component_indices[i]][index];
++                                dc_preview_index = Some((scan.component_indices[i], index));
++                                &mut dummy_block[..]
++                            } else if is_progressive {
+@@ -993 +1150 @@
+-                                    coefficients,
++                                    &mut *coefficients,
+@@ -1005 +1162 @@
+-                                    coefficients,
++                                    &mut *coefficients,
+@@ -1011,0 +1169,4 @@
++                            }
++                            let dc = coefficients[0];
++                            if let Some((component, index)) = dc_preview_index {
++                                self.coefficients[component][index] = dc;
+@@ -1304,0 +1466 @@
++    parallel_decoding: bool,
+@@ -1334 +1496,7 @@
+-        compute_image_parallel(components, data, output_size, color_transform)
++        compute_image_parallel(
++            components,
++            data,
++            output_size,
++            color_transform,
++            parallel_decoding,
++        )
+@@ -1508,0 +1677,80 @@
++
++#[cfg(test)]
++mod files_bounded_tests {
++    use super::*;
++    use std::io::Cursor;
++
++    fn frame(width: u16, height: u16) -> FrameInfo {
++        let mut data = vec![0, 17, 8];
++        data.extend_from_slice(&height.to_be_bytes());
++        data.extend_from_slice(&width.to_be_bytes());
++        data.extend_from_slice(&[3, 1, 0x22, 0, 2, 0x11, 0, 3, 0x11, 0]);
++        parse_sof(&mut Cursor::new(data), Marker::SOF(2)).unwrap()
++    }
++    #[test]
++    fn dc_preview_coefficient_budget_counts_one_i16_per_block() {
++        let frame = frame(6000, 4000);
++        let blocks = frame
++            .components
++            .iter()
++            .map(|c| c.block_size.width as usize * c.block_size.height as usize)
++            .sum::<usize>();
++        let mut decoder = Decoder::new(Cursor::new(&[]));
++        decoder.set_progressive_dc_preview(true);
++        decoder.set_max_coefficient_buffer_size(blocks * 2 - 1);
++        assert!(decoder.check_coefficient_buffer_size(&frame).is_err());
++        decoder.set_max_coefficient_buffer_size(blocks * 2);
++        assert!(decoder.check_coefficient_buffer_size(&frame).is_ok());
++        decoder.set_progressive_dc_preview(false);
++        assert!(decoder.check_coefficient_buffer_size(&frame).is_err());
++    }
++    #[test]
++    fn coefficient_budget_checked_sum_and_exact_boundary() {
++        let frame = frame(6000, 4000);
++        let bytes = 6000usize * 4000 * 3;
++        let mut decoder = Decoder::new(Cursor::new(&[]));
++        decoder.set_max_coefficient_buffer_size(bytes - 1);
++        assert!(decoder.check_coefficient_buffer_size(&frame).is_err());
++        decoder.set_max_coefficient_buffer_size(bytes);
++        assert!(decoder.check_coefficient_buffer_size(&frame).is_ok());
++    }
++    #[test]
++    fn immediate_policy_overrides_large_frame_and_output_limit_follows_scale() {
++        let mut frame = frame(6000, 4000);
++        let mut decoder = Decoder::new(Cursor::new(&[]));
++        decoder.set_parallel_decoding(false);
++        assert!(matches!(
++            decoder.select_worker(&frame, PreferWorkerKind::Multithreaded),
++            PreferWorkerKind::Immediate
++        ));
++        decoder.set_max_decoding_buffer_size(3 * 1024 * 1024);
++        assert!(decoder.check_decoding_buffer_size(&frame).is_err());
++        frame.update_idct_size(1).unwrap();
++        assert!(decoder.check_decoding_buffer_size(&frame).is_ok());
++    }
++    #[test]
++    fn progressive_zero_budget_fails_before_any_coefficient_allocation() {
++        let data = [
++            0xff, 0xd8, 0xff, 0xc2, 0, 11, 8, 0, 16, 0, 16, 1, 1, 0x11, 0, 0xff, 0xda, 0, 8, 1, 1,
++            0, 0, 0, 0, 0xff, 0xd9,
++        ];
++        let mut decoder = Decoder::new(Cursor::new(data));
++        decoder.set_parallel_decoding(false);
++        decoder.set_max_coefficient_buffer_size(0);
++        let error = decoder.decode().unwrap_err().to_string();
++        assert!(error.contains("coefficient buffer"), "{}", error);
++        assert!(decoder.coefficients.is_empty());
++    }
++    #[test]
++    fn output_zero_budget_fails_before_any_worker_plane_allocation() {
++        let data = [
++            0xff, 0xd8, 0xff, 0xc0, 0, 11, 8, 0, 16, 0, 16, 1, 1, 0x11, 0, 0xff, 0xda, 0, 8, 1, 1,
++            0, 0, 63, 0, 0xff, 0xd9,
++        ];
++        let mut decoder = Decoder::new(Cursor::new(data));
++        decoder.set_parallel_decoding(false);
++        decoder.set_max_decoding_buffer_size(0);
++        let error = decoder.decode().unwrap_err().to_string();
++        assert!(error.contains("decoded image"), "{}", error);
++    }
++}
+--- a/src/huffman.rs
++++ b/src/huffman.rs
+@@ -0,0 +1,4 @@
++use crate::error::{Error, Result};
++use crate::marker::Marker;
++use crate::parser::ScanInfo;
++use crate::read_u8;
+@@ -6,4 +9,0 @@
+-use crate::read_u8;
+-use crate::error::{Error, Result};
+-use crate::marker::Marker;
+-use crate::parser::ScanInfo;
+@@ -41,2 +41 @@
+-        }
+-        else {
++        } else {
+@@ -45 +44 @@
+-            for i in LUT_BITS .. 16 {
++            for i in LUT_BITS..16 {
+@@ -60 +59,5 @@
+-    pub fn decode_fast_ac<R: Read>(&mut self, reader: &mut R, table: &HuffmanTable) -> Result<Option<(i16, u8)>> {
++    pub fn decode_fast_ac<R: Read>(
++        &mut self,
++        reader: &mut R,
++        table: &HuffmanTable,
++    ) -> Result<Option<(i16, u8)>> {
+@@ -147,2 +150,6 @@
+-                        0x00 => return Err(Error::Format("FF 00 found where marker was expected".to_owned())),
+-                        _    => self.marker = Some(Marker::from_u8(next_byte).unwrap()),
++                        0x00 => {
++                            return Err(Error::Format(
++                                "FF 00 found where marker was expected".to_owned(),
++                            ))
++                        }
++                        _ => self.marker = Some(Marker::from_u8(next_byte).unwrap()),
+@@ -201 +208 @@
+-        for i in 0 .. 16 {
++        for i in 0..16 {
+@@ -212 +219,5 @@
+-        for (i, &size) in huffsize.iter().enumerate().filter(|&(_, &size)| size <= LUT_BITS) {
++        for (i, &size) in huffsize
++            .iter()
++            .enumerate()
++            .filter(|&(_, &size)| size <= LUT_BITS)
++        {
+@@ -234 +245,3 @@
+-                        let unextended_ac_value = (((i << size) & ((1 << LUT_BITS) - 1)) >> (LUT_BITS - magnitude_category)) as u16;
++                        let unextended_ac_value = (((i << size) & ((1 << LUT_BITS) - 1))
++                            >> (LUT_BITS - magnitude_category))
++                            as u16;
+@@ -242 +255 @@
+-            },
++            }
+@@ -258,6 +271,7 @@
+-    let huffsize = bits.iter()
+-                       .enumerate()
+-                       .fold(Vec::new(), |mut acc, (i, &value)| {
+-                           acc.extend(iter::repeat((i + 1) as u8).take(value as usize));
+-                           acc
+-                       });
++    let huffsize = bits
++        .iter()
++        .enumerate()
++        .fold(Vec::new(), |mut acc, (i, &value)| {
++            acc.extend(iter::repeat((i + 1) as u8).take(value as usize));
++            acc
++        });
+@@ -295,3 +309,5 @@
+-pub fn fill_default_mjpeg_tables(scan: &ScanInfo,
+-                                 dc_huffman_tables: &mut[Option<HuffmanTable>],
+-                                 ac_huffman_tables: &mut[Option<HuffmanTable>]) {
++pub fn fill_default_mjpeg_tables(
++    scan: &ScanInfo,
++    dc_huffman_tables: &mut [Option<HuffmanTable>],
++    ac_huffman_tables: &mut [Option<HuffmanTable>],
++) {
+@@ -302,3 +318,13 @@
+-        dc_huffman_tables[0] = Some(HuffmanTable::new(
+-            &[0x00, 0x01, 0x05, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+-            &[0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B], HuffmanTableClass::DC).unwrap());
++        dc_huffman_tables[0] = Some(
++            HuffmanTable::new(
++                &[
++                    0x00, 0x01, 0x05, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00,
++                    0x00, 0x00, 0x00,
++                ],
++                &[
++                    0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B,
++                ],
++                HuffmanTableClass::DC,
++            )
++            .unwrap(),
++        );
+@@ -308,3 +334,13 @@
+-        dc_huffman_tables[1] = Some(HuffmanTable::new(
+-            &[0x00, 0x03, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00],
+-            &[0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B], HuffmanTableClass::DC).unwrap());
++        dc_huffman_tables[1] = Some(
++            HuffmanTable::new(
++                &[
++                    0x00, 0x03, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x00, 0x00,
++                    0x00, 0x00, 0x00,
++                ],
++                &[
++                    0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B,
++                ],
++                HuffmanTableClass::DC,
++            )
++            .unwrap(),
++        );
+@@ -314,14 +350,25 @@
+-        ac_huffman_tables[0] = Some(HuffmanTable::new(
+-            &[0x00, 0x02, 0x01, 0x03, 0x03, 0x02, 0x04, 0x03, 0x05, 0x05, 0x04, 0x04, 0x00, 0x00, 0x01, 0x7D],
+-            &[0x01, 0x02, 0x03, 0x00, 0x04, 0x11, 0x05, 0x12, 0x21, 0x31, 0x41, 0x06, 0x13, 0x51, 0x61, 0x07,
+-              0x22, 0x71, 0x14, 0x32, 0x81, 0x91, 0xA1, 0x08, 0x23, 0x42, 0xB1, 0xC1, 0x15, 0x52, 0xD1, 0xF0,
+-              0x24, 0x33, 0x62, 0x72, 0x82, 0x09, 0x0A, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x25, 0x26, 0x27, 0x28,
+-              0x29, 0x2A, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3A, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49,
+-              0x4A, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69,
+-              0x6A, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89,
+-              0x8A, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9A, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0xA7,
+-              0xA8, 0xA9, 0xAA, 0xB2, 0xB3, 0xB4, 0xB5, 0xB6, 0xB7, 0xB8, 0xB9, 0xBA, 0xC2, 0xC3, 0xC4, 0xC5,
+-              0xC6, 0xC7, 0xC8, 0xC9, 0xCA, 0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0xD7, 0xD8, 0xD9, 0xDA, 0xE1, 0xE2,
+-              0xE3, 0xE4, 0xE5, 0xE6, 0xE7, 0xE8, 0xE9, 0xEA, 0xF1, 0xF2, 0xF3, 0xF4, 0xF5, 0xF6, 0xF7, 0xF8,
+-              0xF9, 0xFA
+-            ], HuffmanTableClass::AC).unwrap());
++        ac_huffman_tables[0] = Some(
++            HuffmanTable::new(
++                &[
++                    0x00, 0x02, 0x01, 0x03, 0x03, 0x02, 0x04, 0x03, 0x05, 0x05, 0x04, 0x04, 0x00,
++                    0x00, 0x01, 0x7D,
++                ],
++                &[
++                    0x01, 0x02, 0x03, 0x00, 0x04, 0x11, 0x05, 0x12, 0x21, 0x31, 0x41, 0x06, 0x13,
++                    0x51, 0x61, 0x07, 0x22, 0x71, 0x14, 0x32, 0x81, 0x91, 0xA1, 0x08, 0x23, 0x42,
++                    0xB1, 0xC1, 0x15, 0x52, 0xD1, 0xF0, 0x24, 0x33, 0x62, 0x72, 0x82, 0x09, 0x0A,
++                    0x16, 0x17, 0x18, 0x19, 0x1A, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2A, 0x34, 0x35,
++                    0x36, 0x37, 0x38, 0x39, 0x3A, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A,
++                    0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x63, 0x64, 0x65, 0x66, 0x67,
++                    0x68, 0x69, 0x6A, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x83, 0x84,
++                    0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98,
++                    0x99, 0x9A, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9, 0xAA, 0xB2, 0xB3,
++                    0xB4, 0xB5, 0xB6, 0xB7, 0xB8, 0xB9, 0xBA, 0xC2, 0xC3, 0xC4, 0xC5, 0xC6, 0xC7,
++                    0xC8, 0xC9, 0xCA, 0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0xD7, 0xD8, 0xD9, 0xDA, 0xE1,
++                    0xE2, 0xE3, 0xE4, 0xE5, 0xE6, 0xE7, 0xE8, 0xE9, 0xEA, 0xF1, 0xF2, 0xF3, 0xF4,
++                    0xF5, 0xF6, 0xF7, 0xF8, 0xF9, 0xFA,
++                ],
++                HuffmanTableClass::AC,
++            )
++            .unwrap(),
++        );
+@@ -331,16 +378,27 @@
+-        ac_huffman_tables[1] = Some(HuffmanTable::new(
+-            &[0x00, 0x02, 0x01, 0x02, 0x04, 0x04, 0x03, 0x04, 0x07, 0x05, 0x04, 0x04, 0x00, 0x01, 0x02, 0x77],
+-            &[0x00, 0x01, 0x02, 0x03, 0x11, 0x04, 0x05, 0x21, 0x31, 0x06, 0x12, 0x41, 0x51, 0x07, 0x61, 0x71,
+-              0x13, 0x22, 0x32, 0x81, 0x08, 0x14, 0x42, 0x91, 0xA1, 0xB1, 0xC1, 0x09, 0x23, 0x33, 0x52, 0xF0,
+-              0x15, 0x62, 0x72, 0xD1, 0x0A, 0x16, 0x24, 0x34, 0xE1, 0x25, 0xF1, 0x17, 0x18, 0x19, 0x1A, 0x26,
+-              0x27, 0x28, 0x29, 0x2A, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3A, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48,
+-              0x49, 0x4A, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68,
+-              0x69, 0x6A, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87,
+-              0x88, 0x89, 0x8A, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9A, 0xA2, 0xA3, 0xA4, 0xA5,
+-              0xA6, 0xA7, 0xA8, 0xA9, 0xAA, 0xB2, 0xB3, 0xB4, 0xB5, 0xB6, 0xB7, 0xB8, 0xB9, 0xBA, 0xC2, 0xC3,
+-              0xC4, 0xC5, 0xC6, 0xC7, 0xC8, 0xC9, 0xCA, 0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0xD7, 0xD8, 0xD9, 0xDA,
+-              0xE2, 0xE3, 0xE4, 0xE5, 0xE6, 0xE7, 0xE8, 0xE9, 0xEA, 0xF2, 0xF3, 0xF4, 0xF5, 0xF6, 0xF7, 0xF8,
+-              0xF9, 0xFA
+-            ], HuffmanTableClass::AC).unwrap());
+-    }
+-}
++        ac_huffman_tables[1] = Some(
++            HuffmanTable::new(
++                &[
++                    0x00, 0x02, 0x01, 0x02, 0x04, 0x04, 0x03, 0x04, 0x07, 0x05, 0x04, 0x04, 0x00,
++                    0x01, 0x02, 0x77,
++                ],
++                &[
++                    0x00, 0x01, 0x02, 0x03, 0x11, 0x04, 0x05, 0x21, 0x31, 0x06, 0x12, 0x41, 0x51,
++                    0x07, 0x61, 0x71, 0x13, 0x22, 0x32, 0x81, 0x08, 0x14, 0x42, 0x91, 0xA1, 0xB1,
++                    0xC1, 0x09, 0x23, 0x33, 0x52, 0xF0, 0x15, 0x62, 0x72, 0xD1, 0x0A, 0x16, 0x24,
++                    0x34, 0xE1, 0x25, 0xF1, 0x17, 0x18, 0x19, 0x1A, 0x26, 0x27, 0x28, 0x29, 0x2A,
++                    0x35, 0x36, 0x37, 0x38, 0x39, 0x3A, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49,
++                    0x4A, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x63, 0x64, 0x65, 0x66,
++                    0x67, 0x68, 0x69, 0x6A, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x82,
++                    0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x92, 0x93, 0x94, 0x95, 0x96,
++                    0x97, 0x98, 0x99, 0x9A, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9, 0xAA,
++                    0xB2, 0xB3, 0xB4, 0xB5, 0xB6, 0xB7, 0xB8, 0xB9, 0xBA, 0xC2, 0xC3, 0xC4, 0xC5,
++                    0xC6, 0xC7, 0xC8, 0xC9, 0xCA, 0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0xD7, 0xD8, 0xD9,
++                    0xDA, 0xE2, 0xE3, 0xE4, 0xE5, 0xE6, 0xE7, 0xE8, 0xE9, 0xEA, 0xF2, 0xF3, 0xF4,
++                    0xF5, 0xF6, 0xF7, 0xF8, 0xF9, 0xFA,
++                ],
++                HuffmanTableClass::AC,
++            )
++            .unwrap(),
++        );
++    }
++}
+--- a/src/idct.rs
++++ b/src/idct.rs
+@@ -563 +563,2 @@
+-    let s0 = (Wrapping(coefficients[0] as i32 * quantization_table[0] as i32) + Wrapping(128 * 8)) / Wrapping(8);
++    let s0 = (Wrapping(coefficients[0] as i32 * quantization_table[0] as i32) + Wrapping(128 * 8))
++        / Wrapping(8);
+--- a/src/marker.rs
++++ b/src/marker.rs
+@@ -61 +61 @@
+-        ! matches!(self, RST(..) | SOI | EOI | TEM)
++        !matches!(self, RST(..) | SOI | EOI | TEM)
+@@ -69 +69 @@
+-            0x02 ..= 0xBF => Some(RES),
++            0x02..=0xBF => Some(RES),
+--- a/src/parser.rs
++++ b/src/parser.rs
+@@ -1,6 +0,0 @@
+-use alloc::borrow::ToOwned;
+-use alloc::{format, vec};
+-use alloc::vec::Vec;
+-use core::ops::{self, Range};
+-use std::io::{self, Read};
+-use crate::{read_u16_from_be, read_u8};
+@@ -10,0 +5,6 @@
++use crate::{read_u16_from_be, read_u8};
++use alloc::borrow::ToOwned;
++use alloc::vec::Vec;
++use alloc::{format, vec};
++use core::ops::{self, Range};
++use std::io::{self, Read};
+@@ -48 +47,0 @@
+-
+@@ -129 +128 @@
+-            height: (self.image_size.height as f32 * idct_size as f32 / 8.0).ceil() as u16
++            height: (self.image_size.height as f32 * idct_size as f32 / 8.0).ceil() as u16,
+@@ -143 +142,4 @@
+-        return Err(Error::Format(format!("encountered {:?} with invalid length {}", marker, length)));
++        return Err(Error::Format(format!(
++            "encountered {:?} with invalid length {}",
++            marker, length
++        )));
+@@ -170,2 +172,2 @@
+-        SOF(0 ..= 3) | SOF(9 ..= 11)  => false,
+-        SOF(5 ..= 7) | SOF(13 ..= 15) => true,
++        SOF(0..=3) | SOF(9..=11) => false,
++        SOF(5..=7) | SOF(13..=15) => true,
+@@ -176,2 +178,2 @@
+-        SOF(2) | SOF(6) | SOF(10) | SOF(14)         => CodingProcess::DctProgressive,
+-        SOF(3) | SOF(7) | SOF(11) | SOF(15)         => CodingProcess::Lossless,
++        SOF(2) | SOF(6) | SOF(10) | SOF(14) => CodingProcess::DctProgressive,
++        SOF(3) | SOF(7) | SOF(11) | SOF(15) => CodingProcess::Lossless,
+@@ -181,2 +183,2 @@
+-        SOF(0 ..= 3) | SOF(5 ..= 7)     => EntropyCoding::Huffman,
+-        SOF(9 ..= 11) | SOF(13 ..= 15)  => EntropyCoding::Arithmetic,
++        SOF(0..=3) | SOF(5..=7) => EntropyCoding::Huffman,
++        SOF(9..=11) | SOF(13..=15) => EntropyCoding::Arithmetic,
+@@ -189 +191 @@
+-        8 => {},
++        8 => {}
+@@ -192,3 +194,5 @@
+-                return Err(Error::Format("12 bit sample precision is not allowed in baseline".to_owned()));
+-            }
+-        },
++                return Err(Error::Format(
++                    "12 bit sample precision is not allowed in baseline".to_owned(),
++                ));
++            }
++        }
+@@ -197,3 +201,6 @@
+-                return Err(Error::Format(format!("invalid precision {} in frame header", precision)))
+-            }
+-        },
++                return Err(Error::Format(format!(
++                    "invalid precision {} in frame header",
++                    precision
++                )));
++            }
++        }
+@@ -219 +226,3 @@
+-        return Err(Error::Format("zero component count in frame header".to_owned()));
++        return Err(Error::Format(
++            "zero component count in frame header".to_owned(),
++        ));
+@@ -222 +231,3 @@
+-        return Err(Error::Format("progressive frame with more than 4 components".to_owned()));
++        return Err(Error::Format(
++            "progressive frame with more than 4 components".to_owned(),
++        ));
+@@ -231 +242 @@
+-    for _ in 0 .. component_count {
++    for _ in 0..component_count {
+@@ -236 +247,4 @@
+-            return Err(Error::Format(format!("duplicate frame component identifier {}", identifier)));
++            return Err(Error::Format(format!(
++                "duplicate frame component identifier {}",
++                identifier
++            )));
+@@ -244 +258,4 @@
+-            return Err(Error::Format(format!("invalid horizontal sampling factor {}", horizontal_sampling_factor)));
++            return Err(Error::Format(format!(
++                "invalid horizontal sampling factor {}",
++                horizontal_sampling_factor
++            )));
+@@ -247 +264,4 @@
+-            return Err(Error::Format(format!("invalid vertical sampling factor {}", vertical_sampling_factor)));
++            return Err(Error::Format(format!(
++                "invalid vertical sampling factor {}",
++                vertical_sampling_factor
++            )));
+@@ -252,2 +272,7 @@
+-        if quantization_table_index > 3 || (coding_process == CodingProcess::Lossless && quantization_table_index != 0) {
+-            return Err(Error::Format(format!("invalid quantization table index {}", quantization_table_index)));
++        if quantization_table_index > 3
++            || (coding_process == CodingProcess::Lossless && quantization_table_index != 0)
++        {
++            return Err(Error::Format(format!(
++                "invalid quantization table index {}",
++                quantization_table_index
++            )));
+@@ -262,2 +287,8 @@
+-            size: Dimensions {width: 0, height: 0},
+-            block_size: Dimensions {width: 0, height: 0},
++            size: Dimensions {
++                width: 0,
++                height: 0,
++            },
++            block_size: Dimensions {
++                width: 0,
++                height: 0,
++            },
+@@ -293,2 +324,10 @@
+-    let h_max = components.iter().map(|c| c.horizontal_sampling_factor).max().unwrap() as u32;
+-    let v_max = components.iter().map(|c| c.vertical_sampling_factor).max().unwrap() as u32;
++    let h_max = components
++        .iter()
++        .map(|c| c.horizontal_sampling_factor)
++        .max()
++        .unwrap() as u32;
++    let v_max = components
++        .iter()
++        .map(|c| c.vertical_sampling_factor)
++        .max()
++        .unwrap() as u32;
+@@ -302,2 +341,12 @@
+-        component.size.width = ceil_div(size.width as u32 * component.horizontal_sampling_factor as u32 * component.dct_scale as u32, h_max * 8)?;
+-        component.size.height = ceil_div(size.height as u32 * component.vertical_sampling_factor as u32 * component.dct_scale as u32, v_max * 8)?;
++        component.size.width = ceil_div(
++            size.width as u32
++                * component.horizontal_sampling_factor as u32
++                * component.dct_scale as u32,
++            h_max * 8,
++        )?;
++        component.size.height = ceil_div(
++            size.height as u32
++                * component.vertical_sampling_factor as u32
++                * component.dct_scale as u32,
++            v_max * 8,
++        )?;
+@@ -320,2 +369,8 @@
+-        size: Dimensions { width: 0, height: 0 },
+-        block_size: Dimensions { width: 0, height: 0 },
++        size: Dimensions {
++            width: 0,
++            height: 0,
++        },
++        block_size: Dimensions {
++            width: 0,
++            height: 0,
++        },
+@@ -324,5 +379,28 @@
+-        Dimensions { width: 800, height: 280 },
+-        &mut components).unwrap();
+-    assert_eq!(mcu, Dimensions { width: 50, height: 18 });
+-    assert_eq!(components[0].block_size, Dimensions { width: 100, height: 36 });
+-    assert_eq!(components[0].size, Dimensions { width: 800, height: 280 });
++        Dimensions {
++            width: 800,
++            height: 280,
++        },
++        &mut components,
++    )
++    .unwrap();
++    assert_eq!(
++        mcu,
++        Dimensions {
++            width: 50,
++            height: 18
++        }
++    );
++    assert_eq!(
++        components[0].block_size,
++        Dimensions {
++            width: 100,
++            height: 36
++        }
++    );
++    assert_eq!(
++        components[0].size,
++        Dimensions {
++            width: 800,
++            height: 280
++        }
++    );
+@@ -341 +419,4 @@
+-        return Err(Error::Format(format!("invalid component count {} in scan header", component_count)));
++        return Err(Error::Format(format!(
++            "invalid component count {} in scan header",
++            component_count
++        )));
+@@ -352 +433 @@
+-    for _ in 0 .. component_count {
++    for _ in 0..component_count {
+@@ -362 +443,4 @@
+-            return Err(Error::Format(format!("duplicate scan component identifier {}", identifier)));
++            return Err(Error::Format(format!(
++                "duplicate scan component identifier {}",
++                identifier
++            )));
+@@ -367 +451,3 @@
+-            return Err(Error::Format("the scan component order does not follow the order in the frame header".to_owned()));
++            return Err(Error::Format(
++                "the scan component order does not follow the order in the frame header".to_owned(),
++            ));
+@@ -375 +461,4 @@
+-            return Err(Error::Format(format!("invalid dc table index {}", dc_table_index)));
++            return Err(Error::Format(format!(
++                "invalid dc table index {}",
++                dc_table_index
++            )));
+@@ -378 +467,4 @@
+-            return Err(Error::Format(format!("invalid ac table index {}", ac_table_index)));
++            return Err(Error::Format(format!(
++                "invalid ac table index {}",
++                ac_table_index
++            )));
+@@ -386,3 +478,7 @@
+-    let blocks_per_mcu = component_indices.iter().map(|&i| {
+-        frame.components[i].horizontal_sampling_factor as u32 * frame.components[i].vertical_sampling_factor as u32
+-    }).fold(0, ops::Add::add);
++    let blocks_per_mcu = component_indices
++        .iter()
++        .map(|&i| {
++            frame.components[i].horizontal_sampling_factor as u32
++                * frame.components[i].vertical_sampling_factor as u32
++        })
++        .fold(0, ops::Add::add);
+@@ -391 +487,3 @@
+-        return Err(Error::Format("scan with more than one component and more than 10 blocks per MCU".to_owned()));
++        return Err(Error::Format(
++            "scan with more than one component and more than 10 blocks per MCU".to_owned(),
++        ));
+@@ -416,3 +514,8 @@
+-        if spectral_selection_end > 63 || spectral_selection_start > spectral_selection_end ||
+-                (spectral_selection_start == 0 && spectral_selection_end != 0) {
+-            return Err(Error::Format(format!("invalid spectral selection parameters: ss={}, se={}", spectral_selection_start, spectral_selection_end)));
++        if spectral_selection_end > 63
++            || spectral_selection_start > spectral_selection_end
++            || (spectral_selection_start == 0 && spectral_selection_end != 0)
++        {
++            return Err(Error::Format(format!(
++                "invalid spectral selection parameters: ss={}, se={}",
++                spectral_selection_start, spectral_selection_end
++            )));
+@@ -421 +524,4 @@
+-            return Err(Error::Format("spectral selection scan with AC coefficients can't have more than one component".to_owned()));
++            return Err(Error::Format(
++                "spectral selection scan with AC coefficients can't have more than one component"
++                    .to_owned(),
++            ));
+@@ -425 +531,4 @@
+-            return Err(Error::Format(format!("invalid successive approximation parameters: ah={}, al={}", successive_approximation_high, successive_approximation_low)));
++            return Err(Error::Format(format!(
++                "invalid successive approximation parameters: ah={}, al={}",
++                successive_approximation_high, successive_approximation_low
++            )));
+@@ -431,5 +540,8 @@
+-        if successive_approximation_high != 0 && successive_approximation_high != successive_approximation_low + 1 {
+-            return Err(Error::Format("successive approximation scan with more than one bit of improvement".to_owned()));
+-        }
+-    }
+-    else if frame.coding_process == CodingProcess::Lossless {
++        if successive_approximation_high != 0
++            && successive_approximation_high != successive_approximation_low + 1
++        {
++            return Err(Error::Format(
++                "successive approximation scan with more than one bit of improvement".to_owned(),
++            ));
++        }
++    } else if frame.coding_process == CodingProcess::Lossless {
+@@ -437 +549,3 @@
+-            return Err(Error::Format("spectral selection end shall be zero in lossless scan".to_owned()));
++            return Err(Error::Format(
++                "spectral selection end shall be zero in lossless scan".to_owned(),
++            ));
+@@ -440 +554,3 @@
+-            return Err(Error::Format("successive approximation high shall be zero in lossless scan".to_owned()));
++            return Err(Error::Format(
++                "successive approximation high shall be zero in lossless scan".to_owned(),
++            ));
+@@ -452,2 +568,5 @@
+-                return Err(Error::Format(format!("invalid predictor selection value: {}", spectral_selection_start)));
+-            },
++                return Err(Error::Format(format!(
++                    "invalid predictor selection value: {}",
++                    spectral_selection_start
++                )));
++            }
+@@ -455,2 +574 @@
+-    }
+-    else {
++    } else {
+@@ -462 +580,3 @@
+-            return Err(Error::Format("spectral selection is not allowed in non-progressive scan".to_owned()));
++            return Err(Error::Format(
++                "spectral selection is not allowed in non-progressive scan".to_owned(),
++            ));
+@@ -465 +585,3 @@
+-            return Err(Error::Format("successive approximation is not allowed in non-progressive scan".to_owned()));
++            return Err(Error::Format(
++                "successive approximation is not allowed in non-progressive scan".to_owned(),
++            ));
+@@ -504 +626,4 @@
+-            return Err(Error::Format(format!("invalid precision {} in DQT", precision)));
++            return Err(Error::Format(format!(
++                "invalid precision {} in DQT",
++                precision
++            )));
+@@ -507 +632,4 @@
+-            return Err(Error::Format(format!("invalid destination identifier {} in DQT", index)));
++            return Err(Error::Format(format!(
++                "invalid destination identifier {} in DQT",
++                index
++            )));
+@@ -524 +652,3 @@
+-            return Err(Error::Format("quantization table contains element with a zero value".to_owned()));
++            return Err(Error::Format(
++                "quantization table contains element with a zero value".to_owned(),
++            ));
+@@ -536 +666,4 @@
+-pub fn parse_dht<R: Read>(reader: &mut R, is_baseline: Option<bool>) -> Result<(Vec<Option<HuffmanTable>>, Vec<Option<HuffmanTable>>)> {
++pub fn parse_dht<R: Read>(
++    reader: &mut R,
++    is_baseline: Option<bool>,
++) -> Result<(Vec<Option<HuffmanTable>>, Vec<Option<HuffmanTable>>)> {
+@@ -551 +684,3 @@
+-            return Err(Error::Format("a maximum of two huffman tables per class are allowed in baseline".to_owned()));
++            return Err(Error::Format(
++                "a maximum of two huffman tables per class are allowed in baseline".to_owned(),
++            ));
+@@ -554 +689,4 @@
+-            return Err(Error::Format(format!("invalid destination identifier {} in DHT", index)));
++            return Err(Error::Format(format!(
++                "invalid destination identifier {} in DHT",
++                index
++            )));
+@@ -560 +698,4 @@
+-        let size = counts.iter().map(|&val| val as usize).fold(0, ops::Add::add);
++        let size = counts
++            .iter()
++            .map(|&val| val as usize)
++            .fold(0, ops::Add::add);
+@@ -563,6 +704,8 @@
+-            return Err(Error::Format("encountered table with zero length in DHT".to_owned()));
+-        }
+-        else if size > 256 {
+-            return Err(Error::Format("encountered table with excessive length in DHT".to_owned()));
+-        }
+-        else if size > length - 17 {
++            return Err(Error::Format(
++                "encountered table with zero length in DHT".to_owned(),
++            ));
++        } else if size > 256 {
++            return Err(Error::Format(
++                "encountered table with excessive length in DHT".to_owned(),
++            ));
++        } else if size > length - 17 {
+@@ -576,2 +719,6 @@
+-            0 => dc_tables[index] = Some(HuffmanTable::new(&counts, &values, HuffmanTableClass::DC)?),
+-            1 => ac_tables[index] = Some(HuffmanTable::new(&counts, &values, HuffmanTableClass::AC)?),
++            0 => {
++                dc_tables[index] = Some(HuffmanTable::new(&counts, &values, HuffmanTableClass::DC)?)
++            }
++            1 => {
++                ac_tables[index] = Some(HuffmanTable::new(&counts, &values, HuffmanTableClass::AC)?)
++            }
+@@ -693 +840 @@
+-                if buffer[0 .. 6] == *b"Adobe\0" {
++                if buffer[0..6] == *b"Adobe\0" {
+@@ -698 +845,5 @@
+-                        _ => return Err(Error::Format("invalid color transform in adobe app segment".to_owned())),
++                        _ => {
++                            return Err(Error::Format(
++                                "invalid color transform in adobe app segment".to_owned(),
++                            ))
++                        }
+@@ -704,2 +855,2 @@
+-        },
+-        _ => {},
++        }
++        _ => {}
+--- a/src/upsampler.rs
++++ b/src/upsampler.rs
+@@ -0,0 +1,2 @@
++use crate::error::{Error, Result, UnsupportedFeature};
++use crate::parser::Component;
+@@ -4,2 +5,0 @@
+-use crate::error::{Error, Result, UnsupportedFeature};
+-use crate::parser::Component;
+@@ -9 +9 @@
+-    line_buffer_size: usize
++    line_buffer_size: usize,
+@@ -20,3 +20,15 @@
+-    pub fn new(components: &[Component], output_width: u16, output_height: u16) -> Result<Upsampler> {
+-        let h_max = components.iter().map(|c| c.horizontal_sampling_factor).max().unwrap();
+-        let v_max = components.iter().map(|c| c.vertical_sampling_factor).max().unwrap();
++    pub fn new(
++        components: &[Component],
++        output_width: u16,
++        output_height: u16,
++    ) -> Result<Upsampler> {
++        let h_max = components
++            .iter()
++            .map(|c| c.horizontal_sampling_factor)
++            .max()
++            .unwrap();
++        let v_max = components
++            .iter()
++            .map(|c| c.vertical_sampling_factor)
++            .max()
++            .unwrap();
+@@ -26,5 +38,9 @@
+-            let upsampler = choose_upsampler((component.horizontal_sampling_factor,
+-                                              component.vertical_sampling_factor),
+-                                             (h_max, v_max),
+-                                             output_width,
+-                                             output_height)?;
++            let upsampler = choose_upsampler(
++                (
++                    component.horizontal_sampling_factor,
++                    component.vertical_sampling_factor,
++                ),
++                (h_max, v_max),
++                output_width,
++                output_height,
++            )?;
+@@ -39 +55,2 @@
+-        let buffer_size = components.iter().map(|c| c.size.width).max().unwrap() as usize * h_max as usize;
++        let buffer_size =
++            components.iter().map(|c| c.size.width).max().unwrap() as usize * h_max as usize;
+@@ -43 +60 @@
+-            line_buffer_size: buffer_size
++            line_buffer_size: buffer_size,
+@@ -47 +64,8 @@
+-    pub fn upsample_and_interleave_row(&self, component_data: &[Vec<u8>], row: usize, output_width: usize, output: &mut [u8], color_convert: fn(&[Vec<u8>], &mut [u8])) {
++    pub fn upsample_and_interleave_row(
++        &self,
++        component_data: &[Vec<u8>],
++        row: usize,
++        output_width: usize,
++        output: &mut [u8],
++        color_convert: fn(&[Vec<u8>], &mut [u8]),
++    ) {
+@@ -54,7 +78,9 @@
+-            component.upsampler.upsample_row(&component_data[i],
+-                                             component.width,
+-                                             component.height,
+-                                             component.row_stride,
+-                                             row,
+-                                             output_width,
+-                                             &mut line_buffers[i]);
++            component.upsampler.upsample_row(
++                &component_data[i],
++                component.width,
++                component.height,
++                component.row_stride,
++                row,
++                output_width,
++                &mut line_buffers[i],
++            );
+@@ -73,7 +99,9 @@
+-    vertical_scaling_factor: u8
+-}
+-
+-fn choose_upsampler(sampling_factors: (u8, u8),
+-                    max_sampling_factors: (u8, u8),
+-                    output_width: u16,
+-                    output_height: u16) -> Result<Box<dyn Upsample + Sync>> {
++    vertical_scaling_factor: u8,
++}
++
++fn choose_upsampler(
++    sampling_factors: (u8, u8),
++    max_sampling_factors: (u8, u8),
++    output_width: u16,
++    output_height: u16,
++) -> Result<Box<dyn Upsample + Sync>> {
+@@ -109,8 +137,10 @@
+-    fn upsample_row(&self,
+-                    input: &[u8],
+-                    input_width: usize,
+-                    input_height: usize,
+-                    row_stride: usize,
+-                    row: usize,
+-                    output_width: usize,
+-                    output: &mut [u8]);
++    fn upsample_row(
++        &self,
++        input: &[u8],
++        input_width: usize,
++        input_height: usize,
++        row_stride: usize,
++        row: usize,
++        output_width: usize,
++        output: &mut [u8],
++    );
+@@ -120,9 +150,11 @@
+-    fn upsample_row(&self,
+-                    input: &[u8],
+-                    _input_width: usize,
+-                    _input_height: usize,
+-                    row_stride: usize,
+-                    row: usize,
+-                    output_width: usize,
+-                    output: &mut [u8]) {
+-        let input = &input[row * row_stride ..];
++    fn upsample_row(
++        &self,
++        input: &[u8],
++        _input_width: usize,
++        _input_height: usize,
++        row_stride: usize,
++        row: usize,
++        output_width: usize,
++        output: &mut [u8],
++    ) {
++        let input = &input[row * row_stride..];
+@@ -135,9 +167,11 @@
+-    fn upsample_row(&self,
+-                    input: &[u8],
+-                    input_width: usize,
+-                    _input_height: usize,
+-                    row_stride: usize,
+-                    row: usize,
+-                    _output_width: usize,
+-                    output: &mut [u8]) {
+-        let input = &input[row * row_stride ..];
++    fn upsample_row(
++        &self,
++        input: &[u8],
++        input_width: usize,
++        _input_height: usize,
++        row_stride: usize,
++        row: usize,
++        _output_width: usize,
++        output: &mut [u8],
++    ) {
++        let input = &input[row * row_stride..];
+@@ -154 +188 @@
+-        for i in 1 .. input_width - 1 {
++        for i in 1..input_width - 1 {
+@@ -156 +190 @@
+-            output[i * 2]     = ((sample + input[i - 1] as u32) >> 2) as u8;
++            output[i * 2] = ((sample + input[i - 1] as u32) >> 2) as u8;
+@@ -160 +194,2 @@
+-        output[(input_width - 1) * 2] = ((input[input_width - 1] as u32 * 3 + input[input_width - 2] as u32 + 2) >> 2) as u8;
++        output[(input_width - 1) * 2] =
++            ((input[input_width - 1] as u32 * 3 + input[input_width - 2] as u32 + 2) >> 2) as u8;
+@@ -166,8 +201,10 @@
+-    fn upsample_row(&self,
+-                    input: &[u8],
+-                    _input_width: usize,
+-                    input_height: usize,
+-                    row_stride: usize,
+-                    row: usize,
+-                    output_width: usize,
+-                    output: &mut [u8]) {
++    fn upsample_row(
++        &self,
++        input: &[u8],
++        _input_width: usize,
++        input_height: usize,
++        row_stride: usize,
++        row: usize,
++        output_width: usize,
++        output: &mut [u8],
++    ) {
+@@ -179,2 +216,2 @@
+-        let input_near = &input[row_near as usize * row_stride ..];
+-        let input_far = &input[row_far as usize * row_stride ..];
++        let input_near = &input[row_near as usize * row_stride..];
++        let input_far = &input[row_far as usize * row_stride..];
+@@ -192,8 +229,10 @@
+-    fn upsample_row(&self,
+-                    input: &[u8],
+-                    input_width: usize,
+-                    input_height: usize,
+-                    row_stride: usize,
+-                    row: usize,
+-                    _output_width: usize,
+-                    output: &mut [u8]) {
++    fn upsample_row(
++        &self,
++        input: &[u8],
++        input_width: usize,
++        input_height: usize,
++        row_stride: usize,
++        row: usize,
++        _output_width: usize,
++        output: &mut [u8],
++    ) {
+@@ -205,2 +244,2 @@
+-        let input_near = &input[row_near as usize * row_stride ..];
+-        let input_far = &input[row_far as usize * row_stride ..];
++        let input_near = &input[row_near as usize * row_stride..];
++        let input_far = &input[row_far as usize * row_stride..];
+@@ -218 +257 @@
+-        for i in 1 .. input_width {
++        for i in 1..input_width {
+@@ -223 +262 @@
+-            output[i * 2]     = ((3 * t1 + t0 + 8) >> 4) as u8;
++            output[i * 2] = ((3 * t1 + t0 + 8) >> 4) as u8;
+@@ -232,8 +271,10 @@
+-    fn upsample_row(&self,
+-                    input: &[u8],
+-                    input_width: usize,
+-                    _input_height: usize,
+-                    row_stride: usize,
+-                    row: usize,
+-                    _output_width: usize,
+-                    output: &mut [u8]) {
++    fn upsample_row(
++        &self,
++        input: &[u8],
++        input_width: usize,
++        _input_height: usize,
++        row_stride: usize,
++        row: usize,
++        _output_width: usize,
++        output: &mut [u8],
++    ) {
+--- a/src/worker/immediate.rs
++++ b/src/worker/immediate.rs
+@@ -0,0 +1,6 @@
++use super::{RowData, Worker};
++use crate::alloc::sync::Arc;
++use crate::decoder::MAX_COMPONENTS;
++use crate::error::Result;
++use crate::idct::dequantize_and_idct_block;
++use crate::parser::Component;
+@@ -4,6 +9,0 @@
+-use crate::decoder::MAX_COMPONENTS;
+-use crate::error::Result;
+-use crate::idct::dequantize_and_idct_block;
+-use crate::alloc::sync::Arc;
+-use crate::parser::Component;
+-use super::{RowData, Worker};
+@@ -34 +34,7 @@
+-        self.results[data.index].resize(data.component.block_size.width as usize * data.component.block_size.height as usize * data.component.dct_scale * data.component.dct_scale, 0u8);
++        self.results[data.index].resize(
++            data.component.block_size.width as usize
++                * data.component.block_size.height as usize
++                * data.component.dct_scale
++                * data.component.dct_scale,
++            0u8,
++        );
+@@ -44 +50,2 @@
+-        let block_count = component.block_size.width as usize * component.vertical_sampling_factor as usize;
++        let block_count =
++            component.block_size.width as usize * component.vertical_sampling_factor as usize;
+@@ -56 +63,7 @@
+-            dequantize_and_idct_block(component.dct_scale, coefficients, quantization_table, line_stride, output);
++            dequantize_and_idct_block(
++                component.dct_scale,
++                coefficients,
++                quantization_table,
++                line_stride,
++                output,
++            );
+--- a/src/worker/mod.rs
++++ b/src/worker/mod.rs
+@@ -101,0 +102 @@
++    _parallel_decoding: bool,
+@@ -107 +108,3 @@
+-    return rayon::compute_image_parallel(components, data, output_size, color_transform);
++    if _parallel_decoding {
++        return rayon::compute_image_parallel(components, data, output_size, color_transform);
++    }

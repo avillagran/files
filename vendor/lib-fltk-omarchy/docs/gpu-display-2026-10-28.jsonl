@@ -1,0 +1,6 @@
+{"mode":"display","backend":"Cpu","target_fps":30.0,"fps":29.8,"cpu_pct":60.8,"cpu_ms_per_frame":20.40,"pss_tree_kb":18652,"reason":""}
+{"mode":"display","backend":"Cpu","target_fps":30.0,"fps":30.0,"cpu_pct":63.2,"cpu_ms_per_frame":21.08,"pss_tree_kb":18669,"reason":""}
+{"mode":"display","backend":"Cpu","target_fps":30.0,"fps":30.0,"cpu_pct":63.0,"cpu_ms_per_frame":21.00,"pss_tree_kb":18653,"reason":""}
+{"mode":"display","backend":"Gpu","target_fps":120.0,"fps":120.0,"cpu_pct":2.1,"cpu_ms_per_frame":0.17,"pss_tree_kb":60120,"reason":""}
+{"mode":"display","backend":"Gpu","target_fps":120.0,"fps":120.0,"cpu_pct":2.4,"cpu_ms_per_frame":0.20,"pss_tree_kb":60097,"reason":""}
+{"mode":"display","backend":"Gpu","target_fps":120.0,"fps":120.0,"cpu_pct":2.5,"cpu_ms_per_frame":0.21,"pss_tree_kb":60052,"reason":""}

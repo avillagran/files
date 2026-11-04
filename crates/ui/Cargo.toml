@@ -1,0 +1,22 @@
+[package]
+name = "files-ui"
+version = "0.0.4"
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+files-core.workspace = true
+fltk = { version = "=1.5.23", features = ["use-wayland", "no-images"] }
+# Exact toolkit fix exported from its own repository; see vendor provenance.
+lib-fltk-omarchy = { path = "../../vendor/lib-fltk-omarchy" }
+notify = "8"
+serde_json = "1"
+libc = "0.2"
+
+pulldown-cmark = { version = "=0.13.5", default-features = false }
+
+[build-dependencies]
+cc = "=1.10.0"
+
+[target.'cfg(target_os = "linux")'.build-dependencies]
+fltk-sys = { version = "=1.5.23", features = ["use-wayland", "no-images"] }

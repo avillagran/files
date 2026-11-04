@@ -1,0 +1,22 @@
+[package]
+name = "files-helper"
+version = "0.0.4"
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "files-helper"
+path = "src/main.rs"
+
+[dependencies]
+files-core.workspace = true
+serde_json = "1"
+libc = "0.2"
+jpeg-decoder = { path = "../../vendor/jpeg-decoder", default-features = false }
+png = "=0.18.1"
+image = { version = "=0.25.10", default-features = false, features = ["png", "webp"] }
+
+# All permissive; flate2/crc32fast already present transitively in the lockfile.
+flate2 = { version = "=1.1.10", default-features = false, features = ["rust_backend"] }
+crc32fast = "=1.5.3"
+quick-xml = { version = "=0.41.0", default-features = false }

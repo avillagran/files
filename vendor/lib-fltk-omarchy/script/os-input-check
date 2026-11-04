@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Real keyboard input through the compositor: opens examples/os_input_check
+# floating on the current workspace, focuses it, types with wtype (virtual
+# keyboard protocol) and gives focus back to the window that had it.
+# Only run with the user's go-ahead: for ~3 s their keystrokes would go
+# to the test window.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+BIN="$ROOT/target/release/examples/os_input_check"; OUT="$ROOT/build/os-input.json"
+rm -f "$OUT"
+WS="$(hyprctl activeworkspace -j | python3 -c 'import json,sys; print(json.load(sys.stdin)["name"])')"
+PREV="$(hyprctl activewindow -j | python3 -c 'import json,sys; print(json.load(sys.stdin).get("address",""))')"
+hyprctl dispatch "hl.dsp.exec_cmd(\"$BIN $OUT 8\", { workspace = \"$WS silent\", float = true })" >/dev/null
+ADDR=""
+for _ in $(seq 1 50); do
+  ADDR="$(hyprctl clients -j | python3 -c 'import json,sys
+for c in json.load(sys.stdin):
+    if c["title"] == "os-input-check": print(c["address"]); break')"
+  [[ -n "$ADDR" ]] && break; sleep 0.1
+done
+[[ -n "$ADDR" ]] || { echo "window did not map" >&2; exit 1; }
+sleep 0.5
+hyprctl dispatch "hl.dsp.focus({ window = \"address:$ADDR\" })" >/dev/null
+sleep 0.3
+k() { wtype "$@"; sleep 0.15; }
+k omarchy
+k -k Tab; k -k Return; k -k space            # Add: 2 clicks
+k -k Tab; k -k Right; k -k Right             # button group: Month
+k -k Tab; k -M ctrl -k Tab -m ctrl           # app-wide Ctrl+Tab: Work
+k -k Tab; k -k Down; k -k Down; k -k Down    # list: Item 2
+k -k F10; k -k Down; k -k Return             # menu: Copy; focus back to the list
+k -M shift -k Tab -m shift                   # back to the tabs
+[[ -n "$PREV" ]] && hyprctl dispatch "hl.dsp.focus({ window = \"address:$PREV\" })" >/dev/null
+for _ in $(seq 1 100); do [[ -s "$OUT" ]] && break; sleep 0.1; done
+cat "$OUT"

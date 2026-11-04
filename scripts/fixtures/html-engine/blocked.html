@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf-8">
+<base href="https://files-probe.invalid/">
+<link rel="stylesheet" href="https://files-probe.invalid/remote.css">
+<style>@import url("file:///etc/passwd"); body { color: #eeeeee; background: #102018; }</style>
+<h1>Recursos bloqueados</h1>
+<p>Este texto debe aparecer. No hay red ni navegación en los callbacks del probe.</p>
+<img src="https://files-probe.invalid/remote.png" width="64" height="48" alt="Imagen remota">
+<img src="../../outside.png" width="64" height="48" alt="Escape local">
+<script>document.body.textContent = "SCRIPT_EXECUTED_SENTINEL"; fetch("https://files-probe.invalid/")</script>
+<iframe src="https://files-probe.invalid/" title="Bloqueado"></iframe>
+<a href="javascript:alert(1)">Enlace activo no ejecutable</a>

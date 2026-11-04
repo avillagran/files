@@ -1,0 +1,12 @@
+[package]
+name = "files-app"
+version = "0.0.4"
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "files"
+path = "src/main.rs"
+
+[dependencies]
+files-ui.workspace = true

@@ -1,0 +1,22 @@
+[package]
+name = "jpeg-decoder"
+version = "0.3.2"
+edition = "2021"
+rust-version = "1.61.0"
+license = "MIT OR Apache-2.0"
+description = "JPEG decoder; files bounded-preview patch, see PATCHES.md"
+repository = "https://github.com/image-rs/jpeg-decoder"
+
+[features]
+default = []
+rayon = ["dep:rayon"]
+platform_independent = []
+nightly_aarch64_neon = []
+
+[dependencies]
+rayon = { version = "1.5.1", optional = true }
+
+# Upstream still tests the historical asmjs architecture. Declare it for modern
+# rustc check-cfg without changing the audited upstream source/patch.
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_arch, values("asmjs"))'] }

@@ -1,0 +1,51 @@
+[package]
+name = "lib-fltk-omarchy"
+version = "0.0.10"
+edition = "2021"
+rust-version = "1.80"
+license = "MIT"
+description = "Omarchy toolkit for fltk-rs: live Omarchy theme, the classic Omarchy components, window modes and app helpers"
+authors = ["Andrés Villagrán"]
+keywords = ["fltk", "gui", "omarchy", "hyprland", "toolkit"]
+categories = ["gui"]
+publish = false
+repository = "https://github.com/avillagran/lib-fltk-omarchy"
+readme = "README.md"
+
+[lib]
+name = "fltk_omarchy"
+
+[dependencies]
+fltk = { version = "=1.5.23", features = ["use-wayland", "no-images"] }
+libc = "0.2"
+serde_json = "1"
+# Only with the `gpu` feature (MIT OR Apache-2.0 OR Zlib).
+glow = { version = "0.16", optional = true }
+
+[features]
+default = []
+# GPU shaders (gfx::gpu::GpuView). Off by default: it turns on fltk's
+# enable-glwindow, which changes the fltk-sys build of the whole app.
+gpu = ["fltk/enable-glwindow", "dep:glow"]
+
+[profile.release]
+opt-level = "s"
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev.package."*"]
+opt-level = 1
+
+[[test]]
+name = "ui"
+harness = false
+
+[profile.dev]
+incremental = false
+debug = "line-tables-only"
+
+[[example]]
+name = "gpu_bench"
+required-features = ["gpu"]

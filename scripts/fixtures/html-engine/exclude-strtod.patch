@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -61,7 +61,7 @@
+ 	src/utf8_strings.cpp
+ 	src/web_color.cpp
+ 	src/num_cvt.cpp
+-	src/strtod.cpp
++	src/files_strtod_bridge.cpp
+ 	src/string_id.cpp
+ 	src/css_properties.cpp
+ 	src/line_box.cpp

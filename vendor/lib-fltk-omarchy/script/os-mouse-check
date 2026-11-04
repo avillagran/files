@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+# Real mouse through the compositor (only with the user's go-ahead): starts
+# ydotoold (mouse only) for the duration, opens examples/os_mouse_check
+# floating on the current workspace, moves the real pointer, clicks the
+# button twice and the switch once, drags the header (native move) and the
+# bottom-right grip (native resize), then puts pointer and focus back and
+# stops ydotoold.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+BIN="$ROOT/target/release/examples/os_mouse_check"
+GEO="$ROOT/build/os-mouse-geo.json"; OUT="$ROOT/build/os-mouse.json"
+rm -f "$GEO" "$OUT"
+export YDOTOOL_SOCKET="$XDG_RUNTIME_DIR/omarchy-fltk-ydotool.sock"
+ydotoold -p "$YDOTOOL_SOCKET" >/dev/null 2>&1 &
+YD=$!
+cleanup() {
+  ydotool click 0x80 >/dev/null 2>&1 || true   # never leave the button held
+  kill "$YD" 2>/dev/null || true; rm -f "$YDOTOOL_SOCKET"
+  [[ -n "${CX:-}" ]] && hyprctl dispatch "hl.dsp.cursor.move({ x = $CX, y = $CY })" >/dev/null
+  [[ -n "${PREV:-}" ]] && hyprctl dispatch "hl.dsp.focus({ window = \"address:$PREV\" })" >/dev/null
+  true
+}
+trap cleanup EXIT
+WS="$(hyprctl activeworkspace -j | python3 -c 'import json,sys; print(json.load(sys.stdin)["name"])')"
+PREV="$(hyprctl activewindow -j | python3 -c 'import json,sys; print(json.load(sys.stdin).get("address",""))')"
+read -r CX CY < <(hyprctl cursorpos -j | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["x"], d["y"])')
+LOG="$ROOT/build/os-mouse-app.log"; RUN="$ROOT/build/os-mouse-run.sh"
+printf '#!/bin/sh\nOMARCHY_FLTK_NATIVE_GESTURES=%s "%s" "%s" "%s" 16 > "%s" 2>&1\necho "exit=$?" >> "%s"\n' "${NATIVE:-1}" "$BIN" "$GEO" "$OUT" "$LOG" "$LOG" > "$RUN"; chmod +x "$RUN"
+hyprctl dispatch "hl.dsp.exec_cmd(\"$RUN\", { workspace = \"$WS silent\", float = true })" >/dev/null
+for _ in $(seq 1 60); do [[ -s "$GEO" ]] && break; sleep 0.1; done
+[[ -s "$GEO" ]] || { echo "window did not map" >&2; exit 1; }
+sleep 0.3
+geo() { python3 -c "import json,sys; g=json.load(open('$GEO')); print(eval(sys.argv[1]))" "$1"; }
+# Live window position from Hyprland (the floating window may be re-placed after it maps).
+win() { hyprctl clients -j | python3 -c 'import json,sys
+for c in json.load(sys.stdin):
+    if c["title"] == "os-mouse-check": print(c["at"][0], c["at"][1], c["size"][0], c["size"][1]); break'; }
+read -r BX BY < <(geo "'%d %d' % (g['button'][0] + g['button'][2]//2, g['button'][1] + g['button'][3]//2)")
+read -r SX SY < <(geo "'%d %d' % (g['switch'][0] + g['switch'][2]//2, g['switch'][1] + g['switch'][3]//2)")
+mv() { hyprctl dispatch "hl.dsp.cursor.move({ x = $1, y = $2 })" >/dev/null; sleep 0.08; }
+# Move to window-local (lx, ly) and refuse to click unless the pointer is inside the window.
+aim() {
+  read -r WX WY WW WH < <(win)
+  local x=$((WX + $1)) y=$((WY + $2))
+  mv $x $y
+  read -r PX PY < <(hyprctl cursorpos -j | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["x"], d["y"])')
+  if (( PX < WX || PY < WY || PX >= WX + WW || PY >= WY + WH )); then
+    echo "pointer ($PX,$PY) outside the window ($WX,$WY ${WW}x$WH): stop" >&2; exit 2
+  fi
+  # A real 1 px relative motion so the compositor gives this window the
+  # pointer focus (a warp alone may not), then require the app to confirm.
+  ydotool mousemove -x 1 -y 0 >/dev/null; sleep 0.05; ydotool mousemove -x -1 -y 0 >/dev/null; sleep 0.15
+  if [[ "$(cat "$GEO.hover" 2>/dev/null)" != 1 ]]; then
+    echo "the app does not report the pointer over it: stop (no click)" >&2; exit 3
+  fi
+  echo "aim $1,$2 -> $PX,$PY (window $WX,$WY ${WW}x$WH), app confirms pointer" >&2
+}
+sleep 1.0   # let Hyprland place the floating window
+aim $BX $BY; ydotool click 0xC0 >/dev/null; sleep 0.25; ydotool click 0xC0 >/dev/null; sleep 0.25
+aim $SX $SY; ydotool click 0xC0 >/dev/null; sleep 0.3
+# Header drag: native move by (+80, +40).
+aim 140 14; read -r HX HY < <(hyprctl cursorpos -j | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["x"], d["y"])')
+ydotool click 0x40 >/dev/null; sleep 0.15
+for i in 1 2 3 4; do ydotool mousemove -x 20 -y 10 >/dev/null; sleep 0.06; done   # real motion events
+ydotool click 0x80 >/dev/null; sleep 0.5
+# Bottom-right grip: native resize by (+60, +40).
+read -r WX WY WW WH < <(win)
+aim $((WW - 4)) $((WH - 4)); read -r GX GY < <(hyprctl cursorpos -j | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["x"], d["y"])')
+ydotool click 0x40 >/dev/null; sleep 0.15
+for i in 1 2 3 4; do ydotool mousemove -x 15 -y 10 >/dev/null; sleep 0.06; done
+ydotool click 0x80 >/dev/null; sleep 0.3
+mv "$CX" "$CY"
+[[ -n "$PREV" ]] && hyprctl dispatch "hl.dsp.focus({ window = \"address:$PREV\" })" >/dev/null
+for _ in $(seq 1 200); do [[ -s "$OUT" ]] && break; sleep 0.1; done
+cat "$OUT"

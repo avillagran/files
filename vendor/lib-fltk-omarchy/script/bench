@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# OmaKit-style comparison: lib-fltk-omarchy vs QML (GPU and software), 5 runs each.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+M=target/release/examples/measure
+OUT=build/bench.jsonl
+mkdir -p build; : >"$OUT"
+for w in minimal app; do
+  $M "fltk-omarchy-$w" "${RUNS:-5}" "$PWD/target/release/examples/bench_$w" >>"$OUT"
+  $M "qml-gpu-$w" "${RUNS:-5}" qml6 "$PWD/bench/$w.qml" >>"$OUT"
+  $M "qml-software-$w" "${RUNS:-5}" env QT_QUICK_BACKEND=software qml6 "$PWD/bench/$w.qml" >>"$OUT"
+done
+cat "$OUT"

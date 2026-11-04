@@ -1,0 +1,12 @@
+{
+  "crate": "fltk-sys",
+  "version": "1.5.23",
+  "archive_sha256": "6d9c99e29458923abe3f07b7f8a3bc5b5de3a2c04ad82273fd96402b3666ed06",
+  "original_path": "cfltk/fltk/src/drivers/Wayland/fl_wayland_clipboard_dnd.cxx",
+  "original_sha256": "c62a92a2b32b1b744376cbdbbb23d458c20153db060c4c33f939dd4a792b5d95",
+  "modified_sha256": "c5c38f823ca18ed0641cc472677c8c73df377ae645a53d8a820027145112552c",
+  "copying_sha256": "1240a51db0f8256bd1ed4a4039192a32de3149fa530f2908f849affa7038d843",
+  "patch_sha256": "09938aa48c5884f60da33adfac2f6c347a0a38124fee3875164585b1807eca81",
+  "license": "FLTK LGPL-2.0 with static linking exception; modified FLTK source retains that license, not MIT",
+  "scope": "own-window opt-in before FLTK enter negotiation/motion/drop; no runtime native DnD acceptance yet"
+}
