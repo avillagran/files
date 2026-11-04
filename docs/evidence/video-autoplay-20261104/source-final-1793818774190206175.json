@@ -1,0 +1,54 @@
+{
+  "functional_gate": "PASS",
+  "label": "source-final",
+  "fltk_scale_arg": "2",
+  "binary_sha256": "18c7b5212dcb45af2f7f0877d0ce1ded14a76677bb1ed7d0823e22dbedc33a5e",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal preview commands, real ffprobe/ffmpeg decode, real FLTK window; no OS input",
+  "audible_verification": "NOT_VALIDATED: zero PCM track",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "sessions": {
+    "first": {
+      "autoplay_first_stream_frame": true,
+      "stream_size": [
+        1884,
+        1060
+      ],
+      "device_target": [
+        2248,
+        1060
+      ],
+      "device_scale": 2.0,
+      "declared_rate": [
+        30,
+        1
+      ],
+      "observed_stream_fps_2s": 35.0,
+      "sound_by_default": true,
+      "mute_saved": true,
+      "reopen_starts_muted": true
+    },
+    "restart": {
+      "restart_keeps_mute": true,
+      "unmute_saved": true
+    },
+    "legacy": {
+      "scripted_checks_keep_paused_first_frame": true
+    }
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/video-autoplay-20261104/source-final-first-playing-native-1793818777485161984.png"
+  ],
+  "source": {
+    "codec": "h264",
+    "size": [
+      1920,
+      1080
+    ],
+    "rate": "30/1",
+    "audio": "aac zero PCM",
+    "bytes": 15548230
+  }
+}

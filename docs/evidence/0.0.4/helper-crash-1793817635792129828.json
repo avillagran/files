@@ -1,0 +1,25 @@
+{
+  "method": "private source fixtures, shared handlers, root-only SIGKILL (not process group), Linux process-local subreaper and PID/start checks",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "native_input": "NOT_VALIDATED",
+  "cases": [
+    {
+      "case": "audio",
+      "scene": "audio",
+      "target_label": "preview_audio_playback",
+      "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true\nFILES_FIRST_PAINT_US=43874\nFILES_UI_SMOKE_OK entries=3\nFILES_PREVIEW_HELPER pid=3060556 start=10732480 command=preview_video_probe\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=3\nFILES_PREVIEW_HELPER pid=3060560 start=10732481 command=preview_audio_metadata\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/helper-crash-hdiqlte1/files/song.flac\") message=El helper de vista previa termin\u00f3 con error\n"
+    }
+  ],
+  "captures": [],
+  "limitations": [
+    "Direct owned children only; no promise about kernel D-state/setuid exec/grandchildren",
+    "No mutations in flight; not task-journal recovery or power-loss proof",
+    "No audible verification; audio fixture is zero PCM",
+    "No PSS/Swap/CPU/GPU/startup/lifetime sampling"
+  ],
+  "functional_gate": "FAIL",
+  "error": "AssertionError('metadata/snapshot not ready')",
+  "binary_sha256": "f8954065c8fd5af488b2abb1c66d5b908d3b4866bd0b0fe3a753f9f85b1e7e4a",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b"
+}

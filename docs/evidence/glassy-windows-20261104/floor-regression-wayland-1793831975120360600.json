@@ -1,0 +1,55 @@
+{
+  "functional_gate": "PASS",
+  "label": "floor-regression",
+  "backend": "wayland",
+  "binary_path": "/home/node/Work/files/target/release/files",
+  "binary_sha256": "583045b975d8c3dfdb1b94265e4cee0ba96810f2d251a9f5064d96856fee199e",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "Mapped Files framebuffer captures and app log; no OS input, user toggles untouched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "scenes": {
+    "pinned": {
+      "pinned_opaque": true,
+      "stats": "glass_fills=0 opaque_fills=531 regions_cleared=0 regions_restored=0",
+      "startup": "FILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true",
+      "changes": []
+    },
+    "forced": {
+      "opacity": 0.65,
+      "wayland": true,
+      "stats": "glass_fills=531 opaque_fills=0 regions_cleared=1 regions_restored=0",
+      "startup": "FILES_GLASS mode=glassy opacity=0.65 overridden=true wayland=true",
+      "changes": []
+    },
+    "live": {
+      "transparent_equals_opaque": true,
+      "glassy_equals_forced_outside_status": true,
+      "status_rows_excluded": 32,
+      "back_equals_opaque": true,
+      "stats": "glass_fills=67 opaque_fills=598 regions_cleared=1 regions_restored=1",
+      "startup": "FILES_GLASS mode=transparent opacity=1.00 overridden=false wayland=true",
+      "changes": [
+        "FILES_GLASS_CHANGED mode=glassy opacity=0.65 active=true",
+        "FILES_GLASS_CHANGED mode=transparent opacity=1.00 active=false"
+      ]
+    }
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/floor-regression-wayland-pinned-opaque-1793831975783878881.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/floor-regression-wayland-forced-glass-1793831989805462322.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/floor-regression-wayland-live-system-transparent-1793832004094531055.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/floor-regression-wayland-live-system-glassy-1793832004568528733.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/floor-regression-wayland-live-system-back-1793832005042652789.png"
+  ],
+  "opaque_vs_glass": {
+    "pixels": 352000,
+    "changed": 349648,
+    "premultiplied_match": 339970,
+    "changed_fraction": 0.9933,
+    "match_fraction": 0.9723,
+    "unchanged_bright_pixels": 2274
+  },
+  "fixture_unchanged": true
+}

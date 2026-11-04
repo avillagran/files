@@ -1,0 +1,139 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "shared preview handlers + real FLTK framebuffer; filesystem changes in private fixtures; no native input",
+  "captures": [
+    "/home/node/Work/files/docs/evidence/media-lifecycle/source-red-1793817636059188511.png",
+    "/home/node/Work/files/docs/evidence/media-lifecycle/source-replaced-blue-1793817636276676437.png",
+    "/home/node/Work/files/docs/evidence/media-lifecycle/source-deleted-1793817636614112656.png",
+    "/home/node/Work/files/docs/evidence/media-lifecycle/playing-source-deleted-1793817637838749236.png"
+  ],
+  "checks": [
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=3 stamp=Some(Revision { device: 2051, inode: 17452934, bytes: 666, modified_seconds: 1793817635, modified_nanoseconds: 844681813, changed_seconds: 1793817635, changed_nanoseconds: 844681813 })",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=4 stamp=Some(Revision { device: 2051, inode: 17452949, bytes: 666, modified_seconds: 1793817635, modified_nanoseconds: 844681813, changed_seconds: 1793817636, changed_nanoseconds: 93036472 })",
+    "same-path replacement: inode changes; checked FD/Ready stamp and all RGB blue",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=5 stamp=Some(Revision { device: 2051, inode: 17452949, bytes: 665, modified_seconds: 1793817636, modified_nanoseconds: 310509720, changed_seconds: 1793817636, changed_nanoseconds: 310509720 })",
+    "in-place modification: old pixels replaced",
+    "external deletion: Error, bitmap released",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=6 stamp=Some(Revision { device: 2051, inode: 17452945, bytes: 666, modified_seconds: 1793817636, modified_nanoseconds: 648026251, changed_seconds: 1793817636, changed_nanoseconds: 648026251 })",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=7 stamp=Some(Revision { device: 2051, inode: 17452945, bytes: 666, modified_seconds: 1793817636, modified_nanoseconds: 648026251, changed_seconds: 1793817636, changed_nanoseconds: 929390678 })",
+    "rename away/back: unavailable then fresh source",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=8 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })",
+    "parent rename/replacement: fresh path revision, watcher recovered",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=jpeg zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/oriented.jpg\") revision=14 stamp=Some(Revision { device: 2051, inode: 17452959, bytes: 1038, modified_seconds: 1793817637, modified_nanoseconds: 253042826, changed_seconds: 1793817637, changed_nanoseconds: 253042826 })",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=16 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })",
+    "FILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/clip.mkv\") revision=18 width=320 height=180 source=320x180 duration=4.000000 position=0.000000 codec=ffv1 playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((12, 1))",
+    "video snapshot/stream carry FD stamp; deleting playing source cancels/releases media",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=22 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })",
+    "hidden preview: no replacement helper launched during reconciliation interval",
+    "FILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=24 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })",
+    "own Trash hides preview before file mutation ACK"
+  ],
+  "cache": "no product disk cache; RAM/pipe preview only; Grid thumbnails/LRU pending",
+  "source_scope": "standalone image/video, not embedded Markdown/PDF/audio",
+  "capture_dimensions": {
+    "/home/node/Work/files/docs/evidence/media-lifecycle/source-red-1793817636059188511.png": [
+      1000,
+      650
+    ],
+    "/home/node/Work/files/docs/evidence/media-lifecycle/source-replaced-blue-1793817636276676437.png": [
+      1000,
+      650
+    ],
+    "/home/node/Work/files/docs/evidence/media-lifecycle/source-deleted-1793817636614112656.png": [
+      1000,
+      650
+    ],
+    "/home/node/Work/files/docs/evidence/media-lifecycle/playing-source-deleted-1793817637838749236.png": [
+      1000,
+      650
+    ]
+  },
+  "footer_scope": "Existing footer is main-process PSS only, not a tree+Swap budget. Not used for acceptance.",
+  "disk_cache_scope": "No product media cache under isolated source/config/data; RAM/pipe implementation, not an audit of all filesystem paths.",
+  "cleanup": {
+    "normal_exit": 0,
+    "preview_ack": true,
+    "logged_helper_identities": [
+      [
+        3060985,
+        10733718
+      ],
+      [
+        3060995,
+        10733740
+      ],
+      [
+        3061010,
+        10733762
+      ],
+      [
+        3061021,
+        10733796
+      ],
+      [
+        3061027,
+        10733824
+      ],
+      [
+        3061033,
+        10733840
+      ],
+      [
+        3061042,
+        10733846
+      ],
+      [
+        3061049,
+        10733851
+      ],
+      [
+        3061058,
+        10733857
+      ],
+      [
+        3061062,
+        10733861
+      ],
+      [
+        3061069,
+        10733869
+      ],
+      [
+        3061107,
+        10733908
+      ],
+      [
+        3061113,
+        10733915
+      ],
+      [
+        3061432,
+        10734036
+      ]
+    ],
+    "survivors": [],
+    "complete": true,
+    "scope": "logged PID/starttime helpers after root exit0; not lifetime/metrics coverage",
+    "readonly_probe_stop": [
+      "true"
+    ]
+  },
+  "product_disk_cache_created": false,
+  "remaining_paths": [
+    "capture.ppm",
+    "app.log",
+    "old-media/alpha.png",
+    "old-media/clip.mkv",
+    "old-media/tiny.webp",
+    "old-media/oriented.jpg",
+    "media/tiny.webp",
+    "media/oriented.jpg",
+    "data/Trash/info/alpha.png.files-3060971-0.trashinfo",
+    "data/Trash/files/alpha.png.files-3060971-0"
+  ],
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true\nFILES_UI_SMOKE_OK entries=4\nFILES_FIRST_PAINT_US=42711\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_COMMAND_REV action=png revision=3\nFILES_PREVIEW_HELPER pid=3060985 start=10733718 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=3 stamp=Some(Revision { device: 2051, inode: 17452934, bytes: 666, modified_seconds: 1793817635, modified_nanoseconds: 844681813, changed_seconds: 1793817635, changed_nanoseconds: 844681813 })\nFILES_MEDIA_PIXELS_OK action=media-red generation=3 stamp=Some(Revision { device: 2051, inode: 17452934, bytes: 666, modified_seconds: 1793817635, modified_nanoseconds: 844681813, changed_seconds: 1793817635, changed_nanoseconds: 844681813 })\nFILES_PREVIEW_COMMAND_OK media-red\nFILES_PREVIEW_COMMAND_REV action=media-red revision=3\nFILES_CAPTURE_OK id=0 redraw=false before=5 paint=5 width=1000 height=650\nFILES_PREVIEW_HELPER pid=3060995 start=10733740 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=4 stamp=Some(Revision { device: 2051, inode: 17452949, bytes: 666, modified_seconds: 1793817635, modified_nanoseconds: 844681813, changed_seconds: 1793817636, changed_nanoseconds: 93036472 })\nFILES_MEDIA_PIXELS_OK action=media-blue generation=4 stamp=Some(Revision { device: 2051, inode: 17452949, bytes: 666, modified_seconds: 1793817635, modified_nanoseconds: 844681813, changed_seconds: 1793817636, changed_nanoseconds: 93036472 })\nFILES_PREVIEW_COMMAND_OK media-blue\nFILES_PREVIEW_COMMAND_REV action=media-blue revision=4\nFILES_CAPTURE_OK id=0 redraw=false before=9 paint=9 width=1000 height=650\nFILES_PREVIEW_HELPER pid=3061010 start=10733762 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=5 stamp=Some(Revision { device: 2051, inode: 17452949, bytes: 665, modified_seconds: 1793817636, modified_nanoseconds: 310509720, changed_seconds: 1793817636, changed_nanoseconds: 310509720 })\nFILES_MEDIA_PIXELS_OK action=media-green generation=5 stamp=Some(Revision { device: 2051, inode: 17452949, bytes: 665, modified_seconds: 1793817636, modified_nanoseconds: 310509720, changed_seconds: 1793817636, changed_nanoseconds: 310509720 })\nFILES_PREVIEW_COMMAND_OK media-green\nFILES_PREVIEW_COMMAND_REV action=media-green revision=5\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") message=Original no disponible: No such file or directory (os error 2)\nFILES_CAPTURE_OK id=0 redraw=false before=15 paint=15 width=1000 height=650\nFILES_PREVIEW_HELPER pid=3061021 start=10733796 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=6 stamp=Some(Revision { device: 2051, inode: 17452945, bytes: 666, modified_seconds: 1793817636, modified_nanoseconds: 648026251, changed_seconds: 1793817636, changed_nanoseconds: 648026251 })\nFILES_MEDIA_PIXELS_OK action=media-red generation=6 stamp=Some(Revision { device: 2051, inode: 17452945, bytes: 666, modified_seconds: 1793817636, modified_nanoseconds: 648026251, changed_seconds: 1793817636, changed_nanoseconds: 648026251 })\nFILES_PREVIEW_COMMAND_OK media-red\nFILES_PREVIEW_COMMAND_REV action=media-red revision=6\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") message=Original no disponible: No such file or directory (os error 2)\nFILES_PREVIEW_HELPER pid=3061027 start=10733824 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=7 stamp=Some(Revision { device: 2051, inode: 17452945, bytes: 666, modified_seconds: 1793817636, modified_nanoseconds: 648026251, changed_seconds: 1793817636, changed_nanoseconds: 929390678 })\nFILES_MEDIA_PIXELS_OK action=media-red generation=7 stamp=Some(Revision { device: 2051, inode: 17452945, bytes: 666, modified_seconds: 1793817636, modified_nanoseconds: 648026251, changed_seconds: 1793817636, changed_nanoseconds: 929390678 })\nFILES_PREVIEW_COMMAND_OK media-red\nFILES_PREVIEW_COMMAND_REV action=media-red revision=7\nFILES_PREVIEW_HELPER pid=3061033 start=10733840 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=8 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })\nFILES_MEDIA_PIXELS_OK action=media-blue generation=8 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })\nFILES_PREVIEW_COMMAND_OK media-blue\nFILES_PREVIEW_COMMAND_REV action=media-blue revision=8\nFILES_PREVIEW_COMMAND_OK image-rapid\nFILES_PREVIEW_COMMAND_REV action=image-rapid revision=14\nFILES_PREVIEW_HELPER pid=3061042 start=10733846 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=jpeg zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/oriented.jpg\") revision=14 stamp=Some(Revision { device: 2051, inode: 17452959, bytes: 1038, modified_seconds: 1793817637, modified_nanoseconds: 253042826, changed_seconds: 1793817637, changed_nanoseconds: 253042826 })\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_COMMAND_REV action=png revision=16\nFILES_PREVIEW_HELPER pid=3061049 start=10733851 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=16 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })\nFILES_MEDIA_PIXELS_OK action=media-blue generation=16 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })\nFILES_PREVIEW_COMMAND_OK media-blue\nFILES_PREVIEW_COMMAND_REV action=media-blue revision=16\nFILES_PREVIEW_COMMAND_OK video\nFILES_PREVIEW_COMMAND_REV action=video revision=18\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3061058 start=10733857 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3061062 start=10733861 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/clip.mkv\") revision=18 width=320 height=180 source=320x180 duration=4.000000 position=0.000000 codec=ffv1 playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((12, 1))\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=19\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/clip.mkv\") revision=19 width=320 height=180 source=320x180 duration=4.000000 position=0.000000 codec=ffv1 playing=true sequence=None drained=false video_index=0 audio_index=None audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((12, 1))\nFILES_VIDEO_CHILD_ADMIT role=video_stream\nFILES_PREVIEW_HELPER pid=3061069 start=10733869 command=preview_video_stream audio=false video_index=0 audio_index=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/clip.mkv\") revision=19 width=320 height=180 source=320x180 duration=4.000000 position=0.000000 codec=ffv1 playing=true sequence=Some(0) drained=false video_index=0 audio_index=None audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((12, 1))\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/clip.mkv\") message=Original no disponible: No such file or directory (os error 2)\nFILES_CAPTURE_OK id=0 redraw=false before=43 paint=43 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_COMMAND_REV action=png revision=22\nFILES_PREVIEW_HELPER pid=3061107 start=10733908 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=22 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })\nFILES_MEDIA_PIXELS_OK action=media-blue generation=22 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })\nFILES_PREVIEW_COMMAND_OK media-blue\nFILES_PREVIEW_COMMAND_REV action=media-blue revision=22\nFILES_MEDIA_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-hide\nFILES_PREVIEW_COMMAND_REV action=media-hide revision=23\nFILES_PREVIEW_HELPER pid=3061113 start=10733915 command=preview_thumbnail\nFILES_PREVIEW_COMMAND_OK png\nFILES_PREVIEW_COMMAND_REV action=png revision=24\nFILES_PREVIEW_HELPER pid=3061432 start=10734036 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=320 height=200 source=320x200 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/media-life-mwil4q94/media/alpha.png\") revision=24 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })\nFILES_MEDIA_PIXELS_OK action=media-blue generation=24 stamp=Some(Revision { device: 2051, inode: 17452950, bytes: 666, modified_seconds: 1793817637, modified_nanoseconds: 92003104, changed_seconds: 1793817637, changed_nanoseconds: 92003104 })\nFILES_PREVIEW_COMMAND_OK media-blue\nFILES_PREVIEW_COMMAND_REV action=media-blue revision=24\nFILES_MEDIA_OWN_DELETE_HIDDEN\nFILES_PREVIEW_COMMAND_OK media-trash\nFILES_PREVIEW_COMMAND_REV action=media-trash revision=25\nFILES_MUTATION_FINISHED id=1 success=true undo=true redo=false\nFILES_PREVIEW_COMMAND_OK close\nFILES_PREVIEW_COMMAND_REV action=close revision=25\nFILES_CLOSE_WAIT saves_ready=false mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_CLOSE_DRAINED\nFILES_GLASS_STATS glass_fills=0 opaque_fills=3132 regions_cleared=0 regions_restored=0\n",
+  "binary_sha256": "f8954065c8fd5af488b2abb1c66d5b908d3b4866bd0b0fe3a753f9f85b1e7e4a",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b"
+}

@@ -106,6 +106,7 @@ impl Model {
         }
         self.space_requested = false;
         self.copy.begin_close();
+        self.cancel_delete();
         if self.preview.visible() {
             self.preview.close();
         }
@@ -122,6 +123,7 @@ impl Model {
             || !self.copy.is_closed()
             || !self.preview.exit_allowed()
             || !self.mutations_drained()
+            || self.delete.busy()
         {
             return false;
         }

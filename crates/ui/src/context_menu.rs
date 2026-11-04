@@ -14,6 +14,8 @@ pub enum Target {
 pub struct Item {
     pub label: &'static str,
     pub action: Option<Action>,
+    /// Section title (never focused or activated).
+    pub section: bool,
 }
 pub struct Menu {
     pub target: Target,
@@ -88,7 +90,13 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
         Item {
             label,
             action: if enabled { Some(action) } else { None },
+            section: false,
         }
+    };
+    let header = |label| Item {
+        label,
+        action: None,
+        section: true,
     };
     let items = match target {
         Target::Views => vec![
@@ -142,29 +150,20 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
             ),
         ],
         Target::Entries => vec![
-            item(
-                "󰒟  Invertir selección · Ctrl+I",
-                Action::Selection(crate::selection_tools::Command::Invert),
-                !m.selection_refreshing(),
-            ),
-            item(
-                "󰅖  Limpiar selección",
-                Action::Selection(crate::selection_tools::Command::Clear),
-                !m.selection_refreshing(),
-            ),
+            header("ABRIR"),
             item("  Abrir elemento enfocado", Action::Open, true),
             item("  Vista previa · Space", Action::Preview, true),
-            item("  Renombrar · F2", Action::Rename, !busy),
-            item("  Copiar selección · F5", Action::CopyFiles, !busy),
-            item("  Mover selección · F6", Action::MoveFiles, !busy),
-            item("󰇚  Extraer ZIP: revisar", Action::ExtractArchive, !busy),
-            item("󰆧 Crear ZIP: revisar", Action::CreateArchive, !busy),
-            item("  Papelera · Supr", Action::Trash, !busy),
             item(
                 "  Propiedades · Alt+Enter",
                 Action::Properties,
                 !busy && m.selection.len() <= 1,
             ),
+            item(
+                "  Terminal aquí · Ctrl+.",
+                Action::Terminal,
+                m.open_job.is_none(),
+            ),
+            header("EDITAR"),
             item(
                 "  Copiar · Ctrl+C (files)",
                 Action::ClipboardCopy,
@@ -188,25 +187,27 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
                 Action::NativePaste,
                 !m.mutations.busy && !m.mutation_applied,
             ),
+            item("  Copiar ruta · Ctrl+Alt+C", Action::CopyPath, true),
+            header("ORGANIZAR"),
+            item("  Renombrar · F2", Action::Rename, !busy),
+            item("  Copiar selección · F5", Action::CopyFiles, !busy),
+            item("  Mover selección · F6", Action::MoveFiles, !busy),
             item(
-                "  Terminal en esta carpeta",
-                Action::Terminal,
-                m.open_job.is_none(),
+                "  Crear enlace · Ctrl+Shift+M",
+                Action::CreateLinks,
+                !busy && !m.delete.busy(),
             ),
-        ],
-        Target::Background => vec![
-            item("Comparar esta carpeta…", Action::CompareFolders, true),
-            item("Preparar sincronización…", Action::ReviewSyncFolders, true),
+            header("COMPRIMIR"),
+            item("󰆧 Crear ZIP: revisar", Action::CreateArchive, !busy),
+            item("󰇚  Extraer ZIP: revisar", Action::ExtractArchive, !busy),
+            header("ELIMINAR"),
+            item("  Papelera · Supr", Action::Trash, !busy),
             item(
-                "󰄬  Marcar filtrados y mostrar todo",
-                Action::Selection(crate::selection_tools::Command::Filtered),
-                !m.query.trim().is_empty() && !m.selection_refreshing(),
+                "󰆴  Eliminar permanentemente · Shift+Supr",
+                Action::DeletePermanently,
+                !busy && !m.delete.busy(),
             ),
-            item(
-                "󰄲  Seleccionar todo · Ctrl+A",
-                Action::Selection(crate::selection_tools::Command::All),
-                !m.selection_refreshing(),
-            ),
+            header("SELECCIÓN"),
             item(
                 "󰒟  Invertir selección · Ctrl+I",
                 Action::Selection(crate::selection_tools::Command::Invert),
@@ -217,8 +218,26 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
                 Action::Selection(crate::selection_tools::Command::Clear),
                 !m.selection_refreshing(),
             ),
-            item("  Crear archivo · Ctrl+N", Action::NewEntry(false), !busy),
+        ],
+        Target::Background => vec![
+            header("CREAR"),
             item("  Crear carpeta · F7", Action::NewEntry(true), !busy),
+            item("  Crear archivo · Ctrl+N", Action::NewEntry(false), !busy),
+            header("PEGAR"),
+            item(
+                "  Pegar en files · Ctrl+V",
+                Action::ClipboardPaste,
+                !m.mutations.busy
+                    && !m.mutation_applied
+                    && m.clipboard_state.count() > 0
+                    && !m.clipboard_state.busy(),
+            ),
+            item(
+                "  Pegar del sistema · Ctrl+Shift+V",
+                Action::NativePaste,
+                !m.mutations.busy && !m.mutation_applied,
+            ),
+            header("VER"),
             item(
                 if m.show_hidden {
                     "  Ocultar ocultos · Ctrl+H"
@@ -242,31 +261,43 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
                 },
                 true,
             ),
-            item("  Buscar en subcarpetas", Action::Search, true),
+            header("SELECCIÓN"),
             item(
-                "  Terminal en esta carpeta",
+                "󰄬  Marcar filtrados y mostrar todo",
+                Action::Selection(crate::selection_tools::Command::Filtered),
+                !m.query.trim().is_empty() && !m.selection_refreshing(),
+            ),
+            item(
+                "󰄲  Seleccionar todo · Ctrl+A",
+                Action::Selection(crate::selection_tools::Command::All),
+                !m.selection_refreshing(),
+            ),
+            item(
+                "󰒟  Invertir selección · Ctrl+I",
+                Action::Selection(crate::selection_tools::Command::Invert),
+                !m.selection_refreshing(),
+            ),
+            item(
+                "󰅖  Limpiar selección",
+                Action::Selection(crate::selection_tools::Command::Clear),
+                !m.selection_refreshing(),
+            ),
+            header("HERRAMIENTAS"),
+            item("  Buscar en subcarpetas", Action::Search, true),
+            item("Comparar esta carpeta…", Action::CompareFolders, true),
+            item("Preparar sincronización…", Action::ReviewSyncFolders, true),
+            item(
+                "  Terminal aquí · Ctrl+.",
                 Action::Terminal,
                 m.open_job.is_none(),
             ),
-            item(
-                "  Pegar en files · Ctrl+V",
-                Action::ClipboardPaste,
-                !m.mutations.busy
-                    && !m.mutation_applied
-                    && m.clipboard_state.count() > 0
-                    && !m.clipboard_state.busy(),
-            ),
-            item(
-                "  Pegar del sistema · Ctrl+Shift+V",
-                Action::NativePaste,
-                !m.mutations.busy && !m.mutation_applied,
-            ),
         ],
     };
+    let first = items.iter().position(|i| i.action.is_some()).unwrap_or(0);
     let mut menu = Menu {
         target,
         items,
-        focused: 0,
+        focused: first,
         generation: m.generation,
         rect: Rect::new(x, y, 0, 0),
         anchor: (x, y),
@@ -635,6 +666,24 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
         );
         if row.y + row.h > r.y + r.h - 4 {
             break;
+        }
+        if item.section {
+            // Group title with a hairline, like the menus of Nautilus.
+            if rank > 0 {
+                p.rect(
+                    Rect::new(row.x + 4, row.y + 4, (row.w - 8).max(0), 1),
+                    c.selection,
+                );
+            }
+            p.text(
+                Rect::new(row.x + 8, row.y + 8, (row.w - 16).max(0), row.h - 8),
+                item.label,
+                9,
+                c.dark_foreground,
+                false,
+                false,
+            );
+            continue;
         }
         if rank == menu.focused {
             p.rounded_rect(row, 4 * m.radius, c.selection);

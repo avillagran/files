@@ -354,11 +354,23 @@ impl Manager {
         };
         let (items, actions, position) = if kind == Kind::Context {
             let menu = m.context_menu.as_ref().expect("context menu");
+            // Same indices as the model menu: section titles stay as
+            // disabled rows, each group ends with a divider, and the
+            // "· shortcut" suffix becomes the dimmed right-hand hint.
             let items = menu
                 .items
                 .iter()
-                .map(|i| {
-                    let item = PopupItem::new("", i.label);
+                .enumerate()
+                .map(|(index, i)| {
+                    let mut item = match i.label.rsplit_once(" · ") {
+                        Some((label, hint)) if !i.section => {
+                            PopupItem::new("", label).shortcut(hint)
+                        }
+                        _ => PopupItem::new("", i.label),
+                    };
+                    if menu.items.get(index + 1).is_some_and(|next| next.section) {
+                        item = item.divider();
+                    }
                     if i.action.is_some() {
                         item
                     } else {

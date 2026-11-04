@@ -1,0 +1,72 @@
+{
+  "rotation_fixture": false,
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "captures": [
+    "/home/node/Work/files/docs/evidence/0.0.4/preview-neighbor-first-1793817639549701974.png",
+    "/home/node/Work/files/docs/evidence/0.0.4/preview-neighbor-next-webp-1793817639766705890.png",
+    "/home/node/Work/files/docs/evidence/0.0.4/preview-neighbor-raw-name-1793817639933447637.png",
+    "/home/node/Work/files/docs/evidence/0.0.4/preview-neighbor-error-controls-1793817640049832619.png",
+    "/home/node/Work/files/docs/evidence/0.0.4/preview-neighbor-latest-wins-1793817640292427154.png"
+  ],
+  "method": "shared UI Action and drawn hit targets; actual FLTK framebuffer, no native OS input/clipboard or resource sampling",
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 1,
+    "window_physical": [
+      1000,
+      650
+    ],
+    "native_wayland": true,
+    "address": "0x55f35b0fc620"
+  },
+  "boundary_no_decode": true,
+  "hidden_excluded": true,
+  "raw_name_and_effective_source": true,
+  "drawn_buttons_and_names": true,
+  "latest_wins_and_error_recovery": true,
+  "normal_callback_exit0_after_ack": true,
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        3061546,
+        10734061
+      ],
+      [
+        3061556,
+        10734066
+      ],
+      [
+        3061586,
+        10734088
+      ],
+      [
+        3061594,
+        10734104
+      ],
+      [
+        3061629,
+        10734121
+      ],
+      [
+        3061644,
+        10734133
+      ],
+      [
+        3061649,
+        10734140
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start identities after exit, not lifetime coverage"
+  },
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true\nFILES_FIRST_PAINT_US=44676\nFILES_UI_SMOKE_OK entries=5\nFILES_PREVIEW_HELPER pid=3061546 start=10734061 command=preview_thumbnail\nFILES_PREVIEW_COMMAND_OK neighbor-first\nFILES_PREVIEW_COMMAND_REV action=neighbor-first revision=3\nFILES_PREVIEW_HELPER pid=3061556 start=10734066 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/preview-neighbor-jufcnzcz/files/a.png\") revision=3 stamp=Some(Revision { device: 2051, inode: 17452930, bytes: 1950, modified_seconds: 1793817639, modified_nanoseconds: 324042707, changed_seconds: 1793817639, changed_nanoseconds: 324042707 })\nFILES_PREVIEW_NEIGHBOR_OK name=\"a.png\" raw=false source=Some(Revision { device: 2051, inode: 17452930, bytes: 1950, modified_seconds: 1793817639, modified_nanoseconds: 324042707, changed_seconds: 1793817639, changed_nanoseconds: 324042707 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-red\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-red revision=3\nFILES_CAPTURE_OK id=0 redraw=false before=7 paint=7 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK neighbor-back\nFILES_PREVIEW_COMMAND_REV action=neighbor-back revision=3\nFILES_PREVIEW_NEIGHBOR_OK name=\"a.png\" raw=false source=Some(Revision { device: 2051, inode: 17452930, bytes: 1950, modified_seconds: 1793817639, modified_nanoseconds: 324042707, changed_seconds: 1793817639, changed_nanoseconds: 324042707 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-red\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-red revision=3\nFILES_PREVIEW_COMMAND_OK neighbor-next\nFILES_PREVIEW_COMMAND_REV action=neighbor-next revision=5\nFILES_PREVIEW_HELPER pid=3061586 start=10734088 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=webp zoom=1 path=Some(\"/home/node/.cache/files-test/preview-neighbor-jufcnzcz/files/b.webp\") revision=5 stamp=Some(Revision { device: 2051, inode: 17452936, bytes: 56, modified_seconds: 1793817639, modified_nanoseconds: 338405720, changed_seconds: 1793817639, changed_nanoseconds: 338405720 })\nFILES_PREVIEW_NEIGHBOR_OK name=\"b.webp\" raw=false source=Some(Revision { device: 2051, inode: 17452936, bytes: 56, modified_seconds: 1793817639, modified_nanoseconds: 338405720, changed_seconds: 1793817639, changed_nanoseconds: 338405720 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-blue\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-blue revision=5\nFILES_CAPTURE_OK id=0 redraw=false before=13 paint=13 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK neighbor-next\nFILES_PREVIEW_COMMAND_REV action=neighbor-next revision=7\nFILES_PREVIEW_HELPER pid=3061594 start=10734104 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/preview-neighbor-jufcnzcz/files/c-\\xFF.png\") revision=7 stamp=Some(Revision { device: 2051, inode: 17452939, bytes: 1950, modified_seconds: 1793817639, modified_nanoseconds: 347156697, changed_seconds: 1793817639, changed_nanoseconds: 347156697 })\nFILES_PREVIEW_NEIGHBOR_OK name=\"c-\\xFF.png\" raw=true source=Some(Revision { device: 2051, inode: 17452939, bytes: 1950, modified_seconds: 1793817639, modified_nanoseconds: 347156697, changed_seconds: 1793817639, changed_nanoseconds: 347156697 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-raw-green\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-raw-green revision=7\nFILES_CAPTURE_OK id=0 redraw=false before=17 paint=17 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK neighbor-next\nFILES_PREVIEW_COMMAND_REV action=neighbor-next revision=9\nFILES_PREVIEW_HELPER pid=3061629 start=10734121 command=preview_image_checked\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/preview-neighbor-jufcnzcz/files/d-bad.png\") message=Formato no admitido: PNG, JPEG o WebP est\u00e1tico\nFILES_CAPTURE_OK id=0 redraw=false before=20 paint=20 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK neighbor-back\nFILES_PREVIEW_COMMAND_REV action=neighbor-back revision=11\nFILES_PREVIEW_HELPER pid=3061644 start=10734133 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=png zoom=1 path=Some(\"/home/node/.cache/files-test/preview-neighbor-jufcnzcz/files/c-\\xFF.png\") revision=11 stamp=Some(Revision { device: 2051, inode: 17452939, bytes: 1950, modified_seconds: 1793817639, modified_nanoseconds: 347156697, changed_seconds: 1793817639, changed_nanoseconds: 347156697 })\nFILES_PREVIEW_NEIGHBOR_OK name=\"c-\\xFF.png\" raw=true source=Some(Revision { device: 2051, inode: 17452939, bytes: 1950, modified_seconds: 1793817639, modified_nanoseconds: 347156697, changed_seconds: 1793817639, changed_nanoseconds: 347156697 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-raw-green\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-raw-green revision=11\nFILES_PREVIEW_COMMAND_OK neighbor-rapid\nFILES_PREVIEW_COMMAND_REV action=neighbor-rapid revision=17\nFILES_PREVIEW_HELPER pid=3061649 start=10734140 command=preview_image_checked\nFILES_PREVIEW_IMAGE_READY width=640 height=480 source=640x480 format=webp zoom=1 path=Some(\"/home/node/.cache/files-test/preview-neighbor-jufcnzcz/files/b.webp\") revision=17 stamp=Some(Revision { device: 2051, inode: 17452936, bytes: 56, modified_seconds: 1793817639, modified_nanoseconds: 338405720, changed_seconds: 1793817639, changed_nanoseconds: 338405720 })\nFILES_PREVIEW_NEIGHBOR_OK name=\"b.webp\" raw=false source=Some(Revision { device: 2051, inode: 17452936, bytes: 56, modified_seconds: 1793817639, modified_nanoseconds: 338405720, changed_seconds: 1793817639, changed_nanoseconds: 338405720 })\nFILES_PREVIEW_COMMAND_OK neighbor-assert-blue\nFILES_PREVIEW_COMMAND_REV action=neighbor-assert-blue revision=17\nFILES_CAPTURE_OK id=0 redraw=false before=28 paint=28 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK callback\nFILES_PREVIEW_COMMAND_REV action=callback revision=17\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_GLASS_STATS glass_fills=0 opaque_fills=1440 regions_cleared=0 regions_restored=0\n",
+  "binary_sha256": "f8954065c8fd5af488b2abb1c66d5b908d3b4866bd0b0fe3a753f9f85b1e7e4a",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

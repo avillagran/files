@@ -1,0 +1,64 @@
+{
+  "zero_pcm_routing_probe": false,
+  "routing": [],
+  "functional_gate": "FAIL",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "shared UI handlers, actual FLTK framebuffer and private Pulse monitor PCM; no native input/clipboard or physical speaker audibility",
+  "captures": [],
+  "checks": [],
+  "pcm": [],
+  "server_transport": "local user Unix socket, fixture-only environment",
+  "created_module": {
+    "name": "files_test_3059863_1793817614337602914",
+    "id": 536870916
+  },
+  "sink_identity_crosscheck": {
+    "short_index": 227,
+    "json_index": 227
+  },
+  "private_sink": {
+    "name": "files_test_3059863_1793817614337602914",
+    "module_id": 536870916,
+    "sink_index": 227,
+    "explicit_device": true,
+    "global_default_changed": false
+  },
+  "compositor_binding": {
+    "selected": {
+      "instance": "efb50993780079460b0cbed1363e2166a2de1d9f_1793710310_1132590444",
+      "time": 1793710310,
+      "pid": 1367,
+      "wl_socket": "wayland-1"
+    },
+    "previous_signature": "efb50993780079460b0cbed1363e2166a2de1d9f_1793710310_1132590444",
+    "scope": "fixture parent and child only, unique Wayland socket, no focus/global configuration"
+  },
+  "source_fixture": {
+    "method": "WAV built sample by sample: 96000 zero samples then480000 mono sine samples, s16/48000; encoded without timing filters",
+    "duration_seconds": 12,
+    "silence_preamble_frames": 96000,
+    "metadata_crosscheck": true
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 1,
+    "window_physical": [
+      1000,
+      650
+    ],
+    "native_wayland": true,
+    "address": "0x55f35b0fc620"
+  },
+  "error": "AssertionError('fresh state absent: FILES_PREVIEW_READY')",
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true\nFILES_UI_SMOKE_OK entries=2\nFILES_FIRST_PAINT_US=45267\nFILES_PREVIEW_COMMAND_OK audio\nFILES_PREVIEW_COMMAND_REV action=audio revision=2\nFILES_PREVIEW_HELPER pid=3059955 start=10731600 command=preview_audio_metadata\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/audio-pcm-90lz7ogx/files/song.flac\") message=El helper de vista previa termin\u00f3 con error\n",
+  "private_module_removed": true,
+  "default_sink_unchanged": true,
+  "cleanup_errors": [],
+  "binary_sha256": "f8954065c8fd5af488b2abb1c66d5b908d3b4866bd0b0fe3a753f9f85b1e7e4a",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

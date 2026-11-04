@@ -81,6 +81,13 @@ impl State {
             &[]
         }
     }
+    /// Mode of a measured (finished) size for `name`, to recompute it alike.
+    pub fn measured_mode(&self, root: &Path, name: &OsStr) -> Option<Mode> {
+        self.rows(root)
+            .iter()
+            .find(|r| r.name == name && matches!(r.status, Status::Measured { .. }))
+            .map(|r| r.mode)
+    }
     pub fn can_forget(&self, epoch: u64, id: u64) -> bool {
         epoch == self.epoch
             && !self.active.as_ref().is_some_and(|a| a.id == id)

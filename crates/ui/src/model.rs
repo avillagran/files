@@ -24,6 +24,12 @@ pub enum View {
 }
 #[derive(Clone)]
 pub enum Action {
+    /// Shift+Delete: confirm, then delete the selection permanently.
+    DeletePermanently,
+    /// Answer of the permanent-deletion confirmation.
+    DeleteAnswer(bool),
+    /// Shift+Ctrl+M: create a link to each selected entry.
+    CreateLinks,
     OpenTrash,
     TrashBrowser(u64, crate::trash_browser::Command),
     Commands,
@@ -433,6 +439,8 @@ pub struct Model {
     pub copy_owners: HashMap<u64, (u64, u64)>,
     pub columns: crate::columns::State,
     pub archive_confirmation: Option<crate::archive_recovery::Confirmation>,
+    /// Permanent deletion and trash administration.
+    pub delete: crate::delete_ui::State,
     pub archive_preparing: Option<(u64, files_core::copy_engine::Control)>,
     pub move_preparing: Option<(u64, Arc<std::sync::atomic::AtomicBool>)>,
     pub move_review_fds: usize,
@@ -572,6 +580,9 @@ pub struct Model {
     pub summaries: HashMap<usize, crate::folder_summary::Summary>,
     pub requested: HashSet<usize>,
     pub stats_requested: HashSet<usize>,
+    /// Watches visible subfolders so their rows follow changes inside them.
+    pub child_watch: crate::child_watch::ChildWatch,
+    pub child_pending: crate::child_watch::Pending,
     pub all_stat: bool,
 }
 impl Model {
@@ -599,6 +610,9 @@ impl Model {
             copy_owners: HashMap::new(),
             columns: Default::default(),
             archive_confirmation: None,
+            delete: Default::default(),
+            child_watch: Default::default(),
+            child_pending: Default::default(),
             archive_preparing: None,
             move_preparing: None,
             move_review_fds: 0,
@@ -1187,6 +1201,7 @@ impl Model {
         self.media_guard.stopped()
     }
     pub fn pump(&mut self) -> bool {
+        let deleted = self.pump_delete();
         if let Some((id, control)) = &self.archive_preparing
             && (self.closing
                 || self
@@ -1741,7 +1756,8 @@ impl Model {
         dirty |= self.pump_dual();
         dirty |= self.pump_columns();
         dirty |= self.pump_listing_watch();
-        dirty || sizes_repaint
+        dirty |= self.pump_child_watch();
+        dirty || sizes_repaint || deleted
     }
     pub fn clamp_scroll(&mut self, available: i32) {
         let geometry_ready = self.loaded
@@ -2254,6 +2270,13 @@ impl Model {
         };
     }
     pub fn action(&mut self, a: Action) {
+        if let Action::DeleteAnswer(confirmed) = a {
+            self.answer_delete(confirmed);
+            return;
+        }
+        if self.delete.confirm.is_some() {
+            return;
+        }
         if let Action::TrashBrowser(id, command) = a {
             self.trash_browser_command(id, command);
             return;
@@ -2557,6 +2580,9 @@ impl Model {
                 }
             }
             Action::Trash => self.send_trash(),
+            Action::DeletePermanently => self.request_permanent_delete(),
+            Action::DeleteAnswer(_) => {}
+            Action::CreateLinks => self.create_links(),
             Action::OpenTrash => self.open_trash_browser(),
             Action::TrashBrowser(..) => {}
             Action::CopyDestination => {

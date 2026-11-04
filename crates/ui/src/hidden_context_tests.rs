@@ -213,8 +213,23 @@ fn keyboard_context_reuses_selection_and_escape_does_not_open() {
     assert!(context_menu::open_keyboard(m, 800, 440));
     assert_eq!(m.context_menu.as_ref().unwrap().target, Target::Entries);
     assert!(crate::window_chrome::blocked(m));
+    // Focus starts on the first action (section titles are skipped) and
+    // Down moves to the next action, never onto a title.
+    let first = m.context_menu.as_ref().unwrap().focused;
+    assert!(
+        m.context_menu.as_ref().unwrap().items[first]
+            .action
+            .is_some()
+    );
+    assert!(m.context_menu.as_ref().unwrap().items[0].section);
     context_menu::key(m, fltk::enums::Key::Down);
-    assert_eq!(m.context_menu.as_ref().unwrap().focused, 1);
+    let next = m.context_menu.as_ref().unwrap().focused;
+    assert!(
+        next > first
+            && m.context_menu.as_ref().unwrap().items[next]
+                .action
+                .is_some()
+    );
     context_menu::key(m, fltk::enums::Key::Escape);
     assert!(m.context_menu.is_none() && m.open_job.is_none());
 }

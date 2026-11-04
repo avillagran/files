@@ -1,0 +1,43 @@
+{
+  "expected_alpha": 166,
+  "glass_off": {
+    "background_bgra": [
+      46,
+      30,
+      30,
+      255
+    ],
+    "card_bgra": [
+      68,
+      50,
+      49,
+      255
+    ],
+    "stats": "Stats { glass_fills: 4, opaque_fills: 2, regions_cleared: 1, regions_restored: 1 }"
+  },
+  "glass_on": {
+    "background_bgra": [
+      30,
+      19,
+      19,
+      166
+    ],
+    "card_bgra": [
+      44,
+      32,
+      31,
+      166
+    ],
+    "opacity": 0.65,
+    "setting": "Setting { mode: Glassy, opacity: 0.65, overridden: true }",
+    "size": [
+      360,
+      220
+    ],
+    "stats": "Stats { glass_fills: 4, opaque_fills: 0, regions_cleared: 1, regions_restored: 0 }",
+    "text_alpha_max": 255,
+    "text_alpha_min": 166
+  },
+  "pass": true,
+  "wayland": true
+}

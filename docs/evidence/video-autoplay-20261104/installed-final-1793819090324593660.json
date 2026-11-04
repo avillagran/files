@@ -1,0 +1,27 @@
+{
+  "functional_gate": "FAIL",
+  "label": "installed-final",
+  "fltk_scale_arg": "2",
+  "binary_sha256": "18c7b5212dcb45af2f7f0877d0ce1ded14a76677bb1ed7d0823e22dbedc33a5e",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal preview commands, real ffprobe/ffmpeg decode, real FLTK window; no OS input",
+  "audible_verification": "NOT_VALIDATED: zero PCM track",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "sessions": {},
+  "captures": [
+    "/home/node/Work/files/docs/evidence/video-autoplay-20261104/installed-final-first-playing-native-1793819093652919751.png"
+  ],
+  "source": {
+    "codec": "h264",
+    "size": [
+      1920,
+      1080
+    ],
+    "rate": "30/1",
+    "audio": "aac zero PCM",
+    "bytes": 15548230
+  },
+  "error": "AssertionError('first: command video')"
+}

@@ -134,6 +134,38 @@ pub fn trash(source: &Path, trash_root: &Path, cancel: &AtomicBool) -> Result<Re
 pub fn restore(receipt: &Receipt, cancel: &AtomicBool) -> Result<RestoreReport, Failure> {
     platform::restore(receipt, cancel)
 }
+/// Restores the catalog item `name` (its name under `files/`) to the
+/// original path recorded in its `.trashinfo`, never replacing an existing
+/// entry (renameat2 NOREPLACE) and only within the same filesystem. Returns
+/// the restored path and, when the metadata could not be removed afterwards,
+/// why (the object is restored either way).
+pub fn restore_item(
+    root: &Path,
+    name: &std::ffi::OsStr,
+    cancel: &AtomicBool,
+) -> io::Result<(PathBuf, Option<String>)> {
+    check_cancel(cancel)?;
+    platform::restore_item(root, name, cancel)
+}
+/// Permanently deletes the catalog item `name` and then its metadata.
+pub fn purge_item(
+    root: &Path,
+    name: &std::ffi::OsStr,
+    cancel: &AtomicBool,
+    progress: &crate::remove_tree::Progress,
+) -> io::Result<crate::remove_tree::Report> {
+    check_cancel(cancel)?;
+    platform::purge_item(root, name, cancel, progress)
+}
+/// Permanently deletes everything in the home trash, plus orphan metadata.
+pub fn empty(
+    root: &Path,
+    cancel: &AtomicBool,
+    progress: &crate::remove_tree::Progress,
+) -> io::Result<crate::remove_tree::Report> {
+    check_cancel(cancel)?;
+    platform::empty(root, cancel, progress)
+}
 impl Receipt {
     /// Historical original path recorded in .trashinfo, NOT a current rescue path.
     pub fn original_path(&self) -> &Path {
@@ -449,6 +481,189 @@ mod platform {
         validate_context(&context)?;
         result.items.sort_unstable_by(|a, b| a.name.cmp(&b.name));
         Ok(result)
+    }
+    /// An existing, private home trash (never created here).
+    fn existing_context(root: &Path) -> io::Result<Context> {
+        validate_path(root)?;
+        let root_fd = directory(root, true)?;
+        private(&root_fd)?;
+        let files = open_at(
+            &root_fd,
+            OsStr::new("files"),
+            libc::O_RDONLY | libc::O_DIRECTORY,
+        )?;
+        let info = open_at(
+            &root_fd,
+            OsStr::new("info"),
+            libc::O_RDONLY | libc::O_DIRECTORY,
+        )?;
+        private(&files)?;
+        private(&info)?;
+        let context = Context {
+            root: root_fd,
+            files,
+            info,
+        };
+        validate_context(&context)?;
+        Ok(context)
+    }
+    fn item_name(name: &OsStr) -> io::Result<()> {
+        let b = name.as_bytes();
+        if b.is_empty() || b.len() > 255 || b == b"." || b == b".." || b.contains(&b'/') {
+            return Err(invalid("Nombre de elemento de papelera no válido"));
+        }
+        Ok(())
+    }
+    fn info_name(name: &OsStr) -> OsString {
+        let mut n = name.to_os_string();
+        n.push(".trashinfo");
+        n
+    }
+    fn read_info(context: &Context, info_name: &OsStr) -> io::Result<(PathBuf, Option<String>)> {
+        use std::io::Read;
+        let file = open_at(&context.info, info_name, libc::O_RDONLY | libc::O_NONBLOCK)?;
+        let st = stat(&file)?;
+        if st.st_mode & libc::S_IFMT != libc::S_IFREG || st.st_size > 65536 {
+            return Err(invalid(
+                "Metadatos de papelera no regulares o demasiado grandes",
+            ));
+        }
+        let mut data = Vec::new();
+        file.take(65537).read_to_end(&mut data)?;
+        if data.len() > 65536 {
+            return Err(invalid("Metadatos de papelera demasiado grandes"));
+        }
+        parse_catalog_info(&data)
+    }
+    fn unlink_plain(dir: &File, name: &OsStr) -> io::Result<()> {
+        let name = c(name)?;
+        if unsafe { libc::unlinkat(dir.as_raw_fd(), name.as_ptr(), 0) } != 0 {
+            return Err(io::Error::last_os_error());
+        }
+        Ok(())
+    }
+    pub(super) fn restore_item(
+        root: &Path,
+        name: &OsStr,
+        cancel: &AtomicBool,
+    ) -> io::Result<(PathBuf, Option<String>)> {
+        item_name(name)?;
+        let context = existing_context(root)?;
+        let info = info_name(name);
+        let (original, _) = read_info(&context, &info)?;
+        let (parent_path, target) = match (original.parent(), original.file_name()) {
+            (Some(p), Some(n)) => (p, n),
+            _ => return Err(invalid("Ruta de origen sin carpeta")),
+        };
+        identity(&context.files, name)?;
+        check_cancel(cancel)?;
+        let parent = directory(parent_path, false).map_err(|e| {
+            if e.kind() == io::ErrorKind::NotFound {
+                io::Error::new(
+                    io::ErrorKind::NotFound,
+                    "La carpeta de origen ya no existe; restaura o crea la carpeta primero",
+                )
+            } else {
+                e
+            }
+        })?;
+        move_exclusive(&context.files, name, &parent, target).map_err(|e| {
+            if e.kind() == io::ErrorKind::AlreadyExists {
+                io::Error::new(
+                    io::ErrorKind::AlreadyExists,
+                    "Ya existe un elemento con ese nombre en el origen; no se reemplaza",
+                )
+            } else {
+                e
+            }
+        })?;
+        let cleanup = unlink_plain(&context.info, &info)
+            .err()
+            .map(|e| e.to_string());
+        Ok((original, cleanup))
+    }
+    pub(super) fn purge_item(
+        root: &Path,
+        name: &OsStr,
+        cancel: &AtomicBool,
+        progress: &crate::remove_tree::Progress,
+    ) -> io::Result<crate::remove_tree::Report> {
+        item_name(name)?;
+        let context = existing_context(root)?;
+        let mut report = crate::remove_tree::Report::default();
+        crate::remove_tree::platform::remove_at(
+            &context.files,
+            name,
+            &root.join("files"),
+            cancel,
+            progress,
+            &mut report,
+        );
+        // Metadata goes only once the object is really gone.
+        if matches!(identity(&context.files, name), Err(e) if e.kind() == io::ErrorKind::NotFound)
+            && let Err(e) = unlink_plain(&context.info, &info_name(name))
+            && e.kind() != io::ErrorKind::NotFound
+        {
+            report.failed += 1;
+            report
+                .failures
+                .push((root.join("info").join(info_name(name)), e.to_string()));
+        }
+        Ok(report)
+    }
+    pub(super) fn empty(
+        root: &Path,
+        cancel: &AtomicBool,
+        progress: &crate::remove_tree::Progress,
+    ) -> io::Result<crate::remove_tree::Report> {
+        let context = match existing_context(root) {
+            Ok(c) => c,
+            Err(e) if e.kind() == io::ErrorKind::NotFound => return Ok(Default::default()),
+            Err(e) => return Err(e),
+        };
+        let mut report = crate::remove_tree::Report::default();
+        let names: Vec<OsString> =
+            std::fs::read_dir(format!("/proc/self/fd/{}", context.files.as_raw_fd()))?
+                .filter_map(|e| e.ok().map(|e| e.file_name()))
+                .collect();
+        for name in names {
+            if cancel.load(Ordering::Acquire) {
+                report.cancelled = true;
+                return Ok(report);
+            }
+            let mut one = crate::remove_tree::Report::default();
+            crate::remove_tree::platform::remove_at(
+                &context.files,
+                &name,
+                &root.join("files"),
+                cancel,
+                progress,
+                &mut one,
+            );
+            report.merge(one);
+        }
+        // Metadata whose object is gone (just deleted, or orphaned before).
+        let infos: Vec<OsString> =
+            std::fs::read_dir(format!("/proc/self/fd/{}", context.info.as_raw_fd()))?
+                .filter_map(|e| e.ok().map(|e| e.file_name()))
+                .collect();
+        for info in infos {
+            let Some(object) = info.as_bytes().strip_suffix(b".trashinfo") else {
+                continue;
+            };
+            let object = OsStr::from_bytes(object);
+            if matches!(identity(&context.files, object), Err(e) if e.kind() == io::ErrorKind::NotFound)
+                && let Err(e) = unlink_plain(&context.info, &info)
+            {
+                report.failed += 1;
+                if report.failures.len() < 32 {
+                    report
+                        .failures
+                        .push((root.join("info").join(&info), e.to_string()));
+                }
+            }
+        }
+        Ok(report)
     }
     fn parse_catalog_info(data: &[u8]) -> io::Result<(PathBuf, Option<String>)> {
         let mut lines = data
@@ -1113,6 +1328,52 @@ mod platform {
             assert_eq!(fs::read(f.root.join("files/orphan")).unwrap(), b"preserve");
         }
         #[test]
+        fn restore_purge_and_empty_from_the_catalog() {
+            let f = Fixture::new();
+            let progress = crate::remove_tree::Progress::default();
+            // Restore by catalog name, never over an existing entry.
+            let a = f.file("a.txt");
+            f.context().trash(&a, &flag()).unwrap();
+            let name = catalog(&f.root, &flag()).unwrap().items[0].name.clone();
+            fs::write(&a, b"newer").unwrap();
+            let occupied = restore_item(&f.root, &name, &flag()).unwrap_err();
+            assert_eq!(occupied.kind(), io::ErrorKind::AlreadyExists);
+            assert_eq!(fs::read(&a).unwrap(), b"newer");
+            fs::remove_file(&a).unwrap();
+            let (restored, cleanup) = restore_item(&f.root, &name, &flag()).unwrap();
+            assert_eq!((restored.as_path(), cleanup), (a.as_path(), None));
+            assert_eq!(fs::read(&a).unwrap(), b"original");
+            assert!(catalog(&f.root, &flag()).unwrap().items.is_empty());
+            assert!(restore_item(&f.root, OsStr::new("../x"), &flag()).is_err());
+            // Purge one item: object and metadata gone.
+            let dir = f.source.join("dir");
+            fs::create_dir_all(dir.join("sub")).unwrap();
+            fs::write(dir.join("sub/f"), b"123").unwrap();
+            f.context().trash(&dir, &flag()).unwrap();
+            let name = catalog(&f.root, &flag()).unwrap().items[0].name.clone();
+            let report = purge_item(&f.root, &name, &flag(), &progress).unwrap();
+            assert!(report.complete(), "{report:?}");
+            assert_eq!(report.removed, 3);
+            assert!(catalog(&f.root, &flag()).unwrap().items.is_empty());
+            assert_eq!(fs::read_dir(f.root.join("info")).unwrap().count(), 0);
+            // Empty: items, orphan objects and orphan metadata.
+            f.context().trash(&f.file("b"), &flag()).unwrap();
+            f.context().trash(&f.file("c"), &flag()).unwrap();
+            fs::write(f.root.join("files/orphan"), b"x").unwrap();
+            fs::write(f.root.join("info/ghost.trashinfo"), b"[Trash Info]\n").unwrap();
+            let report = empty(&f.root, &flag(), &progress).unwrap();
+            assert!(report.complete(), "{report:?}");
+            assert_eq!(fs::read_dir(f.root.join("files")).unwrap().count(), 0);
+            assert_eq!(fs::read_dir(f.root.join("info")).unwrap().count(), 0);
+            // Missing trash: nothing to do.
+            assert_eq!(
+                empty(&f.base.join("none/Trash"), &flag(), &progress)
+                    .unwrap()
+                    .removed,
+                0
+            );
+        }
+        #[test]
         fn catalog_rejects_redirected_directories_and_does_not_follow_info_symlinks() {
             let f = Fixture::new();
             let receipt = f.context().trash(&f.file("a"), &flag()).unwrap();
@@ -1606,6 +1867,28 @@ mod platform {
         Err(unsupported())
     }
     pub(super) fn catalog(_: &Path, _: &AtomicBool) -> io::Result<Catalog> {
+        Err(unsupported())
+    }
+    pub(super) fn restore_item(
+        _: &Path,
+        _: &std::ffi::OsStr,
+        _: &AtomicBool,
+    ) -> io::Result<(PathBuf, Option<String>)> {
+        Err(unsupported())
+    }
+    pub(super) fn purge_item(
+        _: &Path,
+        _: &std::ffi::OsStr,
+        _: &AtomicBool,
+        _: &crate::remove_tree::Progress,
+    ) -> io::Result<crate::remove_tree::Report> {
+        Err(unsupported())
+    }
+    pub(super) fn empty(
+        _: &Path,
+        _: &AtomicBool,
+        _: &crate::remove_tree::Progress,
+    ) -> io::Result<crate::remove_tree::Report> {
         Err(unsupported())
     }
     pub(super) fn trash(_: &Path, _: Arc<Context>, _: &AtomicBool) -> Result<Receipt, Failure> {

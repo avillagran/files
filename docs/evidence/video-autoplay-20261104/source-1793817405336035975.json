@@ -1,0 +1,51 @@
+{
+  "functional_gate": "PASS",
+  "label": "source",
+  "binary_sha256": "f8954065c8fd5af488b2abb1c66d5b908d3b4866bd0b0fe3a753f9f85b1e7e4a",
+  "method": "internal preview commands, real ffprobe/ffmpeg decode, real FLTK window; no OS input",
+  "audible_verification": "NOT_VALIDATED: zero PCM track",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "sessions": {
+    "first": {
+      "autoplay_first_stream_frame": true,
+      "stream_size": [
+        1884,
+        1060
+      ],
+      "device_target": [
+        2248,
+        1060
+      ],
+      "device_scale": 2.0,
+      "declared_rate": [
+        30,
+        1
+      ],
+      "observed_stream_fps_2s": 35.0,
+      "sound_by_default": true,
+      "mute_saved": true,
+      "reopen_starts_muted": true
+    },
+    "restart": {
+      "restart_keeps_mute": true,
+      "unmute_saved": true
+    },
+    "legacy": {
+      "scripted_checks_keep_paused_first_frame": true
+    }
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/video-autoplay-20261104/source-first-playing-native-1793817408436065380.png"
+  ],
+  "source": {
+    "codec": "h264",
+    "size": [
+      1920,
+      1080
+    ],
+    "rate": "30/1",
+    "audio": "aac zero PCM",
+    "bytes": 15548230
+  }
+}

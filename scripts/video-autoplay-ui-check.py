@@ -105,13 +105,21 @@ def main():
                         raise AssertionError(f'{name}: {reason}')
 
                     def command(action):
-                        after = len(log.read_text())
-                        pending = raw.with_suffix('.pending')
-                        pending.write_text(action)
-                        os.replace(pending, raw.with_suffix('.command'))
-                        wait(lambda: re.search(r'FILES_PREVIEW_COMMAND_REV action=' + re.escape(action) + r' ', log.read_text()[after:]),
-                             'command ' + action)
-                        return after
+                        # The folder watch's initial reload can briefly empty the
+                        # listing; a "missing entry" there is retried, not a pass.
+                        deadline = time.monotonic() + 8
+                        while True:
+                            after = len(log.read_text())
+                            pending = raw.with_suffix('.pending')
+                            pending.write_text(action)
+                            os.replace(pending, raw.with_suffix('.command'))
+                            done = wait(lambda: re.search(r'FILES_PREVIEW_COMMAND_(REV action=' + re.escape(action) + r' |ERROR ' + re.escape(action) + r': )',
+                                                          log.read_text()[after:]), 'command ' + action)
+                            if 'REV' in done.group(0):
+                                return after
+                            report.setdefault('retried_commands', []).append(action)
+                            assert time.monotonic() < deadline, 'command kept failing: ' + action
+                            time.sleep(.2)
 
                     def rows(after=0):
                         return [fields(r) for r in READY.findall(log.read_text()[after:])]

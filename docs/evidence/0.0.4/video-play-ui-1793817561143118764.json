@@ -1,0 +1,148 @@
+{
+  "method": "internal handlers, actual ffprobe/ffmpeg local decode and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/video-audio-default-muted-1793817548350701432.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/video-playing-red-1793817552355575445.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/video-playing-blue-1793817556337264776.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/video-paused-blue-1793817556448418883.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/video-playback-ended-1793817558895011067.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "zoom_fixture": false,
+  "gif_fixture": false,
+  "audio_fixture": true,
+  "pulse_failure_fixture": false,
+  "audible_verification": "NOT_VALIDATED: zero PCM",
+  "clip_enabled": false,
+  "known_pending": [
+    "audibility/A-V sync/sample-exact seek/audio track selection",
+    "hardware codecs",
+    "resource budget",
+    "cross-platform verification",
+    "VFR/PTS/large/rotated media coverage"
+  ],
+  "compositor_binding": {
+    "selected": {
+      "instance": "efb50993780079460b0cbed1363e2166a2de1d9f_1793710310_1132590444",
+      "time": 1793710310,
+      "pid": 1367,
+      "wl_socket": "wayland-1"
+    },
+    "scope": "fixture-only unique Wayland socket, no focus/global changes"
+  },
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 1,
+    "window_physical": [
+      1000,
+      650
+    ],
+    "native_wayland": true,
+    "address": "0x55f35b0f9b80"
+  },
+  "audio_hot_toggle_drained_previous": true,
+  "stream_observed_live": {
+    "pid": 3057501,
+    "starttime": 10725156
+  },
+  "clip": {
+    "status": "OMITTED",
+    "reason": "functional four-capture scene; no resource experiment or memory inference"
+  },
+  "logged_helper_cleanup": {
+    "complete": true,
+    "identities": [
+      [
+        3057411,
+        10724934
+      ],
+      [
+        3057421,
+        10724938
+      ],
+      [
+        3057422,
+        10724943
+      ],
+      [
+        3057434,
+        10724960
+      ],
+      [
+        3057501,
+        10725156
+      ],
+      [
+        3057686,
+        10725769
+      ],
+      [
+        3057778,
+        10726014
+      ],
+      [
+        3057781,
+        10726018
+      ],
+      [
+        3057788,
+        10726029
+      ]
+    ],
+    "zombies_accepted": false,
+    "scope": "logged PID/start identities after exit, not lifetime or resource sampling"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus State ACK and observed stream PID/starttime absent after pause, EOF and active close; no memory sampler",
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true\nFILES_UI_SMOKE_OK entries=3\nFILES_PREVIEW_HELPER pid=3057411 start=10724934 command=preview_video_probe\nFILES_FIRST_PAINT_US=43570\nFILES_PREVIEW_COMMAND_OK video\nFILES_PREVIEW_COMMAND_REV action=video revision=2\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3057421 start=10724938 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3057422 start=10724943 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=2 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1 playing=false sequence=None drained=true video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_AUDIO_TRACKS_OK video=1 audio=0 enabled=false\nFILES_PREVIEW_COMMAND_OK video-assert-audio-tracks\nFILES_PREVIEW_COMMAND_REV action=video-assert-audio-tracks revision=2\nFILES_CAPTURE_OK id=0 redraw=false before=6 paint=6 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=3\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1 playing=true sequence=None drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_CHILD_ADMIT role=video_stream\nFILES_PREVIEW_HELPER pid=3057434 start=10724960 command=preview_video_stream audio=false video_index=1 audio_index=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1 playing=true sequence=Some(0) drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.200000 codec=ffv1 playing=true sequence=Some(1) drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.400000 codec=ffv1 playing=true sequence=Some(2) drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.600000 codec=ffv1 playing=true sequence=Some(3) drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=0.800000 codec=ffv1 playing=true sequence=Some(4) drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_COMMAND_OK video-audio\nFILES_PREVIEW_COMMAND_REV action=video-audio revision=4\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=0.800000 codec=ffv1 playing=true sequence=None drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_CHILD_ADMIT role=video_stream\nFILES_PREVIEW_HELPER pid=3057501 start=10725156 command=preview_video_stream audio=true video_index=1 audio_index=Some(0)\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=0.800000 codec=ffv1 playing=true sequence=Some(0) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=1.000000 codec=ffv1 playing=true sequence=Some(1) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=1.200000 codec=ffv1 playing=true sequence=Some(2) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=1.400000 codec=ffv1 playing=true sequence=Some(3) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=1.600000 codec=ffv1 playing=true sequence=Some(4) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_PLAYING_OK sequence=Some(4) position=1.6\nFILES_PREVIEW_COMMAND_OK video-assert-playing\nFILES_PREVIEW_COMMAND_REV action=video-assert-playing revision=4\nFILES_CAPTURE_OK id=0 redraw=false before=22 paint=22 width=1000 height=650\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=1.800000 codec=ffv1 playing=true sequence=Some(5) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=2.000000 codec=ffv1 playing=true sequence=Some(6) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=2.200000 codec=ffv1 playing=true sequence=Some(7) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=2.400000 codec=ffv1 playing=true sequence=Some(8) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=2.600000 codec=ffv1 playing=true sequence=Some(9) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=2.800000 codec=ffv1 playing=true sequence=Some(10) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=3.000000 codec=ffv1 playing=true sequence=Some(11) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=3.200000 codec=ffv1 playing=true sequence=Some(12) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=3.400000 codec=ffv1 playing=true sequence=Some(13) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=3.600000 codec=ffv1 playing=true sequence=Some(14) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=3.800000 codec=ffv1 playing=true sequence=Some(15) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=4.000000 codec=ffv1 playing=true sequence=Some(16) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=4.200000 codec=ffv1 playing=true sequence=Some(17) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=4.400000 codec=ffv1 playing=true sequence=Some(18) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=4.600000 codec=ffv1 playing=true sequence=Some(19) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=4.800000 codec=ffv1 playing=true sequence=Some(20) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=5.000000 codec=ffv1 playing=true sequence=Some(21) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=5.200000 codec=ffv1 playing=true sequence=Some(22) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=5.400000 codec=ffv1 playing=true sequence=Some(23) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=5.600000 codec=ffv1 playing=true sequence=Some(24) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_FRAME_OK red=false position=5.600000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-blue\nFILES_PREVIEW_COMMAND_REV action=video-assert-blue revision=4\nFILES_CAPTURE_OK id=0 redraw=false before=44 paint=44 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK video-pause\nFILES_PREVIEW_COMMAND_REV action=video-pause revision=5\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=5 width=640 height=360 source=640x360 duration=8.000000 position=5.600000 codec=ffv1 playing=false sequence=Some(24) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=5 width=640 height=360 source=640x360 duration=8.000000 position=5.600000 codec=ffv1 playing=false sequence=Some(24) drained=true video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_PAUSED_DRAINED\nFILES_PREVIEW_COMMAND_OK video-assert-paused\nFILES_PREVIEW_COMMAND_REV action=video-assert-paused revision=5\nFILES_CAPTURE_OK id=0 redraw=false before=47 paint=47 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=6\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.600000 codec=ffv1 playing=true sequence=None drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_CHILD_ADMIT role=video_stream\nFILES_PREVIEW_HELPER pid=3057686 start=10725769 command=preview_video_stream audio=true video_index=1 audio_index=Some(0)\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.600000 codec=ffv1 playing=true sequence=Some(0) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=5.800000 codec=ffv1 playing=true sequence=Some(1) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.000000 codec=ffv1 playing=true sequence=Some(2) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=6.200000 codec=ffv1 playing=true sequence=Some(3) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.400000 codec=ffv1 playing=true sequence=Some(9) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.800000 codec=ffv1 playing=true sequence=Some(11) drained=false video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=6 width=640 height=360 source=640x360 duration=8.000000 position=7.800000 codec=ffv1 playing=false sequence=Some(11) drained=true video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_PAUSED_DRAINED\nFILES_PREVIEW_COMMAND_OK video-assert-paused\nFILES_PREVIEW_COMMAND_REV action=video-assert-paused revision=6\nFILES_CAPTURE_OK id=0 redraw=false before=57 paint=57 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK video\nFILES_PREVIEW_COMMAND_REV action=video revision=7\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3057778 start=10726014 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3057781 start=10726018 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=7 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1 playing=false sequence=None drained=true video_index=1 audio_index=Some(0) audio_enabled=true notice=None muted=false audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_COMMAND_OK video-audio\nFILES_PREVIEW_COMMAND_REV action=video-audio revision=7\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=7 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1 playing=false sequence=None drained=true video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_COMMAND_OK video-play\nFILES_PREVIEW_COMMAND_REV action=video-play revision=8\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=8 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1 playing=true sequence=None drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_CHILD_ADMIT role=video_stream\nFILES_PREVIEW_HELPER pid=3057788 start=10726029 command=preview_video_stream audio=false video_index=1 audio_index=None\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=8 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1 playing=true sequence=Some(0) drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=8 width=640 height=360 source=640x360 duration=8.000000 position=0.200000 codec=ffv1 playing=true sequence=Some(1) drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=8 width=640 height=360 source=640x360 duration=8.000000 position=0.400000 codec=ffv1 playing=true sequence=Some(2) drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=8 width=640 height=360 source=640x360 duration=8.000000 position=0.600000 codec=ffv1 playing=true sequence=Some(3) drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-play-ui-fudz41kg/files/clip.mkv\") revision=8 width=640 height=360 source=640x360 duration=8.000000 position=0.800000 codec=ffv1 playing=true sequence=Some(4) drained=false video_index=1 audio_index=Some(0) audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_COMMAND_OK close-video-playing\nFILES_PREVIEW_COMMAND_REV action=close-video-playing revision=9\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_GLASS_STATS glass_fills=0 opaque_fills=3644 regions_cleared=0 regions_restored=0\n",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "binary_sha256": "f8954065c8fd5af488b2abb1c66d5b908d3b4866bd0b0fe3a753f9f85b1e7e4a",
+  "external_tools": {
+    "ffprobe": {
+      "path": "/usr/bin/ffprobe",
+      "sha256": "b9170e6e9da249120590cb6c76064d38295b3beb65615b73db7c1d9148884f99",
+      "version": "ffprobe version n9.0.2 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "ffmpeg": {
+      "path": "/usr/bin/ffmpeg",
+      "sha256": "ba5be4f60d2ec3ab668e3d60a1092f65ad2697957c2319dcbfb056ae58202c46",
+      "version": "ffmpeg version n9.0.2 Copyright (c) 2000-2026 the FFmpeg developers"
+    }
+  }
+}

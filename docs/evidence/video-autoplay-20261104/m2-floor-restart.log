@@ -1,0 +1,18 @@
+FILES_FONT=FiraCode Nerd Font nerd=true
+FILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true
+FILES_UI_SMOKE_OK entries=1
+FILES_FIRST_PAINT_US=64129
+FILES_PREVIEW_HELPER pid=1259935 start=814263 command=preview_video_probe
+FILES_PREVIEW_COMMAND_OK video
+FILES_PREVIEW_COMMAND_REV action=video revision=1
+FILES_VIDEO_CHILD_ADMIT role=video_snapshot
+FILES_PREVIEW_HELPER pid=1259945 start=814266 command=preview_video_probe
+FILES_VIDEO_CHILD_ADMIT role=video_snapshot
+FILES_PREVIEW_HELPER pid=1259949 start=814271 command=preview_video_frame
+FILES_PREVIEW_VIDEO_READY path=Some("/home/avillagran/.cache/files-test/video-autoplay-rb5aazis/files/clip.mkv") revision=1 width=1884 height=1060 source=1920x1080 duration=8.021000 position=0.000000 codec=h264 playing=true sequence=None drained=false video_index=0 audio_index=Some(1) audio_enabled=false notice=None muted=true audio_failed=false target=(2248, 1060) device_scale=2.00 rate=Some((30, 1))
+FILES_VIDEO_CHILD_ADMIT role=video_stream
+FILES_PREVIEW_HELPER pid=1259972 start=814286 command=preview_video_stream audio=false video_index=0 audio_index=None
+FILES_PREVIEW_VIDEO_READY path=Some("/home/avillagran/.cache/files-test/video-autoplay-rb5aazis/files/clip.mkv") revision=1 width=1884 height=1060 source=1920x1080 duration=8.021000 position=0.000000 codec=h264 playing=true sequence=Some(0) drained=false video_index=0 audio_index=Some(1) audio_enabled=false notice=None muted=true audio_failed=false target=(2248, 1060) device_scale=2.00 rate=Some((30, 1))
+FILES_PREVIEW_COMMAND_OK video-audio
+FILES_PREVIEW_COMMAND_REV action=video-audio revision=2
+FILES_PREVIEW_VIDEO_READY path=Some("/home/avillagran/.cache/files-test/video-autoplay-rb5aazis/files/clip.mkv") revision=2 width=1884 height=1060 source=1920x1080 duration=8.021000 position=0.100000 codec=h264 playing=true sequence=None drained=false video_index=0 audio_index=Some(1) audio_enabled=true notice=None muted=false audio_failed=false target=(2248, 1060) device_scale=2.00 rate=Some((30, 1))

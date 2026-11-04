@@ -1,0 +1,55 @@
+{
+  "functional_gate": "PASS",
+  "label": "source",
+  "backend": "wayland",
+  "binary_path": "/home/node/Work/files/target/release/files",
+  "binary_sha256": "d3ea217f028658328d69dd5fb40e2e2de91681034b6de7be9818bf8eea409d19",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "Mapped Files framebuffer captures and app log; no OS input, user toggles untouched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "scenes": {
+    "pinned": {
+      "pinned_opaque": true,
+      "stats": "glass_fills=0 opaque_fills=500 regions_cleared=0 regions_restored=0",
+      "startup": "FILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true",
+      "changes": []
+    },
+    "forced": {
+      "opacity": 0.65,
+      "wayland": true,
+      "stats": "glass_fills=500 opaque_fills=0 regions_cleared=1 regions_restored=0",
+      "startup": "FILES_GLASS mode=glassy opacity=0.65 overridden=true wayland=true",
+      "changes": []
+    },
+    "live": {
+      "transparent_equals_opaque": true,
+      "glassy_equals_forced_outside_status": true,
+      "status_rows_excluded": 32,
+      "back_equals_opaque": true,
+      "stats": "glass_fills=66 opaque_fills=565 regions_cleared=1 regions_restored=1",
+      "startup": "FILES_GLASS mode=transparent opacity=1.00 overridden=false wayland=true",
+      "changes": [
+        "FILES_GLASS_CHANGED mode=glassy opacity=0.65 active=true",
+        "FILES_GLASS_CHANGED mode=transparent opacity=1.00 active=false"
+      ]
+    }
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-wayland-pinned-opaque-1793814589681156931.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-wayland-forced-glass-1793814603702114060.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-wayland-live-system-transparent-1793814618021646385.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-wayland-live-system-glassy-1793814618495638299.png",
+    "/home/node/Work/files/docs/evidence/glassy-windows-20261104/source-wayland-live-system-back-1793814618969179655.png"
+  ],
+  "opaque_vs_glass": {
+    "pixels": 352000,
+    "changed": 349650,
+    "premultiplied_match": 340275,
+    "changed_fraction": 0.9933,
+    "match_fraction": 0.9732,
+    "unchanged_bright_pixels": 2272
+  },
+  "fixture_unchanged": true
+}

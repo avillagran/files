@@ -1,0 +1,22 @@
+{
+  "functional_gate": "FAIL",
+  "label": "source",
+  "binary_sha256": "7a077622454d4bafc0f4a5e1e070e15e7f5ef82077686da3ff64c2d46924af58",
+  "method": "internal preview commands, real ffprobe/ffmpeg decode, real FLTK window; no OS input",
+  "audible_verification": "NOT_VALIDATED: zero PCM track",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "sessions": {},
+  "captures": [],
+  "source": {
+    "codec": "h264",
+    "size": [
+      1920,
+      1080
+    ],
+    "rate": "30/1",
+    "audio": "aac zero PCM",
+    "bytes": 15548230
+  },
+  "error": "AssertionError('stream rate 6.0 fps')"
+}

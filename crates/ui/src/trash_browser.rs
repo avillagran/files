@@ -19,6 +19,12 @@ pub enum Command {
     Close,
     Reload,
     Select(usize),
+    /// Back to its original folder (never replacing anything there).
+    Restore,
+    /// Delete the selected item permanently (asks first).
+    Purge,
+    /// Delete everything permanently (asks first).
+    Empty,
 }
 pub struct Panel {
     pub id: u64,
@@ -113,7 +119,7 @@ impl Model {
         self.trash_browser = Some(Panel::new());
         self.reload_trash_browser();
     }
-    fn reload_trash_browser(&mut self) {
+    pub(crate) fn reload_trash_browser(&mut self) {
         let Some(old) = self.trash_browser.take() else {
             return;
         };
@@ -148,6 +154,35 @@ impl Model {
                 self.hits.clear();
             }
             Command::Select(index) => panel.select(index),
+            Command::Restore | Command::Purge | Command::Empty => {
+                if panel.loading {
+                    return;
+                }
+                let count = panel.catalog.items.len();
+                let item = panel.catalog.items.get(panel.selected).map(|i| {
+                    let label = files_core::name_label::label(
+                        i.original
+                            .as_ref()
+                            .and_then(|p| p.file_name())
+                            .unwrap_or(&i.name),
+                    );
+                    (i.name.clone(), label)
+                });
+                let target = match (command, item) {
+                    (Command::Empty, _) if count > 0 => {
+                        crate::delete_ui::Target::TrashEmpty { count }
+                    }
+                    (Command::Restore, Some((name, _))) => {
+                        crate::delete_ui::Target::TrashRestore { name }
+                    }
+                    (Command::Purge, Some((name, label))) => crate::delete_ui::Target::TrashItem {
+                        name,
+                        label: label.into_owned(),
+                    },
+                    _ => return,
+                };
+                self.request_trash_operation(target);
+            }
         }
     }
     pub fn receive_trash_catalog(&mut self, id: u64, result: Result<Catalog, String>) -> bool {
@@ -190,11 +225,33 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
         true,
         false,
     );
-    for (x, label, cmd) in [
-        (w - 228, "Recargar · F5", Command::Reload),
-        (w - 116, "Cerrar · Esc", Command::Close),
-    ] {
-        let r = Rect::new(x, 28, 100, 30);
+    let empty = s.catalog.items.is_empty() || s.loading;
+    let mut buttons = vec![
+        (w - 228, 100, "Recargar · F5", Command::Reload),
+        (w - 116, 100, "Cerrar · Esc", Command::Close),
+    ];
+    if !empty {
+        // Own row at the bottom: fits the 440px minimum window.
+        let bw = ((w - 52 - 16) / 3).clamp(60, 170);
+        let short = bw < 150;
+        for (i, (long, brief, cmd)) in [
+            ("Restaurar · R", "Restaurar", Command::Restore),
+            ("Eliminar · Supr", "Eliminar", Command::Purge),
+            ("Vaciar · Ctrl+Supr", "Vaciar", Command::Empty),
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            buttons.push((
+                26 + i as i32 * (bw + 8),
+                bw,
+                if short { brief } else { long },
+                cmd,
+            ));
+        }
+    }
+    for (i, (x, bw, label, cmd)) in buttons.into_iter().enumerate() {
+        let r = Rect::new(x, if i < 2 { 28 } else { h - 54 }, bw, 30);
         p.rounded_rect(r, 4, c.lighter_background);
         p.text(r, label, 11, c.foreground, false, false);
         m.hits.push(Hit {
@@ -203,7 +260,11 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
             action: Action::TrashBrowser(s.id, cmd),
         });
     }
-    let caption = if s.loading {
+    let caption = if let Some(notice) = m.delete.trash_notice.clone().filter(|_| !s.loading) {
+        notice
+    } else if m.delete.busy() {
+        "Procesando…".into()
+    } else if s.loading {
         "Leyendo…".into()
     } else if !s.error.is_empty() {
         s.error.clone()
@@ -316,20 +377,22 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
     p.unclip();
     p.text(
         Rect::new(26, h - 80, w - 52, 22),
-        "↑↓ / PgUp / PgDn · ←→ desplazar origen · F5 recargar · Esc cerrar",
+        "↑↓ / PgUp / PgDn · R restaurar · Supr eliminar · Ctrl+Supr vaciar · F5 recargar · Esc cerrar",
         11,
         c.dark_foreground,
         false,
         false,
     );
-    p.text(
-        Rect::new(26, h - 56, w - 52, 22),
-        "Vista de consulta · no modifica los elementos",
-        11,
-        c.dark_foreground,
-        false,
-        false,
-    );
+    if s.catalog.items.is_empty() || s.loading {
+        p.text(
+            Rect::new(26, h - 56, w - 52, 22),
+            "Restaurar nunca reemplaza un archivo existente · eliminar no se puede deshacer",
+            11,
+            c.dark_foreground,
+            false,
+            false,
+        );
+    }
     p.unclip();
     m.trash_browser = Some(s);
 }
@@ -366,6 +429,19 @@ pub fn event(m: &mut Model, ev: Event) -> bool {
             Key::PageUp => s.select(s.selected.saturating_sub(s.page as usize)),
             Key::Home => s.select(0),
             Key::End => s.select(usize::MAX),
+            Key::Delete => {
+                let command = if app::event_state().intersects(fltk::enums::Shortcut::Ctrl) {
+                    Command::Empty
+                } else {
+                    Command::Purge
+                };
+                let id = s.id;
+                m.trash_browser_command(id, command);
+            }
+            k if k == Key::from_char('r') => {
+                let id = s.id;
+                m.trash_browser_command(id, Command::Restore);
+            }
             Key::Left => s.pan = s.pan.saturating_sub(48),
             Key::Right => s.pan = s.pan.saturating_add(48).min(s.pan_max),
             _ => {}

@@ -34,7 +34,119 @@ fn follow_named(m: &mut Model, needle: &str) -> Result<(), String> {
     }
     Ok(())
 }
+/// Nautilus-floor fixture commands (Shift+Delete, trash, links, menus,
+/// subfolder refresh); same Actions as the keyboard/mouse handlers.
+fn floor_command(m: &mut Model, action: &str) -> Option<Result<(), String>> {
+    use crate::trash_browser::Command as T;
+    if let Some(name) = action.strip_prefix("nf-select:") {
+        let names: Vec<&str> = name.split('|').collect();
+        m.selection.clear();
+        for (k, n) in names.iter().enumerate() {
+            let Some(i) = m.entries.iter().position(|e| e.name == *n) else {
+                return Some(Err(format!("nf-select: falta {n}")));
+            };
+            m.select_entry(i, k > 0, false);
+        }
+        return Some(Ok(()));
+    }
+    let trash = |m: &mut Model, c: T| {
+        let id = m
+            .trash_browser
+            .as_ref()
+            .map(|p| p.id)
+            .ok_or("papelera cerrada")?;
+        m.trash_browser_command(id, c);
+        Ok(())
+    };
+    Some(match action {
+        "nf-delete" => {
+            m.action(Action::DeletePermanently);
+            eprintln!("FILES_NF_CONFIRM open={}", m.delete.confirm.is_some());
+            Ok(())
+        }
+        "nf-confirm" => {
+            m.action(Action::DeleteAnswer(true));
+            Ok(())
+        }
+        "nf-cancel" => {
+            m.action(Action::DeleteAnswer(false));
+            Ok(())
+        }
+        "nf-links" => {
+            m.action(Action::CreateLinks);
+            Ok(())
+        }
+        "nf-trash" => {
+            m.action(Action::Trash);
+            Ok(())
+        }
+        "nf-open-trash" => {
+            m.action(Action::OpenTrash);
+            Ok(())
+        }
+        "nf-trash-restore" => trash(m, T::Restore),
+        "nf-trash-purge" => trash(m, T::Purge),
+        "nf-trash-empty" => trash(m, T::Empty),
+        "nf-trash-close" => trash(m, T::Close),
+        "nf-trash-state" => {
+            let p = m.trash_browser.as_ref();
+            eprintln!(
+                "FILES_NF_TRASH open={} ready={} count={} notice={:?} busy={}",
+                p.is_some(),
+                p.is_some_and(|p| p.ready()),
+                p.map_or(0, |p| p.catalog.items.len()),
+                m.delete.trash_notice,
+                m.delete.busy()
+            );
+            Ok(())
+        }
+        "nf-context" => {
+            crate::context_menu::open_keyboard(m, 1000, 650);
+            let labels: Vec<String> = m
+                .context_menu
+                .as_ref()
+                .map(|c| {
+                    c.items
+                        .iter()
+                        .map(|i| format!("{}{}", if i.section { "#" } else { "" }, i.label.trim()))
+                        .collect()
+                })
+                .unwrap_or_default();
+            eprintln!("FILES_NF_CONTEXT {}", labels.join(" | "));
+            Ok(())
+        }
+        "nf-context-close" => {
+            m.context_menu = None;
+            Ok(())
+        }
+        "nf-state" => {
+            let rows: Vec<String> = m
+                .entries
+                .iter()
+                .enumerate()
+                .map(|(i, e)| {
+                    format!(
+                        "{}={}",
+                        e.name.to_string_lossy(),
+                        m.summaries.get(&i).map(|s| s.label()).unwrap_or_default()
+                    )
+                })
+                .collect();
+            eprintln!(
+                "FILES_NF_STATE delete_busy={} message={:?} rows={}",
+                m.delete.busy(),
+                m.operation_message,
+                rows.join(";")
+            );
+            Ok(())
+        }
+        _ => return None,
+    })
+}
 pub fn command(m: &mut Model, action: &str) -> Result<(), String> {
+    if let Some(result) = floor_command(m, action) {
+        return result;
+    }
     match action {
         "open" => open(m, "A.txt")?,
         "office" => open(m, "report.docx")?,

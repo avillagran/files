@@ -767,14 +767,27 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
     } else {
         let folders = m.group_ends[0];
         if folders > 0 {
+            let header = format!("CARPETAS · {folders}");
             p.text(
                 r(left, y, width, 24),
-                &format!("CARPETAS · {folders}"),
+                &header,
                 10,
                 c.dark_foreground,
                 false,
                 false,
             );
+            // Nautilus-like quick action next to the section title.
+            let bx = left + p.text_width(&header, 10, false).ceil() as i32 + 14;
+            let button = r(bx, y + 1, 128, 22);
+            if y + 24 > top && y < bottom && bx + 128 <= left + width {
+                p.rounded_rect(button, 4 * m.radius, c.selection);
+                p.text(button, "  Agregar nueva", 10, c.accent, false, false);
+                m.hits.push(Hit {
+                    generation: m.generation,
+                    rect: button,
+                    action: Action::NewEntry(true),
+                });
+            }
             y += 28;
             let cols = (width / 240).max(1);
             let cw = (width - 8 * (cols - 1)) / cols;
@@ -1137,6 +1150,7 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
         crate::saved_search_ui::paint(p, m, w, h);
         crate::sftp_ui::paint(p, m, w, h);
         crate::trash_browser::paint(p, m, w, h);
+        crate::delete_ui::paint(p, m, w, h);
     }
     if m.closing {
         // Clear underlying targets: only explicit close/retry actions remain active.

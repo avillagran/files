@@ -9,6 +9,7 @@ mod bookmarks_ui;
 mod capture_frame;
 mod checksum_job;
 mod checksum_ui;
+mod child_watch;
 #[cfg(all(test, target_os = "linux"))]
 mod clipboard_flow_tests;
 mod clipboard_scene;
@@ -28,6 +29,7 @@ mod copy_review;
 mod copy_scene;
 mod copy_state;
 mod copy_ui;
+mod delete_ui;
 /// Background transport owned by the visible directory comparison panel.
 mod directory_compare_job;
 mod directory_compare_ui;
@@ -194,6 +196,9 @@ fn event(m: &mut Model, ev: Event, w: i32, h: i32) -> bool {
     if matches!(ev, Event::Push | Event::KeyDown | Event::Shortcut) {
         m.text_paste.invalidate();
         m.wheel_scroll.cancel();
+    }
+    if m.delete.confirm.is_some() && !m.closing {
+        return crate::delete_ui::event(m, ev);
     }
     if m.trash_browser.is_some() && !m.closing {
         return crate::trash_browser::event(m, ev);
@@ -586,6 +591,27 @@ fn event(m: &mut Model, ev: Event, w: i32, h: i32) -> bool {
                 view::reveal_selection(m, w, h);
                 return true;
             }
+            // Nautilus: Ctrl+. terminal here, Shift+Ctrl+M create link.
+            if ctrl && !m.editing && key == Key::from_char('.') {
+                m.action(Action::Terminal);
+                return true;
+            }
+            if ctrl
+                && !m.editing
+                && key == Key::from_char('m')
+                && app::event_state().intersects(Shortcut::Shift)
+            {
+                m.action(Action::CreateLinks);
+                return true;
+            }
+            if ctrl
+                && !m.editing
+                && key == Key::from_char('c')
+                && app::event_state().intersects(Shortcut::Alt)
+            {
+                m.action(Action::CopyPath);
+                return true;
+            }
             if key == Key::F3 && !m.editing {
                 m.action(Action::Preview);
                 return true;
@@ -647,8 +673,7 @@ fn event(m: &mut Model, ev: Event, w: i32, h: i32) -> bool {
             }
             if key == Key::Delete && !m.editing {
                 if app::event_state().intersects(Shortcut::Shift) {
-                    m.operation_message =
-                        Some("Borrado permanente no disponible; Supr envía a Papelera".into());
+                    m.action(Action::DeletePermanently);
                 } else {
                     m.action(Action::Trash);
                 }

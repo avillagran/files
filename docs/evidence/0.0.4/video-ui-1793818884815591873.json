@@ -1,0 +1,73 @@
+{
+  "method": "internal handlers, actual ffprobe/ffmpeg local decode and actual FLTK framebuffer; no native OS input or clipboard",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "reason": "User phase: integration/captures only; no resource/startup measurements until released",
+  "captures": [
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/video-first-frame-1793818883713449042.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/video-seek-blue-1793818883924673499.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/video-timeline-red-1793818884263240480.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    },
+    {
+      "path": "/home/node/Work/files/docs/evidence/0.0.4/video-error-1793818884526156325.png",
+      "framebuffer_dimensions": [
+        1000,
+        650
+      ]
+    }
+  ],
+  "known_pending": [
+    "playback/audio",
+    "hardware codecs",
+    "resource budget",
+    "cross-platform verification",
+    "anamorphic/rotation and unusual metadata coverage"
+  ],
+  "geometry": {
+    "window_logical": [
+      1000,
+      650
+    ],
+    "output_scale": 1,
+    "window_physical": [
+      1000,
+      650
+    ],
+    "native_wayland": true,
+    "address": "0x55f35ad26390"
+  },
+  "functional_gate": "PASS",
+  "normal_exit_after_preview_drain": true,
+  "cleanup_scope": "root exit0 plus common worker drain ACK; no descendant sampler in capture phase",
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true\nFILES_UI_SMOKE_OK entries=3\nFILES_FIRST_PAINT_US=42703\nFILES_PREVIEW_HELPER pid=3207860 start=10858468 command=preview_video_probe\nFILES_PREVIEW_HELPER pid=3207870 start=10858473 command=preview_video_frame\nFILES_PREVIEW_COMMAND_OK video\nFILES_PREVIEW_COMMAND_REV action=video revision=2\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207874 start=10858475 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207875 start=10858479 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-ui-yci_uswr/files/clip.mkv\") revision=2 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1 playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_FRAME_OK red=true position=0.000000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-red\nFILES_PREVIEW_COMMAND_REV action=video-assert-red revision=2\nFILES_CAPTURE_OK id=0 redraw=false before=8 paint=8 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK video-forward\nFILES_PREVIEW_COMMAND_REV action=video-forward revision=3\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207887 start=10858496 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207888 start=10858500 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-ui-yci_uswr/files/clip.mkv\") revision=3 width=640 height=360 source=640x360 duration=8.000000 position=5.000000 codec=ffv1 playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_FRAME_OK red=false position=5.000000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-blue\nFILES_PREVIEW_COMMAND_REV action=video-assert-blue revision=3\nFILES_CAPTURE_OK id=0 redraw=false before=12 paint=12 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK video-end\nFILES_PREVIEW_COMMAND_REV action=video-end revision=4\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207900 start=10858517 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207901 start=10858521 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-ui-yci_uswr/files/clip.mkv\") revision=4 width=640 height=360 source=640x360 duration=8.000000 position=7.800000 codec=ffv1 playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_FRAME_OK red=false position=7.800000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-blue\nFILES_PREVIEW_COMMAND_REV action=video-assert-blue revision=4\nFILES_PREVIEW_COMMAND_OK video-quarter\nFILES_PREVIEW_COMMAND_REV action=video-quarter revision=5\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207908 start=10858529 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207912 start=10858534 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-ui-yci_uswr/files/clip.mkv\") revision=5 width=640 height=360 source=640x360 duration=8.000000 position=2.000000 codec=ffv1 playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_FRAME_OK red=true position=2.000000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-red\nFILES_PREVIEW_COMMAND_REV action=video-assert-red revision=5\nFILES_CAPTURE_OK id=0 redraw=false before=20 paint=20 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK video-rapid\nFILES_PREVIEW_COMMAND_REV action=video-rapid revision=7\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207940 start=10858551 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207941 start=10858555 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-ui-yci_uswr/files/clip.mkv\") revision=7 width=640 height=360 source=640x360 duration=8.000000 position=6.000000 codec=ffv1 playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_VIDEO_FRAME_OK red=false position=6.000000 bytes=691200\nFILES_PREVIEW_COMMAND_OK video-assert-blue\nFILES_PREVIEW_COMMAND_REV action=video-assert-blue revision=7\nFILES_PREVIEW_COMMAND_OK video-bad\nFILES_PREVIEW_COMMAND_REV action=video-bad revision=9\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207964 start=10858566 command=preview_video_probe\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/video-ui-yci_uswr/files/bad.mkv\") message=El helper de vista previa termin\u00f3 con error\nFILES_CAPTURE_OK id=0 redraw=false before=27 paint=27 width=1000 height=650\nFILES_PREVIEW_COMMAND_OK video-symlink\nFILES_PREVIEW_COMMAND_REV action=video-symlink revision=11\nFILES_PREVIEW_ERROR path=Some(\"/home/node/.cache/files-test/video-ui-yci_uswr/files/symlink.mkv\") message=Original no disponible: Too many levels of symbolic links (os error 40)\nFILES_PREVIEW_COMMAND_OK video\nFILES_PREVIEW_COMMAND_REV action=video revision=13\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207973 start=10858580 command=preview_video_probe\nFILES_VIDEO_CHILD_ADMIT role=video_snapshot\nFILES_PREVIEW_HELPER pid=3207974 start=10858584 command=preview_video_frame\nFILES_PREVIEW_VIDEO_READY path=Some(\"/home/node/.cache/files-test/video-ui-yci_uswr/files/clip.mkv\") revision=13 width=640 height=360 source=640x360 duration=8.000000 position=0.000000 codec=ffv1 playing=false sequence=None drained=true video_index=0 audio_index=None audio_enabled=false notice=None muted=true audio_failed=false target=(932, 420) device_scale=1.00 rate=Some((5, 1))\nFILES_PREVIEW_COMMAND_OK close-video-pending\nFILES_PREVIEW_COMMAND_REV action=close-video-pending revision=15\nFILES_MEDIA_PROBE_STOPPED=true scope=readonly-worker-not-required-for-helper-drain\nFILES_THUMBNAILS_CLOSE allowed=true readonly_pending=false\nFILES_PREVIEW_DRAINED\nFILES_GLASS_STATS glass_fills=0 opaque_fills=1581 regions_cleared=0 regions_restored=0\n",
+  "binary_sha256": "18c7b5212dcb45af2f7f0877d0ce1ded14a76677bb1ed7d0823e22dbedc33a5e",
+  "external_tools": {
+    "ffprobe": {
+      "path": "/usr/bin/ffprobe",
+      "sha256": "b9170e6e9da249120590cb6c76064d38295b3beb65615b73db7c1d9148884f99",
+      "version": "ffprobe version n9.0.2 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "ffmpeg": {
+      "path": "/usr/bin/ffmpeg",
+      "sha256": "ba5be4f60d2ec3ab668e3d60a1092f65ad2697957c2319dcbfb056ae58202c46",
+      "version": "ffmpeg version n9.0.2 Copyright (c) 2000-2026 the FFmpeg developers"
+    }
+  }
+}

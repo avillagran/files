@@ -85,6 +85,10 @@ mod tests {
     }
 }
 
+/// "Create link" to selected items.
+pub mod links;
+/// Permanent deletion (Shift+Delete, empty trash).
+pub mod remove_tree;
 pub mod trash;
 
 pub mod file_properties;

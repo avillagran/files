@@ -209,3 +209,8 @@ textoretorno/originalesbytesintactos/callback0ACK/21loggedhelpersgoneZfalse.
 Sin inputSO/native2x/AT-SPI/lifetimes/activehelperclose enestaescena ni prueba de
 colorfotográfico;14readbacks funcionales NOmedición aislada de consumo.
 Recursos/startupNOT_MEASUREDfreeze; noP02/P06/P07/P09global ni tag0.0.4.
+
+## 2026-11-04 — autoplay, mute global y calidad de origen
+
+Ver `VIDEO-AUTOPLAY.md`: reemplaza el inicio pausado/silenciado, el tope
+960×540, el escalado bilinear y la salida fija de 12fps descritos arriba.

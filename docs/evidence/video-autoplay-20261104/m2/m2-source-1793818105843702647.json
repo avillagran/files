@@ -1,0 +1,53 @@
+{
+  "functional_gate": "PASS",
+  "label": "m2-source",
+  "binary_sha256": "36dc5f9f2b678863fa8d3818653aeacabcee3e4e012e7fd07cb46fa310905a80",
+  "helper_sha256": "a6d4af2753d1d7f019810f7de29cdc48708964bc04265b87abdf70212e29d4d9",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "method": "internal preview commands, real ffprobe/ffmpeg decode, real FLTK window; no OS input",
+  "audible_verification": "NOT_VALIDATED: zero PCM track",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "sessions": {
+    "first": {
+      "autoplay_first_stream_frame": true,
+      "stream_size": [
+        1884,
+        1060
+      ],
+      "device_target": [
+        2248,
+        1060
+      ],
+      "device_scale": 2.0,
+      "declared_rate": [
+        30,
+        1
+      ],
+      "observed_stream_fps_2s": 33.5,
+      "sound_by_default": true,
+      "mute_saved": true,
+      "reopen_starts_muted": true
+    },
+    "restart": {
+      "restart_keeps_mute": true,
+      "unmute_saved": true
+    },
+    "legacy": {
+      "scripted_checks_keep_paused_first_frame": true
+    }
+  },
+  "captures": [
+    "/home/avillagran/.cache/files-m2-updates/video-4c43ec8/source/docs/evidence/video-autoplay-20261104/m2-source-first-playing-native-1793818108715381451.png"
+  ],
+  "source": {
+    "codec": "h264",
+    "size": [
+      1920,
+      1080
+    ],
+    "rate": "30/1",
+    "audio": "aac zero PCM",
+    "bytes": 15544390
+  }
+}
