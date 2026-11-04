@@ -152,6 +152,11 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
         Target::Entries => vec![
             header("ABRIR"),
             item("  Abrir elemento enfocado", Action::Open, true),
+            item(
+                "󰘔  Abrir con… · Ctrl+Shift+O",
+                Action::OpenWith,
+                m.open_job.is_none(),
+            ),
             item("  Vista previa · Space", Action::Preview, true),
             item(
                 "  Propiedades · Alt+Enter",

@@ -38,6 +38,11 @@ fn follow_named(m: &mut Model, needle: &str) -> Result<(), String> {
 /// subfolder refresh); same Actions as the keyboard/mouse handlers.
 fn floor_command(m: &mut Model, action: &str) -> Option<Result<(), String>> {
     use crate::trash_browser::Command as T;
+    if let Some(i) = action.strip_prefix("nf-ow-select:") {
+        let i = i.parse().unwrap_or(0);
+        m.action(Action::OpenWithCmd(crate::open_with_ui::Command::Select(i)));
+        return Some(Ok(()));
+    }
     if let Some(name) = action.strip_prefix("nf-select:") {
         let names: Vec<&str> = name.split('|').collect();
         m.selection.clear();
@@ -113,6 +118,44 @@ fn floor_command(m: &mut Model, action: &str) -> Option<Result<(), String>> {
                 })
                 .unwrap_or_default();
             eprintln!("FILES_NF_CONTEXT {}", labels.join(" | "));
+            Ok(())
+        }
+        "nf-open" => {
+            m.action(Action::Open);
+            Ok(())
+        }
+        "nf-open-with" => {
+            m.action(Action::OpenWith);
+            Ok(())
+        }
+        "nf-ow-open" => {
+            m.action(Action::OpenWithCmd(crate::open_with_ui::Command::Open));
+            Ok(())
+        }
+        "nf-ow-default" => {
+            m.action(Action::OpenWithCmd(
+                crate::open_with_ui::Command::SetDefault,
+            ));
+            Ok(())
+        }
+        "nf-ow-all" => {
+            m.action(Action::OpenWithCmd(crate::open_with_ui::Command::ToggleAll));
+            Ok(())
+        }
+        "nf-ow-state" => {
+            let p = m.open_with.as_ref();
+            eprintln!(
+                "FILES_NF_OPEN_WITH open={} mime={:?} default={:?} all={} selected={} rows={} notice={:?} job={} error={:?}",
+                p.is_some(),
+                p.and_then(|p| p.mime()),
+                p.and_then(|p| p.default_id()),
+                p.is_some_and(|p| p.show_all),
+                p.map_or(0, |p| p.selected),
+                p.map(|p| p.row_ids().join(",")).unwrap_or_default(),
+                p.and_then(|p| p.notice.clone()),
+                m.open_job.is_some(),
+                m.error
+            );
             Ok(())
         }
         "nf-context-close" => {

@@ -1,0 +1,13 @@
+{
+  "functional_gate": "FAIL",
+  "label": "m2-installed",
+  "binary_sha256": "a260b4ced38f4a4923670859074a8324d79d41e0538ea9a29bce2a4a3a2ac257",
+  "helper_sha256": "a6d4af2753d1d7f019810f7de29cdc48708964bc04265b87abdf70212e29d4d9",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "method": "internal Actions + real FLTK window/framebuffer, private fixtures and trash; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {},
+  "captures": [],
+  "error": "AssertionError('state')"
+}

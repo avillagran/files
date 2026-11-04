@@ -1,0 +1,24 @@
+{
+  "functional_gate": "FAIL",
+  "label": "source",
+  "binary_sha256": "6a6352b7b2bf04ec5744d58b289cf86cc53239c6ac82cd716fca0cf299c101a9",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal Actions, real window, recorder launcher, private XDG dirs; user mimeapps untouched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "open_default": [
+      "-t",
+      "service",
+      "--",
+      "viewer.desktop",
+      "/home/node/.cache/files-test/open-with-4axii3e6/listing/photo.png"
+    ],
+    "no_handler": "error shown, nothing launched"
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/open-with-20261104/source-open-with-recommended-1793834330802185592.png"
+  ],
+  "error": "AssertionError('[Default Applications]\\nimage/png=painter.desktop\\n\\n[Added Associations]\\nimage/png=painter.desktop;\\n')"
+}

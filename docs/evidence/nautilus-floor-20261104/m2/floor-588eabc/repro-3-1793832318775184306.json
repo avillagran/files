@@ -1,0 +1,28 @@
+{
+  "functional_gate": "FAIL",
+  "label": "repro-3",
+  "binary_sha256": "978c8f4eee95f4337dfa875f269f0612c225fc58a7243c55b691e7ad37632b46",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal Actions + real FLTK window/framebuffer, private fixtures and trash; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "grouped_context_sections": [
+      "#ABRIR",
+      "#EDITAR",
+      "#ORGANIZAR",
+      "#COMPRIMIR",
+      "#ELIMINAR",
+      "#SELECCI\u00d3N"
+    ],
+    "permanent_delete": "8 elementos eliminados (4.1 kB)",
+    "create_link": "Enlace creado: Enlace a linkme.txt"
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/repro-3-groups-add-new-1793832318898899162.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/repro-3-context-grouped-1793832319054472994.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/repro-3-delete-confirm-1793832319240404518.png"
+  ],
+  "error": "AssertionError('child refresh')"
+}

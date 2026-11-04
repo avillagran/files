@@ -43,13 +43,41 @@ pub enum Outcome {
 }
 pub struct Job {
     kind: Kind,
+    /// Desktop ID chosen in "Abrir con" (None: the default application).
+    pub app: Option<String>,
     result: Receiver<Outcome>,
     reported: Cell<bool>,
 }
 impl Job {
+    /// Opens with the default application. Linux resolves it like Nautilus
+    /// (MIME type, mimeapps.list, installed desktop entries) and launches it
+    /// through UWSM (Omarchy's app launcher); Omarchy's `open` is only a
+    /// shell function, not a program. macOS uses the system `open`.
     pub fn start(path: PathBuf) -> Result<Self, String> {
         validate_path(&path)?;
-        Self::start_program(path, PathBuf::from("open"))
+        #[cfg(target_os = "linux")]
+        {
+            Self::start_with(path, None)
+        }
+        #[cfg(not(target_os = "linux"))]
+        {
+            Self::start_program(path, PathBuf::from("open"))
+        }
+    }
+    /// "Abrir con": this desktop entry (or the default when None).
+    pub fn start_with(path: PathBuf, app: Option<String>) -> Result<Self, String> {
+        validate_path(&path)?;
+        if let Some(id) = &app
+            && files_core::apps::launch_id(id).is_none()
+        {
+            return Err("Aplicación no válida".into());
+        }
+        let program = std::env::var_os("FILES_TEST_OPEN_LAUNCHER")
+            .map(PathBuf::from)
+            .unwrap_or_else(|| PathBuf::from("uwsm-app"));
+        let mut job = Self::start_resolved(path, program, app.clone())?;
+        job.app = app;
+        Ok(job)
     }
     pub fn kind(&self) -> Kind {
         self.kind
@@ -65,8 +93,32 @@ impl Job {
             Err("Terminal en este sistema: integración PENDIENTE".into())
         }
     }
+    #[cfg(any(not(target_os = "linux"), test))]
     fn start_program(path: PathBuf, program: PathBuf) -> Result<Self, String> {
         Self::start_kind(path, program, Kind::Open)
+    }
+    fn start_resolved(
+        path: PathBuf,
+        program: PathBuf,
+        app: Option<String>,
+    ) -> Result<Self, String> {
+        let (tx, result) = mpsc::sync_channel(1);
+        std::thread::Builder::new()
+            .name("files-open".into())
+            .spawn(move || {
+                let outcome = match resolve(&path, app) {
+                    Ok(id) => run_app(program, path, id),
+                    Err(e) => Outcome::Failed(bounded(e)),
+                };
+                let _ = tx.send(outcome);
+            })
+            .map_err(|e| bounded(format!("No se pudo iniciar el trabajador de apertura: {e}")))?;
+        Ok(Self {
+            kind: Kind::Open,
+            app: None,
+            result,
+            reported: Cell::new(false),
+        })
     }
     fn start_kind(path: PathBuf, program: PathBuf, kind: Kind) -> Result<Self, String> {
         // Validate before any thread/channel/request copies. The incoming path
@@ -91,6 +143,7 @@ impl Job {
             })?;
         Ok(Self {
             kind,
+            app: None,
             result,
             reported: Cell::new(false),
         })
@@ -198,6 +251,53 @@ fn run(program: PathBuf, path: PathBuf, kind: Kind) -> Outcome {
         }
     }
 }
+/// The application to use: the chosen one, else the default for the file's
+/// MIME type (else the first application that declares it).
+fn resolve(path: &Path, app: Option<String>) -> Result<String, String> {
+    let catalog = files_core::apps::scan();
+    if let Some(id) = app {
+        return files_core::apps::find(&catalog, &id)
+            .map(|a| a.id.clone())
+            .ok_or_else(|| format!("{id} ya no está instalada"));
+    }
+    let mime = files_core::apps::detect_mime(path);
+    files_core::apps::default_for(&mime, &catalog)
+        .ok_or_else(|| format!("Sin aplicación para {mime} · usa Abrir con… (Ctrl+Shift+O)"))
+}
+/// `uwsm-app -t service -- <id> <path>`: the app runs as its own unit and
+/// the launcher returns at once (no slot held while the app stays open).
+fn run_app(program: PathBuf, path: PathBuf, id: String) -> Outcome {
+    use std::{io, process::Stdio};
+    let Some(id_arg) = files_core::apps::launch_id(&id) else {
+        return Outcome::Failed("Aplicación no válida".into());
+    };
+    let mut command = std::process::Command::new(&program);
+    command
+        .args(["-t", "service", "--"])
+        .arg(id_arg)
+        .arg(&path)
+        .current_dir("/");
+    let mut child = match command
+        .stdin(Stdio::null())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .spawn()
+    {
+        Ok(c) => c,
+        Err(e) if e.kind() == io::ErrorKind::NotFound => return Outcome::Unavailable,
+        Err(e) => return Outcome::Failed(bounded(format!("No se pudo abrir con {id}: {e}"))),
+    };
+    loop {
+        match child.wait() {
+            Ok(status) if status.success() => return Outcome::Opened,
+            Ok(status) => {
+                return Outcome::Failed(bounded(format!("{id} no se pudo iniciar ({status})")));
+            }
+            Err(e) if e.kind() == io::ErrorKind::Interrupted => continue,
+            Err(e) => return Outcome::Failed(bounded(format!("No se pudo recoger {id}: {e}"))),
+        }
+    }
+}
 #[cfg(not(any(target_os = "linux", target_os = "macos")))]
 fn run(_: PathBuf, _: PathBuf, _: Kind) -> Outcome {
     Outcome::Unavailable
@@ -265,6 +365,7 @@ mod tests {
         let (tx, rx) = mpsc::sync_channel(1);
         model.open_job = Some(Job {
             kind: Kind::Terminal,
+            app: None,
             result: rx,
             reported: Cell::new(false),
         });

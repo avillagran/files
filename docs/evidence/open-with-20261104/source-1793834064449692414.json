@@ -1,0 +1,13 @@
+{
+  "functional_gate": "FAIL",
+  "label": "source",
+  "binary_sha256": "e794ba85bdd4484c4bbe73c82ae2ba7b8f05003e9435e702b421162ebd7347e4",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal Actions, real window, recorder launcher, private XDG dirs; user mimeapps untouched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {},
+  "captures": [],
+  "error": "AssertionError('default open not launched')"
+}

@@ -31,7 +31,7 @@ Estados: **sí** · **parcial** · **no**. Prioridad: P1 = se nota en el uso dia
 | 17 | Comprimir/extraer zip, tar.*, 7z | parcial | sólo ZIP | P2 |
 | 18 | Crear enlace Ctrl+M / Shift+Ctrl+M | parcial | bloque 1: Shift+Ctrl+M; falta Ctrl+M (enlace a lo copiado) | P2 |
 | 19 | Propiedades: contenido, espacio libre, dueño/grupo, recursivo | parcial | sin conteo/espacio/dueño/recursivo | P2 |
-| 20 | Abrir con otra app y fijar predeterminada | parcial | sin selector ni predeterminada | P1 |
+| 20 | Abrir con otra app y fijar predeterminada | **sí** | bloque 2: Enter abre con la predeterminada; Abrir con… (Ctrl+Shift+O) | — |
 | 21 | Terminal aquí (Ctrl+.) | **sí** | bloque 1 | — |
 | 22 | Scripts de usuario / acciones | no | — | P2 |
 | 23 | Conflictos: reemplazar, fusionar, por archivo | parcial | sin reemplazar ni fusionar | P2 |
@@ -93,3 +93,40 @@ El avance de cada fila se registra aquí con commit y evidencia.
   nivel de profundidad no se detectan hasta recalcular a mano.
 - Validación: `scripts/nautilus-floor-ui-check.py` en ventana real con
   papelera y fixtures privados; 712/112/807 pruebas Rust, Clippy, fmt.
+
+Correcciones de la misma entrega (2026-11-04):
+- Botón de Grupos: icono Nerd «carpeta +» (nf-md-folder_plus), sin texto,
+  por pedido del usuario.
+- Refresco de subcarpetas intermitente (2/3 fallos al instalar): una recarga
+  de la carpeta abierta retiraba las vigilancias (`loaded=false`) y luego los
+  índices visibles reordenados las sacaban un instante. Ahora una vigilancia
+  dura 5 s fuera de la vista y una carpeta vigilada de nuevo tras un hueco
+  relee su fila. 6/6 fuente y 3/3 instalado en NODE y en M2; FAILs previos
+  conservados en `docs/evidence/nautilus-floor-20261104`.
+- Instalado: NODE 7f35c3bd4f47, M2 a7298e28e489 (42587aa), 5 respaldos y
+  hashes verificados en ambas.
+
+## Bloque 2 — 2026-11-04: Abrir y Abrir con
+
+Hallazgo crítico: Enter/doble clic ejecutaban el programa `open`, que en
+Omarchy es sólo una función de bash (no existe en PATH en NODE ni M2):
+abrir archivos NO funcionaba. Ahora, como Nautilus, `files_core::apps`
+resuelve el tipo MIME (nombre, y contenido si es desconocido), la
+aplicación predeterminada (cadena `mimeapps.list`, entradas instaladas,
+usuario sobre sistema) y lanza con `uwsm-app -t service -- <id> <ruta>`
+(lanzador de Omarchy; vuelve al instante). Sin aplicación: error visible.
+
+«Abrir con…» (Ctrl+Shift+O, menú ABRIR): recomendadas con la
+predeterminada primero, Tab muestra todas, Enter abre, Ctrl+Enter «Usar
+siempre» escribe `[Default Applications]` + `[Added Associations]` del
+usuario de forma atómica conservando el resto. NoDisplay oculto como en
+GNOME. Escaneo y escritura fuera del hilo UI.
+
+Pendiente con consentimiento del usuario: registrar Files como gestor de
+carpetas (`.desktop` + `org.freedesktop.FileManager1`), porque reemplazaría
+el comportamiento actual de Omarchy (Nautilus) en «Mostrar en carpeta».
+
+Validación: `scripts/open-with-ui-check.py` (lanzador grabador, XDG
+privados; nunca toca las asociaciones del usuario) 3/3 + final;
+716/112/807 pruebas, Clippy. `open-close-ui-check.py` queda SKIPPED en
+Linux: ejecutarlo lanzaría la aplicación real del usuario.

@@ -117,6 +117,13 @@ def native_presence(root_pid):
 
 
 def main():
+    # 2026-11-04: Linux no longer runs a system `open` (Omarchy's is a shell
+    # function); it resolves the default app and launches it through UWSM.
+    # Running this scene would start the user's real default application.
+    # Superseded on Linux by scripts/open-with-ui-check.py (recorder launcher).
+    if sys.platform.startswith("linux"):
+        print("SKIPPED: superseded on Linux by scripts/open-with-ui-check.py")
+        return 0
     BASE.mkdir(parents=True, exist_ok=True)
     EVIDENCE.mkdir(parents=True, exist_ok=True)
     report = {

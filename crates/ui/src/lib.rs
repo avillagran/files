@@ -81,6 +81,7 @@ mod omarchy_theme;
 mod omnibar_input;
 mod open_job;
 mod open_scene;
+mod open_with_ui;
 mod operation_bar;
 mod owned_child;
 pub mod painter;
@@ -199,6 +200,9 @@ fn event(m: &mut Model, ev: Event, w: i32, h: i32) -> bool {
     }
     if m.delete.confirm.is_some() && !m.closing {
         return crate::delete_ui::event(m, ev);
+    }
+    if m.open_with.is_some() && !m.closing {
+        return crate::open_with_ui::event(m, ev);
     }
     if m.trash_browser.is_some() && !m.closing {
         return crate::trash_browser::event(m, ev);
@@ -589,6 +593,14 @@ fn event(m: &mut Model, ev: Event, w: i32, h: i32) -> bool {
             if key == Key::Insert && !m.editing && !ctrl {
                 m.mark_and_advance();
                 view::reveal_selection(m, w, h);
+                return true;
+            }
+            if ctrl
+                && !m.editing
+                && key == Key::from_char('o')
+                && app::event_state().intersects(Shortcut::Shift)
+            {
+                m.action(Action::OpenWith);
                 return true;
             }
             // Nautilus: Ctrl+. terminal here, Shift+Ctrl+M create link.

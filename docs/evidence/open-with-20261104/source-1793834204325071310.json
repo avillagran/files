@@ -1,0 +1,22 @@
+{
+  "functional_gate": "FAIL",
+  "label": "source",
+  "binary_sha256": "e794ba85bdd4484c4bbe73c82ae2ba7b8f05003e9435e702b421162ebd7347e4",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal Actions, real window, recorder launcher, private XDG dirs; user mimeapps untouched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "open_default": [
+      "-t",
+      "service",
+      "--",
+      "viewer.desktop",
+      "/home/node/.cache/files-test/open-with-gd6cfcft/listing/photo.png"
+    ],
+    "no_handler": "error shown, nothing launched"
+  },
+  "captures": [],
+  "error": "AssertionError('FILES_NF_OPEN_WITH open=true mime=Some(\"image/png\") default=Some(\"viewer.desktop\") all=false selected=0 rows=viewer.desktop,hidden.desktop,painter.desktop notice=None job=false error=\"Sin aplicaci\u00f3n para application/x-executable \u00b7 usa Abrir con\u2026 (Ctrl+Shift+O)\"')"
+}

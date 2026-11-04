@@ -30,6 +30,9 @@ pub enum Action {
     DeleteAnswer(bool),
     /// Shift+Ctrl+M: create a link to each selected entry.
     CreateLinks,
+    /// Ctrl+Shift+O: choose the application for the focused file.
+    OpenWith,
+    OpenWithCmd(crate::open_with_ui::Command),
     OpenTrash,
     TrashBrowser(u64, crate::trash_browser::Command),
     Commands,
@@ -441,6 +444,7 @@ pub struct Model {
     pub archive_confirmation: Option<crate::archive_recovery::Confirmation>,
     /// Permanent deletion and trash administration.
     pub delete: crate::delete_ui::State,
+    pub open_with: Option<crate::open_with_ui::Panel>,
     pub archive_preparing: Option<(u64, files_core::copy_engine::Control)>,
     pub move_preparing: Option<(u64, Arc<std::sync::atomic::AtomicBool>)>,
     pub move_review_fds: usize,
@@ -611,6 +615,7 @@ impl Model {
             columns: Default::default(),
             archive_confirmation: None,
             delete: Default::default(),
+            open_with: None,
             child_watch: Default::default(),
             child_pending: Default::default(),
             archive_preparing: None,
@@ -1201,7 +1206,7 @@ impl Model {
         self.media_guard.stopped()
     }
     pub fn pump(&mut self) -> bool {
-        let deleted = self.pump_delete();
+        let deleted = self.pump_delete() | self.pump_open_with();
         if let Some((id, control)) = &self.archive_preparing
             && (self.closing
                 || self
@@ -1258,7 +1263,7 @@ impl Model {
                         if terminal {
                             "Terminal: uwsm-app no disponible · integración pendiente"
                         } else {
-                            "open ausente · alternativa PENDIENTE"
+                            "uwsm-app no disponible: no se puede lanzar la aplicación"
                         }
                         .into(),
                     ),
@@ -2198,7 +2203,7 @@ impl Model {
             return;
         }
         if self.open_job.is_some() {
-            self.error = "Ya hay una apertura pendiente de respuesta del comando open".into();
+            self.error = "Ya hay una apertura en curso".into();
             return;
         }
         self.error.clear();
@@ -2275,6 +2280,13 @@ impl Model {
             return;
         }
         if self.delete.confirm.is_some() {
+            return;
+        }
+        if let Action::OpenWithCmd(command) = a {
+            self.open_with_command(command);
+            return;
+        }
+        if self.open_with.is_some() {
             return;
         }
         if let Action::TrashBrowser(id, command) = a {
@@ -2583,6 +2595,8 @@ impl Model {
             Action::DeletePermanently => self.request_permanent_delete(),
             Action::DeleteAnswer(_) => {}
             Action::CreateLinks => self.create_links(),
+            Action::OpenWith => self.open_with(),
+            Action::OpenWithCmd(_) => {}
             Action::OpenTrash => self.open_trash_browser(),
             Action::TrashBrowser(..) => {}
             Action::CopyDestination => {

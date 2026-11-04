@@ -1,0 +1,57 @@
+{
+  "functional_gate": "PASS",
+  "label": "source-3",
+  "binary_sha256": "6a6352b7b2bf04ec5744d58b289cf86cc53239c6ac82cd716fca0cf299c101a9",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal Actions, real window, recorder launcher, private XDG dirs; user mimeapps untouched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "open_default": [
+      "-t",
+      "service",
+      "--",
+      "viewer.desktop",
+      "/home/node/.cache/files-test/open-with-5sgkhogm/listing/photo.png"
+    ],
+    "no_handler": "error shown, nothing launched",
+    "open_with": {
+      "default_saved": "painter.desktop",
+      "launches": [
+        [
+          "-t",
+          "service",
+          "--",
+          "viewer.desktop",
+          "/home/node/.cache/files-test/open-with-5sgkhogm/listing/photo.png"
+        ],
+        [
+          "-t",
+          "service",
+          "--",
+          "editor.desktop",
+          "/home/node/.cache/files-test/open-with-5sgkhogm/listing/notes"
+        ],
+        [
+          "-t",
+          "service",
+          "--",
+          "painter.desktop",
+          "/home/node/.cache/files-test/open-with-5sgkhogm/listing/photo.png"
+        ],
+        [
+          "-t",
+          "service",
+          "--",
+          "painter.desktop",
+          "/home/node/.cache/files-test/open-with-5sgkhogm/listing/photo.png"
+        ]
+      ]
+    }
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/open-with-20261104/source-3-open-with-recommended-1793834342051707111.png",
+    "/home/node/Work/files/docs/evidence/open-with-20261104/source-3-open-with-default-saved-1793834342329001520.png"
+  ]
+}

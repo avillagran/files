@@ -1159,6 +1159,7 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
         crate::sftp_ui::paint(p, m, w, h);
         crate::trash_browser::paint(p, m, w, h);
         crate::delete_ui::paint(p, m, w, h);
+        crate::open_with_ui::paint(p, m, w, h);
     }
     if m.closing {
         // Clear underlying targets: only explicit close/retry actions remain active.
