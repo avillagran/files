@@ -71,7 +71,8 @@ def main():
             data = base / 'data'
             data.mkdir(mode=0o700)
             capture = base / 'frame.ppm'
-            log = base / 'app.log'
+            # Kept outside the temporary tree so a failure keeps its log.
+            log = EVIDENCE / f'{args.label}-{time.time_ns()}-app.log'
             env = {**os.environ, 'FILES_CONFIG_DIR': str(base / 'config'), 'XDG_DATA_HOME': str(data),
                    'FILES_TEST_CAPTURE': str(capture), 'FILES_TEST_PREVIEW': '1', 'FILES_TEST_FIXED_SIZE': '1',
                    'FILES_TEST_ISOLATE_INPUT': '1', 'TMPDIR': str(base), 'MAGICK_TEMPORARY_PATH': str(base)}
@@ -141,9 +142,18 @@ def main():
             shot('groups-add-new')
 
             # Grouped context menu on a file.
-            command('nf-select:keep.txt')
-            after = command('nf-context')
-            menu = marker(after, r'FILES_NF_CONTEXT (.*)', 'context').group(1)
+            # The folder watch's first reload can drop the selection between
+            # two commands: select again until the file menu opens.
+            for _ in range(10):
+                command('nf-select:keep.txt')
+                after = command('nf-context')
+                menu = marker(after, r'FILES_NF_CONTEXT (.*)', 'context').group(1)
+                if menu.startswith('#ABRIR'):
+                    break
+                report.setdefault('context_retries', 0)
+                report['context_retries'] += 1
+                command('nf-context-close')
+                time.sleep(.3)
             sections = [s for s in menu.split(' | ') if s.startswith('#')]
             assert sections[:3] == ['#ABRIR', '#EDITAR', '#ORGANIZAR'], menu
             assert any('Eliminar permanentemente' in s for s in menu.split(' | ')), menu
@@ -214,6 +224,9 @@ def main():
         if process and process.poll() is None:
             process.kill()
             process.wait()
+    if report['functional_gate'] == 'PASS':
+        for stale in EVIDENCE.glob(f'{args.label}-*-app.log'):
+            stale.unlink(missing_ok=True)
     out.write_text(json.dumps(report, indent=2) + '\n')
     print(report['functional_gate'], out)
     return 0 if report['functional_gate'] == 'PASS' else 1

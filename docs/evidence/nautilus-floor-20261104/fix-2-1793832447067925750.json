@@ -1,0 +1,32 @@
+{
+  "functional_gate": "PASS",
+  "label": "fix-2",
+  "binary_sha256": "61639c3bc45bd3171cd6373e572cb3cb9abe6cd9729747754231d0ddf5dd69ec",
+  "helper_sha256": "41192e29aee38503f1ae1ac66f7e19c583017a65a70af97e6e928f4553db479b",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal Actions + real FLTK window/framebuffer, private fixtures and trash; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "grouped_context_sections": [
+      "#ABRIR",
+      "#EDITAR",
+      "#ORGANIZAR",
+      "#COMPRIMIR",
+      "#ELIMINAR",
+      "#SELECCI\u00d3N"
+    ],
+    "permanent_delete": "8 elementos eliminados (4.1 kB)",
+    "create_link": "Enlace creado: Enlace a linkme.txt",
+    "child_refresh": "watched 2 -> 5 directas",
+    "trash": "restore, purge one, empty; files/ and info/ empty"
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/fix-2-groups-add-new-1793832447252795037.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/fix-2-context-grouped-1793832447408935321.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/fix-2-delete-confirm-1793832447595436768.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/fix-2-trash-catalog-1793832449685827703.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/fix-2-trash-empty-confirm-1793832450115361548.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/fix-2-trash-emptied-1793832450270902956.png"
+  ]
+}

@@ -1,0 +1,30 @@
+FILES_FONT=FiraCode Nerd Font nerd=true
+FILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true
+FILES_UI_SMOKE_OK entries=6
+FILES_FIRST_PAINT_US=51095
+FILES_NF_STATE delete_busy=false message=None rows=keep.txt=;extra.txt=;doomed.txt=;linkme.txt=;doomtree=2 directas · sin calcular;watched=2 directas · sin calcular
+FILES_PREVIEW_COMMAND_OK nf-state
+FILES_PREVIEW_COMMAND_REV action=nf-state revision=1
+FILES_CAPTURE_OK id=0 redraw=false before=3 paint=3 width=1000 height=650
+FILES_PREVIEW_COMMAND_OK nf-select:keep.txt
+FILES_PREVIEW_COMMAND_REV action=nf-select:keep.txt revision=2
+FILES_NF_CONTEXT #ABRIR |   Abrir elemento enfocado |   Vista previa · Space |   Propiedades · Alt+Enter |   Terminal aquí · Ctrl+. | #EDITAR |   Copiar · Ctrl+C (files) |   Cortar · Ctrl+X (files) |   Pegar en files · Ctrl+V |   Pegar del sistema · Ctrl+Shift+V | Copiar ruta · Ctrl+Alt+C | #ORGANIZAR |   Renombrar · F2 |   Copiar selección · F5 |   Mover selección · F6 | Crear enlace · Ctrl+Shift+M | #COMPRIMIR | 󰆧 Crear ZIP: revisar | 󰇚  Extraer ZIP: revisar | #ELIMINAR |   Papelera · Supr | 󰆴  Eliminar permanentemente · Shift+Supr | #SELECCIÓN | 󰒟  Invertir selección · Ctrl+I | 󰅖  Limpiar selección
+FILES_PREVIEW_COMMAND_OK nf-context
+FILES_PREVIEW_COMMAND_REV action=nf-context revision=2
+FILES_CAPTURE_OK id=0 redraw=false before=5 paint=5 width=1000 height=650
+FILES_PREVIEW_COMMAND_OK nf-context-close
+FILES_PREVIEW_COMMAND_REV action=nf-context-close revision=2
+FILES_PREVIEW_COMMAND_OK nf-select:doomed.txt|doomtree
+FILES_PREVIEW_COMMAND_REV action=nf-select:doomed.txt|doomtree revision=4
+FILES_NF_CONFIRM open=true
+FILES_PREVIEW_COMMAND_OK nf-delete
+FILES_PREVIEW_COMMAND_REV action=nf-delete revision=4
+FILES_CAPTURE_OK id=0 redraw=false before=12 paint=12 width=1000 height=650
+FILES_PREVIEW_COMMAND_OK nf-confirm
+FILES_PREVIEW_COMMAND_REV action=nf-confirm revision=4
+FILES_DELETE_DONE target=Paths(["/home/avillagran/.cache/files-test/nautilus-floor-ttd3l752/listing/doomed.txt", "/home/avillagran/.cache/files-test/nautilus-floor-ttd3l752/listing/doomtree"]) result=8 elementos eliminados (4.1 kB)
+FILES_PREVIEW_COMMAND_OK nf-select:linkme.txt
+FILES_PREVIEW_COMMAND_REV action=nf-select:linkme.txt revision=5
+FILES_PREVIEW_COMMAND_OK nf-links
+FILES_PREVIEW_COMMAND_REV action=nf-links revision=5
+FILES_DELETE_DONE target=Links { dir: "/home/avillagran/.cache/files-test/nautilus-floor-ttd3l752/listing", targets: ["/home/avillagran/.cache/files-test/nautilus-floor-ttd3l752/listing/linkme.txt"] } result=Enlace creado: Enlace a linkme.txt

@@ -233,13 +233,15 @@ impl crate::model::Model {
                 ..Default::default()
             };
         }
-        let active = self.loaded && !self.closing && self.view != crate::model::View::Columns;
-        if !active {
+        // A reload of the open folder (e.g. after creating a link) is not a
+        // reason to stop watching: changes made meanwhile would be lost.
+        if self.closing || self.view == crate::model::View::Columns {
             let path = self.path.clone();
             self.child_watch.set(&path, Vec::new());
             return false;
         }
-        if self.visible_generation == self.generation
+        if self.loaded
+            && self.visible_generation == self.generation
             && self
                 .child_pending
                 .last_set
@@ -268,6 +270,9 @@ impl crate::model::Model {
             .filter(|(_, t)| now - **t >= QUIET)
             .map(|(n, _)| n.clone())
             .collect();
+        if !self.loaded {
+            return false;
+        }
         let mut dirty = false;
         for name in due {
             let Some(i) = self.entries.iter().position(|e| e.name == name) else {

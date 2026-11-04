@@ -778,10 +778,18 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
             );
             // Nautilus-like quick action next to the section title.
             let bx = left + p.text_width(&header, 10, false).ceil() as i32 + 14;
-            let button = r(bx, y + 1, 128, 22);
-            if y + 24 > top && y < bottom && bx + 128 <= left + width {
+            // Nerd Font "folder plus" (nf-md-folder_plus), no text.
+            let button = r(bx, y, 28, 24);
+            if y + 24 > top && y < bottom && bx + 28 <= left + width {
                 p.rounded_rect(button, 4 * m.radius, c.selection);
-                p.text(button, "  Agregar nueva", 10, c.accent, false, false);
+                p.text(
+                    r(bx + 6, y, 22, 24),
+                    "\u{f0257}",
+                    14,
+                    c.accent,
+                    false,
+                    false,
+                );
                 m.hits.push(Hit {
                     generation: m.generation,
                     rect: button,
