@@ -1,193 +1,193 @@
-# Dependencias de 0.0.2
+# Dependencies of 0.0.2
 
-El código de files es MIT. Las dependencias Rust se resuelven en `Cargo.lock`.
-La revisión de `cargo metadata --format-version 1` encontró:
+The files code is MIT. Rust dependencies are resolved in `Cargo.lock`.
+The review of `cargo metadata --format-version 1` found:
 
-- MIT, Apache-2.0, BSD o una alternativa MIT/Apache: dependencias habituales,
-  incluidas FLTK Rust, serde, TOML y opener.
-- FLTK C++: LGPL con excepción explícita de enlace estático, admitida en el diseño.
-- Excepciones concretas **autorizadas por el usuario el 2026-10-26**:
-  `notify` → CC0-1.0; `inotify` y `inotify-sys` → ISC;
-  tablas de `unicode-ident` → Unicode-3.0 junto a MIT/Apache-2.0.
+- MIT, Apache-2.0, BSD or an MIT/Apache alternative: the usual dependencies,
+  including FLTK Rust, serde, TOML and opener.
+- FLTK C++: LGPL with an explicit static-linking exception, accepted in the design.
+- Specific exceptions **authorized by the user on 2026-10-26**:
+  `notify` → CC0-1.0; `inotify` and `inotify-sys` → ISC;
+  `unicode-ident` tables → Unicode-3.0 alongside MIT/Apache-2.0.
 
-Las expresiones duales `Unlicense OR MIT` y `Zlib OR Apache-2.0 OR MIT` se usan
-bajo su alternativa MIT. No se incorporaron dependencias GPL ni propietarias.
-Las excepciones anteriores no autorizan ampliar la lista para otras dependencias.
+The dual expressions `Unlicense OR MIT` and `Zlib OR Apache-2.0 OR MIT` are used
+under their MIT alternative. No GPL or proprietary dependencies were added.
+The exceptions above do not authorize extending the list to other dependencies.
 
-En Linux, FLTK usa las bibliotecas de plataforma ya instaladas (Wayland,
-Cairo/Pango, fontconfig/FreeType, X11 como fallback). No se distribuye un runtime
-GTK/QML, un servidor web, decodificadores, una pila de red ni modelos.
+On Linux, FLTK uses the platform libraries already installed (Wayland,
+Cairo/Pango, fontconfig/FreeType, X11 as a fallback). No GTK/QML runtime,
+web server, decoders, network stack or models are distributed.
 
-Referencias primarias: [fltk-rs](https://github.com/fltk-rs/fltk-rs),
-[licencia de FLTK](https://www.fltk.org/COPYING.php),
+Primary references: [fltk-rs](https://github.com/fltk-rs/fltk-rs),
+[FLTK license](https://www.fltk.org/COPYING.php),
 [notify](https://github.com/notify-rs/notify),
 [inotify-rs](https://github.com/hannobraun/inotify-rs),
 [unicode-ident](https://github.com/dtolnay/unicode-ident).
 
 
-0.0.2 reutiliza serde_json/libc ya presentes para protocolo/supervisión de helper;
-no añade familias de licencia. Los cuatro shaders portados conservan MIT y fuentes/
-hashes en assets/shaders/README.md. Sus pruebas EGL usan bibliotecas del sistema;
-la app sigue sin contexto GPU por defecto y la integración real se auditará al llegar.
+0.0.2 reuses serde_json/libc, already present, for the helper protocol/supervision;
+it adds no license families. The four ported shaders keep MIT and their sources/
+hashes in assets/shaders/README.md. Their EGL tests use system libraries;
+the app still has no GPU context by default and the real integration will be audited when it arrives.
 
-## 0.0.4: helper de imagen (preparación)
+## 0.0.4: image helper (preparation)
 
-`files-helper` añade `image = 0.25.10` con `default-features = false` y sólo
-`png`, `jpeg`, `webp`. El árbol **seleccionado** normal/build está guardado en
-`docs/evidence/image-preview/dependency-audit.json`; no activa Rayon, AVIF, EXR,
-TIFF, GPU ni red. Se revisaron los manifests originales de la versión resuelta.
+`files-helper` adds `image = 0.25.10` with `default-features = false` and only
+`png`, `jpeg`, `webp`. The **selected** normal/build tree is saved in
+`docs/evidence/image-preview/dependency-audit.json`; it does not enable Rayon, AVIF, EXR,
+TIFF, GPU or network. The original manifests of the resolved version were reviewed.
 
-Alternativas elegidas: image/image-webp/png/flate2/fdeflate/crc32fast/cfg-if/
-num-traits/quick-error/autocfg/bitflags bajo MIT o Apache-2.0; zune-core y
-zune-jpeg bajo MIT/Apache, no su alternativa Zlib; bytemuck y miniz_oxide bajo
-MIT/Apache; byteorder-lite bajo MIT (no Unlicense); adler2 bajo MIT/Apache;
-simd-adler32 bajo MIT; moxcms y pxfm bajo BSD-3-Clause/Apache-2.0. No se añade
-ninguna excepción de licencia.
+Chosen alternatives: image/image-webp/png/flate2/fdeflate/crc32fast/cfg-if/
+num-traits/quick-error/autocfg/bitflags under MIT or Apache-2.0; zune-core and
+zune-jpeg under MIT/Apache, not their Zlib alternative; bytemuck and miniz_oxide under
+MIT/Apache; byteorder-lite under MIT (not Unlicense); adler2 under MIT/Apache;
+simd-adler32 under MIT; moxcms and pxfm under BSD-3-Clause/Apache-2.0. No license
+exception is added.
 
-**zlib-rs 0.6.8**, sólo Zlib, aparece como dependencia **opcional no seleccionada**
-en Cargo.lock por flate2/png. No está habilitada, compilada ni enlazada; no se
-considera autorizada. La evidencia usa `cargo tree -p files-helper -e normal,build`
-y los logs reales de build, no un recorrido ingenuo de `cargo metadata.resolve`
-(que también puede incluir aristas opcionales débiles). Un cambio que seleccione
-ese backend necesita revisión y autorización previa de esa licencia.
+**zlib-rs 0.6.8**, Zlib only, appears as an **optional, unselected** dependency
+in Cargo.lock through flate2/png. It is not enabled, built or linked; it is not
+considered authorized. The evidence uses `cargo tree -p files-helper -e normal,build`
+and the real build logs, not a naive walk of `cargo metadata.resolve`
+(which can also include weak optional edges). A change that selects
+that backend needs a review and prior authorization of that license.
 
-Detalle de formato/bounds/limitaciones y fuentes primarias en
-[IMAGE-PREVIEW.md](IMAGE-PREVIEW.md). Estas dependencias residen sólo en el
-helper; su PSS y el del árbol de app integrado todavía deben medirse por separado
-antes de aceptar P01/P02. Un helper funcional no completa la UI de imágenes.
+Format/bounds/limitation details and primary sources in
+[IMAGE-PREVIEW.md](IMAGE-PREVIEW.md). These dependencies live only in the
+helper; its PSS and that of the integrated app tree still have to be measured separately
+before accepting P01/P02. A functional helper does not complete the image UI.
 
 JPEG release upgrade: image features now only `png,webp`; helper-only path
-`vendor/jpeg-decoder`0.3.2, MIT OR Apache-2.0 (Apache option used), default features
-OFF, no Rayon. Exact archive/hash/licenses/originalsrc and applied source patch are
+`vendor/jpeg-decoder` 0.3.2, MIT OR Apache-2.0 (Apache option used), default features
+OFF, no Rayon. Exact archive/hash/licenses/original src and applied source patch are
 in SOURCE.json/PATCHES.md; independent provenance review vendor-source-review.json.
-The local manifest declares historicalasmjs for modern check-cfg without changing
-source. No IJG/TurboJPEG is linked or authorized. image's zuneJPEG adapter is no
+The local manifest declares historical asmjs for modern check-cfg without changing
+source. No IJG/TurboJPEG is linked or authorized. image's zune JPEG adapter is no
 longer selected by this release; previous audit belongs to the earlier candidate.
 
-## Markdown nativo (0.0.4)
+## Native Markdown (0.0.4)
 
-`pulldown-cmark =0.13.5`, defaults desactivados, licenciaMIT. Transitiva nueva
-`unicase2.10.0` MIT/Apache2; bitflags ymemchr ya permitidos. Se usan eventos nativos,
-no el featureHTML serializador ni CLI/getopts. Manifests/licencias leídos del
-registry local; checksums fijados en Cargo.lock. No nuevo motor browser ni GPU.
+`pulldown-cmark =0.13.5`, defaults disabled, MIT license. New transitive dependency
+`unicase 2.10.0` MIT/Apache 2; bitflags and memchr already allowed. Native events are used,
+not the HTML serializer feature nor CLI/getopts. Manifests/licenses read from the
+local registry; checksums pinned in Cargo.lock. No new browser engine nor GPU.
 
-## Adaptador HTML opcional (0.0.4 experimental)
+## Optional HTML adapter (0.0.4 experimental)
 
-No añade crates. litehtml6fd7aaa y Gumbo incluido se compilan estáticos en un
-ejecutable efímero separado, BSD3/Apache2. Archivo fijado82cfdc83… y licencias,
-fuentes/recipe/hashes en HTML-ENGINE-PROBE y scripts/fixtures/html-engine.
-La rutina UC/Sun strtod original NO se compila: patch sin fuzz y bridge MIT
-propio. Aviso MIT completo Hoehrmann preservado tras verificar tabla y decoder
-contra fuente primaria. Ninguna excepción nueva. `make html-helper` sólo prepara
-artefactos locales en target/release; falta empaquetado portable y presupuesto.
+It adds no crates. litehtml 6fd7aaa and the bundled Gumbo are built statically into a
+separate ephemeral executable, BSD-3/Apache-2. Pinned archive 82cfdc83… and licenses,
+sources/recipe/hashes in HTML-ENGINE-PROBE and scripts/fixtures/html-engine.
+The original UC/Sun strtod routine is NOT built: a patch without fuzz and an own MIT
+bridge. The full Hoehrmann MIT notice is preserved after checking the table and decoder
+against the primary source. No new exception. `make html-helper` only prepares
+local artifacts in target/release; portable packaging and a budget are missing.
 
-## Herramientas de vídeo del sistema
+## System video tools
 
-P07usa ffprobe/ffmpeg opcionales ya instalados mediante procesos directos,
-según DESIGN J. No se redistribuyen/enlazan esos ejecutables ni sus codecs;
-no hay nueva dependenciaCargo/descarga/instalación. Licencias de bibliotecas
-compiladas de files siguen allowlist. Paths/version/SHA de herramientas
-usadas se registran en video-ui JSON; ausencia se presenta como capacidad
-no disponible. Su consumo forma parte del futuro gate total, no se oculta
-por ser proceso externo. Reproducción de vídeo software y audio posterior documentadas en VIDEO-PREVIEW/AUDIO-PLAYBACK; no nuevos paquetes Cargo.
+P07 uses the optional, already installed ffprobe/ffmpeg through direct processes,
+according to DESIGN J. Those executables and their codecs are not redistributed/linked;
+there is no new Cargo dependency/download/installation. Licenses of the libraries
+compiled into files still follow the allowlist. Paths/version/SHA of the tools
+used are recorded in the video-ui JSON; their absence is presented as an unavailable
+capability. Their resource use is part of the future total gate and is not hidden
+for being an external process. Software video playback and later audio are documented in VIDEO-PREVIEW/AUDIO-PLAYBACK; no new Cargo packages.
 
-## Herramientas PDF del sistema
+## System PDF tools
 
-P06usa pdfinfo/pdftoppm opcionalesmedianteejecutablesdirectos. No se enlazan
-ni redistribuyenPoppler/librosPDF ni seincrementan dependenciasCargo. Su
-licencia/actualización pertenece al paqueteSO; ninguna excepciónnueva para
-códigodistribuido de files. Falta adaptaciónportable/capacidadsin herramientas
-yPSSárbol; paths/versiones/SHA deescenafuncionalenpdf-ui JSON.
+P06 uses the optional pdfinfo/pdftoppm through direct executables. Poppler/PDF libraries
+are neither linked nor redistributed, and Cargo dependencies do not grow. Their
+license/updates belong to the OS package; no new exception for
+code distributed with files. A portable adaptation/capability without the tools
+and the tree's PSS are missing; paths/versions/SHA from the functional scene in the pdf-ui JSON.
 
-## Adaptador de gestos de ventana (0.0.4)
+## Window gesture adapter (0.0.4)
 
-cc1.10.0 MIT/Apache y fltk-sys1.5.23 (ya presentes en lock) pasan a dependencias
-de build directas para compilar el bridge C++ MIT local contra headers reales.
-No bibliotecas de runtime nuevas ni GL/GPU; licencia FLTK y excepción estática
-existentes. Detalles de pin/API/ABI y fuentes/config en WINDOW-MODES.md.
+cc 1.10.0 MIT/Apache and fltk-sys 1.5.23 (already in the lock) become direct
+build dependencies to compile the local MIT C++ bridge against the real headers.
+No new runtime libraries nor GL/GPU; the existing FLTK license and static exception.
+Pin/API/ABI details and sources/config in WINDOW-MODES.md.
 
-## Renombrador regex (0.0.4)
+## Regex renamer (0.0.4)
 
-`regex = 1.13.1`, defaults OFF y sólo `std`, con regex-automata 0.4.18 y
-regex-syntax 0.8.11 bajo alternativa MIT (también Apache-2.0). El árbol de features
-seleccionado está en `evidence/rename-regex/`; `aho-corasick` 1.1.5 aparece en lock
-bajo MIT/Unlicense pero no se activa en este árbol normal.
+`regex = 1.13.1`, defaults OFF and only `std`, with regex-automata 0.4.18 and
+regex-syntax 0.8.11 under the MIT alternative (also Apache-2.0). The selected feature
+tree is in `evidence/rename-regex/`; `aho-corasick` 1.1.5 appears in the lock
+under MIT/Unlicense but is not enabled in this normal tree.
 
-La revisión de los archivos originales detectó `regex-syntax/src/unicode_tables/
-LICENSE-UNICODE` con términos Unicode 1991–2018. No es la excepción específica de
-unicode-ident y no se autorizó implícitamente: las features de esas tablas quedan
-DESACTIVADAS. El motor sigue aceptando UTF-8 escalar/literales/rangos; las clases,
-propiedades y casefold Unicode muestran error de capacidad. La unificación del
-workspace añade sólo `dfa-search` de automata por bstr/opener ya existentes, no
-activa tablas de syntax ni DFA-build/hybrid/perf. Hashes/manifests/decisión en
-`dependency-audit.json`. No nueva excepción, descarga o instalación global.
+The review of the original files found `regex-syntax/src/unicode_tables/
+LICENSE-UNICODE` with Unicode 1991–2018 terms. It is not the specific
+unicode-ident exception and it was not implicitly authorized: those tables' features stay
+DISABLED. The engine still accepts UTF-8 scalars/literals/ranges; Unicode classes,
+properties and casefold show a capability error. Workspace unification
+adds only automata's `dfa-search` through the existing bstr/opener; it does not
+enable syntax tables nor DFA-build/hybrid/perf. Hashes/manifests/decision in
+`dependency-audit.json`. No new exception, download or global installation.
 
-## Apertura de archivos — 2026-10-26
-Se retiró opener y sus dependencias bstr/normpath al adoptar `open` del sistema
-por instrucción explícita. No dependencia nueva ni fallback. También desaparece
-la feature dfa-search transitiva de regex-automata antes aportada por bstr;
-regex sigue std/NFA/syntax sin tablas Unicode no autorizadas. El apartado previo
-es histórico de ese checkpoint; árbol actual en evidence/open-close/regex-features.txt.
+## Opening files — 2026-10-26
+opener and its bstr/normpath dependencies were removed when adopting the system `open`
+by explicit instruction. No new dependency nor fallback. The transitive
+dfa-search feature of regex-automata that bstr used to bring also disappears;
+regex stays std/NFA/syntax without unauthorized Unicode tables. The earlier section
+is the history of that checkpoint; the current tree is in evidence/open-close/regex-features.txt.
 
-## PNG por filas — 2026-10-27
-`png = 0.18.1`, MIT OR Apache-2.0, ya transitivo de image; se añade sólo
-la dependencia directa en helper. Sin nuevo paquete ni decoder nativo/GPU.
-Reader por filas/Adam7 y límites descritos en PNG-ROWS-PREVIEW; caps locales
-no equivalen al presupuesto PSS del árbol.
+## PNG by rows — 2026-10-27
+`png = 0.18.1`, MIT OR Apache-2.0, already transitive through image; only
+the direct dependency in the helper is added. No new package nor native/GPU decoder.
+The row/Adam7 reader and limits are described in PNG-ROWS-PREVIEW; local caps
+are not equivalent to the tree's PSS budget.
 
-Audio seleccionado: producción usa el mismo ffmpeg del SO con salida Pulse,
-no enlaza ni redistribuye ffplay/SDL. El prototipo ffplay quedó sólo en historia
-git/evidencia por su EOF nativo fallido. ffprobe/ffmpeg paths/version/SHA actuales
-en audio-ui1793086873981565834; ausencia/salida no disponible son errores visibles.
-Consumo del proceso pertenece al gate total pendiente, AS768MiB virtual NO PSS.
+Selected audio: production uses the same OS ffmpeg with Pulse output,
+and does not link or redistribute ffplay/SDL. The ffplay prototype remains only in git history/
+evidence because of its failed native EOF. Current ffprobe/ffmpeg paths/version/SHA
+in audio-ui 1793086873981565834; absence/unavailable output are visible errors.
+The process's resource use belongs to the pending total gate; AS 768 MiB virtual is NOT PSS.
 
 
-GIF M16 no añade crate ni motor enlazado: usa sólo demuxer/códecgif del ffmpeg/
-ffprobe del sistema ya opcionales, con whitelist porformato. No redistribuye
-los CLI. Caps de GIF-PREVIEW yvalidación funcional no acreditanPSSárbol.
+GIF M16 adds no crate nor linked engine: it only uses the gif demuxer/codec of the system
+ffmpeg/ffprobe, already optional, with a per-format whitelist. It does not redistribute
+the CLIs. The GIF-PREVIEW caps and functional validation do not prove the tree's PSS.
 
-## DOCX en preparación (0.0.4)
+## DOCX in preparation (0.0.4)
 
-quick-xml=0.41.0 MIT, defaults off, sólo dependencia memchr ya existente.
-flate2=1.1.10/crc32fast=1.5.3 pasan a dependencias directas del helper; flate2
-defaults off/rust_backend mantiene miniz_oxide permisivo, NO zlib-rs. Árbol
-normal/build offline/locked y hashes de manifest/licencia en
-evidence/0.0.4/office-dependency-audit.json. Sin nueva familia de licencia,
-DOM/browser/network/daemon. Esto es auditoría estática, NO aceptación de UI/PSS.
+quick-xml =0.41.0 MIT, defaults off, only the already existing memchr dependency.
+flate2 =1.1.10/crc32fast =1.5.3 become direct helper dependencies; flate2
+defaults off/rust_backend keeps the permissive miniz_oxide, NOT zlib-rs. The
+normal/build tree offline/locked and the manifest/license hashes in
+evidence/0.0.4/office-dependency-audit.json. No new license family,
+DOM/browser/network/daemon. This is a static audit, NOT UI/PSS acceptance.
 
 ## EXDEV source inventory (0.0.4, M25 WIP)
 
-SHA256 incremental: `sha2 =0.10.9`, defaults off, feature std. Ocho paquetes
-nuevos en lock: sha2, block-buffer, cpufeatures, crypto-common, digest, typenum
-MIT/Apache2; generic-array MIT; version_check MIT/Apache2. Declaraciones y
-archivos LICENSE locales comprobados en exdev-dependency-declarations.json;
-la coordinación verificó independientemente las mismas declaraciones. Sin nueva
-excepción. No implica auditoría completa de source ni presupuesto de app.
-No se selecciona sha2-asm; árbol normal/build se comprueba antes del checkpoint.
+Incremental SHA256: `sha2 =0.10.9`, defaults off, feature std. Eight new packages
+in the lock: sha2, block-buffer, cpufeatures, crypto-common, digest, typenum
+MIT/Apache 2; generic-array MIT; version_check MIT/Apache 2. Declarations and
+local LICENSE files checked in exdev-dependency-declarations.json;
+the coordinator independently verified the same declarations. No new
+exception. This does not imply a full source audit nor an app budget.
+sha2-asm is not selected; the normal/build tree is checked before the checkpoint.
 
 
-## M29a — MIME Wayland (0.0.4 parcial)
+## M29a — Wayland MIME (0.0.4 partial)
 
-Sin cambios de Cargo.lock ni nuevas dependencias. Bridge C++ local MIT compila
-contra headers privados FLTK1.5.23 ya pinned y Wayland ya enlazado; static_assert
-ABI/API exige revisión al actualizar. No redistribuye gestor externo ni usa
-data-control. FLTK conserva licencia/excepción de enlace ya documentada. Posible
-hook DnD futuro exige fuente/parche reproducible de ese pin, no editar registry.
+No Cargo.lock changes nor new dependencies. The local MIT C++ bridge compiles
+against the private headers of the already pinned FLTK 1.5.23 and the already linked Wayland; a static_assert
+on ABI/API requires a review when updating. It does not redistribute an external manager nor use
+data-control. FLTK keeps its already documented license/linking exception. A possible
+future DnD hook needs a reproducible source/patch for that pin, not editing the registry.
 
 
-## M29b — hook Wayland FLTK1.5.23
+## M29b — FLTK 1.5.23 Wayland hook
 
-Se incluye la TU upstream y patch acotado en vendor/fltk-wayland-transfer bajo
-licencia FLTK LGPL con excepción estática y COPYING íntegro; modificaciones FLTK
-se distribuyen bajo esos términos, no MIT. SOURCE.json fija SHA archivo crate,
-fuente, patch y licencia. No nuevas crates, licencias ni red; wrapper CMake sólo
-modifica fuente generada en target. Guard y documentación de rebuild en README
-del vendor. La compilación no demuestra interop nativa ni consumo de memoria.
+The upstream TU and a bounded patch are included in vendor/fltk-wayland-transfer under the
+FLTK LGPL license with the static exception and the full COPYING; FLTK modifications
+are distributed under those terms, not MIT. SOURCE.json pins the SHA of the crate archive,
+source, patch and license. No new crates, licenses or network; the CMake wrapper only
+modifies source generated in target. Guard and rebuild documentation in the vendor's
+README. Building does not prove native interop nor memory use.
 
 ## 2026-11-04 — vendor lib-fltk-omarchy 1ff1adf
 
-La actualización del toolkit (tooltips Omarchy, animaciones, RTL/i18n)
-añade al lockfile `unicode-bidi 0.3.18` y `unicode-segmentation 1.12.0`,
-ambos `MIT OR Apache-2.0`, sin archivos ni términos de licencia Unicode
-adicionales (revisados LICENSE-* y fuentes). `pulldown-cmark =0.13.5` sigue
-resolviendo con el requisito ≥0.13.5 del toolkit.
+The toolkit update (Omarchy tooltips, animations, RTL/i18n)
+adds `unicode-bidi 0.3.18` and `unicode-segmentation 1.12.0` to the lockfile,
+both `MIT OR Apache-2.0`, with no additional Unicode license files or terms
+(LICENSE-* and sources reviewed). `pulldown-cmark =0.13.5` still
+resolves with the toolkit's ≥0.13.5 requirement.

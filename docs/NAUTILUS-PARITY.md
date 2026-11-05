@@ -1,191 +1,191 @@
-# Nautilus como piso mínimo — matriz de paridad
+# Nautilus as the minimum floor — parity matrix
 
-2026-11-04. Pedido del usuario: Files debe tener como mínimo las capacidades
-de Nautilus (GNOME Files 47–49) y tomar lo mejor de otros gestores.
+2026-11-04. User request: Files must have at least the capabilities
+of Nautilus (GNOME Files 47–49) and take the best from other file managers.
 
-Fuentes de Nautilus: GNOME release notes 47/48, `NEWS` de Nautilus, ayuda
-de GNOME Files y, de la versión 49.0, `help-overlay.ui` (atajos),
-`nautilus-preferences-dialog.ui` y `freedesktop-dbus-interfaces.xml`.
-El estado de Files se verificó en el código (no en docs) a fecha 6348af9.
+Nautilus sources: GNOME release notes 47/48, Nautilus `NEWS`, the GNOME Files
+help and, from version 49.0, `help-overlay.ui` (shortcuts),
+`nautilus-preferences-dialog.ui` and `freedesktop-dbus-interfaces.xml`.
+Files' status was verified in the code (not in docs) as of 6348af9.
 
-Estados: **sí** · **parcial** · **no**. Prioridad: P1 = se nota en el uso diario.
+States: **yes** · **partial** · **no**. Priority: P1 = noticeable in daily use.
 
-| # | Capacidad (Nautilus) | Files | Brecha | Prioridad |
+| # | Capability (Nautilus) | Files | Gap | Priority |
 |---|---|---|---|---|
-| 1 | Lista/grilla, zoom Ctrl±/0 | parcial | zoom sólo en grilla | P2 |
-| 2 | Columnas configurables y orden por tipo/dueño/permisos/fechas | parcial | bloque 5: orden por tipo; faltan columnas configurables y dueño/permisos/creación | P2 |
-| 3 | Carpetas expandibles en lista | no | — (Columnas/Miller como alternativa) | P3 |
-| 4 | Pestañas, historial por pestaña | sí | — | — |
-| 5 | Barra de ruta + Ctrl+L, `/` y `~` | sí | — | — |
-| 6 | Escribir para filtrar | sí | — | — |
-| 7 | Ocultos Ctrl+H | sí | — | — |
-| 8 | Miniaturas imagen/vídeo/PDF/carátulas | parcial | PDF, carátula audio, lista | P2 |
-| 9 | Selección por rectángulo (marquee) | **sí** | bloque 3: Grupos/Lista/Grilla, Ctrl/Shift suma, clic en vacío limpia | — |
-| 10 | Seleccionar por patrón Ctrl+S | **sí** | bloque 6 | — |
-| 11 | Portapapeles con otras apps | parcial | bloque 3: Ctrl+V pega lo último copiado (Files o sistema); sin prueba de punta a punta (no se toca el portapapeles personal) | P2 |
-| 12 | Arrastrar y soltar con otras apps | parcial | soltar siempre pasa por revisión | P2 |
-| 13 | Papelera: vaciar, restaurar elegidos, Shift+Supr | **sí** | bloque 1: Shift+Supr con confirmación, Restaurar/Eliminar/Vaciar en el catálogo | — |
-| 14 | Deshacer/rehacer operaciones | parcial | sólo renombrar y último lote a papelera | P2 |
-| 15 | Renombrar y renombrado masivo | sí | (Files supera: regex, secuencias) | — |
-| 16 | Nueva carpeta, con selección, plantillas `~/Templates` | **sí** | bloque 5 | — |
-| 17 | Comprimir/extraer zip, tar.*, 7z | parcial | sólo ZIP | P2 |
-| 18 | Crear enlace Ctrl+M / Shift+Ctrl+M | **sí** | bloques 1 y 6 | — |
-| 19 | Propiedades: contenido, espacio libre, dueño/grupo, recursivo | parcial | sin conteo/espacio/dueño/recursivo | P2 |
-| 20 | Abrir con otra app y fijar predeterminada | **sí** | bloque 2: Enter abre con la predeterminada; Abrir con… (Ctrl+Shift+O) | — |
-| 21 | Terminal aquí (Ctrl+.) | **sí** | bloque 1 | — |
-| 22 | Scripts de usuario / acciones | no | — | P2 |
-| 23 | Conflictos: reemplazar, fusionar, por archivo | parcial | sin reemplazar ni fusionar | P2 |
-| 24 | Progreso de operaciones | sí | — | — |
-| 25 | Destacados (estrellas) | no | — | P2 |
-| 26 | Recientes | no | — | P2 |
-| 27 | Lateral: marcadores, dispositivos vivos, red | parcial | bloque 4: marcadores y dispositivos vivos; falta red | P3 |
-| 28 | Montar/desmontar/expulsar, espacio por dispositivo | **sí** | bloque 4: udisksctl, espacio libre, expulsar con apagado | — |
-| 29 | Red: sftp/smb/ftp/dav/nfs | parcial | sólo SFTP | P3 |
-| 30 | Búsqueda con filtros y texto completo | sí | — | — |
-| 31 | Ejecutables y `.desktop` | no | — | P2 |
-| 32 | Selector de archivos (portal) | no | — | P3 |
-| 33 | `org.freedesktop.FileManager1` y `.desktop` | no | «Mostrar en carpeta» de otras apps | P1 |
-| 34 | Ayuda de atajos | sí | — | — |
-| 35 | Marcadores Ctrl+D | sí | — | — |
-| 36 | Copiar ruta | **sí** | bloque 1: Ctrl+Alt+C y menú contextual | — |
-| 37 | Espacio libre | sí | — | — |
-| 38 | Fondo de pantalla | no | — | P3 |
+| 1 | List/grid, zoom Ctrl±/0 | partial | zoom only in grid | P2 |
+| 2 | Configurable columns and sort by type/owner/permissions/dates | partial | block 5: sort by type; configurable columns and owner/permissions/creation missing | P2 |
+| 3 | Expandable folders in list | no | — (Columns/Miller as an alternative) | P3 |
+| 4 | Tabs, per-tab history | yes | — | — |
+| 5 | Path bar + Ctrl+L, `/` and `~` | yes | — | — |
+| 6 | Type to filter | yes | — | — |
+| 7 | Hidden files Ctrl+H | yes | — | — |
+| 8 | Image/video/PDF/cover thumbnails | partial | PDF, audio cover art, list | P2 |
+| 9 | Rubber-band (marquee) selection | **yes** | block 3: Groups/List/Grid, Ctrl/Shift adds, click on empty space clears | — |
+| 10 | Select by pattern Ctrl+S | **yes** | block 6 | — |
+| 11 | Clipboard with other apps | partial | block 3: Ctrl+V pastes the most recent copy (Files or system); no end-to-end test (the personal clipboard is not touched) | P2 |
+| 12 | Drag and drop with other apps | partial | dropping always goes through review | P2 |
+| 13 | Trash: empty, restore selected, Shift+Delete | **yes** | block 1: Shift+Delete with confirmation, Restore/Delete/Empty in the catalog | — |
+| 14 | Undo/redo operations | partial | only rename and the last batch sent to trash | P2 |
+| 15 | Rename and bulk rename | yes | (Files goes further: regex, sequences) | — |
+| 16 | New folder, with selection, `~/Templates` templates | **yes** | block 5 | — |
+| 17 | Compress/extract zip, tar.*, 7z | partial | ZIP only | P2 |
+| 18 | Create link Ctrl+M / Shift+Ctrl+M | **yes** | blocks 1 and 6 | — |
+| 19 | Properties: contents, free space, owner/group, recursive | partial | no count/space/owner/recursive | P2 |
+| 20 | Open with another app and set as default | **yes** | block 2: Enter opens with the default; Open with… (Ctrl+Shift+O) | — |
+| 21 | Terminal here (Ctrl+.) | **yes** | block 1 | — |
+| 22 | User scripts / actions | no | — | P2 |
+| 23 | Conflicts: replace, merge, per file | partial | no replace or merge | P2 |
+| 24 | Operation progress | yes | — | — |
+| 25 | Starred | no | — | P2 |
+| 26 | Recent | no | — | P2 |
+| 27 | Sidebar: bookmarks, live devices, network | partial | block 4: bookmarks and live devices; network missing | P3 |
+| 28 | Mount/unmount/eject, space per device | **yes** | block 4: udisksctl, free space, eject with power-off | — |
+| 29 | Network: sftp/smb/ftp/dav/nfs | partial | SFTP only | P3 |
+| 30 | Search with filters and full text | yes | — | — |
+| 31 | Executables and `.desktop` | no | — | P2 |
+| 32 | File chooser (portal) | no | — | P3 |
+| 33 | `org.freedesktop.FileManager1` and `.desktop` | no | «Show in folder» from other apps | P1 |
+| 34 | Shortcut help | yes | — | — |
+| 35 | Bookmarks Ctrl+D | yes | — | — |
+| 36 | Copy path | **yes** | block 1: Ctrl+Alt+C and context menu | — |
+| 37 | Free space | yes | — | — |
+| 38 | Wallpaper | no | — | P3 |
 | 39 | i18n | no | — | P3 |
-| 40 | Accesibilidad AT-SPI | no | FLTK sin puente AT-SPI | bloqueado |
-| 41 | Vista previa Space | sí | Files supera (vídeo, PDF, HTML, DOCX, ZIP) | — |
-| 42 | Suma de verificación | parcial | no en propiedades | P3 |
+| 40 | AT-SPI accessibility | no | FLTK has no AT-SPI bridge | blocked |
+| 41 | Space preview | yes | Files goes further (video, PDF, HTML, DOCX, ZIP) | — |
+| 42 | Checksum | partial | not in properties | P3 |
 
-Lo que Files ya tiene y Nautilus no: doble panel (F9), Columnas/Miller,
-mapa de espacio, tamaños de carpeta, comparar/sincronizar carpetas, duplicados,
-renombrado con regex, búsqueda guardada, paleta de comandos, vistas previas
-de vídeo/PDF/HTML/DOCX/ZIP.
+What Files already has and Nautilus does not: dual pane (F9), Columns/Miller,
+space map, folder sizes, compare/sync folders, duplicates,
+regex rename, saved search, command palette, previews
+of video/PDF/HTML/DOCX/ZIP.
 
-De otros gestores (pendiente, después del piso): acciones personalizadas con
-`%f/%F` (Thunar/Dolphin/Nemo), panel de terminal (Dolphin), etiquetas de color
-(Finder), salto difuso/frecuencia tipo zoxide (yazi), administrador de tareas
-en segundo plano unificado (yazi).
+From other file managers (pending, after the floor): custom actions with
+`%f/%F` (Thunar/Dolphin/Nemo), terminal panel (Dolphin), color tags
+(Finder), fuzzy/frecency jump like zoxide (yazi), a unified background task
+manager (yazi).
 
-## Orden de trabajo
+## Work order
 
-1. Papelera completa, crear enlace, copiar ruta y terminal con atajos.
-2. Abrir con / predeterminada, `.desktop` + FileManager1.
-3. Ctrl+V desde el sistema, selección por rectángulo.
-4. Dispositivos vivos y montar/expulsar, marcadores en el lateral.
-5. Columnas/orden, plantillas, recientes, destacados, tar, conflictos, scripts.
+1. Full trash, create link, copy path and terminal with shortcuts.
+2. Open with / default, `.desktop` + FileManager1.
+3. Ctrl+V from the system, rubber-band selection.
+4. Live devices and mount/eject, bookmarks in the sidebar.
+5. Columns/sort, templates, recent, starred, tar, conflicts, scripts.
 
-El avance de cada fila se registra aquí con commit y evidencia.
+Progress on each row is recorded here with commit and evidence.
 
-## Bloque 1 — 2026-11-04
+## Block 1 — 2026-11-04
 
-- Borrado permanente (`remove_tree`): descriptores fijados, sin seguir
-  enlaces, sin cruzar montajes, iterativo y cancelable, en hilo propio.
-- Papelera: restaurar por nombre con renameat2 NOREPLACE, eliminar un
-  elemento con sus metadatos, vaciar (incluidos metadatos huérfanos).
-- Crear enlace (Shift+Ctrl+M), Ctrl+. terminal, Ctrl+Alt+C copiar ruta.
-- Pedidos del usuario en la misma entrega: menú contextual agrupado por
-  tipo (ABRIR, EDITAR, ORGANIZAR, COMPRIMIR, ELIMINAR, SELECCIÓN / CREAR,
-  PEGAR, VER, SELECCIÓN, HERRAMIENTAS), «Agregar nueva» junto a CARPETAS en
-  Grupos, y refresco de subcarpetas visibles (`child_watch`): inotify sin
-  recursión sobre ≤64 carpetas visibles, en hilo propio; espera 1,5 s de
-  calma, relee sólo esa fila (conteo y fecha) y recalcula un tamaño medido
-  como mucho una vez por minuto por carpeta, en la cola secuencial de
-  tamaños. Sin sondeo: coste cero en reposo. Límite: cambios a más de un
-  nivel de profundidad no se detectan hasta recalcular a mano.
-- Validación: `scripts/nautilus-floor-ui-check.py` en ventana real con
-  papelera y fixtures privados; 712/112/807 pruebas Rust, Clippy, fmt.
+- Permanent deletion (`remove_tree`): pinned descriptors, does not follow
+  links, does not cross mounts, iterative and cancellable, on its own thread.
+- Trash: restore by name with renameat2 NOREPLACE, delete one
+  item with its metadata, empty (including orphaned metadata).
+- Create link (Shift+Ctrl+M), Ctrl+. terminal, Ctrl+Alt+C copy path.
+- User requests in the same delivery: a context menu grouped by
+  type (OPEN, EDIT, ORGANIZE, COMPRESS, DELETE, SELECTION / CREATE,
+  PASTE, VIEW, SELECTION, TOOLS), «Add new» next to FOLDERS in
+  Groups, and refreshing visible subfolders (`child_watch`): non-recursive inotify
+  on ≤64 visible folders, on its own thread; it waits 1.5 s of
+  calm, rereads only that row (count and date) and recomputes a measured size
+  at most once per minute per folder, in the sequential size
+  queue. No polling: zero cost at rest. Limit: changes more than one
+  level deep are not detected until recalculated by hand.
+- Validation: `scripts/nautilus-floor-ui-check.py` in a real window with a
+  trash and private fixtures; 712/112/807 Rust tests, Clippy, fmt.
 
-Correcciones de la misma entrega (2026-11-04):
-- Botón de Grupos: icono Nerd «carpeta +» (nf-md-folder_plus), sin texto,
-  por pedido del usuario.
-- Refresco de subcarpetas intermitente (2/3 fallos al instalar): una recarga
-  de la carpeta abierta retiraba las vigilancias (`loaded=false`) y luego los
-  índices visibles reordenados las sacaban un instante. Ahora una vigilancia
-  dura 5 s fuera de la vista y una carpeta vigilada de nuevo tras un hueco
-  relee su fila. 6/6 fuente y 3/3 instalado en NODE y en M2; FAILs previos
-  conservados en `docs/evidence/nautilus-floor-20261104`.
-- Instalado: NODE 7f35c3bd4f47, M2 a7298e28e489 (42587aa), 5 respaldos y
-  hashes verificados en ambas.
+Fixes in the same delivery (2026-11-04):
+- Groups button: Nerd icon «folder +» (nf-md-folder_plus), without text,
+  at the user's request.
+- Intermittent subfolder refresh (2/3 failures on install): a reload
+  of the open folder removed the watches (`loaded=false`) and then the
+  reordered visible indices dropped them for a moment. Now a watch
+  lasts 5 s outside the view and a folder watched again after a gap
+  rereads its row. 6/6 source and 3/3 installed on NODE and M2; earlier FAILs
+  kept in `docs/evidence/nautilus-floor-20261104`.
+- Installed: NODE 7f35c3bd4f47, M2 a7298e28e489 (42587aa), 5 backups and
+  hashes verified on both.
 
-## Bloque 2 — 2026-11-04: Abrir y Abrir con
+## Block 2 — 2026-11-04: Open and Open with
 
-Hallazgo crítico: Enter/doble clic ejecutaban el programa `open`, que en
-Omarchy es sólo una función de bash (no existe en PATH en NODE ni M2):
-abrir archivos NO funcionaba. Ahora, como Nautilus, `files_core::apps`
-resuelve el tipo MIME (nombre, y contenido si es desconocido), la
-aplicación predeterminada (cadena `mimeapps.list`, entradas instaladas,
-usuario sobre sistema) y lanza con `uwsm-app -t service -- <id> <ruta>`
-(lanzador de Omarchy; vuelve al instante). Sin aplicación: error visible.
+Critical finding: Enter/double click ran the `open` program, which in
+Omarchy is only a bash function (it is not in PATH on NODE nor M2):
+opening files did NOT work. Now, like Nautilus, `files_core::apps`
+resolves the MIME type (by name, and by content if unknown), the default
+application (`mimeapps.list` chain, installed entries,
+user over system) and launches with `uwsm-app -t service -- <id> <path>`
+(Omarchy's launcher; returns immediately). Without an application: a visible error.
 
-«Abrir con…» (Ctrl+Shift+O, menú ABRIR): recomendadas con la
-predeterminada primero, Tab muestra todas, Enter abre, Ctrl+Enter «Usar
-siempre» escribe `[Default Applications]` + `[Added Associations]` del
-usuario de forma atómica conservando el resto. NoDisplay oculto como en
-GNOME. Escaneo y escritura fuera del hilo UI.
+«Open with…» (Ctrl+Shift+O, OPEN menu): recommended apps with the
+default first, Tab shows all, Enter opens, Ctrl+Enter «Always
+use» writes the user's `[Default Applications]` + `[Added Associations]`
+atomically, keeping the rest. NoDisplay hidden as in
+GNOME. Scanning and writing outside the UI thread.
 
-Pendiente con consentimiento del usuario: registrar Files como gestor de
-carpetas (`.desktop` + `org.freedesktop.FileManager1`), porque reemplazaría
-el comportamiento actual de Omarchy (Nautilus) en «Mostrar en carpeta».
+Pending, with the user's consent: registering Files as the folder
+manager (`.desktop` + `org.freedesktop.FileManager1`), because it would replace
+Omarchy's current behavior (Nautilus) for «Show in folder».
 
-Validación: `scripts/open-with-ui-check.py` (lanzador grabador, XDG
-privados; nunca toca las asociaciones del usuario) 3/3 + final;
-716/112/807 pruebas, Clippy. `open-close-ui-check.py` queda SKIPPED en
-Linux: ejecutarlo lanzaría la aplicación real del usuario.
+Validation: `scripts/open-with-ui-check.py` (recording launcher, private XDG;
+it never touches the user's associations) 3/3 + final;
+716/112/807 tests, Clippy. `open-close-ui-check.py` stays SKIPPED on
+Linux: running it would launch the user's real application.
 
-## Bloque 3 — 2026-11-04: Ctrl+V del sistema y selección por rectángulo
+## Block 3 — 2026-11-04: system Ctrl+V and rubber-band selection
 
-- Ctrl+V pega lo último copiado, como Nautilus: el búfer de Files mientras
-  siga siendo la selección del sistema (conserva «cortar») o si el sistema
-  no ofrece archivos; si otra app copió archivos después, se importan esos.
-  El puente nativo expone `selection_ours` (fuente publicada no cancelada)
-  y `files_offered`. Decisión cubierta por pruebas; la importación real
-  exige gesto real y portapapeles del usuario: NO validada de punta a punta.
-- Selección por rectángulo en Grupos/Lista/Grilla con borde de acento;
-  Ctrl/Shift suma; clic en vacío limpia (antes no hacía nada).
-- `build.rs`: dos copias idénticas de fltk-sys en distintos índices del
-  registro (otro proyecto) ya no rompen la compilación; distintas siguen
-  fallando.
-- Fixtures de menú buscan la entrada por acción (las secciones movieron los
-  índices). `keyboard-nav-ui-check` falla en Espacio (Ctrl+Shift+Fin) igual
-  con el binario previo a la paridad (fa50e53): fallo preexistente pendiente.
-- Las ventanas de prueba deben lanzarse con un `exec` de Hyprland por script:
-  encadenados, la regla de workspace caduca y aparecían en el escritorio.
+- Ctrl+V pastes the most recent copy, like Nautilus: Files' buffer while it
+  is still the system selection (it keeps «cut») or if the system
+  offers no files; if another app copied files afterwards, those are imported.
+  The native bridge exposes `selection_ours` (published, not cancelled source)
+  and `files_offered`. The decision is covered by tests; the real import
+  needs a real gesture and the user's clipboard: NOT validated end to end.
+- Rubber-band selection in Groups/List/Grid with an accent border;
+  Ctrl/Shift adds; click on empty space clears (before it did nothing).
+- `build.rs`: two identical copies of fltk-sys in different registry
+  indices (another project) no longer break the build; different copies still
+  fail.
+- Menu fixtures look up the entry by action (the sections moved the
+  indices). `keyboard-nav-ui-check` fails in Space (Ctrl+Shift+End) just the same
+  with the binary from before the parity work (fa50e53): a pre-existing failure, pending.
+- Test windows must be launched with one Hyprland `exec` per script:
+  when chained, the workspace rule expires and they appeared on the desktop.
 
-## Bloque 4 — 2026-11-04: dispositivos y marcadores en el lateral
+## Block 4 — 2026-11-04: devices and bookmarks in the sidebar
 
-- `files_core::devices`: `lsblk -J` (sin montajes de sistema, sin
-  particiones EFI/reservadas/recuperación/arranque Apple, sin sistemas de
-  archivos que el kernel no soporta), espacio libre, y montar/desmontar/
-  expulsar (desmontar + `power-off` del disco) con `udisksctl` (polkit, sin
-  root). Vigilancia por eventos: `/proc/self/mountinfo` (POLLPRI) e inotify
-  en `/dev/disk/by-uuid`, retardo 400 ms, y una relectura cada 2 min para el
-  espacio libre. Antes los montajes se leían una sola vez al arrancar.
-- Lateral: hasta 8 marcadores y los dispositivos (icono USB/disco, montado
-  o atenuado, espacio libre, botón expulsar/desmontar con el lateral
-  expandido). Clic en un dispositivo sin montar lo monta y lo abre; al
-  expulsar el actual se vuelve a Inicio. Menú de fondo: sección DISPOSITIVO.
-- NODE real listaría `/mnt/ubuntu`, Gbte, Peliculas y `/mnt/avd`.
-- Validación: `scripts/devices-ui-check.py` (lsblk de fixture + udisksctl
-  grabador; ningún disco real tocado), pruebas 719/112/808, Clippy.
+- `files_core::devices`: `lsblk -J` (no system mounts, no
+  EFI/reserved/recovery/Apple boot partitions, no filesystems the kernel
+  does not support), free space, and mount/unmount/
+  eject (unmount + `power-off` of the disk) with `udisksctl` (polkit, no
+  root). Event-based watching: `/proc/self/mountinfo` (POLLPRI) and inotify
+  on `/dev/disk/by-uuid`, a 400 ms delay, and a reread every 2 min for
+  free space. Before, mounts were read only once at startup.
+- Sidebar: up to 8 bookmarks and the devices (USB/disk icon, mounted
+  or dimmed, free space, eject/unmount button when the sidebar is
+  expanded). Clicking an unmounted device mounts and opens it; when
+  ejecting the current one it goes back Home. Background menu: DEVICE section.
+- The real NODE would list `/mnt/ubuntu`, Gbte, Peliculas and `/mnt/avd`.
+- Validation: `scripts/devices-ui-check.py` (fixture lsblk + recording udisksctl;
+  no real disk touched), tests 719/112/808, Clippy.
 
-## Bloque 5 — 2026-11-04: orden por tipo, plantillas, carpeta con selección
+## Block 5 — 2026-11-04: sort by type, templates, folder from selection
 
-- `Sort::Type` (extensión, luego nombre natural), en lista, grupos, doble
-  panel, sesión (3) y vistas por carpeta (3); cuarta columna TIPO y comando
-  `sort-type`. Tipo empieza ascendente; tamaño y fecha descendentes (antes
-  todo lo que no era nombre empezaba descendente).
-- «Nuevo: <plantilla>» (menú de fondo, CREAR) desde `XDG_TEMPLATES_DIR`
-  (`user-dirs.dirs`) o `~/Templates`: copia con nombre libre, ≤16 MiB.
-- «Nueva carpeta con la selección» (ORGANIZAR): «Carpeta nueva (n)» y
-  renameat2 NOREPLACE de cada elemento.
-- Etiquetas de menú dinámicas (`Cow`).
-- Validación: floor check (plantillas ×2, agrupar, orden tipo) PASS;
-  720/112/808 pruebas, Clippy; folder-views-ui-check PASS.
+- `Sort::Type` (extension, then natural name), in list, groups, dual
+  pane, session (3) and per-folder views (3); a fourth TYPE column and the
+  `sort-type` command. Type starts ascending; size and date descending (before,
+  everything that was not name started descending).
+- «New: <template>» (background menu, CREATE) from `XDG_TEMPLATES_DIR`
+  (`user-dirs.dirs`) or `~/Templates`: a copy with a free name, ≤16 MiB.
+- «New folder with selection» (ORGANIZE): «Carpeta nueva (n)» and
+  renameat2 NOREPLACE of each item.
+- Dynamic menu labels (`Cow`).
+- Validation: floor check (templates ×2, group, sort by type) PASS;
+  720/112/808 tests, Clippy; folder-views-ui-check PASS.
 
-## Bloque 6 — 2026-11-04: Ctrl+S y Ctrl+M
+## Block 6 — 2026-11-04: Ctrl+S and Ctrl+M
 
-- Ctrl+S abre el filtro en modo selección: el patrón (glob, `*.jpg`) se
-  escribe como siempre y Enter marca lo que coincide y vuelve a mostrar
-  todo; Esc cancela. Menú de fondo SELECCIÓN.
-- Ctrl+M crea aquí enlaces a lo copiado en Files (menú de fondo PEGAR).
-- Validación: floor check (`*.txt` → 4 marcados; Ctrl+M «Enlace a
-  zeta.ab»); 720/112/808 pruebas, Clippy.
+- Ctrl+S opens the filter in selection mode: the pattern (glob, `*.jpg`) is
+  typed as usual and Enter marks what matches and shows everything
+  again; Esc cancels. Background menu SELECTION.
+- Ctrl+M creates links here to what was copied in Files (background menu PASTE).
+- Validation: floor check (`*.txt` → 4 marked; Ctrl+M «Enlace a
+  zeta.ab»); 720/112/808 tests, Clippy.
