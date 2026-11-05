@@ -73,6 +73,35 @@ fn floor_command(m: &mut Model, action: &str) -> Option<Result<(), String>> {
         m.action(Action::Device(node.into(), op));
         return Some(Ok(()));
     }
+    if let Some(i) = action.strip_prefix("nf-template:") {
+        let list = files_core::quick_ops::templates(&files_core::quick_ops::templates_dir());
+        let Some(t) = i.parse::<usize>().ok().and_then(|i| list.get(i).cloned()) else {
+            return Some(Err(format!(
+                "nf-template: sin plantilla {i} ({})",
+                list.len()
+            )));
+        };
+        m.action(Action::NewFromTemplate(t));
+        return Some(Ok(()));
+    }
+    if action == "nf-folder-with" {
+        m.action(Action::FolderWithSelection);
+        return Some(Ok(()));
+    }
+    if action == "nf-sort-type" {
+        m.action(Action::Sort(files_core::listing::Sort::Type));
+        return Some(Ok(()));
+    }
+    if action == "nf-order" {
+        let names: Vec<String> = m
+            .order
+            .iter()
+            .filter_map(|i| m.entries.get(*i))
+            .map(|e| e.name.to_string_lossy().into_owned())
+            .collect();
+        eprintln!("FILES_NF_ORDER {}", names.join("|"));
+        return Some(Ok(()));
+    }
     if action == "nf-rail" {
         m.rail = true;
         return Some(Ok(()));

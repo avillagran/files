@@ -366,7 +366,7 @@ impl Manager {
                         Some((label, hint)) if !i.section => {
                             PopupItem::new("", label).shortcut(hint)
                         }
-                        _ => PopupItem::new("", i.label),
+                        _ => PopupItem::new("", &i.label),
                     };
                     if menu.items.get(index + 1).is_some_and(|next| next.section) {
                         item = item.divider();

@@ -653,7 +653,8 @@ fn sort_header_targets_are_disjoint_inside_narrow_and_wide_panels() {
             .iter()
             .filter(|h| matches!(h.action, Action::PaneSort(..)))
             .collect::<Vec<_>>();
-        assert_eq!(hits.len(), 6);
+        // Name, size, date and type in each of the two panels.
+        assert_eq!(hits.len(), 8);
         for (i, a) in hits.iter().enumerate() {
             assert!(a.rect.x >= area.x && a.rect.x + a.rect.w <= area.x + area.w);
             assert!(a.action.accessible_name().is_some());

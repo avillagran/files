@@ -91,6 +91,8 @@ pub mod apps;
 pub mod devices;
 /// "Create link" to selected items.
 pub mod links;
+/// New document from templates, new folder with selection.
+pub mod quick_ops;
 /// Permanent deletion (Shift+Delete, empty trash).
 pub mod remove_tree;
 pub mod trash;

@@ -1,0 +1,57 @@
+{
+  "functional_gate": "PASS",
+  "label": "m2-b5",
+  "binary_sha256": "0cdea761600ed08f99767d55ffe953d2b4ae2af1c5fe436226761af4a968cb37",
+  "helper_sha256": "e5401c541f6ca42ca9eb3415d8277df5c6bfb114835913cbe48d2bd9245b942c",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "method": "internal Actions + real FLTK window/framebuffer, private fixtures and trash; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "grouped_context_sections": [
+      "#ABRIR",
+      "#EDITAR",
+      "#ORGANIZAR",
+      "#COMPRIMIR",
+      "#ELIMINAR",
+      "#SELECCI\u00d3N"
+    ],
+    "permanent_delete": "8 elementos eliminados (4.1 kB)",
+    "create_link": "Enlace creado: Enlace a linkme.txt",
+    "templates_group_sort": {
+      "group": "2 elementos movidos a Carpeta nueva",
+      "type_order": [
+        "Carpeta nueva",
+        "watched",
+        "zeta.ab",
+        "Enlace a linkme.txt",
+        "extra.txt",
+        "keep.txt",
+        "linkme.txt"
+      ]
+    },
+    "child_refresh": "watched 2 -> 5 directas",
+    "rubber_band": {
+      "two": [
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "additive": [
+        "extra.txt",
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "click_empty_clears": true
+    },
+    "trash": "restore, purge one, empty; files/ and info/ empty"
+  },
+  "captures": [
+    "/home/avillagran/.cache/files-m2-updates/b5-2da034a/source/docs/evidence/nautilus-floor-20261104/m2-b5-groups-add-new-1793837892122969070.png",
+    "/home/avillagran/.cache/files-m2-updates/b5-2da034a/source/docs/evidence/nautilus-floor-20261104/m2-b5-context-grouped-1793837892672023062.png",
+    "/home/avillagran/.cache/files-m2-updates/b5-2da034a/source/docs/evidence/nautilus-floor-20261104/m2-b5-delete-confirm-1793837892860479295.png",
+    "/home/avillagran/.cache/files-m2-updates/b5-2da034a/source/docs/evidence/nautilus-floor-20261104/m2-b5-trash-catalog-1793837895146409720.png",
+    "/home/avillagran/.cache/files-m2-updates/b5-2da034a/source/docs/evidence/nautilus-floor-20261104/m2-b5-trash-empty-confirm-1793837895577946673.png",
+    "/home/avillagran/.cache/files-m2-updates/b5-2da034a/source/docs/evidence/nautilus-floor-20261104/m2-b5-trash-emptied-1793837895784426539.png"
+  ],
+  "context_retries": 1
+}

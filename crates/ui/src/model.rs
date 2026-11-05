@@ -32,6 +32,10 @@ pub enum Action {
     CreateLinks,
     /// Ctrl+Shift+O: choose the application for the focused file.
     OpenWith,
+    /// "Nuevo: <plantilla>" from ~/Templates.
+    NewFromTemplate(PathBuf),
+    /// Nautilus "New Folder with Selection".
+    FolderWithSelection,
     /// Sidebar device: open (mounting first) or an explicit operation.
     Device(PathBuf, Option<files_core::devices::Op>),
     OpenWithCmd(crate::open_with_ui::Command),
@@ -359,6 +363,9 @@ impl Action {
             }
             Self::Sort(Sort::Modified) | Self::PaneSort(_, _, Sort::Modified) => {
                 Some("Ordenar por fecha de modificación; repetir invierte; conserva foco")
+            }
+            Self::Sort(Sort::Type) | Self::PaneSort(_, _, Sort::Type) => {
+                Some("Ordenar por tipo (extensión) y nombre; repetir invierte")
             }
             Self::PaneFilter(_, _, true) => {
                 Some("Quitar sólo el filtro de este panel; conservar foco y marcas")
@@ -1024,6 +1031,9 @@ impl Model {
                             self.descending,
                         );
                     }
+                    // Stable sort: within a kind the natural name order stays.
+                    Sort::Type => files_core::listing::type_key(&a.name)
+                        .cmp(&files_core::listing::type_key(&b.name)),
                     _ => a
                         .metadata
                         .as_ref()
@@ -2630,6 +2640,8 @@ impl Model {
             Action::DeleteAnswer(_) => {}
             Action::CreateLinks => self.create_links(),
             Action::OpenWith => self.open_with(),
+            Action::NewFromTemplate(t) => self.new_from_template(t),
+            Action::FolderWithSelection => self.folder_with_selection(),
             Action::Device(node, op) => self.device_action(node, op),
             Action::OpenWithCmd(_) => {}
             Action::OpenTrash => self.open_trash_browser(),
@@ -3041,7 +3053,7 @@ impl Model {
                     self.descending = !self.descending;
                 } else {
                     self.sort = s;
-                    self.descending = s != Sort::Name;
+                    self.descending = matches!(s, Sort::Size | Sort::Modified);
                 }
                 self.rebuild();
                 self.request_stats();

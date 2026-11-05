@@ -59,6 +59,7 @@ def main():
             (listing / 'extra.txt').write_bytes(b'extra\n')
             (listing / 'doomed.txt').write_bytes(b'doomed\n')
             (listing / 'linkme.txt').write_bytes(b'link target\n')
+            (listing / 'zeta.ab').write_bytes(b'z')
             tree = listing / 'doomtree'
             (tree / 'a/b/c').mkdir(parents=True)
             (tree / 'a/b/c/deep.bin').write_bytes(os.urandom(4096))
@@ -70,12 +71,18 @@ def main():
                 (watched / n).write_bytes(b'w')
             data = base / 'data'
             data.mkdir(mode=0o700)
+            templates = base / 'Plantillas'
+            templates.mkdir()
+            (templates / 'Informe.md').write_text('# Informe\n')
+            xdg_config = base / 'xdg-config'
+            xdg_config.mkdir()
+            (xdg_config / 'user-dirs.dirs').write_text(f'XDG_TEMPLATES_DIR="{templates}"\n')
             capture = base / 'frame.ppm'
             # Kept outside the temporary tree so a failure keeps its log.
             log = EVIDENCE / f'{args.label}-{time.time_ns()}-app.log'
             env = {**os.environ, 'FILES_CONFIG_DIR': str(base / 'config'), 'XDG_DATA_HOME': str(data),
                    'FILES_TEST_CAPTURE': str(capture), 'FILES_TEST_PREVIEW': '1', 'FILES_TEST_FIXED_SIZE': '1',
-                   'FILES_TEST_ISOLATE_INPUT': '1', 'FILES_CHILD_WATCH_TRACE': '1', 'TMPDIR': str(base), 'MAGICK_TEMPORARY_PATH': str(base)}
+                   'FILES_TEST_ISOLATE_INPUT': '1', 'FILES_CHILD_WATCH_TRACE': '1', 'XDG_CONFIG_HOME': str(xdg_config), 'TMPDIR': str(base), 'MAGICK_TEMPORARY_PATH': str(base)}
             with log.open('w') as output:
                 process = subprocess.Popen([str(args.binary), str(listing), '--size', '1000x650', '--scale', '1',
                                             '--no-session', '--ui-smoke', '--ui-scene', 'folder', '--exit-after', '90'],
@@ -180,6 +187,24 @@ def main():
             link = listing / 'Enlace a linkme.txt'
             assert link.is_symlink() and os.readlink(link) == str(listing / 'linkme.txt'), done
             report['checks']['create_link'] = done
+
+            # New document from a template (free names), folder with selection,
+            # sort by type.
+            for expected in ['Informe.md', 'Informe (2).md']:
+                after = command('nf-template:0')
+                marker(after, r'FILES_DELETE_DONE target=Template.*result=Creado ' + re.escape(expected), 'template ' + expected)
+                assert (listing / expected).read_text() == '# Informe\n'
+            command('nf-select:Informe.md|Informe (2).md')
+            after = command('nf-folder-with')
+            done = marker(after, r'FILES_DELETE_DONE target=FolderWith.*result=(.*)', 'folder with').group(1)
+            group = listing / 'Carpeta nueva'
+            assert sorted(p.name for p in group.iterdir()) == ['Informe (2).md', 'Informe.md'], done
+            command('nf-sort-type')
+            def order():
+                after = command('nf-order')
+                return marker(after, r'FILES_NF_ORDER (.*)', 'order').group(1).split('|')
+            wait(lambda: (o := order()) and 'zeta.ab' in o and o.index('zeta.ab') < o.index('extra.txt'), 'type order')
+            report['checks']['templates_group_sort'] = {'group': done, 'type_order': order()}
 
             # Files added inside a visible subfolder update its row.
             for n in ['three', 'four', 'five']:

@@ -186,6 +186,16 @@ pub enum Sort {
     Name,
     Size,
     Modified,
+    /// By kind (extension, lowercase), then name: Nautilus "Type".
+    Type,
+}
+/// Sort key of [`Sort::Type`]: the lowercase extension ("" first).
+pub fn type_key(name: &std::ffi::OsStr) -> String {
+    let n = name.to_string_lossy();
+    match n.rsplit_once('.') {
+        Some((stem, ext)) if !stem.is_empty() && !ext.is_empty() => ext.to_lowercase(),
+        _ => String::new(),
+    }
 }
 /// Known totals precede unknown observations in either direction. Zero is known.
 pub fn compare_sizes(a: Option<u64>, b: Option<u64>, descending: bool) -> std::cmp::Ordering {
@@ -222,6 +232,7 @@ pub fn sort(entries: &mut [Entry], by: Sort, descending: bool) {
                     .as_ref()
                     .map(|m| m.modified)
                     .cmp(&b.metadata.as_ref().map(|m| m.modified)),
+                Sort::Type => type_key(&a.name).cmp(&type_key(&b.name)),
                 _ => std::cmp::Ordering::Equal,
             };
             if descending { order.reverse() } else { order }

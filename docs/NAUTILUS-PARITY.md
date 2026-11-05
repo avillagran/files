@@ -13,7 +13,7 @@ Estados: **sí** · **parcial** · **no**. Prioridad: P1 = se nota en el uso dia
 | # | Capacidad (Nautilus) | Files | Brecha | Prioridad |
 |---|---|---|---|---|
 | 1 | Lista/grilla, zoom Ctrl±/0 | parcial | zoom sólo en grilla | P2 |
-| 2 | Columnas configurables y orden por tipo/dueño/permisos/fechas | parcial | columnas fijas Nombre/Tamaño/Fecha | P1 |
+| 2 | Columnas configurables y orden por tipo/dueño/permisos/fechas | parcial | bloque 5: orden por tipo; faltan columnas configurables y dueño/permisos/creación | P2 |
 | 3 | Carpetas expandibles en lista | no | — (Columnas/Miller como alternativa) | P3 |
 | 4 | Pestañas, historial por pestaña | sí | — | — |
 | 5 | Barra de ruta + Ctrl+L, `/` y `~` | sí | — | — |
@@ -27,7 +27,7 @@ Estados: **sí** · **parcial** · **no**. Prioridad: P1 = se nota en el uso dia
 | 13 | Papelera: vaciar, restaurar elegidos, Shift+Supr | **sí** | bloque 1: Shift+Supr con confirmación, Restaurar/Eliminar/Vaciar en el catálogo | — |
 | 14 | Deshacer/rehacer operaciones | parcial | sólo renombrar y último lote a papelera | P2 |
 | 15 | Renombrar y renombrado masivo | sí | (Files supera: regex, secuencias) | — |
-| 16 | Nueva carpeta, con selección, plantillas `~/Templates` | parcial | carpeta con selección, plantillas | P2 |
+| 16 | Nueva carpeta, con selección, plantillas `~/Templates` | **sí** | bloque 5 | — |
 | 17 | Comprimir/extraer zip, tar.*, 7z | parcial | sólo ZIP | P2 |
 | 18 | Crear enlace Ctrl+M / Shift+Ctrl+M | parcial | bloque 1: Shift+Ctrl+M; falta Ctrl+M (enlace a lo copiado) | P2 |
 | 19 | Propiedades: contenido, espacio libre, dueño/grupo, recursivo | parcial | sin conteo/espacio/dueño/recursivo | P2 |
@@ -166,3 +166,17 @@ Linux: ejecutarlo lanzaría la aplicación real del usuario.
 - NODE real listaría `/mnt/ubuntu`, Gbte, Peliculas y `/mnt/avd`.
 - Validación: `scripts/devices-ui-check.py` (lsblk de fixture + udisksctl
   grabador; ningún disco real tocado), pruebas 719/112/808, Clippy.
+
+## Bloque 5 — 2026-11-04: orden por tipo, plantillas, carpeta con selección
+
+- `Sort::Type` (extensión, luego nombre natural), en lista, grupos, doble
+  panel, sesión (3) y vistas por carpeta (3); cuarta columna TIPO y comando
+  `sort-type`. Tipo empieza ascendente; tamaño y fecha descendentes (antes
+  todo lo que no era nombre empezaba descendente).
+- «Nuevo: <plantilla>» (menú de fondo, CREAR) desde `XDG_TEMPLATES_DIR`
+  (`user-dirs.dirs`) o `~/Templates`: copia con nombre libre, ≤16 MiB.
+- «Nueva carpeta con la selección» (ORGANIZAR): «Carpeta nueva (n)» y
+  renameat2 NOREPLACE de cada elemento.
+- Etiquetas de menú dinámicas (`Cow`).
+- Validación: floor check (plantillas ×2, agrupar, orden tipo) PASS;
+  720/112/808 pruebas, Clippy; folder-views-ui-check PASS.

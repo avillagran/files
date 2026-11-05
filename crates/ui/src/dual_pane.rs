@@ -188,6 +188,12 @@ impl Browser {
                 )
             });
         } else {
+            if self.sort == Sort::Type {
+                self.order.sort_by(|&a, &b| {
+                    files_core::listing::type_key(&self.entries[a].name)
+                        .cmp(&files_core::listing::type_key(&self.entries[b].name))
+                });
+            }
             if self.sort == Sort::Modified {
                 self.order.sort_by(|&a, &b| {
                     self.entries[a]
@@ -693,7 +699,7 @@ impl Model {
                 other.descending = !other.descending;
             } else {
                 other.sort = sort;
-                other.descending = sort != Sort::Name;
+                other.descending = matches!(sort, Sort::Size | Sort::Modified);
             }
             other.rebuild(self.show_hidden, &self.sizes);
         }

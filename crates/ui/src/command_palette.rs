@@ -547,6 +547,14 @@ pub const ITEMS: &[Spec] = &[
         Action::Sort(Sort::Modified)
     ),
     spec!(
+        "sort-type",
+        "Ordenar por tipo",
+        "\u{f15b}",
+        "sort type kind extension tipo extensión ordenar",
+        Listing,
+        Action::Sort(Sort::Type)
+    ),
+    spec!(
         "sort-name",
         "Ordenar por nombre",
         "",

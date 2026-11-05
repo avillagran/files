@@ -38,6 +38,16 @@ pub enum Target {
         dir: PathBuf,
         targets: Vec<PathBuf>,
     },
+    /// "Nuevo: <plantilla>": copy of a ~/Templates file into a folder.
+    Template {
+        template: PathBuf,
+        dir: PathBuf,
+    },
+    /// "Nueva carpeta con la selección".
+    FolderWith {
+        dir: PathBuf,
+        names: Vec<OsString>,
+    },
 }
 
 #[derive(Debug)]
@@ -48,6 +58,8 @@ pub enum Outcome {
         cleanup: Option<String>,
     },
     Linked(Vec<Result<PathBuf, String>>),
+    Created(PathBuf),
+    Grouped(files_core::quick_ops::FolderWith),
 }
 
 pub struct Job {
@@ -84,6 +96,16 @@ impl Job {
                             .map(Outcome::Deleted)
                             .map_err(|e| e.to_string())
                     }),
+                    Target::Template { template, dir } => {
+                        files_core::quick_ops::from_template(&template, &dir)
+                            .map(Outcome::Created)
+                            .map_err(|e| e.to_string())
+                    }
+                    Target::FolderWith { dir, names } => {
+                        files_core::quick_ops::folder_with_selection(&dir, &names)
+                            .map(Outcome::Grouped)
+                            .map_err(|e| e.to_string())
+                    }
                     Target::Links { dir, targets } => {
                         Ok(Outcome::Linked(files_core::links::create(&dir, &targets)))
                     }
@@ -126,7 +148,13 @@ impl State {
 }
 
 fn is_trash(t: &Target) -> bool {
-    !matches!(t, Target::Paths(_) | Target::Links { .. })
+    !matches!(
+        t,
+        Target::Paths(_)
+            | Target::Links { .. }
+            | Target::Template { .. }
+            | Target::FolderWith { .. }
+    )
 }
 
 impl Model {
@@ -181,6 +209,36 @@ impl Model {
         }
         let dir = self.path.clone();
         self.start_delete(Target::Links { dir, targets });
+    }
+    /// "Nuevo: <plantilla>" in the current folder.
+    pub fn new_from_template(&mut self, template: PathBuf) {
+        if self.closing || self.delete.busy() {
+            return;
+        }
+        let dir = self.path.clone();
+        self.start_delete(Target::Template { template, dir });
+    }
+    /// Nautilus "New Folder with Selection".
+    pub fn folder_with_selection(&mut self) {
+        if self.closing || self.delete.busy() {
+            return;
+        }
+        let names: Vec<OsString> = self
+            .entries
+            .iter()
+            .enumerate()
+            .filter(|(i, e)| {
+                self.selection.contains(i)
+                    && files_core::visibility::accepts(&e.name, self.show_hidden)
+            })
+            .map(|(_, e)| e.name.clone())
+            .collect();
+        if names.is_empty() {
+            self.operation_message = Some("Selecciona elementos para agrupar".into());
+            return;
+        }
+        let dir = self.path.clone();
+        self.start_delete(Target::FolderWith { dir, names });
     }
     pub fn request_trash_operation(&mut self, target: Target) {
         if self.delete.busy() {
@@ -260,6 +318,27 @@ impl Model {
                 );
                 if let Some(c) = cleanup {
                     s.push_str(&format!(" · metadatos no retirados: {c}"));
+                }
+                s
+            }
+            Ok(Outcome::Created(path)) => {
+                format!(
+                    "Creado {}",
+                    files_core::name_label::label(path.file_name().unwrap_or_default())
+                )
+            }
+            Ok(Outcome::Grouped(r)) => {
+                let mut s = format!(
+                    "{} elementos movidos a {}",
+                    r.moved,
+                    files_core::name_label::label(r.folder.file_name().unwrap_or_default())
+                );
+                if let Some((n, e)) = r.failures.first() {
+                    s.push_str(&format!(
+                        " · {} errores: {}: {e}",
+                        r.failures.len(),
+                        n.to_string_lossy()
+                    ));
                 }
                 s
             }
@@ -356,7 +435,10 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
                 "Se eliminarán {count} elementos de forma permanente"
             )],
         ),
-        Target::TrashRestore { .. } | Target::Links { .. } => (String::new(), Vec::new()),
+        Target::TrashRestore { .. }
+        | Target::Links { .. }
+        | Target::Template { .. }
+        | Target::FolderWith { .. } => (String::new(), Vec::new()),
     };
     p.text(
         Rect::new(x + 20, y + 16, cw - 40, 30),

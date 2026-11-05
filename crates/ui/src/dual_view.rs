@@ -456,7 +456,7 @@ mod narrow_name_tests {
                     .iter()
                     .filter(|h| matches!(h.action, Action::PaneSort(31, 7, _)))
                     .collect::<Vec<_>>();
-                assert_eq!(sorts.len(), 3);
+                assert_eq!(sorts.len(), 4);
                 for (i, a) in sorts.iter().enumerate() {
                     assert!(a.rect.w > 0 && a.rect.x >= 10 && a.rect.x + a.rect.w <= 10 + width);
                     for b in &sorts[i + 1..] {

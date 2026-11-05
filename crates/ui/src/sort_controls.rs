@@ -29,12 +29,13 @@ pub fn paint(
     } else {
         80
     };
-    let widths = [(area.w - 2 * side - 2 * gap).max(0), side, side];
+    let widths = [(area.w - 3 * side - 3 * gap).max(0), side, side, side];
     let mut x = area.x;
     for ((sort, icon, title), width) in [
         (Sort::Name, "", "NOMBRE"),
         (Sort::Size, "", "TAMAÑO"),
         (Sort::Modified, "", "FECHA"),
+        (Sort::Type, "\u{f15b}", "TIPO"),
     ]
     .into_iter()
     .zip(widths)
@@ -56,6 +57,7 @@ pub fn paint(
             Sort::Name => "N",
             Sort::Size => "T",
             Sort::Modified => "F",
+            Sort::Type => "Ti",
         };
         let detailed = !compact || sort == Sort::Name && width >= 100;
         let mut label = if detailed {

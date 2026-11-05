@@ -28,6 +28,7 @@ impl Model {
                 Sort::Name => 0,
                 Sort::Size => 1,
                 Sort::Modified => 2,
+                Sort::Type => 3,
             },
             descending: self.descending,
             zoom: (self.grid_zoom * 100.).round().clamp(65., 180.) as u8,
@@ -96,6 +97,7 @@ impl Model {
         self.sort = match settings.sort {
             0 => Sort::Name,
             1 => Sort::Size,
+            3 => Sort::Type,
             _ => Sort::Modified,
         };
         self.descending = settings.descending;

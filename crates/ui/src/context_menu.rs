@@ -12,7 +12,7 @@ pub enum Target {
     Views,
 }
 pub struct Item {
-    pub label: &'static str,
+    pub label: std::borrow::Cow<'static, str>,
     pub action: Option<Action>,
     /// Section title (never focused or activated).
     pub section: bool,
@@ -88,13 +88,13 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
             enabled &= reason.is_none();
         }
         Item {
-            label,
+            label: label.into(),
             action: if enabled { Some(action) } else { None },
             section: false,
         }
     };
-    let header = |label| Item {
-        label,
+    let header = |label: &'static str| Item {
+        label: label.into(),
         action: None,
         section: true,
     };
@@ -198,6 +198,11 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
             item("  Copiar selección · F5", Action::CopyFiles, !busy),
             item("  Mover selección · F6", Action::MoveFiles, !busy),
             item(
+                "\u{f07b}  Nueva carpeta con la selección",
+                Action::FolderWithSelection,
+                !busy && !m.delete.busy() && !m.selection.is_empty(),
+            ),
+            item(
                 "  Crear enlace · Ctrl+Shift+M",
                 Action::CreateLinks,
                 !busy && !m.delete.busy(),
@@ -299,6 +304,28 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
         ],
     };
     let mut items = items;
+    // Nautilus "New Document" from ~/Templates, inside the CREAR section.
+    if target == Target::Background {
+        let templates = files_core::quick_ops::templates(&files_core::quick_ops::templates_dir());
+        let at = items
+            .iter()
+            .position(|i| i.section && i.label == "PEGAR")
+            .unwrap_or(items.len());
+        for (k, t) in templates.into_iter().take(8).enumerate() {
+            let name = t
+                .file_name()
+                .map(|n| n.to_string_lossy().into_owned())
+                .unwrap_or_default();
+            items.insert(
+                at + k,
+                Item {
+                    label: format!("\u{f15b}  Nuevo: {name}").into(),
+                    action: (!busy).then_some(Action::NewFromTemplate(t)),
+                    section: false,
+                },
+            );
+        }
+    }
     if target == Target::Background
         && let Some((unmount, eject, removable)) = crate::devices_ui::current_device_actions(m)
     {
@@ -700,7 +727,7 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
             }
             p.text(
                 Rect::new(row.x + 8, row.y + 8, (row.w - 16).max(0), row.h - 8),
-                item.label,
+                &item.label,
                 9,
                 c.dark_foreground,
                 false,
@@ -713,7 +740,7 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
         }
         p.text(
             Rect::new(row.x + 8, row.y, (row.w - 16).max(0), row.h),
-            item.label,
+            &item.label,
             12,
             if item.action.is_some() {
                 c.foreground

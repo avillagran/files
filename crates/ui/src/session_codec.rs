@@ -160,6 +160,7 @@ impl Writer {
                 Sort::Name => 0,
                 Sort::Size => 1,
                 Sort::Modified => 2,
+                Sort::Type => 3,
             },
             u8::from(s.descending),
         ])?;
@@ -330,6 +331,7 @@ impl<'a> Reader<'a> {
             0 => Sort::Name,
             1 => Sort::Size,
             2 => Sort::Modified,
+            3 => Sort::Type,
             _ => return Err("Orden de sesión inválido"),
         };
         let descending = match self.byte()? {

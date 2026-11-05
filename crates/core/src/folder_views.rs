@@ -21,7 +21,7 @@ pub struct Settings {
 impl Settings {
     fn valid(self) -> bool {
         self.view <= 4
-            && self.sort <= 2
+            && self.sort <= 3
             && (65..=180).contains(&self.zoom)
             && self.scroll <= 100_000_000
     }
@@ -595,7 +595,7 @@ mod tests {
         let mut swapped = wire.clone();
         swapped[16] = b'z';
         assert!(decode(&swapped).is_err());
-        for (offset, value) in [(17, 5), (18, 3), (19, 2), (20, 181)] {
+        for (offset, value) in [(17, 5), (18, 4), (19, 2), (20, 181)] {
             let mut bad = wire.clone();
             bad[offset] = value;
             assert!(decode(&bad).is_err());

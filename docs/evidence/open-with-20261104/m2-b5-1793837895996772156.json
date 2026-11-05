@@ -1,0 +1,57 @@
+{
+  "functional_gate": "PASS",
+  "label": "m2-b5",
+  "binary_sha256": "0cdea761600ed08f99767d55ffe953d2b4ae2af1c5fe436226761af4a968cb37",
+  "helper_sha256": "e5401c541f6ca42ca9eb3415d8277df5c6bfb114835913cbe48d2bd9245b942c",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "method": "internal Actions, real window, recorder launcher, private XDG dirs; user mimeapps untouched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "open_default": [
+      "-t",
+      "service",
+      "--",
+      "viewer.desktop",
+      "/home/avillagran/.cache/files-test/open-with-34s56ro9/listing/photo.png"
+    ],
+    "no_handler": "error shown, nothing launched",
+    "open_with": {
+      "default_saved": "painter.desktop",
+      "launches": [
+        [
+          "-t",
+          "service",
+          "--",
+          "viewer.desktop",
+          "/home/avillagran/.cache/files-test/open-with-34s56ro9/listing/photo.png"
+        ],
+        [
+          "-t",
+          "service",
+          "--",
+          "editor.desktop",
+          "/home/avillagran/.cache/files-test/open-with-34s56ro9/listing/notes"
+        ],
+        [
+          "-t",
+          "service",
+          "--",
+          "painter.desktop",
+          "/home/avillagran/.cache/files-test/open-with-34s56ro9/listing/photo.png"
+        ],
+        [
+          "-t",
+          "service",
+          "--",
+          "painter.desktop",
+          "/home/avillagran/.cache/files-test/open-with-34s56ro9/listing/photo.png"
+        ]
+      ]
+    }
+  },
+  "captures": [
+    "/home/avillagran/.cache/files-m2-updates/b5-2da034a/source/docs/evidence/open-with-20261104/m2-b5-open-with-recommended-1793837896693708995.png",
+    "/home/avillagran/.cache/files-m2-updates/b5-2da034a/source/docs/evidence/open-with-20261104/m2-b5-open-with-default-saved-1793837896970668259.png"
+  ]
+}
