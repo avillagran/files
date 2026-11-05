@@ -87,6 +87,17 @@ impl State {
     pub fn count(&self) -> usize {
         self.current.as_ref().map_or(0, |b| b.remaining.len())
     }
+    /// Absolute paths of the items still in Files' clipboard (Ctrl+M).
+    pub fn copied_paths(&self) -> Vec<PathBuf> {
+        let Some(b) = &self.current else {
+            return Vec::new();
+        };
+        b.remaining
+            .iter()
+            .filter_map(|&i| b.lease.names.get(i))
+            .map(|n| b.lease.source.parent().join(n))
+            .collect()
+    }
     pub fn kind(&self) -> Option<Kind> {
         self.current.as_ref().map(|b| b.lease.kind)
     }

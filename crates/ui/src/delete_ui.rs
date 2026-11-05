@@ -210,6 +210,20 @@ impl Model {
         let dir = self.path.clone();
         self.start_delete(Target::Links { dir, targets });
     }
+    /// Ctrl+M (Nautilus): links here to the items copied in Files.
+    pub fn link_copied(&mut self) {
+        if self.editing || self.closing || self.delete.busy() {
+            return;
+        }
+        let targets = self.clipboard_state.copied_paths();
+        if targets.is_empty() {
+            self.operation_message =
+                Some("Copia algo (Ctrl+C) para enlazarlo aquí con Ctrl+M".into());
+            return;
+        }
+        let dir = self.path.clone();
+        self.start_delete(Target::Links { dir, targets });
+    }
     /// "Nuevo: <plantilla>" in the current folder.
     pub fn new_from_template(&mut self, template: PathBuf) {
         if self.closing || self.delete.busy() {

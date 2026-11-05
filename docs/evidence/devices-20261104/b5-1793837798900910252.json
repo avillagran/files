@@ -1,0 +1,22 @@
+{
+  "functional_gate": "PASS",
+  "label": "b5",
+  "binary_sha256": "471c9a3cf851a62f7e5c79ab2683fbb32e30c16d4a5d0e5ef2050a28dbb916cc",
+  "helper_sha256": "1640d5f8597d024f9cb73143d5490e8d58e03a0e4f33997455d01b31729c827a",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "fixture lsblk JSON + recorder udisksctl; real window; no disk touched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "mount_then_open": "/home/node/.cache/files-test/devices-u74nhpf3/mnt/DATOS",
+    "bookmark_in_sidebar": true,
+    "eject": [
+      "unmount -b /dev/sdz1 --no-user-interaction",
+      "power-off -b /dev/sdz --no-user-interaction"
+    ]
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/devices-20261104/b5-rail-devices-1793837799088554017.png",
+    "/home/node/Work/files/docs/evidence/devices-20261104/b5-after-eject-1793837799428206340.png"
+  ]
+}

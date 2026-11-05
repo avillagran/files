@@ -604,6 +604,22 @@ fn event(m: &mut Model, ev: Event, w: i32, h: i32) -> bool {
                 m.action(Action::OpenWith);
                 return true;
             }
+            if ctrl
+                && !m.editing
+                && key == Key::from_char('s')
+                && !app::event_state().intersects(Shortcut::Shift)
+            {
+                m.action(Action::SelectPattern);
+                return true;
+            }
+            if ctrl
+                && !m.editing
+                && key == Key::from_char('m')
+                && !app::event_state().intersects(Shortcut::Shift)
+            {
+                m.action(Action::LinkCopied);
+                return true;
+            }
             // Nautilus: Ctrl+. terminal here, Shift+Ctrl+M create link.
             if ctrl && !m.editing && key == Key::from_char('.') {
                 m.action(Action::Terminal);

@@ -21,7 +21,7 @@ Estados: **sí** · **parcial** · **no**. Prioridad: P1 = se nota en el uso dia
 | 7 | Ocultos Ctrl+H | sí | — | — |
 | 8 | Miniaturas imagen/vídeo/PDF/carátulas | parcial | PDF, carátula audio, lista | P2 |
 | 9 | Selección por rectángulo (marquee) | **sí** | bloque 3: Grupos/Lista/Grilla, Ctrl/Shift suma, clic en vacío limpia | — |
-| 10 | Seleccionar por patrón Ctrl+S | parcial | dos pasos (filtro + marcar) | P2 |
+| 10 | Seleccionar por patrón Ctrl+S | **sí** | bloque 6 | — |
 | 11 | Portapapeles con otras apps | parcial | bloque 3: Ctrl+V pega lo último copiado (Files o sistema); sin prueba de punta a punta (no se toca el portapapeles personal) | P2 |
 | 12 | Arrastrar y soltar con otras apps | parcial | soltar siempre pasa por revisión | P2 |
 | 13 | Papelera: vaciar, restaurar elegidos, Shift+Supr | **sí** | bloque 1: Shift+Supr con confirmación, Restaurar/Eliminar/Vaciar en el catálogo | — |
@@ -29,7 +29,7 @@ Estados: **sí** · **parcial** · **no**. Prioridad: P1 = se nota en el uso dia
 | 15 | Renombrar y renombrado masivo | sí | (Files supera: regex, secuencias) | — |
 | 16 | Nueva carpeta, con selección, plantillas `~/Templates` | **sí** | bloque 5 | — |
 | 17 | Comprimir/extraer zip, tar.*, 7z | parcial | sólo ZIP | P2 |
-| 18 | Crear enlace Ctrl+M / Shift+Ctrl+M | parcial | bloque 1: Shift+Ctrl+M; falta Ctrl+M (enlace a lo copiado) | P2 |
+| 18 | Crear enlace Ctrl+M / Shift+Ctrl+M | **sí** | bloques 1 y 6 | — |
 | 19 | Propiedades: contenido, espacio libre, dueño/grupo, recursivo | parcial | sin conteo/espacio/dueño/recursivo | P2 |
 | 20 | Abrir con otra app y fijar predeterminada | **sí** | bloque 2: Enter abre con la predeterminada; Abrir con… (Ctrl+Shift+O) | — |
 | 21 | Terminal aquí (Ctrl+.) | **sí** | bloque 1 | — |
@@ -180,3 +180,12 @@ Linux: ejecutarlo lanzaría la aplicación real del usuario.
 - Etiquetas de menú dinámicas (`Cow`).
 - Validación: floor check (plantillas ×2, agrupar, orden tipo) PASS;
   720/112/808 pruebas, Clippy; folder-views-ui-check PASS.
+
+## Bloque 6 — 2026-11-04: Ctrl+S y Ctrl+M
+
+- Ctrl+S abre el filtro en modo selección: el patrón (glob, `*.jpg`) se
+  escribe como siempre y Enter marca lo que coincide y vuelve a mostrar
+  todo; Esc cancela. Menú de fondo SELECCIÓN.
+- Ctrl+M crea aquí enlaces a lo copiado en Files (menú de fondo PEGAR).
+- Validación: floor check (`*.txt` → 4 marcados; Ctrl+M «Enlace a
+  zeta.ab»); 720/112/808 pruebas, Clippy.

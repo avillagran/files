@@ -206,6 +206,23 @@ def main():
             wait(lambda: (o := order()) and 'zeta.ab' in o and o.index('zeta.ab') < o.index('extra.txt'), 'type order')
             report['checks']['templates_group_sort'] = {'group': done, 'type_order': order()}
 
+            # Ctrl+S select by pattern; Ctrl+M link to what was copied.
+            after = command('nf-select-pattern:*.txt')
+            sel = int(marker(after, r'FILES_SELECT_PATTERN selected=(\d+)', 'pattern').group(1))
+            assert sel == 4, sel  # keep, extra, linkme, Enlace a linkme
+            command('nf-select:zeta.ab')
+            command('nf-copy')
+            for _ in range(40):
+                after = command('nf-link-copied')
+                time.sleep(.15)
+                if re.search(r'FILES_DELETE_DONE target=Links .*zeta\.ab', text()[after:]):
+                    break
+            else:
+                raise AssertionError('Ctrl+M link not created')
+            wait(lambda: (listing / 'Enlace a zeta.ab').is_symlink(), 'ctrl+m link')
+            assert os.readlink(listing / 'Enlace a zeta.ab') == str(listing / 'zeta.ab')
+            report['checks']['pattern_and_ctrl_m'] = {'pattern_selected': sel, 'link': 'Enlace a zeta.ab'}
+
             # Files added inside a visible subfolder update its row.
             for n in ['three', 'four', 'five']:
                 (watched / n).write_bytes(b'w')

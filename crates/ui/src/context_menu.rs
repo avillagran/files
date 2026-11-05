@@ -247,6 +247,11 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
                 Action::NativePaste,
                 !m.mutations.busy && !m.mutation_applied,
             ),
+            item(
+                "\u{f0c1}  Enlace a lo copiado · Ctrl+M",
+                Action::LinkCopied,
+                !busy && !m.delete.busy() && m.clipboard_state.count() > 0,
+            ),
             header("VER"),
             item(
                 if m.show_hidden {
@@ -280,6 +285,11 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
             item(
                 "󰄲  Seleccionar todo · Ctrl+A",
                 Action::Selection(crate::selection_tools::Command::All),
+                !m.selection_refreshing(),
+            ),
+            item(
+                "\u{f0b0}  Seleccionar por patrón · Ctrl+S",
+                Action::SelectPattern,
                 !m.selection_refreshing(),
             ),
             item(

@@ -84,6 +84,22 @@ fn floor_command(m: &mut Model, action: &str) -> Option<Result<(), String>> {
         m.action(Action::NewFromTemplate(t));
         return Some(Ok(()));
     }
+    if let Some(glob) = action.strip_prefix("nf-select-pattern:") {
+        m.action(Action::SelectPattern);
+        if let Err(e) = m.filter_input(glob) {
+            return Some(Err(e.into()));
+        }
+        m.filter_key(fltk::enums::Key::Enter, fltk::enums::Shortcut::None, "", 0);
+        return Some(Ok(()));
+    }
+    if action == "nf-copy" {
+        m.action(Action::ClipboardCopy);
+        return Some(Ok(()));
+    }
+    if action == "nf-link-copied" {
+        m.action(Action::LinkCopied);
+        return Some(Ok(()));
+    }
     if action == "nf-folder-with" {
         m.action(Action::FolderWithSelection);
         return Some(Ok(()));

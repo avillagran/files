@@ -167,8 +167,18 @@ impl Model {
         self.text_paste.invalidate();
         let cursor = &mut self.filter_edit.cursor;
         match key {
+            Key::Enter | Key::KPEnter if self.select_pattern => {
+                // Ctrl+S: mark what the pattern matches and show everything.
+                self.select_pattern = false;
+                self.end_filter_edit();
+                self.action(crate::model::Action::Selection(
+                    crate::selection_tools::Command::Filtered,
+                ));
+                eprintln_pattern(self.selection.len());
+            }
             Key::Enter | Key::KPEnter | Key::Tab => self.end_filter_edit(),
             Key::Escape => {
+                self.select_pattern = false;
                 self.end_filter_edit();
                 self.action(crate::model::Action::ClearFilter);
             }
@@ -288,4 +298,10 @@ pub fn pointer(
     m.filter_edit.dragging = true;
     m.filter_edit.touch();
     true
+}
+
+fn eprintln_pattern(n: usize) {
+    if std::env::var_os("FILES_TEST_PREVIEW").is_some() {
+        eprintln!("FILES_SELECT_PATTERN selected={n}");
+    }
 }

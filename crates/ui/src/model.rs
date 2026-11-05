@@ -32,6 +32,10 @@ pub enum Action {
     CreateLinks,
     /// Ctrl+Shift+O: choose the application for the focused file.
     OpenWith,
+    /// Ctrl+S: select by pattern (glob such as *.jpg).
+    SelectPattern,
+    /// Ctrl+M: links to the items copied in Files, here.
+    LinkCopied,
     /// "Nuevo: <plantilla>" from ~/Templates.
     NewFromTemplate(PathBuf),
     /// Nautilus "New Folder with Selection".
@@ -481,6 +485,8 @@ pub struct Model {
     pub devices: crate::devices_ui::State,
     /// Listing area of the last paint (rubber-band selection starts here).
     pub listing_rect: Rect,
+    /// Ctrl+S: the filter being typed selects its matches on Enter.
+    pub select_pattern: bool,
     /// Rubber-band selection in progress.
     pub marquee: Option<Marquee>,
     pub archive_preparing: Option<(u64, files_core::copy_engine::Control)>,
@@ -657,6 +663,7 @@ impl Model {
             devices: Default::default(),
             listing_rect: Rect::default(),
             marquee: None,
+            select_pattern: false,
             child_watch: Default::default(),
             child_pending: Default::default(),
             archive_preparing: None,
@@ -2640,6 +2647,14 @@ impl Model {
             Action::DeleteAnswer(_) => {}
             Action::CreateLinks => self.create_links(),
             Action::OpenWith => self.open_with(),
+            Action::SelectPattern => {
+                if self.begin_filter_edit(true) {
+                    self.select_pattern = true;
+                    self.operation_message =
+                        Some("Seleccionar por patrón: escribe p. ej. *.jpg y pulsa Enter".into());
+                }
+            }
+            Action::LinkCopied => self.link_copied(),
             Action::NewFromTemplate(t) => self.new_from_template(t),
             Action::FolderWithSelection => self.folder_with_selection(),
             Action::Device(node, op) => self.device_action(node, op),

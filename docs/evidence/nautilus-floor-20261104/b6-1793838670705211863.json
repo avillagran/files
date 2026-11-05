@@ -1,0 +1,61 @@
+{
+  "functional_gate": "PASS",
+  "label": "b6",
+  "binary_sha256": "523c017d2ac8e157175cb140ce3c98fad1f4d7de7a4824a1946931910daf609a",
+  "helper_sha256": "1640d5f8597d024f9cb73143d5490e8d58e03a0e4f33997455d01b31729c827a",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal Actions + real FLTK window/framebuffer, private fixtures and trash; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "grouped_context_sections": [
+      "#ABRIR",
+      "#EDITAR",
+      "#ORGANIZAR",
+      "#COMPRIMIR",
+      "#ELIMINAR",
+      "#SELECCI\u00d3N"
+    ],
+    "permanent_delete": "8 elementos eliminados (4.1 kB)",
+    "create_link": "Enlace creado: Enlace a linkme.txt",
+    "templates_group_sort": {
+      "group": "2 elementos movidos a Carpeta nueva",
+      "type_order": [
+        "Carpeta nueva",
+        "watched",
+        "zeta.ab",
+        "Enlace a linkme.txt",
+        "extra.txt",
+        "keep.txt",
+        "linkme.txt"
+      ]
+    },
+    "pattern_and_ctrl_m": {
+      "pattern_selected": 4,
+      "link": "Enlace a zeta.ab"
+    },
+    "child_refresh": "watched 2 -> 5 directas",
+    "rubber_band": {
+      "two": [
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "additive": [
+        "extra.txt",
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "click_empty_clears": true
+    },
+    "trash": "restore, purge one, empty; files/ and info/ empty"
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b6-groups-add-new-1793838670860577463.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b6-context-grouped-1793838671411559306.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b6-delete-confirm-1793838671597559675.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b6-trash-catalog-1793838674079661395.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b6-trash-empty-confirm-1793838674508169687.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/b6-trash-emptied-1793838674663460487.png"
+  ],
+  "context_retries": 1
+}
