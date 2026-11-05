@@ -54,6 +54,9 @@ enum Kind {
     Context,
 }
 struct Active {
+    /// Flat context-menu index chosen in any submenu (`on_pick` runs before
+    /// `on_dismiss`, whose index is only the top-level row).
+    picked: Rc<RefCell<Option<String>>>,
     kind: Kind,
     generation: u64,
     owner: (u64, u64),
@@ -307,7 +310,20 @@ impl Manager {
                     && valid
                 {
                     if active.kind == Kind::Context {
-                        crate::context_menu::activate(m, index);
+                        if let Some(flat) = active
+                            .picked
+                            .borrow_mut()
+                            .take()
+                            .and_then(|id| id.parse::<usize>().ok())
+                        {
+                            if let Some(menu) = m.context_menu.as_ref() {
+                                eprintln!(
+                                    "FILES_TOOLKIT_CONTEXT_PICK flat={flat} label={}",
+                                    menu.items.get(flat).map_or("", |i| &i.label)
+                                );
+                            }
+                            crate::context_menu::activate(m, flat);
+                        }
                     } else if let Some(Some(action)) = active.actions.get(index) {
                         m.action(action.clone());
                     }
@@ -354,30 +370,7 @@ impl Manager {
         };
         let (items, actions, position) = if kind == Kind::Context {
             let menu = m.context_menu.as_ref().expect("context menu");
-            // Same indices as the model menu: section titles stay as
-            // disabled rows, each group ends with a divider, and the
-            // "· shortcut" suffix becomes the dimmed right-hand hint.
-            let items = menu
-                .items
-                .iter()
-                .enumerate()
-                .map(|(index, i)| {
-                    let mut item = match i.label.rsplit_once(" · ") {
-                        Some((label, hint)) if !i.section => {
-                            PopupItem::new("", label).shortcut(hint)
-                        }
-                        _ => PopupItem::new("", &i.label),
-                    };
-                    if menu.items.get(index + 1).is_some_and(|next| next.section) {
-                        item = item.divider();
-                    }
-                    if i.action.is_some() {
-                        item
-                    } else {
-                        item.disabled()
-                    }
-                })
-                .collect();
+            let items = context_items(menu);
             (items, Vec::new(), Some(menu.anchor))
         } else {
             let (items, actions) = toolbar(m, kind);
@@ -398,8 +391,12 @@ impl Manager {
             return dirty;
         }
         let queue = self.dismissed.clone();
+        let picked: Rc<RefCell<Option<String>>> = Rc::default();
+        let pick = picked.clone();
         let handle = if let Some((x, y)) = position {
-            PopupMenu::open_at(canvas, x, y, items, |_| {})
+            PopupMenu::open_at_id(canvas, x, y, items, move |id| {
+                *pick.borrow_mut() = Some(id.to_string());
+            })
         } else {
             let Rect { x, y, w, h } = anchor_rect.expect("toolbar anchor");
             let anchor = if kind == Kind::Settings {
@@ -420,6 +417,7 @@ impl Manager {
         );
         m.toolkit_popup = true;
         self.active = Some(Active {
+            picked,
             kind,
             generation: m.generation,
             owner: m.pane_owner(),
@@ -430,9 +428,100 @@ impl Manager {
     }
 }
 
+/// Toolkit rows for a context menu: the most used entries at the root and
+/// the rest in submenus ([`crate::context_menu::place`]). Every leaf id is
+/// its flat index in `menu.items`, so activation stays index-based.
+pub fn context_items(menu: &crate::context_menu::Menu) -> Vec<PopupItem> {
+    use crate::context_menu::Placed;
+    let leaf = |index: usize| {
+        let i = &menu.items[index];
+        let (icon, text) = split_icon(&i.label);
+        let item = match text.rsplit_once(" · ") {
+            Some((label, hint)) => PopupItem::new(icon, label).shortcut(hint),
+            None => PopupItem::new(icon, text),
+        }
+        .id(&index.to_string());
+        if i.action.is_some() {
+            item
+        } else {
+            item.disabled()
+        }
+    };
+    let mut rows: Vec<PopupItem> = Vec::new();
+    for placed in crate::context_menu::place(menu) {
+        match placed {
+            Placed::Item(index) => rows.push(leaf(index)),
+            Placed::Group(icon, label, children) => {
+                let enabled = children.iter().any(|&i| menu.items[i].action.is_some());
+                let group =
+                    PopupItem::submenu(icon, label, children.into_iter().map(leaf).collect());
+                rows.push(if enabled { group } else { group.disabled() });
+            }
+            Placed::Divider => {
+                if let Some(last) = rows.pop() {
+                    rows.push(last.divider());
+                }
+            }
+        }
+    }
+    rows
+}
+
+/// Model labels start with a Nerd Font glyph ("\u{f0c5}  Copiar"): it goes to
+/// the toolkit icon column so leaves and submenu rows line up.
+fn split_icon(label: &str) -> (&str, &str) {
+    let mut chars = label.char_indices();
+    match chars.next() {
+        Some((_, c)) if matches!(c, '\u{e000}'..='\u{f8ff}' | '\u{f0000}'..) => {
+            let rest = &label[c.len_utf8()..];
+            (&label[..c.len_utf8()], rest.trim_start())
+        }
+        _ => ("", label.trim_start()),
+    }
+}
+/// Keyboard route to a flat context item in [`context_items`]: its root row,
+/// the Down presses from the first enabled root row, and inside a submenu
+/// the Down presses from its first enabled child (Right opens it there).
+pub fn context_route(
+    menu: &crate::context_menu::Menu,
+    flat: usize,
+) -> Option<(usize, usize, Option<usize>)> {
+    let id = flat.to_string();
+    let rows = context_items(menu);
+    let root = rows
+        .iter()
+        .position(|r| r.id == id || r.children.iter().any(|c| c.id == id))?;
+    let downs = rows[..root].iter().filter(|r| r.enabled).count();
+    let child = rows[root].is_submenu().then(|| {
+        rows[root]
+            .children
+            .iter()
+            .take_while(|c| c.id != id)
+            .filter(|c| c.enabled)
+            .count()
+    });
+    Some((root, downs, child))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn nerd_glyph_moves_to_the_icon_column() {
+        assert_eq!(
+            split_icon("\u{f0c5}  Copiar · Ctrl+C"),
+            ("\u{f0c5}", "Copiar · Ctrl+C")
+        );
+        assert_eq!(
+            split_icon("\u{f0001} Crear ZIP"),
+            ("\u{f0001}", "Crear ZIP")
+        );
+        assert_eq!(
+            split_icon("Comparar esta carpeta…"),
+            ("", "Comparar esta carpeta…")
+        );
+        assert_eq!(split_icon(""), ("", ""));
+    }
     #[test]
     fn toolbar_keeps_preferences_and_file_actions_separate() {
         let m = Model::new("/fixture-only".into());

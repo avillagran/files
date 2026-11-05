@@ -165,7 +165,11 @@ impl Model {
             let chars = text.chars().count();
             format!(
                 "Copiado: {chars} {}",
-                if chars == 1 { "carácter" } else { "caracteres" }
+                if chars == 1 {
+                    "carácter"
+                } else {
+                    "caracteres"
+                }
             )
         };
         eprintln!("FILES_PREVIEW_COPY bytes={} notice={notice}", text.len());

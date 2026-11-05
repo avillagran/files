@@ -30,13 +30,18 @@ fn main() {
     let (g2, f2) = (gear.clone(), following.clone());
     let languages = Rc::new(move || {
         let f3 = f2.clone();
-        let mut items = vec![PopupItem::new("", &i18n::tr("System language")).checked(f2.get()).divider()];
-        for (code, name) in i18n::LANGUAGES {
-            items.push(PopupItem::new("", name).checked(!f2.get() && i18n::language() == *code));
-        }
-        PopupMenu::open(&*g2, items, move |i| {
-            f3.set(i == 0);
-            if i == 0 { i18n::follow_system() } else { i18n::set_locale(i18n::LANGUAGES[i - 1].0) }
+        // The languages in a submenu: Preferences stays short.
+        let languages = i18n::LANGUAGES.iter().map(|(code, name)| PopupItem::new("", name).checked(!f2.get() && i18n::language() == *code)).collect();
+        let items = vec![
+            PopupItem::new("", &i18n::tr("System language")).checked(f2.get()),
+            PopupItem::submenu(glyph::SETTINGS, "Language", languages),
+        ];
+        PopupMenu::open_path(&*g2, items, move |path| {
+            f3.set(path[0] == 0);
+            match path[..] {
+                [1, i] => i18n::set_locale(i18n::LANGUAGES[i].0),
+                _ => i18n::follow_system(),
+            }
         });
     });
     let l2 = languages.clone();

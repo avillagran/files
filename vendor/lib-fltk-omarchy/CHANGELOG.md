@@ -2,6 +2,33 @@
 
 ## Unreleased
 
+- **PopupMenu submenus** for long menus (the Files context menu):
+  `PopupItem::submenu(icon, label, children)` (nested submenus work;
+  `pub children: Vec<PopupItem>`, empty = an entry that is picked) draws a
+  chevron on the trailing side and opens a second card in the same window
+  beside its entry: on the right, on the left when it does not fit (and
+  right to left), clamped to the window, scrolling when taller. Hover opens
+  it after 200 ms (`anim::ms::SUBMENU_OPEN`) and closes an open sibling;
+  moving toward an open submenu keeps it (`anim::ms::SUBMENU_AIM`, 300 ms);
+  a click opens it at once. Keys act on the innermost card: Right / Enter /
+  Space open on the first enabled entry, Left / Esc close one level and go
+  back to its entry, Esc on the root closes the menu (Left / Right
+  mirrored right to left). A click outside every card closes all of them
+  (`ClickOutside`); picking closes every card and calls `on_pick` once.
+  New: `PopupMenu::open_path` / `open_at_path` (`FnOnce(Vec<usize>)`, the
+  indices from the root), `PopupItem::id` (`pub id: String`) with
+  `PopupMenu::open_id` / `open_at_id` (`FnOnce(&str)`),
+  `PopupItem::is_submenu`, `PopupHandle::submenu_path`, `submenu_rects`,
+  `picked_path`. `open` / `open_at` are unchanged and report the top-level
+  index (`Dismiss::Picked(i)` too). Accessibility: submenu entries report
+  "has popup" and expanded / collapsed (new `a11y::Node::has_popup`) and
+  support Expand / Collapse; a submenu is a Menu named after its entry.
+  Space now activates the PopupMenu entry like Enter (it used to close the
+  menu and reach the app). `PopupItem` gained two public fields: code that
+  builds it with a struct literal adds `id` and `children` (or uses
+  `PopupItem::new`).
+- **Fix:** closing an overlay layer whose window was already deleted (the
+  Sidebar's deferred close) panicked inside an fltk timer.
 - **Tooltips are drawn by the toolkit** (`tooltip` module), like Omarchy's
   shell tooltips (omarchy#15694): `App::new` — or the first `theme::set`
   in apps that start FLTK themselves, like Files, which never got the

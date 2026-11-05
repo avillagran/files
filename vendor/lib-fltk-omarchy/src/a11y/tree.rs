@@ -429,6 +429,9 @@ fn convert(n: &Node, id: u64, mut kids: Vec<u64>, cx: &mut Ctx) -> ak::Node {
     if let Some(e) = n.expanded {
         a.set_expanded(e);
     }
+    if n.has_popup {
+        a.set_has_popup(ak::HasPopup::Menu);
+    }
     if let Some(s) = n.selected {
         a.set_selected(s);
     }
@@ -954,6 +957,9 @@ pub(crate) fn snapshot(win: &Widget) -> String {
             Some(ak::Toggled::True) => st.push("checked".into()),
             Some(ak::Toggled::False) => st.push("unchecked".into()),
             _ => {}
+        }
+        if n.has_popup().is_some() {
+            st.push("has popup".into());
         }
         if let Some(e) = n.is_expanded() {
             st.push(if e { "expanded" } else { "collapsed" }.into());

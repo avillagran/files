@@ -145,7 +145,12 @@ impl TextDocument {
     pub fn line_span(&self, offset: usize) -> Range<usize> {
         let line = self.position(offset).0;
         let start = self.starts[line];
-        start..self.starts.get(line + 1).copied().unwrap_or(self.text.len())
+        start
+            ..self
+                .starts
+                .get(line + 1)
+                .copied()
+                .unwrap_or(self.text.len())
     }
     /// A pointer press with FLTK's extra-click count (0 single, 1 double,
     /// 2+ triple). Returns the anchor a following drag extends from.
@@ -245,7 +250,12 @@ mod tests {
         assert!(doc.selected_text().is_empty());
         doc.click(10, true, 0);
         assert_eq!(doc.selected_text(), "la mundo");
-        assert!(TextDocument::new(String::new()).unwrap().word_range(0).is_empty());
+        assert!(
+            TextDocument::new(String::new())
+                .unwrap()
+                .word_range(0)
+                .is_empty()
+        );
     }
     #[test]
     fn lines_borrow_source_and_copy_preserves_original_endings() {

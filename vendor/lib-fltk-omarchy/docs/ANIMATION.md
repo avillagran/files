@@ -58,6 +58,7 @@ and o3 (`ui/qml`). They are in `anim::ms`.
 | A child appearing: grows from its start edge, fades in | 190 ms; opacity `min(1, 1.8·progress)` | o3 `T3Reveal.qml` (the child keeps its size, clipped; spring opacity) |
 | **Sidebar** width (push) or panel (overlay) | 190 ms OutCubic | as layout |
 | Sidebar hover intent / leave grace | 350 ms / 140 ms (`ms::HOVER_OPEN`, `ms::HOVER_CLOSE`) | o3 `T3Composer.qml` quick menu (350 ms), `T3ThreadRow.qml` preview `closeDelay` (140 ms) |
+| PopupMenu submenu hover intent / aim grace | 200 ms / 300 ms (`ms::SUBMENU_OPEN`, `ms::SUBMENU_AIM`); timed on the animation clock (`anim::clock`), kept when motion is off (it is intent, not motion); the submenu card fades in and out like any popup | desktop menus (GTK `gtk-menu-popup-delay`, 225 ms) |
 | **Popups** (PopupMenu, Dropdown, SearchableDropdown, Menu, ConfirmDialog, PopupCard, ShortcutHelp, toasts, completion lists): in / out | 180 ms / 120 ms, Omarchy `Style.easeOut` (cubic Bézier 0.23, 1, 0.32, 1); the scrim fades with the card | Omarchy `Ui/PopupCard.qml` |
 | **TabBar** selection (fill and accent line) slides | 160 ms OutCubic (`ms::INDICATOR`) | o3 `T3Panel.qml` group chips (160 ms OutCubic), Omarchy clock panel (160 ms OutCubic) |
 | **List** rows (`List::from_model`) making room | 442 ms OutCubic (`ms::ROW_DISPLACED`) | o3 `T3Panel.qml` `RowDisplaced` (0.85 × 520 ms) |

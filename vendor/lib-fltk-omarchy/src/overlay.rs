@@ -114,6 +114,10 @@ pub(crate) fn open_layer<A: WidgetExt>(anchor: &A, rect: Option<(i32, i32, i32, 
 /// With animations on, focus goes back and the layer stops taking events
 /// at once, and it fades out (120 ms) before it is deleted.
 pub(crate) fn close_layer(layer: &Widget) {
+    // Already gone with its window (a deferred close, e.g. the Sidebar's).
+    if layer.was_deleted() {
+        return;
+    }
     let Some(mut parent) = layer.parent() else { return };
     let closing = MOTION.with(|m| m.borrow().iter().any(|(l, _, c)| *c && alive_ptr(l) == layer.as_widget_ptr() as usize));
     if closing {

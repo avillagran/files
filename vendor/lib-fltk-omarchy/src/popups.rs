@@ -33,22 +33,56 @@ pub struct PopupItem {
     pub checked: bool,
     /// Draws a separator after this entry.
     pub divider: bool,
+    /// The app's name for the entry ("copy"), given to
+    /// [`PopupMenu::open_id`]'s callback; empty unless set with [`PopupItem::id`].
+    pub id: String,
+    /// The entries of the submenu this entry opens ([`PopupItem::submenu`]);
+    /// empty for an entry that is picked.
+    pub children: Vec<PopupItem>,
 }
 
 impl PopupItem {
     pub fn new(icon: &str, label: &str) -> PopupItem {
-        PopupItem { icon: icon.into(), label: label.into(), shortcut: String::new(), enabled: true, checked: false, divider: false }
+        PopupItem {
+            icon: icon.into(),
+            label: label.into(),
+            shortcut: String::new(),
+            enabled: true,
+            checked: false,
+            divider: false,
+            id: String::new(),
+            children: Vec::new(),
+        }
     }
+
+    /// An entry that opens a submenu of `children` (which can hold
+    /// submenus too). It shows a chevron on the trailing side instead of
+    /// a shortcut or a check; choosing it opens the submenu, it is never
+    /// picked. Open menus with submenus with [`PopupMenu::open_path`] or
+    /// [`PopupMenu::open_id`] to know which entry inside was chosen.
+    pub fn submenu(icon: &str, label: &str, children: Vec<PopupItem>) -> PopupItem {
+        PopupItem { children, ..PopupItem::new(icon, label) }
+    }
+
     pub fn shortcut(mut self, s: &str) -> Self { self.shortcut = crate::keys::label(s); self }
     pub fn checked(mut self, on: bool) -> Self { self.checked = on; self }
     pub fn disabled(mut self) -> Self { self.enabled = false; self }
     pub fn divider(mut self) -> Self { self.divider = true; self }
+    /// Names the entry for [`PopupMenu::open_id`] ("copy", "share.email").
+    pub fn id(mut self, id: &str) -> Self { self.id = id.into(); self }
+
+    /// True when the entry opens a submenu.
+    pub fn is_submenu(&self) -> bool {
+        !self.children.is_empty()
+    }
 }
 
 /// How a popup ended (see [`PopupHandle::on_dismiss`]).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Dismiss {
-    /// An entry was chosen (index into the items); `on_pick` ran first.
+    /// An entry was chosen; `on_pick` ran first. The index is into the
+    /// top-level items: for an entry inside a submenu it is the root entry
+    /// that holds it ([`PopupHandle::picked_path`] has the whole path).
     Picked(usize),
     /// Esc.
     Escape,
@@ -58,11 +92,24 @@ pub enum Dismiss {
     Closed,
 }
 
+type Rect = (i32, i32, i32, i32);
+
 struct HandleState {
     open: bool,
-    rect: Option<(i32, i32, i32, i32)>,
+    rect: Option<Rect>,
     reason: Option<Dismiss>,
     on_dismiss: Option<Box<dyn FnOnce(Dismiss)>>,
+    /// Open submenus (PopupMenu): their layers, cards and the entries that
+    /// opened them, from the root.
+    subs: Vec<(Widget, Rect, usize)>,
+    /// The path of the picked entry (PopupMenu).
+    picked: Option<Vec<usize>>,
+}
+
+impl HandleState {
+    fn open(rect: Rect) -> HandleState {
+        HandleState { open: true, rect: Some(rect), reason: None, on_dismiss: None, subs: Vec::new(), picked: None }
+    }
 }
 
 /// Handle of an open [`PopupMenu`]. Dropping it leaves the menu open.
@@ -76,7 +123,9 @@ pub struct PopupHandle {
 
 impl PopupHandle {
     fn closed_now() -> PopupHandle {
-        PopupHandle { layer: None, state: Rc::new(RefCell::new(HandleState { open: false, rect: None, reason: Some(Dismiss::Closed), on_dismiss: None })) }
+        let mut s = HandleState::open((0, 0, 0, 0));
+        (s.open, s.rect, s.reason) = (false, None, Some(Dismiss::Closed));
+        PopupHandle { layer: None, state: Rc::new(RefCell::new(s)) }
     }
 
     /// Called once when the menu closes, with the reason. If it is already
@@ -90,8 +139,9 @@ impl PopupHandle {
         self
     }
 
-    /// Closes the menu without picking (reason [`Dismiss::Closed`]); focus
-    /// goes back to the control that had it. No-op when already closed.
+    /// Closes the menu (and its open submenus) without picking (reason
+    /// [`Dismiss::Closed`]); focus goes back to the control that had it.
+    /// No-op when already closed.
     pub fn close(&self) {
         if let Some(l) = &self.layer {
             finish(&self.state, l, Dismiss::Closed);
@@ -107,6 +157,31 @@ impl PopupHandle {
         self.state.borrow().rect
     }
 
+    /// The cards of the open submenus, outermost first (empty when none is
+    /// open or the menu is closed).
+    pub fn submenu_rects(&self) -> Vec<(i32, i32, i32, i32)> {
+        if !self.is_open() {
+            return Vec::new();
+        }
+        self.state.borrow().subs.iter().map(|s| s.1).collect()
+    }
+
+    /// The entries whose submenus are open, from the root: `[2, 0]` when
+    /// the third root entry's submenu is open and, in it, the first
+    /// entry's submenu. Empty when none is open.
+    pub fn submenu_path(&self) -> Vec<usize> {
+        if !self.is_open() {
+            return Vec::new();
+        }
+        self.state.borrow().subs.iter().map(|s| s.2).collect()
+    }
+
+    /// The path of the picked entry (indices from the root, `vec![i]` in a
+    /// flat menu), once [`Dismiss::Picked`].
+    pub fn picked_path(&self) -> Option<Vec<usize>> {
+        self.state.borrow().picked.clone()
+    }
+
     /// Why it closed (None while open).
     pub fn dismissed(&self) -> Option<Dismiss> {
         self.state.borrow().reason
@@ -114,7 +189,13 @@ impl PopupHandle {
 }
 
 fn finish(state: &Rc<RefCell<HandleState>>, layer: &Widget, reason: Dismiss) -> bool {
-    {
+    finish_then(state, layer, reason, || {})
+}
+
+/// Closes the popup and its submenus (deepest first, so focus walks back
+/// to where it was), runs `picked` (the pick callback), then `on_dismiss`.
+fn finish_then(state: &Rc<RefCell<HandleState>>, layer: &Widget, reason: Dismiss, picked: impl FnOnce()) -> bool {
+    let subs = {
         let mut s = state.borrow_mut();
         if !s.open {
             return false;
@@ -123,12 +204,21 @@ fn finish(state: &Rc<RefCell<HandleState>>, layer: &Widget, reason: Dismiss) -> 
         if layer.was_deleted() {
             // The window went away with the menu: no callbacks.
             s.on_dismiss = None;
+            s.subs.clear();
             return false;
         }
         s.reason = Some(reason);
+        std::mem::take(&mut s.subs)
+    };
+    for (l, _, _) in subs.iter().rev() {
+        if !l.was_deleted() {
+            crate::focus::pop_modal(l);
+            close_layer(l);
+        }
     }
     crate::focus::pop_modal(layer);
     close_layer(layer);
+    picked();
     let f = state.borrow_mut().on_dismiss.take();
     if let Some(f) = f {
         f(reason);
@@ -148,12 +238,40 @@ fn finish(state: &Rc<RefCell<HandleState>>, layer: &Widget, reason: Dismiss) -> 
 /// clamped to the window and scrolls (wheel, keys), keeping the active
 /// entry visible; long labels end in "…" and keep their shortcut.
 /// Keys: Up/Down or j/k (skip disabled, wrap), PageUp/PageDown, Home/End,
-/// Enter picks, Esc closes; Tab stays in the menu. A click outside closes.
+/// Enter or Space picks, Esc closes; Tab stays in the menu. A click outside closes.
 /// `open` returns a [`PopupHandle`]: `.on_dismiss(|reason| ..)`, `.close()`.
+///
+/// **Submenus** ([`PopupItem::submenu`]) group long menus. A submenu is a
+/// second card in the same window, beside its entry (on the right; on the
+/// left when there is no room, and right to left), clamped to the window
+/// and scrolling like the root card. Hovering a submenu entry opens it
+/// after [`crate::anim::ms::SUBMENU_OPEN`] and closes a sibling's; moving
+/// the pointer toward an open submenu keeps it open
+/// ([`crate::anim::ms::SUBMENU_AIM`]); a click opens it at once. Keys act
+/// on the innermost open card: Right (Left right to left), Enter or Space
+/// on a submenu entry opens it on its first entry; Left (Right right to
+/// left) or Esc closes that submenu and goes back to its entry; Esc on the
+/// root card closes the menu. Picking any entry closes every card. Use
+/// [`PopupMenu::open_path`] (indices from the root) or
+/// [`PopupMenu::open_id`] ([`PopupItem::id`]) for such menus: `open`
+/// reports the top-level index only.
+///
+/// ```no_run
+/// use fltk_omarchy::popups::{PopupItem, PopupMenu};
+/// use fltk_omarchy::widgets::{glyph, Button};
+/// # let anchor = Button::new("Actions");
+/// PopupMenu::open_id(&*anchor, vec![
+///     PopupItem::new(glyph::FOLDER, "Open").id("open"),
+///     PopupItem::submenu(glyph::FILE, "Edit", vec![
+///         PopupItem::new("", "Copy").shortcut("Mod+C").id("copy"),
+///         PopupItem::new("", "Paste").shortcut("Mod+V").id("paste"),
+///     ]),
+/// ], |id| println!("picked {id}"));
+/// ```
 pub struct PopupMenu;
 
 struct MenuGeo {
-    rect: (i32, i32, i32, i32),
+    rect: Rect,
     /// Content-relative (y, h) of each entry.
     rows: Vec<(i32, i32)>,
     /// Inner padding (top/bottom) and the visible content height.
@@ -162,19 +280,61 @@ struct MenuGeo {
     content_h: i32,
 }
 
+/// The pick callback inside a menu: the path and the picked entry.
+type PickFn = Box<dyn FnOnce(Vec<usize>, &PopupItem)>;
+/// What a pointer intent does when its delay has passed.
+type Intent = Rc<dyn Fn(&Rc<MenuCtl>)>;
+
 impl PopupMenu {
     /// Opens under `anchor` (or above it when there is more room).
-    /// `on_pick(index)` receives the index into `items`.
+    /// `on_pick(index)` receives the index into `items`; for an entry inside
+    /// a submenu, the index of the top-level entry that holds it (use
+    /// [`PopupMenu::open_path`] or [`PopupMenu::open_id`] for submenus).
     pub fn open<A: WidgetExt>(anchor: &A, items: Vec<PopupItem>, on_pick: impl FnOnce(usize) + 'static) -> PopupHandle {
+        Self::open_path(anchor, items, move |p| on_pick(p[0]))
+    }
+
+    /// Like [`PopupMenu::open`], with the path of the picked entry: indices
+    /// from the root (`vec![i]` for a top-level entry, `vec![2, 0]` for the
+    /// first entry of the third entry's submenu).
+    pub fn open_path<A: WidgetExt>(anchor: &A, items: Vec<PopupItem>, on_pick: impl FnOnce(Vec<usize>) + 'static) -> PopupHandle {
         let Some(win) = anchor.top_window() else { return PopupHandle::closed_now() };
         let w = Self::width(&items).min(win.w() - 4).max(1);
         let right_half = anchor.x() + anchor.w() / 2 > win.w() / 2;
         let x = if right_half { anchor.x() + anchor.w() - w } else { anchor.x() };
-        Self::open_rect(anchor, items, x, (anchor.y(), anchor.y() + anchor.h()), w, on_pick)
+        Self::open_rect(anchor, items, x, (anchor.y(), anchor.y() + anchor.h()), w, Box::new(move |p, _| on_pick(p)))
     }
 
-    /// Opens at window coordinates (e.g. the mouse position for a context menu).
+    /// Like [`PopupMenu::open`], with the [`PopupItem::id`] of the picked
+    /// entry (empty for an entry without one): no index arithmetic for
+    /// menus with submenus.
+    pub fn open_id<A: WidgetExt>(anchor: &A, items: Vec<PopupItem>, on_pick: impl FnOnce(&str) + 'static) -> PopupHandle {
+        let Some(win) = anchor.top_window() else { return PopupHandle::closed_now() };
+        let w = Self::width(&items).min(win.w() - 4).max(1);
+        let right_half = anchor.x() + anchor.w() / 2 > win.w() / 2;
+        let x = if right_half { anchor.x() + anchor.w() - w } else { anchor.x() };
+        Self::open_rect(anchor, items, x, (anchor.y(), anchor.y() + anchor.h()), w, Box::new(move |_, it| on_pick(&it.id)))
+    }
+
+    /// Opens at window coordinates (e.g. the mouse position for a context
+    /// menu). `on_pick` as in [`PopupMenu::open`].
     pub fn open_at<A: WidgetExt>(anchor: &A, x: i32, y: i32, items: Vec<PopupItem>, on_pick: impl FnOnce(usize) + 'static) -> PopupHandle {
+        Self::open_at_path(anchor, x, y, items, move |p| on_pick(p[0]))
+    }
+
+    /// [`PopupMenu::open_at`] with the path of the picked entry
+    /// ([`PopupMenu::open_path`]).
+    pub fn open_at_path<A: WidgetExt>(anchor: &A, x: i32, y: i32, items: Vec<PopupItem>, on_pick: impl FnOnce(Vec<usize>) + 'static) -> PopupHandle {
+        Self::open_at_inner(anchor, x, y, items, Box::new(move |p, _| on_pick(p)))
+    }
+
+    /// [`PopupMenu::open_at`] with the id of the picked entry
+    /// ([`PopupMenu::open_id`]).
+    pub fn open_at_id<A: WidgetExt>(anchor: &A, x: i32, y: i32, items: Vec<PopupItem>, on_pick: impl FnOnce(&str) + 'static) -> PopupHandle {
+        Self::open_at_inner(anchor, x, y, items, Box::new(move |_, it| on_pick(&it.id)))
+    }
+
+    fn open_at_inner<A: WidgetExt>(anchor: &A, x: i32, y: i32, items: Vec<PopupItem>, on_pick: PickFn) -> PopupHandle {
         let Some(win) = anchor.top_window() else { return PopupHandle::closed_now() };
         let w = Self::width(&items).min(win.w() - 4).max(1);
         // Right to left the card grows to the left of the point.
@@ -182,18 +342,31 @@ impl PopupMenu {
         Self::open_rect(anchor, items, x, (y, y), w, on_pick)
     }
 
-    /// Natural width: widest label + shortcut + icon and check columns.
+    /// Natural width: widest label + shortcut + icon and trailing columns
+    /// (the check column also holds a submenu entry's chevron).
     fn width(items: &[PopupItem]) -> i32 {
         theme::with(|t| {
             let pad = t.spacing.control_padding_x;
             let mut w = s(t, 200.0);
             for it in items {
                 let lw = crate::widgets::measure_offscreen(&it.label, t.font.body);
-                let sw = if it.shortcut.is_empty() { 0 } else { crate::widgets::measure_offscreen(&it.shortcut, t.font.caption) + t.spacing.xl };
+                let sw = if it.shortcut.is_empty() || it.is_submenu() { 0 } else { crate::widgets::measure_offscreen(&it.shortcut, t.font.caption) + t.spacing.xl };
                 w = w.max(2 * pad + s(t, 22.0) + t.spacing.lg + lw + sw + s(t, 18.0) + 4 + SCROLLBAR);
             }
             w
         })
+    }
+
+    /// Content-relative rows and the content height.
+    fn rows(t: &theme::Theme, items: &[PopupItem]) -> (Vec<(i32, i32)>, i32) {
+        let row = t.spacing.popup_row_height;
+        let mut rows = Vec::with_capacity(items.len());
+        let mut y = 0;
+        for it in items {
+            rows.push((y, row));
+            y += row + if it.divider { t.spacing.md + 1 } else { 0 };
+        }
+        (rows, y)
     }
 
     /// Lays the card out inside the window: below `span.1` if it fits, else
@@ -202,13 +375,7 @@ impl PopupMenu {
         theme::with(|t| {
             let row = t.spacing.popup_row_height;
             let pad = 2 + t.spacing.xxs;
-            let mut rows = Vec::with_capacity(items.len());
-            let mut y = 0;
-            for it in items {
-                rows.push((y, row));
-                y += row + if it.divider { t.spacing.md + 1 } else { 0 };
-            }
-            let content_h = y;
+            let (rows, content_h) = Self::rows(t, items);
             let full = content_h + 2 * pad;
             let margin = 2;
             let below = win_h - margin - (span.1 + 2);
@@ -229,234 +396,56 @@ impl PopupMenu {
         })
     }
 
-    fn open_rect<A: WidgetExt>(anchor: &A, items: Vec<PopupItem>, x: i32, span: (i32, i32), w: i32, on_pick: impl FnOnce(usize) + 'static) -> PopupHandle {
+    /// A submenu's card: beside `parent` (overlapping its border a little),
+    /// on the trailing side if it fits, else on the other side; its first
+    /// entry level with the parent entry at `row_y`; clamped to the window
+    /// (and scrolling when taller).
+    fn sub_geometry(items: &[PopupItem], win: (i32, i32), parent: Rect, row_y: i32, rtl: bool) -> MenuGeo {
+        let (win_w, win_h) = win;
+        let w = Self::width(items).min(win_w - 4).max(1);
+        theme::with(|t| {
+            let pad = 2 + t.spacing.xxs;
+            let (rows, content_h) = Self::rows(t, items);
+            let margin = 2;
+            let h = (content_h + 2 * pad).min(win_h - 2 * margin).max(1);
+            let top = (row_y - pad).min(win_h - margin - h).max(margin);
+            let overlap = SUBMENU_OVERLAP;
+            let right = parent.0 + parent.2 - overlap;
+            let left = parent.0 + overlap - w;
+            let fits_right = right + w <= win_w - margin;
+            let fits_left = left >= margin;
+            let x = match (rtl, fits_right, fits_left) {
+                (false, true, _) | (true, true, false) => right,
+                (true, _, true) | (false, false, true) => left,
+                // Room on neither side: the larger one, overlapping the parent.
+                _ => if win_w - margin - right >= parent.0 + overlap - margin { right } else { left },
+            };
+            let x = x.clamp(margin, (win_w - w - margin).max(margin));
+            MenuGeo { rect: (x, top, w, h), rows, pad, view_h: (h - 2 * pad).max(0), content_h }
+        })
+    }
+
+    fn open_rect<A: WidgetExt>(anchor: &A, items: Vec<PopupItem>, x: i32, span: (i32, i32), w: i32, on_pick: PickFn) -> PopupHandle {
         let Some(win) = anchor.top_window() else { return PopupHandle::closed_now() };
         let x = x.clamp(2, (win.w() - w - 2).max(2));
-        let g = Rc::new(Self::geometry(&items, win.h(), x, span, w));
-        let Some(mut layer) = open_layer(anchor, None, true) else { return PopupHandle::closed_now() };
-        let state = Rc::new(RefCell::new(HandleState { open: true, rect: Some(g.rect), reason: None, on_dismiss: None }));
+        let g = Self::geometry(&items, win.h(), x, span, w);
+        let Some(layer) = open_layer(anchor, None, true) else { return PopupHandle::closed_now() };
+        let state = Rc::new(RefCell::new(HandleState::open(g.rect)));
         let handle = PopupHandle { layer: Some(layer.clone()), state: state.clone() };
-        let items = Rc::new(items);
-        let current = Rc::new(Cell::new(items.iter().position(|i| i.enabled).map(|i| i as i32).unwrap_or(-1)));
-        let scroll = Rc::new(Cell::new(0i32));
-        let motion = Rc::new(RefCell::new(crate::scroll::Scroll::new()));
+        let first = items.iter().position(|i| i.enabled).map(|i| i as i32).unwrap_or(-1);
+        let root = Rc::new(Level::new(layer, items, g, None, first));
         // The anchor's direction: right to left, glyphs on the right,
-        // shortcuts and checks on the left, the scrollbar on the left.
-        let rtl = crate::layout::is_rtl(anchor);
-
-        let (it, cur, sc, gd, mo) = (items.clone(), current.clone(), scroll.clone(), g.clone(), motion.clone());
-        crate::overlay::draw_layer(&mut layer, move |l| {
-            let mut motion = mo.borrow_mut();
-            sc.set(motion.position(sc.get() as i64, (gd.content_h - gd.view_h).max(0) as i64) as i32);
-            if motion.running() { crate::anim::request_redraw(l); }
-            drop(motion);
-            if let Some(win) = l.top_window() {
-                if (l.w(), l.h()) != (win.w(), win.h()) { l.resize(0, 0, win.w(), win.h()); }
-            }
-            theme::with(|t| {
-                let (x, y, w, h) = gd.rect;
-                let m = crate::layout::Mirror::new(rtl, x, w);
-                card(t, x, y, w, h, &t.popups, t.controls.normal.border_width.max(1));
-                let fill = t.popups.fill(bg(t));
-                let fg = t.popups.text;
-                let inset = 2;
-                let pad = t.spacing.control_padding_x;
-                let scrolls = gd.content_h > gd.view_h;
-                let right_edge = x + w - pad - if scrolls { SCROLLBAR } else { 0 };
-                let top = y + gd.pad;
-                fltk::draw::push_clip(x + 1, top, w - 2, gd.view_h);
-                for (i, (item, &(oy, rh))) in it.iter().zip(gd.rows.iter()).enumerate() {
-                    let ry = top + oy - sc.get();
-                    if ry + rh < top || ry > top + gd.view_h { continue; }
-                    if i as i32 == cur.get() && item.enabled {
-                        let hw = w - 2 * inset - if scrolls { SCROLLBAR } else { 0 };
-                        paint::fill(m.x(x + inset, hw), ry, hw, rh, t.radius, t.fill(&t.controls.hover, fill));
-                    }
-                    let color = if item.enabled { fg } else { fg.darker(2.0) };
-                    let cell = s(t, 22.0);
-                    if !item.icon.is_empty() {
-                        paint::glyph(&item.icon, m.x(x + pad, cell), ry, cell, rh, t.font.icon, color);
-                    }
-                    let tx = x + pad + cell + t.spacing.lg;
-                    let mut right = right_edge;
-                    if item.checked {
-                        paint::glyph(glyph::CHECKMARK, m.x(right - s(t, 14.0), s(t, 14.0)), ry, s(t, 14.0), rh, t.font.body, t.palette.accent);
-                        right -= s(t, 18.0);
-                    }
-                    if !item.shortcut.is_empty() {
-                        let sw = paint::measure(&item.shortcut, t.font.caption, false);
-                        paint::text(&item.shortcut, m.x(right - sw, sw), ry, sw, rh, t.font.caption, false, fg.darker(1.4), m.align(Align::Right));
-                        right -= sw + t.spacing.xl;
-                    }
-                    let lw = (right - tx).max(0);
-                    paint::text_elided(&item.label, m.x(tx, lw), ry, lw, rh, t.font.body, false, color, m.align(Align::Left));
-                    if item.divider {
-                        paint::hairline(x + inset + pad, ry + rh + t.spacing.md / 2, w - 2 * (inset + pad), fg, fill, 0.12);
-                    }
-                }
-                fltk::draw::pop_clip();
-                if scrolls {
-                    let track = gd.view_h;
-                    let thumb = ((gd.view_h as f64 / gd.content_h as f64) * track as f64).max(16.0) as i32;
-                    let max = (gd.content_h - gd.view_h).max(1);
-                    let ty = top + ((sc.get() as f64 / max as f64) * (track - thumb) as f64) as i32;
-                    paint::fill(m.x(x + w - SCROLLBAR - 2, SCROLLBAR - 2), ty, SCROLLBAR - 2, thumb, (SCROLLBAR - 2) / 2, fg.over(fill, 0.3));
-                }
-            });
+        // shortcuts and checks on the left, the scrollbar on the left,
+        // submenus open to the left.
+        let ctl = Rc::new(MenuCtl {
+            state,
+            levels: RefCell::new(vec![root.clone()]),
+            on_pick: RefCell::new(Some(on_pick)),
+            rtl: crate::layout::is_rtl(anchor),
+            gen: Cell::new(0),
+            last: Cell::new(None),
         });
-
-        let on_pick = Rc::new(RefCell::new(Some(Box::new(on_pick) as Box<dyn FnOnce(usize)>)));
-        let (it, cur, sc, gd) = (items.clone(), current.clone(), scroll.clone(), g.clone());
-        a11y::describe(&layer, move |n| {
-            let (x, y, w, h) = gd.rect;
-            n.role(Role::Menu).bounds(x, y, w, h);
-            let c = cur.get().max(0) as usize;
-            let top = y + gd.pad;
-            for i in c.saturating_sub(100)..(c + 101).min(it.len()) {
-                let item = &it[i];
-                let (oy, rh) = gd.rows[i];
-                n.child(i as u64, |m| {
-                    m.role(if item.checked { Role::MenuItemCheckBox } else { Role::MenuItem }).name(&item.label).shortcut(&item.shortcut)
-                        .disabled(!item.enabled).position(i + 1, it.len()).action(Action::Click).action(Action::Focus);
-                    if item.checked {
-                        m.toggled(true);
-                    }
-                    let ry = top + oy - sc.get();
-                    if ry + rh > top && ry < top + gd.view_h {
-                        m.bounds(x + 2, ry, w - 4, rh);
-                    }
-                    if i as i32 == cur.get() {
-                        m.focused();
-                    }
-                });
-            }
-        });
-        let (it, cur, st, op, l5) = (items.clone(), current.clone(), state.clone(), on_pick.clone(), layer.clone());
-        a11y::on_action(&layer, move |r| {
-            let Some(i) = r.key().map(|k| k as usize).filter(|i| *i < it.len()) else { return false };
-            match r.action {
-                Action::Click if it[i].enabled => {
-                    // Same order as a pick with the keyboard: close, then the callbacks.
-                    {
-                        let mut s = st.borrow_mut();
-                        if !s.open { return false; }
-                        s.open = false;
-                        s.reason = Some(Dismiss::Picked(i));
-                    }
-                    close_layer(&l5);
-                    if let Some(f) = op.borrow_mut().take() { f(i); }
-                    let f = st.borrow_mut().on_dismiss.take();
-                    if let Some(f) = f { f(Dismiss::Picked(i)); }
-                }
-                Action::Focus | Action::ScrollIntoView if it[i].enabled => { cur.set(i as i32); l5.clone().redraw(); }
-                _ => return false,
-            }
-            true
-        });
-        let (it, cur, sc, gd, st) = (items.clone(), current.clone(), scroll.clone(), g.clone(), state.clone());
-        layer.handle(move |l, ev| {
-            if matches!(ev, Event::Push | Event::KeyDown) { motion.borrow_mut().jump(sc.get() as i64); }
-            let (x, y, w, h) = gd.rect;
-            let max_scroll = (gd.content_h - gd.view_h).max(0);
-            let at = |ey: i32| -> Option<usize> {
-                let (ex, _) = app::event_coords();
-                let top = y + gd.pad;
-                if ex < x || ex >= x + w || ey < top || ey >= top + gd.view_h { return None; }
-                let cy = ey - top + sc.get();
-                gd.rows.iter().position(|(ry, rh)| cy >= *ry && cy < ry + rh)
-            };
-            let reveal = |i: i32| {
-                if i < 0 { return; }
-                let (ry, rh) = gd.rows[i as usize];
-                if ry < sc.get() { sc.set(ry) } else if ry + rh > sc.get() + gd.view_h { sc.set((ry + rh - gd.view_h).min(max_scroll)) }
-            };
-            let pick = |l: &Widget, i: usize| {
-                if !it[i].enabled { return; }
-                // Close first (focus goes back), then the callbacks.
-                {
-                    let mut s = st.borrow_mut();
-                    if !s.open { return; }
-                    s.open = false;
-                    s.reason = Some(Dismiss::Picked(i));
-                }
-                close_layer(l);
-                if let Some(f) = on_pick.borrow_mut().take() { f(i); }
-                let f = st.borrow_mut().on_dismiss.take();
-                if let Some(f) = f { f(Dismiss::Picked(i)); }
-            };
-            let enabled: Vec<i32> = it.iter().enumerate().filter(|(_, i)| i.enabled).map(|(n, _)| n as i32).collect();
-            let step = |d: i32| {
-                let n = it.len() as i32;
-                if enabled.is_empty() { return; }
-                let mut c = cur.get().max(0);
-                for _ in 0..n {
-                    c = (c + d).rem_euclid(n.max(1));
-                    if it[c as usize].enabled { break; }
-                }
-                cur.set(c);
-            };
-            // Page moves: by the rows that fit, no wrap, landing on an enabled entry.
-            let page = |dir: i32| {
-                if enabled.is_empty() { return; }
-                let rows = (gd.view_h / theme::with(|t| t.spacing.popup_row_height)).max(1);
-                let target = (cur.get().max(0) + dir * rows).clamp(0, it.len() as i32 - 1);
-                let pick = if dir > 0 {
-                    enabled.iter().copied().filter(|&e| e <= target).max().filter(|&e| e > cur.get()).or_else(|| enabled.iter().copied().find(|&e| e > cur.get()))
-                } else {
-                    enabled.iter().copied().filter(|&e| e >= target).min().filter(|&e| e < cur.get()).or_else(|| enabled.iter().copied().rev().find(|&e| e < cur.get()))
-                };
-                if let Some(p) = pick { cur.set(p) }
-            };
-            match ev {
-                Event::Move => {
-                    if let Some(i) = at(app::event_y()) { if cur.get() != i as i32 { cur.set(i as i32); l.redraw(); } }
-                    true
-                }
-                Event::Push => {
-                    let (ex, ey) = app::event_coords();
-                    if ex >= x && ex < x + w && ey >= y && ey < y + h {
-                        if let Some(i) = at(ey) { pick(l, i); }
-                    } else {
-                        finish(&st, l, Dismiss::ClickOutside);
-                    }
-                    true
-                }
-                Event::MouseWheel => {
-                    let row = theme::with(|t| t.spacing.popup_row_height);
-                    sc.set(motion.borrow_mut().wheel(sc.get() as i64, app::event_dy_value() as f64 * row as f64, max_scroll as i64) as i32);
-                    l.redraw();
-                    true
-                }
-                Event::KeyDown => {
-                    let k = app::event_key();
-                    let cmd = crate::overlay::command_mods();
-                    match k {
-                        Key::Escape if !cmd => { finish(&st, l, Dismiss::Escape); return true; }
-                        Key::Tab => return true, // Tab stays in the menu
-                        Key::Down if !cmd => step(1),
-                        Key::Up if !cmd => step(-1),
-                        Key::PageDown if !cmd => page(1),
-                        Key::PageUp if !cmd => page(-1),
-                        Key::Home if !cmd => { if let Some(&e) = enabled.first() { cur.set(e) } }
-                        Key::End if !cmd => { if let Some(&e) = enabled.last() { cur.set(e) } }
-                        Key::Enter | Key::KPEnter if !cmd => { if cur.get() >= 0 { pick(l, cur.get() as usize); } return true; }
-                        _ if crate::overlay::plain_letter(k, 'j') => step(1),
-                        _ if crate::overlay::plain_letter(k, 'k') => step(-1),
-                        _ => {
-                            // Not a menu key (F1, F10, Ctrl+…): close the menu, give focus
-                            // back and let the key reach the app's shortcuts.
-                            finish(&st, l, Dismiss::Closed);
-                            return false;
-                        }
-                    }
-                    reveal(cur.get());
-                    l.redraw();
-                    true
-                }
-                Event::Focus | Event::Enter => true,
-                _ => false,
-            }
-        });
+        ctl.install(&root);
         handle
     }
 
@@ -470,6 +459,615 @@ impl PopupMenu {
 
 /// Width of the popup scrollbar column.
 const SCROLLBAR: i32 = 6;
+/// How far a submenu card overlaps its parent card.
+const SUBMENU_OVERLAP: i32 = 3;
+
+/// One card of an open menu: the root or a submenu.
+struct Level {
+    layer: Widget,
+    items: Vec<PopupItem>,
+    geo: MenuGeo,
+    /// The entry of the previous card that opened it (None for the root).
+    parent: Option<usize>,
+    /// The highlighted entry (-1: none).
+    cur: Cell<i32>,
+    scroll: Cell<i32>,
+    motion: RefCell<crate::scroll::Scroll>,
+}
+
+impl Level {
+    fn new(layer: Widget, items: Vec<PopupItem>, geo: MenuGeo, parent: Option<usize>, cur: i32) -> Level {
+        Level { layer, items, geo, parent, cur: Cell::new(cur), scroll: Cell::new(0), motion: RefCell::new(crate::scroll::Scroll::new()) }
+    }
+
+    fn contains(&self, x: i32, y: i32) -> bool {
+        let (rx, ry, rw, rh) = self.geo.rect;
+        x >= rx && x < rx + rw && y >= ry && y < ry + rh
+    }
+
+    /// The entry under a window point.
+    fn row_at(&self, x: i32, y: i32) -> Option<usize> {
+        let (rx, ry, rw, _) = self.geo.rect;
+        let top = ry + self.geo.pad;
+        if x < rx || x >= rx + rw || y < top || y >= top + self.geo.view_h {
+            return None;
+        }
+        let cy = y - top + self.scroll.get();
+        self.geo.rows.iter().position(|(r, h)| cy >= *r && cy < r + h)
+    }
+
+    /// Window y of an entry's top.
+    fn row_y(&self, i: usize) -> i32 {
+        self.geo.rect.1 + self.geo.pad + self.geo.rows[i].0 - self.scroll.get()
+    }
+
+    fn max_scroll(&self) -> i32 {
+        (self.geo.content_h - self.geo.view_h).max(0)
+    }
+
+    fn reveal(&self, i: i32) {
+        if i < 0 {
+            return;
+        }
+        let (ry, rh) = self.geo.rows[i as usize];
+        let sc = self.scroll.get();
+        if ry < sc {
+            self.scroll.set(ry)
+        } else if ry + rh > sc + self.geo.view_h {
+            self.scroll.set((ry + rh - self.geo.view_h).min(self.max_scroll()))
+        }
+    }
+
+    fn enabled(&self) -> Vec<i32> {
+        self.items.iter().enumerate().filter(|(_, i)| i.enabled).map(|(n, _)| n as i32).collect()
+    }
+
+    /// Next / previous enabled entry, wrapping (from none: the first / last).
+    fn step(&self, d: i32) {
+        let n = self.items.len() as i32;
+        if !self.items.iter().any(|i| i.enabled) {
+            return;
+        }
+        let mut c = self.cur.get();
+        if c < 0 {
+            c = if d > 0 { -1 } else { n };
+        }
+        for _ in 0..n {
+            c = (c + d).rem_euclid(n.max(1));
+            if self.items[c as usize].enabled {
+                break;
+            }
+        }
+        self.cur.set(c);
+    }
+
+    /// Page moves: by the rows that fit, no wrap, landing on an enabled entry.
+    fn page(&self, dir: i32) {
+        let enabled = self.enabled();
+        if enabled.is_empty() {
+            return;
+        }
+        let cur = self.cur.get();
+        let rows = (self.geo.view_h / theme::with(|t| t.spacing.popup_row_height)).max(1);
+        let target = (cur.max(0) + dir * rows).clamp(0, self.items.len() as i32 - 1);
+        let pick = if dir > 0 {
+            enabled.iter().copied().filter(|&e| e <= target).max().filter(|&e| e > cur).or_else(|| enabled.iter().copied().find(|&e| e > cur))
+        } else {
+            enabled.iter().copied().filter(|&e| e >= target).min().filter(|&e| e < cur).or_else(|| enabled.iter().copied().rev().find(|&e| e < cur))
+        };
+        if let Some(p) = pick {
+            self.cur.set(p)
+        }
+    }
+
+    fn draw(&self, l: &mut Widget, rtl: bool) {
+        let gd = &self.geo;
+        let mut motion = self.motion.borrow_mut();
+        self.scroll.set(motion.position(self.scroll.get() as i64, self.max_scroll() as i64) as i32);
+        if motion.running() { crate::anim::request_redraw(l); }
+        drop(motion);
+        if let Some(win) = l.top_window() {
+            if (l.w(), l.h()) != (win.w(), win.h()) { l.resize(0, 0, win.w(), win.h()); }
+        }
+        let sc = self.scroll.get();
+        let cur = self.cur.get();
+        theme::with(|t| {
+            let (x, y, w, h) = gd.rect;
+            let m = crate::layout::Mirror::new(rtl, x, w);
+            card(t, x, y, w, h, &t.popups, t.controls.normal.border_width.max(1));
+            let fill = t.popups.fill(bg(t));
+            let fg = t.popups.text;
+            let inset = 2;
+            let pad = t.spacing.control_padding_x;
+            let scrolls = gd.content_h > gd.view_h;
+            let right_edge = x + w - pad - if scrolls { SCROLLBAR } else { 0 };
+            let top = y + gd.pad;
+            fltk::draw::push_clip(x + 1, top, w - 2, gd.view_h);
+            for (i, (item, &(oy, rh))) in self.items.iter().zip(gd.rows.iter()).enumerate() {
+                let ry = top + oy - sc;
+                if ry + rh < top || ry > top + gd.view_h { continue; }
+                if i as i32 == cur && item.enabled {
+                    let hw = w - 2 * inset - if scrolls { SCROLLBAR } else { 0 };
+                    paint::fill(m.x(x + inset, hw), ry, hw, rh, t.radius, t.fill(&t.controls.hover, fill));
+                }
+                let color = if item.enabled { fg } else { fg.darker(2.0) };
+                let cell = s(t, 22.0);
+                if !item.icon.is_empty() {
+                    paint::glyph(&item.icon, m.x(x + pad, cell), ry, cell, rh, t.font.icon, color);
+                }
+                let tx = x + pad + cell + t.spacing.lg;
+                let mut right = right_edge;
+                if item.is_submenu() {
+                    // A chevron toward the side the submenu opens on, in the check column.
+                    let cw = s(t, 14.0);
+                    paint::glyph(m.glyph(glyph::SUBMENU, glyph::SUBMENU_RTL), m.x(right - cw, cw), ry, cw, rh, t.font.body, color);
+                    right -= s(t, 18.0);
+                } else {
+                    if item.checked {
+                        paint::glyph(glyph::CHECKMARK, m.x(right - s(t, 14.0), s(t, 14.0)), ry, s(t, 14.0), rh, t.font.body, t.palette.accent);
+                        right -= s(t, 18.0);
+                    }
+                    if !item.shortcut.is_empty() {
+                        let sw = paint::measure(&item.shortcut, t.font.caption, false);
+                        paint::text(&item.shortcut, m.x(right - sw, sw), ry, sw, rh, t.font.caption, false, fg.darker(1.4), m.align(Align::Right));
+                        right -= sw + t.spacing.xl;
+                    }
+                }
+                let lw = (right - tx).max(0);
+                paint::text_elided(&item.label, m.x(tx, lw), ry, lw, rh, t.font.body, false, color, m.align(Align::Left));
+                if item.divider {
+                    paint::hairline(x + inset + pad, ry + rh + t.spacing.md / 2, w - 2 * (inset + pad), fg, fill, 0.12);
+                }
+            }
+            fltk::draw::pop_clip();
+            if scrolls {
+                let track = gd.view_h;
+                let thumb = ((gd.view_h as f64 / gd.content_h as f64) * track as f64).max(16.0) as i32;
+                let max = (gd.content_h - gd.view_h).max(1);
+                let ty = top + ((sc as f64 / max as f64) * (track - thumb) as f64) as i32;
+                paint::fill(m.x(x + w - SCROLLBAR - 2, SCROLLBAR - 2), ty, SCROLLBAR - 2, thumb, (SCROLLBAR - 2) / 2, fg.over(fill, 0.3));
+            }
+        });
+    }
+}
+
+/// An open menu: its cards (root first), shared by their layers. Pointer
+/// events reach the topmost layer and are routed to the card under the
+/// pointer; keys reach the focused (innermost) card.
+struct MenuCtl {
+    state: Rc<RefCell<HandleState>>,
+    levels: RefCell<Vec<Rc<Level>>>,
+    on_pick: RefCell<Option<PickFn>>,
+    rtl: bool,
+    /// Generation of the pending pointer intent (submenu open/close, aim):
+    /// a newer one cancels it.
+    gen: Cell<u64>,
+    /// The last pointer position over the menu (submenu aim).
+    last: Cell<Option<(i32, i32)>>,
+}
+
+impl MenuCtl {
+    fn open(&self) -> bool {
+        self.state.borrow().open
+    }
+
+    fn levels(&self) -> Vec<Rc<Level>> {
+        self.levels.borrow().clone()
+    }
+
+    fn depth_of(&self, level: &Rc<Level>) -> Option<usize> {
+        self.levels.borrow().iter().position(|l| Rc::ptr_eq(l, level))
+    }
+
+    /// The handle's view of the open submenus.
+    fn sync(&self) {
+        let subs = self.levels.borrow().iter().skip(1).map(|l| (l.layer.clone(), l.geo.rect, l.parent.unwrap_or(0))).collect();
+        self.state.borrow_mut().subs = subs;
+    }
+
+    fn redraw(&self) {
+        for l in self.levels() {
+            l.layer.clone().redraw();
+        }
+    }
+
+    /// Cancels a pending pointer intent; returns the new generation.
+    fn bump(&self) -> u64 {
+        let g = self.gen.get() + 1;
+        self.gen.set(g);
+        g
+    }
+
+    /// Closes the submenus from `depth` on (deepest first: focus walks back
+    /// to the card under them).
+    fn close_from(&self, depth: usize) {
+        let gone: Vec<Rc<Level>> = {
+            let mut lv = self.levels.borrow_mut();
+            if depth == 0 || depth >= lv.len() {
+                return;
+            }
+            lv.drain(depth..).collect()
+        };
+        self.sync();
+        for l in gone.iter().rev() {
+            if !l.layer.was_deleted() {
+                crate::focus::pop_modal(&l.layer);
+                close_layer(&l.layer);
+            }
+        }
+        self.redraw();
+    }
+
+    /// Opens the submenu of entry `row` of card `depth` (closing deeper
+    /// ones). From the keyboard its first enabled entry is highlighted.
+    fn open_sub(self: &Rc<Self>, depth: usize, row: usize, keyboard: bool) {
+        self.bump();
+        self.close_from(depth + 1);
+        let Some(parent) = self.levels().get(depth).cloned() else { return };
+        let Some(item) = parent.items.get(row) else { return };
+        if !item.enabled || !item.is_submenu() {
+            return;
+        }
+        let Some(win) = parent.layer.top_window() else { return };
+        parent.cur.set(row as i32);
+        parent.reveal(row as i32);
+        let row_y = parent.row_y(row).clamp(parent.geo.rect.1, parent.geo.rect.1 + parent.geo.rect.3);
+        let items = item.children.clone();
+        let g = PopupMenu::sub_geometry(&items, (win.w(), win.h()), parent.geo.rect, row_y, self.rtl);
+        let Some(layer) = open_layer(&parent.layer, None, true) else { return };
+        let first = if keyboard { items.iter().position(|i| i.enabled).map(|i| i as i32).unwrap_or(-1) } else { -1 };
+        let level = Rc::new(Level::new(layer, items, g, Some(row), first));
+        self.levels.borrow_mut().push(level.clone());
+        self.sync();
+        self.install(&level);
+        self.redraw();
+    }
+
+    /// The path of entry `row` of card `depth`, from the root.
+    fn path(&self, depth: usize, row: usize) -> Vec<usize> {
+        let mut p: Vec<usize> = self.levels.borrow().iter().take(depth + 1).skip(1).filter_map(|l| l.parent).collect();
+        p.push(row);
+        p
+    }
+
+    /// Chooses entry `row` of card `depth`: opens a submenu, or picks a
+    /// leaf (closes every card, then `on_pick`, then `on_dismiss`).
+    fn activate(self: &Rc<Self>, depth: usize, row: usize, keyboard: bool) {
+        let Some(level) = self.levels().get(depth).cloned() else { return };
+        let Some(item) = level.items.get(row) else { return };
+        if !item.enabled {
+            return;
+        }
+        if item.is_submenu() {
+            self.open_sub(depth, row, keyboard);
+            return;
+        }
+        self.bump();
+        let path = self.path(depth, row);
+        let item = item.clone();
+        let root = self.levels.borrow()[0].layer.clone();
+        self.state.borrow_mut().picked = Some(path.clone());
+        let f = self.on_pick.borrow_mut().take();
+        let done = finish_then(&self.state, &root, Dismiss::Picked(path[0]), move || {
+            if let Some(f) = f {
+                f(path, &item);
+            }
+        });
+        if !done {
+            self.state.borrow_mut().picked = None;
+        }
+    }
+
+    /// Runs `f` once `deadline` (on the animation clock) has passed, unless
+    /// a newer pointer intent replaced this one or the menu closed. With a
+    /// frozen clock ([`crate::anim::clock`]) it checks every frame, so
+    /// tests step through the delay with `clock::advance`.
+    fn after(self: &Rc<Self>, gen: u64, deadline: std::time::Instant, f: Intent) {
+        let now = crate::anim::now();
+        let wait = if crate::anim::clock::frozen() { 1.0 / 60.0 } else { deadline.saturating_duration_since(now).as_secs_f64().max(0.001) };
+        let me = Rc::downgrade(self);
+        app::add_timeout3(wait, move |_| {
+            let Some(me) = me.upgrade() else { return };
+            if me.gen.get() != gen || !me.open() {
+                return;
+            }
+            if crate::anim::now() >= deadline {
+                f(&me);
+            } else {
+                me.after(gen, deadline, f.clone());
+            }
+        });
+    }
+
+    /// The pointer rests on entry `row` of card `depth`: after the hover
+    /// delay, its submenu replaces the open one (or the open one closes).
+    fn hover_intent(self: &Rc<Self>, depth: usize, row: usize) {
+        let gen = self.bump();
+        let deadline = crate::anim::now() + std::time::Duration::from_millis(crate::anim::ms::SUBMENU_OPEN as u64);
+        self.after(gen, deadline, Rc::new(move |me: &Rc<MenuCtl>| me.settle(depth, row)));
+    }
+
+    fn settle(self: &Rc<Self>, depth: usize, row: usize) {
+        let levels = self.levels();
+        if depth >= levels.len() || levels.get(depth + 1).is_some_and(|c| c.parent == Some(row)) {
+            return;
+        }
+        self.close_from(depth + 1);
+        let it = &levels[depth].items[row];
+        if it.enabled && it.is_submenu() {
+            self.open_sub(depth, row, false);
+        }
+    }
+
+    /// Pointer motion at window `(x, y)`; `aim`: keep an open submenu while
+    /// the pointer heads for it.
+    fn pointer(self: &Rc<Self>, x: i32, y: i32, aim: bool) {
+        let prev = self.last.replace(Some((x, y)));
+        let levels = self.levels();
+        let Some(d) = (0..levels.len()).rev().find(|&d| levels[d].contains(x, y)) else { return };
+        let lv = &levels[d];
+        // The cards under it stay on the entries that opened the ones above.
+        for k in 0..d {
+            if let Some(p) = levels[k + 1].parent {
+                if levels[k].cur.replace(p as i32) != p as i32 {
+                    levels[k].layer.clone().redraw();
+                }
+            }
+        }
+        let row = lv.row_at(x, y);
+        let child = levels.get(d + 1);
+        if let Some(c) = child {
+            if row.is_some() && row == c.parent {
+                self.bump();
+                if lv.cur.replace(row.unwrap_or(0) as i32) != row.unwrap_or(0) as i32 {
+                    lv.layer.clone().redraw();
+                }
+                return;
+            }
+            if aim && prev.is_some_and(|p| p != (x, y) && aiming(p, (x, y), c.geo.rect, lv.geo.rect)) {
+                // Heading for the open submenu: wait; if the pointer settles
+                // here instead, act on where it is then.
+                let gen = self.bump();
+                let deadline = crate::anim::now() + std::time::Duration::from_millis(crate::anim::ms::SUBMENU_AIM as u64);
+                self.after(gen, deadline, Rc::new(|me: &Rc<MenuCtl>| {
+                    if let Some((x, y)) = me.last.get() {
+                        me.pointer_settled(x, y);
+                    }
+                }));
+                return;
+            }
+        }
+        let Some(row) = row else { return };
+        if lv.cur.replace(row as i32) != row as i32 {
+            lv.layer.clone().redraw();
+        }
+        if child.is_some() || (lv.items[row].enabled && lv.items[row].is_submenu()) {
+            self.hover_intent(d, row);
+        } else {
+            self.bump();
+        }
+    }
+
+    /// After the aim grace: what the pointer is on now takes effect at once.
+    fn pointer_settled(self: &Rc<Self>, x: i32, y: i32) {
+        let levels = self.levels();
+        let Some(d) = (0..levels.len()).rev().find(|&d| levels[d].contains(x, y)) else { return };
+        let Some(row) = levels[d].row_at(x, y) else { return };
+        levels[d].cur.set(row as i32);
+        self.settle(d, row);
+        self.redraw();
+    }
+
+    fn push(self: &Rc<Self>, x: i32, y: i32) {
+        self.bump();
+        let levels = self.levels();
+        let Some(d) = (0..levels.len()).rev().find(|&d| levels[d].contains(x, y)) else {
+            let root = levels[0].layer.clone();
+            finish(&self.state, &root, Dismiss::ClickOutside);
+            return;
+        };
+        let lv = &levels[d];
+        match lv.row_at(x, y) {
+            // The entry of the open submenu: it stays open.
+            Some(r) if levels.get(d + 1).is_some_and(|c| c.parent == Some(r)) => self.close_from(d + 2),
+            Some(r) => {
+                lv.cur.set(r as i32);
+                if lv.items[r].enabled {
+                    self.activate(d, r, false);
+                } else {
+                    self.close_from(d + 1);
+                }
+            }
+            None => self.close_from(d + 1),
+        }
+        if self.open() {
+            self.redraw();
+        }
+    }
+
+    /// A key on the innermost card. False: not a menu key (the menu closed
+    /// and the key goes on to the app).
+    fn key(self: &Rc<Self>) -> bool {
+        self.bump();
+        let levels = self.levels();
+        let d = levels.len() - 1;
+        let lv = levels[d].clone();
+        let k = app::event_key();
+        let cmd = crate::overlay::command_mods();
+        // Left / Right as the reader means them (mirrored right to left).
+        let lk = crate::layout::Mirror::new(self.rtl, 0, 0).key(k);
+        let cur = lv.cur.get();
+        let on_sub = cur >= 0 && lv.items[cur as usize].enabled && lv.items[cur as usize].is_submenu();
+        let space = k == Key::from_char(' ') && !app::event_state().intersects(Shortcut::Ctrl | Shortcut::Alt | Shortcut::Meta | Shortcut::Shift);
+        match k {
+            Key::Escape if !cmd => {
+                if d > 0 {
+                    self.close_from(d);
+                } else {
+                    finish(&self.state, &lv.layer, Dismiss::Escape);
+                }
+                return true;
+            }
+            Key::Tab => return true, // Tab stays in the menu
+            Key::Left | Key::Right if !cmd && lk == Key::Right && on_sub => { self.open_sub(d, cur as usize, true); return true; }
+            Key::Left | Key::Right if !cmd && lk == Key::Left && d > 0 => { self.close_from(d); return true; }
+            // Inside a submenu Left / Right are menu keys even when they do nothing.
+            Key::Left | Key::Right if !cmd && d > 0 => return true,
+            Key::Enter | Key::KPEnter if !cmd => { if cur >= 0 { self.activate(d, cur as usize, true); } return true; }
+            _ if space => { if cur >= 0 { self.activate(d, cur as usize, true); } return true; }
+            Key::Down if !cmd => lv.step(1),
+            Key::Up if !cmd => lv.step(-1),
+            Key::PageDown if !cmd => lv.page(1),
+            Key::PageUp if !cmd => lv.page(-1),
+            Key::Home if !cmd => { if let Some(&e) = lv.enabled().first() { lv.cur.set(e) } }
+            Key::End if !cmd => { if let Some(&e) = lv.enabled().last() { lv.cur.set(e) } }
+            _ if crate::overlay::plain_letter(k, 'j') => lv.step(1),
+            _ if crate::overlay::plain_letter(k, 'k') => lv.step(-1),
+            _ => {
+                // Not a menu key (F1, F10, Ctrl+…): close the menu, give focus
+                // back and let the key reach the app's shortcuts.
+                let root = levels[0].layer.clone();
+                finish(&self.state, &root, Dismiss::Closed);
+                return false;
+            }
+        }
+        lv.reveal(lv.cur.get());
+        lv.layer.clone().redraw();
+        true
+    }
+
+    fn wheel(&self, x: i32, y: i32) {
+        let levels = self.levels();
+        let d = (0..levels.len()).rev().find(|&d| levels[d].contains(x, y)).unwrap_or(levels.len() - 1);
+        let lv = &levels[d];
+        let row = theme::with(|t| t.spacing.popup_row_height);
+        let to = lv.motion.borrow_mut().wheel(lv.scroll.get() as i64, app::event_dy_value() as f64 * row as f64, lv.max_scroll() as i64);
+        lv.scroll.set(to as i32);
+        if lv.max_scroll() > 0 && d + 1 < levels.len() {
+            // Its entries scroll away from the submenus they opened.
+            self.bump();
+            self.close_from(d + 1);
+        }
+        lv.layer.clone().redraw();
+    }
+
+    fn handle(self: &Rc<Self>, ev: Event) -> bool {
+        if !self.open() {
+            return matches!(ev, Event::Focus | Event::Enter);
+        }
+        if matches!(ev, Event::Push | Event::KeyDown) {
+            for l in self.levels() {
+                l.motion.borrow_mut().jump(l.scroll.get() as i64);
+            }
+        }
+        let (ex, ey) = app::event_coords();
+        match ev {
+            // FLTK sends Enter, not Move, to a layer the pointer reaches first
+            // (a submenu that just opened under it).
+            Event::Move | Event::Enter => { self.pointer(ex, ey, true); true }
+            Event::Push => { self.push(ex, ey); true }
+            Event::MouseWheel => { self.wheel(ex, ey); true }
+            Event::KeyDown => self.key(),
+            Event::Focus => true,
+            _ => false,
+        }
+    }
+
+    /// Draw, events and the accessible description of a card's layer.
+    fn install(self: &Rc<Self>, level: &Rc<Level>) {
+        let mut layer = level.layer.clone();
+        let (lv, rtl) = (level.clone(), self.rtl);
+        crate::overlay::draw_layer(&mut layer, move |l| lv.draw(l, rtl));
+
+        let (lv, me) = (level.clone(), Rc::downgrade(self));
+        a11y::describe(&layer, move |n| {
+            let gd = &lv.geo;
+            let (x, y, w, h) = gd.rect;
+            n.role(Role::Menu).bounds(x, y, w, h);
+            let me = me.upgrade();
+            // A submenu is named after its entry.
+            if let (Some(me), Some(p)) = (&me, lv.parent) {
+                let levels = me.levels.borrow();
+                if let Some(d) = levels.iter().position(|l| Rc::ptr_eq(l, &lv)).filter(|&d| d > 0) {
+                    if let Some(it) = levels[d - 1].items.get(p) {
+                        n.name(&it.label);
+                    }
+                }
+            }
+            let open_child = me.as_ref().and_then(|me| {
+                let levels = me.levels.borrow();
+                let d = levels.iter().position(|l| Rc::ptr_eq(l, &lv))?;
+                levels.get(d + 1).and_then(|c| c.parent)
+            });
+            let c = lv.cur.get().max(0) as usize;
+            let top = y + gd.pad;
+            let sc = lv.scroll.get();
+            let it = &lv.items;
+            for i in c.saturating_sub(100)..(c + 101).min(it.len()) {
+                let item = &it[i];
+                let (oy, rh) = gd.rows[i];
+                n.child(i as u64, |m| {
+                    m.role(if item.checked && !item.is_submenu() { Role::MenuItemCheckBox } else { Role::MenuItem }).name(&item.label).shortcut(&item.shortcut)
+                        .disabled(!item.enabled).position(i + 1, it.len()).action(Action::Click).action(Action::Focus);
+                    if item.is_submenu() {
+                        let open = open_child == Some(i);
+                        m.has_popup(true).expanded(open).action(if open { Action::Collapse } else { Action::Expand });
+                    } else if item.checked {
+                        m.toggled(true);
+                    }
+                    let ry = top + oy - sc;
+                    if ry + rh > top && ry < top + gd.view_h {
+                        m.bounds(x + 2, ry, w - 4, rh);
+                    }
+                    if i as i32 == lv.cur.get() {
+                        m.focused();
+                    }
+                });
+            }
+        });
+
+        let (lv, me) = (level.clone(), Rc::downgrade(self));
+        a11y::on_action(&layer, move |r| {
+            let Some(me) = me.upgrade() else { return false };
+            let Some(d) = me.depth_of(&lv).filter(|_| me.open()) else { return false };
+            let Some(i) = r.key().map(|k| k as usize).filter(|i| *i < lv.items.len()) else { return false };
+            let item = &lv.items[i];
+            let open = me.levels.borrow().get(d + 1).is_some_and(|c| c.parent == Some(i));
+            match r.action {
+                Action::Click if item.enabled => me.activate(d, i, true),
+                Action::Expand if item.enabled && item.is_submenu() => me.open_sub(d, i, true),
+                Action::Collapse if open => me.close_from(d + 1),
+                Action::Focus | Action::ScrollIntoView if item.enabled => {
+                    lv.cur.set(i as i32);
+                    lv.reveal(i as i32);
+                    lv.layer.clone().redraw();
+                }
+                _ => return false,
+            }
+            true
+        });
+
+        // The layers keep the menu alive (it holds no strong reference to them).
+        let me = self.clone();
+        layer.handle(move |_, ev| me.handle(ev));
+    }
+}
+
+/// True when the pointer, moving from `from` to `to` over `parent`, heads
+/// for the submenu card `sub`: `to` lies in the triangle between `from` and
+/// the submenu's near edge.
+fn aiming(from: (i32, i32), to: (i32, i32), sub: Rect, parent: Rect) -> bool {
+    let right = sub.0 + sub.2 / 2 >= parent.0 + parent.2 / 2;
+    let ex = if right { sub.0 } else { sub.0 + sub.2 };
+    let (a, b, c) = (from, (ex, sub.1 - 4), (ex, sub.1 + sub.3 + 4));
+    let cross = |p: (i32, i32), q: (i32, i32), r: (i32, i32)| -> i64 {
+        (q.0 - p.0) as i64 * (r.1 - p.1) as i64 - (q.1 - p.1) as i64 * (r.0 - p.0) as i64
+    };
+    let (d1, d2, d3) = (cross(a, b, to), cross(b, c, to), cross(c, a, to));
+    let neg = d1 < 0 || d2 < 0 || d3 < 0;
+    let pos = d1 > 0 || d2 > 0 || d3 > 0;
+    !(neg && pos)
+}
 
 // ====================================================== SearchableDropdown
 
@@ -1228,7 +1826,7 @@ impl PopupCard {
         }
         // SAFETY: the layer is a live widget; the copy only tracks it.
         let lw = unsafe { Widget::from_widget_ptr(layer.as_widget_ptr()) };
-        let state = Rc::new(RefCell::new(HandleState { open: true, rect: Some((x, y, w, h)), reason: None, on_dismiss: None }));
+        let state = Rc::new(RefCell::new(HandleState::open((x, y, w, h))));
         let handle = PopupHandle { layer: Some(lw.clone()), state: state.clone() };
         let (st, rect) = (state.clone(), (x, y, w, h));
         layer.handle(move |l, ev| {

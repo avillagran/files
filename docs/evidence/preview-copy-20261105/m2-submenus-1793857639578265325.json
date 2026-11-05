@@ -1,0 +1,36 @@
+{
+  "functional_gate": "PASS",
+  "label": "m2-submenus",
+  "binary_sha256": "cd408d9113ec3c3d42892f81fcf642e03b2c1fe38f93e3162a03ee5b654df18c",
+  "helper_sha256": "e5401c541f6ca42ca9eb3415d8277df5c6bfb114835913cbe48d2bd9245b942c",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "method": "private nested Hyprland on a hidden special workspace; virtual pointer + wtype on the nested socket; nested clipboard only",
+  "checks": {
+    "empty_selection_keeps_clipboard": "previo",
+    "double_click_word": "segunda",
+    "triple_click_line": "segunda línea con más texto aquí\n",
+    "drag_ctrl_c": "primera línea del archivo de prueba\nsegunda línea",
+    "copy_button_after_hover": "primera",
+    "notices": [
+      "FILES_PREVIEW_COPY bytes=0 notice=Nada seleccionado: arrastra, doble clic (palabra), triple clic (línea) o Ctrl+A",
+      "FILES_PREVIEW_COPY bytes=7 notice=Copiado: 7 caracteres",
+      "FILES_PREVIEW_COPY bytes=36 notice=Copiado: 33 caracteres",
+      "FILES_PREVIEW_COPY bytes=51 notice=Copiado: 49 caracteres",
+      "FILES_PREVIEW_COPY bytes=7 notice=Copiado: 7 caracteres"
+    ]
+  },
+  "captures": [
+    "/home/avillagran/.cache/files-m2-updates/sub-a4eb387/source/docs/evidence/preview-copy-20261105/m2-submenus-empty-selection-notice-1793857645368136353.png",
+    "/home/avillagran/.cache/files-m2-updates/sub-a4eb387/source/docs/evidence/preview-copy-20261105/m2-submenus-copied-notice-1793857649819544777.png"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "parent_socket": "wayland-1",
+  "nested": {
+    "socket": "wayland-2",
+    "pid": [
+      "1851035"
+    ]
+  },
+  "nested_stopped": true
+}

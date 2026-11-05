@@ -216,6 +216,7 @@ pub struct Node {
     pub(crate) numeric: Option<(f64, f64, f64, f64)>,
     pub(crate) toggled: Option<bool>,
     pub(crate) expanded: Option<bool>,
+    pub(crate) has_popup: bool,
     pub(crate) selected: Option<bool>,
     pub(crate) current: bool,
     pub(crate) disabled: Option<bool>,
@@ -290,6 +291,13 @@ impl Node {
     /// Expanded or collapsed (combo boxes, tree items, disclosures).
     pub fn expanded(&mut self, open: bool) -> &mut Self {
         self.expanded = Some(open);
+        self
+    }
+
+    /// Opens a menu (a submenu entry, a menu button): read as "has
+    /// popup" / "submenu". Pair it with [`Node::expanded`].
+    pub fn has_popup(&mut self, on: bool) -> &mut Self {
+        self.has_popup = on;
         self
     }
 

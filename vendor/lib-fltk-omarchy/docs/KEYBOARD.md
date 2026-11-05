@@ -84,6 +84,7 @@ open. The app needs no extra code.
 | Key | In an open popup |
 |---|---|
 | Up / Down, PageUp / PageDown, Home / End, Enter | the popup's own keys (no Ctrl / Alt / Super) |
+| Space, Left / Right in a PopupMenu | Space activates like Enter; Right opens a submenu, Left closes one (mirrored right to left); inside a submenu Left / Right are always menu keys |
 | `j` / `k` | navigate only with **no modifier at all**. `Ctrl+j`, `Alt+k`, `Shift+j` are not navigation |
 | Esc | closes with `Dismiss::Escape`; no app shortcut sees it |
 | Tab / Shift+Tab | stay in the popup (the Tab trap) |
@@ -204,7 +205,7 @@ operation started from a menu.
 | ShortcutHelp | Up / Down / PageUp / PageDown scroll; Esc / F1 close |
 | Notification | reached with Tab; Enter / Space / Delete / Esc dismiss |
 | OperationToast | reached with Tab or `toast.focus()`; Left / Right choose; Enter / Space press; Esc leaves |
-| PopupMenu | Up / Down, j / k with no modifier (skip disabled, wrap), PageUp / PageDown, Home / End; Enter; Esc. Other keys close it (`Closed`) and reach the app |
+| PopupMenu | Up / Down, j / k with no modifier (skip disabled, wrap), PageUp / PageDown, Home / End; Enter or Space; Esc. Submenus: Right (Left right to left), Enter or Space on a submenu entry open it on its first enabled entry; Left (Right right to left) or Esc close that submenu and go back to its entry; Esc on the root closes the menu; keys act on the innermost open card. Other keys close it (`Closed`) and reach the app (Left / Right too on a root entry without a submenu) |
 | PopupCard | Tab / Shift+Tab stay inside; Esc closes, focus comes back |
 | Table | the KeyboardPanel keys; Enter activates |
 | Tree | the KeyboardPanel keys, plus Right (expand / first child) and Left (collapse / parent) |

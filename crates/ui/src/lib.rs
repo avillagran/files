@@ -1775,21 +1775,38 @@ pub fn run_since(start: Instant) -> bool {
                         fltk_omarchy::focus::press("Down");
                     }
                     "rename-downs" => {
-                        // Down presses from the first enabled row to Rename
-                        // (the popup skips disabled rows and section titles).
+                        // Down presses from the first enabled root row to
+                        // Rename (the popup skips disabled rows; a submenu
+                        // is one row) and Rename's top-level index.
                         if let Some(menu) = model.borrow().context_menu.as_ref()
                             && let Some(index) = menu
                                 .items
                                 .iter()
                                 .position(|i| matches!(i.action, Some(Action::Rename)))
+                            && let Some((root, downs, _)) =
+                                crate::toolkit_menu::context_route(menu, index)
                         {
-                            let enabled_before = menu.items[..index]
+                            eprintln!("FILES_TOOLKIT_RENAME index={root} downs={downs}");
+                        }
+                    }
+                    "right" => {
+                        fltk_omarchy::focus::press("Right");
+                    }
+                    t if t.starts_with("submenu-downs:") => {
+                        // Route to the first entry whose label contains the
+                        // text: root row, Downs to it, Downs inside its submenu.
+                        let needle = &t["submenu-downs:".len()..];
+                        if let Some(menu) = model.borrow().context_menu.as_ref()
+                            && let Some(index) = menu
+                                .items
                                 .iter()
-                                .filter(|i| i.action.is_some())
-                                .count();
+                                .position(|i| !i.section && i.label.contains(needle))
+                            && let Some((root, downs, child)) =
+                                crate::toolkit_menu::context_route(menu, index)
+                        {
                             eprintln!(
-                                "FILES_TOOLKIT_RENAME index={index} downs={}",
-                                enabled_before
+                                "FILES_TOOLKIT_SUBMENU flat={index} root={root} downs={downs} child_downs={}",
+                                child.map_or(-1, |c| c as i64)
                             );
                         }
                     }

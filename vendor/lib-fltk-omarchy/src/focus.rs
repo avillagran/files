@@ -60,16 +60,9 @@ fn dispatch(ev: Event, win: app::WindowPtr) -> bool {
         Event::Push => set_keyboard_mode(false),
         _ => {}
     }
-    if ev == Event::Shortcut && app::first_window().is_none() && app::grab().is_none() {
-        // FLTK 1.5.23 (Fl.cxx, FL_SHORTCUT) sends the shortcut to
-        // `first_window()` without a null check when the widget under the
-        // pointer is in another window: with no window shown (offscreen
-        // snapshots, every window hidden) that is a null dereference.
-        // Nothing is under a pointer then; forget the stale widget.
-        if app::belowmouse::<fltk::widget::Widget>().is_some() {
-            // SAFETY: plain FLTK setter on the UI thread; null is valid.
-            unsafe { crate::platform::fl_abi::Fl_set_belowmouse(std::ptr::null_mut()) };
-        }
+    // FLTK turns an unused key into FL_SHORTCUT too (Fl::handle_).
+    if matches!(ev, Event::Shortcut | Event::KeyDown | Event::KeyUp) {
+        forget_stale_belowmouse();
     }
     let used = if ev == Event::KeyDown { route_key(win) } else { None };
     // SAFETY: `win` comes from fltk for this very event.
@@ -164,8 +157,24 @@ fn route_key(win: app::WindowPtr) -> Option<bool> {
         return Some(true);
     }
     // Unused arrow: offer it as a shortcut (window/AppWindow shortcuts).
+    if win.is_null() {
+        return Some(false);
+    }
+    forget_stale_belowmouse();
     // SAFETY: `win` comes from fltk for this event.
-    Some(!win.is_null() && unsafe { app::handle_raw(Event::Shortcut, win) })
+    Some(unsafe { app::handle_raw(Event::Shortcut, win) })
+}
+
+/// Before any `FL_SHORTCUT` dispatch: FLTK 1.5.23 (Fl.cxx, FL_SHORTCUT)
+/// sends the shortcut to `first_window()` without a null check when the
+/// widget under the pointer is in another window: with no window shown
+/// (offscreen snapshots, every window hidden) that is a null dereference.
+/// Nothing is under a pointer then; forget the stale widget.
+fn forget_stale_belowmouse() {
+    if app::first_window().is_none() && app::grab().is_none() && app::belowmouse::<fltk::widget::Widget>().is_some() {
+        // SAFETY: plain FLTK setter on the UI thread; null is valid.
+        unsafe { crate::platform::fl_abi::Fl_set_belowmouse(std::ptr::null_mut()) };
+    }
 }
 
 thread_local! {

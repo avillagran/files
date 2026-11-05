@@ -31,6 +31,8 @@ classic Omarchy look. Import as `fltk_omarchy`.
 9. Preferences and Actions are separate menus: a gear (`Mod+,`: Ctrl+, or
    Cmd+, on macOS) and a bolt (`F10`) header action, each opening a `PopupMenu`. Offer
    `theme::set_corners(..)` in Preferences; use `badge_radius()` for thumbnails.
+   Long menus: group entries into submenus with `PopupItem::submenu`; open
+   them with `PopupMenu::open_path` / `open_id` (`PopupItem::id`).
 10. Keyboard first: every component is usable from the keyboard already
    (Tab/Shift+Tab between controls, arrows inside the focused one, Enter or
    Space to activate, Esc closes menus and dialogs and focus comes back).

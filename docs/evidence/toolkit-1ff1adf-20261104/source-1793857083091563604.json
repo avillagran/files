@@ -1,0 +1,57 @@
+{
+  "functional_gate": "PASS",
+  "label": "source",
+  "binary_sha256": "1cf0ad1c473b84d46391ee8f0dc098be793476daa55d6010733a69849fdb92a3",
+  "helper_sha256": "1640d5f8597d024f9cb73143d5490e8d58e03a0e4f33997455d01b31729c827a",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "backend": "x11",
+  "method": "toolkit popup fixture, tooltip::show probe, framebuffer captures; no OS input",
+  "sessions": {
+    "on": {
+      "tooltip_text": "Preferencias",
+      "tooltip_rect": [
+        753,
+        50,
+        106,
+        29
+      ],
+      "tooltip_painted": true,
+      "menu_rect": [
+        496,
+        48,
+        330,
+        456
+      ],
+      "early_differs_from_final": true
+    },
+    "off": {
+      "tooltip_text": "Preferencias",
+      "tooltip_rect": [
+        753,
+        50,
+        106,
+        29
+      ],
+      "tooltip_painted": true,
+      "menu_rect": [
+        496,
+        48,
+        330,
+        456
+      ],
+      "early_differs_from_final": false
+    }
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/toolkit-1ff1adf-20261104/source-on-tooltip-1793857083954317677.png",
+    "/home/node/Work/files/docs/evidence/toolkit-1ff1adf-20261104/source-on-no-tooltip-1793857084307569493.png",
+    "/home/node/Work/files/docs/evidence/toolkit-1ff1adf-20261104/source-on-menu-early-1793857084360817191.png",
+    "/home/node/Work/files/docs/evidence/toolkit-1ff1adf-20261104/source-on-menu-final-1793857085003937767.png",
+    "/home/node/Work/files/docs/evidence/toolkit-1ff1adf-20261104/source-off-tooltip-1793857085973823933.png",
+    "/home/node/Work/files/docs/evidence/toolkit-1ff1adf-20261104/source-off-no-tooltip-1793857086326495757.png",
+    "/home/node/Work/files/docs/evidence/toolkit-1ff1adf-20261104/source-off-menu-early-1793857086379140280.png",
+    "/home/node/Work/files/docs/evidence/toolkit-1ff1adf-20261104/source-off-menu-final-1793857087021584643.png"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

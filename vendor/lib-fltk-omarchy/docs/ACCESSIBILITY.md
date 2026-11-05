@@ -118,7 +118,7 @@ Names come from the visible text. Icon-only controls use their tooltip, or
 | Dropdown popup | ListBox, ListBoxOption children | option, selected, position; the cursor option is focused | Click (pick) |
 | `SearchableDropdown` | ComboBox | placeholder; value; expanded | Click, Expand |
 | Searchable popup | ListBox (description = query), filtered options | label, description | Click (pick) |
-| `PopupMenu` | Menu, MenuItem / MenuItemCheckBox (checked) | label, shortcut, disabled, position | Click (pick), Focus |
+| `PopupMenu` | Menu, MenuItem / MenuItemCheckBox (checked); a submenu is another Menu named after its entry | label, shortcut, disabled, position; submenu entries: has popup, expanded / collapsed | Click (pick, or open a submenu), Focus; submenu entries Expand / Collapse |
 | `Menu` | Menu (description = filter), MenuItem | label, detail, disabled, position; ±50 entries around the cursor | Click (pick), Focus |
 | `ConfirmDialog` | AlertDialog → alert, modal | message; Cancel / confirm buttons (the selected one is focused) | Click |
 | `Notification` | Alert → notification, live (assertive when critical) | summary; description = body | Click (dismiss) |
@@ -214,7 +214,7 @@ a11y::register(&*chat_widget, chat.clone());
 ```
 
 - `Node` setters: `role`, `name`, `description`, `value`, `placeholder`,
-  `numeric(value, min, max, step)`, `toggled`, `expanded`, `selected`,
+  `numeric(value, min, max, step)`, `toggled`, `expanded`, `has_popup` (opens a menu), `selected`,
   `current`, `disabled`, `read_only`, `modal`, `multiselectable`, `hidden`,
   `live`, `level`, `position(n, of)`, `row_index`, `column_index`,
   `counts(rows, cols)`, `sort`, `bounds` (window coordinates), `action`,

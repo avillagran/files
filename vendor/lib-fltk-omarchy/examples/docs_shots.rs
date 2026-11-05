@@ -257,6 +257,30 @@ fn main() {
     save(&mut win, &dir, "popup-menu-scroll");
     menu.close();                                              // e.g. the data changed
 
+    // ---- popup menu with submenus (long context menus)
+    let (win, col) = frame(600, 260);
+    let mut r = layout::row();
+    let actions = Button::icon("\u{f0241}", "Actions");
+    r.fit(&*actions);
+    r.close_fitted();
+    let mut win = done(win, col);
+    PopupMenu::open_id(&*actions, vec![
+        PopupItem::new(glyph::FOLDER, "Open").shortcut("Enter").id("open").divider(),
+        PopupItem::submenu(glyph::FILE, "Edit", vec![
+            PopupItem::new("", "Copy").shortcut("Mod+C").id("copy"),
+            PopupItem::new("", "Paste").shortcut("Mod+V").id("paste"),
+            PopupItem::new("", "Rename").shortcut("F2").id("rename"),
+        ]),
+        PopupItem::submenu(glyph::SEARCH, "Share", vec![
+            PopupItem::new("", "Email").id("share.email"),
+            PopupItem::new("", "Copy link").id("share.link"),
+        ]).divider(),
+        PopupItem::new(glyph::TRASH, "Move to trash").shortcut("Delete").id("trash"),
+    ], |id| println!("picked {id}"));
+    press("Down");                                             // Edit
+    press("Right");                                            // opens its submenu
+    save(&mut win, &dir, "popup-menu-submenu");
+
     // ---- Omarchy menu (type to filter)
     let (win, col) = frame(600, 420);
     let mut win = done(win, col);

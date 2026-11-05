@@ -83,6 +83,19 @@ def main():
         for _ in range(int(m[2])):command('down','FILES_TOOLKIT_FIXTURE action=down')
         command('pick',f'reason=Picked({m[1]}) valid=true focus_returned=true rename_open=true')
         command('cancel-rename','FILES_TOOLKIT_FIXTURE action=cancel-rename')
+        # Submenus (toolkit 9210589): Selección › Invertir by keyboard. Right
+        # opens the submenu on its first enabled child; the pick reports the
+        # top-level row and Files runs the flat entry it names.
+        opened('context','Context')
+        route=command('submenu-downs:Invertir','FILES_TOOLKIT_FIXTURE action=submenu-downs:Invertir')
+        sm=re.search(r'FILES_TOOLKIT_SUBMENU flat=(\d+) root=(\d+) downs=(\d+) child_downs=(-?\d+)',route)
+        if not sm or int(sm[4])<0:raise RuntimeError('Invertir is not in a submenu: '+route[-300:])
+        for _ in range(int(sm[3])):command('down','FILES_TOOLKIT_FIXTURE action=down')
+        command('right','FILES_TOOLKIT_FIXTURE action=right');time.sleep(.1);capture('context-submenu')
+        for _ in range(int(sm[4])):command('down','FILES_TOOLKIT_FIXTURE action=down')
+        command('pick',f'reason=Picked({sm[2]}) valid=true focus_returned=true')
+        assert f'FILES_TOOLKIT_CONTEXT_PICK flat={sm[1]} label=' in log.read_text() and 'Invertir' in log.read_text().split(f'FILES_TOOLKIT_CONTEXT_PICK flat={sm[1]} label=')[-1].split('\n')[0]
+        result['submenu_pick']={'flat':int(sm[1]),'root':int(sm[2]),'downs':int(sm[3]),'child_downs':int(sm[4])}
         opened('actions','Actions')
         command('close','FILES_TOOLKIT_FIXTURE action=close')
         wait(lambda:process.poll() is not None,'normal close',timeout=15)

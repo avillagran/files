@@ -477,8 +477,58 @@ back and then runs the window shortcut once. `j` / `k` navigate only with
 no modifier. See [KEYBOARD.md](KEYBOARD.md#popups-and-app-shortcuts).
 
 **Keys:** Up/Down or j/k move, skip disabled entries and wrap;
-PageUp/PageDown and Home/End jump; Enter picks; Esc closes; Tab stays in
+PageUp/PageDown and Home/End jump; Enter or Space picks; Esc closes; Tab stays in
 the menu. Focus returns to the control that had it.
+
+### Submenus (long menus)
+
+![popup menu with a submenu](components/popup-menu-submenu.png)
+
+```rust
+PopupMenu::open_id(&*actions, vec![
+    PopupItem::new(glyph::FOLDER, "Open").shortcut("Enter").id("open").divider(),
+    PopupItem::submenu(glyph::FILE, "Edit", vec![
+        PopupItem::new("", "Copy").shortcut("Mod+C").id("copy"),
+        PopupItem::new("", "Paste").shortcut("Mod+V").id("paste"),
+        PopupItem::new("", "Rename").shortcut("F2").id("rename"),
+    ]),
+    PopupItem::submenu(glyph::SEARCH, "Share", vec![
+        PopupItem::new("", "Email").id("share.email"),
+        PopupItem::new("", "Copy link").id("share.link"),
+    ]).divider(),
+    PopupItem::new(glyph::TRASH, "Move to trash").shortcut("Delete").id("trash"),
+], |id| println!("picked {id}"));
+// picture: after Down, Right
+```
+
+`PopupItem::submenu(icon, label, children)` groups entries; submenus can
+hold submenus. Its entry shows "›" ("‹" right to left) instead of a
+shortcut or check, and choosing it opens the submenu: a second card in the
+same window, beside its entry with its first entry level with it, on the
+right (on the left when it does not fit, and right to left), clamped to
+the window and scrolling when taller, like the root card.
+
+- `open_id(&anchor, items, |id| ..)` / `open_at_id(..)` give the picked
+  entry's `PopupItem::id`; `open_path(..)` / `open_at_path(..)` its indices
+  from the root (`vec![1, 2]`: the third entry of the second entry's
+  submenu). `open` / `open_at` give the top-level index only, and so does
+  `Dismiss::Picked(i)`; `handle.picked_path()` has the whole path.
+- Pointer: resting on a submenu entry opens it after 200 ms
+  (`anim::ms::SUBMENU_OPEN`) and closes a sibling's; moving toward an open
+  submenu across other entries keeps it open (300 ms grace,
+  `anim::ms::SUBMENU_AIM`); a click opens it at once. A click elsewhere on
+  a parent card closes the submenus above it; a click outside every card
+  closes them all (`ClickOutside`).
+- **Keys** act on the innermost card: Right (Left right to left), Enter or
+  Space open a submenu on its first enabled entry; Left (Right right to
+  left) or Esc close it and go back to its entry; Esc on the root closes
+  the menu. Picking any entry closes every card and calls `on_pick` once.
+- `handle.submenu_path()` / `submenu_rects()` report the open submenus.
+- Screen readers: submenu entries are menu items with a popup, expanded or
+  collapsed (Expand / Collapse); a submenu is a Menu named after its entry.
+- **Limit:** cards stay inside the window (in-window layers, like every
+  popup and tooltip of the toolkit): in a small window a submenu overlaps
+  its parent card instead of leaving the window.
 
 ## Menu (Omarchy menu, type to filter)
 
@@ -813,7 +863,7 @@ with an area limit and a time budget, and shape hit-testing: all in
 | SearchableDropdown | `popups::SearchableDropdown` | `new(placeholder, vec![(label, description)], &State<Option<usize>>)`, `open()`, `filter()` |
 | rich text / Markdown | `text::RichText`, `text::RichLabel` | `RichText::new()`, `.stick_to_bottom()`, `.on_link()`, `append_markdown`, `push_markdown`, `sender()`, `bind_markdown`, `append_block`, `plain_text`, `selected_text`; `RichLabel::new(md)`, `.on_link()`, `.bind()`; `Document::from_markdown`, `MarkdownStream::push` |
 | list | `list::List` | `new(&State<usize>, \|i\| ListRow)`, `.bind_selected()`, `.on_select()`, `.on_activate()`, `select(i)` |
-| header / context menus | `popups::PopupMenu` | `open(&anchor, items, f)` / `open_at(&win, x, y, items, f)` → `PopupHandle` (`.on_dismiss()`, `.close()`, `.is_open()`, `.rect()`) |
+| header / context menus | `popups::PopupMenu` | `open(&anchor, items, f)` / `open_at(&win, x, y, items, f)`, `open_path` / `open_at_path` (`\|path\|`), `open_id` / `open_at_id` (`\|id\|`); `PopupItem::submenu(icon, label, children)`, `.id()` → `PopupHandle` (`.on_dismiss()`, `.close()`, `.is_open()`, `.rect()`, `.submenu_path()`, `.picked_path()`) |
 | popup card | `popups::PopupCard` | `open(&anchor, w, h, \|col\| ..)` / `open_at(..)` → `PopupHandle` |
 | table / tree | `table::Table`, `table::Tree` | `Table::new(&panel, columns, \|row, col\| text)`, `.icon()`, `.on_sort()`; `Tree::new(&panel, \|parent\| nodes)`, `expand`, `collapse`, `refresh`, `refresh_node` |
 | keyboard panel | `panel::KeyboardPanel` | `new(name)`, `.layout()`, `set_items(len, id_at, index_of)`, `cursor()`, `selection()`, `click()`, `focus()`, `show_ring()`, `.on_activate()`, `.on_edge()`, `.on_key()`, `.on_change()`, `.on_focus()`; `focus::host(&widget, &[&a, &b])`, `focus::on_panel_focus(f)` |

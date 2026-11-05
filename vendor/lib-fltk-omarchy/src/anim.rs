@@ -288,6 +288,12 @@ pub mod ms {
     /// Grace after the pointer leaves before it closes: o3 thread preview
     /// `closeDelay`, 140 ms.
     pub const HOVER_CLOSE: u32 = 140;
+    /// Hover intent before a `PopupMenu` submenu opens (and an open sibling
+    /// closes): desktop menus, close to GTK's `gtk-menu-popup-delay` (225 ms).
+    pub const SUBMENU_OPEN: u32 = 200;
+    /// Grace while the pointer heads for an open submenu across other
+    /// entries: they do not take over until it rests there this long.
+    pub const SUBMENU_AIM: u32 = 300;
 }
 
 // ================================================================= easing

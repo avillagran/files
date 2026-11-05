@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/avillagran/lib-fltk-omarchy",
-  "base_commit": "1ff1adfcf4589a490c8f08423df7b6bc1361e3ee",
-  "fix_commit": "1ff1adfcf4589a490c8f08423df7b6bc1361e3ee",
+  "base_commit": "9210589f93b58cde657078556cc371789ad6e3ff",
+  "fix_commit": "9210589f93b58cde657078556cc371789ad6e3ff",
   "status": "published on GitHub main, untagged",
-  "scope": "Omarchy-styled toolkit tooltips (live tooltips.json, theme/corners, #000000 fix), system-driven animations (Hyprland animations:enabled; OMARCHY_FLTK_ANIM=on|off) for menus/popups/dialogs/rows/TabBar/ListModel/Tree, platform layer, i18n, RichText/Markdown, ListModel/sync_from, a11y (feature off), RTL, edit::TextArea/Composer, FLTK FL_SHORTCUT null first_window fix; includes glass and Wayland pixels_per_unit"
+  "scope": "PopupMenu submenus (PopupItem::submenu/id/children, open_path/open_id, hover/aim/keyboard, flip/clamp, RTL, a11y), Space activates like Enter, stale belowmouse guard for every key dispatch, close_layer on deleted layer; plus everything in 1ff1adf: Omarchy-styled toolkit tooltips (live tooltips.json, theme/corners, #000000 fix), system-driven animations (Hyprland animations:enabled; OMARCHY_FLTK_ANIM=on|off) for menus/popups/dialogs/rows/TabBar/ListModel/Tree, platform layer, i18n, RichText/Markdown, ListModel/sync_from, a11y (feature off), RTL, edit::TextArea/Composer, FLTK FL_SHORTCUT null first_window fix; includes glass and Wayland pixels_per_unit"
 }

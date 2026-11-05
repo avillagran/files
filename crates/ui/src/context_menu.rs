@@ -16,6 +16,9 @@ pub struct Item {
     pub action: Option<Action>,
     /// Section title (never focused or activated).
     pub section: bool,
+    /// The entry's action even while disabled: places it in the toolkit
+    /// submenu layout ([`layout`]) whether or not it can run now.
+    pub intent: Option<Action>,
 }
 pub struct Menu {
     pub target: Target,
@@ -89,14 +92,16 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
         }
         Item {
             label: label.into(),
-            action: if enabled { Some(action) } else { None },
+            action: if enabled { Some(action.clone()) } else { None },
             section: false,
+            intent: Some(action),
         }
     };
     let header = |label: &'static str| Item {
         label: label.into(),
         action: None,
         section: true,
+        intent: None,
     };
     let items = match target {
         Target::Views => vec![
@@ -330,8 +335,9 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
                 at + k,
                 Item {
                     label: format!("\u{f15b}  Nuevo: {name}").into(),
-                    action: (!busy).then_some(Action::NewFromTemplate(t)),
+                    action: (!busy).then_some(Action::NewFromTemplate(t.clone())),
                     section: false,
+                    intent: Some(Action::NewFromTemplate(t)),
                 },
             );
         }
@@ -366,6 +372,178 @@ fn build(m: &Model, target: Target, x: i32, y: i32, w: i32, h: i32) -> Menu {
     };
     menu.fit(w, h);
     menu
+}
+/// One row of the toolkit (submenu) layout of a context menu. The flat
+/// [`Menu::items`] stay the single source of truth: the layout only says
+/// where each item goes, by its action, and picks report flat indices.
+pub enum Node {
+    Leaf(fn(&Action) -> bool),
+    Sub(&'static str, &'static str, &'static [fn(&Action) -> bool]),
+    Divider,
+}
+/// The most used entries stay at the root; the rest is grouped by kind.
+/// `None` keeps the flat list (short menus: views, selection).
+pub fn layout(target: Target) -> Option<&'static [Node]> {
+    use crate::selection_tools::Command;
+    use Node::{Divider, Leaf, Sub};
+    const ENTRIES: &[Node] = &[
+        Leaf(|a| matches!(a, Action::Open)),
+        Leaf(|a| matches!(a, Action::OpenWith)),
+        Leaf(|a| matches!(a, Action::Preview)),
+        Divider,
+        Leaf(|a| matches!(a, Action::ClipboardCut)),
+        Leaf(|a| matches!(a, Action::ClipboardCopy)),
+        Leaf(|a| matches!(a, Action::ClipboardPaste)),
+        Divider,
+        Leaf(|a| matches!(a, Action::Rename)),
+        Leaf(|a| matches!(a, Action::Trash)),
+        Divider,
+        Sub(
+            "\u{f0ea}",
+            "Portapapeles",
+            &[
+                |a| matches!(a, Action::NativePaste),
+                |a| matches!(a, Action::CopyPath),
+            ],
+        ),
+        Sub(
+            "\u{f07c}",
+            "Organizar",
+            &[
+                |a| matches!(a, Action::CopyFiles),
+                |a| matches!(a, Action::MoveFiles),
+                |a| matches!(a, Action::FolderWithSelection),
+                |a| matches!(a, Action::CreateLinks),
+                |a| matches!(a, Action::DeletePermanently),
+            ],
+        ),
+        Sub(
+            "\u{f187}",
+            "Comprimir",
+            &[
+                |a| matches!(a, Action::CreateArchive),
+                |a| matches!(a, Action::ExtractArchive),
+            ],
+        ),
+        Sub(
+            "\u{f046}",
+            "Selección",
+            &[|a| matches!(a, Action::Selection(_))],
+        ),
+        Leaf(|a| matches!(a, Action::Terminal)),
+        Divider,
+        Leaf(|a| matches!(a, Action::Properties)),
+    ];
+    const BACKGROUND: &[Node] = &[
+        Leaf(|a| matches!(a, Action::NewEntry(true))),
+        Leaf(|a| matches!(a, Action::NewEntry(false))),
+        Sub(
+            "\u{f15b}",
+            "Nuevo documento",
+            &[|a| matches!(a, Action::NewFromTemplate(_))],
+        ),
+        Divider,
+        Leaf(|a| matches!(a, Action::ClipboardPaste)),
+        Sub(
+            "\u{f0ea}",
+            "Pegado especial",
+            &[
+                |a| matches!(a, Action::NativePaste),
+                |a| matches!(a, Action::LinkCopied),
+            ],
+        ),
+        Divider,
+        Leaf(|a| matches!(a, Action::ToggleHidden)),
+        Leaf(|a| matches!(a, Action::Refresh)),
+        Divider,
+        Sub(
+            "\u{f046}",
+            "Seleccionar",
+            &[
+                |a| matches!(a, Action::Selection(Command::Filtered | Command::All)),
+                |a| matches!(a, Action::SelectPattern),
+                |a| matches!(a, Action::Selection(_)),
+            ],
+        ),
+        Sub(
+            "\u{f0ad}",
+            "Herramientas",
+            &[
+                |a| matches!(a, Action::CalculateListedSizes | Action::CancelListedSizes),
+                |a| matches!(a, Action::Search),
+                |a| matches!(a, Action::CompareFolders),
+                |a| matches!(a, Action::ReviewSyncFolders),
+                |a| matches!(a, Action::Terminal),
+            ],
+        ),
+        Sub(
+            "\u{f052}",
+            "Dispositivo",
+            &[|a| matches!(a, Action::Device(..))],
+        ),
+    ];
+    match target {
+        Target::Entries => Some(ENTRIES),
+        Target::Background => Some(BACKGROUND),
+        Target::Views | Target::Selection => None,
+    }
+}
+/// A placed layout row: a flat item index, or a titled group of indices.
+#[derive(Debug, PartialEq)]
+pub enum Placed {
+    Item(usize),
+    Group(&'static str, &'static str, Vec<usize>),
+    Divider,
+}
+/// Places every non-section item exactly once. Items no layout rule claims
+/// go to a final "Más" group, so a new entry can never vanish silently.
+pub fn place(menu: &Menu) -> Vec<Placed> {
+    let candidates: Vec<usize> = (0..menu.items.len())
+        .filter(|&i| !menu.items[i].section)
+        .collect();
+    let Some(nodes) = layout(menu.target) else {
+        return candidates.into_iter().map(Placed::Item).collect();
+    };
+    let mut used = vec![false; menu.items.len()];
+    let mut take = |rule: &fn(&Action) -> bool, all: bool| {
+        let mut found = Vec::new();
+        for &i in &candidates {
+            if !used[i] && menu.items[i].intent.as_ref().is_some_and(rule) {
+                used[i] = true;
+                found.push(i);
+                if !all {
+                    break;
+                }
+            }
+        }
+        found
+    };
+    let mut out = Vec::new();
+    for node in nodes {
+        match node {
+            Node::Leaf(rule) => out.extend(take(rule, false).into_iter().map(Placed::Item)),
+            Node::Sub(icon, label, rules) => {
+                let mut children: Vec<usize> = rules.iter().flat_map(|r| take(r, true)).collect();
+                children.sort_unstable();
+                if !children.is_empty() {
+                    out.push(Placed::Group(icon, label, children));
+                }
+            }
+            Node::Divider => {
+                if !matches!(out.last(), None | Some(Placed::Divider)) {
+                    out.push(Placed::Divider);
+                }
+            }
+        }
+    }
+    let rest: Vec<usize> = candidates.into_iter().filter(|&i| !used[i]).collect();
+    if !rest.is_empty() {
+        out.push(Placed::Group("\u{f141}", "Más", rest));
+    }
+    while matches!(out.last(), Some(Placed::Divider)) {
+        out.pop();
+    }
+    out
 }
 fn available(m: &Model) -> bool {
     !m.closing
@@ -770,4 +948,84 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
     }
     p.unclip();
     m.context_menu = Some(menu);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    fn flat(menu: &Menu) -> Vec<usize> {
+        let mut seen: Vec<usize> = place(menu)
+            .into_iter()
+            .flat_map(|p| match p {
+                Placed::Item(i) => vec![i],
+                Placed::Group(_, _, c) => c,
+                Placed::Divider => vec![],
+            })
+            .collect();
+        seen.sort_unstable();
+        seen
+    }
+    #[test]
+    fn submenu_layout_places_every_entry_once_and_keeps_the_root_short() {
+        let mut m = Model::new("/fixture-only".into());
+        m.query = "x".into();
+        for target in [Target::Entries, Target::Background] {
+            let mut menu = build(&m, target, 10, 10, 800, 600);
+            // The background menu of a mounted device adds this entry.
+            if target == Target::Background {
+                menu.items.push(Item {
+                    label: "\u{f052}  Desmontar este dispositivo".into(),
+                    action: None,
+                    section: false,
+                    intent: Some(Action::Device("/dev/sdz1".into(), None)),
+                });
+            }
+            let expected: Vec<usize> = (0..menu.items.len())
+                .filter(|&i| !menu.items[i].section)
+                .collect();
+            assert_eq!(flat(&menu), expected, "{target:?}");
+            let placed = place(&menu);
+            assert!(
+                !placed
+                    .iter()
+                    .any(|p| matches!(p, Placed::Group(_, "Más", _))),
+                "{target:?}: an entry has no submenu rule"
+            );
+            let root = placed
+                .iter()
+                .filter(|p| !matches!(p, Placed::Divider))
+                .count();
+            assert!(root <= 14, "{target:?}: {root} root rows");
+            assert!(!matches!(placed.first(), Some(Placed::Divider)));
+            assert!(!matches!(placed.last(), Some(Placed::Divider)));
+        }
+        // Rename and Trash stay one keystroke away at the root.
+        let menu = build(&m, Target::Entries, 10, 10, 800, 600);
+        let root: Vec<_> = place(&menu)
+            .into_iter()
+            .filter_map(|p| match p {
+                Placed::Item(i) => menu.items[i].intent.clone(),
+                _ => None,
+            })
+            .collect();
+        assert!(root.iter().any(|a| matches!(a, Action::Rename)));
+        assert!(root.iter().any(|a| matches!(a, Action::Trash)));
+        assert!(root.iter().any(|a| matches!(a, Action::ClipboardCopy)));
+    }
+    #[test]
+    fn unknown_entries_fall_into_more_instead_of_vanishing() {
+        let m = Model::new("/fixture-only".into());
+        let mut menu = build(&m, Target::Entries, 10, 10, 800, 600);
+        menu.items.push(Item {
+            label: "Nueva".into(),
+            action: Some(Action::Help),
+            section: false,
+            intent: Some(Action::Help),
+        });
+        let last = menu.items.len() - 1;
+        assert_eq!(
+            place(&menu).last(),
+            Some(&Placed::Group("\u{f141}", "Más", vec![last]))
+        );
+    }
 }

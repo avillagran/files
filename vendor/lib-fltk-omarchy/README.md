@@ -69,6 +69,11 @@ limit and a time budget per draw. Pictures, API and measured cost:
   chips) and a `Composer` (Enter sends, stop while busy, `@`/`$`/`/`
   completions at the caret, attachment chips, file drops)
   ([picture and code](docs/COMPONENTS.md#textarea-and-composer)).
+- **Menus with submenus** (`popups::PopupMenu`): header and context menus
+  group long lists into nested submenus (`PopupItem::submenu`), opened by
+  hover, click or keys, beside their entry and inside the window; picks by
+  path or id (`open_path`, `open_id`)
+  ([picture and code](docs/COMPONENTS.md#submenus-long-menus)).
 - **Components**: [docs/COMPONENTS.md](docs/COMPONENTS.md) (pictures,
   code, keys). **Keyboard**: [docs/KEYBOARD.md](docs/KEYBOARD.md).
 - **Platforms**: [docs/PLATFORMS.md](docs/PLATFORMS.md).
