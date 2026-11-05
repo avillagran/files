@@ -1,123 +1,123 @@
-# PDF multipágina (0.0.4 parcial)
+# Multi-page PDF (0.0.4 partial)
 
-Space renderiza páginas mediante pdfinfo/pdftoppm delSO opcionales, sin
-enlace/distribución de bibliotecas del lector ni crate nuevo. Controles
-Anterior/Siguiente, ←/→ yPageUp/PageDown, Home/End; Ctrl+rueda o +/- zoom,
-arrastre y0ajustar. Sólo una páginaRGB o texto extraído y un viewport visible, sin caché histórica.
+Space renders pages through the OS's optional pdfinfo/pdftoppm, without
+linking/distributing the reader's libraries nor a new crate. Controls
+Previous/Next, ←/→ and PageUp/PageDown, Home/End; Ctrl+wheel or +/- zoom,
+drag and 0 to fit. Only one RGB page or extracted text and one visible viewport, with no history cache.
 
-Linux abre enworker FDfinal O_NOFOLLOW|NONBLOCK regular≤256MiB y comparteese
-inode con ambosprocesos directos secuenciales; sólo después del reap deinfo
-se lanza render. Sin shell/childhelper/nietos. Cambiarpágina cancela y drena
-antesdelúltimopedido; cerrar mantieneelprocesoprincipal hastaACK. Cambios
-in-place noestán aislados; padres/mounts siguen navegaciónSO, no sandbox.
+Linux opens in the worker a final FD O_NOFOLLOW|NONBLOCK, regular, ≤256 MiB, and shares that
+inode with both direct, sequential processes; render is only launched after the info
+process is reaped. No shell/child helper/grandchildren. Changing page cancels and drains
+before the last request; closing keeps the main process until ACK. In-place
+changes are not isolated; parents/mounts follow OS navigation, not a sandbox.
 
-Metadatos64KiB,1..100000páginas, localeC. pdftoppm rasteriza unasolapágina con
--scale-to960. OutputPPMlimitado960²×3+4096Bantes deguardar; headerP6/medidas/
-maxval255 ypayload/EOFexactos antesdeexponerbitmap. El mismoVec se mueve tras
-drain(header), sinsegundoRGB. El supervisor común sólo entiendeheaderJSONde
-unalínea:PPMse valida alfinaldentrodelwireduro, noantesderetenerelsnapshot.
-No se asigna según dimensiones sinvalidar. Selección sobre geometría originalPDF pendiente; el modo de texto extraído se describe en M14.
+Metadata 64 KiB, 1..100000 pages, C locale. pdftoppm rasterizes a single page with
+-scale-to 960. PPM output limited to 960²×3+4096 B before storing; P6 header/dimensions/
+maxval 255 and exact payload/EOF before exposing the bitmap. The same Vec is moved after
+drain(header), with no second RGB. The common supervisor only understands a one-line JSON
+header: the PPM is validated at the end inside the hard wire limit, not before keeping the snapshot.
+Nothing is allocated from unvalidated dimensions. Selection on the original PDF geometry is pending; the extracted-text mode is described in M14.
 
-CPU3s/proceso,wall5s,AS96MiBvirtual,FDacotados,core0,OMP/OPENBLAS1. EstoNOes
-PSS ni permiteexcedertecho150MB. PDFcomplejos/protegidos puedenfallar; parser
-Poppler noes sandboxfilesystem/red. El host noinvocaJavaScript/URLs/acciones
-ni abre recursos externos pedidos porUI; vulnerabilidades/referenciasPDF
-requieren contención adicional para tratarcontenidoshostilesarbitrarios.
+CPU 3 s/process, wall 5 s, AS 96 MiB virtual, bounded FDs, core 0, OMP/OPENBLAS 1. This is NOT
+PSS nor does it allow exceeding the 150 MB ceiling. Complex/protected PDFs may fail; the Poppler
+parser is not a filesystem/network sandbox. The host does not invoke JavaScript/URLs/actions
+nor open external resources requested by the UI; PDF vulnerabilities/references
+need additional containment to handle arbitrary hostile content.
 
-`python3 scripts/pdf-ui-check.py` creaPDFsintético2páginas rojo/azul con
-texto, verificaRGByconteo/página/revisión, zoom/arrastre, rápidoúltimodestino,
-malformado/symlink,cierre0ACK. Handlers+framebufferreal, noeventosSO. Recursos
-yarranqueNOT_MEASURED porfaseusuario; selección/texto/caché, doccomplejos/
-password/otrasplataformas ypresupuestoárbol pendientes.
+`python3 scripts/pdf-ui-check.py` creates a synthetic 2-page red/blue PDF with
+text, verifies RGB and count/page/revision, zoom/drag, quick last destination,
+malformed/symlink, close 0 ACK. Handlers + real framebuffer, no OS events. Resources
+and startup NOT_MEASURED because of the user's phase; selection/text/cache, complex/
+password documents/other platforms and the tree budget are pending.
 
-Verificación actual:266Rust(73/33/160),Clippy/releasePASS. Escenapdf-ui-
-1793038247910320945PASSfuncionalconRGB/revisión ypanY60 traszoom2×. Primer
-intento1793038113834599772FAILporhandlerinstrumentalassert-pan ausente;
-seconserva. CierreACK antesdelnuevo spawnnoacreditakillhijocorriendo.
-
-
-## Revisión de fuente y publicación — 2026-10-27 (M12)
-
-PDF seleccionado entra en el mismo watcher/token/epoch/reconcile1s de medios;
-no se agrega watcher por página ni I/O en paint/UI. Probe estable autoriza una
-Revision obligatoria antes del open del renderworker. El FD real debe coincidir
-con ella, ser regular no vacío≤256MiB; pdfinfo y pdftoppm heredan ese mismo FD.
-Se revalidan FD+nombre después de metadata y después del decodePPM. Bitmap lleva
-la firma efectiva; State sólo publica con revisión/generación esperadas. Cambiar
-fuente reinicia página1 y conteo, cancela y libera el RGB anterior. Modificar,
-reemplazar o borrar oculta los píxeles viejos y exige nueva verificación.
-
-Fallos de fuente tienen flag tipado: invalidación antes del ACK y token nuevo,
-no decisión basada en strings de Poppler. O_NOFOLLOW sólo componente final;
-padres/mounts siguen semántica del SO, no confinamiento/snapshot. Cambios después
-del último stat se detectan por evento o reconciliación, no instantáneos garantizados.
-
-readonly_gate extrae el contrato ya usado por audio. Helper requiere reap antes
-ACK/salida; close durante ReadOnly prohíbe futuros helpers y permite salir sin
-join de syscall imposible de cancelar. Esa autorización NO es workerDRAINED:
-State conserva separación exit_allowed/is_drained. No prueba kernelD real ni
-interrupción de FS offline. No hilo nuevo al navegar hasta drenar el anterior.
-
-473Rust(141core/58helper/274UI), Clippyworkspace/all-targets-Dwarnings y release
-PASS. pdf-ui-1793092913810767063 funcionalPASS con --source-lifecycle --drop-events:
-8framebuffers1000×650, RGB y firma efectiva reales; reemplazo tamaño+mtime igual,
-modificación in-place restaurando mtime, borrar/recrear, renombrar archivo/padre,
-recuperación, oculto sin nuevo helper, rápidoúltimo destino, errores y cierre0ACK.
-23PID/start registrados gone/reused, Znoaceptado; no lifetimecoverage ni helpervivo
-alclose demostrado. Tests deterministas VerifiedA/openB y ReadyA tardío/Dirty/B.
-Handlers internos/framebuffer real, no inputSO ni nitidez nativa2x. Helper sin
-cambio de SHA. Recursos/startup NOT_MEASURED por freeze; sin extraer valores del
-footer. Texto/selección, parserhostil/otrosSO/globalLRU continúan pendientes.
+Current verification: 266 Rust (73/33/160), Clippy/release PASS. Scene pdf-ui-
+1793038247910320945 functional PASS with RGB/revision and pan Y 60 after 2× zoom. First
+attempt 1793038113834599772 FAIL because the instrumental assert-pan handler was missing;
+it is kept. Close ACK before the new spawn does not prove killing a running child.
 
 
-## Texto extraído bajo demanda — 2026-10-27 (M14)
+## Source review and publication — 2026-10-27 (M12)
 
-Botón Nerd Texto/Página yT alternan la página renderizada con texto extraído de
-ESA página. Anterior/Siguiente yCtrl+PgUp/PgDn cambian página en ambos modos;
-en texto las flechas/Shift/Home/End/Ctrl+A/C reutilizan selección yscroll de
-TextDocument. El texto se etiqueta explícitamente como extraído, no selección
-sobre el layout original ni OCR. Páginas escaneadas pueden estar vacías: se
-muestra aviso, sin insertar contenido ficticio en documento/clipboard.
+A selected PDF joins the same media watcher/token/epoch/1 s reconcile;
+no per-page watcher nor I/O in paint/UI is added. A stable probe authorizes a
+mandatory Revision before the render worker's open. The real FD must match
+it and be a non-empty regular file ≤256 MiB; pdfinfo and pdftoppm inherit that same FD.
+FD+name are revalidated after metadata and after the PPM decode. The bitmap carries
+the effective signature; State only publishes with the expected revision/generation. Changing
+the source resets to page 1 and the count, cancels and frees the previous RGB. Modifying,
+replacing or deleting hides the old pixels and requires a new verification.
 
-Reutiliza el Job PDF y FDexpected/efectivo. En texto ejecuta pdfinfo ypdftotext
-secuenciales, NO rasteriza ni retiene bitmap simultáneo. Entrada FD ysalida stdout,
-`-f/-l` una página, UTF-8/layout/nopgbrk; no archivos temporales/cache junto a fuente.
-Cambiar modo/página cancela y esperaACK antesúltimopedido. SourceDirty libera
-texto, reinicia modoPágina y exige verificación. Misma puerta readonly/helper y
-parent-death del supervisor existente, sin otro motor/daemon/dependencia Cargo.
+Source failures have a typed flag: invalidation before the ACK and a new token,
+not a decision based on Poppler strings. O_NOFOLLOW only on the final component;
+parents/mounts follow OS semantics, not confinement/snapshot. Changes after
+the last stat are detected through an event or reconciliation, not guaranteed to be instant.
 
-Salida≤256KiB antes de retener wire,≤2000LF(2001líneas con último vacío), UTF-8
-estricto ysin NUL; String toma el mismoVec, TextDocument lo posee sin clonarlo.
-Exceso se RECHAZA visible, no texto parcial silencioso. Si falta pdftotext aparece
-capacidad no disponible yPágina permite volver a raster. Límites locales/AS96MiB
-NO son PSStotal ni calidad/compatibilidad para documentos arbitrarios.
+readonly_gate extracts the contract already used by audio. Helper requires reap before
+ACK/exit; close during ReadOnly forbids future helpers and allows exiting without a
+join on a syscall that cannot be cancelled. That authorization is NOT worker DRAINED:
+State keeps exit_allowed/is_drained separate. It does not test real kernel D-state nor
+interrupting an offline FS. No new thread when navigating until the previous one is drained.
 
-También se corrige el gate de tamaños: un PDF estable vacío/>256MiB oHTML>32KiB
-es error terminal para esa revisión, no SourceUnavailable que haga rearmar token
-yreintentar en bucle. Un reemplazo real sigue invalidando. Tests sin I/O de fuente
-comprueban rechazo antes open/child yflag de reprobe intacto.
+473 Rust (141 core/58 helper/274 UI), Clippy workspace/all-targets -Dwarnings and release
+PASS. pdf-ui-1793092913810767063 functional PASS with --source-lifecycle --drop-events:
+8 framebuffers 1000×650, real RGB and effective signature; replacement with the same size+mtime,
+in-place modification restoring mtime, delete/recreate, renaming file/parent,
+recovery, hidden without a new helper, quick last destination, errors and close 0 ACK.
+23 registered PID/start gone/reused, Z not accepted; no lifetime coverage nor a live helper
+at close shown. Deterministic tests Verified A/open B and late Ready A/Dirty/B.
+Internal handlers/real framebuffer, no OS input nor native 2x sharpness. Helper with
+no SHA change. Resources/startup NOT_MEASURED because of the freeze; no values taken from the
+footer. Text/selection, hostile parser/other OSes/global LRU are still pending.
 
-480Rust(141core/58helper/281UI), Clippyworkspace/all-targets-Dwarnings/releasePASS.
-pdf-ui1793094189643854652 funcionalPASS12FB1000×650/notify suprimido: modosTexto
-páginas2/1, firmaFD, selección porpuntero igual a textoASCIIextraído, handlerCopy
-invocado yretorno aPágina; sourcecapsPDF/HTML mantienenrevisión ysin child durante
-un intervalo de reconciliación. Repite scoped lifecycle/rasterM12, errores,
-rapid/oculto/cierre0ACK y29loggedPID/startgone/reused strictZfalse. No lifetime
-coverage/helpervivoalclose/inputSO/clipboard/UnicodePDFfontcoverage/nitideznativa2x.
-UTF8+TAB+CRLF ylímites cubiertos en tests puros, no equivale a PDFUnicode real.
-Firma app786c52d7c9afef200ad7c258514af96a531b4cf805be4e2b66f67614aad6be92.
-Recursos/startupNOT_MEASURED porfreeze; P06parcial, no0.0.4tag/PASSglobal.
 
-## M20 — giro no destructivo del visor, 2026-10-27
+## On-demand extracted text — 2026-10-27 (M14)
 
-PREVIEW-ROTATION: botones Nerd/R/ShiftR giran sólo vista de imagen/PDF/vídeo/GIF;
-muestreo directo del RGB original, sin copia rotada ni archivos modificados.
-Transform numérico conserva giro entre frames/seek yPDFpáginas/texto-retorno;
-nuevoorigen/revisión/reset0 lo elimina. AyudaF1 añade atajos reales de medios.
-489Rust141/58/290+Clippyworkspacealltargets-Dwarnings/release/fmtPASS.
-preview-rotation-ui1793102443334515413PASS14FB1000×650/asimetría4cuadrantes con
-píxeles framebuffer comprobados/giroCW-CCW-reset/video-GIFplayseek/PDFpágina2+
-textoretorno/originalesbytesintactos/callback0ACK/21loggedhelpersgoneZfalse.
-Sin inputSO/native2x/AT-SPI/lifetimes/activehelperclose enestaescena ni prueba de
-colorfotográfico;14readbacks funcionales NOmedición aislada de consumo.
-Recursos/startupNOT_MEASUREDfreeze; noP02/P06/P07/P09global ni tag0.0.4.
+The Nerd Text/Page button and T toggle between the rendered page and the text extracted from
+THAT page. Previous/Next and Ctrl+PgUp/PgDn change page in both modes;
+in text, the arrows/Shift/Home/End/Ctrl+A/C reuse TextDocument's selection and scroll.
+The text is explicitly labeled as extracted, not a selection
+on the original layout nor OCR. Scanned pages may be empty: a
+notice is shown, without inserting fake content into the document/clipboard.
+
+It reuses the PDF Job and the expected/effective FD. In text mode it runs pdfinfo and pdftotext
+sequentially, does NOT rasterize nor keep a simultaneous bitmap. FD input and stdout output,
+`-f/-l` one page, UTF-8/layout/nopgbrk; no temporary/cache files next to the source.
+Changing mode/page cancels and waits for the ACK before the last request. SourceDirty frees the
+text, resets to Page mode and requires verification. Same readonly/helper gate and
+parent-death of the existing supervisor, with no other engine/daemon/Cargo dependency.
+
+Output ≤256 KiB before keeping the wire, ≤2000 LF (2001 lines with the last one empty), strict
+UTF-8 and no NUL; the String takes the same Vec, TextDocument owns it without cloning.
+Excess is visibly REJECTED, not silent partial text. If pdftotext is missing, the
+capability is shown as unavailable and Page lets you go back to the raster. Local limits/AS 96 MiB
+are NOT total PSS nor quality/compatibility for arbitrary documents.
+
+The size gate is also fixed: a stable empty/>256 MiB PDF or HTML >32 KiB
+is a terminal error for that revision, not SourceUnavailable that would re-arm the token
+and retry in a loop. A real replacement still invalidates. Tests without source I/O
+check rejection before open/child and that the reprobe flag stays intact.
+
+480 Rust (141 core/58 helper/281 UI), Clippy workspace/all-targets -Dwarnings/release PASS.
+pdf-ui 1793094189643854652 functional PASS 12 FB 1000×650/notify suppressed: Text modes
+pages 2/1, FD signature, pointer selection equal to the extracted ASCII text, Copy handler
+invoked and return to Page; PDF/HTML source caps keep the revision with no child during
+a reconciliation interval. It repeats the scoped M12 lifecycle/raster, errors,
+rapid/hidden/close 0 ACK and 29 logged PID/start gone/reused strict Z false. No lifetime
+coverage/live helper at close/OS input/clipboard/Unicode PDF font coverage/native 2x sharpness.
+UTF-8+TAB+CRLF and limits are covered in pure tests; that is not equivalent to a real Unicode PDF.
+App signature 786c52d7c9afef200ad7c258514af96a531b4cf805be4e2b66f67614aad6be92.
+Resources/startup NOT_MEASURED because of the freeze; P06 partial, no 0.0.4 tag/global PASS.
+
+## M20 — non-destructive viewer rotation, 2026-10-27
+
+PREVIEW-ROTATION: Nerd/R/Shift+R buttons only rotate the image/PDF/video/GIF view;
+direct sampling of the original RGB, with no rotated copy nor modified files.
+The numeric transform keeps the rotation across frames/seek and PDF pages/text-return;
+a new source/revision/reset 0 removes it. F1 Help adds the real media shortcuts.
+489 Rust 141/58/290 + Clippy workspace all targets -Dwarnings/release/fmt PASS.
+preview-rotation-ui 1793102443334515413 PASS 14 FB 1000×650/asymmetric 4 quadrants with
+checked framebuffer pixels/CW-CCW-reset rotation/video-GIF play/seek/PDF page 2 +
+text return/original bytes intact/callback 0 ACK/21 logged helpers gone Z false.
+No OS input/native 2x/AT-SPI/lifetimes/active helper close in this scene nor a test of
+photographic color; 14 functional readbacks, NOT an isolated measurement of use.
+Resources/startup NOT_MEASURED freeze; no global P02/P06/P07/P09 nor 0.0.4 tag.
