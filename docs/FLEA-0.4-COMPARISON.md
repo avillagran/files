@@ -1,88 +1,88 @@
-# Files frente a Flea 0.4.0 — NODE, 2026-11-03
+# Files versus Flea 0.4.0 — NODE, 2026-11-03
 
-El usuario autorizó levantar la congelación de recursos/arranque exclusivamente
-para decidir si Files merece continuar por ser más liviano **y** más rápido que
-Flea 0.4. No se amplió funcionalidad, instaló ninguna app ni cambió asociaciones.
+The user authorized lifting the resource/startup freeze solely to decide
+whether Files is worth continuing for being lighter **and** faster than
+Flea 0.4. No functionality was added, no app was installed and no associations were changed.
 
-**Resultado: ventaja clara de RAM para Files; velocidad de listado mixta. La
-condición estricta de ganar en ambas dimensiones no se cumple en esta prueba.**
-No equivale a que Flea siempre gane o a que Files deba borrarse. No continuar
-ampliando funcionalidades por inercia: esta evidencia informa la decisión del usuario.
+**Result: a clear RAM advantage for Files; listing speed is mixed. The
+strict condition of winning on both dimensions is not met in this test.**
+This does not mean Flea always wins or that Files should be deleted. Do not keep
+adding features out of inertia: this evidence informs the user's decision.
 
-## Resultados
+## Results
 
-Medianas de cuatro pasadas válidas por app/tamaño (16 total), alternando AB/BA.
-Memoria estable del árbol de procesos: suma PSS+SwapPss, incluye helpers observados.
-La memoria GPU se registra aparte y no se suma ciegamente a PSS.
+Medians of four valid runs per app/size (16 total), alternating AB/BA.
+Steady memory of the process tree: sum of PSS+SwapPss, including the observed helpers.
+GPU memory is recorded separately and is not blindly added to PSS.
 
-| Archivos | App | RAM estable MiB | Pico muestreado MiB | Estado listado listo ms | Ventana registrada ms |
+| Files | App | Steady RAM MiB | Sampled peak MiB | Listing ready state ms | Window registered ms |
 |---|---|---:|---:|---:|---:|
-| 10.000 | Files | 18,9 | 18,9 | 97 | 97 |
-| 10.000 | Flea 0.4 | 107,9 | 108,6 | 403 | 399 |
-| 100.000 | Files | 32,6 | 32,6 | 603 | 99 |
-| 100.000 | Flea 0.4 | 110,5 | 111,3 | 409 | 405 |
+| 10,000 | Files | 18.9 | 18.9 | 97 | 97 |
+| 10,000 | Flea 0.4 | 107.9 | 108.6 | 403 | 399 |
+| 100,000 | Files | 32.6 | 32.6 | 603 | 99 |
+| 100,000 | Flea 0.4 | 110.5 | 111.3 | 409 | 405 |
 
-Files reduce aproximadamente82,5%/70,5% la RAM del árbol en estas dos carpetas.
-Con100k, el estado del listado de Files tarda aproximadamente47,4% más que Flea.
-Ventana registrada no prueba que ya pueda usarse. Ninguna columna mide input
-nativo→frame presentado ni permite afirmar superioridad global de respuesta.
+Files cuts the tree's RAM by about 82.5%/70.5% in these two folders.
+With 100k, Files' listing state takes about 47.4% longer than Flea's.
+A registered window does not prove it is already usable. No column measures native
+input→presented frame nor allows claiming overall superior responsiveness.
 
-## Protocolo y trazabilidad
+## Protocol and traceability
 
-- NODE x86_64, AMD Ryzen9 5900X; Wayland real Hyprland0.56.2, pantalla1920x1080,
-  escala1. Clientes655x836 en idéntica posición/geometría en todas las pasadas;
-  cada aplicación conserva su densidad de filas y estilo por defecto.
-- Flea tagv0.4.0/22fa922, binario oficial linux-x86_64. SHA256 del tar verificado
-  contra archivo publicado: efa466c4916228cad6e374f9f33b216ef236f53515758fddc502c6972f5c50d7.
-  Cada log confirma Vulkan NVIDIA GeForce RTX3080Ti, no fallback software.
-- Files release compilado en NODE desde5a8f995, Cargo normal/original idle gate,
-  build terminado antes de medir. Software FLTK/fltk-rs1.5.23; sin instalar.
-  SHA de los cuatro ejecutables en assessment.json.
-- Carpetas propias btrfs con10k/100k archivos.txt vacíos, mismos nombres, List y
-  orden por nombre. Perfiles privados HOME/XDG; no preferencias/cachés habituales.
-  Metadatos del directorio precalentados antes de cada tamaño; procesos nuevos.
-  **No son pruebas de caché fría real**: no se vació caché global del equipo.
-- Muestreo árbol cada≈40–59ms, cinco segundos por pasada y al menos tres tras
-  readiness. Mediana estable desde max(ready+1s,3s). Picos muestreados son cotas
-  inferiores; hijos que nazcan/mueran entre muestras pueden escapar. Cero errores
-  del sampler en16 pasadas válidas. No se usó el contador PSS del footer de Files.
-- Readiness Files: FILES_METRICS_READY→scene_ready,loaded,errorfree,count exacto.
-  Flea: IPC listingWindowState total exacto/loaded>0,state ready,drawnCount>0 del
-  adaptador de vista montada. Son observadores diferentes; latencia externa por
-  polling (decenas de ms), con overhead IPC de Flea incluido. Files no espera stat
-  de todas las filas en List. Capturas posteriores verifican listado visible y
-  conteo100k en ambos, fuera de las pasadas cronometradas.
-- GPU: nvidia-smi registra memoria G/C+G de Flea en dos GPUs; no se interpreta
-  como total independiente sumable a PSS ni se usa para ganar la comparación.
-- Escritorio cotidiano con otras apps: no se cerraron ni mataron procesos ajenos.
-  Alternancia reduce sesgo de orden; no es un laboratorio de máquina ociosa.
-- Un fallo inicial del parser de readiness en Flea100k: IPC aún no devolvía JSON;
-  app no falló, harness sí. Log íntegro conservado; se corrigió a not-yet-ready y
-  repitió como2-retry. Cuatro válidas por grupo; fallida excluida explícitamente.
-- Solo grupos de procesos creados por el ensayo se terminaron conSIGTERM. Esto
-  no es prueba de cierre normal, recuperación ni ausencia de fugas a largo plazo.
+- NODE x86_64, AMD Ryzen 9 5900X; real Wayland Hyprland 0.56.2, 1920x1080 screen,
+  scale 1. Clients 655x836 at the same position/geometry in every run;
+  each application keeps its default row density and style.
+- Flea tag v0.4.0/22fa922, official linux-x86_64 binary. The tarball's SHA256 verified
+  against the published file: efa466c4916228cad6e374f9f33b216ef236f53515758fddc502c6972f5c50d7.
+  Each log confirms Vulkan NVIDIA GeForce RTX 3080 Ti, not a software fallback.
+- Files release built on NODE from 5a8f995, normal Cargo/original idle gate,
+  build finished before measuring. FLTK/fltk-rs 1.5.23; not installed.
+  SHAs of the four executables in assessment.json.
+- Own btrfs folders with 10k/100k empty .txt files, same names, List and
+  sort by name. Private HOME/XDG profiles; no usual preferences/caches.
+  Directory metadata pre-warmed before each size; fresh processes.
+  **These are not real cold-cache tests**: the machine's global cache was not dropped.
+- Tree sampling every ≈40–59 ms, five seconds per run and at least three after
+  readiness. Steady median from max(ready+1 s, 3 s). Sampled peaks are lower
+  bounds; children born/dying between samples may escape. Zero sampler errors
+  in 16 valid runs. Files' footer PSS counter was not used.
+- Files readiness: FILES_METRICS_READY→scene_ready, loaded, error-free, exact count.
+  Flea: IPC listingWindowState exact total/loaded>0, state ready, drawnCount>0 from the
+  mounted view adapter. They are different observers; external latency from
+  polling (tens of ms), with Flea's IPC overhead included. Files does not wait for stat
+  of every row in List. Later captures verify the visible listing and the
+  100k count in both, outside the timed runs.
+- GPU: nvidia-smi records Flea's G/C+G memory on two GPUs; it is not interpreted
+  as an independent total that can be added to PSS nor used to win the comparison.
+- Everyday desktop with other apps: no unrelated processes were closed or killed.
+  Alternating reduces order bias; it is not an idle-machine laboratory.
+- An initial readiness parser failure in Flea 100k: the IPC did not return JSON yet;
+  the app did not fail, the harness did. The full log is kept; it was fixed to not-yet-ready and
+  repeated as 2-retry. Four valid runs per group; the failed one explicitly excluded.
+- Only process groups created by the test were terminated with SIGTERM. This
+  is not a test of normal close, recovery or the absence of long-term leaks.
 
-## Lo que falta para una conclusión más amplia
+## What is missing for a broader conclusion
 
-No se midieron arranque realmente frío, búsqueda/navegación/scroll mediante input
-nativo, latencia de presentación, miniaturas equivalentes, consumo prolongado,
-CPU/energía ni otras GPUs/máquinas. No había driver de computer-use disponible;
-no se improvisó inyección de teclado ni se hizo pasar un handler por inputSO.
-Las apps tampoco tienen paridad total de funciones: este ensayo cubre List con
-archivos vacíos. La ventaja de RAM sí existe en este escenario; la superioridad
-universal de velocidad no está demostrada y el caso100k favorece a Flea.
+Not measured: a truly cold start, search/navigation/scroll through native
+input, presentation latency, equivalent thumbnails, sustained use,
+CPU/energy or other GPUs/machines. No computer-use driver was available;
+keyboard injection was not improvised and no handler was passed off as OS input.
+The apps do not have full feature parity either: this test covers List with
+empty files. The RAM advantage does exist in this scenario; universal speed
+superiority is not shown and the 100k case favors Flea.
 
-[Evidencia, hashes, archivos raw y límites](evidence/flea-0.4-comparison-20261103/assessment.json).
-[Gráfico](evidence/flea-0.4-comparison-20261103/comparison.html).
-Fuentes oficiales: [release](https://github.com/thisisgm/flea/releases/tag/v0.4.0),
-[método](https://github.com/thisisgm/flea/blob/v0.4.0/docs/benchmarks.md).
-El README del tag todavía muestra métricas0.3.10: no se usaron como resultados0.4.
-La autorización excepcional no levanta la congelación para otros experimentos.
+[Evidence, hashes, raw files and limits](evidence/flea-0.4-comparison-20261103/assessment.json).
+[Chart](evidence/flea-0.4-comparison-20261103/comparison.html).
+Official sources: [release](https://github.com/thisisgm/flea/releases/tag/v0.4.0),
+[method](https://github.com/thisisgm/flea/blob/v0.4.0/docs/benchmarks.md).
+The tag's README still shows 0.3.10 metrics: they were not used as 0.4 results.
+The exceptional authorization does not lift the freeze for other experiments.
 
 ## Subsequent optimization
 
-The original results above remain historical evidence. Sourceff7af56 subsequently
-improved worker/UI wake-ups: NODE100k readiness206ms vsFlea408ms, with retained
+The original results above remain historical evidence. Source ff7af56 subsequently
+improved worker/UI wake-ups: NODE 100k readiness 206 ms vs Flea 408 ms, with retained
 RAM advantage. M2 was separately evaluated and still has open memory/native
 acceptance. See [LISTING-EVENT-WAKE.md](LISTING-EVENT-WAKE.md); this does not claim
 universal superiority or erase the earlier mixed result.

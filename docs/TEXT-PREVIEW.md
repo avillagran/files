@@ -41,39 +41,39 @@ PSS+Swap **1.3824 MB**, complete readable samples and cleanup. This tests output
 backpressure and bounded allocation, not UI totals or preview latency. Evidence
 is `docs/evidence/text-preview/helper-memory.json`.
 
-## Space UI (0.0.4 en validación)
+## Space UI (0.0.4 in validation)
 
-Space o Vista previa del inspector abre el texto en UI propia. Un solo controlador
-retiene el último destino solicitado; cancela y recoge el helper anterior antes de
-reemplazarlo, descarta respuestas obsoletas incluso al reabrir el mismo path y libera
-el documento al cerrar. Navegar, cambiar selección y cerrar ventana cancelan; la
-salida espera `is_drained`, también al descartar preferencias espaciales.
+Space or the inspector's Preview opens the text in its own UI. A single controller
+keeps the last requested destination; it cancels and reaps the previous helper before
+replacing it, discards stale responses even when reopening the same path and frees
+the document on close. Navigating, changing selection and closing the window cancel; exit
+waits for `is_drained`, also when spatial preferences are discarded.
 
-Sólo líneas visibles; selección por puntero/Shift+flechas/Ctrl+A y CopyPreview.
-`Painter::literal_text` y `text_width` usan la misma fuente; cada línea visible
-expande TAB a8columnas escalares y controles a^X, con mapa fuente→display. Se copian
-bytes originales UTF8/CRLF/TAB, no la transformación. Gutter tiene clip independiente;
-selección vacía sólo pinta caret. Columnas no son graphemes. Para acotar shaping,
-se dibujan primeros4096bytes de cada línea y se etiqueta el recorte: resto aún no
-accesible visualmente, aunque Ctrl+A/copia conserva fuente completa dentro del límite.
-Alt+↑/↓ cambia archivo, Shift+rueda desplaza horizontalmente. Texto plano/código;
-Markdown y HTML son **fuente**, sus renderers reales siguen pendientes.
+Only visible lines; selection by pointer/Shift+arrows/Ctrl+A and CopyPreview.
+`Painter::literal_text` and `text_width` use the same font; each visible line
+expands TAB to 8 scalar columns and control characters to ^X, with a source→display map. The
+original UTF-8/CRLF/TAB bytes are copied, not the transformation. The gutter has its own clip;
+an empty selection only paints the caret. Columns are not graphemes. To bound shaping,
+the first 4096 bytes of each line are drawn and the cut is labeled: the rest is not yet
+visually accessible, although Ctrl+A/copy keeps the full source within the limit.
+Alt+↑/↓ changes file, Shift+wheel scrolls horizontally. Plain text/code;
+Markdown and HTML are shown as **source**; their real renderers are still pending.
 
-126tests workspace (73core/8helper/45UI), Clippy y release aprobados. Nuevas pruebas
-de width/tab/control/gutter/selección vacía, controlador y supervisor. El verificador
-`scripts/text-ui-check.py --capture` comprueba fuente Unicode+TAB+CRLF por puntero,
-A→B→C, errores binarios, truncado explícito y cierre con helper pendiente. Capturas
-reales en evidence/0.0.4, handlers internos; no eventos nativos de teclas/puntero.
+126 workspace tests (73 core/8 helper/45 UI), Clippy and release passed. New tests
+for width/tab/control/gutter/empty selection, controller and supervisor. The verifier
+`scripts/text-ui-check.py --capture` checks Unicode+TAB+CRLF source by pointer,
+A→B→C, binary errors, explicit truncation and close with a pending helper. Real
+captures in evidence/0.0.4, internal handlers; no native key/pointer events.
 
-Clipboard externo sigue **FAIL, no se cierra el hito**: wl-paste no recibe oferta
-cuando la fixture no es ventana activa y FLTK publica con serial0; traza registra
-set_selection y ningún keyboard_enter. Falta foco Wayland de esa fixture y repetición
-exacta tras CopyPreview. No se sustituye por wl-copy ni se leen contenidos previos.
-El fallo inicial de bucle se corrigió por separado: wrapper1.5.23 rechazaba conteos
-poll>=2. Dos pipes prueban raw2/callbacks2; escena nueva registra raw4/3 con éxito.
-No se conoce raw del fallo original, por lo que no se afirma causalidad exacta de
-ese evento. Wrapper local conserva C Fl_wait_for, errno inmediato y retry sóloEINTR;
-error real devuelve salida1 tras cancelar/drenar mutaciones/preview/du.
+The external clipboard is still **FAIL; the milestone is not closed**: wl-paste receives no offer
+when the fixture is not the active window and FLTK publishes with serial 0; the trace records
+set_selection and no keyboard_enter. Wayland focus for that fixture and an exact
+repetition after CopyPreview are missing. It is not replaced with wl-copy and earlier contents are not read.
+The initial loop failure was fixed separately: the 1.5.23 wrapper rejected
+poll counts >=2. Two pipes test raw 2/callbacks 2; the new scene records raw 4/3 successfully.
+The raw value of the original failure is unknown, so the exact cause of
+that event is not claimed. The local wrapper keeps C Fl_wait_for, immediate errno and retries only on EINTR;
+a real error returns exit 1 after cancelling/draining mutations/preview/du.
 
-Métricas integradas Space todavía pendientes, separadas de captura/clipboard.
-Las cifras aisladas anteriores del helper no son presupuesto del árbol de la app.
+Integrated Space metrics are still pending, separate from capture/clipboard.
+The earlier isolated helper figures are not the app tree's budget.
