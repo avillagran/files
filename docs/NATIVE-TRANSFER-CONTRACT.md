@@ -1,297 +1,297 @@
-# MIME nativo y drag/drop — M29 (2026-10-27)
+# Native MIME and drag/drop — M29 (2026-10-27)
 
-Contrato ANTES de wiring. M28 instalado1a8e48a/1c95bf1 permanece estable. O06
-sigue parcial: el buffer privado no equivale a MIME del SO. Prioridad funciones
-/UI, previews nuevas pausadas y freeze recursos/startup intacto. No nuevas
-mediciones, daemons, configuración global, dependencias/licencias incompatibles
-ni input/foco fabricado. Contrato no es feature ni aceptación.
+Contract BEFORE wiring. The installed M28 1a8e48a/1c95bf1 stays stable. O06
+is still partial: the private buffer is not equivalent to OS MIME. Features/UI
+priority, new previews paused and the resource/startup freeze intact. No new
+measurements, daemons, global configuration, incompatible dependencies/licenses
+nor fabricated input/focus. A contract is not a feature nor an acceptance.
 
-## Capacidades y gesto
+## Capabilities and gesture
 
-Producto Linux/Wayland: puente de plataforma con wl_data_device_manager,
-wl_data_device y wl_data_source; se usan display/seat reales del backend FLTK.
-Publicar clipboard o iniciar drag exige un permiso capturado durante gesto
-explícito de esta ventana, con serial real del evento y foco/surface asociados.
-El ACK asíncrono nunca consulta get_serial() para fabricar esa asociación. Un
-callback fixture no genera ese permiso. Sin gesto/foco/capacidad: error visible y buffer privado
-M28 conservado; no apropiación global silenciosa ni publicación al restaurar
-sesión. Recepción sólo tras Pegar explícito/drop aceptado sobre nuestra ventana.
+Linux/Wayland product: a platform bridge with wl_data_device_manager,
+wl_data_device and wl_data_source; the FLTK backend's real display/seat are used.
+Publishing the clipboard or starting a drag requires a permission captured during an
+explicit gesture on this window, with the event's real serial and the associated focus/surface.
+The asynchronous ACK never queries get_serial() to fabricate that association. A
+fixture callback does not generate that permission. Without gesture/focus/capability: a visible error and the private M28
+buffer kept; no silent global takeover nor publishing when restoring a
+session. Receiving happens only after an explicit Paste/accepted drop on our window.
 
-NO usar ext/wlr-data-control para sortear foco/serial de fixtures, leer clipboard
-personal en background o reemplazar una selección sin acción. Inventario local
-ext-data-control no es adopción. No wl-copy como falso arreglo del bridge.
-Codecs/transporte en fixtures privados se distinguen de handshake y eventos SO.
-CUA0/nativeinput sigue pendiente; no convierte una prueba interna en input SO.
+Do NOT use ext/wlr-data-control to get around fixtures' focus/serial, read the
+personal clipboard in the background or replace a selection without an action. A local
+ext-data-control inventory is not adoption. No wl-copy as a fake fix for the bridge.
+Codecs/transport in private fixtures are distinguished from the handshake and OS events.
+CUA 0/native input is still pending; an internal test is not turned into OS input.
 
-La publicación nativa tendrá estado propio (no publicado/owner/ownership perdido/
-error); la UI distingue Pegar de files y Pegar del sistema, sin fallback ambiguo
-cuando ambos difieren. CtrlC/X puede mantener buffer privado y publicar sólo si
-el backend recibe el gesto válido; nunca describir éxito global si sólo privado.
+Native publication will have its own state (not published/owner/ownership lost/
+error); the UI distinguishes Paste from files and Paste from the system, without an ambiguous fallback
+when both differ. Ctrl+C/X can keep the private buffer and publish only if
+the backend receives the valid gesture; never describe global success if it is only private.
 
-## Permiso de gesto frente a captura asíncrona
+## Gesture permission versus asynchronous capture
 
-En el handler real se fija GesturePermit {id,intent,kind,serial,seat,seat_epoch,
-surface,window_lifetime,event_epoch,deadline}. El puente obtiene serial del
-**evento actual comprobado** y valida su foco en esa misma ventana; el serial no
-se serializa en clipboard ni viaja a otro display. El token C++ opaco se consume
-una vez: Rust conserva ID, no pointers prestados reutilizables como autoridad.
-Cualquier nuevo gesto relevante, intención Copy/Cut/drag distinta, cancelación,
-Closing, cambio/pérdida seat/surface o vencimiento2s invalida permiso pendiente.
-Un ACK Source lleva intent+permitID; sólo el puente que capturó el permiso puede
-revalidar lifetime/epoch/foco y publicar usando EL serial guardado. Nunca obtener
-el serial más reciente al recibir ACK ni hacer stat/open síncrono en handler.
-Si proof tarda/permiso caduca, buffer privado puede quedar listo pero la UI dice
-«No publicado al sistema; vuelve a copiar», manteniendo clipboard global previo.
-Servidor/compositor decide aceptación; request enviado no equivale a ownership.
+In the real handler a GesturePermit {id,intent,kind,serial,seat,seat_epoch,
+surface,window_lifetime,event_epoch,deadline} is pinned. The bridge gets the serial from the
+**checked current event** and validates its focus on that same window; the serial is not
+serialized into the clipboard nor sent to another display. The opaque C++ token is consumed
+once: Rust keeps the ID, not borrowed pointers reusable as authority.
+Any new relevant gesture, a different Copy/Cut/drag intent, cancellation,
+Closing, a seat/surface change/loss or the 2 s expiry invalidates the pending permission.
+A Source ACK carries intent+permit ID; only the bridge that captured the permission can
+revalidate lifetime/epoch/focus and publish using THE saved serial. Never get
+the latest serial when the ACK is received nor do a synchronous stat/open in the handler.
+If the proof is slow/the permission expires, the private buffer may be ready but the UI says
+«No publicado al sistema; vuelve a copiar» (not published to the system; copy again), keeping the earlier global clipboard.
+The server/compositor decides acceptance; a sent request is not ownership.
 
-Clipboard permite publicación diferida bajo ese gesto explícito, aunque la tecla
-ya no esté presionada, sólo si permiso/foco siguen válidos. DragPermit es distinto:
-serial de button press real + botón/grab implícito todavía mantenido sobre surface
-propia; ni keyboard_enter_serial ni un gesto de teclado autorizan start_drag.
-Si Source aún no está listo al soltar, cancelar drag antes de iniciarlo, sin I/O UI
-ni inventar press. Motion/threshold no reemplaza el serial del press original.
-No publicar metadatos URI antes de Source proof en esta entrega; propiedad MIME
-no constituye por sí sola autoridad de mover/borrar de todos modos.
+The clipboard allows deferred publication under that explicit gesture, even if the key
+is no longer pressed, only if permission/focus are still valid. DragPermit is different:
+the serial of a real button press + a button/implicit grab still held over its own
+surface; neither keyboard_enter_serial nor a keyboard gesture authorizes start_drag.
+If the Source is not ready yet on release, cancel the drag before starting it, without UI I/O
+nor inventing a press. Motion/threshold does not replace the original press's serial.
+Do not publish URI metadata before the Source proof in this delivery; MIME ownership
+does not by itself constitute authority to move/delete anyway.
 
-## Coexistencia con FLTK, propiedad y ofertas
+## Coexistence with FLTK, ownership and offers
 
-No reemplazar listeners ni destruir wl_data_device/wl_data_source/offer proxies
-ajenos a FLTK. Crear **nuestro** data_device desde manager/seat prestados; listener
-sólo en ese proxy y en offers/sources creados/entregados a ese listener. Display,
-seat y manager siguen propiedad FLTK. Si la coexistencia de dos data_devices no
-funciona en host, declarar capacidad no disponible; no secuestrar listener ajeno.
-No conexión Wayland nueva para reutilizar un serial de otra conexión.
+Do not replace listeners nor destroy wl_data_device/wl_data_source/offer proxies
+that belong to FLTK. Create **our own** data_device from the borrowed manager/seat; a listener
+only on that proxy and on the offers/sources created by/delivered to that listener. Display,
+seat and manager remain owned by FLTK. If two data_devices cannot coexist
+on the host, declare the capability unavailable; never hijack another listener.
+No new Wayland connection to reuse a serial from another connection.
 
-Callbacks en hilo UI sólo registran metadata/FDs bounded; no read bloqueante,
-stat ni decode. Un device propio por proceso, con lifetime explícito y sin
-recrear por cada repaint. MAX4 offers retenidas,32 MIME por oferta,256B por MIME;
-overflow invalida capacidad/oferta y libera sólo proxies propios. Clipboard
-selection y drag-enter se distinguen; IDs monotónicos no se reciclan ni son
-punteros. Epoch de oferta/token(window,panel,tab,intención) acompaña cada lectura.
-Oferta sustituida/cancelada, ventana Closing, generación distinta o destino
-cerrado descartan respuesta aunque contenga bytes válidos. Última intención
-vence, pero no reasignar un slot asíncrono sin ACK/correlación.
+Callbacks on the UI thread only record bounded metadata/FDs; no blocking read,
+stat nor decode. One own device per process, with an explicit lifetime and without
+recreating it on each repaint. MAX 4 retained offers, 32 MIME types per offer, 256 B per MIME type;
+overflow invalidates the capability/offer and frees only own proxies. Clipboard
+selection and drag-enter are distinguished; monotonic IDs are never recycled nor are they
+pointers. An offer epoch/token (window, pane, tab, intent) accompanies each read.
+A replaced/cancelled offer, a Closing window, a different generation or a closed
+destination discard the response even if it contains valid bytes. The last intent
+wins, but an asynchronous slot is not reassigned without ACK/correlation.
 
-Fuente publicada mantiene payloads inmutables bounded hasta cancelled/loss y
-cierre de sends pendientes. Se controla lifetime ante send/cancel reentrantes;
-FD recibido en send es nuestro y se cierra exactamente una vez. Cancel no borra
-archivos ni consume Cut. En cierre: invalidar intención, cancelar/drain lectura y
-sends, destruir proxies propios sin tocar conexión/listeners FLTK. No join de
-syscall bloqueada en UI ni worker sustituto. Estado/error de transporte visible.
+A published source keeps bounded immutable payloads until cancelled/loss and the
+close of pending sends. Its lifetime is controlled against reentrant send/cancel;
+the FD received in send is ours and is closed exactly once. Cancel neither deletes
+files nor consumes a Cut. On close: invalidate the intent, cancel/drain the read and
+sends, destroy own proxies without touching the FLTK connection/listeners. No join of a
+blocked syscall on the UI nor a substitute worker. Transport state/error visible.
 
-## Transporte FD bounded antes de asignar
+## Bounded FD transport before allocating
 
-Una recepción activa y última deseada, usando AuxIo existente; no hilo por
-oferta. Pipe CLOEXEC en ambos extremos, O_NONBLOCK sólo en lector propio; read/poll con deadline3s y cancelación por
-chunks. MAX_WIRE1MiB, comprobar cap+1 ANTES de extender buffer, EOF exacto, ningún
-read_to_end no acotado. Al exceder/truncar/error/deadline/cancel: cerrar FD,
-responder error sin documento parcial ni operación. Identidad offer/epoch se
-revalida al devolver resultado, no sólo al solicitar receive. Estado de lectura
-sin FD/canal/ACK no se confunde con éxito vacío.
+One active reception and the latest desired one, using the existing AuxIo; not a thread per
+offer. A CLOEXEC pipe on both ends, O_NONBLOCK only on our own reader; read/poll with a 3 s deadline and cancellation per
+chunk. MAX_WIRE 1 MiB, check cap+1 BEFORE extending the buffer, exact EOF, no
+unbounded read_to_end. On exceed/truncation/error/deadline/cancel: close the FD,
+respond with an error without a partial document nor an operation. The offer/epoch identity is
+revalidated when returning the result, not only when requesting the receive. A read state
+without FD/channel/ACK is not confused with an empty success.
 
-Enviar también no bloqueante: payload inmutable preflight antes serializar,
-MAX4 FDs de send simultáneos, cuota por pump<=64KiB; EAGAIN conserva offset y
-registro limitado, EPIPE/cancel cierra sin loop ocupado. No un proceso/daemon ni
-buffer por lector sin límite. Reserva conjunta incluye payload MIME, buffer
-recibido, Source proofs, revisión/cola/resultado sin ACK y FD scratch dentro gate
-256; caps locales NO prueban PSS. Sin timer global60fps ni renders durante espera.
+Sending is also non-blocking: an immutable payload preflighted before serializing,
+MAX 4 simultaneous send FDs, a per-pump quota <=64 KiB; EAGAIN keeps the offset and
+a bounded record, EPIPE/cancel closes without a busy loop. No process/daemon nor
+unbounded buffer per reader. The joint reservation includes the MIME payload, the received
+buffer, Source proofs, review/queue/un-ACKed result and FD scratch within the 256
+gate; local caps do NOT prove PSS. No global 60 fps timer nor renders while waiting.
 
-## Formatos y rutas
+## Formats and paths
 
-- text/uri-list: COPY por defecto. No inferir Cut de texto plano ni de URI aislada.
-- x-special/gnome-copied-files: primera línea exacta copy/cut, luego URI; formato
-  explícito de la misma oferta. KDE cutselection sólo se acepta como metadata
-  exacta de esa misma offer/epoch, no combinando clipboard de instantes distintos.
-- MIME propio versionado puede llevar identidad de operación/ventana para evitar
-  doble despacho interno; nunca confiar un jobID de proceso extranjero como proof.
+- text/uri-list: COPY by default. Do not infer Cut from plain text nor from an isolated URI.
+- x-special/gnome-copied-files: exact first line copy/cut, then URIs; an explicit
+  format of the same offer. KDE cutselection is only accepted as exact metadata
+  of that same offer/epoch, not by combining clipboard from different moments.
+- A versioned own MIME type can carry the operation/window identity to avoid a
+  double internal dispatch; never trust a foreign process's job ID as proof.
 
-No usar FL_PASTE URI→texto: FLTK pin decodifica globalmente y quita file://,
-perdiendo límites/%0A/%00/hostnames. Adapter recibe bytes MIME ANTES de eso.
-Codec por URI, percent-decode EXACTAMENTE una vez; %0A dentro de filename no es
-separador y %25 conserva %. Unix OsString raw, no UTF8 lossy operativo. file:///
-y file://localhost/ sólo locales; host remoto/scheme distinto/NUL/query/fragment
-sin escapar/path relativo/traversal/desborde rechazados antes I/O. '#' inicial
-de línea sólo comentario de uri-list, no permiso para fragmentos. CRLF/LF separan
-URIs ANTES de decode. No abrir ni navegar una URI al parsearla.
+Do not use FL_PASTE URI→text: the pinned FLTK decodes globally and strips file://,
+losing boundaries/%0A/%00/hostnames. The adapter receives MIME bytes BEFORE that.
+A per-URI codec, percent-decode EXACTLY once; %0A inside a filename is not a
+separator and %25 keeps %. Unix raw OsString, no lossy operational UTF-8. file:///
+and file://localhost/ only local; a remote host/different scheme/NUL/unescaped query/fragment
+/relative path/traversal/overflow rejected before I/O. A '#' at the start
+of a line is only a uri-list comment, not permission for fragments. CRLF/LF separate
+URIs BEFORE decoding. A URI is never opened nor navigated while parsing it.
 
-MAX128 raíces,4096B por ruta decodificada,1MiB wire y metadata conjunta explícita.
-Preflight prestado count/longitudes/sumas checked antes Vec<PathBuf>. Padres raw
-agrupados con Source proofs, máximo32 padres por entrega; si excede, rechazo
-visible para reducir lote, sin truncado ni recaptura silenciosa. El límite no
-reduce el objetivo futuro de operaciones multi-origen. Cada FD efectivo de
-Copy/Move se valida contra su grupo de firmas, no verify(path)→capture sustituto.
+MAX 128 roots, 4096 B per decoded path, 1 MiB wire and explicit joint metadata.
+A borrowed preflight of count/lengths/checked sums before Vec<PathBuf>. Raw parents
+grouped with Source proofs, at most 32 parents per delivery; if exceeded, a visible
+rejection to reduce the batch, without truncation nor a silent recapture. The limit does not
+reduce the future goal of multi-source operations. Each effective Copy/Move FD
+is validated against its signature group, not verify(path)→a substitute capture.
 
-Destino PathBuf/panelID/tabID/intent se fija al Pegar/drop; callback tardío no usa
-panel ahora activo. Captura Source en AuxIo antes revisión; paths de una oferta
-son entrada no confiable, no autorización de overwrite ni borrar. Diálogo y cola
-M28 existentes, conflicto/cancel/ACK conservadores, refresh de ambas carpetas por
-rutas capturadas, sin duplicar motores ni un Model por oferta.
+The destination PathBuf/pane ID/tab ID/intent is pinned at Paste/drop; a late callback does not use
+the pane that is active now. The Source is captured in AuxIo before the review; the paths of an offer
+are untrusted input, not an authorization to overwrite nor delete. The existing M28 dialog and queue,
+conservative conflict/cancel/ACK, a refresh of both folders through the
+captured paths, without duplicating engines nor a Model per offer.
 
-## DnD visible y acuerdo de movimiento
+## Visible DnD and move agreement
 
-Drag sobre fila/lote captura selección visible raw; umbral de movimiento evita
-robar click/rango/dobleclick/headergrab. Targets panel/folder/background por
-ID+generación, highlight/reveal claros y Escape/leave/drop stale no mutante.
-Drop abre revisión (destino al gesto) antes encolar. No mover al hover.
+A drag over a row/batch captures the raw visible selection; a movement threshold avoids
+stealing click/range/double click/header grab. Pane/folder/background targets by
+ID+generation, clear highlight/reveal and a non-mutating Escape/leave/stale drop.
+Drop opens a review (destination at the gesture) before enqueuing. No move on hover.
 
-Enviar bytes o recibir dnd_finished NO permite unlink del origen. Origen de files
-nunca ejecuta delete por ese evento ni por acción MOVE que mande un tercero.
-Evitar doble delete si destino ya renameó; Cut sólo consume publicaciones propias
-confirmadas por motor/IntentProof/ACK, no ausencia del nombre. Primera capacidad
-externa se anuncia COPY únicamente; MOVE externo queda explícitamente pendiente
-hasta acuerdo verificable que no duplique eliminación. No anunciar MOVE y luego
-simularlo como Copy exitoso. DnD interno entre nuestros paneles puede ofrecer
-Copy/Move mediante revisión y cola global/proofs, sin source-side auto-delete.
-Si source externo exige sólo MOVE sin COPY, rechazar drop con explicación.
-Esto NO convierte GNOME Cut importado por clipboard en Copy: cut explícito de
-esa oferta conserva intención Move y abre revisión/proof/cola; si no se admite,
-se rechaza visiblemente. DnD negotiation y Cut clipboard son canales distintos.
-Publicar Cut tampoco autoriza a files-origen a borrar al servir bytes, cancelled
-o dnd_finished: otro gestor puede haber hecho rename; no segundo delete. Sin ACK
-propio verificable, el buffer privado no infiere consumo de ausencia de nombres.
+Sending bytes or receiving dnd_finished does NOT allow unlinking the source. files as the source
+never runs a delete because of that event nor because of a MOVE action a third party sends.
+Avoid a double delete if the destination already renamed; Cut only consumes own publications
+confirmed by the engine/IntentProof/ACK, not the absence of the name. The first external
+capability is announced as COPY only; external MOVE stays explicitly pending
+until a verifiable agreement that does not duplicate the deletion. Do not announce MOVE and then
+simulate it as a successful Copy. Internal DnD between our panes can offer
+Copy/Move through the review and the global queue/proofs, without source-side auto-delete.
+If an external source requires only MOVE without COPY, reject the drop with an explanation.
+This does NOT turn a GNOME Cut imported through the clipboard into a Copy: an explicit cut from
+that offer keeps the Move intent and opens review/proof/queue; if it is not admitted,
+it is visibly rejected. DnD negotiation and the Cut clipboard are different channels.
+Publishing a Cut does not authorize files as the source to delete when serving bytes, cancelled
+or dnd_finished either: another manager may have done a rename; no second delete. Without its own
+verifiable ACK, the private buffer does not infer consumption from the absence of names.
 
-## Aceptación por capas, sin métricas
+## Layered acceptance, without metrics
 
-1. Codec puro: LF/%0A/%25/noUTF8/localhost/host remoto/NUL/URI inválida, frontera
-   count/path/wire, formato Cut explícito y cap antes alloc. No clipboard leído.
-2. Transporte privado con pipes: chunks/EOF/EAGAIN/overflow/cancel/deadline, cambio
-   offer/epoch/close/ACK/reentrancia; no afirmar compositor ni inputSO.
-3. Bridge producto: propio data_device/listeners, permisos/serial/foco reales,
-   MIME publicado/recibido exacto con otro consumidor privado autorizado, sin
-   leer clipboard previo. Si driver nativo no disponible, mantener no validado.
-4. UI extendiendo escena existente: origen/destino raw, foco/tab cambiado antes
-   callback, DnD entre paneles y carpeta/leave/cancel, review/paused no mutante,
-   conflicto/retry y root0ACK, menú800×440. Handlers inyectados≠evento SO.
+1. Pure codec: LF/%0A/%25/non-UTF-8/localhost/remote host/NUL/invalid URI, the
+   count/path/wire boundary, the explicit Cut format and cap before alloc. No clipboard read.
+2. Private transport with pipes: chunks/EOF/EAGAIN/overflow/cancel/deadline, offer
+   change/epoch/close/ACK/reentrancy; no claim about the compositor nor OS input.
+3. Product bridge: own data_device/listeners, real permissions/serial/focus,
+   exact published/received MIME with another authorized private consumer, without
+   reading the earlier clipboard. If the native driver is unavailable, keep it unvalidated.
+4. UI extending the existing scene: raw source/destination, focus/tab changed before the
+   callback, DnD between panes and folder/leave/cancel, non-mutating review/paused,
+   conflict/retry and root 0 ACK, menu 800×440. Injected handlers ≠ OS event.
 
-Capturas reales y auto-instalación sólo checkpoint validado. O06 no completo por
-codec/pipe o buffer privado; evidencia externa no se inventa desde fixtures.
-Otros SO tendrán adaptadores explícitos; Linux-only no es compilación Windows/
-macOS. Sin más previews ni recursos/startup mientras freeze siga vigente.
-
-
-## M29a — implementación y validación parcial (2026-10-27)
-
-Codec Rust integrado sin nuevas dependencias: dos pasadas antes de materializar,
-Unix raw y percent-decode único por URI. Puente C++ sobre FLTK1.5.23 con manager,
-data_device, sources/offers y listeners propios en display/seat prestados. Fuentes
-one-shot y Fl_Widget_Tracker; no listener ajeno, conexión nueva ni data-control.
-Status «solicitud enviada» no acredita ownership/consumo. El permiso guarda serial
-y foco reales del gesto, nunca se reconstruye en ACK. Pérdida de ventana invalida
-epoch nativa ANTES del borrow Model; reading_epoch impide aceptación reentrante.
-
-AuxIo existente realiza recepción/captura/encode. Un slot conserva tombstone
-hasta ACK; reader encolado caduca y cierra FD desde pump aunque AuxIo esté ocupado.
-Reader worker usa poll20ms, deadline total3s/cancel/cap+1 antes extend. Emisor externo
-recibe FD de escritura blocking; sends propios NONBLOCK, cuota64KiB/pump, deadline3s
-/inactividad1s, cuatro slots. No lectura MIME mediante FL_PASTE ni read_to_end.
-Destino PathBuf/panel-tab/generación capturado, oferta cambiada/cierre descartan.
-Source importado entra a revisión existente con etiqueta Sistema y proof del FD;
-no consume Cut privado de igual ID. Aviso de rechazo por presupuesto se conserva.
-
-Reservas LOCALES, no gate PSS: dos payloads C++ de hasta1MiB (sends comparten
-vistas, no duplican payload); un flight Rust con wire hasta1MiB, encode e import
-mutuamente excluyentes. Antes de Source capture se libera wire; paths decodificados
-<=128×4096B más contenedores, liberados antes de retener Source. Una fuente/revisión
-nativa <=2MiB y anterior system-recovery <=2MiB se admiten conjuntamente <=4MiB;
-fuera de Request son reserva separada, NO parte del cap privado2MiB ni supuesta
-cola4MiB. Al encolar, Request ya cobra lease.retained_bytes() y sus FDs. Se reservan
-8FD externos adicionales: hasta4send, reader, hasta2scratch Source y margen para
-pipe writer transiente. Cap global existente256FD sigue contando review/activo/
-cola/ACK; no multiplicar límites al mantener otro resultado. Estos caps no prueban
-memoria del árbol ni latencia/CPU. Sin nuevos helpers/threads de transferencia.
-
-Límites explícitos: primer import admite UN padre común, rechaza TODO lote
-multi-origen antes capture (objetivo32 padres sigue pendiente); KDE sin GNOME
-rechazado por falta de lectura Cut correlacionada; otros SO pendientes. DnD externo
-NO implementado: backend FLTK pinned hace set_actions y roundtrip incluso con
-handler false, además de su URI→texto global no acotado al aceptar drop. Retornar
-false evita nuestra ruta FL_PASTE pero NO demuestra negociación coexistente.
-Próxima adaptación: hook opt-in de ventanas propias ANTES enter/motion/drop del
-backend, con cleanup/leave/offer ownership y default intacto para otras ventanas;
-source/parche reproducible bajo repo, nunca editar registry global.
-
-637 tests Rust (208core/67helper/362UI),3ignored; Clippy all-targets -Dwarnings y
-fmt--check exit0. Incluyen codec5, reader3 y state5: oferta/destino/owner/cierre/
-cancel, queued-expiry EPIPE antes take, rechazo de presupuesto visible, systemCut
-sin consumo privado y pérdida de foco. State usa callbacks inyectados, no eventos
-Wayland/C++; esa distinción se conserva. Primer FAIL C++ reading_epoch preservado.
-Release exit0 y escena clipboard-ui1793133638367792338 scopedPASS9PNG/2root0ACK:
-botón/rechazo sin gesto y regresión privada M28; isolate-input NO activa bridge.
-Validación/hashes en native-transfer-checkpoint-validation.json. NO afirma MIME SO funcional,
-DND/KDE/multi-origen completos ni PSS/startup. Previews/freeze intactos.
+Real captures and auto-installation only for a validated checkpoint. O06 is not complete because of a
+codec/pipe or a private buffer; external evidence is never invented from fixtures.
+Other OSes will have explicit adapters; Linux-only is not a Windows/
+macOS build. No more previews nor resources/startup while the freeze is in effect.
 
 
-## M29b — receptor y hook DnD parcial (2026-10-27)
+## M29a — implementation and partial validation (2026-10-27)
 
-Hook opt-in de ventana propia en FLTK1.5.23 antes de enter/motion/drop: evita
-negociación/roundtrip/lectura upstream en esa secuencia; libera sólo la oferta
-propia de FLTK en leave/drop/unregister y suprime eventos tardíos hasta enter.
-Las otras ventanas conservan upstream. `vendor/fltk-wayland-transfer/` contiene
-source original/modificado/patch/hash/COPYING bajo licencia FLTK LGPL+excepción.
-CMake sustituye una TU con hash verificado en build, sin escribir el registry.
-Guard valida inputs y exige símbolo fuerte ligado al digest en enlace final;
-si se actualizan inputs hay que versionar wrapper y toolchain según README.
+Integrated Rust codec without new dependencies: two passes before materializing,
+raw Unix and a single percent-decode per URI. A C++ bridge over FLTK 1.5.23 with its own manager,
+data_device, sources/offers and listeners on the borrowed display/seat. One-shot sources
+and Fl_Widget_Tracker; no foreign listener, new connection nor data-control.
+The «solicitud enviada» (request sent) status does not prove ownership/consumption. The permission keeps the real
+serial and focus of the gesture; it is never rebuilt at ACK time. Losing the window invalidates the
+native epoch BEFORE the Model borrow; reading_epoch prevents a reentrant acceptance.
 
-Receptor propio anuncia COPY/URI, coalescea hover, fija pane/tab/generación y
-destino raw antes de leer, usa un reader acotado por AuxIo y revisión/cola
-existentes. Target prestado no cambia foco ni selección; al ACK revalida panel/
-columna, revisión, nombre y filtro. Cancel/stale/budget no abren diálogo ni
-finish. Drop marca drag inactivo y oferta queda fijada hasta ACK/cleanup;
-source_actions tardío no renegocia. Epoch obsoleto rechaza antes pipe. ACK de
-COPY de bytes aceptados nunca autoriza borrar origen; no se anuncia MOVE.
+The existing AuxIo performs reception/capture/encode. A slot keeps a tombstone
+until ACK; a queued reader expires and closes its FD from the pump even if AuxIo is busy.
+The reader worker uses a 20 ms poll, a total 3 s deadline/cancel/cap+1 before extend. An external sender
+receives a blocking write FD; own sends NONBLOCK, quota 64 KiB/pump, deadline 3 s
+/inactivity 1 s, four slots. No MIME read through FL_PASTE nor read_to_end.
+Destination PathBuf/pane-tab/generation captured; a changed offer/close discard.
+An imported Source enters the existing review labeled System with the FD proof;
+it does not consume a private Cut with the same ID. The budget rejection notice is kept.
 
-Receiver C++ wrapped-proxy PASS y14 tests Rust dirigidos +642 workspace PASS;
-Clippy/fmt/release exit0. Escena clipboard-ui1793135944759735086 PASS scoped
-con pipe privado/fake ACK: hover, cancel, review, copia raw y2cierres normales.
-NO demuestra handshake, serial, oferta, DnD exterior, memoria ni inputSO.
-M29/O06 pendientes: sender y DnD interno/externo demostrados, KDE correlacionado,
-multi-padre agrupado y adaptadores SO. No activar data-control para sortear foco.
+LOCAL reservations, not a PSS gate: two C++ payloads of up to 1 MiB (sends share
+views, they do not duplicate the payload); one Rust flight with a wire up to 1 MiB, encode and import
+mutually exclusive. Before the Source capture the wire is freed; decoded paths
+<=128×4096 B plus containers, freed before retaining the Source. One native
+source/review <=2 MiB and an earlier system-recovery <=2 MiB are admitted jointly <=4 MiB;
+outside the Request they are a separate reservation, NOT part of the private 2 MiB cap nor of the supposed
+4 MiB queue. When enqueuing, the Request already charges lease.retained_bytes() and its FDs. 8 additional
+external FDs are reserved: up to 4 sends, the reader, up to 2 Source scratch and a margin for
+a transient pipe writer. The existing global cap of 256 FDs still counts review/active/
+queue/ACK; limits are not multiplied when keeping another result. These caps do not prove
+the tree's memory nor latency/CPU. No new transfer helpers/threads.
+
+Explicit limits: the first import admits ONE common parent and rejects EVERY
+multi-source batch before capture (the 32-parent goal is still pending); KDE without GNOME is
+rejected for lack of a correlated Cut read; other OSes pending. External DnD
+NOT implemented: the pinned FLTK backend calls set_actions and does a roundtrip even with the
+handler returning false, besides its unbounded global URI→text when accepting a drop. Returning
+false avoids our FL_PASTE path but does NOT prove a coexisting negotiation.
+Next adaptation: an opt-in hook for own windows BEFORE the backend's enter/motion/drop,
+with cleanup/leave/offer ownership and the default intact for other windows;
+a reproducible source/patch in the repo, never editing the global registry.
+
+637 Rust tests (208 core/67 helper/362 UI), 3 ignored; Clippy all-targets -Dwarnings and
+fmt --check exit 0. They include codec 5, reader 3 and state 5: offer/destination/owner/close/
+cancel, queued expiry EPIPE before take, a visible budget rejection, system Cut
+without private consumption and focus loss. State uses injected callbacks, not
+Wayland/C++ events; that distinction is kept. The first C++ reading_epoch FAIL is preserved.
+Release exit 0 and scene clipboard-ui 1793133638367792338 scoped PASS 9 PNG/2 root 0 ACK:
+button/rejection without a gesture and the private M28 regression; isolate-input does NOT enable the bridge.
+Validation/hashes in native-transfer-checkpoint-validation.json. It does NOT claim working OS MIME,
+complete DnD/KDE/multi-source nor PSS/startup. Previews/freeze intact.
 
 
-## M29c — emisor DnD parcial, 2026-10-27
+## M29b — receiver and partial DnD hook (2026-10-27)
 
-Emisor COPY en ventana propia: guarda el permiso del press original, espera un
-umbral de 8 px, captura nombres raw al pulsar y verifica Source/codifica en
-AuxIo. Antes de solicitar `start_drag` comprueba ventana/seat/epoch/serial
-original, expiración y botón izquierdo; liberar o cancelar invalida antes de
-tomar Model. Una selección múltiple conserva su lote al arrastrar y el clic
-sin arrastre se resuelve al soltar. La reserva conjunta incluye clipboard
-deseado, prueba, payload y fuente publicada; se mantiene hasta ACK o cleanup
-(delimitado también por plazo). La fuente anuncia sólo COPY; `finished` o
-`cancelled` nunca borran archivos ni consumen Cut. El drop propio reutiliza
-revisión y cola existentes.
+An opt-in hook for own windows in FLTK 1.5.23 before enter/motion/drop: it avoids
+the upstream negotiation/roundtrip/read in that sequence; it frees only FLTK's own
+offer on leave/drop/unregister and suppresses late events until enter.
+Other windows keep upstream behavior. `vendor/fltk-wayland-transfer/` contains the
+original/modified source/patch/hash/COPYING under the FLTK LGPL license + exception.
+CMake replaces one TU with a hash verified at build time, without writing the registry.
+The guard validates the inputs and requires a strong symbol tied to the digest at the final link;
+if the inputs are updated, the wrapper and toolchain must be versioned according to the README.
 
-648 tests workspace (208 core, 67 helper, 373 UI; 3 ignorados), Clippy/fmt/
-release PASS. Fixture C++ usa proxies simulados: COPY/serial/surface en helper
-ya admitido, rechazos de permiso/epoch/plazo y `finished` marca cleanup; no
-acredita grab/foco del compositor ni teardown completo. Escena
-`clipboard-ui-1793136958438850356.json` PASS acotado: 13 framebuffers, Source
-y AuxIo reales, despacho final simulado, Cut conservado y dos cierres con ACK.
-No hay input SO ni interop Wayland probado; O06, KDE, multipadre y adaptadores
-siguen abiertos. Primera escena `clipboard-ui-1793136933634122245.json` FAIL:
-pegado de texto propio tras event loop no llegó. Repetición PASS no explica ni
-borra el fallo; clipboard estable global sigue sin acreditar. Recursos y
-arranque NOT_MEASURED (freeze); previews nuevas pausadas.
+The own receiver announces COPY/URI, coalesces hover, pins pane/tab/generation and the
+raw destination before reading, uses a reader bounded by AuxIo and the existing review/queue.
+A borrowed target does not change focus nor selection; on ACK it revalidates pane/
+column, revision, name and filter. Cancel/stale/budget open no dialog nor
+finish. Drop marks the drag inactive and the offer stays pinned until ACK/cleanup;
+a late source_actions does not renegotiate. An obsolete epoch rejects before the pipe. The ACK of a
+COPY of accepted bytes never authorizes deleting the source; MOVE is not announced.
+
+C++ wrapped-proxy receiver PASS and 14 targeted Rust tests + 642 workspace PASS;
+Clippy/fmt/release exit 0. Scene clipboard-ui 1793135944759735086 scoped PASS
+with a private pipe/fake ACK: hover, cancel, review, raw copy and 2 normal closes.
+It does NOT prove the handshake, serial, offer, external DnD, memory nor OS input.
+M29/O06 pending: proven sender and internal/external DnD, correlated KDE,
+grouped multi-parent and OS adapters. Do not enable data-control to get around focus.
 
 
-## M29d — KDE correlacionado, 2026-10-27
+## M29c — partial DnD sender, 2026-10-27
 
-La importación KDE solicita `text/uri-list` y `application/x-kde-cutselection`
-de la misma oferta y época, con un ACK único tras validar intención, Source y
-destino. Dos pipes se drenan concurrentemente con plazo común de 3 s; URI
-limitada a 1 MiB y metadata exactamente un byte `0` o `1` con EOF. Error,
-cancelación, límite o cambio de oferta rechazan todo sin convertir Cut en Copy.
-El máximo por fase del puente es 8 FD: cuatro envíos más cuatro extremos
-transitorios; tras abrir quedan dos lectores, que se cierran antes de capturar
-Source. Otros workers mantienen reservas independientes.
+A COPY sender on its own window: it keeps the permission of the original press, waits for an
+8 px threshold, captures raw names on press and verifies the Source/encodes in
+AuxIo. Before requesting `start_drag` it checks window/seat/epoch/original serial,
+expiry and the left button; releasing or cancelling invalidates before
+taking the Model. A multiple selection keeps its batch when dragging and a click
+without a drag is resolved on release. The joint reservation includes the desired
+clipboard, proof, payload and published source; it is held until ACK or cleanup
+(also bounded by a deadline). The source announces only COPY; `finished` or
+`cancelled` never delete files nor consume a Cut. The own drop reuses the
+existing review and queue.
 
-652 tests workspace (208 core, 67 helper, 377 UI; 3 ignorados), Clippy/fmt/
-release PASS. Fixture C++ con proxies simulados verifica dos MIME de una oferta
-y rechazo al cambiar selección entre EOFs. Siete tests de transporte incluyen
-ambos órdenes, metadata inválida, límite, deadline y cancelación después de EOF
-URI. Escena `clipboard-ui-1793137466717410666.json` PASS acotado: dos pipes
-privados, ACK simulado, Cut abre revisión Mover, cancelar conserva origen, dos
-framebuffers y salida0 tras ACK. Input/interop KDE reales siguen UNVALIDATED;
-multipadre, DnD real y O06 siguen abiertos. El FAIL intermitente de texto
-`clipboard-ui-1793136933634122245.json` permanece sin explicación. Recursos y
-arranque NOT_MEASURED por freeze, previews nuevas pausadas.
+648 workspace tests (208 core, 67 helper, 373 UI; 3 ignored), Clippy/fmt/
+release PASS. A C++ fixture uses simulated proxies: COPY/serial/surface in an
+already admitted helper, permission/epoch/deadline rejections and `finished` marks cleanup; it does not
+prove the compositor's grab/focus nor a complete teardown. Scene
+`clipboard-ui-1793136958438850356.json` bounded PASS: 13 framebuffers, real Source
+and AuxIo, a simulated final dispatch, Cut kept and two closes with ACK.
+There is no OS input nor proven Wayland interop; O06, KDE, multi-parent and adapters
+remain open. The first scene `clipboard-ui-1793136933634122245.json` FAIL:
+pasting own text after the event loop did not arrive. The PASS repeat neither explains nor
+erases the failure; a stable global clipboard is still not proven. Resources and
+startup NOT_MEASURED (freeze); new previews paused.
+
+
+## M29d — correlated KDE, 2026-10-27
+
+The KDE import requests `text/uri-list` and `application/x-kde-cutselection`
+from the same offer and epoch, with a single ACK after validating intent, Source and
+destination. Two pipes are drained concurrently with a common 3 s deadline; the URI list is
+limited to 1 MiB and the metadata to exactly one byte `0` or `1` with EOF. An error,
+cancellation, limit or offer change rejects everything without turning Cut into Copy.
+The bridge's per-phase maximum is 8 FDs: four sends plus four transient
+ends; after opening, two readers remain, which are closed before capturing the
+Source. Other workers keep independent reservations.
+
+652 workspace tests (208 core, 67 helper, 377 UI; 3 ignored), Clippy/fmt/
+release PASS. A C++ fixture with simulated proxies verifies two MIME types of one offer
+and rejection when the selection changes between EOFs. Seven transport tests include
+both orders, invalid metadata, the limit, the deadline and cancellation after the URI
+EOF. Scene `clipboard-ui-1793137466717410666.json` bounded PASS: two private
+pipes, a simulated ACK, Cut opens the Move review, cancel keeps the source, two
+framebuffers and exit 0 after ACK. Real KDE input/interop are still UNVALIDATED;
+multi-parent, real DnD and O06 remain open. The intermittent text FAIL
+`clipboard-ui-1793136933634122245.json` remains unexplained. Resources and
+startup NOT_MEASURED because of the freeze, new previews paused.
