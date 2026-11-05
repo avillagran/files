@@ -110,7 +110,7 @@ def main():
                     pending.write_text(action)
                     os.replace(pending, capture.with_suffix('.command'))
                     done = wait(lambda: re.search(r'FILES_PREVIEW_COMMAND_(REV action=' + re.escape(action) + r' |ERROR ' + re.escape(action) + r': (.*))', text()[after:]), 'command ' + action)
-                    if 'REV' in done.group(0):
+                    if done.group(0).startswith('FILES_PREVIEW_COMMAND_REV'):
                         return after
                     if 'falta' not in (done.group(2) or '') or time.monotonic() > deadline:
                         raise AssertionError(f'{action}: {done.group(2)}')

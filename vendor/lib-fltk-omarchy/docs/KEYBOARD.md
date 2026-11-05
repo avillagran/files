@@ -22,13 +22,48 @@ and every component follows the same rules.
 5. **Esc never closes an app window.**
 6. **Window-wide keys** keep working wherever focus is:
    `AppWindow::shortcut("F10", ..)`, `Button::shortcut("Ctrl+S")`, and
-   Ctrl+Tab / Ctrl+PageUp / Ctrl+PageDown for a `TabBar`.
+   Ctrl+Tab / Ctrl+PageUp / Ctrl+PageDown for a `TabBar`. `Mod` in a spec
+   is the platform's primary modifier: `"Mod+,"` is Ctrl+, on Linux and
+   Windows and Cmd+, on macOS (`keys::PRIMARY`); `Ctrl` is always the
+   Control key. Menus and the F1 help show specs with `keys::label`. The
+   Ctrl of keyboard panels (toggle, select all, cursor-only moves,
+   click-to-toggle) is the primary modifier too. See
+   [PLATFORMS.md](PLATFORMS.md#shortcuts).
 7. **The focus ring is drawn only while the keyboard is in use**, like
    `:focus-visible` on the web; a mouse click hides it again. The ring is
    the theme's `[controls] focus` state. When the theme's focus looks the
    same as its hover cursor (the Omarchy default), the ring gets a
    full-strength accent border so it cannot be missed.
    `theme::set_focus_ring(FocusRing::Theme)` uses the theme tokens exactly.
+
+## Right to left
+
+In a right-to-left language (Arabic, Hebrew, Persian, Urdu…) the layout is
+mirrored ([I18N.md](I18N.md#right-to-left-languages)) and the keys follow
+the screen:
+
+- **Tab / Shift+Tab** keep the reading order: from the start (now the
+  right) to the end (the left). A row's first child is its rightmost one.
+- **Left / Right swap** in mirrored horizontal controls, so the arrow
+  points where the selection goes:
+
+  | Control | Left | Right |
+  |---|---|---|
+  | TabBar | next tab | previous tab |
+  | ButtonGroup | next option | previous option |
+  | Slider | raises the value | lowers it |
+  | KeyboardPanel grid | next item in the row | previous item |
+  | Tree | expands / goes to the first child | collapses / goes to the parent |
+  | Menu (command menu) | enters a submenu (`‹` mark) | — |
+
+  Up/Down, Home/End, PageUp/PageDown, Enter and Ctrl+Tab are unchanged.
+- A `KeyboardPanel` takes its host widget's direction: its `on_edge` gets
+  the logical key (`Left` = toward the start of the row), its `on_key` the
+  key as pressed. A canvas that does not mirror its grid sets
+  `layout::set_direction(&canvas, Some(Direction::Ltr))`.
+- Containers forced to `Direction::Ltr` (media controls, timelines) keep
+  the left-to-right keys.
+- Custom controls swap with `layout::logical_key(&widget, key)`.
 
 ## Popups and app shortcuts
 
@@ -154,10 +189,14 @@ operation started from a menu.
 | Button, ActionButton, Row, Toggle, ToggleSwitch | Enter / Space |
 | ButtonGroup | one Tab stop; Left / Right change the selection |
 | TextField | typing; Enter submits |
+| TextArea | typing (input methods through `Fl::compose`); arrows, Home / End (line), Mod+Home / End (text; Cmd+Up / Down on macOS); Ctrl+Left / Right words (Alt on macOS, Cmd+Left / Right line ends); Shift extends; PageUp / PageDown; Backspace / Delete, with Ctrl (Alt on macOS) a word; Mod+A / C / X / V, Mod+Z, Mod+Shift+Z or Mod+Y; Enter new line; Esc clears the selection; Tab leaves (`TabKey` to type tabs) |
+| Composer | the TextArea keys; Enter sends, Shift+Enter new line (`SendKey::ModEnter` swaps them), Mod+Enter sends, Mod+Shift+Enter alternate send. Completion list open: Up / Down, PageUp / PageDown, Enter or Tab accept, Esc closes (the input keeps focus). Attachment chips: one Tab stop, Left / Right, Delete removes, Enter opens |
 | NumberField | Up / Down |
 | Slider | Left / Right / Up / Down |
 | TabBar | anywhere: Ctrl+Tab, Ctrl+Shift+Tab, Ctrl+PageDown, Ctrl+PageUp. Focused: Left / Right / Home / End, Delete closes |
 | List | Up / Down, j / k, PageUp / PageDown, Home / End, Enter |
+| RichText | Up / Down, PageUp / PageDown, Home / End (End follows a stream again) scroll; Tab / Shift+Tab go through the links and code copy buttons in view, then on to the next control; Enter / Space open the link or copy the code; Ctrl+A select all, Ctrl+C copy (Cmd on macOS); Esc clears |
+| RichLabel | with links: a Tab stop; Enter / Space open the first link |
 | Dropdown | Enter / Space / Down open; Up / Down, j / k (no modifier); Enter; Esc |
 | SearchableDropdown | Enter / Down open; type to filter; Up / Down; Enter; Esc |
 | Menu | type to filter; Up / Down, PageUp / PageDown; Enter / Right; Backspace, Ctrl+Backspace, Ctrl+U; Esc clears, then closes |

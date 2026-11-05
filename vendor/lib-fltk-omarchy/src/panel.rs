@@ -36,14 +36,23 @@
 //! | Ctrl+A | select everything |
 //! | Enter | `on_activate(cursor)` |
 //!
+//! Ctrl in this table is the platform's primary modifier
+//! ([`crate::keys::PRIMARY`]): Cmd on macOS, Ctrl elsewhere.
+//!
 //! At an edge (Up on the first row, Left on the first column…) the key goes
 //! to `on_edge`, then to the arrow scopes and window shortcuts. `on_key`
-//! sees every key first and can take it.
+//! sees every key first (as pressed) and can take it.
+//!
+//! Right to left (the host widget's [`crate::layout::direction_of`]) a grid
+//! is drawn from the right, so Left and Right swap before the cursor moves:
+//! Left goes to the next item, and `on_edge` gets the logical key (`Left` =
+//! toward the start of the row). Force `Direction::Ltr` on the host with
+//! `layout::set_direction` when the canvas is not mirrored.
 
 use fltk::{enums::{Key, Shortcut}, prelude::*, widget::Widget};
 use std::cell::RefCell;
 use std::collections::BTreeSet;
-use std::rc::Rc;
+use std::rc::{Rc, Weak};
 
 /// A stable item identity chosen by the app (an inode, a hash of the raw
 /// name, a row key). Selection and cursor survive reordering and refresh.
@@ -73,6 +82,7 @@ struct Callbacks {
     edge: Option<Box<dyn FnMut(Key) -> bool>>,
     key: Option<Box<dyn FnMut(Key, Shortcut) -> bool>>,
     focus: Option<Box<dyn FnMut(bool)>>,
+    label: Option<Box<dyn Fn(ItemId) -> String>>,
 }
 
 struct Inner {
@@ -84,6 +94,18 @@ struct Inner {
     anchor: Option<ItemId>,
     selection: BTreeSet<ItemId>,
     host: Option<Widget>,
+}
+
+/// A panel reference that does not keep it alive (model bindings).
+pub(crate) struct WeakPanel {
+    inner: Weak<RefCell<Inner>>,
+    cbs: Weak<RefCell<Callbacks>>,
+}
+
+impl WeakPanel {
+    pub(crate) fn upgrade(&self) -> Option<KeyboardPanel> {
+        Some(KeyboardPanel { inner: self.inner.upgrade()?, cbs: self.cbs.upgrade()? })
+    }
 }
 
 /// One focusable region with a cursor and an ID selection. Cloning shares it.
@@ -164,6 +186,37 @@ impl KeyboardPanel {
             i.source = Some(src);
         }
         self.changed();
+    }
+
+    /// [`KeyboardPanel::set_items`]; with `quiet`, the host redraws and
+    /// `on_change` runs only when the cursor, anchor or selection lost an
+    /// item (models re-bind after every structural change).
+    pub(crate) fn set_items_with(&self, len: usize, id_at: impl Fn(usize) -> ItemId + 'static, index_of: impl Fn(ItemId) -> Option<usize> + 'static, quiet: bool) {
+        let lost = {
+            let mut i = self.inner.borrow_mut();
+            let src = Source { len, id_at: Box::new(id_at), index_of: Box::new(index_of) };
+            let alive = |id: &ItemId| (src.index_of)(*id).is_some_and(|x| x < len);
+            let before = i.selection.len();
+            i.selection.retain(alive);
+            let mut lost = i.selection.len() != before;
+            if i.cursor.is_some_and(|c| !alive(&c)) {
+                i.cursor = None;
+                lost = true;
+            }
+            if i.anchor.is_some_and(|c| !alive(&c)) {
+                i.anchor = None;
+                lost = true;
+            }
+            i.source = Some(src);
+            lost
+        };
+        if lost || !quiet {
+            self.changed();
+        }
+    }
+
+    pub(crate) fn downgrade(&self) -> WeakPanel {
+        WeakPanel { inner: Rc::downgrade(&self.inner), cbs: Rc::downgrade(&self.cbs) }
     }
 
     pub fn len(&self) -> usize {
@@ -386,6 +439,25 @@ impl KeyboardPanel {
         }
     }
 
+    /// The text a screen reader reads for an item (its visible label):
+    /// `panel.accessible_labels(move |id| names[&id].clone())`. Without
+    /// it items are read as "Item 3". Only called while an assistive
+    /// technology is active (feature `a11y`), for the items near the cursor.
+    pub fn accessible_labels(&self, f: impl Fn(ItemId) -> String + 'static) -> &Self {
+        self.cbs.borrow_mut().label = Some(Box::new(f));
+        self
+    }
+
+    /// The accessible label of an item, when [`KeyboardPanel::accessible_labels`] was set.
+    pub fn item_label(&self, id: ItemId) -> Option<String> {
+        self.cbs.borrow().label.as_ref().map(|f| f(id))
+    }
+
+    /// List or Grid.
+    pub fn current_layout(&self) -> PanelLayout {
+        self.inner.borrow().layout
+    }
+
     /// Enter on the cursor item.
     pub fn on_activate(&self, f: impl FnMut(ItemId) + 'static) -> &Self {
         self.cbs.borrow_mut().activate = Some(Box::new(f));
@@ -448,10 +520,20 @@ impl KeyboardPanel {
                 return true;
             }
         }
-        if mods.intersects(Shortcut::Alt | Shortcut::Meta) {
+        // Right to left (the host widget's direction, see `layout::direction_of`):
+        // Left and Right swap, so the cursor follows the screen in a mirrored
+        // grid and `on_edge` gets `Left` for "toward the start" (a tree
+        // collapses with the key that points to its parent).
+        let k = match self.host() {
+            Some(h) => crate::layout::logical_key(&h, k),
+            None => k,
+        };
+        // Ctrl here is the platform's primary modifier (Cmd on macOS).
+        let primary = crate::keys::PRIMARY;
+        if mods.intersects((Shortcut::Alt | Shortcut::Ctrl | Shortcut::Meta).difference(primary)) {
             return false;
         }
-        let ctrl = mods.contains(Shortcut::Ctrl);
+        let ctrl = mods.contains(primary);
         let shift = mods.contains(Shortcut::Shift);
         let len = self.len();
         if ctrl && !shift && k == Key::from_char('a') {
@@ -548,9 +630,9 @@ mod tests {
         p.handle_key(Key::Down, Shortcut::Shift);
         p.handle_key(Key::Down, Shortcut::Shift);
         assert_eq!(p.selection(), vec![114, 121, 128]);
-        p.handle_key(Key::Down, Shortcut::Ctrl); // cursor only
+        p.handle_key(Key::Down, crate::keys::PRIMARY); // cursor only
         assert_eq!((p.cursor_index(), p.selection_len()), (Some(5), 3));
-        p.handle_key(Key::from_char(' '), Shortcut::Ctrl);
+        p.handle_key(Key::from_char(' '), crate::keys::PRIMARY);
         assert_eq!(p.selection(), vec![114, 121, 128, 135]);
         p.handle_key(Key::End, N);
         assert_eq!(p.selection(), vec![163]);
@@ -558,9 +640,9 @@ mod tests {
         assert!(!p.handle_key(Key::Left, N), "Left is an edge in a list");
         p.invert_selection();
         assert_eq!(p.selection_len(), 9);
-        p.handle_key(Key::from_char('a'), Shortcut::Ctrl);
+        p.handle_key(Key::from_char('a'), crate::keys::PRIMARY);
         assert_eq!(p.selection_len(), 10);
-        assert!(!p.handle_key(Key::Tab, Shortcut::Ctrl), "Ctrl+Tab is not a panel key");
+        assert!(!p.handle_key(Key::Tab, crate::keys::PRIMARY), "Ctrl+Tab is not a panel key");
     }
 
     #[test]

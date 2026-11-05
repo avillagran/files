@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# Real X11 key events into a TextArea inside an isolated Xvfb display (never
+# the user's session): keysyms for CJK and emoji (what an input method
+# commits), Shift+Return, BackSpace, and a dead key. `--fltk` runs the same
+# keys into fltk's own MultilineInput for comparison. Prints the report and
+# PASS/FAIL. Without an input method server in Xvfb, FLTK delivers the dead
+# key as nothing (both widgets type "cafe"); the check accepts that and
+# fails on any other difference.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+REPORT="$ROOT/build/edit-input.json"; mkdir -p "$ROOT/build"; rm -f "$REPORT"
+BIN="$ROOT/target/release/examples/edit_input_check"
+[[ -x "$BIN" ]] || cargo build --release --example edit_input_check --manifest-path "$ROOT/Cargo.toml"
+DRIVER="$(mktemp -d)"; trap 'rm -rf "$DRIVER"' EXIT
+cat > "$DRIVER/keys.py" <<'PY'
+import ctypes, time
+x11 = ctypes.CDLL("libX11.so.6"); xt = ctypes.CDLL("libXtst.so.6")
+P, I, U = ctypes.c_void_p, ctypes.c_int, ctypes.c_ulong
+x11.XOpenDisplay.restype = P
+x11.XStringToKeysym.restype = U
+x11.XKeysymToKeycode.argtypes = [P, U]
+x11.XChangeKeyboardMapping.argtypes = [P, I, I, ctypes.POINTER(U), I]
+x11.XSync.argtypes = [P, I]
+x11.XFlush.argtypes = [P]
+xt.XTestFakeKeyEvent.argtypes = [P, ctypes.c_uint, I, U]  # display, keycode, press, delay
+xt.XTestFakeMotionEvent.argtypes = [P, I, I, I, U]  # display, screen, x, y, delay
+d = x11.XOpenDisplay(None)
+spare = [200, 201, 202, 203, 204]          # unused keycodes in Xvfb's map
+def bind(code, keysym):
+    syms = (ctypes.c_ulong * 1)(keysym)
+    x11.XChangeKeyboardMapping(d, code, 1, syms, 1); x11.XSync(d, 0); time.sleep(0.15)
+def tap(code, shift=False):
+    sh = x11.XKeysymToKeycode(d, x11.XStringToKeysym(b"Shift_L"))
+    if shift: xt.XTestFakeKeyEvent(d, sh, 1, 0)
+    xt.XTestFakeKeyEvent(d, code, 1, 0); xt.XTestFakeKeyEvent(d, code, 0, 0)
+    if shift: xt.XTestFakeKeyEvent(d, sh, 0, 0)
+    x11.XFlush(d); time.sleep(0.12)
+def kc(name): return x11.XKeysymToKeycode(d, x11.XStringToKeysym(name))
+time.sleep(1.5)
+xt.XTestFakeMotionEvent(d, -1, 300, 200, 0); x11.XFlush(d); time.sleep(0.2)   # focus follows the pointer (no WM)
+bind(spare[0], x11.XStringToKeysym(b"dead_acute"))
+bind(spare[1], 0x10065E5)                  # U+65E5 日
+bind(spare[2], 0x1006587)                  # U+6587 文
+bind(spare[3], 0x101F44D)                  # U+1F44D 👍
+tap(kc(b"c")); tap(kc(b"a")); tap(kc(b"f")); tap(spare[0]); tap(kc(b"e"))   # café
+tap(kc(b"Return"), shift=True)
+tap(spare[1]); tap(spare[2]); tap(spare[3])                                  # 日文👍
+tap(kc(b"BackSpace"))                                                        # removes 👍
+tap(kc(b"space")); tap(kc(b"x"))
+PY
+env -u WAYLAND_DISPLAY FLTK_BACKEND=x11 LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 XMODIFIERS=@im=none \
+  xvfb-run -a -s "-screen 0 1280x800x24" \
+  bash -c "\"$BIN\" \"$REPORT\" 6 ${1:-} >/dev/null 2>&1 & python3 -I \"$DRIVER/keys.py\"; wait"
+cat "$REPORT"
+python3 -I - "$REPORT" <<'PY'
+import json, sys
+r = json.load(open(sys.argv[1]))
+ok = r["text"] in ("café\n日文 x", "cafe\n日文 x")
+print("PASS" if ok else "FAIL", repr(r["text"]))
+sys.exit(0 if ok else 1)
+PY

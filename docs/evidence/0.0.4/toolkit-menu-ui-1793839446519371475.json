@@ -1,0 +1,45 @@
+{
+  "functional_gate": "PASS",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "method": "Files window framebuffer + toolkit focus::press/click_at fixture; no native input",
+  "captures": [
+    "/home/node/Work/files/docs/evidence/0.0.4/toolkit-menu-settings-1793839445290586832.png",
+    "/home/node/Work/files/docs/evidence/0.0.4/toolkit-menu-actions-start-1793839445625844810.png",
+    "/home/node/Work/files/docs/evidence/0.0.4/toolkit-menu-actions-end-1793839445719115503.png",
+    "/home/node/Work/files/docs/evidence/0.0.4/toolkit-menu-context-edge-1793839445902992620.png"
+  ],
+  "settings_rect": [
+    223,
+    48,
+    503,
+    390
+  ],
+  "actions_rect": [
+    161,
+    48,
+    609,
+    390
+  ],
+  "context_rect": [
+    284,
+    2,
+    514,
+    433
+  ],
+  "normal_exit": true,
+  "dismissal_reasons": [
+    "Escape",
+    "ClickOutside",
+    "Picked(0)",
+    "Closed"
+  ],
+  "viewport": [
+    800,
+    440
+  ],
+  "log": "FILES_FONT=JetBrainsMono Nerd Font nerd=true\nFILES_GLASS mode=opaque opacity=1.00 overridden=true wayland=true\nFILES_UI_SMOKE_OK entries=1\nFILES_FIRST_PAINT_US=43182\nFILES_TOOLKIT_FIXTURE action=settings\nFILES_TOOLKIT_POPUP_OPEN kind=Settings rect=Some((223, 48, 503, 390))\nFILES_CAPTURE_OK id=0 redraw=false before=4 paint=4 width=800 height=440\nFILES_TOOLKIT_HELP open=true\nFILES_TOOLKIT_FIXTURE action=help-key\nFILES_TOOLKIT_POPUP_DISMISS kind=Settings reason=Closed valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=help-close\nFILES_TOOLKIT_FIXTURE action=settings\nFILES_TOOLKIT_POPUP_OPEN kind=Settings rect=Some((223, 48, 503, 390))\nFILES_TOOLKIT_KEY key=F10 settings=false actions=true\nFILES_TOOLKIT_FIXTURE action=actions-key\nFILES_TOOLKIT_POPUP_DISMISS kind=Settings reason=Closed valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_POPUP_OPEN kind=Actions rect=Some((161, 48, 609, 390))\nFILES_TOOLKIT_KEY key=Ctrl+, settings=true actions=false\nFILES_TOOLKIT_FIXTURE action=settings-key\nFILES_TOOLKIT_POPUP_DISMISS kind=Actions reason=Closed valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_POPUP_OPEN kind=Settings rect=Some((223, 48, 503, 390))\nFILES_TOOLKIT_KEY key=Ctrl+j settings=true actions=false\nFILES_TOOLKIT_FIXTURE action=ctrl-j\nFILES_TOOLKIT_POPUP_DISMISS kind=Settings reason=Closed valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=settings\nFILES_TOOLKIT_POPUP_OPEN kind=Settings rect=Some((223, 48, 503, 390))\nFILES_TOOLKIT_FIXTURE action=escape\nFILES_TOOLKIT_POPUP_DISMISS kind=Settings reason=Escape valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=actions\nFILES_TOOLKIT_POPUP_OPEN kind=Actions rect=Some((161, 48, 609, 390))\nFILES_CAPTURE_OK id=0 redraw=false before=24 paint=24 width=800 height=440\nFILES_TOOLKIT_FIXTURE action=end\nFILES_CAPTURE_OK id=0 redraw=false before=25 paint=25 width=800 height=440\nFILES_TOOLKIT_FIXTURE action=outside\nFILES_TOOLKIT_POPUP_DISMISS kind=Actions reason=ClickOutside valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=settings\nFILES_TOOLKIT_POPUP_OPEN kind=Settings rect=Some((223, 48, 503, 390))\nFILES_TOOLKIT_FIXTURE action=pick\nFILES_TOOLKIT_POPUP_DISMISS kind=Settings reason=Picked(0) valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=context\nFILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((284, 2, 514, 433))\nFILES_CAPTURE_OK id=0 redraw=false before=35 paint=35 width=800 height=440\nFILES_TOOLKIT_FIXTURE action=closed\nFILES_TOOLKIT_POPUP_DISMISS kind=Context reason=Closed valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=context\nFILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((284, 2, 514, 433))\nFILES_TOOLKIT_KEY key=F10 settings=false actions=true\nFILES_TOOLKIT_FIXTURE action=actions-key\nFILES_TOOLKIT_POPUP_DISMISS kind=Context reason=Closed valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_POPUP_OPEN kind=Actions rect=Some((161, 48, 609, 390))\nFILES_TOOLKIT_FIXTURE action=escape\nFILES_TOOLKIT_POPUP_DISMISS kind=Actions reason=Escape valid=true focus_returned=true rename_open=false\nFILES_TOOLKIT_FIXTURE action=context\nFILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((284, 2, 514, 433))\nFILES_TOOLKIT_RENAME index=13 downs=9\nFILES_TOOLKIT_FIXTURE action=rename-downs\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=down\nFILES_TOOLKIT_FIXTURE action=pick\nFILES_TOOLKIT_POPUP_DISMISS kind=Context reason=Picked(13) valid=true focus_returned=true rename_open=true\nFILES_TOOLKIT_FIXTURE action=cancel-rename\nFILES_TOOLKIT_FIXTURE action=actions\nFILES_TOOLKIT_POPUP_OPEN kind=Actions rect=Some((161, 48, 609, 390))\nFILES_TOOLKIT_FIXTURE action=close\nFILES_TOOLKIT_POPUP_DISMISS kind=Actions reason=Closed valid=false focus_returned=false rename_open=false\nFILES_CLOSE_WAIT saves_ready=true mutations_drained=true copy_closed=true preview_drained=true du_drained=true space_drained=true notice=false\nFILES_CLOSE_DRAINED\nFILES_GLASS_STATS glass_fills=0 opaque_fills=2664 regions_cleared=0 regions_restored=0\n",
+  "binary_sha256": "d68d35c46b41074b9d80eee1cbd088f8a09a5b08b2e13420b6eff141d7e9ac4c",
+  "helper_sha256": "1640d5f8597d024f9cb73143d5490e8d58e03a0e4f33997455d01b31729c827a",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd"
+}

@@ -29,9 +29,7 @@ fn pss_tree_kb() -> u64 {
 }
 
 fn cpu_s() -> f64 {
-    let mut ts = libc::timespec { tv_sec: 0, tv_nsec: 0 };
-    unsafe { libc::clock_gettime(libc::CLOCK_PROCESS_CPUTIME_ID, &mut ts) };
-    ts.tv_sec as f64 + ts.tv_nsec as f64 / 1e9
+    fltk_omarchy::platform::process_cpu_time().map_or(0.0, |d| d.as_secs_f64())
 }
 
 fn main() {

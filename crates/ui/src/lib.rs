@@ -1104,6 +1104,9 @@ pub fn run_since(start: Instant) -> bool {
         && std::env::var_os("FILES_TEST_ISOLATE_INPUT").as_deref()
             == Some(std::ffi::OsStr::new("1"));
     let fixture_dispatch = Rc::new(Cell::new(false));
+    // Toolkit fixture: an invisible widget over a toolbar control, so the
+    // toolkit tooltip can be shown without OS pointer input.
+    let mut tooltip_probe: Option<Frame> = None;
     let fixture_dispatch_event = fixture_dispatch.clone();
     let m = model.clone();
     let mut gesture_window = win.clone();
@@ -1715,6 +1718,40 @@ pub fn run_since(start: Instant) -> bool {
                     }
                     "trash-state" => {}
                     "settings" => model.borrow_mut().action(Action::Settings),
+                    "tooltip-settings" => {
+                        let target = model.borrow().hits.iter().find_map(|h| {
+                            matches!(h.action, Action::Settings).then(|| {
+                                (h.rect, h.action.accessible_name().unwrap_or("Preferencias"))
+                            })
+                        });
+                        if let Some((r, name)) = target {
+                            let probe = tooltip_probe.get_or_insert_with(|| {
+                                win.begin();
+                                let f = Frame::new(0, 0, 1, 1, "");
+                                win.end();
+                                f
+                            });
+                            probe.resize(r.x, r.y, r.w, r.h);
+                            probe.set_tooltip(name);
+                            probe.show();
+                            let ok = fltk_omarchy::tooltip::show(probe);
+                            let state = fltk_omarchy::tooltip::shown()
+                                .map(|s| {
+                                    format!(
+                                        "{}@{},{},{},{}",
+                                        s.text, s.rect.0, s.rect.1, s.rect.2, s.rect.3
+                                    )
+                                })
+                                .unwrap_or_default();
+                            eprintln!("FILES_TOOLTIP shown={ok} {state}");
+                        }
+                    }
+                    "tooltip-hide" => {
+                        fltk_omarchy::tooltip::hide();
+                        if let Some(p) = tooltip_probe.as_mut() {
+                            p.hide();
+                        }
+                    }
                     "actions" => model.borrow_mut().action(Action::Actions),
                     "context" => {
                         crate::context_menu::open_loaded_selection(
@@ -1736,6 +1773,25 @@ pub fn run_since(start: Instant) -> bool {
                     }
                     "down" => {
                         fltk_omarchy::focus::press("Down");
+                    }
+                    "rename-downs" => {
+                        // Down presses from the first enabled row to Rename
+                        // (the popup skips disabled rows and section titles).
+                        if let Some(menu) = model.borrow().context_menu.as_ref()
+                            && let Some(index) = menu
+                                .items
+                                .iter()
+                                .position(|i| matches!(i.action, Some(Action::Rename)))
+                        {
+                            let enabled_before = menu.items[..index]
+                                .iter()
+                                .filter(|i| i.action.is_some())
+                                .count();
+                            eprintln!(
+                                "FILES_TOOLKIT_RENAME index={index} downs={}",
+                                enabled_before
+                            );
+                        }
                     }
                     "help-key" => {
                         fixture_dispatch.set(true);

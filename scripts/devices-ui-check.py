@@ -96,7 +96,7 @@ def main():
                 pending.write_text(action)
                 os.replace(pending, capture.with_suffix('.command'))
                 done = wait(lambda: re.search(r'FILES_PREVIEW_COMMAND_(REV action=' + re.escape(action) + r' |ERROR ' + re.escape(action) + r': (.*))', text()[after:]), action)
-                if 'ERROR' in done.group(0):
+                if done.group(0).startswith('FILES_PREVIEW_COMMAND_ERROR'):
                     raise AssertionError(f'{action}: {done.group(2)}')
                 return after
             def state():

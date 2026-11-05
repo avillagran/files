@@ -23,6 +23,7 @@
 
 use std::any::Any;
 use std::cell::RefCell;
+use std::rc::Rc;
 use std::collections::{HashMap, VecDeque};
 use std::sync::atomic::{AtomicBool, AtomicU64, AtomicUsize, Ordering};
 use std::sync::{Arc, Condvar, Mutex};
@@ -41,18 +42,111 @@ pub fn post(f: impl FnOnce() + Send + 'static) {
 }
 
 /// Runs everything posted so far. Called by the app loop (and tests).
+///
+/// The jobs run inside one [`crate::state::batch`]: a burst of posted
+/// updates (a background task streaming events) notifies each State and
+/// model once, so the UI redraws once per loop iteration.
 pub fn drain() -> usize {
-    let mut n = 0;
-    loop {
-        let job = POSTED.lock().unwrap().pop_front();
-        match job {
-            Some(j) => {
-                j();
-                n += 1;
+    crate::state::batch(|| {
+        let mut n = 0;
+        loop {
+            let job = POSTED.lock().unwrap().pop_front();
+            match job {
+                Some(j) => {
+                    j();
+                    n += 1;
+                }
+                None => return n,
             }
-            None => return n,
+        }
+    })
+}
+
+// ------------------------------------------------------------ UI sinks
+//
+// A sink is a UI-thread closure that a background thread can wake with a
+// plain id (`Send`): the feeds (`state::StateFeed`, `state::TextFeed`,
+// `model::Feed`) queue data behind a mutex and wake their sink once until
+// it drains. Optionally rate-limited: a wake sooner than `min_interval`
+// after the last run arms one fltk timeout instead (no timer while idle).
+
+struct Sink {
+    run: Rc<RefCell<dyn FnMut() -> bool>>,
+    min_interval: Arc<AtomicU64>, // nanoseconds, 0 = every loop iteration
+    last: Option<Instant>,
+    armed: bool,
+}
+
+thread_local! {
+    static SINKS: RefCell<HashMap<u64, Sink>> = RefCell::new(HashMap::new());
+}
+static NEXT_SINK: AtomicU64 = AtomicU64::new(1);
+
+/// Id of a UI-thread sink; `wake` is thread-safe.
+#[derive(Debug, Clone)]
+pub(crate) struct SinkId {
+    id: u64,
+    pub(crate) min_interval: Arc<AtomicU64>,
+}
+
+impl SinkId {
+    /// Thread-safe: runs the sink on the UI thread on the next loop iteration.
+    pub(crate) fn wake(&self) {
+        let id = self.id;
+        post(move || run_sink(id, false));
+    }
+}
+
+/// Registers `f` on this (the UI) thread. `f` returns false to unregister.
+pub(crate) fn register_sink(f: impl FnMut() -> bool + 'static) -> SinkId {
+    let id = NEXT_SINK.fetch_add(1, Ordering::Relaxed);
+    let min_interval = Arc::new(AtomicU64::new(0));
+    SINKS.with(|s| s.borrow_mut().insert(id, Sink { run: Rc::new(RefCell::new(f)), min_interval: min_interval.clone(), last: None, armed: false }));
+    SinkId { id, min_interval }
+}
+
+fn run_sink(id: u64, from_timer: bool) {
+    enum Next {
+        Run(Rc<RefCell<dyn FnMut() -> bool>>),
+        Wait(Duration),
+        Skip,
+    }
+    let next = SINKS.with(|s| {
+        let mut s = s.borrow_mut();
+        let Some(sink) = s.get_mut(&id) else { return Next::Skip };
+        if from_timer {
+            sink.armed = false;
+        } else if sink.armed {
+            return Next::Skip; // the timer will run it
+        }
+        let min = Duration::from_nanos(sink.min_interval.load(Ordering::Relaxed));
+        if let Some(last) = sink.last {
+            let since = last.elapsed();
+            if since < min {
+                sink.armed = true;
+                return Next::Wait(min - since);
+            }
+        }
+        sink.last = Some(Instant::now());
+        Next::Run(sink.run.clone())
+    });
+    match next {
+        Next::Skip => {}
+        Next::Wait(d) => {
+            fltk::app::add_timeout3(d.as_secs_f64(), move |_| crate::state::batch(|| run_sink(id, true)));
+        }
+        Next::Run(f) => {
+            let keep = f.try_borrow_mut().map(|mut f| f()).unwrap_or(true);
+            if !keep {
+                SINKS.with(|s| s.borrow_mut().remove(&id));
+            }
         }
     }
+}
+
+/// Number of registered sinks (tests).
+pub fn sink_count() -> usize {
+    SINKS.with(|s| s.borrow().len())
 }
 
 // ---------------------------------------------------------------- outcome

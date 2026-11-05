@@ -62,7 +62,7 @@ fn main() {
         let c0 = cpu_ticks(&pids);
         std::thread::sleep(Duration::from_secs(5));
         let idle = (cpu_ticks(&tree(pid)) - c0) as f64 / 100.0;
-        unsafe { libc::kill(pid as i32, libc::SIGTERM) };
+        let _ = std::process::Command::new("kill").arg("-TERM").arg(pid.to_string()).status();
         for _ in 0..50 { if !std::path::Path::new(&format!("/proc/{pid}")).exists() { break; } std::thread::sleep(Duration::from_millis(50)); }
         eprintln!("{label} run {i}: startup {startup} ms, pss {pss} kB, idle cpu {idle:.2} s, size {}", client["size"]);
         rows.push((startup, pss, idle));

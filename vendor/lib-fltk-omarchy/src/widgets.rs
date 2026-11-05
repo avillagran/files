@@ -3,6 +3,7 @@
 //! placed in any `Flex`/`Group` and sized with fltk-rs as usual; each one
 //! also reports its Omarchy implicit size via `.preferred_size()`.
 
+use crate::a11y::{self, Action, Role};
 use crate::anim::{Anim, Ease, Lerp};
 use crate::paint::{self, Interaction};
 use crate::state::State;
@@ -43,7 +44,11 @@ pub mod glyph {
     pub const CHECKMARK: &str = "\u{2713}";
     pub const CROSS: &str = "\u{2715}";
     pub const SUBMENU: &str = "\u{203a}";
+    /// [`SUBMENU`] in a right-to-left menu.
+    pub const SUBMENU_RTL: &str = "\u{2039}";
 }
+
+pub use crate::sidebar::{Sidebar, SidebarItem, SidebarMode};
 
 type Cb<T> = Rc<RefCell<Option<Box<dyn FnMut(T)>>>>;
 
@@ -81,6 +86,7 @@ fn track_with_shortcut(w: &mut Widget, st: Rc<RefCell<Interaction>>, keyboard: b
     } else {
         w.clear_visible_focus();
     }
+    a11y::default_click(w, on_activate.clone());
     w.handle(move |w, ev| {
         let mut s = st.borrow_mut();
         let changed = match ev {
@@ -151,6 +157,9 @@ struct ButtonData {
     danger: bool,
     font_size: Option<i32>,
     shortcut: Option<crate::keys::Keys>,
+    shortcut_text: String,
+    /// `set_selected` was used: the button is a toggle for screen readers.
+    toggle: bool,
 }
 
 /// Omarchy `Button`: optional Nerd glyph + text, transparent at rest,
@@ -200,16 +209,28 @@ impl Button {
                 let tw = if d.text.is_empty() { 0 } else { paint::measure(&d.text, fs, s.selected) };
                 let row = iw + tw + if iw > 0 && tw > 0 { gap } else { 0 };
                 let pad = t.spacing.control_padding_x;
+                // Laid out left to right, mirrored in a right-to-left direction
+                // (icon at the reading start, `left_aligned` = start-aligned).
+                let m = crate::layout::Mirror::of(w);
                 let mut x = if d.left_align { w.x() + pad + 1 } else { w.x() + (w.w() - row) / 2 };
                 if iw > 0 {
-                    paint::glyph(&d.icon, x, w.y(), iw, w.h(), t.font.icon, fg);
+                    paint::glyph(&d.icon, m.x(x, iw), w.y(), iw, w.h(), t.font.icon, fg);
                     x += iw + gap;
                 }
                 if tw > 0 {
                     let avail = w.x() + w.w() - pad - x;
-                    paint::text_elided(&d.text, x, w.y(), avail.max(tw.min(avail)), w.h(), fs, s.selected, fg, Align::Left);
+                    let bw = avail.max(tw.min(avail));
+                    paint::text_elided(&d.text, m.x(x, bw), w.y(), bw, w.h(), fs, s.selected, fg, m.align(Align::Left));
                 }
             });
+        });
+        let d = data.clone();
+        a11y::describe(&inner, move |n| {
+            let d = d.borrow();
+            n.role(Role::Button).name(&d.text).focusable().action(Action::Click).shortcut(&d.shortcut_text);
+            if d.toggle || d.active {
+                n.toggled(d.selected || d.active);
+            }
         });
         let mut b = Self { inner, data, click };
         let (w, h) = b.preferred_size();
@@ -273,16 +294,40 @@ impl Button {
     pub fn shortcut(self, spec: &str) -> Self {
         let keys = crate::keys::parse(spec).unwrap_or_else(|e| panic!("{e}"));
         self.data.borrow_mut().shortcut = Some(keys);
+        self.data.borrow_mut().shortcut_text = spec.to_string();
+        self
+    }
+
+    /// The name screen readers read (icon-only buttons); see [`crate::a11y`].
+    pub fn accessible_name(self, name: &str) -> Self {
+        a11y::set_name(&self.inner, name);
+        self
+    }
+
+    /// Extra help screen readers read after the name.
+    pub fn accessible_description(self, text: &str) -> Self {
+        a11y::set_description(&self.inner, text);
         self
     }
 
     pub fn set_selected(&mut self, on: bool) {
-        self.data.borrow_mut().selected = on;
+        let mut d = self.data.borrow_mut();
+        d.selected = on;
+        d.toggle = true;
+        drop(d);
         self.inner.redraw();
     }
 
+    /// Changes the label. A fitted button takes the new natural width (a
+    /// translation can be longer); an unfitted one does too unless it was
+    /// sized by hand.
     pub fn set_text(&mut self, text: &str) {
+        let before = self.preferred_size();
         self.data.borrow_mut().text = text.into();
+        let now = self.preferred_size();
+        if now != before && !crate::layout::refit(&self.inner, now) && (self.inner.w(), self.inner.h()) == before {
+            self.inner.set_size(now.0, now.1);
+        }
         self.inner.redraw();
     }
 
@@ -290,10 +335,18 @@ impl Button {
         self.data.borrow().text.clone()
     }
 
-    /// Keeps the label in sync with a State.
+    /// Keeps the label in sync with a State (`&i18n::text("Open")` for a
+    /// label that follows the language).
     pub fn bind_text(self, s: &State<String>) -> Self {
         let mut me = self.clone();
         crate::state::bind_widget(&self.inner, s, true, move |v| me.set_text(v));
+        self
+    }
+
+    /// Keeps the tooltip in sync with a State.
+    pub fn bind_tooltip(self, s: &State<String>) -> Self {
+        let mut w = self.inner.clone();
+        crate::state::bind_widget(&self.inner, s, true, move |v| w.set_tooltip(v));
         self
     }
 
@@ -386,7 +439,22 @@ impl ActionButton {
         });
         let size = theme::with(|t| (22.0 * t.font.base as f64 / 12.0).round() as i32).max(22);
         inner.set_size(size, size);
+        // Named by its tooltip (the glyph is not text); see `accessible_name`.
+        a11y::describe(&inner, |n| {
+            n.role(Role::Button).focusable().action(Action::Click);
+        });
         Self { inner, click }
+    }
+
+    /// The name screen readers read when the tooltip is not enough.
+    pub fn accessible_name(self, name: &str) -> Self {
+        a11y::set_name(&self.inner, name);
+        self
+    }
+
+    pub fn accessible_description(self, text: &str) -> Self {
+        a11y::set_description(&self.inner, text);
+        self
     }
 
     pub fn on_click(self, f: impl FnMut() + 'static) -> Self {
@@ -398,12 +466,21 @@ impl ActionButton {
     pub fn click(&self) {
         fire(&self.click, ());
     }
+
+    /// Keeps the tooltip in sync with a State:
+    /// `.bind_tooltip(&i18n::text("Preferences"))`.
+    pub fn bind_tooltip(self, s: &State<String>) -> Self {
+        let mut w = self.inner.clone();
+        crate::state::bind_widget(&self.inner, s, true, move |v| w.set_tooltip(v));
+        self
+    }
 }
 
 // ============================================================= ButtonGroup
 
 /// Omarchy `ButtonGroup`: a row of bordered chips; exactly one selected.
-/// Keyboard: Left/Right (h/l) move, Enter/Space choose.
+/// Keyboard: Left/Right (h/l) move, Enter/Space choose. Right to left, the
+/// first option is on the right and the arrows follow the screen.
 #[derive(Clone)]
 pub struct ButtonGroup {
     inner: fltk::group::Flex,
@@ -422,12 +499,17 @@ impl ButtonGroup {
         for (i, label) in options.iter().enumerate() {
             let v = value.clone();
             let b = Button::new(label).bordered().on_click(move || v.set(i));
+            let (v, text) = (value.clone(), label.to_string());
+            a11y::describe(&*b, move |n| {
+                n.role(Role::RadioButton).name(&text).toggled(v.get() == i).focusable().action(Action::Click);
+            });
             let (w, _) = b.preferred_size();
             inner.fixed(&*b, w);
             total += w;
             buttons.borrow_mut().push(b);
         }
         inner.end();
+        crate::layout::mirror(&inner);
         let h = theme::with(|t| t.spacing.control_height);
         let gap = inner.spacing() * (options.len().max(1) as i32 - 1);
         inner.resize(inner.x(), inner.y(), total + gap, h);
@@ -439,10 +521,11 @@ impl ButtonGroup {
                 if i == *sel { b.set_visible_focus() } else { b.clear_visible_focus() }
             }
         });
-        let (bs, v, n) = (buttons.clone(), value.clone(), options.len());
+        let (bs, v, n, me) = (buttons.clone(), value.clone(), options.len(), inner.clone());
         crate::focus::scope(&inner, move |k| {
             let cur = v.get();
-            let next = match k {
+            // Right to left: the first option is on the right, Left goes to the next one.
+            let next = match crate::layout::logical_key(&me, k) {
                 Key::Left if cur > 0 => cur - 1,
                 Key::Right if cur + 1 < n => cur + 1,
                 Key::Left | Key::Right => return true,
@@ -452,6 +535,9 @@ impl ButtonGroup {
             let b = bs.borrow().get(next).cloned();
             if let Some(mut b) = b { let _ = b.take_focus(); }
             true
+        });
+        a11y::describe(&inner, |n| {
+            n.role(Role::RadioGroup);
         });
         Self { inner, buttons, value: value.clone() }
     }
@@ -475,8 +561,9 @@ pub struct ToggleSwitch {
 }
 fltk::widget_extends!(ToggleSwitch, Widget, inner);
 
-/// `k`: 0 = off, 1 = on (fractions while the knob moves).
-pub(crate) fn draw_switch(t: &theme::Theme, x: i32, y: i32, k: f64, hot: bool, under: Rgb) {
+/// `k`: 0 = off, 1 = on (fractions while the knob moves). `rtl`: the knob
+/// is on the left when on.
+pub(crate) fn draw_switch(t: &theme::Theme, x: i32, y: i32, k: f64, hot: bool, under: Rgb, rtl: bool) {
     let th = t.spacing.control_height.max(28);
     let track_h = 22.max((th as f64 * 0.55).round() as i32);
     let track_w = (track_h as f64 * 1.9).round() as i32;
@@ -497,7 +584,10 @@ pub(crate) fn draw_switch(t: &theme::Theme, x: i32, y: i32, k: f64, hot: bool, u
     let k = k.clamp(0.0, 1.0);
     let l = paint::Look::lerp(look(false), look(true), k);
     paint::surface(x, y, track_w, track_h, r, Some(l.fill), (l.border_width > 0).then_some((l.border, l.border_width)));
-    let (x_off, x_on) = (x + inset, x + track_w - knob - inset);
+    let (mut x_off, mut x_on) = (x + inset, x + track_w - knob - inset);
+    if rtl {
+        std::mem::swap(&mut x_off, &mut x_on);
+    }
     let kx = (x_off as f64 + (x_on - x_off) as f64 * k).round() as i32;
     let kc = Rgb::lerp(t.palette.foreground.darker(1.25), c.selected.color, k);
     paint::fill(kx, y + (track_h - knob) / 2, knob, knob, if rounded { knob / 2 } else { 0 }, kc);
@@ -532,7 +622,7 @@ impl ToggleSwitch {
                     paint::surface(x - pad, y - pad, tw + 2 * pad, th + 2 * pad, t.radius, None,
                                    Some((t.border(&t.controls.hover, under()), t.controls.hover.border_width.max(1))));
                 }
-                draw_switch(t, x, y, k, false, under());
+                draw_switch(t, x, y, k, false, under(), crate::layout::is_rtl(w));
             });
         });
         let (tw, th) = switch_size();
@@ -540,6 +630,10 @@ impl ToggleSwitch {
         inner.set_size(tw + 2 * pad, th + 2 * pad);
         let mut w2 = inner.clone();
         crate::state::bind_widget(&inner, value, false, move |_| w2.redraw());
+        let v = value.clone();
+        a11y::describe(&inner, move |n| {
+            n.role(Role::Switch).toggled(v.get()).focusable().action(Action::Click);
+        });
         Self { inner, value: value.clone() }
     }
 
@@ -551,11 +645,13 @@ impl ToggleSwitch {
 // ================================================================== Toggle
 
 /// Omarchy `Toggle`: a full-width row with bold title, optional
-/// description and a switch on the right. The whole row toggles.
+/// description and a switch on the right (on the left, with the text on
+/// the right, in a right-to-left language). The whole row toggles.
 #[derive(Clone)]
 pub struct Toggle {
     inner: Widget,
     value: State<bool>,
+    text: Rc<RefCell<(String, String)>>,
 }
 fltk::widget_extends!(Toggle, Widget, inner);
 
@@ -566,10 +662,13 @@ impl Toggle {
         let st = Rc::new(RefCell::new(Interaction::default()));
         let v = value.clone();
         track(&mut inner, st.clone(), true, Rc::new(move || v.update(|b| *b = !*b)));
-        let (title, desc) = (title.to_string(), description.to_string());
+        let text = Rc::new(RefCell::new((title.to_string(), description.to_string())));
+        let tx2 = text.clone();
         let v = value.clone();
+        let tx = text.clone();
         let (mut fade, mut knob) = (Anim::new(), Anim::new());
         inner.draw(move |w| {
+            let (title, desc) = &*tx.borrow();
             let s = interaction(w, &st);
             let k = knob.get(if v.get() { 1.0 } else { 0.0 }, 120, Ease::OutCubic, w);
             theme::with(|t| {
@@ -585,22 +684,55 @@ impl Toggle {
                 let dh = if desc.is_empty() { 0 } else { t.font.caption + 4 };
                 let block = th + if dh > 0 { t.spacing.xs + dh } else { 0 };
                 let top = w.y() + (w.h() - block) / 2;
-                paint::text_elided(&title, w.x() + pad, top, text_w, th, t.font.subtitle, true, fg, Align::Left);
+                // Right to left: text on the right, the switch on the left.
+                let m = crate::layout::Mirror::of(w);
+                let (tx, al) = (m.x(w.x() + pad, text_w), m.align(Align::Left));
+                paint::text_elided(title, tx, top, text_w, th, t.font.subtitle, true, fg, al);
                 if dh > 0 {
-                    paint::text_elided(&desc, w.x() + pad, top + th + t.spacing.xs, text_w, dh, t.font.caption, false, fg.darker(1.5), Align::Left);
+                    paint::text_elided(desc, tx, top + th + t.spacing.xs, text_w, dh, t.font.caption, false, fg.darker(1.5), al);
                 }
-                draw_switch(t, w.x() + w.w() - pad - sw, w.y() + (w.h() - sh) / 2, k, false, under);
+                draw_switch(t, m.x(w.x() + w.w() - pad - sw, sw), w.y() + (w.h() - sh) / 2, k, false, under, m.on);
             });
+        });
+        let v = value.clone();
+        a11y::describe(&inner, move |n| {
+            let (title, desc) = &*tx2.borrow();
+            n.role(Role::Switch).name(title).description(desc).toggled(v.get()).focusable().action(Action::Click);
         });
         let h = theme::with(|t| 54.max(t.font.subtitle + t.font.caption + 8 + t.spacing.huge));
         inner.set_size(theme::with(|t| (240.0 * t.font.base as f64 / 12.0) as i32), h);
         let mut w2 = inner.clone();
         crate::state::bind_widget(&inner, value, false, move |_| w2.redraw());
-        Self { inner, value: value.clone() }
+        Self { inner, value: value.clone(), text }
     }
 
     pub fn is_on(&self) -> bool {
         self.value.get()
+    }
+
+    pub fn set_title(&mut self, title: &str) {
+        self.text.borrow_mut().0 = title.into();
+        self.inner.redraw();
+    }
+
+    pub fn set_description(&mut self, description: &str) {
+        self.text.borrow_mut().1 = description.into();
+        self.inner.redraw();
+    }
+
+    /// Keeps the title in sync with a State (`&i18n::text("Night light")`).
+    pub fn bind_title(self, s: &State<String>) -> Self {
+        let mut me = self.clone();
+        crate::state::bind_widget(&self.inner, s, true, move |v| me.set_title(v));
+        self
+    }
+
+    /// Keeps the description in sync with a State. An empty description
+    /// keeps the row height it was created with.
+    pub fn bind_description(self, s: &State<String>) -> Self {
+        let mut me = self.clone();
+        crate::state::bind_widget(&self.inner, s, true, move |v| me.set_description(v));
+        self
     }
 
     /// Programmatic toggle (same as a click).
@@ -612,7 +744,9 @@ impl Toggle {
 // ================================================================== Slider
 
 /// Omarchy `PanelSlider`: 4 px track, foreground fill, 14 px round knob
-/// with a 2 px ring, scales 1.15× while hot. Mouse drag and wheel.
+/// with a 2 px ring, scales 1.15× while hot. Mouse drag and wheel. Right
+/// to left it fills from the right and Left raises the value (a media
+/// timeline that must stay left to right: `layout::set_direction`).
 #[derive(Clone)]
 pub struct Slider {
     inner: Widget,
@@ -635,7 +769,9 @@ impl Slider {
         inner.handle(move |w, ev| {
             let set_from_x = |w: &Widget| {
                 let k = theme::with(|t| 14.max((t.spacing.control_height as f64 * 0.38).round() as i32));
-                let p = ((app::event_x() - w.x() - k / 2) as f64 / (w.w() - k).max(1) as f64).clamp(0.0, 1.0);
+                // Right to left: the minimum is on the right.
+                let ex = crate::layout::Mirror::of(w).point(app::event_x());
+                let p = ((ex - w.x() - k / 2) as f64 / (w.w() - k).max(1) as f64).clamp(0.0, 1.0);
                 let mut nv = min + p * range;
                 if step > 0.0 {
                     nv = (nv / step).round() * step;
@@ -654,7 +790,7 @@ impl Slider {
                     true
                 }
                 Event::KeyDown => {
-                    let d = match app::event_key() { Key::Right | Key::Up => 1.0, Key::Left | Key::Down => -1.0, _ => return false };
+                    let d = match crate::layout::logical_key(w, app::event_key()) { Key::Right | Key::Up => 1.0, Key::Left | Key::Down => -1.0, _ => return false };
                     v.update(|x| *x = (*x + d * step.max(range / 100.0)).clamp(min, max));
                     true
                 }
@@ -677,10 +813,12 @@ impl Slider {
                 let p = if dragging.get() { pos.jump(target) } else { pos.get(target, 140, Ease::OutCubic, w) };
                 let ty = w.y() + (w.h() - track_h) / 2;
                 let r = track_h / 2;
+                let m = crate::layout::Mirror::of(w);
                 paint::fill(w.x(), ty, w.w(), track_h, r, t.fill(&t.controls.selected, under));
-                paint::fill(w.x(), ty, ((w.w() as f64) * p).round() as i32, track_h, r, if w.active_r() { fg } else { fg.darker(2.0) });
+                let fw = ((w.w() as f64) * p).round() as i32;
+                paint::fill(m.x(w.x(), fw), ty, fw, track_h, r, if w.active_r() { fg } else { fg.darker(2.0) });
                 let kx = (w.x() as f64 + w.w() as f64 * p - knob as f64 / 2.0).round() as i32;
-                let kx = kx.clamp(w.x(), w.x() + w.w() - knob);
+                let kx = m.x(kx.clamp(w.x(), w.x() + w.w() - knob), knob);
                 let ky = w.y() + (w.h() - knob) / 2;
                 draw::set_draw_color(under.fl());
                 draw::draw_pie(kx - 2, ky - 2, knob + 4, knob + 4, 0.0, 360.0);
@@ -695,6 +833,27 @@ impl Slider {
         inner.set_size(theme::with(|t| (200.0 * t.font.base as f64 / 12.0) as i32), h);
         let mut w2 = inner.clone();
         crate::state::bind_widget(&inner, value, false, move |_| w2.redraw());
+        let v = value.clone();
+        a11y::describe(&inner, move |n| {
+            let x = v.get();
+            n.role(Role::Slider).numeric(x, min, max, step).value(&crate::a11y::number_text(x)).focusable()
+                .action(Action::Increment).action(Action::Decrement).action(Action::SetValue);
+        });
+        let v = value.clone();
+        a11y::on_action(&inner, move |r| {
+            let d = step.max(range / 100.0);
+            match (r.action, &r.value) {
+                (Action::Increment, _) => v.update(|x| *x = (*x + d).clamp(min, max)),
+                (Action::Decrement, _) => v.update(|x| *x = (*x - d).clamp(min, max)),
+                (Action::SetValue, Some(a11y::Value::Number(x))) => v.set(x.clamp(min, max)),
+                (Action::SetValue, Some(a11y::Value::Text(t))) => match t.trim().parse::<f64>() {
+                    Ok(x) => v.set(x.clamp(min, max)),
+                    Err(_) => return false,
+                },
+                _ => return false,
+            }
+            true
+        });
         Self { inner, value: value.clone() }
     }
 
@@ -705,7 +864,8 @@ impl Slider {
 
 // ================================================================ Progress
 
-/// Read-only progress bar in the PanelSlider track style (no knob).
+/// Read-only progress bar in the PanelSlider track style (no knob). Fills
+/// from the right in a right-to-left direction.
 #[derive(Clone)]
 pub struct Progress {
     inner: Widget,
@@ -724,12 +884,18 @@ impl Progress {
                 let ty = w.y() + (w.h() - track_h) / 2;
                 paint::fill(w.x(), ty, w.w(), track_h, track_h / 2, t.fill(&t.controls.selected, under()));
                 let p = v.get().clamp(0.0, 1.0);
-                paint::fill(w.x(), ty, (w.w() as f64 * p).round() as i32, track_h, track_h / 2, t.palette.accent);
+                let fw = (w.w() as f64 * p).round() as i32;
+                paint::fill(crate::layout::Mirror::of(w).x(w.x(), fw), ty, fw, track_h, track_h / 2, t.palette.accent);
             });
         });
         inner.set_size(200, theme::with(|t| t.spacing.lg * 2));
         let mut w2 = inner.clone();
         crate::state::bind_widget(&inner, value, false, move |_| w2.redraw());
+        let v = value.clone();
+        a11y::describe(&inner, move |n| {
+            let p = v.get().clamp(0.0, 1.0);
+            n.role(Role::ProgressIndicator).numeric(p, 0.0, 1.0, 0.0).value(&format!("{}%", (p * 100.0).round()));
+        });
         Self { inner }
     }
 }
@@ -795,6 +961,8 @@ struct LabelData {
     bold: bool,
     tone: Tone,
     align: Align,
+    /// Aligned to the reading start: left, or right in a right-to-left language.
+    start: bool,
     uppercase: bool,
 }
 
@@ -814,7 +982,7 @@ impl Label {
     pub fn styled(text: &str, style: TextStyle) -> Self {
         let mut inner = Widget::default();
         inner.set_frame(FrameType::NoBox);
-        let data = Rc::new(RefCell::new(LabelData { text: text.into(), style, bold: false, tone: Tone::Normal, align: Align::Left, uppercase: false }));
+        let data = Rc::new(RefCell::new(LabelData { text: text.into(), style, bold: false, tone: Tone::Normal, align: Align::Left, start: true, uppercase: false }));
         let d = data.clone();
         inner.draw(move |w| {
             let d = d.borrow();
@@ -822,8 +990,19 @@ impl Label {
                 let s = if d.uppercase { d.text.to_uppercase() } else { d.text.clone() };
                 let mut c = tone_color(t, d.tone);
                 if !w.active_r() { c = c.darker(2.0); }
-                paint::text_elided(&s, w.x(), w.y(), w.w(), w.h(), d.style.px(t), d.bold, c, d.align);
+                let align = if d.start && crate::layout::is_rtl(w) { Align::Right } else { d.align };
+                paint::text_elided(&s, w.x(), w.y(), w.w(), w.h(), d.style.px(t), d.bold, c, align);
             });
+        });
+        let d = data.clone();
+        a11y::describe(&inner, move |n| {
+            let d = d.borrow();
+            // Section headers (uppercase) are headings; the text is read as written.
+            if d.uppercase {
+                n.role(Role::Heading).level(2).name(&d.text);
+            } else {
+                n.role(Role::Label).name(&d.text);
+            }
         });
         let mut l = Self { inner, data };
         l.fit();
@@ -841,8 +1020,11 @@ impl Label {
 
     pub fn bold(self) -> Self { self.data.borrow_mut().bold = true; self }
     pub fn tone(self, tone: Tone) -> Self { self.data.borrow_mut().tone = tone; self }
-    pub fn center(self) -> Self { self.data.borrow_mut().align = Align::Center; self }
-    pub fn right(self) -> Self { self.data.borrow_mut().align = Align::Right; self }
+    pub fn center(self) -> Self { { let mut d = self.data.borrow_mut(); d.align = Align::Center; d.start = false; } self }
+    pub fn right(self) -> Self { { let mut d = self.data.borrow_mut(); d.align = Align::Right; d.start = false; } self }
+    /// Always left-aligned, also in right-to-left languages (the default
+    /// follows the reading direction).
+    pub fn left(self) -> Self { { let mut d = self.data.borrow_mut(); d.align = Align::Left; d.start = false; } self }
 
     pub fn set_text(&mut self, text: &str) {
         self.data.borrow_mut().text = text.into();
@@ -924,10 +1106,11 @@ impl Hero {
         let d = data.clone();
         inner.draw(move |w| {
             let (icon, title, meta, detail) = d.borrow().clone();
+            let m = crate::layout::Mirror::of(w);
             theme::with(|t| {
                 let fg = t.palette.foreground;
                 let iw = paint::measure(&icon, t.font.display, false).max(t.font.display);
-                paint::glyph(&icon, w.x(), w.y(), iw, w.h(), t.font.display, fg);
+                paint::glyph(&icon, m.x(w.x(), iw), w.y(), iw, w.h(), t.font.display, fg);
                 let x = w.x() + iw + t.spacing.xxxl;
                 let avail = w.x() + w.w() - x;
                 let th = t.font.title + 6;
@@ -937,17 +1120,23 @@ impl Hero {
                 if !detail.is_empty() {
                     let pw = paint::measure(&detail, t.font.body, true) + t.spacing.xl;
                     let ph = t.font.body + t.spacing.sm + 4;
-                    let px = w.x() + w.w() - pw;
+                    let px = m.x(w.x() + w.w() - pw, pw);
                     paint::surface(px, top + (th - ph) / 2, pw, ph, t.radius, None,
                                    Some((t.border(&t.controls.normal, under()), t.controls.normal.border_width)));
                     paint::text(&detail, px, top + (th - ph) / 2, pw, ph, t.font.body, true, fg.darker(1.4), Align::Center);
                     title_w -= pw + t.spacing.lg;
                 }
-                paint::text_elided(&title, x, top, title_w, th, t.font.title, true, fg, Align::Left);
-                paint::text_elided(&meta.to_uppercase(), x, top + th + 2, avail, mh, t.font.caption, true, fg.darker(1.4), Align::Left);
+                paint::text_elided(&title, m.x(x, title_w), top, title_w, th, t.font.title, true, fg, m.align(Align::Left));
+                paint::text_elided(&meta.to_uppercase(), m.x(x, avail), top + th + 2, avail, mh, t.font.caption, true, fg.darker(1.4), m.align(Align::Left));
             });
         });
         inner.set_size(300, theme::with(|t| t.font.display + t.spacing.huge * 2));
+        let d = data.clone();
+        a11y::describe(&inner, move |n| {
+            let (_, title, meta, detail) = &*d.borrow();
+            let desc = [detail.as_str(), meta.as_str()].iter().filter(|s| !s.is_empty()).copied().collect::<Vec<_>>().join(" · ");
+            n.role(Role::Heading).level(1).name(title).description(&desc);
+        });
         Self { inner, data }
     }
 
@@ -1030,8 +1219,12 @@ impl TextField {
             g.draw_children();
             if inp.value().is_empty() && !ph.borrow().is_empty() {
                 theme::with(|t| {
-                    let x = inp.x() + if focused { 3 } else { 0 };
-                    paint::text_elided(&ph.borrow(), x, inp.y(), inp.w() - 3, inp.h(), t.font.body, false, t.palette.foreground.darker(1.6), Align::Left);
+                    // Right to left: the placeholder is right-aligned (FLTK's
+                    // input itself always edits from the left).
+                    let rtl = crate::layout::is_rtl(g);
+                    let x = inp.x() + if focused && !rtl { 3 } else { 0 };
+                    let align = if rtl { Align::Right } else { Align::Left };
+                    paint::text_elided(&ph.borrow(), x, inp.y(), inp.w() - 3, inp.h(), t.font.body, false, t.palette.foreground.darker(1.6), align);
                 });
             }
         });
@@ -1062,11 +1255,54 @@ impl TextField {
             }
             false
         });
+        let (inp, ph) = (input.clone(), placeholder.clone());
+        a11y::describe(&inner, move |n| {
+            let v = inp.value();
+            let ph = ph.borrow();
+            n.role(if secret { Role::PasswordInput } else { Role::TextInput }).name(&ph).placeholder(&ph).value(&v).leaf().focusable()
+                .action(Action::SetValue).action(Action::SetTextSelection).action(Action::ReplaceSelectedText)
+                .text_selection(a11y::char_at(&v, inp.mark()), a11y::char_at(&v, inp.position()));
+            if inp.readonly() {
+                n.read_only(true);
+            }
+        });
+        let (mut inp, c3, mut g3) = (input.clone(), change.clone(), inner.clone());
+        a11y::on_action(&inner, move |r| {
+            let text = inp.value();
+            match (r.action, &r.value) {
+                (Action::Focus, _) => return inp.take_focus().is_ok(),
+                (Action::SetValue, Some(a11y::Value::Text(t))) => {
+                    inp.set_value(t);
+                    fire(&c3, t.clone());
+                }
+                (Action::ReplaceSelectedText, Some(a11y::Value::Text(t))) => {
+                    let _ = inp.replace(inp.position(), inp.mark(), t);
+                    fire(&c3, inp.value());
+                }
+                (Action::SetTextSelection, Some(a11y::Value::Selection { anchor, focus })) => {
+                    let _ = inp.set_position(a11y::byte_at(&text, *focus));
+                    let _ = inp.set_mark(a11y::byte_at(&text, *anchor));
+                }
+                _ => return false,
+            }
+            g3.redraw();
+            true
+        });
         Self { inner, input, change, submit, placeholder }
     }
 
     pub fn placeholder(self, text: &str) -> Self {
         *self.placeholder.borrow_mut() = text.into();
+        self
+    }
+
+    /// Keeps the placeholder in sync with a State (`&i18n::text("Search…")`).
+    pub fn bind_placeholder(self, s: &State<String>) -> Self {
+        let (ph, mut g) = (self.placeholder.clone(), self.inner.clone());
+        crate::state::bind_widget(&self.inner, s, true, move |v| {
+            *ph.borrow_mut() = v.clone();
+            g.redraw();
+        });
         self
     }
 
@@ -1175,6 +1411,27 @@ impl NumberField {
             let s = n.to_string();
             if inp.value() != s { inp.set_value(&s); }
         });
+        let v = value.clone();
+        a11y::describe(&field.inner, move |n| {
+            let x = v.get();
+            n.role(Role::SpinButton).numeric(x as f64, from as f64, to as f64, step as f64).value(&x.to_string()).leaf().focusable()
+                .action(Action::Increment).action(Action::Decrement).action(Action::SetValue);
+        });
+        let (v, mut inp) = (value.clone(), input.clone());
+        a11y::on_action(&field.inner, move |r| {
+            match (r.action, &r.value) {
+                (Action::Focus, _) => return inp.take_focus().is_ok(),
+                (Action::Increment, _) => v.update(|n| *n = (*n + step).clamp(from, to)),
+                (Action::Decrement, _) => v.update(|n| *n = (*n - step).clamp(from, to)),
+                (Action::SetValue, Some(a11y::Value::Number(x))) => v.set((x.round() as i64).clamp(from, to)),
+                (Action::SetValue, Some(a11y::Value::Text(t))) => match t.trim().parse::<i64>() {
+                    Ok(x) => v.set(x.clamp(from, to)),
+                    Err(_) => return false,
+                },
+                _ => return false,
+            }
+            true
+        });
         Self { field, value: value.clone() }
     }
 
@@ -1209,28 +1466,33 @@ pub(crate) fn row_look(t: &theme::Theme, hot: bool, current: bool, under: Rgb) -
     match border { Some((b, bw)) => paint::Look { fill, border: b, border_width: bw }, None => paint::Look { fill, border: fill, border_width: 0 } }
 }
 
-pub(crate) fn draw_row(t: &theme::Theme, x: i32, y: i32, w: i32, h: i32, icon: &str, label: &str, detail: &str, hot: bool, current: bool, under: Rgb) {
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn draw_row(t: &theme::Theme, x: i32, y: i32, w: i32, h: i32, icon: &str, label: &str, detail: &str, hot: bool, current: bool, under: Rgb, rtl: bool) {
     paint::draw_look(x, y, w, h, t.radius, row_look(t, hot, current, under), under);
-    draw_row_content(t, x, y, w, h, icon, label, detail, current);
+    draw_row_content(t, x, y, w, h, icon, label, detail, current, rtl);
 }
 
-pub(crate) fn draw_row_content(t: &theme::Theme, x: i32, y: i32, w: i32, h: i32, icon: &str, label: &str, detail: &str, current: bool) {
+/// Icon, label and detail of a row; `rtl` mirrors it (icon on the right,
+/// detail on the left).
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn draw_row_content(t: &theme::Theme, x: i32, y: i32, w: i32, h: i32, icon: &str, label: &str, detail: &str, current: bool, rtl: bool) {
+    let m = crate::layout::Mirror::new(rtl, x, w);
     let fg = t.palette.foreground;
     let inset = t.spacing.md;
     let mut tx = x + inset + t.spacing.sm;
     if !icon.is_empty() {
         let cell = (22.0 * t.font.base as f64 / 12.0).round() as i32;
-        paint::glyph(icon, x + inset, y, cell, h, t.font.title, fg);
+        paint::glyph(icon, m.x(x + inset, cell), y, cell, h, t.font.title, fg);
         tx = x + inset + cell + t.spacing.lg;
     }
     let right = x + w - inset - t.spacing.sm;
     let mut label_w = right - tx;
     if !detail.is_empty() {
         let dw = paint::measure(detail, t.font.caption, false).min(label_w / 2);
-        paint::text_elided(detail, right - dw, y, dw, h, t.font.caption, false, fg.darker(1.4), Align::Right);
+        paint::text_elided(detail, m.x(right - dw, dw), y, dw, h, t.font.caption, false, fg.darker(1.4), m.align(Align::Right));
         label_w -= dw + t.spacing.lg;
     }
-    paint::text_elided(label, tx, y, label_w, h, t.font.body, current, fg, Align::Left);
+    paint::text_elided(label, m.x(tx, label_w), y, label_w, h, t.font.body, current, fg, m.align(Align::Left));
 }
 
 impl Row {
@@ -1251,10 +1513,15 @@ impl Row {
                 let under = under();
                 let look = fade.get(row_look(t, s.hover || s.focus, current, under), 60, Ease::Linear, w);
                 paint::draw_look(w.x(), w.y(), w.w(), w.h(), t.radius, look, under);
-                draw_row_content(t, w.x(), w.y(), w.w(), w.h(), &icon, &label, &detail, current);
+                draw_row_content(t, w.x(), w.y(), w.w(), w.h(), &icon, &label, &detail, current, crate::layout::is_rtl(w));
             });
         });
         inner.set_size(240, theme::with(|t| t.font.body + 4 + t.spacing.xl * 2));
+        let d = data.clone();
+        a11y::describe(&inner, move |n| {
+            let (_, label, detail, current) = &*d.borrow();
+            n.role(Role::Button).name(label).description(detail).current(*current).focusable().action(Action::Click);
+        });
         Self { inner, data, click }
     }
 
@@ -1291,7 +1558,8 @@ impl Row {
 /// Middle click closes. The selected index lives in a `State<usize>`.
 /// Keyboard: anywhere in the window Ctrl+Tab / Ctrl+PageDown go to the next
 /// tab and Ctrl+Shift+Tab / Ctrl+PageUp to the previous one; when the bar
-/// has focus, Left/Right/Home/End pick a tab and Delete closes it.
+/// has focus, Left/Right/Home/End pick a tab and Delete closes it. Right to
+/// left, the first tab is on the right and Left goes to the next tab.
 #[derive(Clone)]
 pub struct TabBar {
     inner: Widget,
@@ -1365,7 +1633,10 @@ impl TabGeo {
         if x < sc { self.scroll.set(x) } else if x + tw > sc + vw { self.scroll.set(x + tw - vw) }
         self.clamp(w);
     }
+    /// `ex` is a screen x; mirrored strips are hit-tested in their
+    /// left-to-right geometry.
     fn hit(&self, w: &Widget, ex: i32) -> Hit {
+        let ex = crate::layout::Mirror::of(w).point(ex);
         if self.overflow(w) {
             let a = self.arrow_w();
             if ex < w.x() + a { return Hit::Arrow(0); }
@@ -1391,6 +1662,8 @@ impl TabBar {
         let scroll = Rc::new(Cell::new(0i32));
         let revealed = Rc::new(Cell::new(usize::MAX));
         let geo = Rc::new(TabGeo { tabs: tabs.clone(), scroll: scroll.clone() });
+        // The selection (fill and accent line) slides to the new tab.
+        let slide: Rc<RefCell<(Anim<f64>, Anim<f64>)>> = Rc::default();
         let (tb, v, hv, cl, g, rv) = (tabs.clone(), value.clone(), hover.clone(), closable.clone(), geo.clone(), revealed.clone());
         inner.draw(move |w| {
             // Keep the selected tab (and its close glyph) in view when the selection changes.
@@ -1399,37 +1672,52 @@ impl TabBar {
                 g.reveal(w, v.get());
             }
             g.clamp(w);
+            // Laid out left to right, every x mirrored right to left: the
+            // first tab on the right, its close glyph on its left.
+            let m = crate::layout::Mirror::of(w);
             theme::with(|t| {
                 let under = under();
                 let fg = t.palette.foreground;
                 paint::hairline(w.x(), w.y() + w.h() - 1, w.w(), fg, under, 0.12);
                 let (vx, vw) = g.view(w);
-                draw::push_clip(vx, w.y(), vw, w.h());
-                for (i, ((x, tw), label)) in g.tabs_at(w).into_iter().zip(tb.borrow().iter()).enumerate() {
+                draw::push_clip(m.x(vx, vw), w.y(), vw, w.h());
+                let at = g.tabs_at(w);
+                if let Some(&(sx, sw)) = at.get(v.get()) {
+                    // Content coordinates: scrolling moves it with the strip, at once.
+                    let shift = sx - g.layout().get(v.get()).map_or(sx, |l| l.0);
+                    let mut sl = slide.borrow_mut();
+                    let ax = sl.0.get((sx - shift) as f64, crate::anim::ms::INDICATOR, Ease::OutCubic, w).round() as i32 + shift;
+                    let aw = sl.1.get(sw as f64, crate::anim::ms::INDICATOR, Ease::OutCubic, w).round() as i32;
+                    let mx = m.x(ax, aw);
+                    paint::surface(mx, w.y(), aw, w.h() - 1, t.radius, Some(t.fill(&t.controls.selected, under)), None);
+                    paint::fill(mx, w.y() + w.h() - 2, aw, 2, 0, t.palette.accent);
+                }
+                for (i, ((x, tw), label)) in at.into_iter().zip(tb.borrow().iter()).enumerate() {
                     if x + tw < vx || x > vx + vw { continue; }
                     let sel = v.get() == i;
                     let hot = hv.get() == i as i32;
-                    let fill = if sel { Some(t.fill(&t.controls.selected, under)) } else if hot { Some(t.fill(&t.controls.hover, under)) } else { None };
-                    paint::surface(x, w.y(), tw, w.h() - 1, t.radius, fill, None);
-                    if sel {
-                        paint::fill(x, w.y() + w.h() - 2, tw, 2, 0, t.palette.accent);
-                        if crate::focus::show_ring(w) {
-                            paint::stroke(x, w.y(), tw, w.h() - 1, t.radius, t.controls.focus.border_width.max(1), t.border(&t.controls.focus, under));
-                        }
+                    let fill = if !sel && hot { Some(t.fill(&t.controls.hover, under)) } else { None };
+                    let mx = m.x(x, tw);
+                    paint::surface(mx, w.y(), tw, w.h() - 1, t.radius, fill, None);
+                    if sel && crate::focus::show_ring(w) {
+                        paint::stroke(mx, w.y(), tw, w.h() - 1, t.radius, t.controls.focus.border_width.max(1), t.border(&t.controls.focus, under));
                     }
                     let pad = t.spacing.control_padding_x;
                     let close_w = if cl.get() { t.font.body + t.spacing.md } else { 0 };
-                    paint::text_elided(label, x + pad, w.y(), tw - 2 * pad - close_w, w.h(), t.font.body, sel, if sel { fg } else { fg.darker(1.2) }, Align::Left);
+                    let lw = tw - 2 * pad - close_w;
+                    paint::text_elided(label, m.x(x + pad, lw), w.y(), lw, w.h(), t.font.body, sel, if sel { fg } else { fg.darker(1.2) }, m.align(Align::Left));
                     if cl.get() && (sel || hot) {
-                        paint::glyph(glyph::CROSS, x + tw - pad - t.font.body, w.y(), t.font.body, w.h(), t.font.body_small, fg.darker(1.4));
+                        paint::glyph(glyph::CROSS, m.x(x + tw - pad - t.font.body, t.font.body), w.y(), t.font.body, w.h(), t.font.body_small, fg.darker(1.4));
                     }
                 }
                 draw::pop_clip();
                 if g.overflow(w) {
                     let a = g.arrow_w();
                     let (sc, max) = (g.scroll.get(), g.max_scroll(w));
-                    for (i, gl) in [glyph::CHEVRON_LEFT, glyph::CHEVRON_RIGHT].iter().enumerate() {
-                        let ax = if i == 0 { w.x() } else { w.x() + w.w() - a };
+                    // Arrow 0 scrolls toward the first tab: it points to the start.
+                    let back = [m.glyph(glyph::CHEVRON_LEFT, glyph::CHEVRON_RIGHT), m.glyph(glyph::CHEVRON_RIGHT, glyph::CHEVRON_LEFT)];
+                    for (i, gl) in back.iter().enumerate() {
+                        let ax = m.x(if i == 0 { w.x() } else { w.x() + w.w() - a }, a);
                         let live = if i == 0 { sc > 0 } else { sc < max };
                         let hot = hv.get() == -10 - i as i32;
                         if hot && live { paint::fill(ax, w.y(), a, w.h() - 1, t.radius, t.fill(&t.controls.hover, under)); }
@@ -1464,7 +1752,8 @@ impl TabBar {
                 }
                 Event::KeyDown if n > 0 => {
                     let cur = v.get();
-                    match app::event_key() {
+                    // Right to left: Left goes to the next tab (on the left).
+                    match crate::layout::logical_key(w, app::event_key()) {
                         Key::Left => pick(cur.saturating_sub(1)),
                         Key::Right => pick((cur + 1).min(n - 1)),
                         Key::Home => pick(0),
@@ -1509,6 +1798,41 @@ impl TabBar {
         inner.set_size(400, theme::with(|t| t.spacing.control_height + 2));
         let mut w2 = inner.clone();
         crate::state::bind_widget(&inner, value, false, move |_| w2.redraw());
+        let (tb, v, g, me) = (tabs.clone(), value.clone(), geo.clone(), inner.clone());
+        a11y::describe(&inner, move |n| {
+            n.role(Role::TabList).focusable();
+            let tabs = tb.borrow();
+            let (vx, vw) = g.view(&me);
+            let m = crate::layout::Mirror::of(&me);
+            for (i, (label, (x, tw))) in tabs.iter().zip(g.tabs_at(&me)).enumerate() {
+                // Scrolled-out tabs keep their place, clipped to the strip.
+                let (x, tw) = if x + tw > vx && x < vx + vw { (x.max(vx), (x + tw).min(vx + vw) - x.max(vx)) } else { (x, 0) };
+                let x = m.x(x, tw);
+                n.child(i as u64, |t| {
+                    t.role(Role::Tab).name(label).selected(v.get() == i).position(i + 1, tabs.len())
+                        .bounds(x, me.y(), tw, me.h()).action(Action::Click).action(Action::ScrollIntoView).focusable();
+                    if v.get() == i {
+                        t.focused();
+                    }
+                });
+            }
+        });
+        let (v, g, mut me, n) = (value.clone(), geo.clone(), inner.clone(), tabs.clone());
+        a11y::on_action(&inner, move |r| {
+            let Some(i) = r.key().map(|k| k as usize).filter(|i| *i < n.borrow().len()) else { return false };
+            match r.action {
+                Action::Click | Action::Focus => {
+                    v.set(i);
+                    if r.action == Action::Focus {
+                        let _ = me.take_focus();
+                    }
+                }
+                Action::ScrollIntoView => g.reveal(&me, i),
+                _ => return false,
+            }
+            me.redraw();
+            true
+        });
         TabBar { inner, tabs, value: value.clone(), close, closable, geo }
     }
 
@@ -1528,7 +1852,8 @@ impl TabBar {
         let (vx, vw) = self.geo.view(&self.inner);
         let (x, w) = *self.geo.tabs_at(&self.inner).get(i)?;
         let (a, b) = (x.max(vx), (x + w).min(vx + vw));
-        (b > a).then_some((a, b - a))
+        let m = crate::layout::Mirror::of(&self.inner);
+        (b > a).then_some((m.x(a, b - a), b - a))
     }
 
     /// Shows a close glyph and calls `f(index)` (also on middle click).

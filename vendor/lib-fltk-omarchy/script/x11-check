@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# X11 path check in an isolated Xvfb display (never the user's session):
+# runs examples/platform_check with FLTK's X11 backend, then drags the
+# header and the bottom-right corner with XTest on that Xvfb display only.
+# Without a Wayland compositor or Hyprland the window must follow through
+# the FLTK move/resize fallback. Prints the JSON report and PASS/FAIL.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+REPORT="$ROOT/build/x11-check.json"; mkdir -p "$ROOT/build"; rm -f "$REPORT"
+BIN="$ROOT/target/release/examples/platform_check"
+[[ -x "$BIN" ]] || cargo build --release --example platform_check --manifest-path "$ROOT/Cargo.toml"
+DRIVER="$(mktemp -d)"; trap 'rm -rf "$DRIVER"' EXIT
+cat > "$DRIVER/drag.py" <<'PY'
+import ctypes, sys, time
+x11 = ctypes.CDLL("libX11.so.6"); xt = ctypes.CDLL("libXtst.so.6")
+x11.XOpenDisplay.restype = ctypes.c_void_p
+d = ctypes.c_void_p(x11.XOpenDisplay(None))
+def move(x, y): xt.XTestFakeMotionEvent(d, -1, x, y, 0); x11.XFlush(d); time.sleep(0.03)
+def button(down): xt.XTestFakeButtonEvent(d, 1, down, 0); x11.XFlush(d); time.sleep(0.08)
+def drag(x0, y0, dx, dy, steps=12):
+    move(x0, y0); button(1)
+    for i in range(1, steps + 1): move(x0 + dx * i // steps, y0 + dy * i // steps)
+    button(0)
+time.sleep(1.5)                      # window mapped at (100, 100), 420x300
+drag(100 + 210, 100 + 20, 150, 80)   # header: move to (250, 180)
+time.sleep(0.5)
+drag(250 + 420 - 4, 180 + 300 - 4, 60, 40)  # bottom-right grip: 480x340
+PY
+env -u WAYLAND_DISPLAY FLTK_BACKEND=x11 xvfb-run -a -s "-screen 0 1280x800x24" \
+  bash -c "\"$BIN\" \"$REPORT\" 5 >/dev/null 2>&1 & python3 -I \"$DRIVER/drag.py\"; wait"
+cat "$REPORT"; echo
+python3 -I - "$REPORT" <<'PY'
+import json, sys
+r = json.load(open(sys.argv[1])); g = r["geometry"]; last = g[-1]
+moved = any(p["x"] >= 240 and p["y"] >= 170 for p in g)
+ok = not r["wayland"] and moved and last["w"] >= 470 and last["h"] >= 330
+print("PASS" if ok else "FAIL", f"final {last}")
+sys.exit(0 if ok else 1)
+PY

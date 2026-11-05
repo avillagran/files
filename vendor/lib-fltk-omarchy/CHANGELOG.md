@@ -2,10 +2,362 @@
 
 ## Unreleased
 
+- **Tooltips are drawn by the toolkit** (`tooltip` module), like Omarchy's
+  shell tooltips (omarchy#15694): `App::new` — or the first `theme::set`
+  in apps that start FLTK themselves, like Files, which never got the
+  tooltip style before — turns FLTK's tooltip window off and shows the tooltip of the widget under the pointer as an
+  in-window surface with the theme's `[tooltip]` colors and border width,
+  `bodySmall` text, `controlPaddingX/Y` padding, the theme corner radius
+  (follows `theme::set_corners`), plain text wrapped at 360 px, centered
+  above the item (below when there is no room, below the pointer on large
+  widgets), kept inside the window. 400 ms delay, the next one at once
+  while one is up or for 400 ms after (bar `tooltipWarmTimer`), hidden by
+  a click, key or wheel. No app changes: `.tooltip()`, `.bind_tooltip()`,
+  header actions, plain fltk `set_tooltip` and canvases that change their
+  tooltip per region (Files) all get it (FLTK's window only followed a
+  change of the widget under the pointer, so one canvas showed at most
+  the first region's tooltip). Restyled on every theme reload;
+  bound text relabels a shown tooltip; right-to-left lines are
+  right-aligned. Follows `~/.config/omarchy/tooltips.json` live (`shape`,
+  `borderMode`, `borderColor`; invalid files keep the last valid
+  settings; `OMARCHY_FLTK_TOOLTIPS` overrides the path). API:
+  `tooltip::show`, `hide`, `shown`, `settings`, `set_settings`,
+  `reload_settings`, `place`, `wrap`; `focus::hover_at` moves the pointer
+  in tests. The tooltip stays the accessible description; the surface is
+  hidden from screen readers.
+- **Fix: pure black theme colors.** `Rgb(0x000000).fl()` was FLTK color
+  0, the colormap entry the theme sets to the foreground: themes with a
+  black background (vantablack) painted tooltips, windows and fills in the
+  text color. It is now `Color::Black`.
+- **Motion everywhere, following the system's Animations setting**
+  (docs/ANIMATION.md).
+  - `anim::enabled()` follows the OS live: Hyprland `animations:enabled`
+    (Omarchy's Animations switch; re-read on `configreloaded` and focus
+    changes from Hyprland's event socket), GNOME `enable-animations`,
+    macOS Reduce motion, Windows animation effects (`platform::animations`).
+    App override `anim::set_enabled(Some(bool) / None)` (`set_enabled(false)`
+    still works), env `OMARCHY_FLTK_ANIM=on|off`; `anim::source()`,
+    `anim::system()`. One blocking watcher thread, no polling.
+  - Automatic layout motion: toolkit rows and columns (`row`, `column`,
+    `section`, containers you `fit` into, every `Flex` of an `AppWindow`
+    at `end`) slide their children when a `fixed` size changes or a child
+    is shown, hidden or added (190 ms OutCubic, o3 `PinnedKeyboardPanel`);
+    appearing children grow from their start edge and fade in;
+    `layout::set_visible` collapses and fades out. Not animated: the first
+    layout, window resizes, direction flips, theme or language changes.
+    Interruptions snap to FLTK's layout with the real `fixed` sizes.
+    Opt out with `FlexExt::animated(false)` / `layout::set_animated`;
+    `layout::animating()`.
+  - New `Sidebar` (`widgets::Sidebar`, `layout::Sidebar`): a rail that
+    expands on hover (350 ms intent, 140 ms leave grace, o3), push or
+    overlay, pinned, keyboard (focus expands, arrows, Enter, Esc), right
+    to left, accessible (tab list with expanded state).
+  - Popups fade in (180 ms) and out (120 ms) with Omarchy's `Style.easeOut`
+    (PopupMenu, Dropdown, SearchableDropdown, Menu, ConfirmDialog,
+    PopupCard, ShortcutHelp, notifications, OperationToast, completion
+    lists); focus comes back at once, the layer stops taking events and is
+    deleted after the fade.
+  - TabBar selection slides (160 ms); `List::from_model` rows make room,
+    arrive, leave and fly when moved, by item ID (o3 thread rows);
+    `Tree` branches open and close with the rows below sliding (200 ms);
+    a new `RichText` message fades in (streaming costs nothing).
+  - `anim::Tween`, `anim::now`, `anim::clock::{freeze, advance, resume}`
+    for tests, `anim::ms` (Omarchy/o3 durations), more `Ease` curves
+    (`InCubic`, `InOutCubic`, `InOutQuart`, `OutQuint`, `OutBack`,
+    `EaseOut` = Omarchy's Bézier), `Anim::value`, `Anim::target`.
+  - `script/motion-bench` (`examples/motion_bench`): sidebar hover expand
+    on a real window, 60 fps, ≈ 1.2 ms CPU per frame, idle unchanged.
+  - Toolkit catalog: "Sidebar" in the 20 languages.
+
+- **Right-to-left layouts.** In Arabic, Hebrew, Persian and Urdu the UI is
+  mirrored, live on a locale switch (no window rebuild); docs/I18N.md.
+  - `layout::Direction` (= `i18n::Direction`), `layout::direction_of` /
+    `is_rtl` (nearest override, else the language), per-container
+    overrides `FlexExt::direction(Direction::Ltr)` and
+    `layout::set_direction(&w, Some(..))` for media controls, timelines,
+    code. `layout::Mirror` (mirror x, points, alignment, glyphs) and
+    `layout::logical_key` for custom widgets.
+  - Rows mirror their children after FLTK lays them out (`layout::row`,
+    `fit`, `close_fitted`, `layout::mirror`; `AppWindow::end` registers
+    every `Flex` row of the window, `layout::mirror_rows`). Child order is
+    unchanged, so Tab still goes from the start to the end.
+  - Mirrored components: header (title right, actions left), Button,
+    ButtonGroup, Toggle/ToggleSwitch (knob left when on), Slider and
+    Progress (fill from the right), Hero, Row, Label, TabBar (order, close
+    glyph, overflow), List/Table/Tree (columns, indentation, expanders,
+    scrollbar left), PopupMenu (glyph right, shortcut/check left,
+    `open_at` grows left), Menu (`‹` submenu mark, Left enters),
+    Dropdown, SearchableDropdown, ShortcutHelp, ConfirmDialog,
+    OperationToast (bottom-left), Notification (top-left), TextField
+    placeholder. Accessibility bounds follow.
+  - Keys: Left/Right swap in mirrored TabBar, ButtonGroup, Slider,
+    KeyboardPanel grids (`on_edge` gets the logical key) and Tree
+    (docs/KEYBOARD.md).
+  - `Table::set_titles` renames columns (live translation).
+  - `i18n::is_rtl()` no longer takes a lock (read on every draw).
+  - Fix: a `Notification` shown after an earlier toast's window was
+    deleted no longer touches the deleted toast.
+- **Bidirectional RichText.** Lines follow the Unicode Bidirectional
+  Algorithm (new dependency `unicode-bidi` 0.3.18, MIT/Apache-2.0, no
+  dependencies): base direction per block from its first strong character
+  (RLM/LRM force it), pieces in visual order, right-to-left blocks
+  right-aligned with markers and quote bars on the right, tables with the
+  first column on the right, code left to right. Hit testing, selection
+  rectangles and `text_rect` follow the visual order
+  (`Layout::span_x`, `Frag::rtl`, `Line::rtl`, `Layout::rtl`,
+  `layout::has_rtl`). Text without right-to-left characters is laid out
+  as before; streaming keeps its incremental relayout.
+- `examples/rtl`: the same windows in English and Arabic, switched live
+  (`--snapshot DIR`); `richtext_bench --lang ar` streams Arabic.
+- **`edit::TextArea` and `edit::Composer`: multi-line editing and the chat
+  input** (docs/COMPONENTS.md, "TextArea and Composer").
+  - `TextArea`: TextField look, word wrap with the `text` line breaker
+    (CJK, graphemes), auto-grow `.lines(min, max)` then scrolling,
+    placeholder, two-way `bind`, mouse and keyboard selection (word
+    jumps, Home/End per visual line, PageUp/PageDown, double/triple
+    click, drag with edge scrolling, middle-click paste, context menu),
+    undo/redo with word-sized typing groups, grapheme-correct editing,
+    atomic chips carrying data (`insert_chip`, `expanded_text`), input
+    methods through `Fl::compose` (preedit underlined, Enter commits it)
+    with the candidate window at the caret (`fl_set_spot`), Tab leaves
+    (`TabKey` to type tabs), RTL alignment, `read_only`, `on_key`.
+    Drawn by the toolkit, not `fltk::text::TextEditor`: chips, grapheme
+    deletion, undo groups and caret geometry need the text model.
+  - Layout per paragraph; a long paragraph is re-wrapped only until its
+    line breaks meet the old ones, and word widths are cached. Release,
+    720×640 window: 100 KB paste 8 ms (Wayland) / 21 ms (Xvfb), a key with
+    redraw 0.18–0.28 ms in the composer, about 2 ms in a 100 KB document,
+    idle 0.01 % CPU (no caret blink). `script/edit-bench`.
+  - `Composer`: Enter sends (`on_submit`; text and attachments cleared,
+    Ctrl+Z brings the text back), Shift+Enter new line or
+    `SendKey::ModEnter`, Mod+Shift+Enter `on_alternate_submit`, send
+    button (dimmed when empty) → stop button while `busy` (`on_stop`),
+    `.trigger(c, Trigger::WordStart | LineStart, provider)` completions
+    answered now, later or from a thread (`Completions::feed`), stale
+    answers dropped, list at the caret (Up/Down/Enter/Tab/Esc, mouse),
+    accepted items as chips, attachment chips from a `ListModel`
+    (`Attachment::file`), files from drops and `file://` pastes
+    (`on_files`, `edit::parse_files`), `toolbar(|row| ..)`, RTL mirroring.
+  - Accessibility: TextArea → MultilineTextInput with value, caret and
+    selection, SetValue / SetTextSelection / ReplaceSelectedText; the
+    completion list is a ListBox under the input with
+    `Node::active_descendant` (new) on the highlighted option; send and
+    stop buttons and attachment remove buttons are named.
+  - `focus::type_text("日本")` sends committed text through the key path
+    (tests); `script/edit-input-check` sends real X11 keys (CJK and emoji
+    keysyms, a dead key, Shift+Return, BackSpace) in a private Xvfb.
+  - Toolkit strings (20 locales): `Write a message…`, `Send`, `Stop`,
+    `Attach`, `Attachments`, `Remove {name}`, `Suggestions`,
+    `Searching…`, `No results`. AGENTS.md rule 18.
+
+- **Multiplatform: Linux (Wayland and X11), macOS and Windows.** All OS
+  code moved into a new `platform` module (`src/platform/`: `linux`,
+  `macos`, `windows`, shared `generic` fallbacks, portable `poll`
+  watcher), with a working fallback on each OS; the rest of the crate is
+  portable. Linux behaviour is unchanged. Guide and verification:
+  docs/PLATFORMS.md.
+  - `Cargo.toml`: fltk's `use-wayland` only on Linux (one fltk-sys build
+    per target, `gpu` unchanged); `libc` only on Unix.
+  - Native window move/resize (Wayland/libdecor) and glass FFI live in
+    `platform::linux`; `native`, `glass` and `hyprland` keep their API.
+    Hyprland IPC is only available on Linux with Hyprland running.
+  - `AppWindow` floating drag/resize: native Wayland → Hyprland IPC → new
+    FLTK fallback that moves/resizes the window itself (X11 window
+    managers, macOS, Windows). Verified under X11 with `script/x11-check`.
+  - Theme: built-in dark (Tokyo Night) or new `theme::FALLBACK_LIGHT_COLORS`
+    following the OS appearance on macOS/Windows (`platform::prefers_dark`,
+    `OMARCHY_FLTK_APPEARANCE`); `theme::set_theme_dir` /
+    `OMARCHY_FLTK_THEME_DIR` load any Omarchy theme directory on any OS.
+    Omarchy paths come from `platform::dirs` per OS.
+  - Live reload: inotify on Linux (unchanged, falls back to polling if
+    inotify is unavailable); 1 s mtime polling elsewhere, which also
+    follows the OS appearance.
+  - Fonts: fontconfig `monospace` on Linux, Menlo on macOS, Consolas on
+    Windows, with the face names each FLTK backend expects
+    (`platform::fonts`).
+  - Shortcuts: `Mod` (also `Primary`, `CmdOrCtrl`) is the primary
+    modifier, Cmd on macOS and Ctrl elsewhere (`keys::PRIMARY`,
+    `keys::primary_held`, `keys::label`). Popup menu hints and the F1
+    help show specs the platform's way. Keyboard panels, Table and Tree
+    use the primary modifier for toggle, select all and click-to-toggle.
+    Examples use `Mod+,` for Preferences.
+  - `native::pixels_per_unit` uses the platform layer: the Wayland
+    output scale on Linux, FLTK's own value (Retina included) on macOS
+    and Windows.
+  - New: `platform::{OS, Os, wayland, prefers_dark, process_cpu_time,
+    dirs, fonts}`; `examples/platform_check`; `script/x11-check`;
+    `.github/workflows/ci.yml` (Linux X11 + Wayland, macOS, Windows,
+    cross-target type check). `tests/ui.rs` skips without a display on
+    Linux and reports, without failing, pixel differences on
+    macOS/Windows (`OMARCHY_FLTK_UI_STRICT=1` makes them fatal).
 - `native::pixels_per_unit(&widget)`: device pixels per FLTK unit including
   the Wayland output scale. fltk-rs' `Window::pixels_per_unit` ignores it on
   Linux (1.0 on a 2× output), which halves the resolution of images sized
   from it.
+- Translations (`i18n`, docs/I18N.md): catalogs in o3's flat JSON
+  (`{locale: {English source: translation}}`, `{name}` placeholders), the
+  toolkit catalog `i18n/toolkit.json` in o3's 20 languages (component
+  strings plus common ones) with app catalogs on top, o3's fallback order
+  (regional → language, nb/nn → no, English, the key), CLDR plural forms
+  as `key|category` entries next to the plain `other` key (`trn!`), RTL
+  argument isolation as in o3. The language comes from the system: gettext
+  variables on Linux/BSD, CoreFoundation on macOS, the Windows UI languages
+  API, English otherwise; `i18n::set_locale` switches it live (the locale is
+  a `State`; `i18n::text`/`map`/`live` give live Strings; `tr!`/`trn!`).
+  ConfirmDialog, OperationToast, SearchableDropdown and Menu draw their own
+  strings translated. New bindings: `Button::bind_tooltip`,
+  `ActionButton::bind_tooltip`, `TextField::bind_placeholder`,
+  `Toggle::set_title`/`set_description`/`bind_title`/`bind_description`,
+  `AppWindow::set_title`/`bind_title`, `Label::left`; labels without an
+  explicit alignment follow the reading direction. `examples/i18n_check`
+  reports missing/extra keys, placeholder mismatches, plural gaps and
+  unlisted source strings. The gallery's Preferences switches the language.
+- `Button::set_text` refits a fitted button to its new natural width (an
+  unfitted one too unless it was sized by hand), so translated labels fit.
+- Widget bindings keep their State alive: a temporary such as
+  `Label::new("").bind(&count.map(..))` used to stop updating once the
+  derived State was dropped at the end of the statement.
+- ConfirmDialog buttons widen for long labels (88 px minimum).
+- **Rich text and Markdown** (`text` module), for chat clients (o3-code):
+  - `text::Document` / `Block` / `Inline` / `Style` / `ColorRole`: blocks
+    (paragraph, heading 1–6, list items bullet/ordered/task with nesting,
+    quotes with GFM alert tones, code blocks with a language, rules,
+    tables) of one string each with styled runs (bold, italic, strike,
+    inline code, link, theme color role). Plain data and `Send`.
+  - Markdown with `pulldown-cmark` 0.13.6 (MIT, no default features):
+    CommonMark + GFM tables, task lists, strikethrough, alerts, autolinks
+    (`<url>` and bare `https://`/`www.` URLs). `MarkdownStream::push`
+    re-parses only the open tail (the last top-level block or list item
+    that can still change); the result equals a one-shot parse (tested at
+    every split point and byte by byte), except a reference link whose
+    definition arrives after its block was committed. Code highlighting
+    hook (`MarkdownOptions::highlight`) with a small built-in highlighter
+    for diffs, comments, strings, numbers and keywords.
+  - Layout with FLTK measurement: word wrap, CJK breaks between ideographs
+    (with kinsoku), grapheme-safe breaks inside long words
+    (`unicode-segmentation`, MIT/Apache), tab stops, tables with column
+    alignment. Cached per block; a block that grew keeps its lines before
+    the change. Long code lines wrap. Arabic/RTL runs are shaped by
+    FLTK/Pango per fragment; no bidi reordering (documented).
+  - `text::RichText`: virtualized view (prefix sums of block heights,
+    estimates off screen, anchored scroll when estimates are corrected),
+    shared smooth wheel scrolling, `stick_to_bottom`, `append_markdown` /
+    `push_markdown` / `finish`, `sender()` (`Send`, coalesced to ≤ 60
+    updates/s), `bind_markdown(&State<String>)`, `append_block(s)`,
+    selection across blocks (drag, double/triple click, Shift+click),
+    Ctrl+A / Ctrl+C (Cmd on macOS; primary selection on X11), links with
+    `on_link`, hand cursor and Tab / Enter, code copy buttons, focus ring,
+    `plain_text()` / `block_ranges()` for accessibility, `text_rect(word)`
+    and `paint_stats()` for tests and tuning. Theme changes re-color without
+    re-parsing or laying out.
+  - `text::RichLabel`: one paragraph of inline Markdown at its natural size.
+  - `scroll::Scroll::shift` keeps a running wheel motion when content above
+    the view changes height. The theme maps the italic fonts too.
+  - `examples/richtext.rs`, `examples/richtext_bench.rs` +
+    `script/richtext-bench` (numbers in docs/PERFORMANCE.md: idle 0 %,
+    5 000 messages parsed in ~33 ms, 1 MB/s streamed at 60 updates/s ≈ 18 %
+    of a core, mostly painting), gallery and docs entries.
+- **Data models** (`model`, docs/MODELS.md): `ListModel<K, T>` keeps items
+  by the app's stable key with model-assigned `ItemId`s. Granular
+  operations (insert, remove, remove_range, move, upsert, patch,
+  patch_with, retain, sort_by, clear) and `apply(Vec<Diff>)`; listeners get
+  `Changes` (inserted/removed/moved ranges in order, updated/inserted/
+  removed IDs, reset, `map_index`). `sync_from(snapshot)` diffs a full
+  snapshot by key: common prefix/suffix only compared, removals, minimal
+  moves along a longest increasing subsequence, inserts, and replacements
+  only for items that are not `==`; unchanged snapshots notify nobody.
+  `bind_panel` keeps a `KeyboardPanel`'s cursor and selection by ID.
+- **Views from models**: `List::from_model`, `Table::from_model` and
+  `Tree::from_model` (flat model + parent key) invalidate only the visible
+  rows whose item changed (fltk damage areas; clipped rows are not built),
+  keep the first visible item in place when rows are inserted or removed
+  above the viewport (`scroll::Scroll::shift` keeps a running wheel
+  animation), and keep selection by key. `invalidations()`,
+  `scroll_offset`/`set_scroll_offset` on the three views,
+  `List::selected_id`. Count-based constructors are unchanged.
+- **Batching**: `state::batch(|| ..)` (re-exported as `batch`) and
+  `ListModel::transaction` notify each State and model once at the end.
+  `task::drain` (the app loop) runs posted jobs inside one batch, so a
+  burst of updates is one notification and one paint.
+- **State**: `set_if_changed`, in-place `modify(|v| -> Option<Edit>)`,
+  `subscribe_edit` / `watch_edit` with the `Edit` hint
+  (`Appended { from }` / `Replaced`, mergeable with `Edit::then`),
+  `State<String>::push_str` and `set_text` (appends when the new text
+  extends the old one), `State<Vec<T>>::push` / `extend`. Listeners read
+  the value in place instead of a clone per notification.
+- **Thread feeds**: `ListModel::feed()` (`model::Feed`: diffs from any
+  thread, applied once per loop iteration, snapshots drop queued diffs,
+  optional `max_rate(hz)` via one fltk timeout), `State::feed()`
+  (`StateFeed`, latest value wins) and `State<String>::text_feed()`
+  (`TextFeed`, chunks joined into one append); `max_rate` on all three.
+  No timer while idle.
+- `examples/stream_bench.rs` + `script/stream-bench`: o3-style load
+  (2 000 threads, ~1 MB/s of text) naive snapshots vs `sync_from` vs
+  `Feed`; results in docs/PERFORMANCE.md (1200×800, 100 events/s: UI
+  thread 18.4 % → 11.1 % with `sync_from`, 6.7 % with feeds at 60 Hz).
+- **Accessibility (`a11y` feature, off by default, needs Rust 1.85).**
+  Screen readers can read and drive apps through AccessKit 0.25: AT-SPI
+  on Linux/BSD (Orca), UI Automation on Windows (NVDA, Narrator),
+  NSAccessibility on macOS (VoiceOver).
+  - Every Omarchy component describes itself: role, name from its visible
+    text or tooltip, value, states and actions.
+  - List, Table, Tree and keyboard panels expose the rows in view (plus
+    the cursor row) with their position in the whole set.
+  - Menus, popups, dialogs and toasts appear in the tree while open.
+  - Focus follows the keyboard router.
+  - AT actions (click, focus, set value, increment/decrement, expand,
+    collapse, scroll into view, text selection) run the keyboard code
+    paths.
+  - Plain fltk widgets get a generic node by type.
+  - Costs nothing until an AT activates. Then the tree is built in the
+    existing pre-flush check, and later updates send only changed nodes.
+  - New API: `a11y::{Accessible, register, describe, on_action, set_name,
+    set_description, changed, announce, is_active, snapshot, install}`,
+    `AccessibleExt::accessible_name/description` (also inherent on
+    `Button` and `ActionButton`), and `KeyboardPanel::accessible_labels`,
+    `item_label` and `current_layout`.
+  - `OMARCHY_FLTK_A11Y=off` keeps the adapters off;
+    `OMARCHY_FLTK_A11Y_DEBUG=1` prints update sizes and build times.
+  - Measured on `bench_minimal`: +2.0 MB binary, +1.8 MB PSS and 3
+    threads while no AT is active, startup unchanged, 0 idle CPU.
+  - Verified on Linux by unit tests, `tests/ui.rs` (trees fed to
+    AccessKit's consumer) and `script/a11y-check` (real AT-SPI, 20/20).
+    Windows and macOS type-checked only.
+  - Guide: docs/ACCESSIBILITY.md.
+
+- **RichText memory: 1.6–1.8 bytes per byte of streamed Markdown instead
+  of 5.4.** Blocks live in a packed store of four arenas shared by the
+  document (text; 4-byte runs with style bits and link marks, 8 bytes in
+  blocks of 4 MiB or more; per-block URLs, list numbers, code languages
+  and table cells as bytes; 16 bytes of metadata per block) instead of a
+  `Block` with its own `String` and `Vec<Run>` each. Blocks near the view
+  are materialized with their layout in the bounded cache, as before.
+  9.75 MB streamed at 1 MB/s grows PSS by 15.6–17.7 MB (was 52.7–53.1
+  MB); 5 000 messages idle at 16.1 MB PSS (was 26.2 MB); push and paint
+  times are unchanged (alternating A/B runs; docs/PERFORMANCE.md). Public types (`Block`, `Inline`, `Run`,
+  `Style`) are unchanged.
+- **RichText and RichLabel are accessible** (feature `a11y`): a
+  `RichText` is a read-only Document whose virtual children are the
+  blocks near the view (Paragraph, Heading with level, List/ListItem with
+  "n of m" and task state, Code with a Copy button, Table/Row/Cell/
+  ColumnHeader), each with its text as name and one text run per laid out
+  line, and Link children with their URL. Click on a link or the Copy
+  button runs the Enter path; Focus and ScrollIntoView scroll the view;
+  the selection is exposed and can be set by the AT. Children are in
+  content coordinates under a scrolled Document, so a scroll changes one
+  node and a streamed token changes the last block's nodes. A `RichLabel`
+  is a Label with Link children. Verified with `tests/ui.rs` (AccessKit's
+  consumer) and the real AT-SPI check (33/33, `script/a11y-check`);
+  `script/richtext-a11y-bench` measures streaming with an AT active.
+- `a11y`: `Node::url`, `Node::scroll(y, max)`, `Node::text_run(key, line,
+  bounds)`, `Node::text_selection_in(..)`, `Role::Code`, `Role::Table`, and
+  `Value::TextRange` for selections over runs of virtual children.
+- `a11y` fix: positions were sent 1-based although AccessKit's
+  `position_in_set` is zero-based, and the set size only on the items
+  (AccessKit reads it from the container). AT-SPI and UIA reported list,
+  tab, menu and tree positions one too high and without a set size.
+- RichText: Space on a focused code copy button clears the check mark
+  after 1.5 s, like Enter.
 
 - Glassy windows: `glass` follows Omarchy's window transparency
   (Appearance > Windows > Window Opacity: opaque, transparent, glassy) from

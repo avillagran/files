@@ -1,0 +1,60 @@
+{
+  "functional_gate": "PASS",
+  "label": "m2-tk",
+  "binary_sha256": "adba148f32bee9862100b4eb77238c1d1875d8058b49527407c4d16907f11a76",
+  "helper_sha256": "e5401c541f6ca42ca9eb3415d8277df5c6bfb114835913cbe48d2bd9245b942c",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "method": "internal Actions + real FLTK window/framebuffer, private fixtures and trash; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "grouped_context_sections": [
+      "#ABRIR",
+      "#EDITAR",
+      "#ORGANIZAR",
+      "#COMPRIMIR",
+      "#ELIMINAR",
+      "#SELECCI\u00d3N"
+    ],
+    "permanent_delete": "8 elementos eliminados (4.1 kB)",
+    "create_link": "Enlace creado: Enlace a linkme.txt",
+    "templates_group_sort": {
+      "group": "2 elementos movidos a Carpeta nueva",
+      "type_order": [
+        "Carpeta nueva",
+        "watched",
+        "zeta.ab",
+        "Enlace a linkme.txt",
+        "extra.txt",
+        "keep.txt",
+        "linkme.txt"
+      ]
+    },
+    "pattern_and_ctrl_m": {
+      "pattern_selected": 4,
+      "link": "Enlace a zeta.ab"
+    },
+    "child_refresh": "watched 2 -> 5 directas",
+    "rubber_band": {
+      "two": [
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "additive": [
+        "extra.txt",
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "click_empty_clears": true
+    },
+    "trash": "restore, purge one, empty; files/ and info/ empty"
+  },
+  "captures": [
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/nautilus-floor-20261104/m2-tk-groups-add-new-1793839745543725027.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/nautilus-floor-20261104/m2-tk-context-grouped-1793839745700334949.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/nautilus-floor-20261104/m2-tk-delete-confirm-1793839745886426180.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/nautilus-floor-20261104/m2-tk-trash-catalog-1793839748443377151.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/nautilus-floor-20261104/m2-tk-trash-empty-confirm-1793839748882432022.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/nautilus-floor-20261104/m2-tk-trash-emptied-1793839749039980449.png"
+  ]
+}

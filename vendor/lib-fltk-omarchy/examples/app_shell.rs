@@ -1,5 +1,5 @@
 //! A file-manager-like shell built only from lib-fltk-omarchy pieces:
-//! header with separate Preferences (Ctrl+,) and Actions (F10) menus, tabs,
+//! header with separate Preferences (Mod+,: Ctrl+, or Cmd+, on macOS) and Actions (F10) menus, tabs,
 //! virtual list, searchable dropdown, operation toast with pause/cancel,
 //! F1 shortcut help and the interior corner preference.
 //!   cargo run --example app_shell
@@ -31,7 +31,7 @@ fn action_items() -> Vec<PopupItem> {
     vec![
         PopupItem::new(glyph::FOLDER, "Open").shortcut("Enter"),
         PopupItem::new(glyph::SEARCH, "Preview").shortcut("Space").divider(),
-        PopupItem::new(glyph::FILE, "Copy").shortcut("Ctrl+C"),
+        PopupItem::new(glyph::FILE, "Copy").shortcut("Mod+C"),
         PopupItem::new(glyph::FILE, "Rename").shortcut("F2"),
         PopupItem::new(glyph::TRASH, "Move to trash").shortcut("Delete").disabled(),
     ]
@@ -41,9 +41,9 @@ fn help() -> Vec<(String, Vec<(String, String)>)> {
     let row = |k: &str, d: &str| (k.to_string(), d.to_string());
     vec![
         ("Move".into(), vec![row("Tab", "Next control"), row("Shift+Tab", "Previous control"), row("Ctrl+Tab", "Next tab"), row("Ctrl+Shift+Tab", "Previous tab")]),
-        ("Navigation".into(), vec![row("Ctrl+L", "Edit path"), row("Alt+Left", "Back"), row("Ctrl+T", "New tab")]),
+        ("Navigation".into(), vec![row("Mod+L", "Edit path"), row("Alt+Left", "Back"), row("Mod+T", "New tab")]),
         ("Files".into(), vec![row("F5", "Copy"), row("F6", "Move"), row("Delete", "Move to trash")]),
-        ("Window".into(), vec![row("Ctrl+,", "Preferences"), row("F10", "Actions"), row("F1", "This help")]),
+        ("Window".into(), vec![row("Mod+,", "Preferences"), row("F10", "Actions"), row("F1", "This help")]),
     ]
 }
 
@@ -77,7 +77,7 @@ fn main() {
     win.end();
 
     let w = win.clone();
-    let gear = win.header().action(glyph::SETTINGS, "Preferences (Ctrl+,)", || {});
+    let gear = win.header().action(glyph::SETTINGS, &format!("Preferences ({})", fltk_omarchy::keys::label("Mod+,")), || {});
     let bolt = win.header().action(BOLT, "Actions (F10)", || {});
     let (g2, b2) = (gear.clone(), bolt.clone());
     let open_prefs = Rc::new(move || {
@@ -95,7 +95,7 @@ fn main() {
     gear.clone().on_click(move || p1());
     bolt.clone().on_click(move || { a1(); });
     let (p2, a2) = (open_prefs.clone(), open_actions.clone());
-    win.shortcut("Ctrl+,", move || p2());
+    win.shortcut("Mod+,", move || p2());
     win.shortcut("F10", move || { a2(); });
     let w3 = win.clone();
     win.shortcut("F1", move || { ShortcutHelp::open(&*w3, "Keyboard shortcuts", help()); });

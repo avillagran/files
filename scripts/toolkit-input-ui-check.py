@@ -53,7 +53,7 @@ def main():
         log = base / 'app.log'
         env = {**os.environ, 'FILES_CONFIG_DIR': str(base / 'config'), 'XDG_DATA_HOME': str(data),
                'FILES_TEST_CAPTURE': str(capture), 'FILES_TEST_FIXED_SIZE': '1', 'FILES_TEST_ISOLATE_INPUT': '1',
-               'FILES_TEST_TOOLKIT_POPUP': '1', 'FILES_CLOSE_TRACE': '1', 'TMPDIR': str(base), 'MAGICK_TEMPORARY_PATH': str(base)}
+               'FILES_TEST_TOOLKIT_POPUP': '1', 'OMARCHY_FLTK_ANIM': 'off', 'FILES_CLOSE_TRACE': '1', 'TMPDIR': str(base), 'MAGICK_TEMPORARY_PATH': str(base)}
         try:
             with log.open('w') as output:
                 process = subprocess.Popen([str(args.binary), str(listing), '--size', '800x440', '--scale', '1', '--no-session', '--ui-smoke', '--exit-after', '45'],

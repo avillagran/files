@@ -1,0 +1,60 @@
+{
+  "functional_gate": "PASS",
+  "label": "tk",
+  "binary_sha256": "c4330b73bd339522b489935863697862a71fbb801dbd2a50f25692d645671c7a",
+  "helper_sha256": "1640d5f8597d024f9cb73143d5490e8d58e03a0e4f33997455d01b31729c827a",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "internal Actions + real FLTK window/framebuffer, private fixtures and trash; no OS input",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "grouped_context_sections": [
+      "#ABRIR",
+      "#EDITAR",
+      "#ORGANIZAR",
+      "#COMPRIMIR",
+      "#ELIMINAR",
+      "#SELECCI\u00d3N"
+    ],
+    "permanent_delete": "8 elementos eliminados (4.1 kB)",
+    "create_link": "Enlace creado: Enlace a linkme.txt",
+    "templates_group_sort": {
+      "group": "2 elementos movidos a Carpeta nueva",
+      "type_order": [
+        "Carpeta nueva",
+        "watched",
+        "zeta.ab",
+        "Enlace a linkme.txt",
+        "extra.txt",
+        "keep.txt",
+        "linkme.txt"
+      ]
+    },
+    "pattern_and_ctrl_m": {
+      "pattern_selected": 4,
+      "link": "Enlace a zeta.ab"
+    },
+    "child_refresh": "watched 2 -> 5 directas",
+    "rubber_band": {
+      "two": [
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "additive": [
+        "extra.txt",
+        "keep.txt",
+        "linkme.txt"
+      ],
+      "click_empty_clears": true
+    },
+    "trash": "restore, purge one, empty; files/ and info/ empty"
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/tk-groups-add-new-1793839248754648443.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/tk-context-grouped-1793839248911391238.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/tk-delete-confirm-1793839249099469710.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/tk-trash-catalog-1793839251621933349.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/tk-trash-empty-confirm-1793839252052725366.png",
+    "/home/node/Work/files/docs/evidence/nautilus-floor-20261104/tk-trash-emptied-1793839252208901464.png"
+  ]
+}

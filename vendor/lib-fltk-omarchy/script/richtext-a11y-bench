@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# RichText streaming with an assistive technology active: runs
+# examples/richtext_bench (built with --features a11y) on the hidden
+# Hyprland workspace special:omarchy-fltk-richtext inside a private D-Bus
+# session whose AT-SPI bus is enabled (IsEnabled), so the app builds and
+# updates its accessibility tree as it would for Orca. Nothing speaks and
+# the user's session is untouched. Writes the bench JSON line and the
+# per-update a11y timings (OMARCHY_FLTK_A11Y_DEBUG) to build/.
+#   cargo build --release --features a11y --example richtext_bench
+#   script/richtext-a11y-bench [bench args...]
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+BIN="$ROOT/target/release/examples/richtext_bench"
+OUT="$ROOT/build/richtext-a11y"
+if [[ -z "${RT_A11Y_INNER:-}" ]]; then
+  mkdir -p "$OUT"; rm -f "$OUT"/report.json "$OUT"/a11y.log "$OUT"/done
+  args="${*:---messages 5000 --rate 1000000 --hz 60 --secs 10}"
+  hyprctl dispatch "hl.dsp.exec_cmd(\"env RT_A11Y_INNER=1 dbus-run-session -- $ROOT/script/richtext-a11y-bench $args\", { workspace = \"special:omarchy-fltk-richtext silent\", float = true })" >/dev/null
+  for _ in $(seq 1 900); do [[ -e "$OUT/done" ]] && break; sleep 0.1; done
+  [[ -s "$OUT/report.json" ]] || { echo "timeout" >&2; exit 1; }
+  cat "$OUT/report.json"
+  # Updates while streaming: count, nodes sent, time.
+  awk '/^a11y: update/ { n++; sent += $3; total += $5; us += $8; if ($8 > max) max = $8 }
+       END { if (n) printf "a11y updates %d, nodes sent avg %.1f of %.0f, build+diff avg %.0f us, max %d us\n", n, sent/n, total/n, us/n, max }' "$OUT/a11y.log"
+  grep -m1 "full tree" "$OUT/a11y.log" || true
+  exit
+fi
+trap 'touch "$OUT/done"' EXIT
+gdbus call --session --dest org.a11y.Bus --object-path /org/a11y/bus \
+  --method org.freedesktop.DBus.Properties.Set org.a11y.Status IsEnabled "<true>" >/dev/null
+/usr/lib/at-spi2-registryd >/dev/null 2>&1 &
+REG=$!
+sleep 0.5
+OMARCHY_FLTK_A11Y_DEBUG=1 "$BIN" "$@" --out "$OUT/report.json" omarchy-fltk-bench-richtext-a11y 2>"$OUT/a11y.log" >/dev/null || true
+kill "$REG" 2>/dev/null || true

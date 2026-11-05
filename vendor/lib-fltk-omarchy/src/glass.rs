@@ -16,19 +16,19 @@
 //! pixels with the translucent colour (Cairo `SOURCE`), so repainting a
 //! region never stacks alpha. Leaving glassy restores the opaque region.
 //!
-//! Elsewhere (X11/XWayland, whose FLTK windows have no alpha visual, and
-//! offscreen/image surfaces, which are RGB24) the fills stay opaque, exactly
-//! as before. Transparent, Omarchy's default, makes only the apps Omarchy
+//! Elsewhere (X11/XWayland, whose FLTK windows have no alpha visual,
+//! offscreen/image surfaces, which are RGB24, and macOS/Windows, see
+//! docs/PLATFORMS.md) the fills stay opaque, exactly as before. Transparent, Omarchy's default, makes only the apps Omarchy
 //! lists see-through through compositor rules, so it is opaque here too.
 //!
 //! `OMARCHY_FLTK_GLASS` overrides the system choice: `off`, `on` (the
 //! system's glass opacity) or an opacity such as `0.8`. Only call the fills
 //! inside a draw callback.
 
+use crate::platform;
 use crate::theme::{self, Rgb};
 use fltk::draw;
 use std::cell::{Cell, RefCell};
-use std::ffi::c_void;
 use std::path::{Path, PathBuf};
 
 /// Omarchy's window transparency choice (`omarchy-hyprland-window-transparency`).
@@ -84,15 +84,7 @@ pub fn toggles_dir() -> PathBuf {
     if let Some(p) = std::env::var_os("OMARCHY_FLTK_TOGGLES_DIR") {
         return PathBuf::from(p);
     }
-    let state = std::env::var_os("XDG_STATE_HOME")
-        .filter(|v| !v.is_empty())
-        .map(PathBuf::from)
-        .unwrap_or_else(|| home().join(".local/state"));
-    state.join("omarchy/toggles/hypr")
-}
-
-fn home() -> PathBuf {
-    std::env::var_os("HOME").map(PathBuf::from).unwrap_or_else(|| PathBuf::from("/"))
+    platform::dirs::state().join("omarchy/toggles/hypr")
 }
 
 /// The mode the toggle files say, as `omarchy-hyprland-window-transparency` reads it.
@@ -251,16 +243,11 @@ pub fn fill(x: i32, y: i32, w: i32, h: i32, radius: i32, color: Rgb) {
 pub fn surface(color: Rgb, shape: impl FnOnce()) {
     draw::set_draw_color(color.fl());
     match glass_target() {
-        Some((cr, a)) => {
-            // SAFETY: `cr` is FLTK's live Cairo context for the window being
-            // drawn; save/restore leave FLTK's state (operator, source) as it was.
-            unsafe {
-                ffi::cairo_save(cr);
-                ffi::cairo_set_operator(cr, ffi::CAIRO_OPERATOR_SOURCE);
-                ffi::cairo_set_source_rgba(cr, f64::from(color.r()) / 255.0, f64::from(color.g()) / 255.0, f64::from(color.b()) / 255.0, a);
-            }
+        Some((t, a)) => {
+            let c = |v: u8| f64::from(v) / 255.0;
+            platform::glass::begin(&t, c(color.r()), c(color.g()), c(color.b()), a);
             shape();
-            unsafe { ffi::cairo_restore(cr) };
+            platform::glass::end(&t);
             bump(|s| s.glass_fills += 1);
         }
         None => {
@@ -275,54 +262,27 @@ pub fn fill_rect(x: i32, y: i32, w: i32, h: i32, color: Rgb) {
     fill(x, y, w, h, 0, color);
 }
 
-/// Cairo context and opacity when the current drawing goes to a shown
+/// The drawing target and opacity when the current drawing goes to a shown
 /// Wayland window buffer (ARGB32) and glass is active. Clears that window's
 /// opaque region the first time (and after the window gets a new surface).
-fn glass_target() -> Option<(*mut c_void, f64)> {
+fn glass_target() -> Option<(platform::glass::Target, f64)> {
     let a = opacity()?;
-    // SAFETY: FLTK calls on the UI thread inside a draw callback; the Wayland
-    // backend is active (checked by `opacity`), so these return FLTK's own
-    // objects or null.
-    unsafe {
-        let cr = ffi::fl_wl_gc();
-        if cr.is_null() {
-            return None;
+    let t = platform::glass::target()?;
+    let key = (t.win, t.surface);
+    let fresh = CLEARED.with(|c| {
+        let mut c = c.borrow_mut();
+        if c.contains(&key) {
+            return false;
         }
-        let target = ffi::cairo_get_target(cr);
-        if target.is_null()
-            || ffi::cairo_surface_get_type(target) != ffi::CAIRO_SURFACE_TYPE_IMAGE
-            || ffi::cairo_image_surface_get_format(target) != ffi::CAIRO_FORMAT_ARGB32
-        {
-            return None; // image/offscreen surfaces are RGB24: keep them opaque
-        }
-        let win = ffi::fl_window_current();
-        if win.is_null() {
-            return None;
-        }
-        let xid = ffi::fl_wl_xid(win);
-        if xid.is_null() {
-            return None;
-        }
-        let surface = ffi::fl_wl_surface(xid);
-        if surface.is_null() {
-            return None;
-        }
-        let key = (win as usize, surface as usize);
-        let fresh = CLEARED.with(|c| {
-            let mut c = c.borrow_mut();
-            if c.contains(&key) {
-                return false;
-            }
-            c.retain(|(w, _)| *w != key.0);
-            c.push(key);
-            true
-        });
-        if fresh {
-            ffi::set_opaque_region(surface, false);
-            bump(|s| s.regions_cleared += 1);
-        }
-        Some((cr, a))
+        c.retain(|(w, _)| *w != key.0);
+        c.push(key);
+        true
+    });
+    if fresh {
+        platform::glass::set_opaque_region(t.surface, false);
+        bump(|s| s.regions_cleared += 1);
     }
+    Some((t, a))
 }
 
 /// Gives every still-shown window whose region a glass fill cleared its
@@ -341,99 +301,20 @@ fn restore_regions() {
         if !live.contains(&win) {
             continue; // deleted: its surface went with it
         }
-        // SAFETY: `win` is in FLTK's live window list; its current surface
-        // is looked up again, so a hidden window (null xid) is skipped.
-        unsafe {
-            let xid = ffi::fl_wl_xid(win as *const c_void);
-            if xid.is_null() {
-                continue;
-            }
-            let now = ffi::fl_wl_surface(xid);
-            if now.is_null() || now as usize != surface {
-                continue; // re-shown: FLTK already made the new surface opaque
-            }
-            ffi::set_opaque_region(now, true);
+        // `win` is in FLTK's live window list; its current surface is looked
+        // up again, so a hidden window is skipped and a re-shown one (FLTK
+        // already made the new surface opaque) is left alone.
+        if platform::glass::current_surface(win) != Some(surface) {
+            continue;
         }
+        platform::glass::set_opaque_region(surface, true);
         bump(|s| s.regions_restored += 1);
     }
 }
 
-/// True when FLTK runs on its native Wayland backend.
+/// True when FLTK runs on its native Wayland backend (glass can show).
 pub fn wayland() -> bool {
-    // SAFETY: plain FLTK query; null unless the Wayland backend is active.
-    !unsafe { ffi::fl_wl_display() }.is_null()
-}
-
-mod ffi {
-    use std::ffi::{c_int, c_void};
-
-    pub const CAIRO_OPERATOR_SOURCE: c_int = 1;
-    pub const CAIRO_FORMAT_ARGB32: c_int = 0;
-    pub const CAIRO_SURFACE_TYPE_IMAGE: c_int = 0;
-
-    extern "C" {
-        #[link_name = "_Z13fl_wl_displayv"]
-        pub fn fl_wl_display() -> *mut c_void;
-        #[link_name = "_Z13fl_wl_surfaceP10wld_window"]
-        pub fn fl_wl_surface(xid: *mut c_void) -> *mut c_void;
-        #[link_name = "_Z8fl_wl_gcv"]
-        pub fn fl_wl_gc() -> *mut c_void;
-        #[link_name = "_Z16fl_wl_compositorv"]
-        pub fn fl_wl_compositor() -> *mut c_void;
-        #[link_name = "_ZN9Fl_Window7currentEv"]
-        pub fn fl_window_current() -> *mut c_void;
-
-        pub fn cairo_save(cr: *mut c_void);
-        pub fn cairo_restore(cr: *mut c_void);
-        pub fn cairo_set_operator(cr: *mut c_void, op: c_int);
-        pub fn cairo_set_source_rgba(cr: *mut c_void, r: f64, g: f64, b: f64, a: f64);
-        pub fn cairo_get_target(cr: *mut c_void) -> *mut c_void;
-        pub fn cairo_surface_get_type(s: *mut c_void) -> c_int;
-        pub fn cairo_image_surface_get_format(s: *mut c_void) -> c_int;
-
-        static wl_region_interface: c_void;
-        fn wl_proxy_get_version(proxy: *mut c_void) -> u32;
-        fn wl_proxy_marshal_flags(proxy: *mut c_void, opcode: u32, interface: *const c_void, version: u32, flags: u32, ...) -> *mut c_void;
-    }
-
-    /// FLTK's `fl_wl_xid` (declared once, in `native`).
-    pub unsafe fn fl_wl_xid(win: *const c_void) -> *mut c_void {
-        crate::native::fl_wl_xid(win).cast()
-    }
-
-    // Opcodes from wayland.xml (the inline wrappers of wayland-client-protocol.h).
-    const WL_COMPOSITOR_CREATE_REGION: u32 = 1;
-    const WL_REGION_DESTROY: u32 = 0;
-    const WL_REGION_ADD: u32 = 1;
-    const WL_SURFACE_SET_OPAQUE_REGION: u32 = 4;
-    const WL_MARSHAL_FLAG_DESTROY: u32 = 1;
-
-    /// `wl_surface_set_opaque_region`: the whole surface (as FLTK sets it for
-    /// rectangular windows) or none. Takes effect on FLTK's next commit.
-    ///
-    /// # Safety
-    /// `surface` is a live `wl_surface` of this FLTK display, on the UI thread.
-    pub unsafe fn set_opaque_region(surface: *mut c_void, opaque: bool) {
-        let null: *mut c_void = std::ptr::null_mut();
-        let version = wl_proxy_get_version(surface);
-        if !opaque {
-            wl_proxy_marshal_flags(surface, WL_SURFACE_SET_OPAQUE_REGION, std::ptr::null(), version, 0, null);
-            return;
-        }
-        let compositor = fl_wl_compositor();
-        if compositor.is_null() {
-            return;
-        }
-        let iface = std::ptr::addr_of!(wl_region_interface);
-        let region = wl_proxy_marshal_flags(compositor, WL_COMPOSITOR_CREATE_REGION, iface, wl_proxy_get_version(compositor), 0, null);
-        if region.is_null() {
-            return;
-        }
-        let rv = wl_proxy_get_version(region);
-        wl_proxy_marshal_flags(region, WL_REGION_ADD, std::ptr::null(), rv, 0, 0 as c_int, 0 as c_int, 1_000_000 as c_int, 1_000_000 as c_int);
-        wl_proxy_marshal_flags(surface, WL_SURFACE_SET_OPAQUE_REGION, std::ptr::null(), version, 0, region);
-        wl_proxy_marshal_flags(region, WL_REGION_DESTROY, std::ptr::null(), rv, WL_MARSHAL_FLAG_DESTROY);
-    }
+    platform::wayland()
 }
 
 #[cfg(test)]

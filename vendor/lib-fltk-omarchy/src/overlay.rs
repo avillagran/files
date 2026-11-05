@@ -4,6 +4,7 @@
 //! on top of the window and deleted when closed, so they cost nothing
 //! while hidden.
 
+use crate::a11y::{self, Action, Live, Role};
 use crate::paint;
 use crate::state::State;
 use crate::theme::{self, Rgb, Theme};
@@ -14,8 +15,14 @@ use std::rc::Rc;
 
 thread_local! {
     // Deletion-tracked handles only; a layer does not own its window.
-    static LAYERS: RefCell<Vec<Widget>> = const { RefCell::new(Vec::new()) };
+    // `true` for modal layers (they take the keyboard).
+    static LAYERS: RefCell<Vec<(Widget, bool)>> = const { RefCell::new(Vec::new()) };
     static REDRAW_CHECK: Cell<bool> = const { Cell::new(false) };
+    // Layers fading in or out: (layer, tween, closing).
+    static MOTION: RefCell<Vec<(Widget, crate::anim::Tween, bool)>> = const { RefCell::new(Vec::new()) };
+    // While a layer draws: its presence (0..1) and the card it painted.
+    static DRAWING: Cell<f64> = const { Cell::new(1.0) };
+    static CARD: Cell<Option<(i32, i32, i32, i32)>> = const { Cell::new(None) };
 }
 
 fn install_redraw_guard() {
@@ -34,8 +41,9 @@ fn install_redraw_guard() {
 pub(crate) fn prepare_redraw() {
     LAYERS.with(|layers| {
         let mut layers = layers.borrow_mut();
-        layers.retain(|l| !l.was_deleted() && l.parent().is_some());
-        for layer in layers.iter().filter(|l| l.visible()) {
+        layers.retain(|(l, _)| !l.was_deleted() && l.parent().is_some());
+        let closing: Vec<Widget> = MOTION.with(|m| m.borrow().iter().filter(|(l, _, c)| *c && !l.was_deleted()).map(|(l, _, _)| l.clone()).collect());
+        for layer in layers.iter().map(|(l, _)| l).chain(closing.iter()).filter(|l| l.visible()) {
             if let Some(mut win) = layer.top_window() {
                 if win.damage() && win.damage_type() != Damage::All {
                     win.redraw();
@@ -76,7 +84,16 @@ pub(crate) fn open_layer<A: WidgetExt>(anchor: &A, rect: Option<(i32, i32, i32, 
     layer.resize(x, y, w, h);
     layer.set_frame(FrameType::NoBox);
     group.add(&layer);
-    LAYERS.with(|layers| layers.borrow_mut().push(layer.clone()));
+    LAYERS.with(|layers| layers.borrow_mut().push((layer.clone(), modal)));
+    if crate::anim::enabled() {
+        // Fades in (Omarchy PopupCard: 180 ms Style.easeOut).
+        let t = crate::anim::Tween::start(crate::anim::ms::POPUP_IN, crate::anim::Ease::EaseOut);
+        MOTION.with(|m| {
+            let mut m = m.borrow_mut();
+            m.retain(|(l, _, _)| !l.was_deleted());
+            m.push((layer.clone(), t, false));
+        });
+    }
     if let Some(g) = prev {
         g.begin();
     }
@@ -94,12 +111,39 @@ pub(crate) fn open_layer<A: WidgetExt>(anchor: &A, rect: Option<(i32, i32, i32, 
 
 /// Removes and deletes a layer; if it had focus, focus goes back to the
 /// control that had it before (see [`crate::focus`]). Closing twice is a no-op.
+/// With animations on, focus goes back and the layer stops taking events
+/// at once, and it fades out (120 ms) before it is deleted.
 pub(crate) fn close_layer(layer: &Widget) {
     let Some(mut parent) = layer.parent() else { return };
+    let closing = MOTION.with(|m| m.borrow().iter().any(|(l, _, c)| *c && alive_ptr(l) == layer.as_widget_ptr() as usize));
+    if closing {
+        return;
+    }
     // SAFETY: a Fl_Window is a Fl_Widget.
     let win = layer.top_window().map(|w| unsafe { Widget::from_widget_ptr(w.as_widget_ptr()) });
+    LAYERS.with(|layers| layers.borrow_mut().retain(|(l, _)| !l.was_deleted() && l.as_widget_ptr() != layer.as_widget_ptr()));
+    if crate::anim::enabled() && layer.visible() {
+        let mut l = layer.clone();
+        // From where it is (a popup closed while still fading in).
+        let shown = MOTION.with(|m| m.borrow().iter().find(|(x, _, _)| alive_ptr(x) == l.as_widget_ptr() as usize).map(|(_, t, _)| t.value()));
+        let ms = (crate::anim::ms::POPUP_OUT as f64 * shown.unwrap_or(1.0).clamp(0.0, 1.0)).round() as u32;
+        // Focus first (deactivating a focused widget would throw it away).
+        crate::focus::give_back(layer, win);
+        l.deactivate();
+        let t = crate::anim::Tween::start(ms.max(1), crate::anim::Ease::EaseOut);
+        MOTION.with(|m| {
+            let mut m = m.borrow_mut();
+            m.retain(|(x, _, _)| !x.was_deleted() && alive_ptr(x) != l.as_widget_ptr() as usize);
+            m.push((l.clone(), t, true));
+        });
+        l.redraw();
+        parent.redraw();
+        let l2 = l.clone();
+        // Deleted after the fade even if it is never drawn again.
+        app::add_timeout3(ms as f64 / 1000.0 + 0.02, move |_| finish_close(&l2));
+        return;
+    }
     parent.remove(layer);
-    LAYERS.with(|layers| layers.borrow_mut().retain(|l| !l.was_deleted() && l.as_widget_ptr() != layer.as_widget_ptr()));
     parent.redraw();
     crate::focus::give_back(layer, win);
     // Deferred: layers close from inside their own handler, and fltk keeps
@@ -109,6 +153,77 @@ pub(crate) fn close_layer(layer: &Widget) {
     unsafe { Fl_delete_widget(layer.as_widget_ptr() as *mut std::ffi::c_void) }
 }
 
+/// A widget's address, 0 once deleted (`as_widget_ptr` panics then).
+fn alive_ptr(w: &Widget) -> usize {
+    if w.was_deleted() { 0 } else { w.as_widget_ptr() as usize }
+}
+
+/// The end of a fade-out: removes and deletes the layer.
+fn finish_close(layer: &Widget) {
+    let lp = alive_ptr(layer);
+    MOTION.with(|m| m.borrow_mut().retain(|(x, _, _)| !x.was_deleted() && alive_ptr(x) != lp));
+    if lp == 0 {
+        return;
+    }
+    let Some(mut parent) = layer.parent() else { return };
+    parent.remove(layer);
+    parent.redraw();
+    // SAFETY: a live widget pointer; fltk deletes it on the next loop turn.
+    unsafe { Fl_delete_widget(layer.as_widget_ptr() as *mut std::ffi::c_void) }
+}
+
+/// How much of a layer shows (0..1): fading in after it opened, out after
+/// it closed, 1 otherwise. Schedules the next frame while it moves.
+pub(crate) fn presence(l: &Widget) -> f64 {
+    let state = MOTION.with(|m| m.borrow().iter().find(|(x, _, _)| alive_ptr(x) == l.as_widget_ptr() as usize).map(|(_, t, c)| (*t, *c)));
+    let Some((t, closing)) = state else { return 1.0 };
+    if !crate::anim::enabled() {
+        return if closing { 0.0 } else { 1.0 };
+    }
+    let v = t.value().clamp(0.0, 1.0);
+    if t.done() {
+        if !closing {
+            MOTION.with(|m| m.borrow_mut().retain(|(x, _, _)| alive_ptr(x) != l.as_widget_ptr() as usize));
+        }
+    } else {
+        crate::anim::request_redraw(l);
+    }
+    if closing { 1.0 - v } else { v }
+}
+
+/// Sets a layer's draw: `f` paints it (its [`card`] and [`draw_scrim`]
+/// follow the layer's [`presence`]) and the card then fades in or out
+/// toward the window background.
+pub(crate) fn draw_layer(layer: &mut Widget, mut f: impl FnMut(&mut Widget) + 'static) {
+    layer.draw(move |l| {
+        let p = presence(l);
+        if p <= 0.0 {
+            return;
+        }
+        DRAWING.with(|d| d.set(p));
+        CARD.with(|c| c.set(None));
+        f(l);
+        DRAWING.with(|d| d.set(1.0));
+        if p < 1.0 {
+            if let Some((x, y, w, h)) = CARD.with(|c| c.take()) {
+                let bg = theme::with(bg);
+                paint::alpha_fill(x, y, w, h, bg, 1.0 - p);
+            }
+        }
+    });
+}
+
+/// True when a modal layer (menu, dialog, popup) is open in `w`'s window:
+/// hover-opened surfaces stay open under it.
+pub(crate) fn modal_open_over<W: WidgetExt>(w: &W) -> bool {
+    let Some(win) = w.top_window() else { return false };
+    LAYERS.with(|l| {
+        l.borrow().iter().any(|(x, modal)| {
+            *modal && !x.was_deleted() && x.visible() && x.top_window().is_some_and(|t| t.as_widget_ptr() == win.as_widget_ptr())
+        })
+    })
+}
+
 extern "C" {
     // cfltk wrapper of Fl::delete_widget (linked through fltk-sys).
     fn Fl_delete_widget(w: *mut std::ffi::c_void);
@@ -116,6 +231,8 @@ extern "C" {
 
 /// Card surface with the given section style.
 pub(crate) fn card(t: &Theme, x: i32, y: i32, w: i32, h: i32, surface: &theme::Surface, border_width: i32) {
+    // The card a fading layer veils (see `draw_layer`).
+    CARD.with(|c| if c.get().is_none() { c.set(Some((x, y, w, h))) });
     let fill = surface.fill(bg(t));
     let border = surface.border.over(fill, surface.border_alpha);
     paint::surface(x, y, w, h, t.radius, Some(fill), Some((border, border_width)));
@@ -147,11 +264,13 @@ impl Dropdown {
         let hover = Rc::new(Cell::new(false));
         let (opts, v, lbl, hv) = (options.clone(), value.clone(), label_rc.clone(), hover.clone());
         inner.draw(move |w| {
+            // Right to left: caption and value right-aligned, chevron on the left.
+            let m = crate::layout::Mirror::of(w);
             theme::with(|t| {
                 let mut y = w.y();
                 if !lbl.borrow().is_empty() {
                     let lh = t.font.caption + 4;
-                    paint::text_elided(&lbl.borrow(), w.x(), y, w.w(), lh, t.font.caption, true, t.palette.foreground.darker(1.4), Align::Left);
+                    paint::text_elided(&lbl.borrow(), w.x(), y, w.w(), lh, t.font.caption, true, t.palette.foreground.darker(1.4), m.align(Align::Left));
                     y += lh + t.spacing.label_gap;
                 }
                 let h = t.spacing.control_height;
@@ -163,8 +282,9 @@ impl Dropdown {
                 let pad = t.spacing.control_padding_x + 1;
                 let chev = paint::measure(glyph::CHEVRON_DOWN, t.font.body, false);
                 let text = opts.borrow().get(v.get()).cloned().unwrap_or_default();
-                paint::text_elided(&text, w.x() + pad, y, w.w() - 2 * pad - chev - t.spacing.md, h, t.font.body, false, fg, Align::Left);
-                paint::glyph(glyph::CHEVRON_DOWN, w.x() + w.w() - 9 - chev, y, chev, h, t.font.body, fg.darker(1.2));
+                let tw = w.w() - 2 * pad - chev - t.spacing.md;
+                paint::text_elided(&text, m.x(w.x() + pad, tw), y, tw, h, t.font.body, false, fg, m.align(Align::Left));
+                paint::glyph(glyph::CHEVRON_DOWN, m.x(w.x() + w.w() - 9 - chev, chev), y, chev, h, t.font.body, fg.darker(1.2));
             });
         });
         let (opts, v, hv) = (options.clone(), value.clone(), hover.clone());
@@ -186,6 +306,20 @@ impl Dropdown {
         inner.set_size(w, h);
         let mut w2 = inner.clone();
         crate::state::bind_widget(&inner, value, false, move |_| w2.redraw());
+        let (opts, v, lbl, me) = (options.clone(), value.clone(), label_rc.clone(), inner.clone());
+        a11y::describe(&inner, move |n| {
+            let text = opts.borrow().get(v.get()).cloned().unwrap_or_default();
+            n.role(Role::ComboBox).name(&lbl.borrow()).value(&text).expanded(a11y::has_popup(&me)).focusable()
+                .action(Action::Click).action(Action::Expand);
+        });
+        let (opts, v, mut me) = (options.clone(), value.clone(), inner.clone());
+        a11y::on_action(&inner, move |r| {
+            if !matches!(r.action, Action::Click | Action::Expand) || a11y::has_popup(&me) {
+                return false;
+            }
+            open_popup(&mut me, &opts, &v);
+            true
+        });
         Dropdown { inner, options, value: value.clone(), label: label_rc }
     }
 
@@ -227,11 +361,12 @@ fn open_popup(trigger: &mut Widget, options: &Rc<RefCell<Vec<String>>>, value: &
     let win_h = trigger.top_window().map(|w| w.h()).unwrap_or(y + h);
     let y = if y + h > win_h { (trigger.y() + label_h - 2 - h).max(0) } else { y };
     let rect = (trigger.x(), y, trigger.w(), h);
+    let align = crate::layout::Mirror::new(crate::layout::is_rtl(trigger), 0, 0).align(Align::Left);
     let Some(mut layer) = open_layer(trigger, None, true) else { return };
     let current = Rc::new(Cell::new(value.get() as i32));
     let top = Rc::new(Cell::new(0i32));
     let (opts, cur, tp) = (options.clone(), current.clone(), top.clone());
-    layer.draw(move |_| {
+    draw_layer(&mut layer, move |_| {
         theme::with(|t| {
             let (x, y, w, h) = rect;
             card(t, x, y, w, h, &t.popups, t.controls.normal.border_width.max(1));
@@ -244,7 +379,7 @@ fn open_popup(trigger: &mut Widget, options: &Rc<RefCell<Vec<String>>>, value: &
                 if idx == cur.get() {
                     paint::fill(x + inset, ry, w - 2 * inset, row_h, t.radius, t.fill(&t.controls.hover, fill));
                 }
-                paint::text_elided(&text, x + inset + t.spacing.control_padding_x, ry, w - 2 * (inset + t.spacing.control_padding_x), row_h, t.font.body, false, t.popups.text, Align::Left);
+                paint::text_elided(&text, x + inset + t.spacing.control_padding_x, ry, w - 2 * (inset + t.spacing.control_padding_x), row_h, t.font.body, false, t.popups.text, align);
             }
         });
     });
@@ -323,6 +458,33 @@ fn open_popup(trigger: &mut Widget, options: &Rc<RefCell<Vec<String>>>, value: &
     if c >= shown {
         top.set(c - shown + 1);
     }
+    a11y::popup_of(&layer, trigger);
+    let (opts, cur, tp) = (options.clone(), current.clone(), top.clone());
+    a11y::describe(&layer, move |nd| {
+        let (x, y, w, _) = rect;
+        nd.role(Role::ListBox).bounds(rect.0, rect.1, rect.2, rect.3);
+        for (i, text) in opts.borrow().iter().enumerate() {
+            let slot = i as i32 - tp.get();
+            nd.child(i as u64, |o| {
+                o.role(Role::ListBoxOption).name(text).selected(i as i32 == cur.get()).position(i + 1, n as usize).action(Action::Click);
+                if (0..shown).contains(&slot) {
+                    o.bounds(x + 2, y + 2 + slot * (row_h + gap), w - 4, row_h);
+                }
+                if i as i32 == cur.get() {
+                    o.focused();
+                }
+            });
+        }
+    });
+    let (v, mut trig, l2) = (value.clone(), trigger.clone(), layer.clone());
+    a11y::on_action(&layer, move |r| {
+        let (Some(i), Action::Click) = (r.key(), r.action) else { return false };
+        v.set(i as usize);
+        close_layer(&l2);
+        let _ = trig.take_focus();
+        trig.redraw();
+        true
+    });
 }
 
 // =========================================================== ConfirmDialog
@@ -338,7 +500,13 @@ impl ConfirmDialog {
         let Some(mut layer) = open_layer(anchor, None, true) else { return };
         let selected = Rc::new(Cell::new(1i32));
         let msg = message.to_string();
-        let labels = ["Cancel".to_string(), confirm.to_string()];
+        // Cancel is the toolkit's, translated when drawn (follows the locale live).
+        let confirm = confirm.to_string();
+        let labels = Rc::new(move || [crate::i18n::tr("Cancel"), confirm.clone()]);
+        let lb = labels.clone();
+        // Right to left: message right-aligned, buttons at the left end
+        // (Confirm outermost, as it is on the right left to right).
+        let rtl = crate::layout::is_rtl(anchor);
         let geom = Rc::new(move |l: &Widget| -> ((i32, i32, i32, i32), [(i32, i32, i32, i32); 2]) {
             theme::with(|t| {
                 let s = |px: f64| (px * t.font.base as f64 / 12.0).round() as i32;
@@ -350,15 +518,20 @@ impl ConfirmDialog {
                 let ch = 2 * pad + mh + s(20.0) + s(34.0);
                 let cx = (l.w() - cw) / 2;
                 let cy = (l.h() - ch) / 2;
-                let (bw, bh) = (s(88.0), s(34.0));
+                // 88 px, wider when a (translated) label needs it.
+                fltk::draw::set_font(Font::Helvetica, t.font.caption);
+                let widest = lb().iter().map(|x| fltk::draw::width(x).ceil() as i32).max().unwrap_or(0);
+                let bw = (widest + s(24.0)).max(s(88.0)).min((cw - 2 * pad - s(10.0)) / 2);
+                let bh = s(34.0);
                 let by = cy + ch - pad - bh;
                 let b1 = (cx + cw - pad - bw, by, bw, bh);
                 let b0 = (b1.0 - s(10.0) - bw, by, bw, bh);
-                ((cx, cy, cw, ch), [b0, b1])
+                let m = crate::layout::Mirror::new(rtl, cx, cw);
+                ((cx, cy, cw, ch), [m.rect(b0), m.rect(b1)])
             })
         });
         let (sel, msg2, labels2, geom2) = (selected.clone(), message.to_string(), labels.clone(), geom.clone());
-        layer.draw(move |l| {
+        draw_layer(&mut layer, move |l| {
             if let Some(win) = l.top_window() {
                 if (l.w(), l.h()) != (win.w(), win.h()) { l.resize(0, 0, win.w(), win.h()); }
             }
@@ -372,7 +545,8 @@ impl ConfirmDialog {
                 let border = t.menu.selected_text;
                 paint::surface(cx, cy, cw, ch, t.radius, Some(b), Some((border, t.controls.normal.border_width.max(1))));
                 let pad = (18.0 * t.font.base as f64 / 12.0).round() as i32;
-                paint::text(&msg2, cx + pad, cy + pad, cw - 2 * pad, ch - 2 * pad, t.font.title, false, t.palette.foreground, Align::TopLeft | Align::Wrap);
+                let align = if rtl { Align::TopRight } else { Align::TopLeft };
+                paint::text(&msg2, cx + pad, cy + pad, cw - 2 * pad, ch - 2 * pad, t.font.title, false, t.palette.foreground, align | Align::Wrap);
                 for (i, (bx, by, bw, bh)) in buttons.iter().copied().enumerate() {
                     let on = sel.get() == i as i32;
                     let fg = t.palette.foreground;
@@ -387,11 +561,34 @@ impl ConfirmDialog {
                         (None, fg.over(b, 0.38), fg)
                     };
                     paint::surface(bx, by, bw, bh, 0, fill, Some((border, 1)));
-                    paint::text(&labels2[i], bx, by, bw, bh, t.font.caption, false, text, Align::Center);
+                    paint::text(&labels2()[i], bx, by, bw, bh, t.font.caption, false, text, Align::Center);
                 }
             });
         });
         let on_close = Rc::new(RefCell::new(Some(Box::new(on_close) as Box<dyn FnOnce(bool)>)));
+        let (sel, g3, msg3, labels3, lw) = (selected.clone(), geom.clone(), message.to_string(), labels.clone(), layer.clone());
+        a11y::describe(&layer, move |n| {
+            let ((cx, cy, cw, ch), buttons) = g3(&lw);
+            n.role(Role::AlertDialog).name(&msg3).modal(true).bounds(cx, cy, cw, ch);
+            for (i, label) in labels3().iter().enumerate() {
+                let (bx, by, bw, bh) = buttons[i];
+                n.child(i as u64, |b| {
+                    b.role(Role::Button).name(label).bounds(bx, by, bw, bh).action(Action::Click).focusable();
+                    if sel.get() == i as i32 {
+                        b.focused();
+                    }
+                });
+            }
+        });
+        let (oc, l2) = (on_close.clone(), layer.clone());
+        a11y::on_action(&layer, move |r| {
+            let (Some(k), Action::Click) = (r.key(), r.action) else { return false };
+            close_layer(&l2);
+            if let Some(f) = oc.borrow_mut().take() {
+                f(k == 1);
+            }
+            true
+        });
         let sel = selected.clone();
         layer.handle(move |l, ev| {
             let ((cx, cy, cw, ch), buttons) = geom(l);
@@ -421,6 +618,7 @@ impl ConfirmDialog {
                 Event::KeyDown => {
                     match app::event_key() {
                         Key::Escape => done(l, false),
+                        // Two buttons: either arrow (and Tab) goes to the other one.
                         Key::Left | Key::Right | Key::Tab => { sel.set(1 - sel.get()); l.redraw(); }
                         Key::Enter | Key::KPEnter => { let ok = sel.get() == 1; done(l, ok) }
                         _ => {}
@@ -438,12 +636,15 @@ impl ConfirmDialog {
 /// rectangles, but it alpha-blends RGBA images, so a 1×1 RGBA image is
 /// scaled over the area.
 pub fn draw_scrim(l: &Widget, color: Rgb, alpha: f64) {
-    paint::alpha_fill(l.x(), l.y(), l.w(), l.h(), color, alpha);
+    // A layer fading in or out fades its scrim too.
+    let p = DRAWING.with(|d| d.get());
+    paint::alpha_fill(l.x(), l.y(), l.w(), l.h(), color, alpha * p);
 }
 
 // ============================================================ Notification
 
-/// Omarchy notification card (toast) at the window's top-right: icon slot,
+/// Omarchy notification card (toast) at the window's top-right (top-left,
+/// mirrored, in a right-to-left language): icon slot,
 /// bold summary, body in `darker(text, 1.15)`, accent border, auto-dismiss
 /// (8 s normal, never for critical). A click dismisses it; from the
 /// keyboard, Tab reaches it and Enter, Space, Delete or Esc dismiss it.
@@ -471,28 +672,37 @@ impl Notification {
             (cw, (2 * pad + lines * (t.font.title + 6)).max(s(40.0) + 2 * pad) + 4)
         });
         let margin = theme::with(|t| t.gaps_out.max(8));
-        let stack_y = TOASTS.with(|v| v.borrow().iter().map(|w| w.h() + margin).sum::<i32>());
-        let rect = (win.w() - cw - margin, margin + stack_y, cw, ch);
+        let stack_y = TOASTS.with(|v| {
+            // Toasts deleted with their window are gone.
+            v.borrow_mut().retain(|w| !w.was_deleted());
+            v.borrow().iter().map(|w| w.h() + margin).sum::<i32>()
+        });
+        // Top-right; top-left right to left, with the icon on the right.
+        let rtl = crate::layout::is_rtl(anchor);
+        let rect = (if rtl { margin } else { win.w() - cw - margin }, margin + stack_y, cw, ch);
         let Some(mut layer) = open_layer(anchor, Some(rect), false) else { return };
         TOASTS.with(|v| v.borrow_mut().push(layer.clone()));
         let (icon, summary, body) = (icon.to_string(), summary.to_string(), body.to_string());
-        layer.draw(move |l| {
+        let (summary2, body2) = (summary.clone(), body.clone());
+        draw_layer(&mut layer, move |l| {
             theme::with(|t| {
                 let n = &t.notifications;
                 card(t, l.x(), l.y(), l.w(), l.h(), n, 2);
                 let s = |px: f64| (px * t.font.base as f64 / 12.0).round() as i32;
+                let m = crate::layout::Mirror::new(rtl, l.x(), l.w());
                 let mut x = l.x() + 12;
                 if !icon.is_empty() {
                     let slot = s(40.0);
-                    paint::glyph(&icon, x, l.y(), slot, l.h(), t.font.display_large, n.text);
+                    paint::glyph(&icon, m.x(x, slot), l.y(), slot, l.h(), t.font.display_large, n.text);
                     x += slot + 12;
                 }
                 let w = l.x() + l.w() - s(10.0) - x;
                 let line = t.font.title + 6;
                 let top = l.y() + (l.h() - if body.is_empty() { line } else { 2 * line }) / 2;
-                paint::text_elided(&summary, x, top, w, line, t.font.title, true, n.text, Align::Left);
+                let (tx, al) = (m.x(x, w), m.align(Align::Left));
+                paint::text_elided(&summary, tx, top, w, line, t.font.title, true, n.text, al);
                 if !body.is_empty() {
-                    paint::text_elided(&body, x, top + line, w, line, t.font.title, false, n.text.darker(1.15), Align::Left);
+                    paint::text_elided(&body, tx, top + line, w, line, t.font.title, false, n.text.darker(1.15), al);
                 }
                 if crate::focus::show_ring(l) {
                     let fill = n.fill(bg(t));
@@ -517,6 +727,13 @@ impl Notification {
             }
             _ => false,
         });
+        let (sm, bd) = (summary2, body2);
+        a11y::describe(&layer, move |n| {
+            n.role(Role::Alert).name(&sm).description(&bd).live(if urgency == Urgency::Critical { Live::Assertive } else { Live::Polite })
+                .focusable().action(Action::Click);
+        });
+        let l3 = layer.clone();
+        a11y::default_click(&layer, Rc::new(move || dismiss(&l3)));
         let timeout = match urgency { Urgency::Low => Some(5.0), Urgency::Normal => Some(8.0), Urgency::Critical => None };
         if let Some(secs) = timeout {
             let l2 = layer.clone();
@@ -567,7 +784,9 @@ impl MenuItem {
 /// The Omarchy menu card: centered over a scrim, the header shows the
 /// typed filter (or "Title…" dimmed), 50 px rows with an 18 px glyph,
 /// accent text on the cursor row. Type to filter, Up/Down/PageUp/PageDown
-/// move (wrapping, skipping disabled), Enter picks, Esc clears/closes.
+/// move (wrapping, skipping disabled), Enter (or Right, the arrow toward the
+/// submenu mark; Left right to left) picks, Esc clears/closes. Mirrored in
+/// a right-to-left language.
 pub struct Menu;
 
 pub(crate) fn menu_filter(items: &[MenuItem], q: &str) -> Vec<usize> {
@@ -603,6 +822,10 @@ impl Menu {
         let top = Rc::new(Cell::new(0usize));
         let visible = Rc::new(RefCell::new(menu_filter(&items, "")));
         let title = title.to_string();
+        let title2 = title.clone();
+        // Right to left: glyphs on the right, the submenu mark on the left
+        // pointing left, and Left enters a submenu.
+        let rtl = crate::layout::is_rtl(anchor);
 
         struct Geo { cx: i32, cy: i32, cw: i32, ch: i32, pad: i32, header: i32, gap: i32, row: i32, spacing: i32, rows: usize }
         let geo = {
@@ -632,7 +855,7 @@ impl Menu {
         };
 
         let (it, fl, cu, tp, vis, g2) = (items.clone(), filter.clone(), cursor.clone(), top.clone(), visible.clone(), geo.clone());
-        layer.draw(move |l| {
+        draw_layer(&mut layer, move |l| {
             if let Some(win) = l.top_window() {
                 if (l.w(), l.h()) != (win.w(), win.h()) { l.resize(0, 0, win.w(), win.h()); }
             }
@@ -644,13 +867,14 @@ impl Menu {
                 paint::surface(g.cx, g.cy, g.cw, g.ch, t.radius, Some(fill), Some((m.border.over(fill, m.border_alpha), 2)));
                 let x = g.cx + g.pad;
                 let w = g.cw - 2 * g.pad;
+                let mr = crate::layout::Mirror::new(rtl, x, w);
                 let q = fl.borrow();
                 let (htext, alpha) = if q.is_empty() { (format!("{title}…"), 0.58) } else { (q.clone(), 1.0) };
-                paint::text_elided(&htext, x, g.cy + g.pad, w, g.header, t.font.heading, false, m.text.over(fill, alpha), Align::Left);
+                paint::text_elided(&htext, x, g.cy + g.pad, w, g.header, t.font.heading, false, m.text.over(fill, alpha), mr.align(Align::Left));
                 let ly = g.cy + g.pad + g.header + g.gap;
                 let vis = vis.borrow();
                 if vis.is_empty() {
-                    let msg = if q.is_empty() { "Nothing here yet".to_string() } else { format!("No matches for “{q}”") };
+                    let msg = if q.is_empty() { crate::i18n::tr("Nothing here yet") } else { crate::tr!("No matches for “{query}”", query = q) };
                     paint::glyph(glyph::EMPTY, x, ly, w, g.row, t.font.display_large, m.selected_text.over(fill, 0.8));
                     paint::text(&msg, x, ly + g.row - 6, w, t.font.title + 6, t.font.title, false, m.text.over(fill, 0.7), Align::Center);
                     return;
@@ -672,23 +896,25 @@ impl Menu {
                     let s = |px: f64| (px * t.font.base as f64 / 12.0).round() as i32;
                     let mut tx = x + s(18.0);
                     if !item.icon.is_empty() {
-                        paint::glyph(&item.icon, x + s(8.0), ry, s(36.0), g.row, t.font.icon_large, color);
+                        paint::glyph(&item.icon, mr.x(x + s(8.0), s(36.0)), ry, s(36.0), g.row, t.font.icon_large, color);
                         tx = x + s(8.0) + s(36.0) + s(6.0);
                     }
                     let trail = if item.submenu { s(14.0) + s(8.0) } else { 0 };
                     let tw = x + w - trail - s(6.0) - tx;
                     let show_detail = !item.detail.is_empty() && !q.is_empty();
                     let lh = t.font.heading + 6;
+                    let (mtx, al) = (mr.x(tx, tw), mr.align(Align::Left));
                     if show_detail {
                         let dh = t.font.body_small + 4;
                         let top_y = ry + (g.row - lh - dh - s(3.0)) / 2;
-                        paint::text_elided(&item.label, tx, top_y, tw, lh, t.font.heading, false, color, Align::Left);
-                        paint::text_elided(&item.detail, tx, top_y + lh + s(3.0), tw, dh, t.font.body_small, false, m.text.over(fill, 0.52), Align::Left);
+                        paint::text_elided(&item.label, mtx, top_y, tw, lh, t.font.heading, false, color, al);
+                        paint::text_elided(&item.detail, mtx, top_y + lh + s(3.0), tw, dh, t.font.body_small, false, m.text.over(fill, 0.52), al);
                     } else {
-                        paint::text_elided(&item.label, tx, ry, tw, g.row, t.font.heading, false, color, Align::Left);
+                        paint::text_elided(&item.label, mtx, ry, tw, g.row, t.font.heading, false, color, al);
                     }
                     if item.submenu {
-                        paint::glyph(glyph::SUBMENU, x + w - s(8.0) - s(14.0), ry, s(14.0), g.row, t.font.heading, m.text.over(fill, 0.36));
+                        let mark = mr.glyph(glyph::SUBMENU, glyph::SUBMENU_RTL);
+                        paint::glyph(mark, mr.x(x + w - s(8.0) - s(14.0), s(14.0)), ry, s(14.0), g.row, t.font.heading, m.text.over(fill, 0.36));
                     }
                 }
                 fltk::draw::pop_clip();
@@ -696,6 +922,47 @@ impl Menu {
         });
 
         let on_pick = Rc::new(RefCell::new(Some(Box::new(on_pick) as Box<dyn FnOnce(usize)>)));
+        let (it, fl, cu, tp, vis, g4, lw, ttl) = (items.clone(), filter.clone(), cursor.clone(), top.clone(), visible.clone(), geo.clone(), layer.clone(), title2);
+        a11y::describe(&layer, move |n| {
+            let g = g4(&lw);
+            let q = fl.borrow();
+            n.role(Role::Menu).name(&ttl).bounds(g.cx, g.cy, g.cw, g.ch);
+            if !q.is_empty() {
+                n.description(&q);
+            }
+            let vis = vis.borrow();
+            let ly = g.cy + g.pad + g.header + g.gap;
+            let c = cu.get();
+            // Long command lists: the entries around the cursor, with their position.
+            for vi in c.saturating_sub(50)..(c + 51).min(vis.len()) {
+                let item = &it[vis[vi]];
+                let slot = vi as i32 - tp.get() as i32;
+                n.child(vis[vi] as u64, |m| {
+                    m.role(Role::MenuItem).name(&item.label).description(&item.detail).position(vi + 1, vis.len()).disabled(!item.enabled)
+                        .action(Action::Click).action(Action::Focus);
+                    if (0..g.rows as i32).contains(&slot) {
+                        m.bounds(g.cx + g.pad, ly + slot * (g.row + g.spacing), g.cw - 2 * g.pad, g.row);
+                    }
+                    if vi == c {
+                        m.focused();
+                    }
+                });
+            }
+        });
+        let (it, vis, cu, op, l5) = (items.clone(), visible.clone(), cursor.clone(), on_pick.clone(), layer.clone());
+        a11y::on_action(&layer, move |r| {
+            let Some(idx) = r.key().map(|k| k as usize) else { return false };
+            let Some(vi) = vis.borrow().iter().position(|&i| i == idx) else { return false };
+            match r.action {
+                Action::Click if it[idx].enabled => {
+                    close_layer(&l5);
+                    if let Some(f) = op.borrow_mut().take() { f(idx); }
+                }
+                Action::Focus | Action::ScrollIntoView => { cu.set(vi); l5.clone().redraw(); }
+                _ => return false,
+            }
+            true
+        });
         let (it, fl, cu, tp, vis) = (items.clone(), filter.clone(), cursor.clone(), top.clone(), visible.clone());
         layer.handle(move |l, ev| {
             let g = geo(l);
@@ -743,7 +1010,10 @@ impl Menu {
                         Key::Up => { step(-1); l.redraw(); }
                         Key::PageDown => { step(6); l.redraw(); }
                         Key::PageUp => { step(-6); l.redraw(); }
-                        Key::Enter | Key::KPEnter | Key::Right => pick(l),
+                        Key::Enter | Key::KPEnter => pick(l),
+                        // Into a submenu: the arrow that points at its mark.
+                        Key::Right if !rtl => pick(l),
+                        Key::Left if rtl => pick(l),
                         Key::BackSpace => {
                             if ctrl {
                                 let mut f = fl.borrow_mut();

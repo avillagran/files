@@ -12,7 +12,7 @@ with tempfile.TemporaryDirectory(prefix='popup-media-',dir=BASE) as tmp:
  def chunk(k,d):return struct.pack('>I',len(d))+k+d+struct.pack('>I',zlib.crc32(k+d)&0xffffffff)
  w,h=3200,2400;pixels=zlib.compress((b'\0'+bytes([210,30,70])*w)*h)
  (folder/'red.png').write_bytes(b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',w,h,8,2,0,0,0))+chunk(b'IDAT',pixels)+chunk(b'IEND',b''))
- env={**os.environ,'FILES_CONFIG_DIR':str(b/'config'),'FILES_TEST_CAPTURE':str(raw),'FILES_TEST_TOOLKIT_POPUP':'1','FILES_TEST_ISOLATE_INPUT':'1','FILES_CLOSE_TRACE':'1','FILES_TEST_FIXED_SIZE':'1'}
+ env={**os.environ,'FILES_CONFIG_DIR':str(b/'config'),'FILES_TEST_CAPTURE':str(raw),'FILES_TEST_TOOLKIT_POPUP':'1','OMARCHY_FLTK_ANIM':'off','FILES_TEST_ISOLATE_INPUT':'1','FILES_CLOSE_TRACE':'1','FILES_TEST_FIXED_SIZE':'1'}
  with log.open('w') as out:p=subprocess.Popen([str(args.binary),str(folder),'--size','1000x650','--no-session','--ui-smoke','--exit-after','30'],env=env,stderr=out,stdout=subprocess.DEVNULL,start_new_session=True)
  def wait(check,label,timeout=10):
   end=time.monotonic()+timeout

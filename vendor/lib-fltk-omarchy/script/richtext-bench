@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# RichText chat-stream benchmark as a real Wayland client on the hidden
+# Hyprland workspace special:omarchy-fltk-richtext (silent and floating: the
+# user's focus is untouched). Each case writes one JSON line; results go to
+# build/richtext-bench.jsonl. Build first:
+#   cargo build --release --example richtext_bench
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+BIN="$ROOT/target/release/examples/richtext_bench"
+OUT="$ROOT/build/richtext-bench.jsonl"
+mkdir -p "$ROOT/build"; : >"$OUT"
+cases=(
+  "--messages 0 --rate 0 --secs 2"
+  "--messages 5000 --rate 0 --secs 2"
+  "--messages 5000 --rate 1000000 --hz 60 --secs 10"
+  "--messages 5000 --rate 1000000 --hz 30 --secs 10"
+  "--messages 5000 --rate 1000000 --via sender --secs 10"
+)
+for args in "${cases[@]}"; do
+  for run in $(seq 1 "${RUNS:-3}"); do
+    REPORT="$ROOT/build/richtext-bench-run.json"; rm -f "$REPORT"
+    hyprctl dispatch "hl.dsp.exec_cmd(\"$BIN $args --out $REPORT omarchy-fltk-bench-richtext-$run\", { workspace = \"special:omarchy-fltk-richtext silent\", float = true })" >/dev/null
+    for _ in $(seq 1 600); do [[ -s "$REPORT" ]] && break; sleep 0.1; done
+    [[ -s "$REPORT" ]] || { echo "timeout: $args" >&2; exit 1; }
+    cat "$REPORT" | tee -a "$OUT"
+  done
+done

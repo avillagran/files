@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """PopupMenu in Files; fixture commands use toolkit handlers, not OS input."""
+import re
 import hashlib, json, os, re, subprocess, tempfile, time
 from pathlib import Path
 from memcheck import stop_tree
@@ -19,7 +20,7 @@ def main():
         config=base/'config';config.mkdir()
         shell=base/'shell.toml';shell.write_text('[font]\nbase-size = 18\n')
         env={**os.environ,'FILES_CONFIG_DIR':str(config),'FILES_TEST_CAPTURE':str(raw),
-             'FILES_TEST_FIXED_SIZE':'1','FILES_TEST_ISOLATE_INPUT':'1','FILES_TEST_TOOLKIT_POPUP':'1','FILES_CLOSE_TRACE':'1',
+             'FILES_TEST_FIXED_SIZE':'1','FILES_TEST_ISOLATE_INPUT':'1','FILES_TEST_TOOLKIT_POPUP':'1','OMARCHY_FLTK_ANIM':'off','FILES_CLOSE_TRACE':'1',
              'OMARCHY_FLTK_USER_SHELL':str(shell),'TMPDIR':str(base),'MAGICK_TEMPORARY_PATH':str(base)}
         with log.open('w') as stream:
             process=subprocess.Popen([str(ROOT/'target/release/files'),str(directory),'--size','800x440',
@@ -74,10 +75,13 @@ def main():
         command('actions-key','FILES_TOOLKIT_POPUP_OPEN kind=Actions')
         command('escape','reason=Escape valid=true focus_returned=true')
         opened('context','Context')
-        # Entries gained Invert/Clear before Open/Preview/Rename. Two Down
-        # selects Open (index2), not Rename; exercise the actual Rename row.
-        for _ in range(4):command('down','FILES_TOOLKIT_FIXTURE action=down')
-        command('pick','reason=Picked(4) valid=true focus_returned=true rename_open=true')
+        # The menu has section titles (disabled) since 2026-11-04: ask Files
+        # where Rename is and how many Down presses reach it.
+        rename=command('rename-downs','FILES_TOOLKIT_FIXTURE action=rename-downs')
+        m=re.search(r'FILES_TOOLKIT_RENAME index=(\d+) downs=(\d+)',rename)
+        if not m:raise RuntimeError('rename row not found: '+rename[-300:])
+        for _ in range(int(m[2])):command('down','FILES_TOOLKIT_FIXTURE action=down')
+        command('pick',f'reason=Picked({m[1]}) valid=true focus_returned=true rename_open=true')
         command('cancel-rename','FILES_TOOLKIT_FIXTURE action=cancel-rename')
         opened('actions','Actions')
         command('close','FILES_TOOLKIT_FIXTURE action=close')

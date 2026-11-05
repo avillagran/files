@@ -115,7 +115,7 @@ def main():
                             os.replace(pending, raw.with_suffix('.command'))
                             done = wait(lambda: re.search(r'FILES_PREVIEW_COMMAND_(REV action=' + re.escape(action) + r' |ERROR ' + re.escape(action) + r': )',
                                                           log.read_text()[after:]), 'command ' + action)
-                            if 'REV' in done.group(0):
+                            if done.group(0).startswith('FILES_PREVIEW_COMMAND_REV'):
                                 return after
                             report.setdefault('retried_commands', []).append(action)
                             assert time.monotonic() < deadline, 'command kept failing: ' + action

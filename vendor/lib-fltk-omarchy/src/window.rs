@@ -1,8 +1,10 @@
 //! `AppWindow`: an Omarchy application window = header (title + actions)
 //! over a padded body column. Normal (tiled) by default; `Mode::Floating`
 //! floats it on Hyprland at the requested size, the header drags it and
-//! the bottom corners resize it — all through Hyprland IPC on this
-//! window only.
+//! the bottom corners resize it: natively through the compositor on
+//! Wayland, through Hyprland IPC on this window only under XWayland, and
+//! by moving/resizing the FLTK window itself elsewhere (X11 window
+//! managers, macOS, Windows), see docs/PLATFORMS.md.
 
 use crate::paint;
 use crate::theme;
@@ -68,8 +70,18 @@ impl std::ops::DerefMut for AppWindow {
     }
 }
 
+/// Who moves the window during a header/corner drag that the compositor
+/// does not run natively.
+enum DragTarget {
+    /// Hyprland IPC on this window (XWayland on Hyprland).
+    Hyprland(String),
+    /// FLTK moves/resizes the window itself (X11 window managers, macOS,
+    /// Windows); `min` is the window's minimum size.
+    Fltk(Box<dyn WindowExt>, (i32, i32)),
+}
+
 struct Drag {
-    address: String,
+    target: DragTarget,
     origin: (i32, i32),
     size: (i32, i32),
     cursor: (i32, i32),
@@ -81,29 +93,57 @@ thread_local! {
     static DRAG: RefCell<Option<Drag>> = const { RefCell::new(None) };
 }
 
-fn drag_begin(title: &str, corner: u8) {
-    let Some(c) = hyprland::own_clients(Some(title)).into_iter().next() else { return };
-    let Some(cursor) = hyprland::cursor() else { return };
-    DRAG.with(|d| *d.borrow_mut() = Some(Drag { address: c.address, origin: c.at, size: c.size, cursor, corner, last: std::time::Instant::now() }));
+/// Starts a fallback drag of `w`'s window (after the native gesture failed).
+fn drag_begin<W: WidgetExt>(w: &W, title: &str, corner: u8, min: (i32, i32)) {
+    let last = std::time::Instant::now();
+    if let Some(c) = hyprland::own_clients(Some(title)).into_iter().next() {
+        let Some(cursor) = hyprland::cursor() else { return };
+        DRAG.with(|d| *d.borrow_mut() = Some(Drag { target: DragTarget::Hyprland(c.address), origin: c.at, size: c.size, cursor, corner, last }));
+        return;
+    }
+    // Wayland clients cannot place themselves: nothing more to try there.
+    if crate::platform::wayland() {
+        return;
+    }
+    let Some(win) = w.top_window() else { return };
+    let cursor = (app::event_x_root(), app::event_y_root());
+    let (origin, size) = ((win.x(), win.y()), (win.w(), win.h()));
+    DRAG.with(|d| *d.borrow_mut() = Some(Drag { target: DragTarget::Fltk(win, min), origin, size, cursor, corner, last }));
 }
 
 fn drag_update() {
     DRAG.with(|d| {
         let mut d = d.borrow_mut();
         let Some(st) = d.as_mut() else { return };
-        if st.last.elapsed().as_millis() < 16 {
-            return;
-        }
-        st.last = std::time::Instant::now();
-        let Some((cx, cy)) = hyprland::cursor() else { return };
-        let (dx, dy) = (cx - st.cursor.0, cy - st.cursor.1);
-        match st.corner {
-            0 => { hyprland::move_to(&st.address, st.origin.0 + dx, st.origin.1 + dy); }
-            1 => {
-                hyprland::move_to(&st.address, st.origin.0 + dx, st.origin.1);
-                hyprland::resize_to(&st.address, st.size.0 - dx, st.size.1 + dy);
+        match &mut st.target {
+            DragTarget::Hyprland(address) => {
+                if st.last.elapsed().as_millis() < 16 {
+                    return;
+                }
+                st.last = std::time::Instant::now();
+                let Some((cx, cy)) = hyprland::cursor() else { return };
+                let (dx, dy) = (cx - st.cursor.0, cy - st.cursor.1);
+                match st.corner {
+                    0 => { hyprland::move_to(address, st.origin.0 + dx, st.origin.1 + dy); }
+                    1 => {
+                        hyprland::move_to(address, st.origin.0 + dx, st.origin.1);
+                        hyprland::resize_to(address, st.size.0 - dx, st.size.1 + dy);
+                    }
+                    _ => { hyprland::resize_to(address, st.size.0 + dx, st.size.1 + dy); }
+                }
             }
-            _ => { hyprland::resize_to(&st.address, st.size.0 + dx, st.size.1 + dy); }
+            DragTarget::Fltk(win, min) => {
+                let (dx, dy) = (app::event_x_root() - st.cursor.0, app::event_y_root() - st.cursor.1);
+                let (ox, oy, w, h) = (st.origin.0, st.origin.1, st.size.0, st.size.1);
+                match st.corner {
+                    0 => win.set_pos(ox + dx, oy + dy),
+                    1 => {
+                        let nw = (w - dx).max(min.0);
+                        win.resize(ox + w - nw, oy, nw, (h + dy).max(min.1));
+                    }
+                    _ => win.resize(ox, oy, (w + dx).max(min.0), (h + dy).max(min.1)),
+                }
+            }
         }
     });
 }
@@ -134,7 +174,8 @@ impl AppWindow {
 
         let mode = Rc::new(Cell::new(Mode::Normal));
         let shortcuts: Rc<RefCell<Vec<(crate::keys::Keys, Box<dyn FnMut()>)>>> = Rc::default();
-        let (m2, sc, ttl) = (mode.clone(), shortcuts.clone(), title.to_string());
+        let min = Rc::new(Cell::new(((width / 2).max(200), (height / 2).max(150))));
+        let (m2, sc, mn) = (mode.clone(), shortcuts.clone(), min.clone());
         win.handle(move |w, ev| {
             let floating = m2.get() == Mode::Floating;
             match ev {
@@ -144,7 +185,8 @@ impl AppWindow {
                         // Native compositor resize first (any Wayland compositor), Hyprland IPC otherwise.
                         let edge = if corner == 1 { crate::native::Edge::BottomLeft } else { crate::native::Edge::BottomRight };
                         if !crate::native::begin_resize(w, edge) {
-                            drag_begin(&ttl, corner);
+                            // Current title: it may have been translated since.
+                            drag_begin(w, &w.label(), corner, mn.get());
                         }
                         return true;
                     }
@@ -193,14 +235,31 @@ impl AppWindow {
             let mut w = win.clone();
             move |t| { w.set_color(t.palette.background.fl()); w.redraw(); }
         });
-        let min = Rc::new(Cell::new(((width / 2).max(200), (height / 2).max(150))));
         AppWindow { win, header, body, mode, size: (width, height), min, shortcuts }
     }
 
-    /// Closes the body column (and the window group).
+    /// Closes the body column (and the window group). Every `Flex` row
+    /// inside then follows the writing direction
+    /// ([`layout::mirror_rows`](crate::layout::mirror_rows)).
     pub fn end(&mut self) {
         self.body.end();
         self.win.end();
+        crate::layout::mirror_rows(&self.win);
+    }
+
+    /// Sets the window title (taskbar, compositor) and the header title.
+    pub fn set_title(&mut self, title: &str) {
+        self.win.set_label(title);
+        self.header.set_title(title);
+    }
+
+    /// Keeps both titles in sync with a State (`&i18n::text("Files")`).
+    pub fn bind_title(&mut self, s: &crate::State<String>) {
+        let (mut w, mut h) = (self.win.clone(), self.header.clone());
+        crate::state::bind_widget(&self.win, s, true, move |v| {
+            w.set_label(v);
+            h.set_title(v);
+        });
     }
 
     pub fn header(&self) -> Header {
@@ -350,7 +409,8 @@ fn draw_stack(w: &mut DoubleWindow) {
 // ================================================================== Header
 
 /// Omarchy window header: bold title on the left, action buttons on the
-/// right, hairline below. Dragging it moves a floating window.
+/// right, hairline below (mirrored in a right-to-left language: title on
+/// the right, actions on the left). Dragging it moves a floating window.
 #[derive(Clone)]
 pub struct Header {
     inner: Flex,
@@ -373,7 +433,9 @@ impl Header {
         handle.set_frame(FrameType::NoBox);
         let tt = title_rc.clone();
         handle.draw(move |w| {
-            theme::with(|t| paint::text_elided(&tt.borrow(), w.x(), w.y(), w.w(), w.h(), t.font.title, true, t.palette.foreground, Align::Left));
+            // Reading start: the right in a right-to-left language.
+            let align = crate::layout::Mirror::of(w).align(Align::Left);
+            theme::with(|t| paint::text_elided(&tt.borrow(), w.x(), w.y(), w.w(), w.h(), t.font.title, true, t.palette.foreground, align));
         });
         let (dr, tt) = (draggable.clone(), title_rc.clone());
         handle.handle(move |w, ev| match ev {
@@ -381,7 +443,7 @@ impl Header {
                 // Native compositor move first (any Wayland compositor), Hyprland IPC otherwise.
                 if !crate::native::begin_move(w) {
                     let title = w.window().map(|win| win.label()).unwrap_or_else(|| tt.borrow().clone());
-                    drag_begin(&title, 0);
+                    drag_begin(w, &title, 0, (0, 0));
                 }
                 true
             }
@@ -392,9 +454,13 @@ impl Header {
         let mut actions = Flex::default().row();
         actions.set_spacing(t.spacing.xs);
         actions.end();
+        // Right to left: title on the right, actions on the left.
+        crate::layout::mirror(&actions);
         inner.fixed(&actions, 0);
         inner.end();
+        crate::layout::register(&inner);
         inner.draw(move |f| {
+            crate::layout::relayout_if_mirrored(f);
             theme::with(|t| {
                 crate::glass::fill(f.x(), f.y(), f.w(), f.h(), 0, t.palette.background);
                 let line = t.palette.foreground.over(t.palette.background, 0.12);
@@ -405,6 +471,16 @@ impl Header {
         // cfltk runs FLTK's own draw before this closure by default: it would
         // draw damaged children first and this background would then cover them.
         inner.super_draw(false);
+        let tt = title_rc.clone();
+        crate::a11y::describe(&handle, move |n| {
+            n.role(crate::a11y::Role::Heading).level(1).name(&tt.borrow());
+        });
+        let acts = actions.clone();
+        crate::a11y::describe(&actions, move |n| {
+            if acts.children() > 0 {
+                n.role(crate::a11y::Role::Toolbar);
+            }
+        });
         Header { inner, title: title_rc, actions, draggable }
     }
 
@@ -417,7 +493,8 @@ impl Header {
         self.title.borrow().clone()
     }
 
-    /// Adds an action button (Nerd glyph + tooltip) on the right side.
+    /// Adds an action button (Nerd glyph + tooltip) on the right side (the
+    /// left in a right-to-left language).
     pub fn action(&mut self, glyph: &str, tooltip: &str, f: impl FnMut() + 'static) -> ActionButton {
         self.add(ActionButton::new(glyph, tooltip).on_click(f))
     }

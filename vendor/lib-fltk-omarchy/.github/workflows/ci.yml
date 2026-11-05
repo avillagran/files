@@ -1,0 +1,179 @@
+# Build and test on Linux (X11 and Wayland), macOS and Windows.
+# See docs/PLATFORMS.md for what each job proves and what it does not.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  lint:
+    name: fmt + cross-target type check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+          targets: x86_64-pc-windows-msvc, aarch64-apple-darwin, x86_64-apple-darwin
+      - uses: Swatinem/rust-cache@v2
+      # The pre-platform code base is not rustfmt-formatted (reformatting it
+      # would conflict with parallel branches); the platform layer is.
+      - name: rustfmt (platform layer)
+        run: rustfmt --check --edition 2021 src/platform/mod.rs
+      # fltk-sys skips its C++ build when CARGO_CHECK is set, so the crate's
+      # own Rust code (lib, tests, examples) is type-checked for every OS
+      # without a cross C++ toolchain.
+      - name: type-check Windows and macOS targets
+        env:
+          CARGO_CHECK: "1"
+        run: |
+          for t in x86_64-pc-windows-msvc aarch64-apple-darwin x86_64-apple-darwin; do
+            cargo check --locked --target "$t" --all-targets
+            cargo check --locked --target "$t" --all-targets --features gpu
+            cargo check --locked --target "$t" --all-targets --features a11y
+            cargo clippy --locked --target "$t" --all-targets -- -D clippy::correctness -D clippy::suspicious
+          done
+
+  msrv:
+    name: MSRV (Rust 1.80; a11y needs 1.85)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.80.0
+      - uses: dtolnay/rust-toolchain@1.85.0
+      - uses: Swatinem/rust-cache@v2
+      - name: system packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build \
+            libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev \
+            libpango1.0-dev libcairo2-dev libgl1-mesa-dev libglu1-mesa-dev \
+            libwayland-dev wayland-protocols libxkbcommon-dev libdbus-1-dev libegl-dev
+      - name: build with 1.80 (default features)
+        run: cargo +1.80.0 build --locked --all-targets
+      - name: build with 1.85 (a11y)
+        run: cargo +1.85.0 build --locked --all-targets --features a11y
+
+  linux-x11:
+    name: Linux X11 (Xvfb)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - uses: Swatinem/rust-cache@v2
+      - name: system packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build xvfb libxtst6 \
+            libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev \
+            libpango1.0-dev libcairo2-dev libgl1-mesa-dev libglu1-mesa-dev \
+            libwayland-dev wayland-protocols libxkbcommon-dev libdbus-1-dev libegl-dev \
+            fonts-dejavu-core gdb
+      - name: clippy
+        run: cargo clippy --locked --all-targets -- -D clippy::correctness -D clippy::suspicious
+      - name: build
+        run: cargo build --locked --all-targets
+      - name: tests (unit, doc, UI on X11)
+        run: env -u WAYLAND_DISPLAY xvfb-run -a -s "-screen 0 1280x800x24" cargo test --locked
+      - name: real X11 window (move/resize fallback)
+        run: |
+          cargo build --locked --release --example platform_check
+          script/x11-check
+      - name: gpu feature
+        run: |
+          cargo build --locked --all-targets --features gpu
+          env -u WAYLAND_DISPLAY xvfb-run -a -s "-screen 0 1280x800x24" cargo test --locked --features gpu
+      - name: a11y feature (AccessKit; tree checks without a bus)
+        run: env -u WAYLAND_DISPLAY xvfb-run -a -s "-screen 0 1280x800x24" cargo test --locked --features a11y
+
+  linux-wayland:
+    name: Linux Wayland (headless sway)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: system packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build sway \
+            libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev \
+            libpango1.0-dev libcairo2-dev libgl1-mesa-dev libglu1-mesa-dev \
+            libwayland-dev wayland-protocols libxkbcommon-dev libdbus-1-dev libegl-dev \
+            fonts-dejavu-core gdb
+      - name: build
+        run: cargo build --locked --all-targets
+      - name: tests on a headless Wayland compositor
+        run: |
+          export XDG_RUNTIME_DIR="$(mktemp -d)"; chmod 700 "$XDG_RUNTIME_DIR"
+          # wlroots headless (like Hyprland). FLTK 1.5.23 crashed in its
+          # output_done callback under weston 14 --backend=headless.
+          env -u DISPLAY WLR_BACKENDS=headless WLR_RENDERER=pixman WLR_LIBINPUT_NO_DEVICES=1 \
+            WLR_HEADLESS_OUTPUTS=1 sway -c /dev/null &
+          for _ in $(seq 1 100); do ls "$XDG_RUNTIME_DIR"/wayland-* >/dev/null 2>&1 && break; sleep 0.1; done
+          export WAYLAND_DISPLAY="$(basename "$(ls "$XDG_RUNTIME_DIR"/wayland-? | head -1)")"
+          echo "compositor socket: $WAYLAND_DISPLAY"
+          env -u DISPLAY cargo test --locked || {
+            # A crash in a native window path: print where, then fail.
+            ui=$(ls -t target/debug/deps/ui-* | grep -v '\.d$' | head -1)
+            env -u DISPLAY gdb -batch -ex run -ex bt -ex 'thread apply all bt 8' "$ui" || true
+            exit 1
+          }
+
+  macos:
+    name: macOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - uses: Swatinem/rust-cache@v2
+      - name: clippy
+        run: cargo clippy --locked --all-targets -- -D clippy::correctness -D clippy::suspicious
+      - name: build
+        run: cargo build --locked --all-targets
+      - name: tests
+        env:
+          # Every UI check passes here too: pixel differences fail the run.
+          OMARCHY_FLTK_UI_STRICT: "1"
+        run: cargo test --locked
+      - name: gpu feature
+        run: cargo build --locked --all-targets --features gpu
+      - name: a11y feature
+        run: cargo build --locked --all-targets --features a11y
+      - name: platform report
+        run: cargo run --locked --release --example platform_check -- build-platform.json 2
+
+  windows:
+    name: Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - uses: Swatinem/rust-cache@v2
+      - name: clippy
+        run: cargo clippy --locked --all-targets -- -D clippy::correctness -D clippy::suspicious
+      - name: build
+        run: cargo build --locked --all-targets
+      - name: tests
+        env:
+          # Every UI check passes here too: pixel differences fail the run.
+          OMARCHY_FLTK_UI_STRICT: "1"
+        run: cargo test --locked
+      - name: gpu feature
+        run: cargo build --locked --all-targets --features gpu
+      - name: a11y feature
+        run: cargo build --locked --all-targets --features a11y
+      - name: platform report
+        run: cargo run --locked --release --example platform_check -- build-platform.json 2

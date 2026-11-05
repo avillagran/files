@@ -1,0 +1,24 @@
+Window "Settings" [focused]
+  Heading "Settings" [level 1]
+  Toolbar
+    Button "Preferences"
+  TextInput "Name" = "Ada"
+  Label = "Hello Ada"
+  Button "Add"
+  Button "Delete"
+  Switch "Wi-Fi" [checked]
+  Switch "Night light" [unchecked, desc "Warm colors at night"]
+  Slider "Volume" = "0.50"
+  SpinButton "Copies" = "3"
+  ComboBox "Output" = "Headphones" [collapsed]
+  TabList
+    Tab "General" [selected, 1 of 2]
+    Tab "Advanced" [2 of 2]
+  ListBox
+    ListBoxOption "Item 0" [1 of 100000, desc "KB"]
+    ListBoxOption "Item 1" [2 of 100000, desc "KB"]
+    ListBoxOption "Item 2" [3 of 100000, desc "KB"]
+    ListBoxOption "Item 3" [4 of 100000, desc "KB"]
+    ListBoxOption "Item 4" [5 of 100000, desc "KB"]
+    ListBoxOption "Item 5" [6 of 100000, desc "KB"]
+    ListBoxOption "Item 6" [7 of 100000, desc "KB"]

@@ -1,0 +1,57 @@
+{
+  "functional_gate": "PASS",
+  "label": "m2-installed",
+  "binary_sha256": "adba148f32bee9862100b4eb77238c1d1875d8058b49527407c4d16907f11a76",
+  "helper_sha256": "e5401c541f6ca42ca9eb3415d8277df5c6bfb114835913cbe48d2bd9245b942c",
+  "html_helper_sha256": "85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4",
+  "backend": "wayland",
+  "method": "toolkit popup fixture, tooltip::show probe, framebuffer captures; no OS input",
+  "sessions": {
+    "on": {
+      "tooltip_text": "Preferencias",
+      "tooltip_rect": [
+        753,
+        50,
+        106,
+        28
+      ],
+      "tooltip_painted": true,
+      "menu_rect": [
+        496,
+        48,
+        330,
+        456
+      ],
+      "early_differs_from_final": true
+    },
+    "off": {
+      "tooltip_text": "Preferencias",
+      "tooltip_rect": [
+        753,
+        50,
+        106,
+        28
+      ],
+      "tooltip_painted": true,
+      "menu_rect": [
+        496,
+        48,
+        330,
+        456
+      ],
+      "early_differs_from_final": false
+    }
+  },
+  "captures": [
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/toolkit-1ff1adf-20261104/m2-installed-on-tooltip-1793839755975129102.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/toolkit-1ff1adf-20261104/m2-installed-on-no-tooltip-1793839756361844681.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/toolkit-1ff1adf-20261104/m2-installed-on-menu-early-1793839756458076814.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/toolkit-1ff1adf-20261104/m2-installed-on-menu-final-1793839757102206097.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/toolkit-1ff1adf-20261104/m2-installed-off-tooltip-1793839758074067343.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/toolkit-1ff1adf-20261104/m2-installed-off-no-tooltip-1793839758459712918.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/toolkit-1ff1adf-20261104/m2-installed-off-menu-early-1793839758567657399.png",
+    "/home/avillagran/.cache/files-m2-updates/tk-0cd2242/source/docs/evidence/toolkit-1ff1adf-20261104/m2-installed-off-menu-final-1793839759213546735.png"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED"
+}

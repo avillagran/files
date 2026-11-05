@@ -1,0 +1,22 @@
+{
+  "functional_gate": "PASS",
+  "label": "b6",
+  "binary_sha256": "523c017d2ac8e157175cb140ce3c98fad1f4d7de7a4824a1946931910daf609a",
+  "helper_sha256": "1640d5f8597d024f9cb73143d5490e8d58e03a0e4f33997455d01b31729c827a",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "fixture lsblk JSON + recorder udisksctl; real window; no disk touched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "mount_then_open": "/home/node/.cache/files-test/devices-xud8gnsn/mnt/DATOS",
+    "bookmark_in_sidebar": true,
+    "eject": [
+      "unmount -b /dev/sdz1 --no-user-interaction",
+      "power-off -b /dev/sdz --no-user-interaction"
+    ]
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/devices-20261104/b6-rail-devices-1793838761220776392.png",
+    "/home/node/Work/files/docs/evidence/devices-20261104/b6-after-eject-1793838761557672389.png"
+  ]
+}

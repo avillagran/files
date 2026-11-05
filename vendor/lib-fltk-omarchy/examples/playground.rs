@@ -69,7 +69,7 @@ fn main() {
     for (label, b) in [
         ("Default", Button::new("Default")),
         ("Bordered", Button::new("Bordered").bordered()),
-        ("Primary", Button::icon(glyph::PLUS, "Primary").primary().shortcut("Ctrl+N")),
+        ("Primary", Button::icon(glyph::PLUS, "Primary").primary().shortcut("Mod+N")),
         ("Danger", Button::icon(glyph::TRASH, "Danger").danger().bordered()),
     ] {
         let l = label.to_string();
@@ -219,7 +219,7 @@ fn main() {
     let help_btn = Button::new("Shortcut help (F1)").bordered();
     r.fit(&*help_btn);
     r.close_fitted();
-    p2.fit(&*Label::new("Header: gear = Preferences (Ctrl+,), bolt = Actions (F10). Drag the title to move; bottom corners to resize.").tone(Tone::Dim));
+    p2.fit(&*Label::new(&format!("Header: gear = Preferences ({}), bolt = Actions (F10). Drag the title to move; bottom corners to resize.", fltk_omarchy::keys::label("Mod+,"))).tone(Tone::Dim));
     layout::spacer();
     p2.end();
 
@@ -285,7 +285,7 @@ fn main() {
 
     // ---- header menus and overlays
     let w = win.clone();
-    let gear = win.header().action(glyph::SETTINGS, "Preferences (Ctrl+,)", || {});
+    let gear = win.header().action(glyph::SETTINGS, &format!("Preferences ({})", fltk_omarchy::keys::label("Mod+,")), || {});
     let bolt = win.header().action("\u{f0241}", "Actions (F10)", || {});
     name(&names, &*gear, "header gear");
     name(&names, &*bolt, "header bolt");
@@ -323,15 +323,15 @@ fn main() {
     gear.clone().on_click(move || p1o());
     bolt.clone().on_click(move || a1o());
     let (p2o, a2o) = (open_prefs.clone(), open_actions.clone());
-    win.shortcut("Ctrl+,", move || p2o());
+    win.shortcut("Mod+,", move || p2o());
     win.shortcut("F10", move || a2o());
     let w3 = win.clone();
     let open_help = Rc::new(move || {
         let row = |k: &str, d: &str| (k.to_string(), d.to_string());
         ShortcutHelp::open(&*w3, "Keyboard shortcuts", vec![
             ("Move".into(), vec![row("Tab", "Next control"), row("Shift+Tab", "Previous control"), row("Ctrl+Tab", "Next tab"), row("Ctrl+Shift+Tab", "Previous tab")]),
-            ("Window".into(), vec![row("Ctrl+,", "Preferences"), row("F10", "Actions"), row("F1", "This help"), row("Ctrl+N", "Primary button")]),
-            ("Lists".into(), vec![row("Up/Down", "Move"), row("Shift+Down", "Extend selection"), row("Ctrl+Space", "Toggle"), row("Ctrl+A", "Select all"), row("Enter", "Open")]),
+            ("Window".into(), vec![row("Mod+,", "Preferences"), row("F10", "Actions"), row("F1", "This help"), row("Mod+N", "Primary button")]),
+            ("Lists".into(), vec![row("Up/Down", "Move"), row("Shift+Down", "Extend selection"), row("Mod+Space", "Toggle"), row("Mod+A", "Select all"), row("Enter", "Open")]),
             ("Tree".into(), vec![row("Right", "Expand / first child"), row("Left", "Collapse / parent")]),
         ]);
         log("shortcut help opened");
@@ -342,7 +342,7 @@ fn main() {
     help_btn.clone().on_click(move || h2());
     let pb = popup_btn.clone();
     popup_btn.clone().on_click(move || {
-        PopupMenu::open(&*pb, vec![PopupItem::new(glyph::FOLDER, "Open").shortcut("Enter"), PopupItem::new(glyph::FILE, "Copy").shortcut("Ctrl+C"),
+        PopupMenu::open(&*pb, vec![PopupItem::new(glyph::FOLDER, "Open").shortcut("Enter"), PopupItem::new(glyph::FILE, "Copy").shortcut("Mod+C"),
             PopupItem::new(glyph::TRASH, "Delete").disabled()], |i| log(format!("popup pick {i}")))
             .on_dismiss(|d| log(format!("popup dismissed: {d:?}")));
     });

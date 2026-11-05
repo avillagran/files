@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Streaming-update cost (examples/stream_bench.rs): a 520×400 window with a
+# 2 000-thread list and ~1 MB/s of message text from a background thread,
+# naive snapshots vs sync_from vs Feed (and Feed capped at 60 Hz), at 30 and
+# 100 events/s (RATES), RUNS runs each, window SIZE ("520 400"), on the
+# hidden Hyprland workspace special:omarchy-fltk-bench (silent: focus
+# untouched, no input sent).
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+BIN="$ROOT/target/release/examples/stream_bench"
+SECS="${SECS:-10}"
+RUNS="${RUNS:-3}"
+RATES="${RATES:-30 100}"
+SIZE="${SIZE:-520 400}"
+OUT_ALL="${OUT_ALL:-$ROOT/build/stream-bench.jsonl}"
+mkdir -p "$ROOT/build"; : >"$OUT_ALL"
+for run in $(seq 1 "$RUNS"); do
+  for rate in $RATES; do
+    for mode in naive diff feed feed60; do
+      OUT="$ROOT/build/stream-bench-run.json"; rm -f "$OUT"
+      TITLE="omarchy-fltk-stream-$mode-$rate-$run-$$"
+      hyprctl dispatch "hl.dsp.exec_cmd(\"$BIN $mode $rate $SECS $OUT $TITLE $SIZE\", { workspace = \"special:omarchy-fltk-bench silent\", float = true })" >/dev/null
+      for _ in $(seq 1 $(( (SECS + 20) * 10 ))); do [[ -s "$OUT" ]] && break; sleep 0.1; done
+      [[ -s "$OUT" ]] || { echo "timeout: $mode $rate" >&2; continue; }
+      cat "$OUT" | tee -a "$OUT_ALL"
+    done
+  done
+done

@@ -1,21 +1,20 @@
-//! Native window gestures on Wayland: ask the compositor to move or resize
-//! a window interactively (`xdg_toplevel.move` / `.resize` through FLTK's
-//! bundled libdecor), with the serial of the real button press. Works on
+//! Native window gestures: ask the compositor to move or resize a window
+//! interactively (`xdg_toplevel.move` / `.resize` through FLTK's bundled
+//! libdecor on Wayland), with the serial of the real button press. Works on
 //! any Wayland compositor; no compositor IPC.
 //!
 //! Call [`begin_move`] or [`begin_resize`] from the handler of the
 //! `Event::Push` that starts the gesture. They return false (do nothing)
-//! when the gesture is not possible: not Wayland (X11 backend), the window
-//! is not shown, it is not a top-level window with a libdecor frame, or
-//! the current event is not a button press. `AppWindow` uses them for its
-//! header drag and corner grips, and falls back to Hyprland IPC.
+//! when the gesture is not possible: not Wayland (X11 backend, macOS,
+//! Windows), the window is not shown, it is not a top-level window with a
+//! libdecor frame, or the current event is not a button press. `AppWindow`
+//! uses them for its header drag and corner grips, and falls back to
+//! Hyprland IPC, then to moving/resizing the FLTK window itself.
 //!
-//! This reads FLTK internals of the pinned fltk-sys 1.5.23 (FLTK 1.4):
-//! the `wld_window` record and the Wayland screen driver's seat. The
-//! layout is checked against that version only.
+//! The OS-specific part lives in [`crate::platform`].
 
 use fltk::{app, enums::Event, prelude::*};
-use std::ffi::{c_int, c_void};
+use std::ffi::c_void;
 use std::sync::atomic::{AtomicU32, Ordering};
 
 static MOVES: AtomicU32 = AtomicU32::new(0);
@@ -40,96 +39,42 @@ pub enum Edge {
     BottomRight = 8,
 }
 
-#[repr(C)]
-struct WlList {
-    prev: *mut c_void,
-    next: *mut c_void,
-}
-
-/// Prefix of FLTK 1.4's `struct wld_window` (Fl_Wayland_Window_Driver.H).
-#[repr(C)]
-pub(crate) struct WldWindow {
-    fl_win: *mut c_void,
-    outputs: WlList,
-    wl_surface: *mut c_void,
-    frame_cb: *mut c_void,
-    buffer: *mut c_void,
-    xdg_surface: *mut c_void,
-    kind: c_int,
-    /// Union: `libdecor_frame*` when `kind == DECORATED`.
-    frame: *mut c_void,
-}
-
-const DECORATED: c_int = 0;
-
-extern "C" {
-    #[link_name = "_Z13fl_wl_displayv"]
-    fn fl_wl_display() -> *mut c_void;
-    #[link_name = "_Z9fl_wl_xidPK9Fl_Window"]
-    pub(crate) fn fl_wl_xid(win: *const c_void) -> *mut WldWindow;
-    #[link_name = "_ZN2Fl13screen_driverEv"]
-    fn fl_screen_driver() -> *mut c_void;
-    #[link_name = "_ZN24Fl_Wayland_Screen_Driver10get_serialEv"]
-    fn wayland_get_serial(this: *mut c_void) -> u32;
-    #[link_name = "_ZN24Fl_Wayland_Screen_Driver11get_wl_seatEv"]
-    fn wayland_get_wl_seat(this: *mut c_void) -> *mut c_void;
-    #[link_name = "_Z18fl_wl_buffer_scaleP9Fl_Window"]
-    fn fl_wl_buffer_scale(win: *mut c_void) -> c_int;
-    fn fl_libdecor_frame_move(frame: *mut c_void, seat: *mut c_void, serial: u32);
-    fn fl_libdecor_frame_resize(frame: *mut c_void, seat: *mut c_void, serial: u32, edge: c_int);
-}
-
-/// The libdecor frame, seat and press serial, when a gesture is possible now.
-fn target<W: WidgetExt>(w: &W) -> Option<(*mut c_void, *mut c_void, u32)> {
+/// Starts (or with `dry_run` only checks) a gesture on `w`'s top window.
+fn gesture<W: WidgetExt>(w: &W, edge: Option<Edge>, dry_run: bool) -> bool {
     if std::env::var("OMARCHY_FLTK_NATIVE_GESTURES").is_ok_and(|v| v == "0") {
-        return None; // diagnostics: force the fallback path
+        return false; // diagnostics: force the fallback path
     }
     if app::event() != Event::Push {
-        return None; // the serial must be the one of this button press
+        return false; // the serial must be the one of this button press
     }
-    let win = w.top_window()?;
+    let Some(win) = w.top_window() else { return false };
     if !win.shown() {
-        return None;
+        return false;
     }
-    // SAFETY: plain FLTK calls on the UI thread. `fl_wl_display` is null
-    // unless the Wayland backend is active, so the screen driver is the
-    // Wayland one below; during a button press its seat exists.
-    unsafe {
-        if fl_wl_display().is_null() {
-            return None;
-        }
-        let xid = fl_wl_xid(win.as_widget_ptr() as *const c_void);
-        if xid.is_null() || (*xid).kind != DECORATED || (*xid).frame.is_null() {
-            return None;
-        }
-        let drv = fl_screen_driver();
-        let seat = wayland_get_wl_seat(drv);
-        let serial = wayland_get_serial(drv);
-        (!seat.is_null() && serial != 0).then_some(((*xid).frame, seat, serial))
-    }
+    crate::platform::native_gesture(win.as_widget_ptr() as *const c_void, edge.map(|e| e as i32), dry_run)
 }
 
 /// True when [`begin_move`]/[`begin_resize`] would work for `w` now.
 pub fn available<W: WidgetExt>(w: &W) -> bool {
-    target(w).is_some()
+    gesture(w, None, true)
 }
 
 /// Starts an interactive move of `w`'s window (from an `Event::Push` handler).
 pub fn begin_move<W: WidgetExt>(w: &W) -> bool {
-    let Some((frame, seat, serial)) = target(w) else { return false };
-    // SAFETY: valid frame/seat of a shown window, real press serial.
-    unsafe { fl_libdecor_frame_move(frame, seat, serial) };
-    MOVES.fetch_add(1, Ordering::Relaxed);
-    true
+    let ok = gesture(w, None, false);
+    if ok {
+        MOVES.fetch_add(1, Ordering::Relaxed);
+    }
+    ok
 }
 
 /// Starts an interactive resize from `edge` (from an `Event::Push` handler).
 pub fn begin_resize<W: WidgetExt>(w: &W, edge: Edge) -> bool {
-    let Some((frame, seat, serial)) = target(w) else { return false };
-    // SAFETY: as above.
-    unsafe { fl_libdecor_frame_resize(frame, seat, serial, edge as c_int) };
-    RESIZES.fetch_add(1, Ordering::Relaxed);
-    true
+    let ok = gesture(w, Some(edge), false);
+    if ok {
+        RESIZES.fetch_add(1, Ordering::Relaxed);
+    }
+    ok
 }
 
 /// Device pixels per FLTK unit of `w`'s window: FLTK's own scaling times the
@@ -137,19 +82,16 @@ pub fn begin_resize<W: WidgetExt>(w: &W, edge: Edge) -> bool {
 /// `Window::pixels_per_unit` only returns FLTK's scaling on Linux, so images
 /// meant to keep every device pixel (video, photos) would be sized for half
 /// the real resolution on a 2× output. X11 and unshown windows: FLTK's scaling.
+/// macOS and Windows: FLTK's own `pixels_per_unit` (it includes Retina).
 pub fn pixels_per_unit<W: WidgetExt>(w: &W) -> f32 {
     let Some(win) = w.top_window() else { return 1.0 };
-    let fltk_scale = app::screen_scale(win.screen_num());
-    // SAFETY: FLTK calls on the UI thread; the Wayland query only runs on the
-    // Wayland backend, for a shown window (its scale is the output's, or the
-    // largest output's before the surface entered one).
-    let output = unsafe {
-        if fl_wl_display().is_null() || !win.shown() {
-            1
-        } else {
-            fl_wl_buffer_scale(win.as_widget_ptr() as *mut c_void).max(1)
+    let ppu = match crate::platform::output_scale(win.as_widget_ptr() as *const c_void, win.shown()) {
+        Some(output) => app::screen_scale(win.screen_num()) * output as f32,
+        None => {
+            // SAFETY: `win` is a live top-level window; the wrapper only reads it.
+            let w = unsafe { fltk::window::Window::from_widget_ptr(win.as_widget_ptr()) };
+            w.pixels_per_unit()
         }
     };
-    let ppu = fltk_scale * output as f32;
     if ppu.is_finite() && ppu > 0.0 { ppu } else { 1.0 }
 }

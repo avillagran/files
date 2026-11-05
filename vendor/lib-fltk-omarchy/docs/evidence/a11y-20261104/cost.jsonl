@@ -1,0 +1,3 @@
+{"label":"a11y-off","runs":7,"median_startup_ms":59,"median_pss_kb":9290,"max_pss_kb":9341,"median_idle_cpu_s":0}
+{"label":"a11y-on-inactive","runs":7,"median_startup_ms":55,"median_pss_kb":11055,"max_pss_kb":11213,"median_idle_cpu_s":0}
+{"label":"a11y-on-active","runs":5,"median_startup_ms":450,"median_pss_kb":12035,"max_pss_kb":12127,"median_idle_cpu_s":0}

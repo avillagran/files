@@ -1,18 +1,17 @@
 //! Small client for Hyprland's request socket. It only queries state and
 //! dispatches actions on this process's own windows; it never edits the
 //! user's Hyprland configuration.
+//!
+//! Hyprland only runs on Linux: elsewhere (and on Linux without Hyprland)
+//! [`available`] is false and every call returns None/false.
 
 use serde_json::Value;
-use std::io::{Read, Write};
-use std::os::unix::net::UnixStream;
 use std::path::PathBuf;
 use std::time::Duration;
 
+/// Hyprland's request socket, when Hyprland runs.
 pub fn socket_path() -> Option<PathBuf> {
-    let sig = std::env::var_os("HYPRLAND_INSTANCE_SIGNATURE")?;
-    let dir = std::env::var_os("XDG_RUNTIME_DIR")?;
-    let p = PathBuf::from(dir).join("hypr").join(sig).join(".socket.sock");
-    p.exists().then_some(p)
+    crate::platform::hyprland_socket()
 }
 
 pub fn available() -> bool {
@@ -21,12 +20,7 @@ pub fn available() -> bool {
 
 /// Raw request, e.g. `"j/clients"` or `"dispatch <lua>"`.
 pub fn request(cmd: &str) -> Option<String> {
-    let mut s = UnixStream::connect(socket_path()?).ok()?;
-    s.set_read_timeout(Some(Duration::from_millis(500))).ok()?;
-    s.write_all(cmd.as_bytes()).ok()?;
-    let mut out = String::new();
-    s.read_to_string(&mut out).ok()?;
-    Some(out)
+    crate::platform::ipc_request(&socket_path()?, cmd, Duration::from_millis(500))
 }
 
 pub fn json(cmd: &str) -> Option<Value> {

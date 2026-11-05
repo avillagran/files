@@ -1,0 +1,573 @@
+{
+ "date": "2026-11-04",
+ "what": "Files (~/Work/files 32ef532) built against this branch with no Files code changes (only its pulldown-cmark pin bumped to =0.13.6 to resolve, see below); its own Settings and Context PopupMenus driven by Files' --ui-smoke popup fixture (command files + framebuffer captures, no OS input) in Xvfb. Probe = a pixel inside the menu card.",
+ "dependency_note": "toolkit 83ff9fe (after a967007) pins pulldown-cmark =0.13.6; Files pins =0.13.5 in crates/ui/Cargo.toml",
+ "files_tests": "cargo test --workspace: 1636 passed, 3 ignored, 0 failed",
+ "runs": {
+  "on (OMARCHY_FLTK_ANIM=on, as with Hyprland animations on)": {
+   "Settings": {
+    "rect": [
+     396,
+     48,
+     330,
+     390
+    ],
+    "probe": [
+     720,
+     243
+    ],
+    "background": [
+     26,
+     27,
+     38
+    ],
+    "open": [
+     69,
+     72,
+     91
+    ],
+    "frames_after_open": [
+     {
+      "ms": 10,
+      "pixel": [
+       27,
+       28,
+       38
+      ]
+     },
+     {
+      "ms": 21,
+      "pixel": [
+       27,
+       28,
+       38
+      ]
+     },
+     {
+      "ms": 31,
+      "pixel": [
+       45,
+       47,
+       62
+      ]
+     },
+     {
+      "ms": 38,
+      "pixel": [
+       45,
+       47,
+       62
+      ]
+     },
+     {
+      "ms": 45,
+      "pixel": [
+       57,
+       59,
+       76
+      ]
+     },
+     {
+      "ms": 56,
+      "pixel": [
+       57,
+       59,
+       76
+      ]
+     },
+     {
+      "ms": 69,
+      "pixel": [
+       64,
+       66,
+       85
+      ]
+     },
+     {
+      "ms": 77,
+      "pixel": [
+       64,
+       66,
+       85
+      ]
+     },
+     {
+      "ms": 84,
+      "pixel": [
+       66,
+       69,
+       87
+      ]
+     },
+     {
+      "ms": 95,
+      "pixel": [
+       66,
+       69,
+       87
+      ]
+     },
+     {
+      "ms": 102,
+      "pixel": [
+       66,
+       69,
+       87
+      ]
+     },
+     {
+      "ms": 114,
+      "pixel": [
+       68,
+       71,
+       89
+      ]
+     }
+    ],
+    "intermediate_frames": 12,
+    "first_frame_already_final": false,
+    "right_after_escape": {
+     "ms": 11,
+     "pixel": [
+      59,
+      61,
+      79
+     ]
+    },
+    "still_visible_after_escape": true,
+    "gone_after_350ms": [
+     26,
+     27,
+     38
+    ]
+   },
+   "Context": {
+    "rect": [
+     461,
+     2,
+     337,
+     433
+    ],
+    "probe": [
+     792,
+     218
+    ],
+    "background": [
+     26,
+     27,
+     38
+    ],
+    "open": [
+     69,
+     72,
+     91
+    ],
+    "frames_after_open": [
+     {
+      "ms": 10,
+      "pixel": [
+       26,
+       27,
+       38
+      ]
+     },
+     {
+      "ms": 17,
+      "pixel": [
+       26,
+       27,
+       38
+      ]
+     },
+     {
+      "ms": 28,
+      "pixel": [
+       44,
+       45,
+       60
+      ]
+     },
+     {
+      "ms": 38,
+      "pixel": [
+       44,
+       45,
+       60
+      ]
+     },
+     {
+      "ms": 46,
+      "pixel": [
+       57,
+       59,
+       76
+      ]
+     },
+     {
+      "ms": 56,
+      "pixel": [
+       57,
+       59,
+       76
+      ]
+     },
+     {
+      "ms": 68,
+      "pixel": [
+       63,
+       65,
+       84
+      ]
+     },
+     {
+      "ms": 75,
+      "pixel": [
+       63,
+       65,
+       84
+      ]
+     },
+     {
+      "ms": 82,
+      "pixel": [
+       66,
+       69,
+       88
+      ]
+     },
+     {
+      "ms": 89,
+      "pixel": [
+       66,
+       69,
+       88
+      ]
+     },
+     {
+      "ms": 96,
+      "pixel": [
+       66,
+       69,
+       88
+      ]
+     },
+     {
+      "ms": 103,
+      "pixel": [
+       67,
+       70,
+       89
+      ]
+     }
+    ],
+    "intermediate_frames": 10,
+    "first_frame_already_final": false,
+    "right_after_escape": {
+     "ms": 7,
+     "pixel": [
+      64,
+      66,
+      84
+     ]
+    },
+    "still_visible_after_escape": true,
+    "gone_after_350ms": [
+     26,
+     27,
+     38
+    ]
+   },
+   "log_markers": [
+    "FILES_TOOLKIT_FIXTURE action=settings",
+    "FILES_TOOLKIT_POPUP_OPEN kind=Settings rect=Some((396, 48, 330, 390))",
+    "FILES_TOOLKIT_FIXTURE action=escape",
+    "FILES_TOOLKIT_POPUP_DISMISS kind=Settings reason=Escape valid=true focus_returned=true rename_open=false",
+    "FILES_TOOLKIT_FIXTURE action=context",
+    "FILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((461, 2, 337, 433))"
+   ]
+  },
+  "off (OMARCHY_FLTK_ANIM=off)": {
+   "Settings": {
+    "rect": [
+     396,
+     48,
+     330,
+     390
+    ],
+    "probe": [
+     720,
+     243
+    ],
+    "background": [
+     26,
+     27,
+     38
+    ],
+    "open": [
+     69,
+     72,
+     91
+    ],
+    "frames_after_open": [
+     {
+      "ms": 7,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 20,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 29,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 36,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 43,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 53,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 60,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 66,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 76,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 83,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 94,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 101,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     }
+    ],
+    "intermediate_frames": 0,
+    "first_frame_already_final": true,
+    "right_after_escape": {
+     "ms": 7,
+     "pixel": [
+      26,
+      27,
+      38
+     ]
+    },
+    "still_visible_after_escape": false,
+    "gone_after_350ms": [
+     26,
+     27,
+     38
+    ]
+   },
+   "Context": {
+    "rect": [
+     461,
+     2,
+     337,
+     433
+    ],
+    "probe": [
+     792,
+     218
+    ],
+    "background": [
+     26,
+     27,
+     38
+    ],
+    "open": [
+     69,
+     72,
+     91
+    ],
+    "frames_after_open": [
+     {
+      "ms": 3,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 14,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 21,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 28,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 38,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 45,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 55,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 65,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 75,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 82,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 92,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     },
+     {
+      "ms": 99,
+      "pixel": [
+       69,
+       72,
+       91
+      ]
+     }
+    ],
+    "intermediate_frames": 0,
+    "first_frame_already_final": true,
+    "right_after_escape": {
+     "ms": 13,
+     "pixel": [
+      26,
+      27,
+      38
+     ]
+    },
+    "still_visible_after_escape": false,
+    "gone_after_350ms": [
+     26,
+     27,
+     38
+    ]
+   },
+   "log_markers": [
+    "FILES_TOOLKIT_FIXTURE action=settings",
+    "FILES_TOOLKIT_POPUP_OPEN kind=Settings rect=Some((396, 48, 330, 390))",
+    "FILES_TOOLKIT_FIXTURE action=escape",
+    "FILES_TOOLKIT_POPUP_DISMISS kind=Settings reason=Escape valid=true focus_returned=true rename_open=false",
+    "FILES_TOOLKIT_FIXTURE action=context",
+    "FILES_TOOLKIT_POPUP_OPEN kind=Context rect=Some((461, 2, 337, 433))"
+   ]
+  },
+  "hyprland_signature_set": false
+ }
+}

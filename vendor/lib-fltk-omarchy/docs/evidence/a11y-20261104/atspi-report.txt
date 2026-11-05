@@ -1,0 +1,91 @@
+private session bus: unix:path=/tmp/dbus-QGP9ohBEBq,guid=9182e51cf20a2dd78800ea976aebaa39
+PASS the app is on the AT-SPI desktop (activated lazily when AT-SPI IsEnabled turns on)
+/home/node/.t3/worktrees/lib-fltk-omarchy/t3-65321c88/script/a11y_atspi.py:69: DeprecationWarning: Atspi.Action.get_action_name is deprecated
+  extra += " actions=" + ",".join(Atspi.Action.get_action_name(a, i) for i in range(a.get_n_actions()))
+--- tree (AT-SPI roles and names)
+application 'a11y_check' []
+  frame 'a11y check' ['focusable']
+    heading 'a11y check' []
+    tool bar '' []
+      button 'Preferences' actions=click ['focusable']
+    label 'Pressed 0 times' []
+    button 'Press me' actions=click ['focusable']
+    button 'Delete' actions=click ['focusable']
+    entry 'Name' text='Ada' ['focusable', 'editable']
+    toggle button 'Wi-Fi' actions=click ['pressed', 'focusable']
+    slider 'Volume' value=0.5 [0..1] ['focusable']
+    combo box 'Output' actions=click ['focusable']
+    list box '' ['focusable']
+      list item 'Song 0' actions=click ['focusable']
+      list item 'Song 1' actions=click ['focusable']
+      list item 'Song 2' actions=click ['focusable']
+      list item 'Song 3' actions=click ['focusable']
+      list item 'Song 4' actions=click ['focusable']
+      list item 'Song 5' actions=click ['focusable']
+      list item 'Song 6' actions=click ['focusable']
+    document frame 'Transcript' text='Release notes\nThe parser streams Markdown. Read the docs.\nfirst item\nsecond item\nfn main() {}\n' ['focusable']
+      heading 'Release notes' []
+      paragraph 'The parser streams Markdown. Read the docs.' []
+        link 'the docs' actions=click ['focusable']
+      list '' []
+        list item 'first item' []
+        list item 'second item' []
+      static 'fn main() {}' []
+        button 'Copy' actions=click ['focusable']
+---
+PASS frame 'a11y check' exposed
+PASS push button 'Press me' exposed
+PASS push button 'Delete' exposed
+PASS push button 'Preferences' exposed
+PASS entry 'Name' exposed
+PASS toggle button 'Wi-Fi' exposed
+PASS slider 'Volume' exposed
+PASS combo box 'Output' exposed
+PASS label 'Pressed 0 times' exposed
+PASS heading 'a11y check' exposed
+PASS virtual list exposes 7 rows of 10000
+PASS first row is '1 of 10000' (posinset '1', setsize '10000')
+PASS AT-SPI DoAction('click') on 'Press me'
+PASS the AT click ran the button's on_click (app log: 'event pressed 1')
+PASS the label update reached the AT-SPI tree incrementally
+PASS AT-SPI DoAction on the switch toggled its State
+PASS AT-SPI Value.SetCurrentValue(0.8) on the slider
+PASS AT-SPI Text on the field reads 'Ada'
+PASS AT-SPI EditableText.SetTextContents reached the field (SetValue)
+PASS AT-SPI GrabFocus on a list row: focused and selected (Focus action -> list selection)
+PASS RichText is a 'document frame' named 'Transcript'
+PASS heading 'Release notes' read by name (['Release notes'])
+PASS paragraph text read by name (['The parser streams Markdown. Read the docs.'])
+PASS list items with position: [('first item', '1', '2'), ('second item', '2', '2')]
+PASS code block exposed with its text
+PASS Text interface on the document reads the blocks: 'Release notes\nThe parser streams Markdown. Read the docs.\nfirst item\nsecond item\nfn main() {}\n'
+PASS link 'the docs' exposed
+PASS AT-SPI Hyperlink URI 'https://example.com/docs'
+PASS AT-SPI DoAction on the link
+PASS the AT click opened the link like Enter (app log: 'event link https://example.com/docs')
+PASS AT-SPI GrabFocus on the link: it becomes the focused node (Tab target)
+PASS code block 'Copy' button with an action
+RESULT PASS (33/33)
+--- app log
+event shown
+a11y: full tree 34 nodes in 458 us
+event pressed 1
+a11y: update 25 of 34 nodes in 127 us
+event wifi false
+a11y: update 1 of 34 nodes in 146 us
+event volume 0.80
+a11y: update 1 of 34 nodes in 112 us
+a11y: update 2 of 34 nodes in 67 us
+a11y: update 0 of 34 nodes in 62 us
+a11y: update 0 of 34 nodes in 78 us
+a11y: update 0 of 34 nodes in 73 us
+a11y: update 0 of 34 nodes in 79 us
+a11y: update 0 of 34 nodes in 63 us
+a11y: update 0 of 34 nodes in 57 us
+a11y: update 0 of 34 nodes in 62 us
+a11y: update 0 of 34 nodes in 68 us
+a11y: update 0 of 34 nodes in 74 us
+a11y: update 1 of 34 nodes in 106 us
+event link https://example.com/docs
+a11y: update 0 of 34 nodes in 119 us
+a11y: update 0 of 34 nodes in 83 us

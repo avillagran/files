@@ -1,0 +1,22 @@
+{
+  "functional_gate": "PASS",
+  "label": "tk",
+  "binary_sha256": "c4330b73bd339522b489935863697862a71fbb801dbd2a50f25692d645671c7a",
+  "helper_sha256": "1640d5f8597d024f9cb73143d5490e8d58e03a0e4f33997455d01b31729c827a",
+  "html_helper_sha256": "04aa7953202d26c3602f2dd5ef6df1107a9e652f26357068541e59e0776694cd",
+  "method": "fixture lsblk JSON + recorder udisksctl; real window; no disk touched",
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "checks": {
+    "mount_then_open": "/home/node/.cache/files-test/devices-z8ggm46i/mnt/DATOS",
+    "bookmark_in_sidebar": true,
+    "eject": [
+      "unmount -b /dev/sdz1 --no-user-interaction",
+      "power-off -b /dev/sdz --no-user-interaction"
+    ]
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/devices-20261104/tk-rail-devices-1793839253840649113.png",
+    "/home/node/Work/files/docs/evidence/devices-20261104/tk-after-eject-1793839254180383463.png"
+  ]
+}

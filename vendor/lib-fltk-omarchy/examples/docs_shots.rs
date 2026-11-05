@@ -5,14 +5,16 @@
 use fltk::{group::Flex, prelude::*, window::DoubleWindow};
 use fltk_omarchy::focus::press;
 use fltk_omarchy::layout::{self, FlexExt};
+use fltk_omarchy::edit::{Attachment, CompletionItem, Composer, TextArea, Trigger};
 use fltk_omarchy::list::{List, ListRow};
 use fltk_omarchy::overlay::{ConfirmDialog, Dropdown, Menu, MenuItem, Notification, Urgency};
 use fltk_omarchy::popups::{OperationToast, PopupItem, PopupMenu, SearchableDropdown, ShortcutHelp};
 use fltk_omarchy::panel::KeyboardPanel;
+use fltk_omarchy::text::{RichLabel, RichText};
 use fltk_omarchy::paint;
 use std::rc::Rc;
 use fltk_omarchy::widgets::{glyph, *};
-use fltk_omarchy::{theme, App, AppWindow, State};
+use fltk_omarchy::{i18n, theme, trn, App, AppWindow, State};
 use std::path::{Path, PathBuf};
 
 /// A bare window with a padded column (the picture frame).
@@ -51,6 +53,7 @@ fn main() {
     std::fs::create_dir_all(&dir).unwrap();
     let _app = App::without_theme_watch("dev.omarchy.fltk.docs");
     fltk_omarchy::anim::set_enabled(false); // pictures show final states
+    i18n::set_locale("en"); // the toolkit's own strings, whatever the system language
 
     // ---- buttons
     let (win, col) = frame(600, 76);
@@ -83,6 +86,28 @@ fn main() {
     r.fit(&*NumberField::new(&State::new(42), 0, 100, 1));
     r.close_fitted();
     save(&mut done(win, col), &dir, "text-fields");
+
+    // ---- text area and composer
+    let (win, mut col) = frame(600, 330);
+    let notes = State::new("Notes wrap at the edge of the field and the field grows from 2 to 6 lines, then scrolls.\nCtrl+Z undoes a word at a time.".to_string());
+    col.fit(&*TextArea::new().placeholder("Notes").lines(2, 6).bind(&notes));
+    let draft = State::new(String::new());
+    let composer = Composer::new()
+        .placeholder("Ask anything, @files or /commands…")
+        .bind(&draft)
+        .trigger('@', Trigger::WordStart, |q, reply| {
+            let files = ["src/main.rs", "src/lib.rs", "src/edit/composer.rs", "Cargo.toml"];
+            reply.set(files.iter().filter(|f| f.contains(q.text.as_str())).map(|f| CompletionItem::new(f).icon(glyph::FILE).chip(f)).collect());
+        })
+        .on_submit(|text| println!("send {text}"))
+        .on_files(|paths| println!("attach {paths:?}"));
+    composer.attachments().push(Attachment::new("shot.png", "shot.png").detail("84 KB"));
+    col.fit(&*composer);
+    let mut win = done(win, col);
+    // picture: after typing "Review @src" (the list opens at the caret)
+    let _ = composer.area().take_focus();
+    composer.area().type_text("Review @src");
+    save(&mut win, &dir, "composer");
 
     // ---- toggles
     let (win, mut col) = frame(600, 214);
@@ -130,6 +155,29 @@ fn main() {
     col.fit(&*TabBar::new(&["Home", "Downloads", "Work"], &tab).on_close(|i| println!("close {i}")));
     save(&mut done(win, col), &dir, "tabs");
 
+    // ---- sidebar (collapsed, then expanded as hover or focus leaves it)
+    for (name, open) in [("sidebar", false), ("sidebar-expanded", true)] {
+        let (win, mut col) = frame(600, 230);
+        let view = State::new(0usize);
+        let mut row = layout::row();
+        let side = Sidebar::new(vec![
+            SidebarItem::new(glyph::FOLDER, "Files").badge("12"),
+            SidebarItem::new(glyph::SEARCH, "Search"),
+            SidebarItem::new(glyph::BELL, "Notifications").badge("3"),
+            SidebarItem::new(glyph::SETTINGS, "Settings").footer(),
+        ], &view);
+        row.fit(&*side);
+        let mut content = layout::column();
+        content.fit(&*Label::styled("Files", TextStyle::Title));
+        content.fit(&*Label::new("The content makes room when the rail expands.").tone(Tone::Dim));
+        content.end();
+        row.end();
+        col.fixed(&row, 190);
+        // picture: expanded (pointer resting on it, focus inside, or pinned)
+        if open { side.expand(); }
+        save(&mut done(win, col), &dir, name);
+    }
+
     // ---- dropdown (open)
     let (win, mut col) = frame(600, 210);
     let output = State::new(0usize);
@@ -165,6 +213,19 @@ fn main() {
     col.fixed(&*list, 250);
     save(&mut done(win, col), &dir, "list");
 
+    // ---- rich text (Markdown, chat streaming)
+    let (win, mut col) = frame(600, 400);
+    col.fit(&*RichLabel::new("Agent reply, **streaming** — see [the docs](https://example.com)"));
+    let chat = RichText::new().stick_to_bottom(true).on_link(|url| println!("open {url}"));
+    col.fit(&*chat);
+    col.fixed(&*chat, 330);
+    chat.append_markdown("Use `push_markdown` to **stream** tokens into the *last* message:\n\n\
+        - [x] only the open tail is parsed again\n- [ ] the view sticks to the bottom\n\n\
+        ```rust\nchat.push_markdown(\"more tokens…\"); // O(tail)\n```\n\n\
+        | Messages | Blocks laid out |\n|---|--:|\n| 5 000 | ~40 |\n\n> Links: https://example.com");
+    chat.push_markdown(" and [docs](https://example.com/docs).");
+    save(&mut done(win, col), &dir, "rich-text");
+
     // ---- popup menu (header Actions menu / context menu)
     let (win, col) = frame(600, 260);
     let mut r = layout::row();
@@ -175,7 +236,7 @@ fn main() {
     PopupMenu::open(&*actions, vec![
         PopupItem::new(glyph::FOLDER, "Open").shortcut("Enter"),
         PopupItem::new(glyph::SEARCH, "Preview").shortcut("Space").divider(),
-        PopupItem::new(glyph::FILE, "Copy").shortcut("Ctrl+C"),
+        PopupItem::new(glyph::FILE, "Copy").shortcut("Mod+C"),
         PopupItem::new(glyph::FILE, "Show hidden files").checked(true),
         PopupItem::new(glyph::TRASH, "Move to trash").shortcut("Delete").disabled(),
     ], |i| println!("picked {i}"));
@@ -239,7 +300,7 @@ fn main() {
     ShortcutHelp::open(&win, "Keyboard shortcuts", vec![
         ("Move".into(), vec![row("Tab", "Next control"), row("Shift+Tab", "Previous control"), row("Ctrl+Tab", "Next tab")]),
         ("Files".into(), vec![row("Enter", "Open"), row("F2", "Rename"), row("Delete", "Move to trash")]),
-        ("Window".into(), vec![row("Ctrl+,", "Preferences"), row("F10", "Actions"), row("F1", "This help")]),
+        ("Window".into(), vec![row("Mod+,", "Preferences"), row("F10", "Actions"), row("F1", "This help")]),
     ]);
     save(&mut win, &dir, "shortcut-help");
 
@@ -259,6 +320,42 @@ fn main() {
     w.end();
     w.snapshot(dir.join("app-window.png")).unwrap();
     println!("{}", dir.join("app-window.png").display());
+
+    // ---- tooltips: nothing to call, every tooltip is drawn by the toolkit
+    let mut win = AppWindow::new("Notes", 600, 160);
+    let prefs = win.header().action(glyph::SETTINGS, "Preferences", || {});
+    win.header().action("\u{f0241}", "Actions", || {});
+    let mut body = win.body();
+    body.fit(&*Button::new("Save").bordered().tooltip("Save the note"));
+    win.end();
+    // picture: the pointer rests on the gear for 400 ms
+    win.snapshot(dir.join("tooltip.png")).unwrap(); // lays the window out
+    fltk_omarchy::tooltip::show(&*prefs);
+    win.snapshot(dir.join("tooltip.png")).unwrap();
+    fltk_omarchy::tooltip::hide();
+    println!("{}", dir.join("tooltip.png").display());
+
+    // ---- i18n: one window, bound to the toolkit catalog, in Arabic and Japanese
+    for loc in ["ar", "ja"] {
+        i18n::set_locale(loc);
+        let mut w = AppWindow::new("", 460, 230);
+        w.bind_title(&i18n::text("Preferences"));
+        let mut body = w.body();
+        body.fit(&*Label::section("").bind(&i18n::text("Language")));
+        body.fit(&*TextField::new().bind_placeholder(&i18n::text("Search…")));
+        let n = State::new(5);
+        body.fit(&*Label::new("").bind(&i18n::map(&n, |n| trn!("{count} items", *n))));
+        let mut r = layout::row();
+        layout::spacer();
+        r.fit(&*Button::new("").bordered().bind_text(&i18n::text("Cancel")));
+        r.fit(&*Button::new("").primary().bind_text(&i18n::text("Save")));
+        r.close_fitted();
+        w.end();
+        let p = dir.join(format!("i18n-{loc}.png"));
+        w.snapshot(&p).unwrap();
+        println!("{}", p.display());
+    }
+    i18n::set_locale("en");
 
     // ---- keyboard: focus ring while driving the app with the keyboard
     let mut w = AppWindow::new("Keyboard", 600, 330);

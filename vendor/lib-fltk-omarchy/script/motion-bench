@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Sidebar hover expand/collapse on a real window: examples/motion_bench as a
+# Wayland client on the hidden Hyprland workspace special:omarchy-fltk-bench
+# (silent: the user's focus is untouched; hover goes through the toolkit's
+# in-process path, never synthetic OS input). Prints the JSON report.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+REPORT="$ROOT/build/motion-bench.json"
+mkdir -p "$ROOT/build"; rm -f "$REPORT"
+if [[ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]]; then
+  HYPRLAND_INSTANCE_SIGNATURE="$(ls -t "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/hypr" | head -1)"
+  export HYPRLAND_INSTANCE_SIGNATURE
+fi
+(cd "$ROOT" && cargo build --release --example motion_bench >/dev/null)
+BIN="$ROOT/target/release/examples/motion_bench"
+# BENCH_ENV="OMARCHY_FLTK_ANIM=on" measures without the system-setting watcher.
+hyprctl dispatch "hl.dsp.exec_cmd(\"${BENCH_ENV:+env $BENCH_ENV }$BIN $REPORT ${CYCLES:-10}\", { workspace = \"special:omarchy-fltk-bench silent\", float = true })" >/dev/null
+for _ in $(seq 1 600); do [[ -s "$REPORT" ]] && { cat "$REPORT"; exit 0; }; sleep 0.1; done
+echo "timeout" >&2; exit 1

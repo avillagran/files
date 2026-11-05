@@ -4,12 +4,18 @@
 //! same window is opaque again.
 //!
 //!     OMARCHY_FLTK_GLASS=on cargo run --example glass_check -- report.json
+//!
+//! Linux (native Wayland) diagnostic: the buffer is read through FLTK's
+//! Wayland Cairo context. On other OSes it builds, and reports an empty
+//! buffer (glass is opaque there, docs/PLATFORMS.md).
 use fltk::{enums::*, frame::Frame, prelude::*, window::Window};
 use fltk_omarchy::{glass, theme::Rgb};
 use std::cell::RefCell;
+#[cfg(target_os = "linux")]
 use std::ffi::{c_int, c_void};
 use std::rc::Rc;
 
+#[cfg(target_os = "linux")]
 extern "C" {
     #[link_name = "_Z8fl_wl_gcv"]
     fn fl_wl_gc() -> *mut c_void;
@@ -30,7 +36,13 @@ struct Frame1 {
     text_min_alpha: u8,
 }
 
+#[cfg(not(target_os = "linux"))]
+fn read(_points: &[(f64, f64)], _text: (f64, f64, f64, f64)) -> Frame1 {
+    Frame1::default()
+}
+
 /// BGRA (native-endian ARGB32) of the current window buffer.
+#[cfg(target_os = "linux")]
 fn read(points: &[(f64, f64)], text: (f64, f64, f64, f64)) -> Frame1 {
     unsafe {
         let cr = fl_wl_gc();

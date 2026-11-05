@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# TextArea/Composer costs as a real Wayland client on the hidden Hyprland
+# workspace special:omarchy-fltk-test (silent: the user's focus is untouched;
+# keys go through focus::press, never OS input). Prints the JSON report.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+REPORT="$ROOT/build/edit-bench.json"; mkdir -p "$ROOT/build"; rm -f "$REPORT"
+BIN="$ROOT/target/release/examples/edit_bench"
+[[ -x "$BIN" ]] || cargo build --release --example edit_bench --manifest-path "$ROOT/Cargo.toml"
+hyprctl dispatch "hl.dsp.exec_cmd(\"$BIN $REPORT\", { workspace = \"special:omarchy-fltk-test silent\" })" >/dev/null
+for _ in $(seq 1 300); do [[ -s "$REPORT" ]] && { cat "$REPORT"; exit 0; }; sleep 0.1; done
+echo "timeout" >&2; exit 1

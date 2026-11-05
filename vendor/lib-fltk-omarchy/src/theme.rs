@@ -6,6 +6,13 @@
 //!
 //! The current theme lives in a thread-local; components read it at draw
 //! time, so a theme switch is `theme::set(..)` + redraw.
+//!
+//! Omarchy's theme files exist on Linux. On macOS and Windows (and on
+//! Linux without Omarchy) the built-in theme is used: Omarchy's default
+//! dark palette, or its light counterpart when the OS asks for light
+//! windows ([`crate::platform::prefers_dark`]). A theme directory with the
+//! same files can be used anywhere with [`set_theme_dir`] or
+//! `OMARCHY_FLTK_THEME_DIR`.
 
 use crate::toml::{self, Table};
 use fltk::enums::Color;
@@ -37,7 +44,13 @@ impl Rgb {
         Rgb((mix(self.r(), bg.r()) << 16) | (mix(self.g(), bg.g()) << 8) | mix(self.b(), bg.b()))
     }
 
+    /// As an FLTK color. Pure black is FLTK's `Color::Black`: the raw RGB
+    /// value 0 would be colormap entry 0, the foreground the theme sets
+    /// (a black theme background would paint in the text color).
     pub fn fl(self) -> Color {
+        if self.0 & 0xff_ffff == 0 {
+            return Color::Black;
+        }
         Color::from_rgb(self.r(), self.g(), self.b())
     }
 
@@ -269,33 +282,57 @@ pub struct Theme {
     pub focus_themed: bool,
     /// Half of Hyprland `general:gaps_out` (Style.gapsOut).
     pub gaps_out: i32,
-    /// Font family; "monospace" follows `omarchy-font-set` through fontconfig.
+    /// Font family; "monospace" follows `omarchy-font-set` through fontconfig
+    /// on Linux; Menlo on macOS, Consolas on Windows
+    /// ([`crate::platform::fonts`]); `OMARCHY_FLTK_FONT` overrides it.
     pub font_family: String,
 }
 
 // ------------------------------------------------------------------ loading
 
+/// Omarchy's `current` state directory: `~/.local/state/omarchy/current`
+/// on Linux, [`crate::platform::dirs::state`]`/omarchy/current` elsewhere;
+/// `OMARCHY_FLTK_STATE_DIR` overrides it.
 pub fn omarchy_state_dir() -> PathBuf {
     if let Some(p) = std::env::var_os("OMARCHY_FLTK_STATE_DIR") {
         return PathBuf::from(p);
     }
-    home().join(".local/state/omarchy/current")
+    crate::platform::dirs::omarchy_current()
 }
 
+static THEME_DIR: std::sync::RwLock<Option<PathBuf>> = std::sync::RwLock::new(None);
+
+/// The theme directory (`colors.toml`, `shell.toml`): [`set_theme_dir`],
+/// else `OMARCHY_FLTK_THEME_DIR`, else `omarchy_state_dir()/theme`.
 pub fn theme_dir() -> PathBuf {
+    if let Some(p) = THEME_DIR.read().ok().and_then(|d| d.clone()) {
+        return p;
+    }
+    if let Some(p) = std::env::var_os("OMARCHY_FLTK_THEME_DIR").filter(|v| !v.is_empty()) {
+        return PathBuf::from(p);
+    }
     omarchy_state_dir().join("theme")
 }
 
-fn home() -> PathBuf {
-    std::env::var_os("HOME").map(PathBuf::from).unwrap_or_else(|| PathBuf::from("/"))
+/// Uses the theme files in `dir` (an Omarchy theme directory, e.g. a copy
+/// of `~/.local/share/omarchy/themes/<name>`) on any OS, or goes back to
+/// the default with None, and applies the result now (UI thread). Returns
+/// [`reload`]'s result.
+pub fn set_theme_dir(dir: Option<PathBuf>) -> bool {
+    if let Ok(mut d) = THEME_DIR.write() {
+        *d = dir;
+    }
+    reload()
 }
 
+/// The user's Omarchy `shell.toml` (`~/.config/omarchy/shell.toml` on
+/// Linux, `config()/omarchy/shell.toml` elsewhere); `OMARCHY_FLTK_USER_SHELL`
+/// overrides it.
 pub fn user_shell_toml() -> PathBuf {
     if let Some(p) = std::env::var_os("OMARCHY_FLTK_USER_SHELL") {
         return PathBuf::from(p);
     }
-    let base = std::env::var_os("XDG_CONFIG_HOME").map(PathBuf::from).unwrap_or_else(|| home().join(".config"));
-    base.join("omarchy/shell.toml")
+    crate::platform::dirs::omarchy_config().join("shell.toml")
 }
 
 fn read(path: &Path) -> Table {
@@ -315,6 +352,33 @@ blue = "#7aa2f7"
 magenta = "#bb9af7"
 cyan = "#7dcfff"
 "##;
+
+/// Light counterpart of [`FALLBACK_COLORS`] (Tokyo Night Day), used when
+/// the OS asks for light windows and no theme files exist.
+pub const FALLBACK_LIGHT_COLORS: &str = r##"
+accent = "#2e7de9"
+background = "#e1e2e7"
+foreground = "#3760bf"
+selection = "#b7c1e3"
+red = "#f52a65"
+green = "#587539"
+yellow = "#8c6c3e"
+blue = "#2e7de9"
+magenta = "#9854f1"
+cyan = "#007197"
+"##;
+
+/// Light or dark built-in palette: `OMARCHY_FLTK_APPEARANCE=light|dark`,
+/// else the OS preference (macOS, Windows), else dark.
+pub fn builtin_colors() -> &'static str {
+    let light = match std::env::var("OMARCHY_FLTK_APPEARANCE").ok().as_deref().map(str::trim) {
+        Some("light") => true,
+        Some("dark") => false,
+        _ => crate::platform::prefers_dark() == Some(false),
+    };
+    if light { FALLBACK_LIGHT_COLORS } else { FALLBACK_COLORS }
+}
+
 
 /// Why a theme could not be read; [`reload`] keeps the last valid theme.
 #[derive(Debug, Clone, PartialEq)]
@@ -361,10 +425,10 @@ impl Theme {
     ///   color: `Err`.
     /// - Theme or user `shell.toml` malformed: `Err` (missing is fine).
     pub fn try_load() -> Result<Theme, ThemeError> {
-        if !omarchy_state_dir().exists() {
+        let dir = theme_dir();
+        if !omarchy_state_dir().exists() && !dir.exists() {
             return Ok(Theme::load());
         }
-        let dir = theme_dir();
         let path = dir.join("colors.toml");
         let colors = read_strict(&path, true)?;
         for key in ["background", "foreground"] {
@@ -389,7 +453,7 @@ impl Theme {
     pub fn load() -> Theme {
         let dir = theme_dir();
         let colors = read(&dir.join("colors.toml"));
-        let colors = if colors.is_empty() { toml::parse(FALLBACK_COLORS) } else { colors };
+        let colors = if colors.is_empty() { toml::parse(builtin_colors()) } else { colors };
         let mut shell = read(&dir.join("shell.toml"));
         shell.extend(read(&user_shell_toml())); // user keys win
         Theme::build(&colors, &shell)
@@ -574,7 +638,7 @@ impl Theme {
             theme_focus: controls_focus,
             focus_themed: controls_focus != hover,
             gaps_out,
-            font_family: std::env::var("OMARCHY_FLTK_FONT").unwrap_or_else(|_| "monospace".into()),
+            font_family: std::env::var("OMARCHY_FLTK_FONT").unwrap_or_else(|_| crate::platform::fonts::default_family().into()),
         }
     }
 
@@ -678,7 +742,13 @@ pub fn with<R>(f: impl FnOnce(&Theme) -> R) -> R {
 }
 
 /// Makes `theme` active: FLTK colormap, default fonts, every window redrawn.
+/// The first call on the UI thread also installs [`crate::tooltip`].
 pub fn set(theme: Theme) {
+    // Apps that start FLTK themselves get Omarchy tooltips with the theme.
+    crate::tooltip::auto_install();
+    // Apps that start FLTK themselves (no App::new) follow the system's
+    // Animations setting from their first frame too.
+    crate::anim::init();
     GENERATION.with(|g| g.set(g.get() + 1));
     let theme = theme.with_prefs();
     apply_to_fltk(&theme);
@@ -784,10 +854,17 @@ fn apply_to_fltk(t: &Theme) {
     app::set_color(Color::Selection, sel.r(), sel.g(), sel.b());
     let inactive = p.foreground.over(bg, 0.45);
     app::set_color(Color::Inactive, inactive.r(), inactive.g(), inactive.b());
-    Font::set_font(Font::Helvetica, &t.font_family);
-    Font::set_font(Font::HelveticaBold, &format!("{} Bold", t.font_family));
-    Font::set_font(Font::Courier, &t.font_family);
-    Font::set_font(Font::CourierBold, &format!("{} Bold", t.font_family));
+    let (regular, bold) = crate::platform::fonts::faces(&t.font_family);
+    Font::set_font(Font::Helvetica, &regular);
+    Font::set_font(Font::HelveticaBold, &bold);
+    Font::set_font(Font::Courier, &regular);
+    Font::set_font(Font::CourierBold, &bold);
+    // Italics for rich text (`text`), same family.
+    let (italic, bold_italic) = crate::platform::fonts::italic_faces(&t.font_family);
+    Font::set_font(Font::HelveticaItalic, &italic);
+    Font::set_font(Font::HelveticaBoldItalic, &bold_italic);
+    Font::set_font(Font::CourierItalic, &italic);
+    Font::set_font(Font::CourierBoldItalic, &bold_italic);
     app::set_font_size(t.font.body);
 }
 

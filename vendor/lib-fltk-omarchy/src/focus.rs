@@ -60,9 +60,22 @@ fn dispatch(ev: Event, win: app::WindowPtr) -> bool {
         Event::Push => set_keyboard_mode(false),
         _ => {}
     }
+    if ev == Event::Shortcut && app::first_window().is_none() && app::grab().is_none() {
+        // FLTK 1.5.23 (Fl.cxx, FL_SHORTCUT) sends the shortcut to
+        // `first_window()` without a null check when the widget under the
+        // pointer is in another window: with no window shown (offscreen
+        // snapshots, every window hidden) that is a null dereference.
+        // Nothing is under a pointer then; forget the stale widget.
+        if app::belowmouse::<fltk::widget::Widget>().is_some() {
+            // SAFETY: plain FLTK setter on the UI thread; null is valid.
+            unsafe { crate::platform::fl_abi::Fl_set_belowmouse(std::ptr::null_mut()) };
+        }
+    }
     let used = if ev == Event::KeyDown { route_key(win) } else { None };
     // SAFETY: `win` comes from fltk for this very event.
     let used = used.unwrap_or_else(|| unsafe { app::handle_raw(ev, win) });
+    // Pointer moves, clicks and keys show and hide tooltips.
+    crate::tooltip::track(ev, win);
     // A click, an overlay opened by a key, app code in a callback: the panel
     // focus is reported before the next event is dispatched.
     sync_panels(PanelFocusCause::Other);
@@ -72,6 +85,11 @@ fn dispatch(ev: Event, win: app::WindowPtr) -> bool {
 
 fn ptr<W: WidgetExt>(w: &W) -> usize {
     w.as_widget_ptr() as usize
+}
+
+/// Whether the keyboard router (and its event dispatcher) is installed.
+pub(crate) fn installed() -> bool {
+    INSTALLED.with(|i| i.get())
 }
 
 /// The widget that has keyboard focus (a control, not a window or group).
@@ -353,6 +371,13 @@ pub fn active_panel_of<W: WidgetExt>(widget: &W) -> Option<KeyboardPanel> {
     active_panel(&unsafe { Widget::from_widget_ptr(widget.as_widget_ptr()) })
 }
 
+/// The panels of a panel host and the active index (accessibility tree).
+#[cfg(feature = "a11y")]
+pub(crate) fn hosted_panels(w: &Widget) -> Option<(Vec<KeyboardPanel>, usize)> {
+    let id = ptr(w);
+    HOSTS.with(|h| h.borrow().iter().find(|e| !e.widget.was_deleted() && ptr(&e.widget) == id).map(|e| (e.panels.clone(), e.active)))
+}
+
 /// (panel count, active index) when `w` hosts panels.
 fn host_panels(w: &Widget) -> Option<(usize, usize)> {
     let id = ptr(w);
@@ -600,28 +625,9 @@ pub(crate) fn give_back(layer: &Widget, window: Option<Widget>) {
 
 // ------------------------------------------------------------ key injection
 
-extern "C" {
-    #[link_name = "_ZN2Fl8e_keysymE"]
-    static mut FL_E_KEYSYM: i32;
-    #[link_name = "_ZN2Fl17e_original_keysymE"]
-    static mut FL_E_ORIGINAL_KEYSYM: i32;
-    #[link_name = "_ZN2Fl7e_stateE"]
-    static mut FL_E_STATE: i32;
-    #[link_name = "_ZN2Fl6e_textE"]
-    static mut FL_E_TEXT: *mut c_char;
-    #[link_name = "_ZN2Fl8e_lengthE"]
-    static mut FL_E_LENGTH: i32;
-    #[link_name = "_ZN2Fl3e_xE"]
-    static mut FL_E_X: i32;
-    #[link_name = "_ZN2Fl3e_yE"]
-    static mut FL_E_Y: i32;
-    #[link_name = "_ZN2Fl8e_x_rootE"]
-    static mut FL_E_X_ROOT: i32;
-    #[link_name = "_ZN2Fl8e_y_rootE"]
-    static mut FL_E_Y_ROOT: i32;
-    #[link_name = "_ZN2Fl8e_clicksE"]
-    static mut FL_E_CLICKS: i32;
-}
+use crate::platform::fl_abi::{
+    FL_E_CLICKS, FL_E_KEYSYM, FL_E_LENGTH, FL_E_ORIGINAL_KEYSYM, FL_E_STATE, FL_E_TEXT, FL_E_X, FL_E_X_ROOT, FL_E_Y, FL_E_Y_ROOT,
+};
 
 thread_local! {
     static TEXT: RefCell<[u8; 8]> = const { RefCell::new([0; 8]) };
@@ -649,8 +655,17 @@ pub fn press(spec: &str) -> bool {
             }
             t[0] = c;
             len = 1;
-        } else if matches!(keys.key, Key::Enter | Key::KPEnter) {
-            t[0] = b'\r';
+        } else if let Some(c) = match keys.key {
+            // The control characters real keys carry (xkb / XLookupString):
+            // Wayland's Fl::compose tells text from editing keys by them.
+            Key::Enter | Key::KPEnter => Some(b'\r'),
+            Key::BackSpace => Some(0x08),
+            Key::Tab => Some(b'\t'),
+            Key::Escape => Some(0x1b),
+            Key::Delete => Some(0x7f),
+            _ => None,
+        } {
+            t[0] = c;
             len = 1;
         }
         // SAFETY: fltk's event globals are plain data, used on the UI thread;
@@ -667,6 +682,36 @@ pub fn press(spec: &str) -> bool {
     // SAFETY: as above.
     unsafe { FL_E_STATE = 0 };
     used
+}
+
+thread_local! {
+    static TYPED: RefCell<Vec<u8>> = const { RefCell::new(Vec::new()) };
+}
+
+/// Sends `text` as one key event carrying that text (what FLTK delivers
+/// for a committed input-method string or a compose result: "é", "日本",
+/// "👍"), through the same path as [`press`]. The focused control gets it
+/// via `Fl::compose`. Returns true when something used it.
+pub fn type_text(text: &str) -> bool {
+    let window = current().and_then(|f| f.top_window()).map(|w| w.as_widget_ptr())
+        .or_else(|| app::first_window().map(|w| w.as_widget_ptr()));
+    let Some(window) = window else { return false };
+    TYPED.with(|t| {
+        let mut t = t.borrow_mut();
+        t.clear();
+        t.extend_from_slice(text.as_bytes());
+        t.push(0);
+        // SAFETY: fltk's event globals are plain data, used on the UI thread;
+        // the buffer lives in this thread's storage until the next call.
+        unsafe {
+            FL_E_KEYSYM = text.chars().next().map_or(0, |c| if (c as u32) < 0x7f { c as i32 } else { 0 });
+            FL_E_ORIGINAL_KEYSYM = FL_E_KEYSYM;
+            FL_E_STATE = 0;
+            FL_E_TEXT = t.as_mut_ptr() as *mut c_char;
+            FL_E_LENGTH = text.len() as i32;
+        }
+    });
+    dispatch(Event::KeyDown, window as app::WindowPtr)
 }
 
 /// True when `w` and its groups are visible inside its window (the window
@@ -687,6 +732,22 @@ pub fn visible_in_window<W: WidgetExt>(w: &W) -> bool {
         p = g.parent();
     }
     true
+}
+
+/// Moves the pointer to window coordinates `(x, y)` of `window` (no
+/// button held) through fltk's normal event path: hover states and
+/// tooltips follow it (tests, scripted tours).
+pub fn hover_at<W: WindowExt>(window: &W, x: i32, y: i32) {
+    let win = window.as_widget_ptr() as app::WindowPtr;
+    // SAFETY: fltk's event globals are plain data, used on the UI thread.
+    unsafe {
+        FL_E_X = x;
+        FL_E_Y = y;
+        FL_E_X_ROOT = window.x() + x;
+        FL_E_Y_ROOT = window.y() + y;
+        FL_E_STATE = 0;
+    }
+    dispatch(Event::Move, win);
 }
 
 /// Sends a left click (press + release) at window coordinates `(x, y)` of

@@ -183,3 +183,11 @@ se distribuyen bajo esos términos, no MIT. SOURCE.json fija SHA archivo crate,
 fuente, patch y licencia. No nuevas crates, licencias ni red; wrapper CMake sólo
 modifica fuente generada en target. Guard y documentación de rebuild en README
 del vendor. La compilación no demuestra interop nativa ni consumo de memoria.
+
+## 2026-11-04 — vendor lib-fltk-omarchy 1ff1adf
+
+La actualización del toolkit (tooltips Omarchy, animaciones, RTL/i18n)
+añade al lockfile `unicode-bidi 0.3.18` y `unicode-segmentation 1.12.0`,
+ambos `MIT OR Apache-2.0`, sin archivos ni términos de licencia Unicode
+adicionales (revisados LICENSE-* y fuentes). `pulldown-cmark =0.13.5` sigue
+resolviendo con el requisito ≥0.13.5 del toolkit.
