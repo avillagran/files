@@ -1,49 +1,49 @@
-# Catálogo ZIP de sólo lectura
+# Read-only ZIP catalog
 
-0.0.4, parcial. Space sobre .zip muestra el directorio central real: nombres,
-tamaños declarados comprimidos/sin comprimir, método, modo Unix y etiquetas
-de symlink, cifrado, ruta insegura o nombre duplicado. No extrae, descomprime
-ni ejecuta entradas. No comprueba registros locales, payload o CRC. Un catálogo
-consistente no certifica que se pueda extraer de forma segura.
+0.0.4, partial. Space on a .zip shows the real central directory: names,
+declared compressed/uncompressed sizes, method, Unix mode and labels for
+symlink, encryption, unsafe path or duplicate name. It does not extract, decompress
+or run entries. It does not check local headers, payload or CRC. A consistent
+catalog does not certify that it can be extracted safely.
 
-## Límites antes de asignar
+## Limits before allocating
 
-Parser propio en core, sin dependencia nueva; se ejecuta sólo en files-helper.
-Busca EOCD en los últimos 65557 B y exige final/comentario exactos, monodisco
-y ZIP32. ZIP64, trailers y firmas centrales adicionales están explícitamente
-fuera de soporte. Comprobación aritmética de offsets y longitudes, hasta
-10000 entradas y 4 MiB de directorio antes de reservarlo. Nombres de hasta
-4096 B y 256 KiB agregados antes de copiarlos a entradas/índice de duplicados.
-Esos caps no incluyen todos los contenedores ni el PSS del proceso.
+Own parser in core, with no new dependency; it runs only in files-helper.
+It looks for the EOCD in the last 65557 B and requires an exact end/comment, a single disk
+and ZIP32. ZIP64, trailers and additional central signatures are explicitly
+unsupported. Arithmetic checks of offsets and lengths, up to
+10000 entries and a 4 MiB directory before reserving it. Names up to
+4096 B and 256 KiB in total before copying them into entries/the duplicate index.
+Those caps do not include every container nor the process PSS.
 
-Los nombres conservan bytes exactos. La presentación escapa controles,
-backslashes y bytes no UTF-8; nunca se usa esa cadena visual para abrir un
-archivo. Duplicados son iguales por bytes, sin prometer casefold ni equivalencia
-Unicode del filesystem. Rutas absolutas, padres, drives y backslashes se marcan
-como inseguras; ningún nombre interno llega al filesystem.
+Names keep their exact bytes. The presentation escapes control characters,
+backslashes and non-UTF-8 bytes; that display string is never used to open a
+file. Duplicates are byte-equal, without promising casefold or filesystem Unicode
+equivalence. Absolute paths, parents, drives and backslashes are flagged
+as unsafe; no internal name ever reaches the filesystem.
 
-Helper Linux abre archivo regular final O_NOFOLLOW/O_NONBLOCK, hasta 8 GiB,
-y usa ese FD durante la lectura; padres/mounts y cambios in-place no son un
-snapshot. Salida de texto hasta 128 KiB/2000 líneas con enumeradas/total y aviso
-visible. Wire hasta 1 MiB en supervisor de 5s; valida id/tipo/encoding/texto.
-AS96MiB del helper no es PSS. State cancela y recoge antes del siguiente job.
+The Linux helper opens the final regular file with O_NOFOLLOW/O_NONBLOCK, up to 8 GiB,
+and uses that FD while reading; parents/mounts and in-place changes are not a
+snapshot. Text output up to 128 KiB/2000 lines with listed/total counts and a visible
+notice. Wire up to 1 MiB under a 5 s supervisor; it validates id/type/encoding/text.
+The helper's AS 96 MiB is not PSS. State cancels and reaps before the next job.
 
-## Evidencia
+## Evidence
 
-288 tests Rust (79 core, 37 helper, 172 UI), Clippy all-targets -D warnings y
-release limpios. zip-ui-1793040518449068984.json funcional PASS: catálogo real
-con Unicode, symlink, traversal/drive y duplicados; nombre no UTF-8 mostrado
-como raw\xFF.bin; ZIP vacío; 2500 entradas con listado truncado a 130846 B;
-malformado y 10001 entradas rechazados; último destino/cierre normal tras ACK.
-El warning inicial de Clippy se conserva en evidence/zip-preview/initial-clippy.log.
+288 Rust tests (79 core, 37 helper, 172 UI), Clippy all-targets -D warnings and
+release clean. zip-ui-1793040518449068984.json functional PASS: real catalog
+with Unicode, symlink, traversal/drive and duplicates; a non-UTF-8 name shown
+as raw\xFF.bin; empty ZIP; 2500 entries with the listing truncated to 130846 B;
+malformed and 10001-entry archives rejected; last destination/normal close after ACK.
+The initial Clippy warning is kept in evidence/zip-preview/initial-clippy.log.
 
-Método: handlers internos y framebuffer real, sin input SO/clipboard. No se
-creó ningún archivo de las entradas. Cierre antes del nuevo spawn registrado
-no demuestra kill de helper activo. Recursos/startup NOT_MEASURED por fase.
+Method: internal handlers and real framebuffer, no OS input/clipboard. No
+file was created from the entries. Closing before the recorded new spawn
+does not prove that an active helper is killed. Resources/startup NOT_MEASURED because of the phase.
 
-Crear/extraer, protección del destino, límites de expansión, TAR/otros formatos,
-ZIP64, validación del contenido, Office y presupuesto siguen pendientes. Esta
-entrega no completa Z01 ni P08/P09.
+Create/extract, destination protection, expansion limits, TAR/other formats,
+ZIP64, content validation, Office and the budget are still pending. This
+delivery does not complete Z01 nor P08/P09.
 
 ## 2026-10-31 — Shared streaming foundation (source only)
 

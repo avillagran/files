@@ -1,50 +1,50 @@
-# Historial de navegación y omnibar acotada — 0.0.4
+# Navigation history and bounded omnibar — 0.0.4
 
-Botones Nerd Atrás/Adelante a la izquierda de la omnibar, con tooltip y estado
-inactivo; Alt+Izquierda/Alt+Derecha invocan las mismas Actions. Registro por
-instancia, sólo rutas: máximo64 entradas entre ambas pilas y4096B por ruta
-lossless, antes de copiar. Payload de nombres≤256KiB más contenedores fijos;
-no equivale a presupuesto de proceso ni incluye el PathBuf ya poseído por caller.
-No añade directorios, sondeos FS, caché de listado, helpers ni un worker por visita.
+Nerd Back/Forward buttons to the left of the omnibar, with a tooltip and an inactive
+state; Alt+Left/Alt+Right call the same Actions. Per-instance record of
+paths only: at most 64 entries across both stacks and 4096 B per lossless
+path, checked before copying. Name payload ≤256 KiB plus fixed containers;
+this is not a process budget and does not include the PathBuf already owned by the caller.
+It adds no directories, FS probes, listing cache, helpers or a worker per visit.
 
-Se registran destinos solicitados, incluido un destino que después falla al
-listar: Atrás puede recuperar la ubicación anterior sin sondeo síncrono en UI.
-Visitar una ruta nueva descarta Adelante; misma ruta refresca sin duplicar historial.
-El guardado Espacial debe admitir el snapshot antes de avanzar historial. Una
-negativa de guardado/validación mantiene ruta y pilas. Load location invalida por
-generación entradas/hits/hover/selección, cancela previews/du/treemap y reutiliza el
-worker de listado. Navegación rápida reemplaza el último path pendiente; no crea
-hilos para eludir un syscall bloqueado. No garantiza recuperación offline rápida.
+Requested destinations are recorded, including one that later fails to
+list: Back can recover the previous location without a synchronous probe on the UI.
+Visiting a new path discards Forward; the same path refreshes without duplicating history.
+The Spatial save must accept the snapshot before history advances. A
+save/validation refusal keeps the path and the stacks. Load location invalidates by
+generation entries/hits/hover/selection, cancels previews/du/treemap and reuses the
+listing worker. Fast navigation replaces the last pending path; it does not create
+threads to get around a blocked syscall. It does not guarantee fast offline recovery.
 
-Historial no restaura filtro/selección/scroll/vista por entrada. Pestañas/reabrir
-pestaña/sesiones y persistencia de historial siguen pendientes V10/X02; no se
-cuenta este bloque como esas features. No hay canonicalización/sandbox de rutas,
-y la lectura FS mantiene sus errores reales.
+History does not restore filter/selection/scroll/view per entry. Tabs/reopening a
+tab/sessions and history persistence are still pending (V10/X02); this
+block does not count as those features. There is no path canonicalization/sandbox,
+and FS reads keep their real errors.
 
-Omnibar/filtro hacen preflight prestado antes de copiar paste/IME: máximo4096B
-UTF8 después de excluir CR/LF/NUL. Rechazo muestra error y conserva texto y flag
-de reemplazo, sin duplicar paste completo. Entrada válida posterior recupera.
-Pruebas no equivalen a clipboard Wayland: el FAIL de foco/serial sigue vigente.
-Source ranges/shaping/IME completo siguen pendientes U03.
+Omnibar/filter run a borrowed preflight before copying a paste/IME: at most 4096 B of
+UTF-8 after excluding CR/LF/NUL. A rejection shows an error and keeps the text and the
+replace flag, without duplicating the whole paste. A later valid input recovers.
+The tests are not equivalent to the Wayland clipboard: the focus/serial FAIL still stands.
+Source ranges/shaping/full IME are still pending (U03).
 
-Reproducir: cargo test --workspace; cargo clippy --workspace --all-targets --
--D warnings; cargo build --release; python3 scripts/history-ui-check.py. Fixtures
-propias en ~/.cache/files-test. Pruebas puras cubren límite/branch/duplicados/raw,
-paste Unicode/exceso; Model cubre varias navegaciones antes de draw, guardado
-rechazado y conservación/reintento de input. La escena usa hits compartidos y
-framebuffer/callback reales, no eventos SO ni clipboard externo.
+Reproduce: cargo test --workspace; cargo clippy --workspace --all-targets --
+-D warnings; cargo build --release; python3 scripts/history-ui-check.py. Own
+fixtures in ~/.cache/files-test. Pure tests cover limit/branch/duplicates/raw,
+Unicode/oversized paste; Model covers several navigations before draw, a rejected
+save and preserving/retrying input. The scene uses shared hits and
+real framebuffer/callback, not OS events or an external clipboard.
 
-Freeze recursos/startup sigue NOT_MEASURED. No se modifica presupuesto ni se
-reemplazan fallos de baseline/arranque/clipboard; sin tag0.0.4 ni PASSglobal.
+Resource/startup freeze still NOT_MEASURED. The budget is not changed and the
+baseline/startup/clipboard failures are not replaced; no 0.0.4 tag or global PASS.
 
-Validación final:399 Rust129core/44helper/226UI, Clippy workspace/all-targets
--Dwarnings y release PASS. history-ui1793061306527375025 funcionalPASS: seis
-framebuffers1000×560, entrar/atrás/adelante/branch, missing real y recuperar,
-paste1MiB rechazado conservando texto/replace y recuperaciónUnicode, callback
-request/drain/exit0. No helpers de preview/du/treemap solicitados; lifecycle raíz,
-no se afirma cleanup de hijos no observados. Alt+flechas tiene wiring compartido;
-fixture usa botones/handlers internos, no eventoSO ni clipboard externo.
-SHA files39db06227fa069b43d8bfe9c323b262d82ec46e420abea8dbcc8cdf10637426b,
-helper4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0.
-Otro Cargo de OmaBridge en target ajeno coincidió con compilación; no se tocó.
-Se construyó con un job. Sin comparación de tiempos ni nueva medida de recursos.
+Final validation: 399 Rust 129 core/44 helper/226 UI, Clippy workspace/all-targets
+-Dwarnings and release PASS. history-ui 1793061306527375025 functional PASS: six
+framebuffers 1000×560, enter/back/forward/branch, a real missing path and recovery,
+1 MiB paste rejected keeping text/replace and Unicode recovery, callback
+request/drain/exit 0. No preview/du/treemap helpers requested; root lifecycle,
+no cleanup of unobserved children is claimed. Alt+arrows have shared wiring;
+the fixture uses internal buttons/handlers, not OS events or an external clipboard.
+SHA files 39db06227fa069b43d8bfe9c323b262d82ec46e420abea8dbcc8cdf10637426b,
+helper 4f7910cf27b1723b25d17a208b9c2287858decfb0e65abf23c534305aad620c0.
+Another OmaBridge Cargo build in an unrelated target overlapped with the build; it was not touched.
+Built with one job. No timing comparison and no new resource measurement.

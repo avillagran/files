@@ -1,50 +1,50 @@
-# GIF bajo demanda — 0.0.4 (parcial)
+# On-demand GIF — 0.0.4 (partial)
 
-Space abre un snapshot inicial, sin autoplay. P/Reproducir usa el mismo motor
-software de vídeo, pausa/seek/EOF y single-flight; no otro decoder enlazado,
-paquete, daemon o caché en disco. Al finalizar conserva el último frame y permite
-repetir por elección explícita. Se fuerza `-ignore_loop 1` en ffprobe, snapshot y
-stream: el loop infinito del archivo no crea un trabajo permanente.
+Space opens an initial snapshot, without autoplay. P/Play uses the same software
+video engine, pause/seek/EOF and single-flight; no other linked decoder,
+package, daemon or on-disk cache. When it ends it keeps the last frame and lets you
+replay by explicit choice. `-ignore_loop 1` is forced in ffprobe, snapshot and
+stream: the file's infinite loop does not create a permanent job.
 
-Perfil compartido entre snapshot/miniatura/stream: GIF regular≤8MiB comprimidos,
-4Mi píxeles por frame, duración finita≤300s; salida960×540RGB24 o miniatura160px.
-Formato/códec forzados `gif`, whitelist exclusiva (no amplía codecs de otros
-contenedores); protocolosfile/pipe, bytecap antesprobe, pixelcap pasado al decoder
-yverificado en metadata. FD esperado/efectivo, generación ywatch/reconcile de
-medios existentes. Padres symlink/mounts siguen navegaciónSO, no confinamiento,
-snapshot atómico ni sandbox. Límites locales/AS768MiB NO equivalen a PSS del árbol.
+Profile shared by snapshot/thumbnail/stream: regular GIF ≤8 MiB compressed,
+4 Mi pixels per frame, finite duration ≤300 s; output 960×540 RGB24 or a 160 px thumbnail.
+Forced `gif` format/codec, exclusive whitelist (it does not widen codecs for other
+containers); file/pipe protocols, byte cap before probe, pixel cap passed to the decoder
+and verified in metadata. Expected/effective FD, generation and watch/reconcile of
+existing media. Symlink parents/mounts still follow OS navigation, not confinement,
+an atomic snapshot or a sandbox. Local limits/AS 768 MiB are NOT equivalent to the tree's PSS.
 
-RGB es opaco, no se promete transparencia/disposal complejo o fidelidad de todos
-los GIF. Cadencia12fps es configuración, posición estimada por secuencia, no PTS
-ni reproducción exacta de delays. GIF grandes/irregulares y zoom siguen pendientes.
-La miniatura del inspector visible es estática de primer frame: al cerrar Space
-puede pedir un snapshot; eso NO es reiniciar el stream oculto. Grilla usa el mismo
-selector/helper/cache, pero GIF en grilla no se capturó en esta unidad.
+RGB is opaque; transparency/complex disposal or fidelity for every
+GIF is not promised. The 12 fps cadence is a setting, position is estimated by sequence, not PTS
+nor exact playback of delays. Large/irregular GIFs and zoom are still pending.
+The visible inspector thumbnail is a static first frame: when Space closes it
+may request a snapshot; that is NOT restarting the hidden stream. Grid uses the same
+selector/helper/cache, but a GIF in the grid was not captured in this unit.
 
-485Rust(141core/58helper/286UI), Clippyworkspace/all-targets-Dwarnings/releasePASS.
-`python3 scripts/video-play-ui-check.py --gif --no-clip` crea GIF640×360 de8s,
-rojo→azul, con extensiónNETSCAPE2.0 y loopcount0 comprobados en bytes.
-video-play-ui1793098465429205562 funcionalPASS6framebuffers1000×650:
-snapshot pausado/red, play/red→blue/pausa/resumeEOF sin backendnotice, no stream
-tras cerrar Space, inspector160×90 rojo con firmaFD comprobada; nuevo play y
-cierre con streamPID/startvivo→ACK→exit0,10loggedhelpersgone/reused, Znoaceptado.
-No lifetimecoverage, inputSO/clipboard, native2xsharpness, rendimiento ni presupuesto.
-Sin24readbacks/clip; recursos/startupNOT_MEASURED porfreeze, no0.0.4tag/PASSglobal.
+485 Rust (141 core/58 helper/286 UI), Clippy workspace/all-targets -Dwarnings/release PASS.
+`python3 scripts/video-play-ui-check.py --gif --no-clip` creates an 8 s 640×360 GIF,
+red→blue, with the NETSCAPE2.0 extension and loopcount 0 checked in the bytes.
+video-play-ui 1793098465429205562 functional PASS 6 framebuffers 1000×650:
+paused/red snapshot, play/red→blue/pause/resume EOF without backend notice, no stream
+after closing Space, red 160×90 inspector with a checked FD signature; new play and
+close with stream PID/start alive→ACK→exit 0, 10 logged helpers gone/reused, Z not accepted.
+No lifetime coverage, OS input/clipboard, native 2x sharpness, performance or budget.
+No 24 readbacks/clip; resources/startup NOT_MEASURED because of the freeze, no 0.0.4 tag/global PASS.
 
-FAIL1793098062479122223 se conserva: comprobaba ausencia de TODO helper después
-ClosePreview, aunque el inspector seguía visible y demandaba miniatura. Log sólo
-mostraba probe/frame nuevos, no stream; corregido contar stream y validar por
-separado la miniatura visible con snapshotFD/dimensiones/pixel y captura real.
-La verificación EOF ahora exige notice=None además de pausa/drain; error backend
-no puede contar como final normal. Compilación intermedia importfaltante/unused
-Path conservada en target/gif-final-test.log/gif-test.log, final limpio.
+FAIL 1793098062479122223 is kept: it checked that NO helper existed after
+ClosePreview, even though the inspector was still visible and requesting a thumbnail. The log only
+showed new probe/frame, not stream; fixed to count streams and to validate the visible
+thumbnail separately with snapshot FD/dimensions/pixel and a real capture.
+The EOF check now requires notice=None in addition to pause/drain; a backend error
+cannot count as a normal end. The intermediate build with a missing import/unused
+Path is kept in target/gif-final-test.log/gif-test.log; the final build is clean.
 
-## M18 — encuadre interactivo, 2026-10-27
+## M18 — interactive framing, 2026-10-27
 
-`VIDEO-ZOOM.md` extiende el mismo visor a vídeo/GIF: zoom1–8×, arrastre,
-Ctrl+rueda y+/-/0. Se conserva encuadre entre frames/pausa/seek; sólo tres números
-sobreviven al nuevo snapshot, no una copia del raster. Cambiar origen o revisión
-lo reinicia. La línea de tiempo conserva prioridad y las flechas buscan5s.
-Esto sustituye la limitación anterior de zoom pendiente; precisiónVFR/PTS,
-rotación exhaustiva, GIFalpha/disposal/delay y recursos continúan pendientes.
-Freeze recursos/startup vigente.
+`VIDEO-ZOOM.md` extends the same viewer to video/GIF: zoom 1–8×, drag,
+Ctrl+wheel and +/-/0. The framing is kept across frames/pause/seek; only three numbers
+survive the new snapshot, not a copy of the raster. Changing source or revision
+resets it. The timeline keeps priority and the arrows seek 5 s.
+This replaces the earlier pending-zoom limitation; VFR/PTS accuracy,
+exhaustive rotation, GIF alpha/disposal/delay and resources are still pending.
+Resource/startup freeze in effect.
