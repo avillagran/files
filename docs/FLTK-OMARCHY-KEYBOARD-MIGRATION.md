@@ -1,102 +1,102 @@
-# Migración de teclado a lib-fltk-omarchy v0.0.2
+# Keyboard migration to lib-fltk-omarchy v0.0.2
 
-Revisión del tag `v0.0.2` / `210e0d64` el 2026-10-28. La dependencia y el
-adaptador de tema se actualizan; el router `focus::install()` todavía **no se
-activa** en Files. No se afirma anillo de foco ni conformidad keyboard-first.
+Review of tag `v0.0.2` / `210e0d64` on 2026-10-28. The dependency and the
+theme adapter are updated; the `focus::install()` router is **not yet
+enabled** in Files. No focus ring or keyboard-first conformance is claimed.
 
-Files dibuja Grupos, Lista, Grilla, Columnas, rail, pestañas y ambos paneles en
-un solo `Frame`; los hits son registros del Painter, no widgets FLTK con foco
-independiente. Su manejador existente entrega Tab al panel doble, Ctrl+Tab al
-historial de pestañas y flechas a selección/grilla/Columnas. El router de la
-biblioteca ofrece flechas a `focus::scope`, pero Tab recorre widgets reales;
-un único canvas no representa las dos paradas del panel doble. Activarlo sin
-migrar el canvas o quitar Tab ahora perdería navegación validada. La migración
-requiere controles/paneles enfocables de la biblioteca con cursor virtual y
-selección por ID, no copiar un segundo router en Files. Solicitado en
+Files draws Groups, List, Grid, Columns, the rail, tabs and both panes in
+a single `Frame`; hits are Painter records, not FLTK widgets with independent
+focus. Its existing handler delivers Tab to the dual pane, Ctrl+Tab to the
+tab history and arrows to selection/grid/Columns. The library's router
+offers arrows to `focus::scope`, but Tab walks real widgets;
+a single canvas does not represent the dual pane's two stops. Enabling it without
+migrating the canvas, or removing Tab now, would lose validated navigation. The migration
+needs focusable controls/panes from the library with a virtual cursor and
+selection by ID, not a second router copied into Files. Requested in
 [issue #3](https://github.com/avillagran/lib-fltk-omarchy/issues/3#issuecomment-6477303133).
 
-- Ctrl+Tab/Ctrl+Shift+Tab son atajos existentes de pestañas; el router deja pasar
-  modificadores. La integración debe evitar un segundo TabBar que procese el
-  mismo atajo y asegurar orden de overlays, omnibar y cierre de pestaña.
-- Ctrl+, y F10 abren menús separados; F1 ayuda. B3 y Shift+F10/Menu conservan
-  selección y target del panel. Se mantienen como estaban hasta tener PopupMenu
-  con cierre observable y límites al viewport.
-- v0.0.2 devuelve foco al cerrar y retiene Tab dentro de overlays. Sin embargo,
-  `PopupMenu::size` sigue calculando altura completa sin scroll ni clamp y
-  `open/open_at` devuelven `()`, sin handle/callback de descarte. Por instrucción
-  del usuario no se adopta todavía: [issue #1](https://github.com/avillagran/lib-fltk-omarchy/issues/1#issuecomment-6477297872),
+- Ctrl+Tab/Ctrl+Shift+Tab are existing tab shortcuts; the router lets
+  modifiers through. The integration must avoid a second TabBar processing the
+  same shortcut and ensure the order of overlays, omnibar and tab close.
+- Ctrl+, and F10 open separate menus; F1 help. B3 and Shift+F10/Menu keep
+  the pane's selection and target. They stay as they were until there is a PopupMenu
+  with an observable close and viewport limits.
+- v0.0.2 returns focus on close and keeps Tab inside overlays. However,
+  `PopupMenu::size` still computes the full height without scroll or clamp and
+  `open/open_at` return `()`, without a dismiss handle/callback. Per the
+  user's instruction it is not adopted yet: [issue #1](https://github.com/avillagran/lib-fltk-omarchy/issues/1#issuecomment-6477297872),
   [issue #4](https://github.com/avillagran/lib-fltk-omarchy/issues/4#issuecomment-6477300247).
-- Omnibar, B3, acciones globales, navegación de vistas y grilla siguen usando
-  sus handlers existentes; no se introdujo un nuevo manejador de foco ni Tab.
-  La validación TOML previa al reload sigue hasta resolver issue #5. El puente
-  nativo libdecor no se sustituye por IPC Hyprland.
+- Omnibar, B3, global actions, view navigation and the grid still use
+  their existing handlers; no new focus or Tab handler was introduced.
+  The TOML validation before reload stays until issue #5 is resolved. The native
+  libdecor bridge is not replaced with Hyprland IPC.
 
-Aceptación futura: controles reales separados, orden de Tab/Shift+Tab ofrecido
-por la biblioteca, anillo visible sólo con teclado, scope de paneles, pruebas
-con `focus::press` además de escenas de Files y evidencia SO si está disponible.
-Sin entrada SO, esas pruebas no demuestran teclado físico ni compositor.
+Future acceptance: separate real controls, Tab/Shift+Tab order offered
+by the library, a ring visible only with the keyboard, pane scope, tests
+with `focus::press` in addition to Files scenes, and OS evidence if available.
+Without OS input, those tests do not prove a physical keyboard or the compositor.
 
-## Revisión v0.0.7 — 2026-10-28
+## Review v0.0.7 — 2026-10-28
 
-El tag `3f5978a` incorpora `focus::host`/KeyboardPanel para varias paradas en
-un canvas y PopupHandle con cierre observable y viewport con scroll. Esos
-bloqueos de API ya no aplican; la integración en Files y la equivalencia de
-selección por ID, tabs, omnibar, acciones y cierre aún deben implementarse y
-probarse. El router todavía no se activa sólo por cambiar el pin. `Theme::try_load`
-y `reload` estrictos permiten retirar la validación local en un paso separado.
-W02/libdecor sigue activo hasta una prueba real de gesto en Files. GPU permanece
-apagada. No afirmar input SO ni anillo en Files con los fixtures del toolkit.
+Tag `3f5978a` adds `focus::host`/KeyboardPanel for several stops in
+one canvas, and a PopupHandle with an observable close and a scrolling viewport. Those
+API blockers no longer apply; the integration in Files and the equivalence of
+selection by ID, tabs, omnibar, actions and close still have to be implemented and
+tested. The router is still not enabled just by changing the pin. The strict `Theme::try_load`
+and `reload` allow removing the local validation in a separate step.
+W02/libdecor stays active until a real gesture test in Files. GPU stays
+off. Do not claim OS input or a ring in Files based on the toolkit's fixtures.
 
-`Theme::try_load`/`reload`/`last_error` ya reemplazan la validación duplicada
-local. El watcher Files sigue gestionando eventos y el override `FILES_THEME`;
-la biblioteca decide si una recarga del tema Omarchy es válida.
+`Theme::try_load`/`reload`/`last_error` now replace the duplicated local
+validation. The Files watcher still handles events and the `FILES_THEME` override;
+the library decides whether a reload of the Omarchy theme is valid.
 
-### PopupMenu: integración y atajos
+### PopupMenu: integration and shortcuts
 
-La aplicación usa PopupMenu para Preferencias, Acciones y contextual; el dibujo
-anterior queda sólo para escenas antiguas de smoke que aún lo requieren. La
-escena interna `toolkit-menu-ui-1793228594559034966.json` comprueba clamp,
-scroll, los cuatro motivos de cierre, F1, F10, Ctrl+, y Ctrl+j. El primer fallo
-de v0.0.8 (`toolkit-menu-ui-1793228420725853726.json`) se debió al aislamiento
-del propio fixture: éste bloqueaba la entrega al canvas. La excepción sólo se
-habilita durante la llamada sintética. El fallo histórico de v0.0.7 permanece
-en `toolkit-menu-ui-1793227807327186226.json`; el issue #6 fue cerrado por la
-biblioteca. Estas escenas no acreditan input SO. W02 sigue activo y recursos y
-arranque siguen NOT_MEASURED.
+The application uses PopupMenu for Preferences, Actions and the context menu; the earlier
+drawing remains only for old smoke scenes that still need it. The
+internal scene `toolkit-menu-ui-1793228594559034966.json` checks clamp,
+scroll, the four close reasons, F1, F10, Ctrl+, and Ctrl+j. The first failure
+with v0.0.8 (`toolkit-menu-ui-1793228420725853726.json`) was caused by the fixture's own
+isolation: it blocked delivery to the canvas. The exception is only
+enabled during the synthetic call. The historical v0.0.7 failure remains
+in `toolkit-menu-ui-1793227807327186226.json`; issue #6 was closed by the
+library. These scenes do not prove OS input. W02 stays active and resources and
+startup are still NOT_MEASURED.
 
 ### Pin v0.0.8 — 2026-10-28
 
-El tag v0.0.8 fija `7d20e19e94133654f7453682d04a4099036a9c4b`,
-con una sola copia de fltk/fltk-sys 1.5.23 y GPU desactivada. El guard de
-headers continúa activo; la evidencia está en `fltk-omarchy-v008-headers.json`.
-El pin por sí solo no activa el adaptador experimental de PopupMenu: el paso
-(c) requiere verificar los atajos y su integración antes de adoptarlo.
+Tag v0.0.8 pins `7d20e19e94133654f7453682d04a4099036a9c4b`,
+with a single copy of fltk/fltk-sys 1.5.23 and GPU disabled. The header
+guard stays active; the evidence is in `fltk-omarchy-v008-headers.json`.
+The pin by itself does not enable the experimental PopupMenu adapter: step
+(c) requires verifying the shortcuts and their integration before adopting it.
 
-### KeyboardPanel: notificación de foco pendiente
+### KeyboardPanel: pending focus notification
 
-En v0.0.8 `focus::host` mantiene la región activa internamente; `set_active`
-repinta, pero no notifica a Files el cambio causado por Tab. Files necesita
-conmutar sincrónicamente el modelo activo para que ruta, barra de herramientas
- y operaciones pertenezcan al panel enfocado. Consultar `focused_panel()` más
- tarde no garantiza ese orden frente al siguiente evento. Se solicitó una API
- de notificación en [issue #7](https://github.com/avillagran/lib-fltk-omarchy/issues/7).
- Es revisión estática; no acredita entrada SO. Hasta resolverlo se conserva el
- comportamiento existente, sin activar un segundo manejador de Tab.
+In v0.0.8 `focus::host` keeps the active region internally; `set_active`
+repaints, but it does not notify Files of a change caused by Tab. Files needs
+to switch the active model synchronously so that the path, toolbar
+and operations belong to the focused pane. Querying `focused_panel()`
+later does not guarantee that order against the next event. A notification
+API was requested in [issue #7](https://github.com/avillagran/lib-fltk-omarchy/issues/7).
+This is a static review; it does not prove OS input. Until it is resolved the
+existing behavior is kept, without enabling a second Tab handler.
 
 ### Pin v0.0.9 — 2026-10-28
 
-El tag v0.0.9 fija `c2ab990c8293bcf93c6a69fba016b57b05430c33` y aporta
-notificaciones de foco del panel (issue #7 cerrado). La migración de Files a
-KeyboardPanel todavía debe conectarse y validarse; el cambio de pin no activa
-por sí mismo el router. El guard de headers y el lock se registran en
-`fltk-omarchy-v009-headers.json`; GPU permanece desactivada.
+Tag v0.0.9 pins `c2ab990c8293bcf93c6a69fba016b57b05430c33` and brings
+pane focus notifications (issue #7 closed). The migration of Files to
+KeyboardPanel still has to be wired up and validated; the pin change does not enable
+the router by itself. The header guard and the lock are recorded in
+`fltk-omarchy-v009-headers.json`; GPU stays disabled.
 
-### Superficies al recargar tema
+### Surfaces on theme reload
 
-Files toma el tema Omarchy activo por defecto; la opción Tokyo Night es una
-alternativa local explícita. Las superficies de Painter derivan ahora del mismo
-Theme validado que la paleta, evitando conservar colores del tema previo tras
-una recarga. La biblioteca todavía no expone `darker_background`,
-`lighter_background` y `bright_foreground` de colors.toml; se utilizan tokens
-existentes de popup/control mientras [issue #8](https://github.com/avillagran/lib-fltk-omarchy/issues/8)
-solicita esos valores exactos. No implica equivalencia exacta con cada tema.
+Files takes the active Omarchy theme by default; the Tokyo Night option is an
+explicit local alternative. Painter surfaces now derive from the same
+validated Theme as the palette, so colors from the previous theme are not kept after
+a reload. The library does not yet expose `darker_background`,
+`lighter_background` and `bright_foreground` from colors.toml; existing
+popup/control tokens are used while [issue #8](https://github.com/avillagran/lib-fltk-omarchy/issues/8)
+requests those exact values. It does not imply exact equivalence with every theme.
