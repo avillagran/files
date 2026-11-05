@@ -578,247 +578,246 @@ Details and the initial failures preserved in FILE-PROPERTIES.md and evidence/pr
 READY now requires a repaint after the command; clipped controls do not
 receive hits. Resources/startup NOT_MEASURED because of the freeze; no global gate nor tag.
 
-## open directo y trazabilidad de cierre — 0.0.4, 2026-10-26
+## Direct open and close traceability — 0.0.4, 2026-10-26
 
-345Rust115/37/193,Clippyworkspace/releasePASS,open_job4regresionesPASS.
-open-close-ui1793056978667673268PASS funcional acotado en3instancias: hostopen
-ausente visible, fakeopen conargv exactossinshell yexit7, symlinknoasumecarpeta,
-directorionavega, callbackFLTK→request→drain→exit0. No visorrealniSuperWvalidado.
-CUA0windows/hyprctlownPIDpresente; rutaSOpendiente. Binaryinstaladoprevioantiguo
-borderless ycallbackFLTKunframedvacío son hallazgos estáticos, no causa reproducida.
-Resumenerroranteriorrecortado preservado con sidecarFAIL; nuevacapturamuestracausa.
-OPEN-AND-CLOSE detalla contrato/límites; freezeNOT_MEASUREDsinPASSglobal.
+345 Rust 115/37/193, Clippy workspace/release PASS, open_job 4 regressions PASS.
+open-close-ui 1793056978667673268 bounded functional PASS in 3 instances: a missing host open
+visible, a fake open with an exact argv without a shell and exit 7, a symlink does not assume a folder,
+a directory navigates, FLTK callback→request→drain→exit 0. No real viewer nor Super+W validated.
+CUA 0 windows/hyprctl own PID present; OS path pending. The old earlier installed
+borderless binary and the empty unframed FLTK callback are static findings, not a reproduced cause.
+The earlier clipped error summary preserved with a FAIL sidecar; the new capture shows the cause.
+OPEN-AND-CLOSE details the contract/limits; freeze NOT_MEASURED, no global PASS.
 
-## Espacio treemap — 0.0.4, 2026-10-26
+## Space treemap — 0.0.4, 2026-10-26
 
-370Rust121/44/205,Clippyworkspacealltargets-Dwarnings/releasePASS. Helper CLI9casos
-PASS; space-map-ui1793057823344999138funcionalPASS: proporción8:4:2, selección
-inspector, entrar/volver, vacío/cero/error/parcial, resize real por modos, cancel
-recorrido20k, Lista libera y callbackcierre con helpervivo,11PID/startgone/root0.
-Sólofixturespropios, handlers/framebuffer; inputnativoaisladofixtureflag, noOSinput.
-Fallos previos de registroCLI/validación/Clippy/escenaCancelterminado preservados;
-primeraescenaconinteracciónambientalnoaisladafalló, no tomarlecturascomoaceptación.
-SPACE-MAP detalla aparentebytes, límites2048/256KiB, desconocidos sinárea yno
-snapshot/hardlinkdedup. Recursos/startupNOT_MEASURED porfreeze; footer no gate.
-V09 UI real entregada, adaptadores/rawroot/offlinemounts/budget pendientes. No tag.
+370 Rust 121/44/205, Clippy workspace all targets -Dwarnings/release PASS. Helper CLI 9 cases
+PASS; space-map-ui 1793057823344999138 functional PASS: proportion 8:4:2, selection
+inspector, enter/back, empty/zero/error/partial, real resize through modes, cancelling
+a 20k walk, List frees and the close callback with a live helper, 11 PID/start gone/root 0.
+Own fixtures only, handlers/framebuffer; native input isolated by a fixture flag, not OS input.
+Earlier CLI registration/validation/Clippy/finished-Cancel scene failures preserved;
+the first scene with non-isolated ambient interaction failed; do not take its reads as acceptance.
+SPACE-MAP details apparent bytes, limits 2048/256 KiB, unknowns without area and no
+snapshot/hardlink dedup. Resources/startup NOT_MEASURED because of the freeze; the footer is not a gate.
+V09 real UI delivered, adapters/raw root/offline mounts/budget pending. No tag.
 
-## Ocultos globales, Espacio v3 y contextual (2026-10-26, 0.0.4)
+## Global hidden files, Space v3 and context menu (2026-10-26, 0.0.4)
 
-388 Rust (126core/44helper/218UI), Clippy workspace/all-targets -Dwarnings y
-release PASS. HIDDEN-CONTEXT-AND-STATUS.md detalla contratos y fallos preservados.
-`evidence/hidden-context/hidden-context-ui-1793059768952742165.json`: funcional
-PASS, dos procesos leen/persisten el MISMO show_hidden global (defaultfalse,
-true→nueva instancia→false); cuatro vistas, selección/raw hits/operaciones podadas,
-áreas normalizadas visibles y total aparente con ocultos distinto. Contextual
-lote/fondo/teclado invoca formularios existentes sin abrir por B3. Frame label vacío;
-marquee con reloj inyectado altera sólo bottom32px. Capturas reales1000×560,
-tema actual, handlers internos; no inputSO ni prueba minimizar/gestos nativos.
-Cierre callback→request→drain→exit0, dos helpers PID/start observados y recogidos.
-Primer reporteUI sin logging hijos tiene sidecar: no acredita cleanup del árbol.
-FAIL smoke antiguo order.len==entries.len, type mismatch y ETXTBSY fixture se
-conservan. Testfixture open usa intérprete instalado; producción sin cambios.
+388 Rust (126 core/44 helper/218 UI), Clippy workspace/all-targets -Dwarnings and
+release PASS. HIDDEN-CONTEXT-AND-STATUS.md details the contracts and preserved failures.
+`evidence/hidden-context/hidden-context-ui-1793059768952742165.json`: functional
+PASS, two processes read/persist the SAME global show_hidden (default false,
+true→new instance→false); four views, selection/raw hits/operations pruned,
+visible normalized areas and a different apparent total with hidden files. The batch/
+background/keyboard context menu invokes existing forms without opening through B3. Empty Frame label;
+the marquee with an injected clock changes only the bottom 32 px. Real captures 1000×560,
+the current theme, internal handlers; no OS input nor a test of minimize/native gestures.
+Close callback→request→drain→exit 0, two helper PID/start identities observed and reaped.
+The first UI report without child logging has a sidecar: it does not prove cleanup of the tree.
+The old smoke FAIL order.len==entries.len, the type mismatch and the fixture ETXTBSY are
+kept. The open test fixture uses an installed interpreter; production unchanged.
 
-Freeze recursos/startup NOT_MEASURED. El PSS principal visible en pie no es gate
-de árbol ni incluye Swap. Baseline10k56.743936MB/startup151.978ms/clipboardFAIL y
-otros UNVALIDATED anteriores siguen vigentes. Sin tag0.0.4/PASSglobal.
+Resource/startup freeze NOT_MEASURED. The main PSS visible in the footer is not a tree gate
+nor does it include Swap. Baseline 10k 56.743936 MB/startup 151.978 ms/clipboard FAIL and
+the other earlier UNVALIDATED remain in effect. No 0.0.4 tag/global PASS.
 
-## Grilla de iconos (2026-10-26, 0.0.4)
+## Icon grid (2026-10-26, 0.0.4)
 
-391 Rust126/44/221, Clippy/release PASS. GRID-VIEW.md: iconos Nerd virtualizados,
-botón/Ctrl5, zoom, selección/rango/reveal, ocultos globales y contextual. Pruebas
-puras100k/recorder1000 no sustituyen gate app100k. grid-ui1793060477438092576
-funcionalPASS162visibles+2ocultos, ocho capturas1000×560/800×500 por fixture own
-window constraints, carpeta/volver, raw/toggle, callbackdrainexit0. Handlers internos,
-no eventosSO. Ningún helper de previews/du/treemap solicitado: lifecycle raíz,
-no prueba de árbol por conjunto vacío. Glifos antes recortados y fallos de repaint
-inicial/fixturefullscreenconstraints/ETXTBSYdu conservados. Recursos/startup
-NOT_MEASUREDfreeze; miniaturas/LRU/persistencia específica pendientes, sinPASSglobal.
+391 Rust 126/44/221, Clippy/release PASS. GRID-VIEW.md: virtualized Nerd icons,
+button/Ctrl+5, zoom, selection/range/reveal, global hidden files and the context menu. Pure
+100k/recorder 1000 tests do not replace the app 100k gate. grid-ui 1793060477438092576
+functional PASS 162 visible + 2 hidden, eight captures 1000×560/800×500 because of the fixture's own
+window constraints, folder/back, raw/toggle, callback drain exit 0. Internal handlers,
+not OS events. No preview/du/treemap helper requested: root lifecycle,
+not a tree test because of an empty set. Glyphs that were clipped before and the failures of the initial
+repaint/fixture fullscreen constraints/du ETXTBSY kept. Resources/startup
+NOT_MEASURED freeze; thumbnails/LRU/specific persistence pending, no global PASS.
 
-## Historial y omnibar acotada (2026-10-26, 0.0.4)
+## History and bounded omnibar (2026-10-26, 0.0.4)
 
-399Rust129/44/226+Clippy/releasePASS. NAVIGATION-HISTORY: dos botonesNerd yAlt+flechas,
-64rutaslossless4096B/pila total y sin sondas UI, nueva rama limpiaAdelante, rechazar
-guardado no muevehistorial. Preflight paste4096B prestado conserva texto/replace.
-history-ui1793061306527375025funcionalPASS: navegación real por carpetas owned,
-error missing recuperado por botónAtrás, rechazo1MiB visible/Unicode posterior,
-seisframebuffers1000×560 ycallbackdrainexit0. NoeventosSO/clipboard externo,
-nohelpersprev/du/treemap solicitados (lifecycle raíz sólo). Pestañas/sesiones aún
-pendientes. Buildcompartióhost conCargoOmabridgeajeno sin tocarlo. Congelación
-recursos/startupNOT_MEASURED; ningún PASSglobal ni cambio aFAILhistóricos.
+399 Rust 129/44/226 + Clippy/release PASS. NAVIGATION-HISTORY: two Nerd buttons and Alt+arrows,
+64 lossless 4096 B paths/total stack and no UI probes, a new branch clears Forward, a rejected
+save does not move the history. A borrowed 4096 B paste preflight keeps the text/replace.
+history-ui 1793061306527375025 functional PASS: real navigation through owned folders,
+a missing error recovered with the Back button, a visible 1 MiB rejection/later Unicode,
+six framebuffers 1000×560 and callback drain exit 0. No OS events/external clipboard,
+no preview/du/treemap helpers requested (root lifecycle only). Tabs/sessions still
+pending. The build shared the host with an unrelated OmaBridge Cargo build without touching it. Resource/startup
+freeze NOT_MEASURED; no global PASS nor change to the historical FAILs.
 
-## Ayuda F1 (2026-10-26, 0.0.4)
+## F1 help (2026-10-26, 0.0.4)
 
-401Rust129/44/228, Clippy/releasePASS. SHORTCUT-HELP: F1/Preferencias con38filas
-estáticas, paginación/Esc/cierre/resize, sólofunciones implementadas. Escena
-help-ui1793061761953895411funcionalPASS4capturas1000×560/800×500, nohitarchivo
-bajooverlay, selección/ruta preservadas ycallbackabierto/drain/exit0. Handlers
-internos/framebuffer, NOinputSO; lifecycle principal sin helpers solicitados.
-AT-SPI/i18n/terminal/otrosatajos yrecursos/startupNOT_MEASUREDsiguenpendientes;
-fallosglobalespreviosintactos. No0.0.4tag/PASSglobal.
-
-
-## Medios seleccionados: identidad e invalidación (2026-10-26, 0.0.4)
-
-MEDIA-LIFECYCLE M1:410Rust132/45/233, Clippy workspace/all-targets -Dwarnings y
-release PASS. Imagen checked transporta revisión esperada hasta FD real y vuelve
-con source; Ready/stream exigen generación+revisión. Watcher no recursivo, época
-y token serializados, attach antesprobe, reconciliación1s/reattach del padre,
-worker único reutilizable sin I/O ni join de syscall en UI. Own ACK/refresh invalida.
-
-media-lifecycle-ui1793064138443049803 funcionalPASS: cuatro framebuffers1000×650,
-patrones rojo/azul/verde, samepath same-size+mtime reemplazado, modify/delete/rename/
-parent replacement, rápido A→B→C, vídeo borrado en reproducción, hidden sin nuevo
-helper, Papelera ACK y cierre0/13helpers PIDstartgone/probereadonlyACKtrue. Sólo
-handlers internos+FSfixtures+framebuffer, NO inputSO, no cobertura de lifetimes.
-FAIL1793064084657403710 preservado+sidecar por ACK deshabilitado en instrumento y
-nombre Trash incorrecto. Sin caché de producto en fixture source/config/data;
-Trash conserva original legítimo. Recursos/startup NOT_MEASURED freeze; footer
-selfPSS no es gate. LRU/miniaturas/embedded/nonUTF8IPC/otrosSO/offline/minimizar
-siguen pendientes. FAIL/UNVALIDATED históricos intactos, sin0.0.4tag/PASSglobal.
+401 Rust 129/44/228, Clippy/release PASS. SHORTCUT-HELP: F1/Preferences with 38 static
+rows, paging/Esc/close/resize, only implemented features. Scene
+help-ui 1793061761953895411 functional PASS 4 captures 1000×560/800×500, no file hit
+under the overlay, selection/path preserved and callback open/drain/exit 0. Internal
+handlers/framebuffer, NOT OS input; main lifecycle without requested helpers.
+AT-SPI/i18n/terminal/other shortcuts and resources/startup NOT_MEASURED are still pending;
+earlier global failures intact. No 0.0.4 tag/global PASS.
 
 
-## Miniaturas bajo demanda y pérdida de widget (2026-10-26,0.0.4)
+## Selected media: identity and invalidation (2026-10-26, 0.0.4)
 
-MEDIA-THUMBNAILS:423Rust132/46/245, Clippy workspace/all-targets -Dwarnings y
-release limpios. Grilla/inspector comparten RGB prestado LRU4MiB+ticket antesdecode,
-32entradas/64KiBclaves y64KiBdemanda; scratch76800B aparte. JPEG12/24baseline IDCT
-+160px, PNG/WebP y frame vídeo desde motores existentes; rawUnix byteIPC. Source
-FD proof/epoch, invalida event/timer; no I/O draw, no decode reiterado si revisión
-no cambia, helper único coordinado Space/du/Espacio. No presupuesto PSS acreditado.
+MEDIA-LIFECYCLE M1: 410 Rust 132/45/233, Clippy workspace/all-targets -Dwarnings and
+release PASS. The checked image carries the expected revision down to the real FD and comes back
+with the source; Ready/stream require generation+revision. A non-recursive watcher, serialized epoch
+and token, attach before probe, 1 s reconciliation/re-attaching the parent,
+a single reusable worker without I/O nor a syscall join on the UI. Own ACK/refresh invalidates.
 
-thumbnails-ui1793069315038209135 escenariofuncionalPASS3instancias serializadas:
-7recursos/JPEG12MP160×120/filename0xFF/inspector sinclonar/Space/cache/replace/delete/
-modify/TrashACK/carpeta/callbackhelpervivo→exit0; notify suprimido FDreconcile→exit0;
-C++widgetpropio destruido conhelpervivo→guard/failuredrain/exit1esperado sinpanic.
-45/2/10IDs PIDstartgone; liveobservado1/0/1 no cobertura de lifetimes.5framebuffers
-reales1000×650, handlers internos NOinputSO. Recursos/startupNOT_MEASUREDfreeze.
-FAILs6839306230828(marcador),7329848136770(ESRCH),7614908477249(firstpaint+panic)
-intactos+sidecars. PanicWidgetTracker original sinbacktrace causaabierta; idle20s
-no repro noresuelve. Guardas nuevas nunca usan widgets eliminados y cancelan/
-drenan; NO prueba compositor/SuperW ni journalcrashdurable. M2parcial, P09global/
-embedded/SpaceLRU/otrosSO/HiDPI/minimización yFAILsglobales quedanpendientes.
+media-lifecycle-ui 1793064138443049803 functional PASS: four framebuffers 1000×650,
+red/blue/green patterns, same path same-size+mtime replaced, modify/delete/rename/
+parent replacement, rapid A→B→C, video deleted during playback, hidden without a new
+helper, Trash ACK and close 0/13 helpers PID start gone/readonly probe ACK true. Only
+internal handlers + FS fixtures + framebuffer, NOT OS input, no lifetime coverage.
+FAIL 1793064084657403710 preserved + sidecar because of the ACK disabled in the instrument and
+the wrong Trash name. No product cache in the fixture's source/config/data;
+Trash keeps the legitimate original. Resources/startup NOT_MEASURED freeze; the footer's
+self PSS is not a gate. LRU/thumbnails/embedded/non-UTF-8 IPC/other OSes/offline/minimize
+are still pending. Historical FAIL/UNVALIDATED intact, no 0.0.4 tag/global PASS.
 
 
-## Rutas opacas CLI/Request/imagen completa (2026-10-27,0.0.4)
+## On-demand thumbnails and widget loss (2026-10-26, 0.0.4)
 
-RAW-PATH-WIRE:427Rust136/46/245+Clippyworkspacealltargets-Dwarnings+release limpios.
-Request PathBuf stringlegacy/arrayrawUnix4096B/NULreject, relativo sinURLdecode ni
-normalización; CLI args_os/--. Primer SpaceMaptest esperaba rechazo anterior y
-falló, luego exige roundtripid1/rutabytes. No límite quitado ni nueva dependencia
-runtime(coredevserde_json yaenlock). Core permanece sinUI.
+MEDIA-THUMBNAILS: 423 Rust 132/46/245, Clippy workspace/all-targets -Dwarnings and
+release clean. Grid/inspector share a borrowed RGB LRU 4 MiB + ticket before decode,
+32 entries/64 KiB keys and 64 KiB demand; a separate 76800 B scratch. JPEG 12/24 baseline IDCT
++ 160 px, PNG/WebP and a video frame from the existing engines; raw Unix byte IPC. Source
+FD proof/epoch, invalidated by event/timer; no I/O in draw, no repeated decode if the revision
+does not change, a single helper coordinated with Space/du/Space map. No PSS budget proven.
 
-raw-path-ui1793071898429792393 funcionalPASS: argvroot0xFE+filename0xFF, Grilla/
-inspector→Space morado, RGBcompleto verificado y source dev/ino/bytes real; dos
-framebuffers1000×650/callbackdrainexit0/3helpersPIDstartgone. Sólohandlersinternos,
-NOinputSO. Informe anterior1677948673706 preservado, segundaescena añadecapturaGrid,
-no recursos/startup. Otros comandos rawGUI/otrosSO/omnibaredit y firmasembedded
-siguenpendientes; Tracker original causaabierta. NOT_MEASUREDfreeze; noPASSglobal.
+thumbnails-ui 1793069315038209135 functional scenario PASS, 3 serialized instances:
+7 resources/JPEG 12 MP 160×120/filename 0xFF/inspector without cloning/Space/cache/replace/delete/
+modify/Trash ACK/folder/callback with a live helper→exit 0; notify suppressed, FD reconcile→exit 0;
+an own C++ widget destroyed with a live helper→guard/failure drain/expected exit 1 without a panic.
+45/2/10 IDs PID start gone; live observed 1/0/1 is not lifetime coverage. 5 real
+framebuffers 1000×650, internal handlers, NOT OS input. Resources/startup NOT_MEASURED freeze.
+FAILs 6839306230828 (marker), 7329848136770 (ESRCH), 7614908477249 (first paint + panic)
+intact + sidecars. The original WidgetTracker panic without a backtrace: cause open; an idle 20 s
+non-repro does not resolve it. The new guards never use removed widgets and cancel/
+drain; they do NOT test the compositor/Super+W nor a durable crash journal. M2 partial, global P09/
+embedded/Space LRU/other OSes/HiDPI/minimization and the global FAILs remain pending.
 
-## 2026-10-27 — Firma FD de recursos Markdown
 
-RELATIVE-SOURCE:434Rust141/47/246, Clippyworkspacealltargets-Dwarnings y release
-limpios. Wire1793074260681793818PASS con reemplazo determinista entre probe/open,
-root/intermediate reemplazados, symlinks/traversal/raw. WireFAIL1793074121342824158
-con sidecar se conserva (allowlist inicial del helper incompleta).
-UI1793074268202431350PASS:5ocurrencias/2recursos comprobados,5framebuffers1000×650,
-root→subdir→nested→subdir→root, callback/drain/exit0. Captura sin sampler: cleanup
-sólo acredita raíz, no árbol de hijos ni presupuesto. NoinputSO/clipboard.
-Recursos/startupNOT_MEASUREDfreeze, históricosFAILactivos, no0.0.4tag/PASSglobal.
-Watcher/reconcile/postpublicaciónembedded siguen pendientes; ver RELATIVE-SOURCE.
+## Opaque paths in CLI/Request/full image (2026-10-27, 0.0.4)
 
-## 2026-10-27 — Publicación e invalidación de medios Markdown
+RAW-PATH-WIRE: 427 Rust 136/46/245 + Clippy workspace all targets -Dwarnings + release clean.
+Request PathBuf as a legacy string/raw Unix array 4096 B/NUL rejected, relative without URL decoding nor
+normalization; CLI args_os/--. The first SpaceMap test expected the earlier rejection and
+failed, then it requires a round trip of id 1/path bytes. No limit removed nor a new
+runtime dependency (core dev serde_json already in the lock). Core stays without UI.
 
-DOCUMENT-MEDIA:442Rust141/47/254, Clippyworkspace-Dwarnings y releasePASS.
-UI1793076116463397564PASS2instancias normal/sin callbacks; mismo path/size/mtime
-replace, in-place, delete/recreate, rename,rootreplace/recover,5capturas1000×650.
-CandidateLoading no visible hasta watches+manifestproof+epoch; RGB viejo ausente
-en framebuffer y firmasFDcoinciden confixture. Callback→helperACK→exit0,26identidades
-helper porinstancia ausentes; sin sampling/lifetimecoverage. Readonlystopfalse/true
-registrado, no afirmar primer probe drenado/nojoinUI. RegresiónMDcontextual
-1793075764251781328PASS. FuenteNOT_MEASUREDrecursos/startupfreeze, noinputSO,
-P09global y fallos históricos siguen abiertos; ver límites en DOCUMENT-MEDIA.
+raw-path-ui 1793071898429792393 functional PASS: argv root 0xFE + filename 0xFF, Grid/
+inspector→purple Space, full RGB verified and the real source dev/ino/bytes; two
+framebuffers 1000×650/callback drain exit 0/3 helpers PID start gone. Internal handlers only,
+NOT OS input. The earlier report 1677948673706 preserved, the second scene adds a Grid capture,
+no resources/startup. Other raw GUI commands/other OSes/omnibar editing and embedded signatures
+are still pending; the original Tracker cause open. NOT_MEASURED freeze; no global PASS.
 
-## 2026-10-27 — JPEG progresivo reducido
+## 2026-10-27 — FD signature of Markdown resources
 
-JPEG-DC-PREVIEW445Rust141/50/254+10vendorlib, Clippyworkspace/release limpios.
-UI1793078251643976150PASS:12MP500×375,24MP750×500,EXIF500×750,33colores yfirmaFD,
-6framebuffers1000×650 (compositor2x no nitidez2x). Cierrependiente/ACK/exit0,
-8PID/starthelpers ausentes, Znoaceptado; helpervivo alcloseNO_VALIDATED.
-Sin nuevoPSS/startup/cpu porfreeze. Capcoef32MiB no aumentó:1i16/bloque,
-ACentropyomitida/nointegridadcompleta. Color coincidefullcodec1/8; comparación
-Turbo4:2:0FAIL explicadoDCTchroma2vs1,4:4:4equivalentePASS≤3/255.
-Archive/17src/patchfuzz0/licenciasauditados; driftformato8srcanterior
-reproducido conrustfmt. Doctestsvendorfallanporimágenesupstreamnoincluidas,
-no falsePASSdelcomando. VerJSON/logsevidenciajpeg-dc y límitesP02aúnparcial.
+RELATIVE-SOURCE: 434 Rust 141/47/246, Clippy workspace all targets -Dwarnings and release
+clean. Wire 1793074260681793818 PASS with a deterministic replacement between probe/open,
+root/intermediate replaced, symlinks/traversal/raw. Wire FAIL 1793074121342824158
+with a sidecar is kept (the helper's initial allowlist was incomplete).
+UI 1793074268202431350 PASS: 5 occurrences/2 resources checked, 5 framebuffers 1000×650,
+root→subdir→nested→subdir→root, callback/drain/exit 0. Capture without a sampler: cleanup
+only proves the root, not the tree of children nor a budget. No OS input/clipboard.
+Resources/startup NOT_MEASURED freeze, historical FAILs active, no 0.0.4 tag/global PASS.
+Watcher/reconcile/post-publication for embedded resources still pending; see RELATIVE-SOURCE.
 
-## 2026-10-27 — PNG reducido por filas
+## 2026-10-27 — Publication and invalidation of Markdown media
 
-PNG-ROWS-PREVIEW:453Rust141/58/254, Clippyworkspace-Dwarnings/releasePASS.
-UIimage-ui-1793081848018085943PASS funcional9framebuffers1000×650; PNG9/12/24MP,
-alfa/EXIFtardío/Adam7/zoom/corrupto, JPEG/WebPregresión yfirmaFD efectiva.
-Compositor2x/físico2000×1300 no prueba nitidez de todos los píxeles2x.
-Closepending→ACK/exit0,12PID/starthelpers ausentes o reutilizados, Znoaceptado;
-helpervivo al closeNOT_VALIDATED, no lifetimecoverage niinputSO.
-Sin next_frame/fullsourceRGB, decoder32MiB best-effort noPSS; RGB3MiB yfila64KiB.
-Recursos/startupNOT_MEASURED porfreeze, fallosbase históricos intactos.
-P02parcial(WebPgrande/APNG/ICC/calidad) yP09global pendientes.
+DOCUMENT-MEDIA: 442 Rust 141/47/254, Clippy workspace -Dwarnings and release PASS.
+UI 1793076116463397564 PASS 2 instances normal/without callbacks; same path/size/mtime
+replace, in-place, delete/recreate, rename, root replace/recover, 5 captures 1000×650.
+The Loading candidate is not visible until watches+manifest proof+epoch; the old RGB absent
+from the framebuffer and the FD signatures match the fixture. Callback→helper ACK→exit 0, 26 helper
+identities per instance absent; no sampling/lifetime coverage. Readonly stop false/true
+recorded, do not claim the first probe drained/no UI join. Contextual MD regression
+1793075764251781328 PASS. Source NOT_MEASURED resources/startup freeze, no OS input,
+global P09 and the historical failures remain open; see the limits in DOCUMENT-MEDIA.
 
-## 2026-10-27 — Buffers vídeo y miniaturas grandes
+## 2026-10-27 — Reduced progressive JPEG
 
-454Rust141/58/255+Clippyworkspace-Dwarnings/releasePASS. VIDEO-PREVIEW
-1793082933186610779 funcionalPASS4FB1000×650, play/pausa/resumeEOF/cierre
-streamactivo,9loggedPID/startgoneZnoaceptado. SlotúnicoReady/Recycled recibe
-RGB desplazadoUI; prueba100handoffs+State, no ahorroPSS/CPUafirmado.
-FAIL1793082885016655179 preservado+sidecar: fixture perdióentrada, trigger
-noestablecido; repetición aísla input ambiente por flagexistente, NO inputSO.
-Thumbnails1793082861888227321PASS PNG24MP/JPEGprogressive24MP160px/FDfirmas,
-Grilla-inspector/Space/raw/delete/replace/Trash/navigate/closeactivo;4FB y44logged
-helpersgone/exit0, no lifetimecoverage. Los presupuestos locales no sonPSS.
-Freezevigente: recursos/startupNOT_MEASURED; oldfooter76.6MiB y fallosbase intactos.
+JPEG-DC-PREVIEW 445 Rust 141/50/254 + 10 vendor lib, Clippy workspace/release clean.
+UI 1793078251643976150 PASS: 12 MP 500×375, 24 MP 750×500, EXIF 500×750, 33 colors and the FD signature,
+6 framebuffers 1000×650 (compositor 2x, not 2x sharpness). Close pending/ACK/exit 0,
+8 helper PID/start absent, Z not accepted; a helper alive at close NOT_VALIDATED.
+No new PSS/startup/CPU because of the freeze. The 32 MiB coefficient cap did not increase: 1 i16/block,
+AC entropy skipped/no complete integrity. Color matches the full codec at 1/8; the comparison
+with Turbo 4:2:0 FAIL explained by chroma DCT 2 vs 1, the equivalent 4:4:4 PASS ≤3/255.
+Archive/17 src/patch fuzz 0/licenses audited; the earlier formatting drift of 8 src
+reproduced with rustfmt. Vendor doctests fail because of upstream images that are not included,
+no false PASS for the command. See the JSON/logs in the jpeg-dc evidence; the P02 limits are still partial.
 
-## 2026-10-27 — Audio, FD efectivo e invalidación
+## 2026-10-27 — PNG reduced by rows
 
-458Rust141/58/259, Clippyworkspace-Dwarnings y releasePASS. AudioJob exige
-expectedRevision antes de ffprobe y devuelve actualFDproof tras revalidar;
-State conserva firma/generación. Determinísticos probeA/openB/ReadyA tardío
-y gate readonly sin falsoACK, no son pruebas de kernelD real.
-audio-ui1793083931390323451PASS funcional8FB1000×650 con notify suprimido:
-same path/size/mtime reemplazo, in-place mtime restaurado, delete/recreate,
-rename/padre recuperado; título nuevo y FDstamp reales, borrar oculta metadatos.
-Rootexit0/ACK y11loggedPID/startgone (Zmismoidentity noaceptado), no lifetime
-coverage ni ffprobevivoalclose probado. Audio sigue metadatos/SIN reproducción.
-FreezeNOT_MEASURED recursos/startup; sin inputSO ni nitidez nativa2x, P09parcial.
+PNG-ROWS-PREVIEW: 453 Rust 141/58/254, Clippy workspace -Dwarnings/release PASS.
+UI image-ui-1793081848018085943 functional PASS 9 framebuffers 1000×650; PNG 9/12/24 MP,
+alpha/late EXIF/Adam7/zoom/corrupt, JPEG/WebP regression and the effective FD signature.
+Compositor 2x/physical 2000×1300 does not prove the sharpness of every 2x pixel.
+Close pending→ACK/exit 0, 12 helper PID/start absent or reused, Z not accepted;
+a helper alive at close NOT_VALIDATED, no lifetime coverage nor OS input.
+No next_frame/full-source RGB, decoder 32 MiB best effort is not PSS; RGB 3 MiB and a 64 KiB row.
+Resources/startup NOT_MEASURED because of the freeze, historical baseline failures intact.
+P02 partial (large WebP/APNG/ICC/quality) and global P09 pending.
 
-## 2026-10-27 — Audio reproducible con Pulse
+## 2026-10-27 — Video buffers and large thumbnails
 
-463Rust141/58/264, Clippyworkspace-Dwarnings y releasePASS. AUDIO-PLAYBACK
-UI1793086873981565834PASS9FB1000×650, fuente silenciosa6s/salidaPulse delSO:
-play/pause, seek por puntero preserva selección, reanudar/EOF, ocultar no reinicia,
-borrar cancela/oculta y restaurar revalida. Callback FLTK conplayerPID/startvivo
-→ACK→exit0,14loggedidentidadesgone/reused Znoaceptado; no lifetimecoverage.
-No inputSO/SuperW, audibilidad, posiciónPCM/sample-exactseek ni nitidez nativa2x.
-PrototipoFFplayNativeEOFtimeout/dummyPASS, staleHyprsignature yargv-infbuf0FAIL
-preservados. PulseAS512 mmapFAIL ycontrato768PASS son contención virtual, noPSS;
-AS768como vídeo/max_alloc32M, techo150MB/ideal50MB sin cambio. Sin recursos/CPU/
-startup/GPU nuevos porfreeze, no0.0.4tag/PASSglobal; ver AUDIO-PLAYBACK.
+454 Rust 141/58/255 + Clippy workspace -Dwarnings/release PASS. VIDEO-PREVIEW
+1793082933186610779 functional PASS 4 FB 1000×650, play/pause/resume EOF/close with an
+active stream, 9 logged PID/start gone Z not accepted. The single Ready/Recycled slot receives the
+RGB displaced by the UI; a 100-handoff test + State, no PSS/CPU savings claimed.
+FAIL 1793082885016655179 preserved + sidecar: the fixture lost the entry, trigger
+not established; the repeat isolates ambient input through an existing flag, NOT OS input.
+Thumbnails 1793082861888227321 PASS PNG 24 MP/progressive JPEG 24 MP 160 px/FD signatures,
+Grid-inspector/Space/raw/delete/replace/Trash/navigate/active close; 4 FB and 44 logged
+helpers gone/exit 0, no lifetime coverage. Local budgets are not PSS.
+Freeze in effect: resources/startup NOT_MEASURED; the old 76.6 MiB footer and the baseline failures intact.
 
-2026-10-27 tras reinicio de Hyprland: native-inventory1793087442753417655
-confirma ventana propia mapped antes/después, pero cua-driver MCP retorna array
-windows vacío. Autoexitnormal conACK; ningún foco/tecla/clic enviado, ningún
-contenido de ventanas ajenas registrado. Skill jev-computer-use impide fallback
-de control; inputSO/clipboard con foco/SuperW permanecen pendientes.
+## 2026-10-27 — Audio, effective FD and invalidation
 
-## 2026-10-27 — Helpers propios ante muerte del padre
+458 Rust 141/58/259, Clippy workspace -Dwarnings and release PASS. AudioJob requires the
+expected Revision before ffprobe and returns the actual FD proof after revalidating;
+State keeps signature/generation. Deterministic probe A/open B/late Ready A
+and a readonly gate without a fake ACK; they are not tests of real kernel D-state.
+audio-ui 1793083931390323451 functional PASS 8 FB 1000×650 with notify suppressed:
+same path/size/mtime replacement, in-place with mtime restored, delete/recreate,
+rename/parent recovered; the new title and real FD stamp, deleting hides the metadata.
+Root exit 0/ACK and 11 logged PID/start gone (Z with the same identity not accepted), no lifetime
+coverage nor a live ffprobe at close tested. Audio is still metadata/WITHOUT playback.
+Freeze NOT_MEASURED resources/startup; no OS input nor native 2x sharpness, P09 partial.
 
-464Rust141/58/265+Clippyworkspace/releasePASS. OWNED-HELPERS cubre spawn común,
-stream vídeo, du yEspacio; open de usuario independiente. helper-crash
-1793088449742352360PASS4rolesPID/startvivos→rootSIGKILL→adopción/reap9por test
-subreaperprivado. Puedeocurrir antesdeprogreso; no grupo/killmanualhelperenPASS,
-noMutationsActivas/recoverydurable/crashduringSave/kernelD/nietos/PID1latencia.
-Relaunchconfigprivada/FDverificado/exit0ACK,3FB845×1071. AudioPulse normal
-1793088666411517841PASS9FB yvídeo1793089019986522162PASS4FB/cierreactivo, strict
-loggedPID/startcleanup. No PSS/Swap/CPU/startup porfreeze niinputSO.
+## 2026-10-27 — Audio playable with Pulse
 
+463 Rust 141/58/264, Clippy workspace -Dwarnings and release PASS. AUDIO-PLAYBACK
+UI 1793086873981565834 PASS 9 FB 1000×650, a silent 6 s source/the OS's Pulse output:
+play/pause, seek by pointer keeps the selection, resume/EOF, hiding does not restart,
+deleting cancels/hides and restoring revalidates. FLTK callback with the player PID/start alive
+→ACK→exit 0, 14 logged identities gone/reused Z not accepted; no lifetime coverage.
+No OS input/Super+W, audibility, PCM position/sample-exact seek nor native 2x sharpness.
+The FFplay prototype native EOF timeout/dummy PASS, the stale Hypr signature and argv -infbuf 0 FAILs
+preserved. Pulse AS 512 mmap FAIL and the 768 contract PASS are virtual containment, not PSS;
+AS 768 like video/max_alloc 32 M, the 150 MB ceiling/50 MB ideal unchanged. No new resources/CPU/
+startup/GPU because of the freeze, no 0.0.4 tag/global PASS; see AUDIO-PLAYBACK.
+
+2026-10-27 after restarting Hyprland: native-inventory 1793087442753417655
+confirms its own window mapped before/after, but the cua-driver MCP returns an empty
+windows array. Normal auto-exit with ACK; no focus/key/click sent, no
+content of other windows recorded. The jev-computer-use skill prevents a control
+fallback; OS input/clipboard with focus/Super+W remain pending.
+
+## 2026-10-27 — Own helpers on parent death
+
+464 Rust 141/58/265 + Clippy workspace/release PASS. OWNED-HELPERS covers the common spawn,
+the video stream, du and Space; a user open is independent. helper-crash
+1793088449742352360 PASS 4 roles PID/start alive→root SIGKILL→adoption/reap 9 by a private test
+subreaper. It may happen before progress; no group/manual helper kill in the PASS,
+no active mutations/durable recovery/crash during Save/kernel D-state/grandchildren/PID 1 latency.
+Relaunch with a private config/verified FD/exit 0 ACK, 3 FB 845×1071. Normal Pulse audio
+1793088666411517841 PASS 9 FB and video 1793089019986522162 PASS 4 FB/active close, strict
+logged PID/start cleanup. No PSS/Swap/CPU/startup because of the freeze nor OS input.
 
 ## 2026-10-27 — Vídeo con audio opt-in (M11)
 
