@@ -1,66 +1,66 @@
-# Revisión mientras la cola está activa
+# Review while the queue is active
 
-Copiar, mover, crear ZIP y extraer pueden abrir su revisión mientras otra copia
-está activa o pausada. MC, paleta, menú, inspector y Action usan `copy_review`
-para distinguir esa revisión de la admisión de otro trabajo. F5 mantiene su
-comportamiento contextual: copia en listados, recálculo en Espacio.
+Copy, move, create ZIP and extract can open their review while another copy
+is active or paused. MC, palette, menu, inspector and Action use `copy_review`
+to tell that review apart from admitting another job. F5 keeps its
+contextual behavior: copy in listings, recalculation in Space.
 
-| Intención | Efecto |
+| Intent | Effect |
 |---|---|
-| Abrir otro destino | Captura la selección y abre el formulario; no cambia trabajos activos ni pendientes. |
-| Revisar un movimiento | Usa la preparación FD existente; un token pendiente o su ACK cancelado impiden abrir otra revisión. |
-| Cancelar el formulario | Libera esa revisión; no cancela el activo ni elimina pendientes admitidos. |
-| Confirmar con cola llena | El controlador rechaza la admisión y conserva formulario, nombres, opciones y motivo. |
-| Vaciar pendientes | Elimina sólo los pendientes; el activo pausado conserva su identidad. |
-| Reanudar | Continúa el activo y luego los trabajos que siguen admitidos. |
+| Open another destination | Captures the selection and opens the form; it does not change active or pending jobs. |
+| Review a move | Uses the existing FD preparation; a pending token or its cancelled ACK prevents opening another review. |
+| Cancel the form | Releases that review; it does not cancel the active job or remove admitted pending ones. |
+| Confirm with a full queue | The controller rejects admission and keeps the form, names, options and reason. |
+| Clear pending | Removes only the pending jobs; the paused active job keeps its identity. |
+| Resume | Continues the active job and then the jobs that are still admitted. |
 
-Se mantienen ocho pendientes, cargos de entrada/FD, IDs crecientes, la barrera de
-resultado/ACK y las validaciones de cada motor. No se reservan trabajos ni se
-abre FS durante la consulta de disponibilidad para pintar. Cerrar, carga/refresh
-pendiente, mutación aplicada y una revisión anterior sin drenar siguen bloqueando.
-Una preparación de renombrado de sólo lectura no se confunde con una mutación
-ya aplicada ni con una copia de la cola independiente.
+Eight pending jobs, entry/FD charges, increasing IDs, the
+result/ACK barrier and each engine's validations are kept. No jobs are reserved and the
+FS is not opened while checking availability for painting. Closing, a pending load/refresh,
+an applied mutation and an earlier undrained review still block.
+A read-only rename preparation is not confused with an
+already applied mutation nor with an independent queued copy.
 
-La selección se valida al ejecutar antes de sanear. Marcas inválidas, ocultas o
-fuera del filtro no se convierten en otra captura por fallback al foco. Espacio
-conserva su política de ignorar el filtro retenido y usar las marcas del listado
-raíz; el informe de tamaños no es autoridad para operar. La prueba exacta de
-selección de la paleta, owners, generaciones y tokens FD no cambian.
+The selection is validated on execution before sanitizing. Invalid, hidden or
+filtered-out marks are not turned into another capture by falling back to the focus. Space
+keeps its policy of ignoring the retained filter and using the marks of the root
+listing; the size report is not authority to operate. The palette's exact
+selection proof, owners, generations and FD tokens do not change.
 
-El progreso se sitúa sobre MC, respetando el inspector realmente visible. En un
-cuerpo estrecho distribuye los controles en dos filas y separa estado, contadores
-y ruta; no fuerza un ancho que salga de440px con la barra lateral expandida.
-El botón del último resultado también respeta MC y el aviso compacto. El fixture
-usa las dimensiones reales del canvas para navegación/menú, y distingue entradas
-del panel activo o de la columna activa para evitar actuar sobre otro propietario.
+Progress sits above MC, respecting the inspector that is actually visible. In a
+narrow body it lays the controls out in two rows and separates status, counters
+and path; it does not force a width that overflows 440 px with the sidebar expanded.
+The last-result button also respects MC and the compact notice. The fixture
+uses the real canvas dimensions for navigation/menu, and tells apart entries
+of the active pane or active column to avoid acting on another owner.
 
-Fuente9ddd253:1306 pruebas normales (447core/105helper/754UI), tres históricas
-ignoradas; Clippy all targets con warnings como errores, formato y release PASS.
-Cola Wayland1793560078115479975, XvfbX111793560081082575235 e instalado
-Wayland1793560381173496871: cada uno35capturas/5cierres normales/drain, cinco
-perfiles, contenido y fuentes retenidas exactos. Cola llena y formulario retenido
-se prueban en controlador/modelo; no se hizo un experimento de capacidad UI de8jobs.
-Espacio de regresión Wayland1793560075965694320 y XvfbX11 aislado
-1793560198200409125: cada29capturas/4cierres normales/15helpers conocidos ausentes
-o reutilizados. El primer wrapper Xvfb de Espacio terminó1 por limpieza
-“kill: No such process” aunque su recibo funcional fue PASS; quedó conservado,
-y el mismo binario/fixture solo terminó0. Causa exacta no demostrada. Evitar dos
-wrappers Xvfb con asignación automática a la vez no serializa los tests Rust.
+Source 9ddd253: 1306 normal tests (447 core/105 helper/754 UI), three historical ones
+ignored; Clippy all targets with warnings as errors, format and release PASS.
+Wayland queue 1793560078115479975, Xvfb X11 1793560081082575235 and installed
+Wayland 1793560381173496871: each 35 captures/5 normal closes/drain, five
+profiles, exact content and retained sources. A full queue and a retained form
+are tested in the controller/model; no UI capacity experiment with 8 jobs was done.
+Space regression Wayland 1793560075965694320 and isolated Xvfb X11
+1793560198200409125: each 29 captures/4 normal closes/15 known helpers absent
+or reused. The first Space Xvfb wrapper exited 1 due to the cleanup error
+“kill: No such process” even though its functional receipt was PASS; it was kept,
+and the same binary/fixture alone exited 0. The exact cause was not shown. Avoiding two
+Xvfb wrappers with automatic display assignment at the same time does not serialize the Rust tests.
 
-Instalación1793560331250393795, cinco hashes instalados y cinco respaldos
-verificados; appa715c17069d6aa85475d39016a0a725b09847a53befc95eda1b52dc47a41c6e6.
-Recibos en `docs/evidence/queue-review/assessment.json`.
+Installation 1793560331250393795, five installed hashes and five backups
+verified; app a715c17069d6aa85475d39016a0a725b09847a53befc95eda1b52dc47a41c6e6.
+Receipts in `docs/evidence/queue-review/assessment.json`.
 
-La inspección reveló un pendiente separado: a440 con lateral expandida el nombre
-del doble panel queda sin ancho (`dual_view.rs`: max(r.w-116,0)); el control a1000
-sí lo muestra. Las verificaciones compactas de este checkpoint acreditan controles
-de cola, no legibilidad de nombres del panel. No es evidencia causal del fallo
-X11 ancho histórico. Próximo: priorizar nombre sobre metadatos opcionales.
-Los handlers privados y el framebuffer no acreditan input/clipboard del SO,
-AT-SPI,2x, otros SO, deadlines de syscalls o vida global de helpers. El objetivo
-completo, ROADMAP, anomalía X11 y freeze PSS/Swap/CPU/startup siguen activos;
-no se añaden formatos de previa ni se reanudan experimentos de recursos.
+The inspection revealed a separate pending item: at 440 with the sidebar expanded the
+dual-pane name has no width (`dual_view.rs`: max(r.w-116,0)); the control at 1000
+does show it. The compact checks in this checkpoint prove queue
+controls, not the readability of pane names. It is not causal evidence for the historical
+wide X11 failure. Next: prioritize the name over optional metadata.
+Private handlers and the framebuffer do not prove OS input/clipboard,
+AT-SPI, 2x, other OSes, syscall deadlines or the global lifetime of helpers. The complete
+goal, ROADMAP, the X11 anomaly and the PSS/Swap/CPU/startup freeze remain active;
+no preview formats are added and resource experiments are not resumed.
 
-Reconciliación2026-11-01: la reserva geométrica de nombres del pendiente anterior
-se corrigió en NARROW-NAMES.md, fuente f6a735f; los recibos previos permanecen como
-evidencia del estado anterior. Esto no resuelve causalmente la anomalía X11 ancha.
+Reconciliation 2026-11-01: the geometric name reservation from the previous pending item
+was fixed in NARROW-NAMES.md, source f6a735f; the earlier receipts remain as
+evidence of the previous state. This does not causally resolve the wide X11 anomaly.

@@ -1,73 +1,73 @@
-# Transferencia multi-origen — contrato de implementación, 2026-10-27
+# Multi-source transfer — implementation contract, 2026-10-27
 
-Estado al 2026-10-28: preparación y ejecución provisional same-FS y reserva
-del resultado parcial en la cola están probadas en fixtures. No hay entrada
-visible para lotes multipadre, ni integración con MIME/Cut o reintento desde
-UI; Copy multipadre, EXDEV de lote y aceptación SO siguen pendientes. No es
-un checkpoint funcional ni modifica los binarios instalados. Suite workspace:
-667 pruebas aprobadas, 3 ignoradas; no se midieron memoria ni arranque.
+Status as of 2026-10-28: preparation and provisional same-FS execution, and holding
+the partial result in the queue, are tested in fixtures. There is no visible
+entry point for multi-parent batches, no integration with MIME/Cut and no retry from the
+UI; multi-parent Copy, batch EXDEV and OS acceptance are still pending. This is not
+a functional checkpoint and it does not change the installed binaries. Workspace suite:
+667 tests passed, 3 ignored; memory and startup were not measured.
 
-Alcance: hasta 128 raíces de hasta 32 padres raw en una oferta MIME local.
-Primero Copy y Cut existentes; no cambiar el significado de EXDEV ni declarar
-el lote completo hasta que revisión, ejecución, reintento y UI estén conectados.
-No truncar ni convertir una ruta no UTF-8. Una oferta equivocada o cambiada se
-rechaza en conjunto antes de abrir revisión.
+Scope: up to 128 roots from up to 32 raw parents in a local MIME offer.
+Existing Copy and Cut first; do not change the meaning of EXDEV nor declare
+the batch complete until review, execution, retry and UI are connected.
+Do not truncate or convert a non-UTF-8 path. A wrong or changed offer is
+rejected as a whole before opening a review.
 
-- Agrupar rutas prestadas tras preflight completo (límites por ruta y agregados),
-  contar padres y raíces antes de reservar/clonar y comprobar nombres de destino
-  duplicados por bytes raw entre padres. Si hay colisión, mostrar ambos orígenes
-  y pedir reducir/corregir el lote; ningún elemento se encola ni se mueve.
-  También rechazar raíces solapadas (una seleccionada bajo otra). Preflight
-  léxico detecta rutas aparentes; en AuxIo comprobar ancestros y aliases físicos
-  mediante descriptores/dev+ino, incluyendo padres enlazados y bind mounts,
-  antes de revisión y repetir las comprobaciones que dependen de ubicación al
-  ejecutar. Si no se puede probar independencia, rechazar el lote con aviso.
-  Recorrer `..` y comparar dev+ino NO demuestra independencia ante un bind mount
-  cuyo origen sea un subárbol: ese recorrido puede subir por otro montaje.
-  Condición conservadora en desarrollo: `statx` sobre FD padre y cada raíz;
-  si dos padres comparten dispositivo pero tienen IDs de montaje diferentes,
-  o una raíz directorio y cualquier padre tienen IDs diferentes (incluso en
-  dispositivos distintos), o una raíz directorio y el destino efectivo tienen
-  IDs diferentes, rechazar por alias ambiguo. Si faltan IDs,
-  rechazar. Para montajes iguales se comparan identidades y ancestros anclados,
-  y se guardan/revalidan ambos antes de preparar el motor. No cubre todas las
-  semánticas de FS virtual ni una carrera hostil entre verificación y syscall;
-  la captura sigue provisional hasta conectar validación de los FD efectivos.
-- AuxIo captura un Source anclado por padre, con firmas individuales de cada
-  raíz y cancelación; al menos un grupo fallido descarta toda la revisión. El
-  total de capacidades, FDs y scratch debe admitirse antes de clonar o abrir;
-  la revisión, cola, activo y resultado sin ACK comparten los límites existentes.
-  Ninguna verificación por ruta seguida de recaptura autoriza un sustituto:
-  comparar cada FD capturado por motor contra la firma del grupo.
-- Un lote lógico ocupa **un** slot de la cola global (o admisión equivalente
-  que admita de verdad 32 padres), no 32 `enqueue` parciales contra ocho slots.
-  El mismo worker ejecuta grupos/raíces secuencialmente, con ID y rutas de
-  origen/destino capturadas; el cambio de panel, pestaña o foco no redirige
-  la operación. No reservar más de 256 FD entre entradas, review, activo,
-  ACK y scratch, y rechazar el lote íntegro antes de cualquier mutación.
-- Revisión muestra cada padre y cuenta, destino y conflictos. Orden de ejecución
-  estable; si un grupo falla o cancela, informar resultados por raíz y conservar
-  los pendientes para reintento con sus **firmas originales**, sin recaptura.
-  No prometer rollback global tras publicar raíces anteriores. Cut sólo consume
-  raíces confirmadas por el motor de mover; un ACK viejo no consume un clipboard
-  nuevo. CopyReport.completed no autoriza borrar fuentes EXDEV.
-  El ledger pertenece a una preparación concreta, no sólo al conjunto de firmas:
-  dos revisiones del mismo origen hacia destinos distintos no pueden intercambiar
-  estados. El resultado parcial debe conservar juntos la preparación y el ledger,
-  con su cargo de memoria y FD, hasta que el receptor consuma el ACK o descarte
-  expresamente el reintento; no liberar el cargo al terminar el worker.
-- SameFS usa rename seguro existente; EXDEV sólo usa su motor/journal y sus
-  límites actuales, sin degradar silenciosamente metadata ni borrar tras una
-  copia no verificada. El caso no soportado conserva origen y muestra motivo.
-  Hardlinks entre raíces/grupos se rechazan antes de mutar hasta contar con
-  ledger de lote que mantenga topología y revisiones propias.
-- Refrescar ambas carpetas/paneles afectadas según rutas/identidades capturadas,
-  no sólo el panel activo; un panel cerrado se marca para recargar al volver.
-  El cierre cancela, drena el único worker y conserva informes/rescate.
+- Group borrowed paths after a complete preflight (per-path and aggregate limits),
+  count parents and roots before reserving/cloning, and check for destination names
+  duplicated by raw bytes across parents. If there is a collision, show both sources
+  and ask to reduce/fix the batch; no item is queued or moved.
+  Also reject overlapping roots (one selected under another). The lexical
+  preflight detects apparent paths; in AuxIo check ancestors and physical aliases
+  through descriptors/dev+ino, including linked parents and bind mounts,
+  before the review, and repeat the location-dependent checks on
+  execution. If independence cannot be proven, reject the batch with a notice.
+  Walking `..` and comparing dev+ino does NOT prove independence for a bind mount
+  whose source is a subtree: that walk can climb through another mount.
+  Conservative condition under development: `statx` on the parent FD and each root;
+  if two parents share a device but have different mount IDs,
+  or a directory root and any parent have different IDs (even on
+  different devices), or a directory root and the effective destination have
+  different IDs, reject as an ambiguous alias. If IDs are missing,
+  reject. For equal mounts, identities and anchored ancestors are compared,
+  and both are stored/revalidated before preparing the engine. This does not cover every
+  virtual FS semantic nor a hostile race between verification and syscall;
+  the capture stays provisional until validation of the effective FDs is connected.
+- AuxIo captures a Source anchored per parent, with individual signatures for each
+  root and cancellation; a single failed group discards the whole review. The
+  total of capabilities, FDs and scratch must be admitted before cloning or opening;
+  the review, queue, active job and un-ACKed result share the existing limits.
+  No per-path verification followed by a recapture authorizes a substitute:
+  compare each FD captured by an engine against the group signature.
+- A logical batch takes **one** slot in the global queue (or an equivalent admission
+  that truly admits 32 parents), not 32 partial `enqueue` calls against eight slots.
+  The same worker runs groups/roots sequentially, with the ID and the captured
+  source/destination paths; changing pane, tab or focus does not redirect
+  the operation. Do not reserve more than 256 FDs across entries, review, active job,
+  ACK and scratch, and reject the whole batch before any mutation.
+- The review shows each parent and its count, the destination and conflicts. Stable execution
+  order; if a group fails or is cancelled, report results per root and keep
+  the pending ones for retry with their **original signatures**, without recapturing.
+  Do not promise a global rollback after earlier roots were published. Cut only consumes
+  roots confirmed by the move engine; an old ACK does not consume a new
+  clipboard. CopyReport.completed does not authorize deleting EXDEV sources.
+  The ledger belongs to one specific preparation, not just to the set of signatures:
+  two reviews of the same source to different destinations cannot swap
+  states. The partial result must keep the preparation and the ledger together,
+  with their memory and FD charge, until the receiver consumes the ACK or explicitly
+  discards the retry; do not release the charge when the worker finishes.
+- SameFS uses the existing safe rename; EXDEV only uses its engine/journal and its
+  current limits, without silently degrading metadata or deleting after an
+  unverified copy. The unsupported case keeps the source and shows the reason.
+  Hardlinks across roots/groups are rejected before mutating until there is a
+  batch ledger that keeps topology and its own revisions.
+- Refresh both affected folders/panes based on the captured paths/identities,
+  not just the active pane; a closed pane is marked to reload when it returns.
+  Closing cancels, drains the single worker and keeps reports/rescue.
 
-Aceptación: 32 padres/128 raíces, nombres raw, colisión entre padres sin mutación,
-pruebas de límite y rechazo atómico con cola llena/presupuesto, cambio de origen
-antes de captura efectiva, cancelación parcial/reintento y ACK obsoleto, cambios
-de foco/cierre y Copy/Cut con fixtures. Una escena con UI/revisión y comprobación
-de filesystem debe indicar que usa handlers y pipes privados; integración SO se
-valida aparte. No inferir presupuesto PSS de caps locales; freeze vigente.
+Acceptance: 32 parents/128 roots, raw names, a collision across parents without mutation,
+limit tests and atomic rejection with a full queue/budget, a source change
+before the effective capture, partial cancellation/retry and a stale ACK, focus
+changes/close and Copy/Cut with fixtures. A scene with UI/review and a filesystem
+check must state that it uses private handlers and pipes; OS integration is
+validated separately. Do not infer a PSS budget from local caps; the freeze is in effect.

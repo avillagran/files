@@ -1,56 +1,56 @@
-# Acciones de archivos en Espacio
+# File actions in Space
 
-El objetivo completo sigue activo. Este checkpoint elimina las restricciones
-indiscriminadas de Espacio en la paleta y la barra MC para las acciones que ya
-admitían los motores y las rutas de teclado, inspector o menú.
+The complete goal is still active. This checkpoint removes Space's blanket
+restrictions in the palette and the MC bar for the actions that the engines
+and the keyboard, inspector or menu paths already allowed.
 
-| Acción | Disponibilidad y autoridad |
+| Action | Availability and authority |
 |---|---|
-| Copiar, mover, crear ZIP, extraer | Abren la revisión existente; no ejecutan por abrirla. Otra copia en cola no impide revisar el siguiente trabajo. Preparaciones previas deben entregar su ACK. |
-| Renombrar, crear archivo/carpeta, Papelera, propiedades, deshacer/rehacer | Conservan las barreras de mutación/copia activa y los límites del motor. Propiedades admite una marca o un foco, sin exigir un foco ajeno a la marca. |
-| Previa y ruta | Usan el foco existente y los handlers existentes; no se añaden decodificadores ni formatos de previa. |
-| Buffer privado Copy/Cut/Paste | Conserva la captura FD, revisión y controles del buffer de files. No acredita publicación ni recepción del clipboard del SO. |
-| Abrir | Además exige pertenencia a la proyección vigente, como la navegación del mapa. Enter y doble clic pasan por la misma comprobación. |
-| F5 y Ctrl+R | F5 mantiene el recálculo de Espacio. MC y dispatcher comparten f5_action; Ctrl+R ahora despacha Action::Refresh, incluida la solicitud explícita de reintentar vigilancia. |
+| Copy, move, create ZIP, extract | They open the existing review; opening it runs nothing. Another queued copy does not prevent reviewing the next job. Earlier preparations must deliver their ACK. |
+| Rename, create file/folder, Trash, properties, undo/redo | They keep the active mutation/copy barriers and the engine limits. Properties accepts one mark or a focus, without requiring a focus unrelated to the mark. |
+| Preview and path | They use the existing focus and existing handlers; no decoders or preview formats are added. |
+| Private Copy/Cut/Paste buffer | Keeps the FD capture, revision and controls of the files buffer. It does not prove publishing to or receiving from the OS clipboard. |
+| Open | It also requires membership in the current projection, like map navigation. Enter and double click go through the same check. |
+| F5 and Ctrl+R | F5 keeps the Space recalculation. MC and the dispatcher share f5_action; Ctrl+R now dispatches Action::Refresh, including the explicit request to retry watching. |
 
-`map_actions` comparte disponibilidad entre paleta, MC, menú, inspector y el
-despacho de Action en el mapa. Pintar no recorre las marcas, clona nombres ni
-consulta el filesystem; Abrir usa la caché acotada de la proyección. Ejecutar
-comprueba una sola vez las marcas antes de sanear/capturar. Una marca inválida u
-oculta rechaza la acción, conservando selección y foco; no cae sobre otro archivo.
-Los controles deshabilitados explican el motivo; la paleta vuelve a comprobar
-owner, generación, revisión/ocultos del mapa y su prueba exacta de selección.
+`map_actions` shares availability between the palette, MC, menu, inspector and the
+Action dispatch on the map. Painting does not walk the marks, clone names or
+query the filesystem; Open uses the projection's bounded cache. Running
+checks the marks once before sanitizing/capturing. An invalid or
+hidden mark rejects the action, keeping selection and focus; it does not fall back to another file.
+Disabled controls explain why; the palette checks again the
+owner, generation, the map's revision/hidden state and its exact selection proof.
 
-Las operaciones usan las marcas existentes del listado raíz, o el foco si no hay
-marcas. Pueden incluir marcas heredadas de otra vista ausentes de un informe
-acotado. No se amplían a otros objetos del informe. All/Invert siguen limitados
-a la proyección; Clear deja selección y foco vacíos. El filtro retenido se ignora
-sólo en Espacio. Un informe parcial o detenido no impide revisar nombres conocidos
-del listado; sus bytes/errores no son permisos, existencia ni autoridad para operar.
-Los nombres OsString y los preflight/FD/revisiones de cada motor se conservan.
+Operations use the existing marks of the root listing, or the focus if there are no
+marks. They may include marks inherited from another view that are absent from a bounded
+report. They are not extended to other objects in the report. All/Invert are still limited
+to the projection; Clear leaves selection and focus empty. The retained filter is ignored
+only in Space. A partial or stopped report does not prevent reviewing known names
+from the listing; its bytes/errors are not permissions, existence or authority to operate.
+OsString names and each engine's preflight/FD/revisions are preserved.
 
-La paleta incorpora la previa existente. Los tamaños por lote y el ordenamiento
-incompatible con el mapa conservan sus restricciones. Native clipboard/input,
-AT-SPI, 2x, otros SO, recursos/startup y el resto del ROADMAP siguen pendientes;
-el freeze de recursos/startup y la pausa de nuevas previas se mantienen.
+The palette adds the existing preview. Per-batch sizes and sorting
+incompatible with the map keep their restrictions. Native clipboard/input,
+AT-SPI, 2x, other OSes, resources/startup and the rest of the ROADMAP are still pending;
+the resource/startup freeze and the pause on new previews remain.
 
-Aceptación de fuente 6d9c5dd y fixture 924f8d4: 1301 pruebas normales
-(447 core,105 helper,749 UI), tres históricas ignoradas; Clippy all targets con
-warnings como errores, formato y release PASS. Wayland1793557957164468049,
-XvfbX111793557960140989528 e instalado Wayland1793558055069373867 pasaron cada
-uno 29 capturas, cuatro cierres normales con drain y comprobación de las15
-identidades helper registradas (14mapa, una previa de texto existente).
+Acceptance for source 6d9c5dd and fixture 924f8d4: 1301 normal tests
+(447 core, 105 helper, 749 UI), three historical ones ignored; Clippy all targets with
+warnings as errors, format and release PASS. Wayland 1793557957164468049,
+Xvfb X11 1793557960140989528 and installed Wayland 1793558055069373867 each passed
+29 captures, four normal closes with drain and a check of the 15
+registered helper identities (14 map, one existing text preview).
 
-El fixture verifica copia, renombrado, creación de carpeta, movimiento preparado,
-Papelera y Undo sobre archivos propios; propiedades, ZIP y Copy/Cut/Paste privado
-se verifican como lectura o revisión/cancelación. XDG_DATA_HOME se aísla por app.
-Los primeros dos intentos28capturas fallaron al no crear su directorio padre de
-Papelera: precondición documentada del motor; corregir el fixture bastó con el
-mismo binario en ambos backends. Se conservan esos FAIL y el error de profundidad
-de macro JSON del fixture (corregido separando grupos, sin elevar límites globales).
+The fixture verifies copy, rename, folder creation, prepared move,
+Trash and Undo on its own files; properties, ZIP and private Copy/Cut/Paste
+are verified as read-only or review/cancel. XDG_DATA_HOME is isolated per app.
+The first two 28-capture attempts failed because they did not create the Trash parent
+directory: a documented engine precondition; fixing the fixture was enough with the
+same binary on both backends. Those FAILs are kept, along with the fixture's JSON macro
+depth error (fixed by splitting groups, without raising global limits).
 
-Instalación1793558033383070484, cinco hashes instalados y cinco respaldos
-verificados; app2cae3b73db4ec56a3ab928d974e585b6d9a2c18537364ff1100722eb8d72d842.
-Recibos: `docs/evidence/listing-model/space-map/actions/assessment.json`.
-La ruta textual CopyPath conserva la implementación previa to_string_lossy:
-no se acredita entrega lossless de rutas no UTF8 al clipboard del SO.
+Installation 1793558033383070484, five installed hashes and five backups
+verified; app 2cae3b73db4ec56a3ab928d974e585b6d9a2c18537364ff1100722eb8d72d842.
+Receipts: `docs/evidence/listing-model/space-map/actions/assessment.json`.
+The textual CopyPath route keeps the earlier to_string_lossy implementation:
+lossless delivery of non-UTF-8 paths to the OS clipboard is not proven.
