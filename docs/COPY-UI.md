@@ -1,112 +1,112 @@
-# Copia local con UI (0.0.4 en validación)
+# Local copy with UI (0.0.4 in validation)
 
-F5 en listados o «Copiar a…» del inspector abre un formulario propio con destino absoluto,
-selección lossless y opción de iniciar en pausa. Encolar admite ocho trabajos
-pendientes y uno activo; toast con progreso de bytes/entradas, pausa/reanudar,
-cancelar activo y vaciar pendientes. Ningún conflicto sobrescribe un destino.
-Los errores mantienen los contadores de copias parciales, rutas de rescate y
-limpieza visibles antes del detalle habitual. Un éxito no obliga a cerrar modal.
+F5 in listings or the inspector's «Copy to…» opens its own form with an absolute destination,
+a lossless selection and an option to start paused. Enqueue admits eight pending
+jobs and one active; a toast with byte/entry progress, pause/resume,
+cancel active and clear pending. No conflict overwrites a destination.
+Errors keep the counters of partial copies, rescue paths and
+cleanup visible before the usual detail. A success does not force closing a modal.
 
-Preflight prestado antes de clonar nombres o construir paths. El controlador
-cobra capacidades retenidas de solicitudes, hasta4MiB incluyendo una reserva de
-2MiB derivada del productor actual del reporte (paths4097B, errores1024B, sets128).
-No es una afirmación de PSS total: el registro auxiliar del motor está limitado
-separadamente a16MiB por defecto/hard32MiB, además del buffer256KiB y memoria UI/SO.
-La interfaz conserva un único resultado completo y lo libera antes de despachar
-la siguiente copia; no hay historial ilimitado de reportes.
+Borrowed preflight before cloning names or building paths. The controller
+charges the retained capacities of requests, up to 4 MiB including a reservation of
+2 MiB derived from the current report producer (paths 4097 B, errors 1024 B, sets 128).
+It is not a claim about total PSS: the engine's auxiliary record is limited
+separately to 16 MiB by default/32 MiB hard, plus the 256 KiB buffer and UI/OS memory.
+The interface keeps a single complete result and frees it before dispatching
+the next copy; there is no unbounded history of reports.
 
-Informe visual máximo64KiB y truncado explícito; la operación completa se conserva.
-«Copiar informe completo» lo formatea bajo demanda, máximo8MiB, y rechaza una
-versión truncada. Esa acción puede coexistir con el String temporal, CString de
-FLTK y clipboard; no está incluida en los4MiB del controlador ni en una escena que
-no la ejerza. La publicación real del clipboard requiere foco Wayland y sigue
-pendiente junto con el caso Space; invocar un handler no prueba clipboard del SO.
+Visual report at most 64 KiB and explicitly truncated; the complete operation is kept.
+«Copy full report» formats it on demand, at most 8 MiB, and rejects a
+truncated version. That action may coexist with the temporary String, FLTK's CString
+and the clipboard; it is not included in the controller's 4 MiB nor in a scene that
+does not exercise it. Real clipboard publication requires Wayland focus and is still
+pending along with the Space case; invoking a handler does not prove the OS clipboard.
 
-Todos los resultados se aceptan con ID y ACK. La cola no despacha en el mismo
-pump que entrega un resultado, para permitir detenerla ante rescate. Cerrar
-cancela activo y pendientes y sigue bombeando hasta recoger el trabajador;
-Drop no es evidencia de cierre seguro. Un syscall de FS bloqueado no se rodea
-creando trabajadores nuevos. Cancelar no despublica raíces ya terminadas: se
-muestran sus contadores/rutas. El origen nunca se elimina.
+Every result is accepted with an ID and ACK. The queue does not dispatch in the same
+pump that delivers a result, so it can be stopped for rescue. Closing
+cancels the active and pending jobs and keeps pumping until the worker is reaped;
+Drop is not evidence of a safe close. A blocked FS syscall is not worked around by
+creating new workers. Cancel does not unpublish roots that already finished: their
+counters/paths are shown. The source is never deleted.
 
-Al terminar raíces en la carpeta visible se recarga asíncronamente, conservando
-filtro, scroll, layout y un snapshot lossless de selección/foco. Dos completions
-antes del reload reutilizan el snapshot. Mientras está pendiente, selección por
-clic/rango/teclado queda bloqueada y la barra lo declara. El snapshot admite
-100k nombres y presupuesto8MiB antes de clonar: si excede, mantiene listado y
-selección, muestra error y permite reducir selección y reintentar Ctrl+R.
+When roots finish in the visible folder it reloads asynchronously, keeping
+filter, scroll, layout and a lossless snapshot of selection/focus. Two completions
+before the reload reuse the snapshot. While it is pending, selection by
+click/range/keyboard is blocked and the bar says so. The snapshot admits
+100k names and an 8 MiB budget before cloning: if exceeded, it keeps the listing and
+selection, shows an error and lets you reduce the selection and retry with Ctrl+R.
 
-Esto implementa copia local, no movimiento ni cortar/pegar archivos, DnD,
-reanudación durable tras fallo, journal de crash, resolución reemplazar/fusionar,
-ACL/xattrs ni todo el alcance O01/O02/O03. Permisos rwx, timestamps y symlinks sí
-forman parte del motor; ver sus pruebas y la comparación aislada en COPY-BENCH.
+This implements local copy, not moving nor cut/paste of files, DnD,
+durable resumption after a failure, a crash journal, replace/merge resolution,
+ACL/xattrs nor the whole O01/O02/O03 scope. rwx permissions, timestamps and symlinks are
+part of the engine; see its tests and the isolated comparison in COPY-BENCH.
 
-## Comprobaciones reproducibles
+## Reproducible checks
 
-- `cargo test --workspace`, Clippy all-targets con warnings como errores y build
-  release: deben corresponder a las fuentes actuales, no a la suite previa.
-- `python3 scripts/copy-ui-check.py --capture`: framebuffer real y handlers
-  internos sobre fixture propia; datos, SHA256/modo/mtime/symlink, no-clobber,
-  cola/pending cancel, destino recargado y salida0 después de ACK exacto.
-- `python3 scripts/copy-ui-check.py`: misma escena sin capturas ni clipboard;
-  árbol observado PSS+SwapPss, estable postcopia con límites temporales, CPU,
-  FD/hilos/procesos y cleanup PID/starttime. Objetivo50MB decimal, techo150MB.
-  No reemplaza baseline10k/1080p ni representa copias de árboles de100k entradas.
-- Throughput contra cp en corrida separada: COPY-BENCH.md.
+- `cargo test --workspace`, Clippy all-targets with warnings as errors and a release
+  build: they must match the current sources, not the earlier suite.
+- `python3 scripts/copy-ui-check.py --capture`: real framebuffer and internal
+  handlers on its own fixture; data, SHA256/mode/mtime/symlink, no-clobber,
+  queue/pending cancel, reloaded destination and exit 0 after an exact ACK.
+- `python3 scripts/copy-ui-check.py`: the same scene without captures or clipboard;
+  observed PSS+SwapPss tree, steady after copy with time limits, CPU,
+  FD/threads/processes and PID/starttime cleanup. Goal 50 MB decimal, ceiling 150 MB.
+  It does not replace the 10k/1080p baseline nor represent copies of 100k-entry trees.
+- Throughput against cp in a separate run: COPY-BENCH.md.
 
-171tests Rust (73core/8helper/90UI), Clippy all-targets y build release PASS.
-Captura funcional PASS en copy-ui-1793025091272455448.json: conflicto real entre
-carpetas distintas, controles visibles, cancelación tras3120archivos en staging y
-salida0 tras ACK exacto. Primera captura conservada: toast tapaba controles y el
-conflicto era copia sobre sí misma; no equivale a la evidencia corregida.
+171 Rust tests (73 core/8 helper/90 UI), Clippy all-targets and release build PASS.
+Functional capture PASS in copy-ui-1793025091272455448.json: a real conflict between
+different folders, visible controls, cancellation after 3120 files in staging and
+exit 0 after an exact ACK. The first capture is kept: the toast covered the controls and the
+conflict was a copy onto itself; it is not equivalent to the corrected evidence.
 
-copy-resources.json PASS **muestreado con hueco de salida**: pico34671KiB =
-35.503104MB =33.8584MiB; estable32542KiB =33.323008MB; Swap observado0. Máximo19FD,
-6hilos y1proceso legible simultáneo; una identidad hija de arranque salió durante
-smaps sin memoria disponible. No se cuenta como cero ni se promete cobertura de
-lifetimes.125muestras, intervalo máximo104.188ms (solicitado10ms). CPU postcopia
-mediana0%, máximo118.82% de un núcleo: no es idle asentado. PID/starttime observado
-sin supervivientes, cierre normal después de cancelar trabajo pausado y ACK.
-En esta corrida, cancelación activa tras3280archivos/57930bytes lógicos limpió
-la raíz no publicada; puede usar reflink, no se afirma transferencia userspace.
+copy-resources.json PASS **sampled with an exit gap**: peak 34671 KiB =
+35.503104 MB = 33.8584 MiB; steady 32542 KiB = 33.323008 MB; observed Swap 0. At most 19 FDs,
+6 threads and 1 readable process at the same time; one child identity from startup exited during
+smaps with no memory available. It is not counted as zero and lifetime coverage is not
+promised. 125 samples, maximum interval 104.188 ms (10 ms requested). Post-copy CPU
+median 0%, maximum 118.82% of one core: it is not settled idle. Observed PID/starttime
+with no survivors, normal close after cancelling a paused job and ACK.
+In this run, active cancellation after 3280 files/57930 logical bytes cleaned
+the unpublished root; it may use reflink, userspace transfer is not claimed.
 
-Fixture:16MiB +directorio10000archivos pequeños +symlink; tres raíces y listado
-visible de3/4entradas, no10000filas UI. Geometría1000×650 lógica/2000×1300 física.
+Fixture: 16 MiB + a directory with 10000 small files + a symlink; three roots and a visible
+listing of 3/4 entries, not 10000 UI rows. Geometry 1000×650 logical/2000×1300 physical.
 Hash files d8f2934638a56d069428e55a2209948db1df1a562c1eef8a012dd010e4059c40;
-helper9a4719bba08f63e5b7e2918cd896a8ee4a74684de75d638ce9c2a4e8a152ec2d.
-Baseline10k/1080p nuevo FAIL56.743936MB y startup FAIL151.978267ms máximo;
-no PASS global ni etiqueta0.0.4 mientras Space/otros gates estén pendientes.
-Fallos iniciales de suite/Clippy se conservan en evidence/0.0.4/copy-initial.
+helper 9a4719bba08f63e5b7e2918cd896a8ee4a74684de75d638ce9c2a4e8a152ec2d.
+New 10k/1080p baseline FAIL 56.743936 MB and startup FAIL 151.978267 ms maximum;
+no global PASS nor 0.0.4 tag while Space/other gates are pending.
+The initial suite/Clippy failures are kept in evidence/0.0.4/copy-initial.
 
 Post-checkpoint UI correction: measured Nerd text width now determines the Cancel
 button width (short label only if narrow); reports say «Bytes lógicos copiados»
 and translate clean cancellation/destination-exists causes. Updated framebuffer
 copy-ui-1793026558872068261.json PASS; no repeat of the already approved resource
 scenario for these label-only changes. Its hash differs from the earlier measured
-candidate; the35.503104MB figure remains attributed to the exact earlier hash.
+candidate; the 35.503104 MB figure remains attributed to the exact earlier hash.
 
 
 ### 2026-10-31 — Explicit SFTP copy publication review
 
-F3/Opciones in copy review exposes independent visible-exclusive publication and
+F3/Options in copy review exposes independent visible-exclusive publication and
 symlink timestamp omission; default stays staged, no automatic fallback. Both
 choices shown before enqueue, captured per job, reset in a new dialog; no Move/EXDEV
 delete authority. Options blocks source/path/name editing and stale paste receipts.
 Core rejects staged symlink timestamp setter on pinned FUSE parent before creating
 a link; visible mode already rejects preserved link times. No silent omission.
 
-925Rust319/85/521+3existingignored, Clippyworkspace/alltargets-Dwarnings/release/fmt
-PASS. Native1793457917645506527 UI/copy/mount PASS16framebuffers incl440² and
-1000×560;4copiedroots(raw0xFF/tree/link), bytes/rwx/mtime, outside-link-target mtime
-unchanged; review/paused no mutation, default staged expectedFAIL, both unsafe link
-date choices reject, collision preserves occupant, active cancel leaves57partial
-files and original3000files intact.24loggedPID/start identities gone/0errors/survivors,
-not lifetimes;3roots exit0 after normal callback. Native defaultcopy/overallFAIL
-exit1 retained. Final copy-names UI1793458033930156264 regression PASS. First native
-7503490291773 functional PASS but minimum warning visualFAIL preserved+sidecar;
-explicit bounded lines fixed and finalframebuffer inspected. No source delete,
-automatic removal of visible partials, powerloss/nativeinput/resources/startup claim.
+925 Rust 319/85/521 + 3 existing ignored, Clippy workspace/all targets -Dwarnings/release/fmt
+PASS. Native 1793457917645506527 UI/copy/mount PASS 16 framebuffers incl. 440² and
+1000×560; 4 copied roots (raw 0xFF/tree/link), bytes/rwx/mtime, outside-link-target mtime
+unchanged; review/paused no mutation, default staged expected FAIL, both unsafe link
+date choices reject, collision preserves occupant, active cancel leaves 57 partial
+files and original 3000 files intact. 24 logged PID/start identities gone/0 errors/survivors,
+not lifetimes; 3 roots exit 0 after normal callback. Native default copy/overall FAIL
+exit 1 retained. Final copy-names UI 1793458033930156264 regression PASS. First native
+7503490291773 functional PASS but minimum warning visual FAIL preserved + sidecar;
+explicit bounded lines fixed and final framebuffer inspected. No source delete,
+automatic removal of visible partials, power loss/native input/resources/startup claim.
 See COPY-PUBLICATION.md and evidence/sftp-native/copy-policy-validation/checks.json.
 N01/O01/O03 and full goal remain partial; freeze/new-preview pause intact.
 
-La disponibilidad de otra revisión durante la cola activa y la geometría del progreso con MC se detallan en QUEUE-REVIEW.md. F5 en Espacio recalcula; la paleta y el inspector conservan Copiar como acción explícita.
+Whether another review is available while the queue is active, and the progress geometry with MC, are detailed in QUEUE-REVIEW.md. F5 in Space recalculates; the palette and the inspector keep Copy as an explicit action.

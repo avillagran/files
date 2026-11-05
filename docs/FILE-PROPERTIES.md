@@ -1,114 +1,114 @@
-# Propiedades y permisos locales
+# Local properties and permissions
 
-Bloque parcial U04: Acciones → Propiedades o Alt+Enter abre un objeto seleccionado.
-No interpreta la ruta como comando ni lee el contenido. Muestra tipo, tamaño
-aparente, bloques asignados (`st_blocks * 512`, no uso físico exclusivo), número
-de hardlinks, UID/GID, modo, identidad dev/inode y timestamps de acceso,
-modificación y cambio de inode. **ctime no se llama fecha de creación**. El tamaño
-de un directorio no es su tamaño recursivo. Fechas se presentan como segundos y
-nanosegundos Unix en este primer diálogo. La ruta solicitada es histórica; la
-ruta verificada se resuelve en el worker y puede diferir tras renombrar el padre.
-Los enlaces muestran su destino raw escapado sin seguirlo ni abrirlo.
+Partial U04 block: Actions → Properties or Alt+Enter opens a selected object.
+It does not interpret the path as a command nor read the content. It shows type, apparent
+size, allocated blocks (`st_blocks * 512`, not exclusive physical use), the number
+of hardlinks, UID/GID, mode, dev/inode identity and the access,
+modification and inode-change timestamps. **ctime is not called a creation date**. A
+directory's size is not its recursive size. Dates are shown as Unix seconds and
+nanoseconds in this first dialog. The requested path is historical; the
+verified path is resolved in the worker and may differ after the parent is renamed.
+Links show their escaped raw target without following or opening it.
 
-El formulario permite preparar bits r/w/x del propietario, grupo y otros;
-Aplicar permisos confirma explícitamente el cambio no recursivo. Sólo Linux con
-`fchmodat2(AT_EMPTY_PATH)` disponible, archivos/directorios propios, sin bits
-especiales existentes. Otros objetos, symlinks, propietarios distintos y
-setuid/setgid/sticky quedan de sólo lectura. No chown, escalada, ACL, xattrs ni
-recursión. Cambiar un inode afecta a todos sus hardlinks; el diálogo lo advierte.
-Esta unidad no ofrece Deshacer de permisos: un cambio confirmado sustituye el
-historial previo para no presentar un Undo de otro tipo como si revirtiera chmod.
-Leer propiedades o fallar antes del cambio conserva el historial anterior.
+The form lets you prepare the r/w/x bits for owner, group and others;
+Apply permissions explicitly confirms the non-recursive change. Linux only, with
+`fchmodat2(AT_EMPTY_PATH)` available, own files/directories, without existing special
+bits. Other objects, symlinks, different owners and
+setuid/setgid/sticky stay read-only. No chown, escalation, ACL, xattrs or
+recursion. Changing an inode affects all its hardlinks; the dialog warns about it.
+This unit offers no permission Undo: a confirmed change replaces the
+previous history so an Undo of another kind is not presented as if it reverted chmod.
+Reading properties, or failing before the change, keeps the previous history.
 
-## Identidad, cancelación y límites
+## Identity, cancellation and limits
 
-Captura y cambio se ejecutan en el worker de mutaciones existente: sin otro hilo,
-helper o daemon. Un snapshot conserva dos FD (padre y objeto `O_PATH|O_NOFOLLOW`).
-El symlink final se fija como objeto y se lee con `readlinkat` sobre ese FD;
-lectura raw y rutas están limitadas a 4096 B. El cambio usa el FD fijado con
-`fchmodat2`, sin reabrir por ruta ni fallback que siga symlinks. Si el kernel/FS no
-lo soporta, se informa capacidad no disponible. La ruta `/` y propiedades de
-selección múltiple no están implementadas en este bloque.
+Capture and change run on the existing mutation worker: no other thread,
+helper or daemon. A snapshot keeps two FDs (parent and object `O_PATH|O_NOFOLLOW`).
+The final symlink is pinned as the object and read with `readlinkat` on that FD;
+raw reads and paths are limited to 4096 B. The change uses the pinned FD with
+`fchmodat2`, without reopening by path nor a symlink-following fallback. If the kernel/FS does not
+support it, the capability is reported as unavailable. The `/` path and multi-selection
+properties are not implemented in this block.
 
-Se comprueban identidad del objeto/entrada, UID, GID y modo observados justo antes
-de confirmar. Una sustitución o cambio externo exige Recargar, conserva al actor
-y no aplica el modo preparado. Un cambio propio con observación posterior válida
-actualiza el snapshot para una siguiente edición. No existe syscall condicional
-que vincule identidad de entrada y chmod: un actor del mismo UID puede mover el
-inode después de la comprobación. El FD nunca cambia a su reemplazo. No se declara
-snapshot del contenido, aislamiento hostil ni atomicidad frente a crash.
+The object/entry identity, UID, GID and the observed mode are checked right before
+confirming. An external substitution or change requires Reload, keeps the actor
+and does not apply the prepared mode. An own change followed by a valid observation
+updates the snapshot for the next edit. There is no conditional syscall
+that ties entry identity to chmod: an actor with the same UID can move the
+inode after the check. The FD never switches to its replacement. No content
+snapshot, hostile isolation or atomicity against a crash is claimed.
 
-La cancelación se comprueba antes del syscall; no lo interrumpe. Un commit
-confirmado sigue siendo éxito aunque falle el diagnóstico posterior: se informa
-advertencia, se deshabilita una nueva edición sin lectura válida y no se ofrece
-un reintento como si no hubiera ocurrido. Los mensajes tienen máximo 1024 B y
-ocho advertencias, y no se acumulan snapshots/historial de propiedades. Cerrar
-durante un cambio cancela y espera ACK antes de salir; Drop no sustituye el drain.
-Lecturas o syscalls atascadas en montajes siguen sin deadline efectivo y no se
-presentan como recuperadas offline.
+Cancellation is checked before the syscall; it does not interrupt it. A confirmed
+commit is still a success even if the later diagnostic fails: a warning is reported,
+a new edit without a valid read is disabled and a retry is not offered
+as if it had not happened. Messages are at most 1024 B and
+eight warnings, and property snapshots/history do not pile up. Closing
+during a change cancels and waits for the ACK before exiting; Drop does not replace the drain.
+Reads or syscalls stuck on mounts still have no effective deadline and are not
+presented as recovered offline.
 
-Los controles son Painter propio, con foco de teclado y scroll del panel; no se
-abren diálogos nativos de toolkit. Las rutas solicitada/verificada y el destino raw de enlaces se distribuyen en
-líneas medidas y se recorren con rueda, flechas, Inicio/Fin y PageUp/PageDown.
-Se conserva el texto escapado completo; otros metadatos aún pueden recortarse.
-Selección/copia/export completo del informe de propiedades queda pendiente. Accesibilidad AT-SPI y entrada física siguen sin evidencia compatible.
+The controls are own Painter controls, with keyboard focus and panel scroll; no
+native toolkit dialogs are opened. The requested/verified paths and the raw link target are laid out in
+measured lines and can be walked with the wheel, arrows, Home/End and PageUp/PageDown.
+The full escaped text is kept; other metadata may still be clipped.
+Select/copy/full export of the properties report is pending. AT-SPI accessibility and physical input still have no compatible evidence.
 
-## Verificación
+## Verification
 
-341 tests Rust (115 core/37 helper/189 UI), Clippy workspace/all-targets
-`-D warnings` y release PASS. `properties-ui-1793049068223979012.json` funcional
-PASS en dos procesos: lectura real, chmod0600→0640 con bytes intactos, cambio
-externo a0600 rechazado conservando la petición0644, Recargar, symlink readonly
-sin modificar su destino, directorio y cierre normal0 tras ACK. El segundo cierre
-se solicitó inmediatamente después de encolar Aplicar y canceló antes del commit;
-no prueba cancelación dentro del syscall. Método: handlers de targets visibles,
-framebuffer FLTK real y modos/bytes de fixtures propios; no eventos SO.
+341 Rust tests (115 core/37 helper/189 UI), Clippy workspace/all-targets
+`-D warnings` and release PASS. `properties-ui-1793049068223979012.json` functional
+PASS in two processes: real read, chmod 0600→0640 with bytes intact, an external
+change to 0600 rejected while keeping the 0644 request, Reload, a read-only symlink
+without modifying its target, a directory and normal close 0 after ACK. The second close
+was requested right after enqueuing Apply and cancelled before the commit;
+it does not test cancellation inside the syscall. Method: visible target handlers,
+real FLTK framebuffer and modes/bytes of own fixtures; no OS events.
 
-SHA256 app `3b40ad35bc1aaad3bbc86764d7b00aa456d8c8edf0e686e760729320ebba6554`.
-Las escenas fallidas1793048241761101633 y1793048903461152694 se preservan:
-ventana tiled corta dejó un control recortado sin hit (correcto); después se
-identificó un marcador READY anterior al repintado. La fixture ahora usa el mismo
-Tab/reveal que el formulario y espera una revisión de dibujo posterior al comando.
-También se oculta el toast de éxito anterior mientras hay formulario y se limpia
-antes de un nuevo cambio, para no contradecir el rechazo actual. Logs de fallos de
-compilación/Clippy iniciales y finales se conservan en evidence/properties.
+App SHA256 `3b40ad35bc1aaad3bbc86764d7b00aa456d8c8edf0e686e760729320ebba6554`.
+The failed scenes 1793048241761101633 and 1793048903461152694 are preserved:
+a short tiled window left a clipped control without a hit (correct); afterwards a
+READY marker earlier than the repaint was identified. The fixture now uses the same
+Tab/reveal as the form and waits for a drawing revision after the command.
+The earlier success toast is also hidden while a form is open and cleared
+before a new change, so it does not contradict the current rejection. Logs of the initial and final
+build/Clippy failures are kept in evidence/properties.
 
-Sin chown ni cambios sobre datos personales. Recursos/startup NOT_MEASURED por
-freeze explícito; cotas de FD/bytes no prueban presupuesto del proceso. U04 sigue
-parcial (selección múltiple, copiar informe, ACL/xattrs/enlaces, otros SO).
-
-
-## NODE: rutas completas y ventana mínima (2026-11-01)
-
-El panel reserva el pie global. Las nueve casillas y las tres acciones se ajustan
-al ancho disponible en 440×440. Tab revela el permiso enfocado; Inicio/Fin y las
-teclas de página recorren el contenido. Las rutas usan etiquetas escapadas comunes
-sin reconstruir destinos desde el texto. La partición usa anchos reales y límites
-de escalares UTF-8, con caché por ancho/ruta/destino. No promete segmentación de
-grafemas, entrada nativa, AT-SPI ni nitidez 2×.
-
-Los snapshots y la autorización por descriptor no cambian. Renombrar el objeto
-invalida correctamente la captura; mover su directorio padre permite resolver la
-ruta verificada nueva. La primera prueba confundía ambos casos y falló; el fallo
-se conserva y se corrigió la fixture, sin relajar la validación del backend.
+No chown and no changes to personal data. Resources/startup NOT_MEASURED because of the
+explicit freeze; FD/byte bounds do not prove a process budget. U04 is still
+partial (multi-selection, copy report, ACL/xattrs/links, other OSes).
 
 
-Validación NODE: 1214 pruebas Rust (425 core/95 helper/694 UI), tres ignoradas
-históricas; Clippy workspace/all-targets -D warnings, formato y release PASS.
-Flujos X11 `1793529310535401451` y Wayland `1793529319603368419`: 31 capturas
-cada uno, tres salidas normales y siete helpers registrados terminados/reutilizados.
-La fixture larga contiene bytes inválidos y controles: texto completo en caché,
-PageDown/Home, nueve targets, tres botones, chmod0600→0640 sobre el mismo inode,
-symlink readonly y contenido conservado. Regresión de propiedades
-`1793529331818288088` PASS: lectura, rechazo tras cambio externo, Recargar,
-directorio y cierre durante petición. El recibo intermedio IN_PROGRESS se conserva.
+## NODE: full paths and minimum window (2026-11-01)
+
+The panel reserves the global footer. The nine checkboxes and the three actions fit
+the available width at 440×440. Tab reveals the focused permission; Home/End and the
+page keys walk the content. Paths use the common escaped labels
+without rebuilding targets from the text. The layout uses real widths and
+UTF-8 scalar boundaries, with a cache per width/path/target. It does not promise grapheme
+segmentation, native input, AT-SPI or 2× sharpness.
+
+The snapshots and the per-descriptor authorization do not change. Renaming the object
+correctly invalidates the capture; moving its parent directory allows resolving the new
+verified path. The first test mixed up both cases and failed; the failure
+is kept and the fixture was fixed, without relaxing the backend validation.
+
+
+NODE validation: 1214 Rust tests (425 core/95 helper/694 UI), three historical
+ignored; Clippy workspace/all-targets -D warnings, format and release PASS.
+X11 `1793529310535401451` and Wayland `1793529319603368419` flows: 31 captures
+each, three normal exits and seven registered helpers terminated/reused.
+The long fixture contains invalid bytes and control characters: full text in the cache,
+PageDown/Home, nine targets, three buttons, chmod 0600→0640 on the same inode,
+a read-only symlink and the content preserved. Properties regression
+`1793529331818288088` PASS: read, rejection after an external change, Reload,
+directory and close during a request. The intermediate IN_PROGRESS receipt is kept.
 App SHA256 `ced5d60bdb1386d3e6927d7a1f00588f036a648e6bffaa858e2f4f7d4e084dc7`.
-Son fixtures/handlers y framebuffer, sin prueba de input SO, clipboard ni AT-SPI;
-PSS/Swap/CPU/startup no medidos. La anomalía X11 histórica sigue sin causa confirmada.
+These are fixtures/handlers and framebuffer, with no test of OS input, clipboard or AT-SPI;
+PSS/Swap/CPU/startup not measured. The historical X11 anomaly still has no confirmed cause.
 
 
-Checkpoint instalado fuente `d2dfee1`, recibo `1793529424770438069`: cinco hashes
-instalados y cinco respaldos verificados. Repetición Wayland instalada
-`1793529436364969476` PASS:31 capturas/3 salidas0/6 helpers de duplicados y1 de
-búsqueda terminados o identidad reutilizada, sin zombie. Permisos de fixture y
-bytes originales verificados. Helpers SHA/HTML conservan sus hashes anteriores.
+Installed checkpoint source `d2dfee1`, receipt `1793529424770438069`: five
+installed hashes and five backups verified. Installed Wayland repeat
+`1793529436364969476` PASS: 31 captures/3 exits 0/6 duplicate helpers and 1 search
+helper terminated or identity reused, no zombie. Fixture permissions and
+original bytes verified. Helper SHA/HTML keep their earlier hashes.
