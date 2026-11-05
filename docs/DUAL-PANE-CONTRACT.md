@@ -1,120 +1,120 @@
-# Doble panel — M27 (2026-10-27)
+# Dual pane — M27 (2026-10-27)
 
-Unidad siguiente a Columnas, de acuerdo con DESIGN187: F9 sustituye el inspector
-por segundo panel en modo MC, no dos inspectores ni dos Model. Previews nuevas
-pausadas; freeze de recursos/startup intacto. Aceptación funcional acotada M27; instalación por checkpoint. Sin PASS global.
+The unit after Columns, following DESIGN 187: F9 replaces the inspector
+with a second pane in MC mode, not two inspectors nor two Models. New previews
+paused; resource/startup freeze intact. Bounded M27 functional acceptance; installation per checkpoint. No global PASS.
 
-## Uso, foco y operaciones
+## Use, focus and operations
 
-F9 alterna una/dos listas. En este checkpoint MC ambos paneles usan Lista; elegir
-otra vista sale del modo dual. El panel activo tiene borde/color y título claros;
-Tab alterna foco únicamente fuera de omnibar/inputs/modales. Clic en una fila del
-otro panel lo enfoca y aplica selección por identidad/token, nunca al índice de
-una lista distinta. Enter/doble clic navegan su carpeta; historial, filtro,
-selección/rango/anchor y scroll son independientes. Scroll de panel inactivo no
-cambia foco. Lugares/omnibar/atajos/inspector normal actúan sobre el activo.
+F9 toggles one/two lists. In this MC checkpoint both panes use List; choosing
+another view leaves dual mode. The active pane has a clear border/color and title;
+Tab toggles focus only outside the omnibar/inputs/modals. Clicking a row of the
+other pane focuses it and applies the selection by identity/token, never by the index of
+a different list. Enter/double click navigate its folder; history, filter,
+selection/range/anchor and scroll are independent. Scrolling the inactive pane does not
+change focus. Places/omnibar/shortcuts/the normal inspector act on the active one.
 
-F5/F6 prellenan el directorio del panel opuesto y mantienen revisión explícita.
-El diálogo conserva PathBuf raw del destino capturado separado del label de
-visualización; hasta editar se usa EXACTAMENTE ese PathBuf. La primera edición
-válida sustituye el destino por una ruta UTF8 escrita explícitamente; paste
-rechazado no descarta el raw anterior. Ningún unwrap_or_default/to_string_lossy
-se convierte en ruta operativa. Nombre0xFF→destino0xFE tiene fixture.
+F5/F6 prefill the opposite pane's directory and keep an explicit review.
+The dialog keeps the captured destination's raw PathBuf separate from the display
+label; until edited, EXACTLY that PathBuf is used. The first valid
+edit replaces the destination with an explicitly typed UTF-8 path; a rejected
+paste does not discard the earlier raw value. No unwrap_or_default/to_string_lossy
+is ever turned into an operational path. Name 0xFF→destination 0xFE has a fixture.
 
-La operación captura fuente/destino y owner(panelID,tabID) al admitir, no consulta
-foco nuevo al ejecutar/ACK. Cola, IDs de job, cancel/pause, journal y supervisores
-de medios/operaciones son globales únicos. Completion refresca ambos directorios
-que correspondan (rutas capturadas más ubicaciones FD verificadas) y preserva
-selección/query/scroll. Cambiar o cerrar pestaña/panel no redirige ni cancela cola.
-Apply rename/permisos y revisión modal mantienen bloqueo de cambio de foco.
+The operation captures source/destination and owner (pane ID, tab ID) on admission; it does not query
+the new focus when running/ACKing. The queue, job IDs, cancel/pause, journal and the media/operation
+supervisors are single and global. Completion refreshes both matching
+directories (captured paths plus FD-verified locations) and keeps
+selection/query/scroll. Changing or closing a tab/pane neither redirects nor cancels the queue.
+Rename/permission Apply and a modal review keep focus changes blocked.
 
-## Pestañas, cierre y persistencia
+## Tabs, close and persistence
 
-Cada panel tiene Tabs propio, hasta8 activas/8cerradas. TabIDs locales sólo son
-válidos junto a panelID monotónico estable; no se reutiliza ID de panel cerrado.
-Owner de job y diagnóstico usan el par, nunca u64 tabID solo. Jobs conservan
-rutas/proofs aunque su owner ya no exista. Los ACK no cambian foco de otra pestaña.
-El límite3MiB de snapshots inactivas+cerradas es CONJUNTO de ambos grupos, no
-3MiB por panel; admisión resta sólo lo liberado por el grupo modificado.
+Each pane has its own Tabs, up to 8 active/8 closed. Local tab IDs are only
+valid together with a stable monotonic pane ID; a closed pane's ID is never reused.
+Job owner and diagnostics use the pair, never a u64 tab ID alone. Jobs keep
+paths/proofs even if their owner no longer exists. ACKs do not change another tab's focus.
+The 3 MiB limit for inactive+closed snapshots is SHARED by both groups, not
+3 MiB per pane; admission only subtracts what the modified group frees.
 
-F9 al salir mantiene la ruta enfocada como lista única y suspende listado del
-otro panel, liberando entries/order/stat-demand después de capturar selección
-raw acotada; conserva Tabs/history/query/scroll y esa selección dentro del
-presupuesto conjunto. Al volver se revalida su ruta. Cerrar última pestaña de un panel dual
-mantiene el otro como panel único, sin cerrar ventana ni cancelar cola. Se elimina
-el grupo cerrado (no reapertura implícita por ACK); CtrlShiftT opera sobre cerradas
-del grupo restante. Cierre de ventana sí cancela/drena cola y guardados como M25.
-Sesión durable M23 sigue guardando sólo el grupo ENFOCADO; aviso explícito en modo
-dual. No prometer restore de ambas mitades ni reanudar operaciones. Ampliar formato
-para ambas es pendiente explícito, no reinterpretar sesiones existentes.
+F9 when leaving keeps the focused path as the single list and suspends the
+other pane's listing, freeing entries/order/stat-demand after capturing a bounded raw
+selection; it keeps Tabs/history/query/scroll and that selection within the
+shared budget. When coming back its path is revalidated. Closing the last tab of a dual pane
+keeps the other as a single pane, without closing the window or cancelling the queue. The
+closed group is removed (no implicit reopening through an ACK); Ctrl+Shift+T works on the closed
+tabs of the remaining group. Closing the window does cancel/drain the queue and saves as in M25.
+The durable M23 session still saves only the FOCUSED group; an explicit notice in dual
+mode. Restoring both halves or resuming operations is not promised. Extending the format
+for both is an explicit pending item; existing sessions are not reinterpreted.
 
-## Ownership y presupuestos locales
+## Ownership and local budgets
 
-Un Model activo; Browser secundario sólo datos/listado/worker. Al cambiar foco se
-mueven Vec/HashSet/worker/history/Tabs y snapshots pendientes, no clones de listas.
-Cada worker reutilizable conserva latest-pending/generation y límiteFSglobal4;
-no reemplazar hilos ante syscall bloqueada. Columns lookahead anterior queda
-suspendido al entrar modoMC: se reutiliza el mismo worker secundario de Columns al cambiar modo;2 listados
-solicitados, sin crear otro hilo al alternar. Una syscall antigua bloqueada no
-se considera interrumpida ni drenada; el límite FSglobal4 sigue aplicando, sin bitmaps/preview
-secundarios. Desactivar/cerrar cancela pendiente, sin fingir kernelD interrumpido.
+One active Model; the secondary Browser holds only data/listing/worker. When focus changes,
+Vec/HashSet/worker/history/Tabs and pending snapshots are moved, not list clones.
+Each reusable worker keeps latest-pending/generation and the global FS limit of 4;
+threads are not replaced when a syscall blocks. The earlier Columns lookahead is
+suspended when entering MC mode: the same secondary Columns worker is reused when switching modes; 2 requested
+listings, without creating another thread when toggling. An old blocked syscall is not
+considered interrupted or drained; the global FS limit of 4 still applies, with no secondary
+bitmaps/previews. Disabling/closing cancels what is pending, without faking an interrupted kernel D-state.
 
-Admisión de datos de AMBAS listas antes de cada lote y expansión de selección:
-32MiB conjuntos; máximo100k entradas/8MiB nombres por lista. Parcial/error explícito
-si supera, nunca decir carpeta vacía. Reservas separadas:3MiB snapshots conjunto,
-≤1MiB snapshot transiente y256KiB metadata/rutas de grupos, canales8×256 y jobs
-bounded por worker, claves de sort, stacks/allocator/FLTK/medios/cola global según
-sus contratos. El Model activo existente y el secundario se contabilizan juntos;
-no atribuir memoria total a chunk/cap ni declarar PSS con límites teóricos. Bajo
-freeze todo presupuesto real sigue NOT_MEASURED y los FAIL previos siguen activos.
+Data admission for BOTH lists before each batch and selection expansion:
+32 MiB shared; at most 100k entries/8 MiB of names per list. An explicit partial/error
+if exceeded; never claim an empty folder. Separate reservations: 3 MiB of shared snapshots,
+≤1 MiB transient snapshot and 256 KiB of group metadata/paths, channels 8×256 and
+bounded jobs per worker, sort keys, stacks/allocator/FLTK/media/global queue according to
+their contracts. The existing active Model and the secondary one are counted together;
+do not attribute total memory to a chunk/cap nor declare PSS with theoretical limits. Under the
+freeze every real budget is still NOT_MEASURED and the earlier FAILs remain active.
 
-## Aceptación
+## Acceptance
 
-Extender escena de pestañas existente: F9/Tab por handlers compartidos, A/B mismo
-nombre distinto contenido, navegación y filtro independiente, multiselección,
-operaciones F5/F6 al opuesto con revisión; destino/nombre raw0xFE/0xFF; job deB
-termina estandoA enfocada, refresco del correcto sin pisar selección/filtroA;
-pestaña/panel cerrado durante cola pausada no cancela/redirect; cerrar ventana
-normal0 después ACK. Límites conjunto y IDs en unitarios, capturas reales en
-1000×650 y ventana inicial estrecha. No inputSO/clipboard/liveResize ni métricas.
-
-
-## Validación M27
-
-603Rust194core/67helper/342UI PASS (tres core ignored preexistentes), Clippy
-workspace/all-targets-Dwarnings, release y fmt limpios.
-`dual-ui-1793126826929914048.json` PASS: ocho framebuffer IHDR verificados,
-seis1000×650 y dos de instancia inicial800×440; dos procesos normales0 después
-ACK. A/B navegan carpetas/volver por separado; contextual sobre lote del otro
-panel conserva selección, fondo y targets obsoletos no la redirigen. F5 copia
-bytes raw0xFF al destino0xFE, origen y ocupantes intactos, mientras B mantiene
-foco/query same y A muestra filtro copy. F6 revisión y pausa no publican; cerrar
-B con job pausado conserva cola y al reanudar mueve al destino capturado. Ambos
-paneles misma ruta se refrescan tras rename/Undo en tests; grupo oculto sin datos
-y joint metadata budget probados. Doce alternancias con backend bloqueado usan
-el mismo worker secundario (test, no garantía de interrumpir syscall del SO).
-
-Títulos muestran basename primero y contexto padre, filtros visibles en cada
-cabecera además del pie. Así A/B se distinguen estrechos y la notificación de
-éxito no tapa el único indicador de filtro. Instancia inicial estrecha, no live
-resize; handlers/Actions/framebuffer, no eventos SO. No preview nuevo ni lectura
-de clipboard. PSS incidental del footer sólo principal, no gate.
-
-Se conservan primeros FAIL compile/Clippy y fixture de contextual que clicaba
-carpeta no seleccionada. Fixture corregido verifica por nombre raw un miembro
-del lote y caso separado fuera del lote→selección1, sin cambiar esa semántica.
-Primera escena PASS funcional con títulos/indicadores antiguos conservada con
-review sidecar. `dual-checkpoint-validation.json` conserva logs/hashes.
-Persistir ambos grupos, otros SO/input nativo, vistas distintas por panel y
-recursos/startup siguen pendientes. Siguiente: cortar/pegar/DnD y operaciones,
-sin reabrir previews ni levantar freeze.
+Extend the existing tabs scene: F9/Tab through shared handlers, A/B with the same
+name and different content, independent navigation and filter, multi-selection,
+F5/F6 operations to the opposite pane with review; raw destination/name 0xFE/0xFF; a job from B
+finishes while A is focused, the right one refreshes without overwriting A's selection/filter;
+a tab/pane closed during a paused queue neither cancels nor redirects; closing the window
+normally 0 after ACK. Shared limits and IDs in unit tests, real captures at
+1000×650 and a narrow initial window. No OS input/clipboard/live resize nor metrics.
 
 
-Corrección de reporte M27: `dual-title-fmt.log` era FAIL de una única línea por
-wrapping, aunque se había descrito PASS. Original preservado. Formato aplicado
-sin cambio funcional y `dual-format-correction.log` registra fmt--check exit0.
-Clippy/release/escena/hashes instalados previos siguen válidos; no se reconstruye
-ni instala M28 WIP por esta corrección sólo de whitespace.
+## M27 validation
+
+603 Rust 194 core/67 helper/342 UI PASS (three pre-existing core tests ignored), Clippy
+workspace/all-targets -Dwarnings, release and fmt clean.
+`dual-ui-1793126826929914048.json` PASS: eight framebuffers with verified IHDR,
+six 1000×650 and two of the initial 800×440 instance; two processes normal 0 after
+ACK. A/B navigate folders/back separately; the context menu on the other
+pane's batch keeps the selection, and background and stale targets do not redirect it. F5 copies
+raw 0xFF bytes to the 0xFE destination, source and occupants intact, while B keeps
+focus/query same and A shows the copy filter. F6 review and pause publish nothing; closing
+B with a paused job keeps the queue and resuming moves to the captured destination. Both
+panes on the same path refresh after rename/Undo in tests; a hidden group without data
+and the shared metadata budget tested. Twelve toggles with a blocked backend use
+the same secondary worker (a test, not a guarantee of interrupting an OS syscall).
+
+Titles show the basename first and the parent context, with filters visible in each
+header as well as the footer. That way A/B can be told apart when narrow and the success
+notification does not cover the only filter indicator. Narrow initial instance, not live
+resize; handlers/Actions/framebuffer, no OS events. No new preview and no clipboard
+reads. The footer's incidental PSS is main-process only, not a gate.
+
+The first compile/Clippy FAILs and the context-menu fixture that clicked an
+unselected folder are kept. The fixed fixture verifies a batch member by raw name
+and a separate out-of-batch case→selection 1, without changing that semantics.
+The first functional PASS scene with the old titles/indicators is kept with a
+review sidecar. `dual-checkpoint-validation.json` keeps logs/hashes.
+Persisting both groups, other OSes/native input, different views per pane and
+resources/startup are still pending. Next: cut/paste/DnD and operations,
+without reopening previews or lifting the freeze.
+
+
+M27 report correction: `dual-title-fmt.log` was a FAIL on a single line because of
+wrapping, even though it had been described as PASS. Original preserved. Formatting applied
+with no functional change and `dual-format-correction.log` records fmt --check exit 0.
+The earlier Clippy/release/scene/installed hashes remain valid; M28 WIP is not rebuilt
+or installed for this whitespace-only correction.
 
 ## Sort controls (2026-11-01)
 
