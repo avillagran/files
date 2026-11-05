@@ -819,247 +819,247 @@ Relaunch with a private config/verified FD/exit 0 ACK, 3 FB 845×1071. Normal Pu
 1793088666411517841 PASS 9 FB and video 1793089019986522162 PASS 4 FB/active close, strict
 logged PID/start cleanup. No PSS/Swap/CPU/startup because of the freeze nor OS input.
 
-## 2026-10-27 — Vídeo con audio opt-in (M11)
+## 2026-10-27 — Video with opt-in audio (M11)
 
-470Rust141/58/271, Clippyworkspace/all-targets-Dwarnings y releasePASS.
-VIDEO-PREVIEW: stream único ffmpeg RGB+Pulse, mute por defecto/M, índices reales,
-source failure tipado frente a error de salida recuperable. NativePulsezeroPCM
-video-play-ui1793091780741012397 PASS5FB1000×650/9loggedhelpersgone strictZfalse/
-hot-toggleACK/pause/resumeEOF/callbackclose0ACK. Recovery socketausente
-1793091967178711219 PASS6FB/9gone/errorvisible→mute→framesEOF/cierre0ACK.
-Standaloneaudio1793092217283190449 PASS9FB/14gone/activeclose0ACK. Misma appSHA
+470 Rust 141/58/271, Clippy workspace/all-targets -Dwarnings and release PASS.
+VIDEO-PREVIEW: a single ffmpeg RGB+Pulse stream, mute by default/M, real indices,
+a typed source failure versus a recoverable output error. Native Pulse zero PCM
+video-play-ui 1793091780741012397 PASS 5 FB 1000×650/9 logged helpers gone strict Z false/
+hot-toggle ACK/pause/resume EOF/callback close 0 ACK. Recovery with the socket missing
+1793091967178711219 PASS 6 FB/9 gone/visible error→mute→frames EOF/close 0 ACK.
+Standalone audio 1793092217283190449 PASS 9 FB/14 gone/active close 0 ACK. Same app SHA
 52cde7a05957ba702f5c50946f2eaa5130e01d76663d1e0117929bcc7029e820,
-helper187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9.
+helper 187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9.
 
-Defaultarenas+AS768 virtual Pulse mmapFAIL1793091361377293413 preservado;
-child-only MALLOC_ARENA_MAX2 permite contexto con mismo cap, contrato funcional
-video-audio-arena-contract. No PSS/CPU/throughput claim. FAIL fixture PulseServer
-postPopen1793091839762673007 conservado+sidecar, corregido antes del spawn.
-Handlers/framebuffer, sin inputSO/audibilidad/PCM/A-Vsync/native2xsharpness.
-Sin recursos/startup nuevos porfreeze; oldFAILs yP07/P09parciales, noPASSglobal.
-
-
-## 2026-10-27 — PDF con revisión efectiva (M12)
-
-473Rust141/58/274, Clippyworkspace/all-targets-Dwarnings y releasePASS.
-PDF-PREVIEW: expectedFD obligatorio/metadata y render mismoFD/sourceproof enReady,
-watch/token/epoch/reconcile1s existentes, SourceUnavailable tipado/nuevo token.
-pdf-ui1793092913810767063 funcionalPASS8FB1000×650 con notify suprimido: RGB y
-firma reales, replace igualsize+mtime, inplace mtime restaurado, delete/recreate,
-renamefile/parentrecover, oculto nohelper, páginas/zoom/rapid/errors/cierre0ACK.
-23loggedPID/startgone/reused strictZfalse, no lifetimecoverage ni helpervivoalclose.
-readonly_gate compartidoaudio/PDF conserva salidaReadOnlypermitida≠workerACK,
-no joinFSUI ni prueba kernelD. No inputSO/native2xsharpness/textoselecciónPDF.
-AppSHA3dacd1b81f77cf85da634484cddc1640623dfcb3836433df160fcd456a74ab2b,
-helper187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9.
-Recursos/startupNOT_MEASUREDfreeze, fallosbase intactos, sin0.0.4tag/PASSglobal.
+Default arenas + AS 768 virtual Pulse mmap FAIL 1793091361377293413 preserved;
+a child-only MALLOC_ARENA_MAX 2 allows the context with the same cap, functional contract
+video-audio-arena-contract. No PSS/CPU/throughput claim. The fixture FAIL with PulseServer
+set after Popen 1793091839762673007 kept + sidecar, fixed before the spawn.
+Handlers/framebuffer, without OS input/audibility/PCM/A-V sync/native 2x sharpness.
+No new resources/startup because of the freeze; old FAILs and P07/P09 partial, no global PASS.
 
 
-## 2026-10-27 — HTML renderizado ligado al FD (M13)
+## 2026-10-27 — PDF with effective revision (M12)
 
-476Rust141/58/277, Clippyworkspace/all-targets-Dwarnings/releasePASS.
-HTML-ENGINE-PROBE: expectedFD obligatorio, adaptador hereda ese FD y usa pread,
-Revision efectiva tras render/decode/revalidate, gate watcher/token/epoch/reconcile
-existentes; readonlyclose permiso≠ACK, no joinFSUI ni nuevos workers acumulados.
-Nativebuild1793093259627217246 yfd-contract1793093345381869451 PASS funcional;
-legacyCLI conserva compatibilidad, FD inválido/FIFO/>32KiB sin salida parcial.
-html-ui1793093483630467339 PASS10FB/resize800×500/notify suprimido: texto/firma
-FD trasreplace mismo size+mtime/inplace mtime restaurado/delete/recreate/file+
-parentrename recovery, hidden sinhelper; selección/renderCSS/scroll/block/error/
-rapid/cierre0ACK.14loggedPID/startgone/reused strictZfalse, no lifetimecoverage
-ni helpervivoalclose/inputSO/clipboard/native2xsharpness/kernelDreal.
-AppSHA bb32f9725d40d6327c66897aa0a1595c7a2c113e28fd81206f41f0a83a83575c;
-HTML85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4;
-helper187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9.
-Métricas tipográficas aproximadas/recortes visibles siguen pendientes; NO shaping
-correcto. Recursos/startupNOT_MEASUREDfreeze, valores delpie no son gateárbol.
-Sin0.0.4tag/PASSglobal, fallosbase históricos conservados.
+473 Rust 141/58/274, Clippy workspace/all-targets -Dwarnings and release PASS.
+PDF-PREVIEW: a mandatory expected FD/metadata and render on the same FD/source proof in Ready,
+the existing watch/token/epoch/1 s reconcile, a typed SourceUnavailable/new token.
+pdf-ui 1793092913810767063 functional PASS 8 FB 1000×650 with notify suppressed: real RGB and
+signature, a replace with the same size+mtime, in-place with mtime restored, delete/recreate,
+rename file/parent recovery, hidden without a helper, pages/zoom/rapid/errors/close 0 ACK.
+23 logged PID/start gone/reused strict Z false, no lifetime coverage nor a live helper at close.
+The readonly_gate shared by audio/PDF keeps ReadOnly exit allowed ≠ worker ACK,
+no FS join on the UI nor a kernel D-state test. No OS input/native 2x sharpness/PDF text selection.
+App SHA 3dacd1b81f77cf85da634484cddc1640623dfcb3836433df160fcd456a74ab2b,
+helper 187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9.
+Resources/startup NOT_MEASURED freeze, baseline failures intact, no 0.0.4 tag/global PASS.
 
 
-## 2026-10-27 — PDF texto extraído seleccionable (M14)
+## 2026-10-27 — Rendered HTML bound to the FD (M13)
 
-480Rust141/58/281, Clippyworkspace/all-targets-Dwarnings y releasePASS.
-PDF-PREVIEW: T/botónNerd cambiaPágina/Texto de la misma página, anterior/siguiente,
-CtrlPgUpDown yselecciónTextDocument; pdftotext usa mismoFDexpected/efectivo y Job,
-outputs excluyentes/RGBliberado, stdout256KiB/2000LF/UTF8strict sinNUL.
-String tomaVec sinclone, caps anteshelper/retenciónwire; sin cache/archivo de producto.
-
-pdf-ui1793094189643854652 funcionalPASS12FB1000×650/notify suprimido: textoASCII
-páginas2/1, firmaFD/selección porpuntero/Copyhandler yvolverRaster, más lifecycleM12.
-SourcecapPDF256MiB+1/HTML32KiB+1 conserva revisión ysin nuevos hijos en intervalo
-reconcile: error de capacidad estable yaNO fuerza token de fuente repetido.
-29loggedPID/startgone/reused strictZfalse/cierre0ACK, no lifetimecoverage nihelper
-vivoalclose. TestsUTF8/TAB/CRLF/caps ytextlatest/sourcegate, noPDFUnicode real.
-App786c52d7c9afef200ad7c258514af96a531b4cf805be4e2b66f67614aad6be92;
-helper187c939eb981/HTML85ea1b8009ef sin cambio dehelper. No inputSO/clipboard/
-selecciónsobregeometríaPDF/nitideznativa2x. Recursos/startupNOT_MEASUREDfreeze;
-fallosbasehistóricos intactos, sin0.0.4tag/PASSglobal.
-
-
-## 2026-10-27 — PCM de audio y vídeo en sink privado (M15)
-
-481Rust141/58/282+Clippyworkspace/all-targets-Dwarnings/releasePASS,4PythonPurePASS.
-AUDIO-PCM: actualmonitorPulse localUnix en nullsinkúnico/propio, dispositivo
-explícito sólofixtures pares/ASCII64B, sin fallback ni cambio default. Fuentes
-WAV96000zero+480000tono→FLAC440/videoFFV1+FLAC880, metadata12s crosschecked.
-Audio-pcm-ui1793096793305882328 funcionalPASS2FB1000×650, tono440/880 confirmados
-y silencio pausa/defaultmuteRMS0, ruta sink porPID, callbackstreamvivo/root0ACK/
-8loggedhelpersgone/reused strictZfalse, recorderreaped/moduleabsent/defaultigual.
-No altavoces físicos/A-Vsync/PCMclock/exactseek/inputSO/clipboard/native2x/lifetime.
-Appb76ecfdb6c4f3d76d93f4ca6e02bbb8e14b044212cc570123bf70502e899749d.
-
-AUDIO-PCM detalla4FAILs harness preservados, incluido primer modulecleanup fallido
-recuperado pornonce y mismatch inicialsink sinID cuya causa NOse establece.
-Zero-route6246104965614 sólo ceros; PCM6434340845151 iniciallavfiduración10.042667
-noacredita12s/preamble, correcciónsidecar/finalWAV explícito. No ocultarhistoria.
-ENOSPC.pyc ySIGINT130 sólobuildpropio, logpreservado, limpiar repo incremental y
-retry sinincremental481PASS; no configglobal/buildsajenos ni afirmacióncausal.
-Recursos/startupNOT_MEASUREDfreeze, sin0.0.4tag/PASSglobal ni ahorroPSS/CPUafirmado.
+476 Rust 141/58/277, Clippy workspace/all-targets -Dwarnings/release PASS.
+HTML-ENGINE-PROBE: a mandatory expected FD, the adapter inherits that FD and uses pread,
+the effective Revision after render/decode/revalidate, the existing watcher/token/epoch/reconcile
+gate; readonly close permission ≠ ACK, no FS join on the UI nor new workers piling up.
+Native build 1793093259627217246 and fd-contract 1793093345381869451 functional PASS;
+the legacy CLI keeps compatibility, an invalid FD/FIFO/>32 KiB without partial output.
+html-ui 1793093483630467339 PASS 10 FB/resize 800×500/notify suppressed: text/FD
+signature after a replace with the same size+mtime/in-place with mtime restored/delete/recreate/file+
+parent rename recovery, hidden without a helper; selection/CSS render/scroll/block/error/
+rapid/close 0 ACK. 14 logged PID/start gone/reused strict Z false, no lifetime coverage
+nor a live helper at close/OS input/clipboard/native 2x sharpness/real kernel D-state.
+App SHA bb32f9725d40d6327c66897aa0a1595c7a2c113e28fd81206f41f0a83a83575c;
+HTML 85ea1b8009efb3f221fcb1b639701ec3a50aeb72a8b1ddf8783091d08da403a4;
+helper 187c939eb981500c35fa6c292b066717dd21027aa518cdd3943840378701dfb9.
+Approximate typographic metrics/visible clipping are still pending; NOT correct
+shaping. Resources/startup NOT_MEASURED freeze, the footer's values are not a tree gate.
+No 0.0.4 tag/global PASS, historical baseline failures kept.
 
 
-## 2026-10-27 — GIF bajo demanda y miniatura inspector (M16)
+## 2026-10-27 — Selectable extracted PDF text (M14)
 
-485Rust141/58/286+Clippyworkspace/all-targets-Dwarnings/releasePASS. GIF-PREVIEW
-mismoenginevídeo, perfil8MiB/4Mipix/300s, codec/demuxgif exclusivo eignore_loop1
-explicit en tres rutas; sin decoder/GPU/dependencia nueva ni cache producto.
-video-play-ui1793098465429205562 funcionalPASS6FB1000×650: snapshotpausedred,
-playred→blue/pause/resumeEOFnoticeNone peseNETSCAPEloopcount0; CloseSpace no
-stream nuevo, inspector160×90primerred/firmaFD/pixel/captura. Activeclose0ACK,
-10loggedPID/startgone/reused strictZfalse, no lifetimecoverage/inputSO/native2x.
-AppSHAe0a9e7f6c4a0e21aef2b7872518b4e6e275d76bf7c3a186b00df8c61e928f87a.
-FAIL1793098062479122223preservado+harnesscorrection: contabaTODOShelpers después
-ClosePreviewaunqueinspector visible pedía thumbnail; ahora verificastream+thumbnail
-porseparado. EOFnoreconocebackenderror comoéxito. Alpha/disposal/PTS/zoom yGIFgrilla
-no verificados; recursos/startupNOT_MEASUREDfreeze, sin0.0.4tag/PASSglobal.
+480 Rust 141/58/281, Clippy workspace/all-targets -Dwarnings and release PASS.
+PDF-PREVIEW: T/the Nerd button switches Page/Text of the same page, previous/next,
+Ctrl+PgUp/Down and TextDocument selection; pdftotext uses the same expected/effective FD and Job,
+mutually exclusive outputs/RGB freed, stdout 256 KiB/2000 LF/strict UTF-8 without NUL.
+The String takes the Vec without a clone, caps before the helper/wire retention; no product cache/file.
 
-
-## 2026-10-27 — Vídeo/GIF readonly close sin ACK ficticio (M17)
-
-487Rust141/58/288+Clippyworkspace/all-targets-Dwarnings/releasePASS.
-VIDEO-SOURCE-CLOSE: snapshot/stream gateReadOnly/Helper/Stopped compartido,
-mutexclosing contraadmisión antes cada spawn, readonlypermiso≠FinishedACK;
-Helperexigereap/try_waitSome enEOF. Seleccionados, miniaturalifecyclenocambiado.
-video-readonly-close1793099666110053045PASS2apps/2FB1000×650 conholdSIMULADO30s:
-snapshot ystream→callback→exit0 conreadonlypendingtrue/drainedfalse/nofuturechild,
-ninguna admisióntardíadespuéshold. No esperar30s ni afirmar kernelDinterrumpido.
-
-RegresiónGFvideo-play-ui1793099692852727198PASS6FB/redblue/pause/resumeEOF/
-inspector160/sourceFD/activecloseACK0,10loggedPID/startgone/reused strictZfalse.
-AppSHAa7ab09cab0c7f89414fb6b650d586e1d46ee9d62155848373556bde5944ff2b8.
-BloqueoFS durantefaseHelper siguependiente; no lifecyclecompletooffline/SuperW/
-inputSO/native2x/lifetimecoverage ni nuevos recursos/startup porfreeze.
-Sin0.0.4tag/PASSglobal. Intermedia E0061 aridad conservada, finalsinwarnings.
-
-## M18 — zoom/pan vídeo y GIF, 2026-10-27
-
-VIDEO-ZOOM: mismoViewport1–8×/Ctrlrueda/+/-/0/arrastre, framesinvalidanpíxelssin
-resettransform; seekliberaRGB yretiene3floats, nuevoorigen/revisiónresetea.
-488Rust141/58/289+Clippyworkspacealltargets-Dwarnings/release/fmtPASS. Escenas
-video-play-ui1793101116101351845(GIF11FB/12helpers) y1793101152229152975(MKV9FB/10)
-PASS1000×650/zoom2pan48/36/conservadoframes-paused-seek-resumeEOF/reopenreset/
-activeclose0ACK/loggedPIDstartgoneZfalse. Handlers internos, noinputSO/clipboard/
-sharpness2x/lifetimes, no detallefotográficoprobado por coloresuniformes.
-No clip24frames ni PSS/Swap/CPU/startup porfreeze; P07/P09siguenparciales.
-
-## M19 — navegación visible de previews, 2026-10-27
-
-PREVIEW-NAVIGATION: botones Nerd anterior/siguiente+Alt↑/↓ compartenAction,
-ordenvisible/ocultos/filtro; sinUII/O/preload. Extremo conserva estado/revisión;
-cambio real reutiliza selección/generación/cancel/drain yúltimodestino.
-488Rust141/58/289+Clippyworkspacealltargets-Dwarnings/release/fmtPASS.
-preview-neighbor-ui1793101665648168454PASS5FB1000×650/PNG-WebP-rawPNG0xFF/
-hiddenexcluido/FDsourceypíxeles/errorreal+volver/rapidúltimogana/callback0ACK/
-7loggedhelperIDsgoneZfalse. Hit target/nombreaccesible verificados; noinputSO/
-AT-SPI/clipboard/lifetimecoverage/activehelperclose enestaescena.
-Freeze recursos/startupNOT_MEASURED; no playlist/autoplay ni completitudP09.
-
-## M20 — giro no destructivo del visor, 2026-10-27
-
-PREVIEW-ROTATION: botones Nerd/R/ShiftR giran sólo vista de imagen/PDF/vídeo/GIF;
-muestreo directo del RGB original, sin copia rotada ni archivos modificados.
-Transform numérico conserva giro entre frames/seek yPDFpáginas/texto-retorno;
-nuevoorigen/revisión/reset0 lo elimina. AyudaF1 añade atajos reales de medios.
-489Rust141/58/290+Clippyworkspacealltargets-Dwarnings/release/fmtPASS.
-preview-rotation-ui1793102443334515413PASS14FB1000×650/asimetría4cuadrantes con
-píxeles framebuffer comprobados/giroCW-CCW-reset/video-GIFplayseek/PDFpágina2+
-textoretorno/originalesbytesintactos/callback0ACK/21loggedhelpersgoneZfalse.
-Sin inputSO/native2x/AT-SPI/lifetimes/activehelperclose enestaescena ni prueba de
-colorfotográfico;14readbacks funcionales NOmedición aislada de consumo.
-Recursos/startupNOT_MEASUREDfreeze; noP02/P06/P07/P09global ni tag0.0.4.
+pdf-ui 1793094189643854652 functional PASS 12 FB 1000×650/notify suppressed: ASCII text
+pages 2/1, FD signature/pointer selection/Copy handler and back to Raster, plus the M12 lifecycle.
+The PDF 256 MiB+1/HTML 32 KiB+1 source cap keeps the revision and no new children during the
+reconcile interval: a stable capacity error NO longer forces a repeated source token.
+29 logged PID/start gone/reused strict Z false/close 0 ACK, no lifetime coverage nor a live
+helper at close. UTF-8/TAB/CRLF/caps and text latest/source gate tests, not a real Unicode PDF.
+App 786c52d7c9afef200ad7c258514af96a531b4cf805be4e2b66f67614aad6be92;
+helper 187c939eb981/HTML 85ea1b8009ef with no helper change. No OS input/clipboard/
+selection on PDF geometry/native 2x sharpness. Resources/startup NOT_MEASURED freeze;
+historical baseline failures intact, no 0.0.4 tag/global PASS.
 
 
-## M21 DOCX — recuperación y aceptación funcional (2026-10-27)
+## 2026-10-27 — Audio and video PCM on a private sink (M15)
 
-500Rust(141core/67helper/292UI), Clippyworkspace/alltargets-Dwarnings, release y
-fmtPASS.5fixturesENOSPC anteriores ejecutados porcoordinador conbinarioexistente
-PASS; suite nueva completa PASS, sin omitir/reubicarfixtures. LogsFAILintactos,
-causa de almacenamiento no inferida. Regresión XML nueva reprodujo RED ypasó
-confix;10casoswirehelper realesPASS. office-ui-1793105654289278359.jsonPASS6FB,
-expected/effectiveFDrevision ygeneración, rawUnix, replaceigualsize/mtime,
-delete/recreate, erroresCRC/DTD/cap/symlink, Unicode102Bselección, truncado256KiB,
-callback0ACK/9loggedhelpersgoneZfalse. No helpervivoalclose/inputSO/clipboardreal/
-Wordlayoutfiel/otrosOffice. Recursos/startupNOT_MEASUREDfreeze; piePSSincidental
-nocuenta. DOCX-PREVIEW detalla límites, revisión y evidencias; sinPASSglobal.
+481 Rust 141/58/282 + Clippy workspace/all-targets -Dwarnings/release PASS, 4 pure Python PASS.
+AUDIO-PCM: the actual Pulse monitor over local Unix on a unique/own null sink, an explicit
+device only for paired fixtures/ASCII 64 B, without a fallback nor a default change. Sources
+WAV 96000 zero + 480000 tone→FLAC 440/video FFV1 + FLAC 880, 12 s metadata cross-checked.
+audio-pcm-ui 1793096793305882328 functional PASS 2 FB 1000×650, tones 440/880 confirmed
+and silence on pause/default mute RMS 0, the sink route by PID, callback with a live stream/root 0 ACK/
+8 logged helpers gone/reused strict Z false, recorder reaped/module absent/default unchanged.
+No physical speakers/A-V sync/PCM clock/exact seek/OS input/clipboard/native 2x/lifetime.
+App b76ecfdb6c4f3d76d93f4ca6e02bbb8e14b044212cc570123bf70502e899749d.
 
-
-## M22 — pestañas y restauración de estado en la instancia (2026-10-27)
-
-513Rust (141core/67helper/305UI), Clippy workspace/all-targets -Dwarnings, release y
-fmt PASS. Logs finales tabs-checkpoint-test, tabs-empty-clippy,
-tabs-checkpoint-release y tabs-checkpoint-fmt; copia en tabs-checkpoint-validation.json.
-Escena tabs-ui-1793109776417107918 PASS: nueve framebuffer lógicos reales, A/B
-con mismos nombres y contenido distinto, estado independiente y cambios sin pump,
-scroll120 conservado, hidden global/poda vacía sostenida tras rebuild, raw0xFF,
-ocho tabs y reabrir con ID nuevo. Resize archivo/carpeta con metadata lista
-800×500/440; CalculateSize omitido cuando no cabe y presente a650 en recorder.
-Última pestaña exit0 posterior a ACK; un helper registrado por PID/start desaparece,
-no zombies. No cobertura de lifetimes/helper vivo exacto al cerrar.
-
-Preservados tres FAIL: tabs-ui-1793108574031992206 (socket harness),
-1793108595977296407 (scroll por clamp prematuro) y1793108996440627071 (rebuild
-seleccionaba carpeta tras poda). Las regresiones de paint durante carga/layout
-y selección vacía/recovery tienen tests; asserts originales mantenidos.
-
-Método: handlers de puntero para targets visibles; Actions para ciclos y tabs
-fuera de strip. No eventos SO ni clipboard externo. No prueba de nitidez nativa2x.
-Recursos y arranque NOT_MEASURED por freeze; PSS incidental del footer no cuenta.
-V10 parcial/sesión durable pendiente; sin PASS global ni tag0.0.4.
+AUDIO-PCM details 4 preserved harness FAILs, including the first failed module cleanup
+recovered by nonce and an initial sink mismatch without an ID whose cause is NOT established.
+Zero-route 6246104965614 zeros only; the initial PCM 6434340845151 with lavfi duration 10.042667
+does not prove 12 s/preamble, fixed by a sidecar/an explicit final WAV. The history is not hidden.
+ENOSPC .pyc and SIGINT 130 only in our own build, log preserved, cleaning the repo's incremental cache and
+a retry without incremental 481 PASS; no global config/unrelated builds nor a causal claim.
+Resources/startup NOT_MEASURED freeze, no 0.0.4 tag/global PASS nor PSS/CPU savings claimed.
 
 
-## M23 — sesión durable (2026-10-27)
+## 2026-10-27 — On-demand GIF and inspector thumbnail (M16)
 
-527Rust141core/67helper/319UI, Clippyworkspace/alltargets-Dwarnings, release/fmt
-PASS; session-checkpoint-validation.json conserva logs incluyendo FAIL de fixture
-Receiverdescartado y dos FAIL Clippy de estilo. tabs-session-ui1793111266679001110
-PASS6FB/8procesos exit0 posteriores a ACK. Save→restore real de metadata A/B,
-closedraw0xFF, argv explícito no aplica/autoguarda, --no-sessiondisabled; dos
-ventanas sin takeover/stomp y bytes inválido/futuro preservados. Regresiones
-Model reales contra SessionOpened tardío después de selección/filtro/nav/cierre;
-capencode/decode prestado, FIFO/symlink no bloquean, lockreplaced rechazado,
-syncdirfailure posterior a rename devuelve Unsynced y retry valida archivo real.
-SESSION-CONTRACT detalla reservas/limitaciones. Handlers/Actions, no inputSO ni
-clipboard; sin recursos/startup por freeze, sin recuperación tareas/crashglobal.
-Tres FAIL visuales M22 intactos. No PASS global/tag0.0.4.
+485 Rust 141/58/286 + Clippy workspace/all-targets -Dwarnings/release PASS. GIF-PREVIEW
+the same video engine, profile 8 MiB/4 Mi pixels/300 s, exclusive gif codec/demuxer and an explicit
+ignore_loop 1 on three paths; no new decoder/GPU/dependency nor product cache.
+video-play-ui 1793098465429205562 functional PASS 6 FB 1000×650: paused red snapshot,
+play red→blue/pause/resume EOF notice None despite NETSCAPE loopcount 0; Close Space no
+new stream, inspector 160×90 first red/FD signature/pixel/capture. Active close 0 ACK,
+10 logged PID/start gone/reused strict Z false, no lifetime coverage/OS input/native 2x.
+App SHA e0a9e7f6c4a0e21aef2b7872518b4e6e275d76bf7c3a186b00df8c61e928f87a.
+FAIL 1793098062479122223 preserved + harness correction: it counted ALL helpers after
+ClosePreview even though the visible inspector was requesting a thumbnail; now it verifies stream+thumbnail
+separately. EOF does not recognize a backend error as success. Alpha/disposal/PTS/zoom and grid GIF
+not verified; resources/startup NOT_MEASURED freeze, no 0.0.4 tag/global PASS.
 
 
-## M24 — mover nativo (2026-10-27)
+## 2026-10-27 — Video/GIF readonly close without a fake ACK (M17)
 
-537Rust148/67/322, Clippyworkspacealltargets-Dwarnings, release/fmtPASS.
-move-checkpoint-validation conserva logs finales y FAIL de sintaxis/type/lifetime,
-assert menú por índice y Clippyinitializer; corregidos sin relajar seguridad.
-move-ui1793113502303715506PASS6FB, filesystem comprobado antesConfirm y enPaused
-intacto; luego4roots inode/dev/mode/uid/gid/mtime/ns/bytes/xattrs, symlink literal
-y raw0xFF. Target conserva selección, source relista sin roots movidos;
-no-clobber y EXDEVpreflight/proc real sin publicar ni copy/delete. Cancel/close
-pausado sourceconservado, exit0 trasACK. Core cubre canceltras1root, IDs cambiados,
-parent rename/replacement, destination reubicado dentro source, publicación
-incierta con sourcehardlink y actors preservados. Queue cuenta FDactivo/unread
-ACK+pending; close cancela todos antes de esperar revisión.
+487 Rust 141/58/288 + Clippy workspace/all-targets -Dwarnings/release PASS.
+VIDEO-SOURCE-CLOSE: snapshot/stream with a shared ReadOnly/Helper/Stopped gate,
+the closing mutex against admission before each spawn, readonly permission ≠ Finished ACK;
+Helper requires reap/try_wait Some at EOF. Selected items; the thumbnail lifecycle unchanged.
+video-readonly-close 1793099666110053045 PASS 2 apps/2 FB 1000×650 with a SIMULATED 30 s hold:
+snapshot and stream→callback→exit 0 with readonly pending true/drained false/no future child,
+no late admission after the hold. Do not wait 30 s nor claim kernel D-state interrupted.
 
-Scope MOVE-CONTRACT: native sameFS sólo,128roots, otrosSO Unsupported,
-EXDEVtransfer/journal/undo pendientes. No inputSO/clipboard/recursos/startup;
-no extrapolar PSS incidental de capturas ni prometer protección inodecondicional
-Linux contra actor hostil. Sin PASS global/tag0.0.4.
+GIF regression video-play-ui 1793099692852727198 PASS 6 FB/red blue/pause/resume EOF/
+inspector 160/source FD/active close ACK 0, 10 logged PID/start gone/reused strict Z false.
+App SHA a7ab09cab0c7f89414fb6b650d586e1d46ee9d62155848373556bde5944ff2b8.
+FS blocking during the Helper phase is still pending; no complete offline lifecycle/Super+W/
+OS input/native 2x/lifetime coverage nor new resources/startup because of the freeze.
+No 0.0.4 tag/global PASS. The intermediate E0061 arity error kept, final without warnings.
+
+## M18 — video and GIF zoom/pan, 2026-10-27
+
+VIDEO-ZOOM: the same Viewport 1–8×/Ctrl+wheel/+/-/0/drag, frames invalidate pixels without
+resetting the transform; seek frees the RGB and keeps 3 floats, a new source/revision resets.
+488 Rust 141/58/289 + Clippy workspace all targets -Dwarnings/release/fmt PASS. Scenes
+video-play-ui 1793101116101351845 (GIF 11 FB/12 helpers) and 1793101152229152975 (MKV 9 FB/10)
+PASS 1000×650/zoom 2 pan 48/36/kept across frames-paused-seek-resume EOF/reopen reset/
+active close 0 ACK/logged PID/start gone Z false. Internal handlers, no OS input/clipboard/
+2x sharpness/lifetimes, no photographic detail proven by uniform colors.
+No 24-frame clip nor PSS/Swap/CPU/startup because of the freeze; P07/P09 still partial.
+
+## M19 — visible preview navigation, 2026-10-27
+
+PREVIEW-NAVIGATION: Nerd previous/next buttons + Alt↑/↓ share an Action,
+visible order/hidden/filter; no UI I/O/preload. An end keeps state/revision;
+a real change reuses selection/generation/cancel/drain and the last destination.
+488 Rust 141/58/289 + Clippy workspace all targets -Dwarnings/release/fmt PASS.
+preview-neighbor-ui 1793101665648168454 PASS 5 FB 1000×650/PNG-WebP-raw PNG 0xFF/
+hidden excluded/FD source and pixels/real error + back/rapid last wins/callback 0 ACK/
+7 logged helper IDs gone Z false. Hit target/accessible name verified; no OS input/
+AT-SPI/clipboard/lifetime coverage/active helper close in this scene.
+Resource/startup freeze NOT_MEASURED; no playlist/autoplay nor P09 completeness.
+
+## M20 — non-destructive viewer rotation, 2026-10-27
+
+PREVIEW-ROTATION: Nerd/R/Shift+R buttons only rotate the image/PDF/video/GIF view;
+direct sampling of the original RGB, with no rotated copy nor modified files.
+The numeric transform keeps the rotation across frames/seek and PDF pages/text-return;
+a new source/revision/reset 0 removes it. F1 Help adds the real media shortcuts.
+489 Rust 141/58/290 + Clippy workspace all targets -Dwarnings/release/fmt PASS.
+preview-rotation-ui 1793102443334515413 PASS 14 FB 1000×650/asymmetric 4 quadrants with
+checked framebuffer pixels/CW-CCW-reset rotation/video-GIF play/seek/PDF page 2 +
+text return/original bytes intact/callback 0 ACK/21 logged helpers gone Z false.
+No OS input/native 2x/AT-SPI/lifetimes/active helper close in this scene nor a test of
+photographic color; 14 functional readbacks, NOT an isolated measurement of use.
+Resources/startup NOT_MEASURED freeze; no global P02/P06/P07/P09 nor 0.0.4 tag.
+
+
+## M21 DOCX — recovery and functional acceptance (2026-10-27)
+
+500 Rust (141 core/67 helper/292 UI), Clippy workspace/all targets -Dwarnings, release and
+fmt PASS. The 5 earlier ENOSPC fixtures run by the coordinator with the existing binary
+PASS; the new full suite PASS, without skipping/relocating fixtures. FAIL logs intact,
+the storage cause not inferred. A new XML regression reproduced RED and passed
+with the fix; 10 real helper wire cases PASS. office-ui-1793105654289278359.json PASS 6 FB,
+expected/effective FD revision and generation, raw Unix, a replace with the same size/mtime,
+delete/recreate, CRC/DTD/cap/symlink errors, a Unicode 102 B selection, truncation at 256 KiB,
+callback 0 ACK/9 logged helpers gone Z false. No helper alive at close/OS input/real clipboard/
+faithful Word layout/other Office. Resources/startup NOT_MEASURED freeze; the incidental footer PSS
+does not count. DOCX-PREVIEW details limits, review and evidence; no global PASS.
+
+
+## M22 — tabs and state restoration within the instance (2026-10-27)
+
+513 Rust (141 core/67 helper/305 UI), Clippy workspace/all-targets -Dwarnings, release and
+fmt PASS. Final logs tabs-checkpoint-test, tabs-empty-clippy,
+tabs-checkpoint-release and tabs-checkpoint-fmt; a copy in tabs-checkpoint-validation.json.
+Scene tabs-ui-1793109776417107918 PASS: nine real logical framebuffers, A/B
+with the same names and different content, independent state and changes without a pump,
+scroll 120 kept, global hidden/empty pruning held after rebuild, raw 0xFF,
+eight tabs and reopening with a new ID. Resize of a file/folder with metadata ready
+800×500/440; CalculateSize omitted when it does not fit and present at 650 in the recorder.
+The last tab exit 0 after ACK; one helper registered by PID/start disappears,
+no zombies. No coverage of lifetimes/a helper alive exactly at close.
+
+Three FAILs preserved: tabs-ui-1793108574031992206 (harness socket),
+1793108595977296407 (scroll by a premature clamp) and 1793108996440627071 (rebuild
+selected a folder after pruning). The regressions of paint during load/layout
+and empty selection/recovery have tests; the original asserts kept.
+
+Method: pointer handlers for visible targets; Actions for cycles and tabs
+outside the strip. No OS events nor external clipboard. No test of native 2x sharpness.
+Resources and startup NOT_MEASURED because of the freeze; the footer's incidental PSS does not count.
+V10 partial/durable session pending; no global PASS nor 0.0.4 tag.
+
+
+## M23 — durable session (2026-10-27)
+
+527 Rust 141 core/67 helper/319 UI, Clippy workspace/all targets -Dwarnings, release/fmt
+PASS; session-checkpoint-validation.json keeps the logs, including the fixture FAIL of a
+dropped Receiver and two style Clippy FAILs. tabs-session-ui 1793111266679001110
+PASS 6 FB/8 processes exit 0 after ACK. A real save→restore of A/B metadata,
+closed raw 0xFF, an explicit argv neither applies nor autosaves, --no-session disabled; two
+windows without takeover/stomp and invalid/future bytes preserved. Real Model
+regressions against a late SessionOpened after selection/filter/nav/close;
+a borrowed encode/decode cap, FIFO/symlink do not block, a replaced lock rejected,
+a dir sync failure after rename returns Unsynced and a retry validates the real file.
+SESSION-CONTRACT details reservations/limitations. Handlers/Actions, no OS input nor
+clipboard; no resources/startup because of the freeze, no task recovery/global crash.
+The three M22 visual FAILs intact. No global PASS/0.0.4 tag.
+
+
+## M24 — native move (2026-10-27)
+
+537 Rust 148/67/322, Clippy workspace all targets -Dwarnings, release/fmt PASS.
+move-checkpoint-validation keeps the final logs and the syntax/type/lifetime FAILs,
+a menu assert by index and the Clippy initializer; fixed without relaxing safety.
+move-ui 1793113502303715506 PASS 6 FB, the filesystem checked before Confirm and intact
+in Paused; then 4 roots inode/dev/mode/uid/gid/mtime/ns/bytes/xattrs, a literal symlink
+and raw 0xFF. The Target keeps its selection, the source relists without the moved roots;
+no-clobber and a real /proc EXDEV preflight without publishing nor copy/delete. A paused cancel/close
+keeps the source, exit 0 after ACK. Core covers cancel after 1 root, changed IDs,
+parent rename/replacement, a destination relocated inside the source, an uncertain
+publication with a source hardlink and actors preserved. The queue counts the active FD/unread
+ACK+pending; close cancels everything before waiting for the review.
+
+MOVE-CONTRACT scope: native same FS only, 128 roots, other OSes Unsupported,
+EXDEV transfer/journal/undo pending. No OS input/clipboard/resources/startup;
+do not extrapolate the incidental PSS of captures nor promise inode-conditional Linux
+protection against a hostile actor. No global PASS/0.0.4 tag.
 
 
 ## M25 — EXDEV single-file y recuperación visible (2026-10-27)
