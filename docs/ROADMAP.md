@@ -96,212 +96,211 @@ not a claim that the pending capabilities already exist.
 | U05 | omarchy-app-dev | ES/EN i18n | Automatic locale, selector and translated strings for every view/error | pending | Do not count the Spanish UI as complete i18n |
 | T04 | User instruction 2026-10-26 | Omarchy Nerd Fonts | Resolve a Nerd monospace without a catalog, real glyphs/fallback, overflow 1x/2x | verified | FiraCode in spatial-check.json; glyphs reviewed without evident tofu, resize/1x/2x; logical capture, physical 2x sharpness pending |
 
-## Instrumentación y riesgos recibidos
+## Instrumentation and received risks
 
-- `process_metrics.py` / `test_process_metrics.py`: entregados por coordinador,
-  sampler con identidad y reparenting. Picos son máximos **muestreados**, no exactos;
-  procesos que viven entre muestras pueden escapar. No incluye GPU ni CPU final de
-  desaparecidos. No hacer PASS si `complete=false`.
-- `rename_plan.rs`: plan puro del coordinador, tokens/secuencia/literal/case y
-  colisiones. Ejecución/rollback, regex/fechas y UI todavía pendientes. Benchmark
-  standalone no representa la app; 100k ~87 ms exige trabajador y medir preview.
-- `navigate`: corregido en 0.0.2; invalida visible/hits/hovered por generación y usa
-  acceso comprobado antes del siguiente draw. Tests grande→vacía/índice fuera de rango.
-- `set_corners`: corregido en 0.0.2; read-modify-write atómico, conserva claves;
-  valores deseados pendientes/errores sobreviven hasta ACK y se reintentan al cerrar.
-- `path.is_dir()` y `statvfs` síncronos pueden bloquear en mounts offline. Un
-  AtomicBool no interrumpe syscalls; aislar probes potencialmente bloqueantes y
-  limitar concurrencia/recuperación, sin ocultar procesos o memoria.
-- Orden natural integrado y liberado por coordinador (2ead92c).
+- `process_metrics.py` / `test_process_metrics.py`: delivered by the coordinator,
+  a sampler with identity and reparenting. Peaks are **sampled** maximums, not exact;
+  processes that live between samples may escape. It does not include GPU nor the final CPU of
+  processes that disappeared. Never PASS if `complete=false`.
+- `rename_plan.rs`: the coordinator's pure plan, tokens/sequence/literal/case and
+  collisions. Execution/rollback, regex/dates and UI still pending. The standalone
+  benchmark does not represent the app; 100k ~87 ms requires a worker and measuring the preview.
+- `navigate`: fixed in 0.0.2; it invalidates visible/hits/hovered by generation and uses
+  checked access before the next draw. Tests large→empty/index out of range.
+- `set_corners`: fixed in 0.0.2; atomic read-modify-write, keeps keys;
+  pending desired values/errors survive until ACK and are retried on close.
+- Synchronous `path.is_dir()` and `statvfs` can block on offline mounts. An
+  AtomicBool does not interrupt syscalls; isolate potentially blocking probes and
+  limit concurrency/recovery, without hiding processes or memory.
+- Natural sort integrated and released by the coordinator (2ead92c).
 
-## Límites específicos de la disposición espacial (0.0.2)
+## Specific limits of the spatial layout (0.0.2)
 
-- Identidad canónica resuelta en worker; aliases comparten cola y revisiones.
-  Renombrar/mover carpeta cambia identidad basada en path+dev+ino: migración pendiente
-  en el motor de operaciones. Los guardados no son journal durable frente a kill/power loss.
-- Layout máximo4MiB serializado/16384 posiciones manuales, validación y presupuesto
-  antes de hexificar/copiar; nombres lossless. Versión futura/corrupta no se sobrescribe.
-- Cola de dos snapshots inmutables compartidos, una escritura en vuelo; coalescing,
-  reintento y ACK exacto. Cola llena impide navegar hasta poder retener el cambio.
-- Fallos permanecen visibles incluso al cambiar de carpeta; cerrar espera sin bloquear
-  UI y ofrece reintentar/seguir/cerrar descartando explícitamente los pendientes.
-- Threads de listado/sondas limitados a4; primer lote precede statvfs. No resuelve
-  interrupción de syscall offline: aislamiento de proceso/recuperación de mount pendiente.
+- Canonical identity resolved in the worker; aliases share the queue and revisions.
+  Renaming/moving a folder changes the identity based on path+dev+ino: migration pending
+  in the operations engine. Saves are not a durable journal against kill/power loss.
+- Layout at most 4 MiB serialized/16384 manual positions, validation and budget
+  before hex-encoding/copying; lossless names. A future/corrupt version is not overwritten.
+- A queue of two shared immutable snapshots, one write in flight; coalescing,
+  retry and exact ACK. A full queue prevents navigating until the change can be retained.
+- Failures stay visible even when changing folders; close waits without blocking the
+  UI and offers retry/keep going/close explicitly discarding the pending ones.
+- Listing/probe threads limited to 4; the first batch comes before statvfs. It does not solve
+  interrupting an offline syscall: process isolation/mount recovery pending.
 
-## Prioridad explícita de ventana — 2026-10-26
+## Explicit window priority — 2026-10-26
 
-| ID | Capacidad | Aceptación observable | Estado | Evidencia / límite |
+| ID | Capability | Observable acceptance | Status | Evidence / limit |
 |---|---|---|---|---|
-| W01 | Normal por defecto y modos | Ventana estándar; normal/pantalla completa, reabrir conserva elección sin perder campos | verificado funcional | window-ui-1793042474907145360:3procesos/default/fullscreen/normal/camposdesconocidos/cierreACK; recursosNOT_MEASURED |
-| W02 | Header/grips nativos | Controles excluidos, cuatro targets24px, serial real, mínimos700×440 y cursores propios | implementado parcial | Bridge pinned FLTK/libdecor; contrato geométrico, gesto SO pendiente CUA |
-| W03 | Preferencias/Acciones | Menús excluyentes, sólo configuración vs operaciones, Nerd/tooltip/nombres/atajos | verificado funcional parcial | window-ui1793042474907145360: targets/handlers/framebuffer y separación; nombresemántico/tooltip, árbol accesibleSO no probado |
+| W01 | Normal by default and modes | Standard window; normal/fullscreen, reopening keeps the choice without losing fields | functionally verified | window-ui-1793042474907145360: 3 processes/default/fullscreen/normal/unknown fields/close ACK; resources NOT_MEASURED |
+| W02 | Native header/grips | Controls excluded, four 24 px targets, real serial, minimum 700×440 and own cursors | partially implemented | Pinned FLTK/libdecor bridge; geometric contract, OS gesture pending CUA |
+| W03 | Preferences/Actions | Mutually exclusive menus, configuration only vs operations, Nerd/tooltip/names/shortcuts | partially functionally verified | window-ui 1793042474907145360: targets/handlers/framebuffer and separation; semantic name/tooltip, OS accessible tree not tested |
 
-Freeze recursos/startup conservado; no reabrir benchmarks para este bloque.
+Resource/startup freeze kept; benchmarks are not reopened for this block.
 
-Native input recheck2026-10-27: evidence/0.0.4/native-inventory1793087442753417655
-usa nuevo compositor pero cua-driver0ventanas confixture propio mapped antes/
-después. SininputSO/focoalternativo; reglaJev y aprobaciónfocopendiente intactas.
+Native input recheck 2026-10-27: evidence/0.0.4/native-inventory 1793087442753417655
+uses the new compositor but cua-driver sees 0 windows with its own fixture mapped before/
+after. No OS input/alternative focus; the Jev rule and the pending focus approval intact.
 
-OWNED-HELPERS (2026-10-27): Linuxparent-deathSIGKILL en4spawnsupervisores,
-464Rust/Clippy/release yhelper-crash1793088449742352360PASS4roles/directowned
-helpers reap9 trasroot-onlykill, relaunch0+ACK. Regresionesaudio1793088666411517841/
-vídeo1793089019986522162PASS. No completaX02taskjournal niP09global/otrosSO/
-inputSO/recurso; testsubreaper no es daemon de producto ni pruebaPID1.
-
-
-M11 VIDEO-PREVIEW: audio opt-in/Pulse mismo child yFD, mute por defecto/M,
-índices absolutos de pistas, backendnotice/retry sin invalidar fuente válida;
-sourcefailure tipado ocultaRGB yrearma token.470Rust/Clippy/release ydosescenas
-funcionalesPASS másregresiónaudio standalone. Arenaschild2bajoAS768virtual permite
-contexto, no gatePSS. P07/P09parciales; recursos/startupNOT_MEASUREDfreeze.
+OWNED-HELPERS (2026-10-27): Linux parent-death SIGKILL in 4 spawn supervisors,
+464 Rust/Clippy/release and helper-crash 1793088449742352360 PASS 4 roles/direct owned
+helpers reaped 9 after a root-only kill, relaunch 0 + ACK. Regressions audio 1793088666411517841/
+video 1793089019986522162 PASS. It does not complete the X02 task journal nor global P09/other OSes/
+OS input/resources; the test subreaper is not a product daemon nor a PID 1 test.
 
 
-M12/M13 (2026-10-27): PDF y HTML seleccionados comparten watcher/token/epoch/
-reconcile y expected/efectivaRevision de FD. PDF usa mismoFD en ambos CLI, HTML
-heredaFD en vezreopen. Dirty ocultaRGB/displaylist y readonly_gate compartido
-conaudio conservaexitpermiso≠ACK.473/476Rust+Clippy/release yescenasPASSscoped,
-no textoPDF/shapingHTML/globalcache ni recursos/startup porfreeze.
+M11 VIDEO-PREVIEW: opt-in audio/Pulse in the same child and FD, mute by default/M,
+absolute track indices, backend notice/retry without invalidating a valid source;
+a typed source failure hides the RGB and re-arms the token. 470 Rust/Clippy/release and two
+functional scenes PASS plus a standalone audio regression. Child arenas 2 under AS 768 virtual allow
+the context, not a PSS gate. P07/P09 partial; resources/startup NOT_MEASURED freeze.
 
 
-M15 AUDIO-PCM (2026-10-27):481Rust+4Python/Clippy/release, realPCM440audio y880
-vídeooptin en sinkPulseNULLpropio, silencio pausa/defaultmute,2FB/callbackvivo/
-8loggedhelpersgone/modulecleanup/defaultigual. Reporte1793096793305882328PASSscoped,
-fallosruta/harnesshistóricosconservados; nofísico/A-Vsync/clock/PSS/CPU/startup.
-No completaP07/P08/P09global ni levanta freeze.
+M12/M13 (2026-10-27): the selected PDF and HTML share watcher/token/epoch/
+reconcile and the expected/effective FD Revision. PDF uses the same FD in both CLIs, HTML
+inherits the FD instead of reopening. Dirty hides RGB/display list and the readonly_gate shared
+with audio keeps exit permission ≠ ACK. 473/476 Rust + Clippy/release and scoped PASS scenes,
+no PDF text/HTML shaping/global cache nor resources/startup because of the freeze.
 
 
-M16 GIF-PREVIEW: GIFanimado Space bajo demanda/singlepass(ignore_loop1), mismo
-engineFD/generaciones/streamyminiaturas,8MiB/4Mipix/300s.485Rust/Clippy/release,
-1793098465429205562PASS6FB/10helpersgone/activeclose0ACK eInspector160×90red/firmaFD.
-CodepathGrillaGIF compartido sólo unit, no captura; alpha/disposal/delayexact
-yPSSpendientes. No completaP02/P07/P09global ni levanta freeze.
+M15 AUDIO-PCM (2026-10-27): 481 Rust + 4 Python/Clippy/release, real PCM 440 audio and 880
+opt-in video on an own NULL Pulse sink, silence on pause/default mute, 2 FB/live callback/
+8 logged helpers gone/module cleanup/default unchanged. Report 1793096793305882328 scoped PASS,
+historical route/harness failures kept; no physical sound/A-V sync/clock/PSS/CPU/startup.
+It does not complete global P07/P08/P09 nor lift the freeze.
 
 
-M17 VIDEO-SOURCE-CLOSE: readonlygateaudio/PDF/HTML extendidoaselectedvideo/GIF
-snapshot/stream, closepermiso≠ACK, admisión bajo mutexclosing yreapHelperobligado.
-487Rust/Clippy/release+holdSIMULADO1793099666110053045PASS2roles/2FB/exit0FALSEdrain,
-regresiónGIF1793099692852727198PASS6FB/10helpersgone/activecloseACK0. KernelDreal/
-I/O bloqueada dentrofaseHelper/otrosSO yP09global siguenpendientes; freezeintacto.
-
-## M18 — zoom/pan vídeo y GIF, 2026-10-27
-
-VIDEO-ZOOM: mismoViewport1–8×/Ctrlrueda/+/-/0/arrastre, framesinvalidanpíxelssin
-resettransform; seekliberaRGB yretiene3floats, nuevoorigen/revisiónresetea.
-488Rust141/58/289+Clippyworkspacealltargets-Dwarnings/release/fmtPASS. Escenas
-video-play-ui1793101116101351845(GIF11FB/12helpers) y1793101152229152975(MKV9FB/10)
-PASS1000×650/zoom2pan48/36/conservadoframes-paused-seek-resumeEOF/reopenreset/
-activeclose0ACK/loggedPIDstartgoneZfalse. Handlers internos, noinputSO/clipboard/
-sharpness2x/lifetimes, no detallefotográficoprobado por coloresuniformes.
-No clip24frames ni PSS/Swap/CPU/startup porfreeze; P07/P09siguenparciales.
-
-## M19 — navegación visible de previews, 2026-10-27
-
-PREVIEW-NAVIGATION: botones Nerd anterior/siguiente+Alt↑/↓ compartenAction,
-ordenvisible/ocultos/filtro; sinUII/O/preload. Extremo conserva estado/revisión;
-cambio real reutiliza selección/generación/cancel/drain yúltimodestino.
-488Rust141/58/289+Clippyworkspacealltargets-Dwarnings/release/fmtPASS.
-preview-neighbor-ui1793101665648168454PASS5FB1000×650/PNG-WebP-rawPNG0xFF/
-hiddenexcluido/FDsourceypíxeles/errorreal+volver/rapidúltimogana/callback0ACK/
-7loggedhelperIDsgoneZfalse. Hit target/nombreaccesible verificados; noinputSO/
-AT-SPI/clipboard/lifetimecoverage/activehelperclose enestaescena.
-Freeze recursos/startupNOT_MEASURED; no playlist/autoplay ni completitudP09.
-
-## M20 — giro no destructivo del visor, 2026-10-27
-
-PREVIEW-ROTATION: botones Nerd/R/ShiftR giran sólo vista de imagen/PDF/vídeo/GIF;
-muestreo directo del RGB original, sin copia rotada ni archivos modificados.
-Transform numérico conserva giro entre frames/seek yPDFpáginas/texto-retorno;
-nuevoorigen/revisión/reset0 lo elimina. AyudaF1 añade atajos reales de medios.
-489Rust141/58/290+Clippyworkspacealltargets-Dwarnings/release/fmtPASS.
-preview-rotation-ui1793102443334515413PASS14FB1000×650/asimetría4cuadrantes con
-píxeles framebuffer comprobados/giroCW-CCW-reset/video-GIFplayseek/PDFpágina2+
-textoretorno/originalesbytesintactos/callback0ACK/21loggedhelpersgoneZfalse.
-Sin inputSO/native2x/AT-SPI/lifetimes/activehelperclose enestaescena ni prueba de
-colorfotográfico;14readbacks funcionales NOmedición aislada de consumo.
-Recursos/startupNOT_MEASUREDfreeze; noP02/P06/P07/P09global ni tag0.0.4.
+M16 GIF-PREVIEW: animated GIF in Space on demand/single pass (ignore_loop 1), the same
+FD engine/generations/stream and thumbnails, 8 MiB/4 Mi pixels/300 s. 485 Rust/Clippy/release,
+1793098465429205562 PASS 6 FB/10 helpers gone/active close 0 ACK and inspector 160×90 red/FD signature.
+The Grid GIF code path is shared and unit-tested only, not captured; alpha/disposal/exact delay
+and PSS pending. It does not complete global P02/P07/P09 nor lift the freeze.
 
 
-## M21 — texto DOCX verificado, 2026-10-27
+M17 VIDEO-SOURCE-CLOSE: the audio/PDF/HTML readonly gate extended to the selected video/GIF
+snapshot/stream, close permission ≠ ACK, admission under the closing mutex and mandatory Helper reap.
+487 Rust/Clippy/release + SIMULATED hold 1793099666110053045 PASS 2 roles/2 FB/exit 0 drain FALSE,
+GIF regression 1793099692852727198 PASS 6 FB/10 helpers gone/active close ACK 0. Real kernel D-state/
+blocked I/O inside the Helper phase/other OSes and global P09 are still pending; freeze intact.
+## M18 — video and GIF zoom/pan, 2026-10-27
 
-DOCX-PREVIEW: Space cuerpo principal Word UTF8 por ZIP32 validado+XMLstream,
-CRC/DEFLATE/descriptor, límites previos a asignación, sin extracción/recursos.
-Expected/effectiveRevision del FD y generación; errores codec/cap no disparan
-SourceUnavailable/reintento de revisión estable. CDATA fuera raíz y declaraciones
-no iniciales rechazadas con regresión RED→GREEN y10wirecases reales.
-500Rust141/67/292+Clippyworkspacealltargets-Dwarnings/release/fmtPASS;
-office-ui1793105654289278359PASS6FB1000×650/Unicode102Bselección/truncado256KiB/
-rawUnixFD/replaceigualsize-mtime/delete-recreate/notify-suppressed/callback0ACK/
-9loggedhelpersgoneZfalse. No Wordlayoutfiel/otrosOffice/clipboardSO/inputSO ni
-helpervivoexactamentealclose. Recursos/startupNOT_MEASUREDfreeze, históricos
-ENOSPC/baseline/arranque/clipboard intactos; noP08global ni tag0.0.4.
-Siguienteunidad visible V10 pestañas e historial por pestaña: TABS-CONTRACT.
+VIDEO-ZOOM: the same Viewport 1–8×/Ctrl+wheel/+/-/0/drag, frames invalidate pixels without
+resetting the transform; seek frees the RGB and keeps 3 floats, a new source/revision resets.
+488 Rust 141/58/289 + Clippy workspace all targets -Dwarnings/release/fmt PASS. Scenes
+video-play-ui 1793101116101351845 (GIF 11 FB/12 helpers) and 1793101152229152975 (MKV 9 FB/10)
+PASS 1000×650/zoom 2 pan 48/36/kept across frames-paused-seek-resume EOF/reopen reset/
+active close 0 ACK/logged PID/start gone Z false. Internal handlers, no OS input/clipboard/
+2x sharpness/lifetimes, no photographic detail proven by uniform colors.
+No 24-frame clip nor PSS/Swap/CPU/startup because of the freeze; P07/P09 still partial.
 
+## M19 — visible preview navigation, 2026-10-27
 
-## M22 — pestañas de la instancia, 2026-10-27
+PREVIEW-NAVIGATION: Nerd previous/next buttons + Alt↑/↓ share an Action,
+visible order/hidden/filter; no UI I/O/preload. An end keeps state/revision;
+a real change reuses selection/generation/cancel/drain and the last destination.
+488 Rust 141/58/289 + Clippy workspace all targets -Dwarnings/release/fmt PASS.
+preview-neighbor-ui 1793101665648168454 PASS 5 FB 1000×650/PNG-WebP-raw PNG 0xFF/
+hidden excluded/FD source and pixels/real error + back/rapid last wins/callback 0 ACK/
+7 logged helper IDs gone Z false. Hit target/accessible name verified; no OS input/
+AT-SPI/clipboard/lifetime coverage/active helper close in this scene.
+Resource/startup freeze NOT_MEASURED; no playlist/autoplay nor P09 completeness.
 
-TABS-CONTRACT: ocho activas y ocho cerradas recuperables, IDs monotónicos,
-historial/orden/filtro/vista/zoom/pan/scroll y selección raw por pestaña. Un Model,
-un listado/worker; snapshots presupuestados antes de clonar, máximo3MiB guardado
-más reservas documentadas. Global hidden y cola de copia conservan su semántica.
-Undo/copia refrescan su carpeta capturada; volver a inactiva relista.
-513Rust (141/67/305), Clippy workspace/all-targets -Dwarnings, release y fmt PASS.
-tabs-ui-1793109776417107918 PASS9FB, A/B independientes y cambio rápido, hidden
-podado sin seleccionar destino invisible, rawUnix, máximo/reapertura, resize
-800×500/440 con metadata y última pestaña close0ACK/helper PIDstartgone sin zombie.
-Tres FAIL previos conservados y corregidos, no rebajar assertions. Handlers/Actions
-y framebuffer; no inputSO/clipboard ni helper vivo exacto al cierre.
-V10 parcial: sesión durable pendiente; recursos/startup NOT_MEASURED por freeze.
-Siguiente bloque: sesión durable versionada/acotada de estas pestañas, sin
-restaurar tareas ni operaciones automáticamente; doble panel/Miller, move/journal,
-red montada, shaders app e i18n siguen abiertos en la matriz.
+## M20 — non-destructive viewer rotation, 2026-10-27
 
-
-## M23 — sesión durable acotada, 2026-10-27
-
-SESSION-CONTRACT: formato binario versionado/raw, validate prestado previo a
-materializar, encoder simétrico y límites4MiBwire/1MiBactiva/3MiBguardadas. Un
-writer advisory lock lifetime en AuxIo existente; otra ventana readonly sin
-takeover. Argv explícito sin restore/autosave salvo Guardar; --no-sessiondisabled.
-Inválido/futuro preservado; respuesta tardía no pisa intención/cierre. Buffer
-retenido hasta ACK, error bloquea reintento por tick, postrename Unsynced explícito.
-527Rust141/67/319+Clippy/release/fmt PASS. tabs-session-ui1793111266679001110
-PASS6FB/8procesos normales0ACK/save→restore/estado A-B/rawclosed/argv/readonly/
-nooverwrite/invalidfuturebytes. Sin inputSO/clipboard/recursos ni crashresume tareas.
-Siguiente unidad priorizada por usuario: mover F6/contextual/inspector en cola
-global, mismoFS y EXDEV separados; contrato identidad/no-clobber/cancel antes
-publicar/borrado sólo tras copia verificada. Journal durable/conflictos siguen
-explícitamente pendientes; red montada/shaders/doble panel/i18n no se abandonan.
+PREVIEW-ROTATION: Nerd/R/Shift+R buttons only rotate the image/PDF/video/GIF view;
+direct sampling of the original RGB, with no rotated copy nor modified files.
+The numeric transform keeps the rotation across frames/seek and PDF pages/text-return;
+a new source/revision/reset 0 removes it. F1 Help adds the real media shortcuts.
+489 Rust 141/58/290 + Clippy workspace all targets -Dwarnings/release/fmt PASS.
+preview-rotation-ui 1793102443334515413 PASS 14 FB 1000×650/asymmetric 4 quadrants with
+checked framebuffer pixels/CW-CCW-reset rotation/video-GIF play/seek/PDF page 2 +
+text return/original bytes intact/callback 0 ACK/21 logged helpers gone Z false.
+No OS input/native 2x/AT-SPI/lifetimes/active helper close in this scene nor a test of
+photographic color; 14 functional readbacks, NOT an isolated measurement of use.
+Resources/startup NOT_MEASURED freeze; no global P02/P06/P07/P09 nor 0.0.4 tag.
 
 
-## M24 — mover nativo con revisión, 2026-10-27
+## M21 — verified DOCX text, 2026-10-27
 
-MOVE-CONTRACT: F6/contextual/inspector, revisar por AuxIo y confirmar token de
-padres+rootsFD al encolar. Hasta128roots,256FD tokens admitidos incluyendo
-activo/ACK, revisión adicional130FD; cargo metadata y rutas antesadmisión.
-RenameNoReplace, source literal/raw y control de ancestros por FD antesApply;
-published/verified explícito ante carrera, no cleanup de entrada no verificada.
-No rollback global: raíces previas quedanmovidas tras cancel/error.
-537Rust148/67/322+Clippy/release/fmt PASS. move-ui1793113502303715506PASS6FB,
-revisión/pausa sin publicar, cuatro roots con inodes/bytes/metadata/xattrs,
-refresh A/B sin perder foco target, colisión no-clobber, /procEXDEV preflight
-rechazado y origenconservado, cancel/closepausado0ACK. Handlers/noinputSO;
-canceltrasroots sólo callbackcore; recursos/startupNOT_MEASUREDfreeze.
-O01/O03 siguenparciales: siguiente EXDEV manifiesto verificado, attrs/durabilidad
-y journal seguro; no fallback copy+delete ni UndoMove actual. O06 no avanza.
-
-## M25 en curso — transferencia EXDEV y recuperación, 2026-10-27
-
-Núcleo compilado: inventario/hash/metadata efectivo, WAL single-root y executor
-regular nlink1 con staging/publicación durable y eliminación individual. Recovery
-explícito reabre FDs y renueva barreras, no reanuda en silencio.191corePASS +
-Clippy core limpio; transferencia pública FS63→75 y tres escenarios de proceso
-nuevo PASS (salida73 en gap publish/delete/restore). Detalles/límites/evidencia en
-EXDEV-JOURNAL-CONTRACT y exdev-core-foundation.json. No UI EXDEV, no instalación,
-no O01/O03/X02 completo: árboles/hardlinks/lotes/recuperación visible siguen WIP;
-recursos/startup NOT_MEASURED por freeze. M24 instalado intacto.
+DOCX-PREVIEW: Space shows the main Word body as UTF-8 through a validated ZIP32 + XML stream,
+CRC/DEFLATE/descriptor, limits before allocation, no extraction/resources.
+Expected/effective FD Revision and generation; codec/cap errors do not trigger
+SourceUnavailable/a retry of a stable revision. CDATA outside the root and non-initial
+declarations rejected with a RED→GREEN regression and 10 real wire cases.
+500 Rust 141/67/292 + Clippy workspace all targets -Dwarnings/release/fmt PASS;
+office-ui 1793105654289278359 PASS 6 FB 1000×650/Unicode 102 B selection/truncation 256 KiB/
+raw Unix FD/replace with the same size-mtime/delete-recreate/notify suppressed/callback 0 ACK/
+9 logged helpers gone Z false. No faithful Word layout/other Office/OS clipboard/OS input nor
+a helper alive exactly at close. Resources/startup NOT_MEASURED freeze, the historical
+ENOSPC/baseline/startup/clipboard results intact; no global P08 nor 0.0.4 tag.
+Next visible unit V10 tabs and per-tab history: TABS-CONTRACT.
 
 
-## M25 — checkpoint visible, 2026-10-27
+## M22 — instance tabs, 2026-10-27
+
+TABS-CONTRACT: eight active and eight recoverable closed tabs, monotonic IDs,
+history/sort/filter/view/zoom/pan/scroll and raw selection per tab. One Model,
+one listing/worker; snapshots budgeted before cloning, at most 3 MiB saved
+plus the documented reservations. Global hidden and the copy queue keep their semantics.
+Undo/copy refresh their captured folder; returning to an inactive tab relists.
+513 Rust (141/67/305), Clippy workspace/all-targets -Dwarnings, release and fmt PASS.
+tabs-ui-1793109776417107918 PASS 9 FB, independent A/B and quick switching, hidden
+pruned without selecting an invisible destination, raw Unix, maximum/reopen, resize
+800×500/440 with metadata and the last tab close 0 ACK/helper PID start gone without a zombie.
+Three earlier FAILs kept and fixed, assertions not weakened. Handlers/Actions
+and framebuffer; no OS input/clipboard nor a helper alive exactly at close.
+V10 partial: durable session pending; resources/startup NOT_MEASURED because of the freeze.
+Next block: a versioned/bounded durable session of these tabs, without
+restoring tasks or operations automatically; dual pane/Miller, move/journal,
+mounted network, app shaders and i18n remain open in the matrix.
+
+
+## M23 — bounded durable session, 2026-10-27
+
+SESSION-CONTRACT: versioned/raw binary format, a borrowed validate before
+materializing, a symmetric encoder and limits 4 MiB wire/1 MiB active/3 MiB saved. One
+writer with an advisory lifetime lock on the existing AuxIo; another window read-only without
+takeover. An explicit argv without restore/autosave unless Save; --no-session disabled.
+Invalid/future preserved; a late response does not overwrite the intent/close. The buffer
+is retained until ACK, an error blocks per-tick retries, explicit post-rename Unsynced.
+527 Rust 141/67/319 + Clippy/release/fmt PASS. tabs-session-ui 1793111266679001110
+PASS 6 FB/8 processes normal 0 ACK/save→restore/A-B state/raw closed/argv/read-only/
+no overwrite/invalid future bytes. No OS input/clipboard/resources nor crash resume of tasks.
+Next unit prioritized by the user: move with F6/context menu/inspector in the global
+queue, same FS and EXDEV separate; an identity/no-clobber/cancel-before-publishing
+contract/deletion only after a verified copy. Durable journal/conflicts remain
+explicitly pending; mounted network/shaders/dual pane/i18n are not abandoned.
+
+
+## M24 — native move with review, 2026-10-27
+
+MOVE-CONTRACT: F6/context menu/inspector, review through AuxIo and confirm a token of
+parents + root FDs on enqueue. Up to 128 roots, 256 admitted FD tokens including
+active/ACK, an additional review of 130 FDs; metadata and path charge before admission.
+RenameNoReplace, literal/raw source and ancestor control by FD before Apply;
+explicit published/verified against a race, no cleanup of an unverified entry.
+No global rollback: earlier roots stay moved after cancel/error.
+537 Rust 148/67/322 + Clippy/release/fmt PASS. move-ui 1793113502303715506 PASS 6 FB,
+review/pause without publishing, four roots with inodes/bytes/metadata/xattrs,
+refresh A/B without losing the target's focus, no-clobber collision, /proc EXDEV in preflight
+rejected and the source kept, cancel/close while paused 0 ACK. Handlers/no OS input;
+cancel after roots only through the core callback; resources/startup NOT_MEASURED freeze.
+O01/O03 still partial: next a verified EXDEV manifest, attrs/durability
+and a safe journal; no copy+delete fallback nor a current Undo Move. O06 does not advance.
+
+## M25 in progress — EXDEV transfer and recovery, 2026-10-27
+
+Core compiled: effective inventory/hash/metadata, a single-root WAL and an executor for
+regular nlink 1 files with durable staging/publication and individual deletion. Explicit
+recovery reopens FDs and renews barriers, it does not resume silently. 191 core PASS +
+Clippy core clean; public transfer FS 63→75 and three new-process scenarios
+PASS (exit 73 at the publish/delete/restore gap). Details/limits/evidence in
+EXDEV-JOURNAL-CONTRACT and exdev-core-foundation.json. No EXDEV UI, no installation,
+O01/O03/X02 not complete: trees/hardlinks/batches/visible recovery are still WIP;
+resources/startup NOT_MEASURED because of the freeze. M24 installed intact.
+
+
+## M25 — visible checkpoint, 2026-10-27
 
 Sustituye el WIP anterior para EXDEV de un archivo regular nlink1 y recuperación
 explícita. 586Rust193/67/326, Clippy/release limpios; escena
