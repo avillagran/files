@@ -1,100 +1,100 @@
-# Espacio: treemap de tamaños
+# Space: size treemap
 
-Referencia aprobada `mockups/v3.html#v-map`, distinta de **Espacial** (posiciones
-manuales de iconos). Botón Nerd **Espacio** o Ctrl+4 calcula los hijos inmediatos
-con un helper efímero; las carpetas incluyen sus archivos descendientes. Un clic
-selecciona el objeto para inspector/operaciones; Enter/doble clic entra en una
-carpeta real, Volver/Backspace sube. Actualizar vuelve a escanear; Cancelar y salir
-de la vista descartan el informe y cancelan/recogen el helper. La omnibar navega
-normalmente; el filtro actual no se aplica al mapa y se indica explícitamente.
+Approved reference `mockups/v3.html#v-map`, different from **Spatial** (manual icon
+positions). The Nerd **Space** button or Ctrl+4 computes the immediate children
+with an ephemeral helper; folders include their descendant files. A click
+selects the object for the inspector/operations; Enter/double click enters a
+real folder, Back/Backspace goes up. Refresh rescans; Cancel and leaving
+the view discard the report and cancel/reap the helper. The omnibar navigates
+normally; the current filter is not applied to the map, and this is stated explicitly.
 
-Los bloques parten de bytes **aparentes de archivos regulares por nombre**,
-recursivos en carpetas, no bloques físicos ni propiedad exclusiva de disco.
-Hardlinks cuentan por nombre; archivos sparse conservan su longitud aparente.
-Symlinks y objetos especiales no se siguen y contribuyen cero, visibles en la
-lista sin área. No aparece «0 MB residentes» ni consumo inventado del mockup.
-El pie PSS existente es sólo del principal; no acredita el presupuesto del árbol.
+The blocks start from the **apparent bytes of regular files by name**,
+recursive in folders, not physical blocks nor exclusive disk ownership.
+Hardlinks count by name; sparse files keep their apparent length.
+Symlinks and special objects are not followed and contribute zero, visible in the
+list without an area. There is no «0 MB resident» nor made-up usage from the mockup.
+The existing PSS footer is only for the main process; it does not prove the tree's budget.
 
-## Proporción y estados
+## Proportion and states
 
-El layout puro divide por bytes completos positivos sobre el eje más largo,
-con áreas proporcionales y límites compartidos. No crea un peso mínimo para
-cero/desconocidos/error/parciales. El painter redondea límites a píxeles y separa
-visualmente cada bloque2px: esos márgenes/etiquetas no son precisión física de
-cada píxel. Bloques diminutos también son accesibles en lista. Etiquetas recortan
-con clip propio; nombres se convierten con pérdida únicamente para mostrar,
-identidad/hits usan bytes lossless y el índice de la generación de listado.
+The pure layout splits by complete positive bytes along the longest axis,
+with proportional areas and shared boundaries. It does not create a minimum weight for
+zero/unknown/error/partial nodes. The painter rounds boundaries to pixels and visually separates
+each block by 2 px: those margins/labels are not physical precision for
+each pixel. Tiny blocks are also reachable in the list. Labels clip
+with their own clip; names are lossily converted only for display,
+identity/hits use lossless bytes and the listing generation's index.
 
-Un nodo parcial tiene `bytes=None` y `observed_bytes` como límite inferior; se
-excluye del denominador de las áreas. El total medido suma sólo nodos completos,
-el observado incluye límites inferiores. PARCIAL y su causa no son cargas en
-curso: cero/desconocidos/error/parciales aparecen en lista separada. Vacío muestra
-0B sin bloque ficticio. Error del helper no mantiene el informe anterior como
-si fuera actual. La selección muestra estado/bytes/conteos reales en inspector,
-sin disparar un segundo du. Metadatos/diagnósticos muy largos quedan recortados;
-copiar/export completo y tooltip de cada bloque todavía pendientes.
+A partial node has `bytes=None` and `observed_bytes` as a lower bound; it is
+excluded from the area denominator. The measured total only adds complete nodes,
+the observed one includes lower bounds. PARTIAL and its cause are not loads in
+progress: zero/unknown/error/partial nodes appear in a separate list. Empty shows
+0 B without a fake block. A helper error does not keep the earlier report as
+if it were current. The selection shows real status/bytes/counts in the inspector,
+without triggering a second du. Very long metadata/diagnostics are cut;
+full copy/export and a tooltip for each block are still pending.
 
-## Helper, lifecycle y límites
+## Helper, lifecycle and limits
 
-Linux: root final O_DIRECTORY|O_NOFOLLOW, readdir/fstatat/openat por FD, sin seguir
-symlinks finales/intermedios descendientes. Apertura inicial de ancestros tiene
-resolución normal; `link/.` y mountpoints no son una sandbox. No snapshot: contenido
-puede variar in-place durante cálculo. Identidad de un directorio se revalida al
-abrirlo. Sólo retiene resultados/nombres de hijos inmediatos:
+Linux: final root O_DIRECTORY|O_NOFOLLOW, readdir/fstatat/openat by FD, without following
+final/intermediate descendant symlinks. The initial open of ancestors has normal
+resolution; `link/.` and mountpoints are not a sandbox. No snapshot: content
+may change in place during the computation. A directory's identity is revalidated when
+it is opened. It only retains results/names of immediate children:
 
-- 2048 nodos, nombre4096B, nombres agregados256KiB; diagnósticos512B/nodo y64KiB
-  agregados (incluye motivo del informe), antes de clonarlos.
-- 1M entradas observadas, profundidad128 y15s cooperativos. Las carpetas/archivos
-  incompletos nunca declaran bytes exactos. Omisiones desconocidas son None,
-  no un cero inventado; Some(0) exige EOF de enumeración raíz.
-- Request64KiB, respuesta4MiB, writer/reader acotados antes de ampliar buffer.
-  Preconteo de nombres canonical antes de serde y validación de cantidad/bytes,
-  unicidad/totales/conteos/status después. No parser JSON sandbox general.
-- Un State/worker/hijo: último destino deseado, cancelar y consumir ACK/reap antes
-  de reemplazar en otro pump. Timeout supervisor20s, kill/wait fuera del hiloUI.
-  Salir/cerrar espera drenaje, sin depender de Drop. Preview y du no se lanzan en
-  paralelo al helper de Espacio; un preview solicitado espera su cancelación.
+- 2048 nodes, name 4096 B, names in total 256 KiB; diagnostics 512 B/node and 64 KiB
+  in total (including the report's reason), before cloning them.
+- 1M observed entries, depth 128 and 15 s cooperative. Incomplete folders/files
+  never declare exact bytes. Unknown omissions are None,
+  not a made-up zero; Some(0) requires EOF of the root enumeration.
+- Request 64 KiB, response 4 MiB, writer/reader bounded before growing the buffer.
+  Pre-count of canonical names before serde and validation of count/bytes,
+  uniqueness/totals/counts/status afterwards. Not a general sandboxed JSON parser.
+- One State/worker/child: the last desired destination, cancel and consume ACK/reap before
+  replacing in another pump. Supervisor timeout 20 s, kill/wait outside the UI thread.
+  Exit/close waits for the drain, without relying on Drop. Preview and du are not launched in
+  parallel with the Space helper; a requested preview waits for its cancellation.
 
-Un syscall de FS no interrumpible puede retrasar kill/reap; no se presenta la
-cota cooperativa como deadline duro de montaje offline. Se retiene un solo job,
-sin acumular hijos/threads tras navegación repetida. ParserprotocolJSON requiere
-ruta raíz UTF8; error visible para raíz noUTF8, nombres hijos raw sí admitidos.
-Adaptadores de escáner para otros SO están explícitamente pendientes. Las cotas
-de nombres/wire/FD/objetos no equivalen a PSS total ni a caché LRU P09.
+An uninterruptible FS syscall can delay kill/reap; the cooperative bound is not
+presented as a hard deadline for an offline mount. A single job is kept,
+without piling up children/threads after repeated navigation. The JSON protocol parser requires
+a UTF-8 root path; a visible error for a non-UTF-8 root, while raw child names are accepted.
+Scanner adapters for other OSes are explicitly pending. The bounds
+on names/wire/FD/objects are not equivalent to total PSS nor to a P09 LRU cache.
 
-## Verificación
+## Verification
 
-370 Rust (121core/44helper/205UI), Clippy workspace/all-targets -Dwarnings y
-release PASS. Helper CLI real9casos PASS en helper-wire1793057735444805998:
-8:4:2, nombresraw,symlinkraíz/trailing/file/relative/missing rechazados,mismatch yvacío.
-space-map-ui1793057823344999138 funcional PASS: áreas8:4:2, selección/inspector,
-entrar/volver, cero/vacío/parcial/error, viewport real por Normal/fullscreen,
-cancelación de recorrido20k, salir a Lista y cierre callback con helper vivo.
-11identidades PID/start observadas, todas recogidas tras salida0 y drain; no
-sampler de memoria/CPU. Los tamaños son longitudes aparentes de fixtures sparse.
+370 Rust (121 core/44 helper/205 UI), Clippy workspace/all-targets -Dwarnings and
+release PASS. Real helper CLI 9 cases PASS in helper-wire 1793057735444805998:
+8:4:2, raw names, root/trailing/file/relative/missing symlink rejected, mismatch and empty.
+space-map-ui 1793057823344999138 functional PASS: areas 8:4:2, selection/inspector,
+enter/back, zero/empty/partial/error, real viewport in Normal/fullscreen,
+cancellation of a 20k walk, leaving to List and callback close with a live helper.
+11 PID/start identities observed, all reaped after exit 0 and drain; no
+memory/CPU sampler. Sizes are apparent lengths of sparse fixtures.
 
-Método: handlers/targets visibles y framebuffer FLTK, navegación y modos por
-handlers compartidos; sin eventos SO. La fixture ignora entrada nativa ambiental
-explícitamente (sólo con FILES_TEST_ISOLATE_INPUT=1 y --ui-smoke), evitando que
-interacción externa navegue fuera de sus datos. App normal no cambia por esta flag.
-La primera corrida falló por subcomando no registrado y recibió interacción
-ambiental fuera de fixtures (lectura de listado/metadatos; sin mutación); se
-preserva el FAIL, se registró space_map y se aisló la escena. La siguiente falló
-al buscar Cancelar después de terminado (correctamente no visible); ahora cancela
-un recorrido activo. También se conservan fallos iniciales de validación/clippy.
+Method: visible handlers/targets and the FLTK framebuffer, navigation and modes through
+shared handlers; no OS events. The fixture explicitly ignores ambient native input
+(only with FILES_TEST_ISOLATE_INPUT=1 and --ui-smoke), so that
+external interaction cannot navigate outside its data. The normal app does not change with this flag.
+The first run failed because of an unregistered subcommand and received ambient
+interaction outside the fixtures (listing/metadata reads; no mutation); the
+FAIL is preserved, space_map was registered and the scene was isolated. The next one failed
+looking for Cancel after it had finished (correctly not visible); it now cancels
+an active walk. The initial validation/clippy failures are also kept.
 
-SHA app6dcb6c9b0079d04aa4d3d59477d91570e6922e020d6e03802b239a2c8f17655a,
-helper737eb1dc23cdd90192c9742762c4c5cb87bca4c45521c51e89bf0259c5b50463.
-Freeze recursos/startup NOT_MEASURED. V09 funcional visible aceptada con límites;
-presupuesto total, rootraw/otrosSO/offlinemounts siguen pendientes, sin PASSglobal.
-Integración posterior: ocultos globales defaultfalse/botón sincronizado, proyección
-visible con totalinclocultos, estilo v3 y menú contextual en
-HIDDEN-CONTEXT-AND-STATUS.md. Este informe anterior conserva su build/evidencia.
+SHA app 6dcb6c9b0079d04aa4d3d59477d91570e6922e020d6e03802b239a2c8f17655a,
+helper 737eb1dc23cdd90192c9742762c4c5cb87bca4c45521c51e89bf0259c5b50463.
+Resource/startup freeze NOT_MEASURED. V09 visibly functional, accepted with limits;
+total budget, raw root/other OSes/offline mounts are still pending, no global PASS.
+Later integration: global hidden files default false/synced button, visible
+projection with a total that includes hidden files, v3 style and the context menu in
+HIDDEN-CONTEXT-AND-STATUS.md. This earlier report keeps its build/evidence.
 
 
-## Cambios posteriores a la observación
+## Changes after observation
 
-SPACE-MAP-CHANGES.md documenta avisos de cambios/interrupción en la raíz sin
-recálculo automático, alcance no recursivo de vigilancia y recálculo explícito
-por F5/Recalcular que renueva también el listado de nombres/hits. Datos completos
-no implican actualidad ni instantánea. Aceptación fuente/instalación en ese contrato.
+SPACE-MAP-CHANGES.md documents notices of root changes/interruption without
+automatic recalculation, the non-recursive scope of watching and explicit recalculation
+with F5/Recalculate, which also renews the listing of names/hits. Complete data
+does not imply currency or a snapshot. Source/installation acceptance in that contract.

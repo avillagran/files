@@ -1,100 +1,100 @@
-# Columnas tipo Finder — M26 (2026-10-27)
+# Finder-style Columns — M26 (2026-10-27)
 
-Decisión explícita del usuario: Columnas/Miller sustituye la vista Espacial. Espacio
-(treemap) permanece. Doble panel se aplaza al siguiente bloque visible, sin WIP
-funcional descartado. Previews nuevas pausadas y freeze de métricas intacto.
+Explicit user decision: Columns/Miller replaces the Spatial view. Space
+(treemap) stays. Dual pane is deferred to the next visible block, with no functional
+WIP discarded. New previews paused and the metrics freeze intact.
 
-## Interacción y origen
+## Interaction and source
 
-Cada columna representa un directorio. Seleccionar una carpeta mantiene el foco y
-la selección EN SU COLUMNA y solicita el listado siguiente; seleccionar un archivo
-conserva los ancestros y poda descendientes. Cambiar carpeta en un ancestro poda
-la rama posterior. Clic/Izquierda/Derecha cambian columna enfocada; Arriba/Abajo
-mueven selección en ella. Derecha entra sólo en la carpeta seleccionada cuando su
-listado está disponible; no abre un archivo por accidente. Enter delega archivos
-al `open` existente. Scroll vertical independiente, horizontal con reveal del
-foco y controles Nerd. Filtro/selección/scroll de cada columna se conservan dentro
-de la cadena; ocultos siguen globales y se podan antes de operar.
+Each column represents a directory. Selecting a folder keeps the focus and
+the selection IN ITS COLUMN and requests the next listing; selecting a file
+keeps the ancestors and prunes the descendants. Changing folder in an ancestor prunes
+the later branch. Click/Left/Right change the focused column; Up/Down
+move the selection within it. Right only enters the selected folder when its
+listing is available; it never opens a file by accident. Enter hands files
+to the existing `open`. Independent vertical scroll, horizontal scroll with reveal of the
+focus and Nerd controls. Each column's filter/selection/scroll are kept within
+the chain; hidden files stay global and are pruned before operating.
 
-Copiar/mover/renombrar/papelera/propiedades siempre capturan la ruta y nombres de
-la columna enfocada. Un listado de la derecha no cambia ese origen. Cola, IDs,
-ACK, journal y supervisores de medios/operaciones siguen siendo únicos. No se
-cambia de foco durante Apply/revisión modal. No I/O de archivos en draw/event.
+Copy/move/rename/trash/properties always capture the path and names of
+the focused column. A listing on the right does not change that source. Queue, IDs,
+ACK, journal and the media/operation supervisors are still single. Focus does not
+change during Apply/modal review. No file I/O in draw/event.
 
-## Ownership y límites de esta unidad
+## Ownership and limits of this unit
 
-Un Model activo conserva su listado y worker reutilizable; un segundo worker
-reutilizable sirve sólo al siguiente listado solicitado. Ambos comparten el
-límite global de cuatro consultas FS. Cachés de ancestros NO tienen workers ni
-helpers; no se instancian ocho Model. Respuestas de la rama anterior se descartan
-por generación interna del worker y token estable de columna, nunca por índice
-reutilizado. Hasta ocho listados retenidos; una ventana deslizante elimina el ancestro
-más antiguo al profundizar, sin limitar profundidad navegable. Subir/breadcrumb
-reconstruye ancestros de forma asíncrona y avisa al descartar estado por presupuesto. Filas virtualizadas: hits y texto sólo para las visibles.
+An active Model keeps its listing and reusable worker; a second reusable
+worker serves only the next requested listing. Both share the
+global limit of four FS queries. Ancestor caches have NO workers or
+helpers; eight Models are not instantiated. Responses from the earlier branch are discarded
+by the worker's internal generation and a stable column token, never by a reused
+index. Up to eight retained listings; a sliding window drops the oldest ancestor
+when going deeper, without limiting navigable depth. Going up/breadcrumb
+rebuilds ancestors asynchronously and warns when discarding state because of the budget. Virtualized rows: hits and text only for visible ones.
 
-Presupuesto de datos de la cadena:16MiB retenidos (capacidades de entries/nombres,
-order/selección y structs), máximo100k entradas/8MiB nombres por listado. Se
-valida antes de retener lotes/capturas, con reserva conservadora de selección
-y crecimiento exacto de entries/order. Controlador/rutas/menú diferido reservan
-64KiB adicionales; buffers acotados de ambos canales (8lotes×256 entradas),
-selección transiente≤256KiB y claves de sorting son reservas separadas. No es un límite del proceso ni acredita PSS. Fuera de
-Columnas se libera la cadena y se suspende el worker adicional, conservando un
-único hilo reutilizable ante syscalls atascadas. Cierre lo cancela sin fingir
-interrupción de una syscall de kernel. Recursos/startup NOT_MEASURED por freeze.
+Chain data budget: 16 MiB retained (capacities of entries/names,
+order/selection and structs), at most 100k entries/8 MiB of names per listing. It is
+validated before retaining batches/captures, with a conservative selection reservation
+and exact growth of entries/order. Controller/paths/deferred menu reserve
+an additional 64 KiB; bounded buffers on both channels (8 batches×256 entries),
+transient selection ≤256 KiB and sorting keys are separate reservations. It is not a process limit and does not prove PSS. Outside
+Columns the chain is freed and the extra worker is suspended, keeping a
+single reusable thread against stuck syscalls. Close cancels it without faking
+interruption of a kernel syscall. Resources/startup NOT_MEASURED because of the freeze.
 
-## Pestañas, sesiones y migración
+## Tabs, sessions and migration
 
-Una pestaña contiene su ruta de columna enfocada, historial, filtro y selección
-con las mismas reglas acotadas de M22/M23. Cambiar pestaña reconstruye la cadena
-desde esa ruta; esta primera unidad no persiste todas las columnas abiertas.
-No hay una segunda sesión/cola. Tag3 de sesión legado Spatial se interpreta como
-Columns; conserva ruta/historial/selección pero descarta zoom/pan y scroll de
-iconos como geometría incompatible. El encoder nuevo usa tag5 libre para Columnas y preserva scroll vertical
-nuevo; tag3 queda exclusivamente como migración de Spatial. `--spatial`
-queda alias compatible de `--columns`, con nombre visible Columnas; los layouts
-antiguos de iconos se conservan en disco sin leerlos ni borrarlos por inferencia.
+A tab holds its focused column path, history, filter and selection
+with the same bounded rules as M22/M23. Switching tabs rebuilds the chain
+from that path; this first unit does not persist every open column.
+There is no second session/queue. The legacy Spatial session tag 3 is read as
+Columns; it keeps path/history/selection but discards zoom/pan and icon scroll
+as incompatible geometry. The new encoder uses the free tag 5 for Columns and keeps the new vertical
+scroll; tag 3 remains exclusively as the Spatial migration. `--spatial`
+remains a compatible alias of `--columns`, with the visible name Columns; old
+icon layouts are kept on disk without reading or deleting them by inference.
 
-## Aceptación prevista
+## Planned acceptance
 
-Escena existente extendida: cadena raíz/A/nested, misma carpeta hermana B,
-archivo con nombre igual/contenido distinto, selección y payload operaciones en
-el padre aunque hijo esté visible; poda y respuesta stale tras A→B, teclado,
-scroll/reveal/resize y retorno ancestro, hidden global/rawUnix. Sesión tag3
-legada restaura datos sin reinterpretar geometría. Capturas reales y handlers
-internos declarados, sin afirmar input SO ni nuevas métricas. Tests/build/Clippy
-más instalación con backups sólo al validar. V06 en implementación; V08
-sustituida por decisión, datos antiguos preservados, ninguna marcada completa.
-
-
-Estado de validación previo a captura:596Rust194core/67helper/335UI PASS en
-columns-workspace-final-test.log; Clippyworkspace/alltargets-Dwarnings limpio.
-La suite anterior expuso WouldBlock al reabrir recovery: regresión nueva con
-FDduplicado reprodujo RED; Journal ahora suelta flock explícito al destruir owner
-sólo en PID creador, sin que Drop en un proceso hijo pueda soltarlo al padre.
-Regresión GREEN y suite completa PASS; no atribución exacta a un fork específico
-del primer fallo. Se conserva FAIL de aserción de fixture de presupuesto y FAIL
-intermitente sin contexto suficiente de entrada A ausente; fixture posterior
-usa creación exclusiva+ID atómico y diagnóstico completo, no se relajó selección.
-Escena y release aún pendientes al escribir esta entrada; no featurePASS global.
+Extended existing scene: root/A/nested chain, the same sibling folder B,
+a file with the same name/different content, selection and operation payload in
+the parent while the child is visible; pruning and a stale response after A→B, keyboard,
+scroll/reveal/resize and returning to an ancestor, global hidden/raw Unix. A legacy tag 3
+session restores data without reinterpreting geometry. Real captures and internal
+handlers declared, without claiming OS input or new metrics. Tests/build/Clippy
+plus installation with backups only on validation. V06 in implementation; V08
+replaced by decision, old data preserved, none marked complete.
 
 
-## M26 — aceptación funcional acotada
+Validation status before capture: 596 Rust 194 core/67 helper/335 UI PASS in
+columns-workspace-final-test.log; Clippy workspace/all targets -Dwarnings clean.
+The earlier suite exposed WouldBlock when reopening recovery: a new regression with a
+duplicated FD reproduced RED; Journal now releases the flock explicitly when the owner is destroyed,
+only in the creating PID, so a Drop in a child process cannot release it for the parent.
+Regression GREEN and full suite PASS; the first failure is not attributed exactly to a specific fork.
+The fixture budget assertion FAIL and an intermittent FAIL
+without enough context about a missing input A are kept; the later fixture
+uses exclusive creation + an atomic ID and full diagnostics; the selection was not relaxed.
+Scene and release still pending when this entry was written; no global feature PASS.
 
-columns-ui-1793124416464738573.json PASS: seis framebuffer reales con dimensiones
-comprobadas (cinco1000×650, uno800×440 inicial), cadena de tres columnas, foco
-conservado en padre mientras hijo visible, poda A→B, payload de renombrado y
-copia real de bytes desde A/nested (B contiene nombre igual), filtro/nombre raw,
-fuentes intactas y dos cierres normales0 posteriores a ACK. Capturas inspeccionadas: 
-recorte del ancestro por scroll horizontal esperado, sin afirmar liveResize.
-Profundidad12, modificadores, foco/cancel antesDone/Stats stale, menú diferido por
-rawnombre+generación y migración de sesión tag3/5 tienen regresiones unitarias;
-no se presentan como eventos SO o sesiones completas de la cadena persistidas.
-596Rust+Clippy/release/fmt limpios; columns-checkpoint-validation.json conserva
-logs y fallos anteriores sin atribuir causa exacta al fixture intermitente.
 
-Límite16MiB es admisión de datos de cadena en lotes/capturas, con capacidades y
-reserva de selección; metadatos de demanda del Model, colas de jobs/channels,
-allocator/stack/FLTK y medios globales existentes se agregan. No usar este cap
-local como prueba del proceso; memoria/CPU/arranque NOT_MEASURED por freeze.
-Windows/macOS, inputSO y persistencia de toda la cadena no verificados.
-Siguiente: doble panel según DESIGN, seguido de cortar/pegar/DnD/operaciones/SFTP.
+## M26 — bounded functional acceptance
+
+columns-ui-1793124416464738573.json PASS: six real framebuffers with checked
+dimensions (five 1000×650, one initial 800×440), a three-column chain, focus
+kept in the parent while the child is visible, pruning A→B, rename payload and a
+real byte copy from A/nested (B contains the same name), filter/raw name,
+sources intact and two normal closes 0 after ACK. Captures inspected:
+the ancestor cut off by horizontal scroll as expected, without claiming liveResize.
+Depth 12, modifiers, focus/cancel before Done/stale Stats, the deferred menu by
+raw name+generation and the tag 3/5 session migration have unit regressions;
+they are not presented as OS events or full persisted sessions of the chain.
+596 Rust + Clippy/release/fmt clean; columns-checkpoint-validation.json keeps
+logs and earlier failures without attributing an exact cause to the intermittent fixture.
+
+The 16 MiB limit is the admission of chain data in batches/captures, with capacities and
+the selection reservation; the Model's on-demand metadata, job/channel queues,
+allocator/stack/FLTK and the existing global media add to it. Do not use this local
+cap as proof for the process; memory/CPU/startup NOT_MEASURED because of the freeze.
+Windows/macOS, OS input and persistence of the whole chain not verified.
+Next: dual pane according to DESIGN, followed by cut/paste/DnD/operations/SFTP.
