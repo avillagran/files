@@ -1,42 +1,42 @@
-# Vida de helpers propios — 0.0.4 (Linux)
+# Lifetime of owned helpers — 0.0.4 (Linux)
 
-owned_child::arm añade PR_SET_PDEATHSIG=SIGKILL antes de exec. Comprueba el PID
-del padre antes/después de prctl para rechazar la carrera de parent death. El
-hook post-fork no asigna memoria ni toma locks/hace I/O y se añade a los hooks
-FD/rlimits existentes. La señal pertenece al thread creador en Linux: cada
-supervisor mantiene ese trabajador hasta reap.
+owned_child::arm adds PR_SET_PDEATHSIG=SIGKILL before exec. It checks the parent's
+PID before/after prctl to reject the parent-death race. The
+post-fork hook does not allocate memory, take locks or do I/O, and it is added to the existing
+FD/rlimit hooks. On Linux the signal belongs to the creating thread: each
+supervisor keeps that worker until reap.
 
-Se aplica sólo al supervisor común de texto/imagen/Markdown/HTML/PDF/ffprobe/
-audio, streaming de vídeo, du e informe Espacio. Las apps abiertas por el usuario
-con open conservan su vida independiente; no hay interceptor global de procesos.
-Sigue siendo obligatorio cancel/kill/wait normal y ACK antes de reemplazo/salir;
-esta señal cubre la terminación abrupta del creador. No crea un daemon/reaper en
-producto, no interrumpe kernelD ni asegura a nietos/setuid exec. Windows/macOS
-equivalentes pendientes. No es journal/rollback durable de tareas de archivos.
+It applies only to the common supervisor for text/image/Markdown/HTML/PDF/ffprobe/
+audio, video streaming, du and the Space report. Apps the user opens
+with open keep their own independent lifetime; there is no global process interceptor.
+Normal cancel/kill/wait and ACK before replacing/exiting are still mandatory;
+this signal covers the creator's abrupt termination. It does not create a daemon/reaper in
+the product, does not interrupt kernel D-state, and does not cover grandchildren/setuid exec. Windows/macOS
+equivalents are pending. It is not a durable journal/rollback for file tasks.
 
-## Pruebas
+## Tests
 
-464Rust141core/58helper/265UI, Clippyworkspace-Dwarnings y releasePASS. Test de
-prctl después de exec confirma SIGKILL y PID padre, y que el umask previamente
-configurado sigue vigente (pre_exec anterior no sobrescrito).
+464 Rust 141 core/58 helper/265 UI, Clippy workspace -Dwarnings and release PASS. A
+prctl test after exec confirms SIGKILL and the parent PID, and that the previously
+configured umask is still in effect (the earlier pre_exec is not overwritten).
 
-`helper-crash-1793088449742352360.json` PASS: fixtures propias,20k descendientes
-vacíos y dos medios sintéticos; audio/Pulse silencioso, vídeo, du y Espacio. En
-cada caso identidadPID/start estaba viva inmediatamente antes de matar SÓLO
-PID raíz; no kill de grupo ni señal manual al helper. El subreaper PRIVADO del
-script adopta/recoge los cuatro y verifica WTERMSIG=9/identidad desaparecida.
-No prueba que PID1/T3 recoja orphans con la misma latencia: producto no instala
-subreaper. El kill puede ocurrir después de spawn y antes de progreso útil.
+`helper-crash-1793088449742352360.json` PASS: own fixtures, 20k empty
+descendants and two synthetic media files; silent audio/Pulse, video, du and Space. In
+each case the PID/start identity was alive right before killing ONLY the
+root PID; no group kill and no manual signal to the helper. The script's PRIVATE subreaper
+adopts/reaps all four and verifies WTERMSIG=9/identity gone.
+It does not prove that PID 1/T3 reaps orphans with the same latency: the product does not install a
+subreaper. The kill may happen after spawn and before useful progress.
 
-Tres framebuffers845×1071 (tiled normal, no tamaño1080p ni nitidez2x) muestran
-ventana propia antes de kill y relanzada después. Hashes de dos medios y conteo
-20k descendientes se conservan; no hash de cada descendiente/atributo. Relaunch
-reusa config privada, obtiene medios verificados y cierra0conACK. Ninguna operación
-de escritura de archivos estaba activa; no prueba recovery de copy/rename.
+Three framebuffers 845×1071 (normal tiled, not 1080p size nor 2x sharpness) show
+its own window before the kill and relaunched afterwards. The hashes of both media files and the count of
+20k descendants are preserved; no hash of each descendant/attribute. The relaunch
+reuses the private config, gets verified media and closes 0 with ACK. No file-writing
+operation was active; it does not test copy/rename recovery.
 
-Regresión normal audioPulse1793088666411517841PASS9FB/14loggedhelpersgone y vídeo
-1793089019986522162PASS4FB/9loggedhelpersgone, play/pause/seek/EOF/cierreactivo.
-No se rescata un FAIL por cleanup manual; el script sólo lo usa tras fallo y no
-lo convierte enPASS. InputSO/audibilidad/PCM/kernelD/offline/grandchildren siguen
-sin aceptación. Recursos/startupNOT_MEASURED porfreeze; no se usa footerPSS ni
-se modifica ideal50MB/techo150MB.
+Normal regression: Pulse audio 1793088666411517841 PASS 9 FB/14 logged helpers gone, and video
+1793089019986522162 PASS 4 FB/9 logged helpers gone, play/pause/seek/EOF/active close.
+A FAIL is never rescued by manual cleanup; the script only uses it after a failure and does not
+turn it into a PASS. OS input/audibility/PCM/kernel D-state/offline/grandchildren still
+have no acceptance. Resources/startup NOT_MEASURED because of the freeze; the PSS footer is not used and
+the 50 MB ideal/150 MB ceiling are not changed.
