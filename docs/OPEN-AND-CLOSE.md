@@ -1,70 +1,70 @@
-# Apertura y cierre de ventana
+# Opening files and closing the window
 
-Decisión explícita 2026-10-26: los archivos se delegan a `open` del sistema en
-Omarchy/macOS. `Command::new("open").arg(absolute_path)` conserva el argumento
-lossless; ninguna shell, intérprete de ruta o fallback `xdg-open`/opener. Directorios
-reales siguen navegando dentro de files; un symlink se entrega a `open`, sin asumir
-que su destino sea carpeta en el hilo UI. Ruta absoluta ≤4096bytes/sin NUL se
-comprueba antes de construir el trabajo; sólo una apertura pendiente. Spawn/wait
-van en un worker y errores son visibles. Exit0 acredita salida del launcher,
-no que haya aparecido un visor. Hoy `open` no está en PATH en este host: capacidad
-no disponible y alternativa **PENDIENTE**, sin instalar ni emular el comando.
+Explicit decision 2026-10-26: files are handed to the system `open` on
+Omarchy/macOS. `Command::new("open").arg(absolute_path)` keeps the argument
+lossless; no shell, path interpreter or `xdg-open`/opener fallback. Real
+directories still navigate inside files; a symlink is handed to `open`, without assuming
+on the UI thread that its target is a folder. An absolute path ≤4096 bytes/without NUL is
+checked before building the job; only one open is pending. Spawn/wait
+run on a worker and errors are visible. Exit 0 proves the launcher exited,
+not that a viewer appeared. Today `open` is not in PATH on this host: the capability is
+unavailable and the alternative is **PENDING**, without installing or emulating the command.
 
-El launcher no es un preview/helper administrado: no se mata la app externa al
-cerrar files y no se espera su vida para cerrar la ventana. Un `open` personalizado
-que no salga puede retener ese único worker hasta que termine el proceso files;
-no se acumulan intentos ni se promete timeout. Tests usan programa fixture propio,
-no alteran PATH global ni ejecutan datos como comandos.
+The launcher is not a managed preview/helper: the external app is not killed when
+files closes and its lifetime is not awaited to close the window. A custom `open`
+that never exits may hold that single worker until the files process ends;
+attempts do not pile up and no timeout is promised. The tests use their own fixture program;
+they do not change the global PATH or run data as commands.
 
-## Super+W: hallazgos y límites
+## Super+W: findings and limits
 
-La copia instalada `~/.local/bin/files` observada conserva SHA256
+The observed installed copy `~/.local/bin/files` keeps SHA256
 `c91b9cf20a7f1fa4b48b2e9cbdd6c5b8ebb0302efd9210f7da207577fe295972`,
-igual al checkpoint de carpetas anterior a `3e6cf88`. Esa versión fuerza
-`set_border(false)`. En FLTK1.5.23 fijado, `Fl_Wayland_Window_Driver.cxx`1136–1138
-registra un callback vacío `xdg_toplevel_close` para la ventana UNFRAMED. Es un
-mecanismo estático concreto que puede explicar ignorar cierre del compositor;
-no es una reproducción de la pulsación reportada. El código actual usa borde
-normal gestionado por compositor, cuya ruta libdecor `handle_close`1024–1037
-entrega FL_CLOSE/callback. No se parcheó registry ni configuración global.
+the same as the folders checkpoint before `3e6cf88`. That version forces
+`set_border(false)`. In the pinned FLTK 1.5.23, `Fl_Wayland_Window_Driver.cxx` lines 1136–1138
+register an empty `xdg_toplevel_close` callback for an UNFRAMED window. It is a
+concrete static mechanism that can explain ignoring the compositor's close;
+it is not a reproduction of the reported key press. The current code uses a normal
+compositor-managed border, whose libdecor `handle_close` path (1024–1037)
+delivers FL_CLOSE/callback. Neither the registry nor the global configuration was patched.
 
-`hyprctl binds -j` efectivo muestra Super+W press/release `__lua1164/1165` en la
-observación guardada, no el dispatcher stock descrito por texto. omarchy-x-panel
-aplica su propio binding periódico: su detector compara `function:` mientras este
-Hyprland presenta `__lua`, posible carrera de rebind NO reproducida como causa.
-No se cambiaron esos binds ni el plugin. Sólo se observa la ventana/PID propio.
+The effective `hyprctl binds -j` shows Super+W press/release `__lua1164/1165` in the
+saved observation, not the stock dispatcher described in text. omarchy-x-panel
+applies its own periodic binding: its detector compares `function:` while this
+Hyprland presents `__lua`, a possible rebind race NOT reproduced as the cause.
+Those binds and the plugin were not changed. Only its own window/PID is observed.
 
-`FILES_CLOSE_TRACE=1` registra callback FLTK → solicitud → estados de drain →
-DRAINED. Espera mutaciones/rollback/ACK, previews, du, cola de copia y guardados
-atómicos antes de ocultar; errores/rescate o fallos de persistencia permanecen
-visibles para resolución explícita. Una fixture `win.do_callback()` acredita la
-segunda mitad de la ruta, **no evento compositor ni Super+W**. La ruta real de
-entrada sigue pendiente si CUA no enumera la ventana. La skill jev-computer-use
-prohíbe improvisar otro control de pantalla cuando falta target; no se sustituyó
-por teclas globales, ventana activa ni dispatcher sobre ventanas ajenas.
+`FILES_CLOSE_TRACE=1` logs FLTK callback → request → drain states →
+DRAINED. It waits for mutations/rollback/ACK, previews, du, the copy queue and atomic
+saves before hiding; errors/rescue or persistence failures stay
+visible for explicit resolution. A `win.do_callback()` fixture proves the
+second half of the path, **not a compositor event nor Super+W**. The real input path
+is still pending if CUA does not enumerate the window. The jev-computer-use skill
+forbids improvising another screen control when the target is missing; it was not replaced
+with global keys, the active window or a dispatcher acting on other windows.
 
-## Evidencia
+## Evidence
 
-345 tests Rust (115core/37helper/193UI), Clippyworkspace/alltargets-Dwarnings y
-release PASS. Última regresión específica open_job4PASS. Escena
-open-close-ui-1793056978667673268.json funcional PASS tres procesos: host ausente,
-launcher fixture con argv absoluto literal Unicode/espacios/$() y symlink, exit7
-visible, directorio navega sin launcher, cada salida0 por callback/request/drain.
-Ningún visor real acreditado. Capturas anteriores conservaron PASS de disco pero
-FAIL visual por recorte del motivo; sidecar preservado, resumen ahora muestra
-«open ausente · alternativa PENDIENTE» y «open falló · código7» completos.
+345 Rust tests (115 core/37 helper/193 UI), Clippy workspace/all targets -Dwarnings and
+release PASS. Last specific regression open_job 4 PASS. Scene
+open-close-ui-1793056978667673268.json functional PASS, three processes: host missing,
+fixture launcher with a literal absolute argv with Unicode/spaces/$() and a symlink, exit 7
+visible, a directory navigates without the launcher, each exit 0 through callback/request/drain.
+No real viewer is proven. Earlier captures kept a disk PASS but a visual
+FAIL because the reason was clipped; the sidecar is preserved, and the summary now shows
+«open ausente · alternativa PENDIENTE» and «open falló · código 7» in full.
 
-CUA volvió a devolver0 ventanas mientras hyprctl observaba el PID/address propio.
-Super+W/compositor sigue PENDING_OS_INPUT, sin bypass ni cambios de binds. SHA app
-`81c53b8add62fa941fac3fc9f11f30f9af8441e5d31f6a885dc1db3ad9f186b7`. Freeze recursos/startup NOT_MEASURED;
-no usar footer PSS como presupuesto del árbol.
+CUA again returned 0 windows while hyprctl observed its own PID/address.
+Super+W/compositor is still PENDING_OS_INPUT, with no bypass or bind changes. App SHA
+`81c53b8add62fa941fac3fc9f11f30f9af8441e5d31f6a885dc1db3ad9f186b7`. Resource/startup freeze NOT_MEASURED;
+do not use the PSS footer as the tree's budget.
 
-Instalado bajo autorización explícita en ~/.local/bin: checkpoint bdaa5f3,
-files81c53b8add62…, helper64f7133b20ab…, HTMLa5c37981b28b…; hashes completos
-verificados en installed-checkpoint-1793057085303837728.json, backup de los cinco
-artefactos/metadatos. HTML recipe/source stamp validado antes de staging. Ninguna
-ventana ajena o anterior cerrada, no instalación global. Esta actualización retira
-el ejecutable instalado borderless viejo; no convierte Super+W en prueba PASS.
+Installed under explicit authorization in ~/.local/bin: checkpoint bdaa5f3,
+files 81c53b8add62…, helper 64f7133b20ab…, HTML a5c37981b28b…; full hashes
+verified in installed-checkpoint-1793057085303837728.json, backup of the five
+artifacts/metadata. The HTML recipe/source stamp was validated before staging. No
+other or earlier window was closed, no global install. This update removes
+the old borderless installed executable; it does not turn Super+W into a PASS test.
 
 ## Shared terminal request slot (2026-11-01)
 
