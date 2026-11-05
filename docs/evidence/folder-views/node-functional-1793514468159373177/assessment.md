@@ -1,3 +1,3 @@
-# Evaluación posterior del resultado
+# Later assessment of the result
 
-El segundo FAIL es del harness: buscó fixture_note="preserve" sin espacios, aunque config.toml conserva el valor mediante serialización TOML con espacios. Los tres procesos aún no formaban parte de este alcance: esta ejecución tuvo dos salidas normales y las capturas previas. Se conserva el FAIL original.
+The second FAIL is the harness's: it looked for fixture_note="preserve" without spaces, although config.toml keeps the value through TOML serialization with spaces. The three processes were not yet part of this scope: this run had two normal exits and the earlier captures. The original FAIL is kept.

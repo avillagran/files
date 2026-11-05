@@ -1,3 +1,3 @@
-# Evaluación posterior del resultado
+# Later assessment of the result
 
-El primer FAIL es del harness: comparó1.15 exacto con el f32 representado como1.149999976158142. La restauración del scroll2104/zoom115 y ordenSize ya había ocurrido; no es un fallo acreditado de Files. Se conserva el FAIL original.
+The first FAIL is the harness's: it compared an exact 1.15 with the f32 represented as 1.149999976158142. The restoration of scroll 2104/zoom 115 and Size sort had already happened; it is not a proven Files failure. The original FAIL is kept.
