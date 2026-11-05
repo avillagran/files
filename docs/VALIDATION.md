@@ -313,270 +313,270 @@ see COPY-BENCH. No superiority is generalized nor is reflink turned into physica
 throughput. files SHA d8f2934638a56d069428e55a2209948db1df1a562c1eef8a012dd010e4059c40.
 No 0.0.4 tag nor global PASS: the Space clipboard FAIL/resources UNVALIDATED remain
 preserved, and move/journal/resume, platforms and the rest of the ROADMAP are missing.
-## Imágenes acotadas, checkpoint0335e21
+## Bounded images, checkpoint 0335e21
 
-188Rusttests,36Python, Clippy/release y regresiones release helpertexto8/du6PASS.
-PNG/JPEG/WebP,alpha/EXIF8transformaciones, zoom/pan, mismo ciclo single-flight que
-texto. Framebufferimage-ui-1793027538323979457.jsonPASS; noinputSO ni clipboard.
+188 Rust tests, 36 Python, Clippy/release and release regressions text helper 8/du 6 PASS.
+PNG/JPEG/WebP, alpha/EXIF 8 transformations, zoom/pan, the same single-flight cycle as
+text. Framebuffer image-ui-1793027538323979457.json PASS; no OS input nor clipboard.
 
-Recursoimage-resources-1793027605038038146.json **UNVALIDATED**: tres helpers con
-PSS observado y cinco de ocho sinmuestra,122muestras/maxinterval92.070ms. Lowerbound
-52440KiB=53.69856MB **YA supera ideal50MB** (`observed_goal_exceeded=true`); la
-cobertura incompleta no vuelve incierto ese incumplimiento. Al pico42152PSS+
-10288SwapKiB agregados; establetotal27800KiB=28.4672MB, CPU0mediana/maxventana1s.
-Máximos independientesPSS43478/Swap24096KiB no se suman; fuenteSHA/identidades enJSON.
-Cleanup de árbol observado completo, pero no presupuesto total ni lifetimes garantizados.
+Resource image-resources-1793027605038038146.json **UNVALIDATED**: three helpers with
+observed PSS and five of eight without a sample, 122 samples/max interval 92.070 ms. The lower bound
+52440 KiB = 53.69856 MB **ALREADY exceeds the ideal 50 MB** (`observed_goal_exceeded=true`); the
+incomplete coverage does not make that miss uncertain. At the peak 42152 PSS +
+10288 Swap KiB in total; steady total 27800 KiB = 28.4672 MB, CPU 0 median/max over a 1 s window.
+The independent maximums PSS 43478/Swap 24096 KiB are not added; source SHA/identities in the JSON.
+Cleanup of the observed tree complete, but no total budget nor guaranteed lifetimes.
 
-No se repite para buscarPASS ni se afirma límite32MiBdecoder como PSS: entrada
-JPEGimage puede duplicarse y coexistir condecoded/source/output/wire/bitmap/viewport
-más copiaFLTK y buffersWayland. P02 sigue parcial4Mipíxeles, fotos12/24MP yLRUmulti
-pendientes. Se preparaIDCTrealconjpeg-decoderMIT/Apache, sinadoptarIJG. Esa preparación
-sinwiring no cuenta como soporte de fotos; verJPEG-SCALED-NOTES yIMAGE-PREVIEW.
+It is not repeated to hunt for a PASS, and the 32 MiB decoder limit is not claimed as PSS: the
+image's JPEG input can be duplicated and coexist with decoded/source/output/wire/bitmap/viewport
+plus the FLTK copy and Wayland buffers. P02 is still partial at 4 Mi pixels, 12/24 MP photos and a multi
+LRU pending. A real IDCT is being prepared with the MIT/Apache jpeg-decoder, without adopting IJG. That preparation
+without wiring does not count as photo support; see JPEG-SCALED-NOTES and IMAGE-PREVIEW.
 
-## Markdown renderizado parcial, después de16e6a7c
+## Partial rendered Markdown, after 16e6a7c
 
-230Rust(73core/33helper/124UI),Clippyalltargets-Dwarnings,releasePASS. Escena
-markdown-ui-1793032850488569491.json funcionalPASS: estilos/tablas/listas/selección
-Unicode,resize,freshrevision/layout,linksrelativos,sylinkrechazado,truncado visible
-ycierreACK. NoinputSO/clipboard. Capturas originales ysidecars preservan falso
-positivo de primer assert deerror; too-many fueREADYtruncated, no rechazo.
+230 Rust (73 core/33 helper/124 UI), Clippy all targets -Dwarnings, release PASS. Scene
+markdown-ui-1793032850488569491.json functional PASS: styles/tables/lists/Unicode
+selection, resize, fresh revision/layout, relative links, symlink rejected, visible truncation
+and close ACK. No OS input/clipboard. The original captures and sidecars preserve the false
+positive of the first error assert; too-many was READY truncated, not a rejection.
 
-Recursosmarkdown-resources-1793032456170456020.json UNVALIDATED:43.177984MBpico/
-37.692416MBestable observado,PSS+Swap,Swap0;2/8helpers muestreados,368samples/max74.676ms,
-19FD7threads2proc,CPU0/162.718%postReady,noidle. No rerun paraPASS. P04parcial:
-incrustadas yLRU pendientes. Reflow4mscooperativo tuvo18.306msmáximo recurso/
-60.543ms captura inicial; doc201033bytes~635ms hastaREADY medido. VerMARKDOWN-PREVIEW.
-Base10k56.743936MB yarranque151.978msFAIL,SpaceclipboardFAIL mantienen vigencia.
+Resources markdown-resources-1793032456170456020.json UNVALIDATED: 43.177984 MB peak/
+37.692416 MB steady observed, PSS+Swap, Swap 0; 2/8 helpers sampled, 368 samples/max 74.676 ms,
+19 FD 7 threads 2 proc, CPU 0/162.718% post-Ready, not idle. No rerun for a PASS. P04 partial:
+embedded images and LRU pending. The cooperative 4 ms reflow had an 18.306 ms maximum in the resource run/
+60.543 ms in the initial capture; the 201033-byte doc ~635 ms until the measured READY. See MARKDOWN-PREVIEW.
+The 10k base 56.743936 MB and startup 151.978 ms FAILs, and the Space clipboard FAIL, remain in effect.
 
-JPEG anterior16e6a7c: funcional12/24MPbaseline+EXIFPASS,recursos42.36288MBmuestreado
-con2/2helpersy1discoverygap,no lifetimescompletos. Progresivosgrandes rechazados
-por32MiBcoef aúnP02parcial; no convertir límite decoder enPSS. VerIMAGE-PREVIEW.
+The earlier JPEG 16e6a7c: functional 12/24 MP baseline + EXIF PASS, resources 42.36288 MB sampled
+with 2/2 helpers and 1 discovery gap, not complete lifetimes. Large progressive images rejected
+because of the 32 MiB of coefficients, P02 still partial; do not turn the decoder limit into PSS. See IMAGE-PREVIEW.
 
-## Markdown con incrustadas/contextual, recursos suspendidos por usuario
+## Markdown with embedded images/contextual navigation, resources suspended by the user
 
-242Rust(73/33/136),Clippyalltargets-Dwarnings yreleasePASS.
-markdown-embedded-ui-1793034469432638103.json funcionalPASS: bitmaps framebuffer
-real,5apariciones/2recursos,capacityledger3164572B; grandebitmap320x320102400píxeles
-exactos. Exceso4MiB,remote/escape/symlink nodisponibles condiagnóstico; contextual
-root/subdir/nested yretornos/escape/cierre0ACK. Método handlers, noinputSO/clipboard.
+242 Rust (73/33/136), Clippy all targets -Dwarnings and release PASS.
+markdown-embedded-ui-1793034469432638103.json functional PASS: real framebuffer
+bitmaps, 5 occurrences/2 resources, capacity ledger 3164572 B; a large 320x320 bitmap with exactly 102400
+pixels. Excess 4 MiB, remote/escape/symlink unavailable with a diagnostic; contextual
+root/subdir/nested and returns/escape/close 0 ACK. Method handlers, no OS input/clipboard.
 
-RecursosincrustadasNOT_MEASURED: nueva instrucción sólointegración/captura,
-no nuevasmedidas/startup hasta liberación. Intento previo bloqueado ANTESlaunch
-porbuildcompetidor:markdown-resource-blocked-1793034332264805450NOT_RUN/UNVALIDATED.
-No sesuspendió ni modificó buildajeno. No extrapolar43.178MBantiguos al binarioactual,
-ni confundirledgerauxiliar8MiBretained+scratch conPSSdelárbol. VerMARKDOWN-PREVIEW.
-No0.0.4tag/globalPASS; P09LRUentreDocs,HTML/video,base/arranque yclipboardpendientes.
-
-
-## HTML/CSS visible experimental, recursos suspendidos
-
-252Rust(73core/33helper/146UI), Clippyworkspaceall-targets-Dwarnings y release
-limpios. html-ui-1793037143255536981.json funcionalPASS: motor litehtml nativo
-efímero realmente renderiza estilos/CSS, tabla y listas en Painter; selección
-visibleUTF8, mediaquery1000→800 con revisión fresca, scrollfinal, bloqueoCSS/
-imágenes/script, rechazo32KiB, cambios rápidos y salida0 tras previewACK.
-Método handlers internos+framebuffer real; sin inputSO ni clipboard. Captura
-1000x650/800x500 lógica no demuestra nitidez de cada píxel físico2x.
-
-Métricas del adaptador aproximadas y recorteCJK/celdas observado; enlaces y
-recursosHTML bloqueados, sin preservaciónselección tras reflow ni allocator
-previo deGumbo acotado. Nativehelper opcional preparado junto a release,
-packaging portable pendiente. P05 parcial; verHTML-ENGINE-PROBE/DEPENDENCIES.
-
-Recursos/startup NOT_MEASURED por fase explícita usuario. No se leyó PSS ni
-se lanzó benchmark. Hashes app/adaptador enJSON; no extrapolar presupuesto
-de otro binario. SiguenFAIL baseline56.743936MB,arranque151.978ms y clipboard
-sinfoco, yUNVALIDATED imágenes/Markdown históricos. No0.0.4tag/PASSglobal.
+Embedded resources NOT_MEASURED: a new instruction of integration/capture only,
+no new measurements/startup until it is lifted. An earlier attempt was blocked BEFORE launch
+because of a competing build: markdown-resource-blocked-1793034332264805450 NOT_RUN/UNVALIDATED.
+The unrelated build was neither suspended nor modified. Do not extrapolate the old 43.178 MB to the current binary,
+nor confuse the 8 MiB auxiliary retained+scratch ledger with the tree's PSS. See MARKDOWN-PREVIEW.
+No 0.0.4 tag/global PASS; P09 LRU across docs, HTML/video, base/startup and clipboard pending.
 
 
-## Vídeo: snapshots y seek visibles, consumo pendiente
+## Experimental visible HTML/CSS, resources suspended
 
-260Rust(73core/33helper/154UI), Clippyworkspaceall-targets-Dwarnings y release
-limpios. video-ui-1793037769557008693.json funcionalPASS: fixtureMatroskaFFV1
-640×360/8s, primerframerojo,seek5sazul, clictimeline25%rojo, EOFnormalizado7.8s
-azul,cambio rápido al último seek,errorbad/symlink y cierre0trasACK. BytesRGBdel
-helper y revisiones frescas comprobados; imágenes framebuffer real. Posición
-es requestnormalizada, no framePTS. Método handlers,noinputSO/clipboard.
+252 Rust (73 core/33 helper/146 UI), Clippy workspace all-targets -Dwarnings and release
+clean. html-ui-1793037143255536981.json functional PASS: the ephemeral native litehtml
+engine really renders styles/CSS, a table and lists in Painter; visible UTF-8
+selection, a 1000→800 media query with a fresh revision, scroll to the end, CSS/
+images/script blocked, 32 KiB rejection, quick changes and exit 0 after the preview ACK.
+Method: internal handlers + real framebuffer; no OS input nor clipboard. The
+1000x650/800x500 logical capture does not prove the sharpness of each physical 2x pixel.
 
-P07parcial: no reproducción/audio/clip; rotación/SAR tienen tests puros pero
-no evidencia visual. Faltan escenarios grandes y presupuesto árbol. Recursos
-ystartup NOT_MEASURED porfaseexplícita. RLIMIT_AS768MiB virtual y max_alloc32MiB
-NOequivalen aPSS ni autorización de exceder150MB. No aprobaciónglobal; FAILbase/
-arranque/clipboard conservados. Toolpaths/versiones/hashes yappSHA enJSON.
+The adapter's metrics are approximate and CJK/cell clipping was observed; HTML links and
+resources blocked, no selection preservation after reflow nor a bounded Gumbo allocator
+beforehand. An optional native helper prepared next to the release,
+portable packaging pending. P05 partial; see HTML-ENGINE-PROBE/DEPENDENCIES.
 
-
-## PDF multipágina visible (parcial)
-
-266Rust(73core/33helper/160UI),Clippyworkspaceall-targets-Dwarnings yrelease
-limpios. pdf-ui-1793038247910320945.json funcionalPASS: PDF2páginaspropio,
-RGBrojo/página1→azul/página2, zoom2×/panY60, últimoscambioscoalescidos,
-malformado/symlink y cierre0trasACK. HerramientasPDFinfo/PPMreales, hashes/version
-yappSHA enJSON. Handlers+framebufferreal,noinputSO ni seleccióntextoPDF.
-
-Se conserva FAILpdf-ui-failure-1793038113834599772: handler assert-pan ausente
-enverificador; loimplementa la revisión posterior, no se borró ni cambió elFAIL.
-PPMboundedwire se valida conEOFexacto antes deexponer bitmap, sin segundaRGB;
-no presupuestopreviodimensionheader en supervisorJSON. AS96MiBnoPSS. PDFcomplejos/
-password, extracción/selección, contenciónparser yotrosSO pendientes.
-
-Recursos/startupNOT_MEASUREDporfaseexplicita; no se midió árbol,nuevoCPU/GPU
-niarranque. Cierre canceló job antes delnuevo spawnregistrado; noclaim killactivo.
-SiguenFAILbase/startup/clipboard yUNVALIDATED históricos, no0.0.4tag/globalPASS.
+Resources/startup NOT_MEASURED because of the user's explicit phase. PSS was not read nor
+was a benchmark launched. App/adapter hashes in the JSON; do not extrapolate a budget
+from another binary. The baseline 56.743936 MB, startup 151.978 ms and clipboard
+without focus FAILs remain, and the historical images/Markdown UNVALIDATED. No 0.0.4 tag/global PASS.
 
 
-## Reproducción de vídeo: funcional, consumo sin atribución
+## Video: visible snapshots and seek, resource use pending
 
-272Rust(73/33/166),Clippyall-targets-Dwarnings yreleasePASS. video-play-ui-
-1793038888536010466funcionalPASS:framesrealesrojo→azul,pausaACK, resume/EOF
-ycierrecondecoderobservadovivo(PID/starttime)confirmadoausentedespués.
-Fallo1793038705143512044conservado: verificadoraceptósequenceviejoenresume;
-resetsequence yfreshspawn/frameimpideneseerror. Slotlatestacotado,nohistorial.
+260 Rust (73 core/33 helper/154 UI), Clippy workspace all-targets -Dwarnings and release
+clean. video-ui-1793037769557008693.json functional PASS: a Matroska FFV1 fixture
+640×360/8 s, first frame red, seek 5 s blue, timeline click at 25% red, normalized EOF 7.8 s
+blue, a quick change to the last seek, bad/symlink errors and close 0 after ACK. The helper's RGB
+bytes and fresh revisions checked; real framebuffer images. The position
+is the normalized request, not the frame's PTS. Method handlers, no OS input/clipboard.
 
-Clip24framebuffersreales a~4fpsensambladosa4fpsdespuésdesalir; no grabaciónOS
-continuani prueba12fpsUI. SininputSO/audio/shapingmediaexhaustivo ni benchmarks.
-Footerprincipal76.6MiB bajo24readbacksin-process: **UNVALIDATEDpara atribuirlo
-alreproductor**; noSwap/hijos/peakestable. capture_window añadebuffers/readbacks
-yconfundecomponente. Contextsidecar conservacifrayexperimento discriminante
-pendiente,NOejecutado: playbacksinclipyluegocapturassolas cuandousuarioabra fase.
-Noafirmarcumplimiento niincumplimiento playback-only. Resource/startupNOT_MEASURED,
-FAILhistóricosbase/arranque/clipboardintactos,sin0.0.4tag/globalPASS.
+P07 partial: no playback/audio/clip; rotation/SAR have pure tests but
+no visual evidence. Large scenarios and a tree budget are missing. Resources
+and startup NOT_MEASURED because of the explicit phase. RLIMIT_AS 768 MiB virtual and max_alloc 32 MiB
+are NOT equivalent to PSS nor an authorization to exceed 150 MB. No global approval; the base/
+startup/clipboard FAILs kept. Tool paths/versions/hashes and the app SHA in the JSON.
 
 
-## Audio: metadatos visibles
+## Visible multi-page PDF (partial)
 
-276 tests Rust (73/33/170), Clippy workspace all-targets -D warnings y release
-limpios. audio-ui-1793039367932469197.json funcional PASS: FLAC/WAV sintéticos,
-título/autor/álbum/duración/códec/tasa/canales reales, selección Unicode,
-etiquetas recortadas, cambios rápidos, inválido/symlink y cierre normal con ACK.
-Handlers y framebuffer real; no reproducción ni clipboard/eventos SO probados.
-Campos externos saneados, no código fuente presentado como metadatos.
+266 Rust (73 core/33 helper/160 UI), Clippy workspace all-targets -Dwarnings and release
+clean. pdf-ui-1793038247910320945.json functional PASS: an own 2-page PDF,
+RGB red/page 1→blue/page 2, zoom 2×/pan Y 60, the last changes coalesced,
+malformed/symlink and close 0 after ACK. Real pdfinfo/PPM tools, hashes/version
+and the app SHA in the JSON. Handlers + real framebuffer, no OS input nor PDF text selection.
 
-Recursos/startup NOT_MEASURED por fase, sin nuevas corridas de presupuesto.
-No extrapolar PSS de otro binario o de capturas. P08 sigue parcial; pendientes
-waveform/reproducción/carátulas/archivos/Office y presupuesto del árbol.
+FAIL pdf-ui-failure-1793038113834599772 is kept: the assert-pan handler was missing
+in the verifier; the later revision implements it, and the FAIL was neither deleted nor changed.
+The bounded PPM wire is validated with an exact EOF before exposing the bitmap, without a second RGB;
+no budget before the header dimensions in the JSON supervisor. AS 96 MiB is not PSS. Complex/
+password PDFs, extraction/selection, parser containment and other OSes pending.
 
-
-## Space para carpetas
-
-279 tests Rust (73/35/171), Clippy workspace all-targets -D warnings y release
-limpios. folder-ui-1793040015107090730.json funcional PASS: 8 B/5 entradas,
-symlinks sin recorrer (ciclo y archivo externo propio de 1MiB), carpeta vacía,
-rechazo de archivo que sustituye una carpeta listada, cambios rápidos y cierre
-normal tras ACK. Protocolo preview_directory exige directorio; du conserva API.
-Sin I/O filesystem en UI; métodos internos/framebuffer real, no input SO.
-
-Recursos/startup NOT_MEASURED por fase. No extrapolar la medición du anterior
-a este binario. Montajes offline, treemap y snapshot concurrente pendientes.
+Resources/startup NOT_MEASURED because of the explicit phase; the tree, new CPU/GPU
+and startup were not measured. Close cancelled the job before the new recorded spawn; no claim of killing an active one.
+The base/startup/clipboard FAILs and the historical UNVALIDATED remain, no 0.0.4 tag/global PASS.
 
 
-## ZIP: catálogo real de sólo lectura
+## Video playback: functional, resource use not attributed
 
-288 tests Rust (79/37/172), Clippy workspace all-targets -D warnings y release
-limpios. zip-ui-1793040518449068984.json funcional PASS: Unicode, symlink,
-traversal/drive y duplicados; raw no UTF-8 escapado; vacío; 2500 entradas con
-130846 B/1620 líneas y aviso TRUNCADO; malformado y 10001 entradas rechazados;
-cambios rápidos y salida normal tras ACK. No extracción ni CRC/datos comprobados.
-No entrada del archivo ZIP creó un archivo en el fixture de destino.
+272 Rust (73/33/166), Clippy all-targets -Dwarnings and release PASS. video-play-ui-
+1793038888536010466 functional PASS: real frames red→blue, pause ACK, resume/EOF
+and close with the decoder observed alive (PID/starttime), confirmed absent afterwards.
+Failure 1793038705143512044 kept: the verifier accepted an old sequence on resume;
+resetting the sequence and requiring a fresh spawn/frame prevent that error. A bounded latest slot, no history.
 
-Método: handlers y framebuffer real, no input SO/clipboard. Cierre antes del
-nuevo spawn registrado no equivale a kill activo. Recursos/startup NOT_MEASURED
-por fase; no extrapolar presupuesto. Z01/P08/P09 siguen parciales.
+The clip is 24 real framebuffers at ~4 fps assembled at 4 fps after exiting; not a continuous OS
+recording nor a test of 12 fps UI. No OS input/audio/exhaustive media shaping nor benchmarks.
+The main footer of 76.6 MiB under 24 in-process readbacks: **UNVALIDATED for attributing it
+to the player**; no Swap/children/steady peak. capture_window adds buffers/readbacks
+and confounds the component. The context sidecar keeps the figure, and a discriminating experiment is
+pending, NOT run: playback without a clip and then captures alone when the user opens the phase.
+Do not claim compliance or non-compliance for playback-only. Resource/startup NOT_MEASURED,
+historical base/startup/clipboard FAILs intact, no 0.0.4 tag/global PASS.
 
-## Ventana estándar y menús — 0.0.4, 2026-10-26
 
-window-ui-1793042474907145360.json funcional PASS acotado. Tres instancias reales:
-normal por defecto (Hyprlandfloating=false/fullscreen0), elección fullscreen2
-observada y guardada, reapertura fullscreen y retorno/reapertura normal0. Campos
-TOML effects=false/future.value42 conservados, tres salidas0 después de ACK/drain.
-Cambios desde centros de targets reales de hit testing por handlers internos.
-Menús excluyentes Preferencias/Acciones con Nerd, exclusión de todos los controles
-del header, cuatro esquinas y banda libre; layouts845×1061 y1728×1117. Capturas
-del framebuffer FLTK, no incluyen decoración exterior del compositor ni prueban
-inputSO. Bridge nativo no se llama desde escena; gesto/cursores bajoinputSO PENDING.
+## Audio: visible metadata
 
-292tests Rust (80core/37helper/175UI), Clippyworkspacealltargets-Dwarnings y release
-limpios; logs en evidence/window. Bridge C++ compila contra headers reales pin
-fltk-sys1.5.23, FL_API10405/ABI10400. No cambio registry/SO ni fallback activo.
-Recursos/startup NOT_MEASURED por freeze, nada inferido del pie PSS de capturas.
+276 Rust tests (73/33/170), Clippy workspace all-targets -D warnings and release
+clean. audio-ui-1793039367932469197.json functional PASS: synthetic FLAC/WAV,
+real title/artist/album/duration/codec/rate/channels, Unicode selection,
+clipped tags, quick changes, invalid/symlink and normal close with ACK.
+Handlers and the real framebuffer; no playback nor clipboard/OS events tested.
+External fields sanitized, no source code presented as metadata.
 
-Fallos conservados: window-ui-failure-1793041926965059030 esperaba maximización
-que la regla real Omarchy suppress_event=maximize ignora (FLTKflag no prueba WM).
-Modo extra retirado antes de entrega; sólo normal/fullscreen soportados expuestos.
-window-ui-failure-1793042207114132046: fixture validó targets del menú durante
-cierre, cuando UI ya limpia todos sus hits; condición de readiness ahora excluye
-closing. Tres cierres normales nuevos prueban corrección; no se reutiliza SIGTERM
-como PASS. Fallos iniciales de compilevariant/configpaths/Clippy también preservados.
-Detalle funcional/build/accesibilidad pendiente en WINDOW-MODES.md.
+Resources/startup NOT_MEASURED because of the phase, with no new budget runs.
+Do not extrapolate PSS from another binary nor from captures. P08 is still partial; pending
+waveform/playback/cover art/archives/Office and the tree budget.
 
-## Papelera y restauración visibles — 0.0.4, 2026-10-26
 
-`trash-ui-1793045192155795906.json` funcional PASS acotado en release SHA256
+## Space for folders
+
+279 Rust tests (73/35/171), Clippy workspace all-targets -D warnings and release
+clean. folder-ui-1793040015107090730.json functional PASS: 8 B/5 entries,
+symlinks not walked (a cycle and an own external 1 MiB file), an empty folder,
+rejection of a file that replaces a listed folder, quick changes and a normal
+close after ACK. The preview_directory protocol requires a directory; du keeps its API.
+No filesystem I/O on the UI; internal methods/real framebuffer, not OS input.
+
+Resources/startup NOT_MEASURED because of the phase. Do not extrapolate the earlier du measurement
+to this binary. Offline mounts, treemap and a concurrent snapshot pending.
+
+
+## ZIP: real read-only catalog
+
+288 Rust tests (79/37/172), Clippy workspace all-targets -D warnings and release
+clean. zip-ui-1793040518449068984.json functional PASS: Unicode, symlink,
+traversal/drive and duplicates; raw non-UTF-8 escaped; empty; 2500 entries with
+130846 B/1620 lines and a TRUNCATED notice; malformed and 10001 entries rejected;
+quick changes and a normal exit after ACK. No extraction nor CRC/data checked.
+No entry of the ZIP file created a file in the destination fixture.
+
+Method: handlers and the real framebuffer, not OS input/clipboard. Closing before the
+new recorded spawn is not equivalent to killing an active one. Resources/startup NOT_MEASURED
+because of the phase; do not extrapolate a budget. Z01/P08/P09 are still partial.
+
+## Standard window and menus — 0.0.4, 2026-10-26
+
+window-ui-1793042474907145360.json bounded functional PASS. Three real instances:
+normal by default (Hyprland floating=false/fullscreen 0), the fullscreen 2 choice
+observed and saved, reopening fullscreen and back to/reopening normal 0. The TOML
+fields effects=false/future.value 42 kept, three exits 0 after ACK/drain.
+Changes from the centers of real hit-testing targets through internal handlers.
+Mutually exclusive Preferences/Actions menus with Nerd, exclusion of every header
+control, four corners and a free band; layouts 845×1061 and 1728×1117. Captures
+of the FLTK framebuffer; they do not include the compositor's outer decoration nor prove
+OS input. The native bridge is not called from the scene; gesture/cursors under OS input PENDING.
+
+292 Rust tests (80 core/37 helper/175 UI), Clippy workspace all targets -Dwarnings and release
+clean; logs in evidence/window. The C++ bridge compiles against the real headers of the pin
+fltk-sys 1.5.23, FL_API 10405/ABI 10400. No registry/OS change nor an active fallback.
+Resources/startup NOT_MEASURED because of the freeze, nothing inferred from the captures' PSS footer.
+
+Failures kept: window-ui-failure-1793041926965059030 expected a maximization
+that the real Omarchy rule suppress_event=maximize ignores (an FLTK flag does not prove the WM).
+The extra mode was removed before delivery; only the supported normal/fullscreen are exposed.
+window-ui-failure-1793042207114132046: the fixture validated the menu's targets during
+close, when the UI already clears all its hits; the readiness condition now excludes
+closing. Three new normal closes prove the fix; SIGTERM is not reused
+as a PASS. The initial compile variant/config paths/Clippy failures are also preserved.
+Functional/build/accessibility detail pending in WINDOW-MODES.md.
+
+## Visible Trash and restore — 0.0.4, 2026-10-26
+
+`trash-ui-1793045192155795906.json` bounded functional PASS on release SHA256
 `eca3344bec10a7ae3aa0081fff9b14c8582fbc6467840f2616e6145497d7e82c`.
-Acciones/Supr y Deshacer ejecutan el motor Linux del mismo filesystem; selección
-prestada con preflight de 64 elementos/256 KiB y worker único. No borrado permanente
-ni fallback de copia. Se enviaron cuatro objetos propios (dos archivos, directorio
-no vacío y symlink); destino externo del symlink intacto. Metadata 0600 y formato
-Trash Info verificados. Undo restauró tres, conservó el nuevo ocupante del cuarto,
-mostró rutas verificadas; al retirar ese ocupante del fixture, el reintento restauró
-bytes exactos. Nombre raw no UTF-8 `%FF` round-trip y lote de 65 rechazado antes de
-mutación, sin truncamiento ni pérdida. Cierre normal 0 tras ACK y marcador drenado.
+Actions/Delete and Undo run the Linux engine on the same filesystem; a borrowed
+selection with a preflight of 64 items/256 KiB and a single worker. No permanent deletion
+nor copy fallback. Four own objects were sent (two files, a non-empty
+directory and a symlink); the symlink's external target intact. Metadata 0600 and the
+Trash Info format verified. Undo restored three, kept the new occupant of the fourth,
+showed verified paths; when that occupant was removed from the fixture, the retry restored the
+exact bytes. A raw non-UTF-8 name `%FF` round-trip and a batch of 65 rejected before
+mutation, without truncation nor loss. Normal close 0 after ACK and the marker drained.
 
-Método: centros de targets reales y handlers internos, filesystem real de fixture
-aislado en `~/.cache/files-test`, framebuffer FLTK 845×1061. Incluye panel de error
-con pan horizontal para leer `.trashinfo` completo. No input del SO, clipboard ni
-cierre durante una syscall activa probado en esta escena; cancelación y drenaje
-se cubren también por tests de worker. No lectura de papelera personal.
+Method: centers of real targets and internal handlers, a real isolated fixture filesystem
+in `~/.cache/files-test`, FLTK framebuffer 845×1061. It includes an error panel
+with horizontal pan to read the full `.trashinfo`. No OS input, clipboard nor
+close during an active syscall tested in this scene; cancellation and draining
+are also covered by worker tests. The personal trash is not read.
 
-314 tests Rust (98 core/37 helper/179 UI), Clippy workspace/all-targets con
-`-D warnings` y release limpios. Regresiones de sustituciones externas en ambos
-sentidos no mueven un inode ajeno como rollback; FD originales conservan ubicación
-actual para diagnóstico. Restore confirmado con fallo sólo de resolución de ruta
-retira el token ya consumido y emite advertencia; recibos no reintentables pasan a
-recuperación manual acotada sin Undo obsoleto. Logs en `evidence/trash/`.
+314 Rust tests (98 core/37 helper/179 UI), Clippy workspace/all-targets with
+`-D warnings` and release clean. Regressions for external substitutions in both
+directions do not move a foreign inode as a rollback; the original FDs keep the current
+location for diagnostics. A confirmed restore that only fails path resolution
+removes the already consumed token and emits a warning; non-retryable receipts move to
+bounded manual recovery without a stale Undo. Logs in `evidence/trash/`.
 
-Recursos y arranque **NOT_MEASURED** por freeze; no usar el pie PSS principal de la
-captura como presupuesto del árbol. Pendientes: papelera por volumen/EXDEV funcional,
-catálogo de recibos persistidos, redo, journal durable/crash, otros SO y presupuesto
-64-elementos. O04 sigue parcial. La primera corrida de tests falló porque un fixture
-de límite repetía 64 veces el mismo nombre tras añadirse rechazo de duplicados;
-se preserva `initial-test-duplicate-fixture.log`, fixture corregido a nombres únicos.
-Las dos escenas anteriores conservadas probaron el flujo normal con builds previos;
-no acreditan las correcciones finales de identidad/recibos.
+Resources and startup **NOT_MEASURED** because of the freeze; do not use the capture's main PSS footer
+as the tree's budget. Pending: per-volume trash/functional EXDEV,
+a catalog of persisted receipts, redo, a durable/crash journal, other OSes and the
+64-item budget. O04 is still partial. The first test run failed because a limit
+fixture repeated the same name 64 times after duplicate rejection was added;
+`initial-test-duplicate-fixture.log` is preserved, the fixture fixed to unique names.
+The two earlier preserved scenes tested the normal flow with earlier builds;
+they do not prove the final identity/receipt fixes.
 
-## Regex visible en renombrador — 0.0.4, 2026-10-26
+## Visible regex in the renamer — 0.0.4, 2026-10-26
 
-`rename-regex-ui-1793046339654903640.json` funcional PASS acotado: selección2,
-preview antes/después sin tocar bytes, capturas con nombre, error de regex y
-expansión mayor a4096B rechazados sin plan; Aplicar/Undo/Redo/Undo preservan bytes,
-archivo no seleccionado intacto, staging vacío y salida normal0 tras ACK/drain.
-Método: handlers internos y framebuffer real (normal gestionada por compositor),
-no eventos SO/clipboard ni benchmark de renombrado masivo. SHA256 release
+`rename-regex-ui-1793046339654903640.json` bounded functional PASS: selection 2,
+before/after preview without touching bytes, named captures, a regex error and
+an expansion over 4096 B rejected without a plan; Apply/Undo/Redo/Undo keep bytes,
+an unselected file intact, empty staging and normal exit 0 after ACK/drain.
+Method: internal handlers and the real framebuffer (normal, managed by the compositor),
+not OS events/clipboard nor a mass-rename benchmark. Release SHA256
 `5a9b4e38cf6f469efd92951b248376fba15d660b6741a43490725da97aa89d8d`.
 
-324 Rust (106core/37helper/181UI; última corrida UI181), Clippy workspace all-targets
--Dwarnings y release PASS. Regex compilado una vez por lote, NFA1MiB/nest64/
-capturas64/segmentos256, salida4096B contada en slices antes de reservar. Sólo
-std, sin activar tablas Unicode de licencia no autorizada; literales/rangos/dot y
-capturas UTF-8 disponibles, clases/propiedades/casefold Unicode muestran error.
-Árbol seleccionado y auditoría en evidence/rename-regex, sin nueva excepción.
+324 Rust (106 core/37 helper/181 UI; last UI run 181), Clippy workspace all-targets
+-Dwarnings and release PASS. The regex is compiled once per batch, NFA 1 MiB/nest 64/
+captures 64/segments 256, the 4096 B output counted in slices before reserving. Only
+std, without enabling the Unicode tables with an unauthorized license; literals/ranges/dot and
+UTF-8 captures available, Unicode classes/properties/casefold show an error.
+The selected tree and the audit in evidence/rename-regex, with no new exception.
 
-La captura anterior `1793046051262606727` tenía PASS de disco pero FAIL visual:
-FLTK multiline en footer28px ocultaba el motivo de error. Conservada con sidecar;
-resumen de dibujo único/bounded corregido y regresión probada. Recursos/startup
-NOT_MEASURED por fase; footer PSS no es gate. Fechas, Unicode avanzado y budget
-100k siguen pendientes. Adaptación Cargo del benchmark puro sólo py_compile,
-sin ejecución/mediciones ni sustitución de su evidencia histórica.
+The earlier capture `1793046051262606727` had a disk PASS but a visual FAIL:
+FLTK multiline in a 28 px footer hid the error reason. Kept with a sidecar;
+a single/bounded drawing summary fixed and the regression tested. Resources/startup
+NOT_MEASURED because of the phase; the PSS footer is not a gate. Dates, advanced Unicode and the 100k
+budget are still pending. The Cargo adaptation of the pure benchmark only py_compile,
+without execution/measurements nor replacing its historical evidence.
 
-## Propiedades y permisos — 0.0.4, 2026-10-26
+## Properties and permissions — 0.0.4, 2026-10-26
 
-341 Rust (115core/37helper/189UI), Clippy workspace all-targets -Dwarnings y
-release PASS. properties-ui-1793049068223979012 funcional PASS: dos procesos,
-modos/bytes reales de fixtures, rechazo de observación obsoleta, symlink readonly,
-Recargar y cierre0 tras ACK. Cierre inmediatamente tras submit canceló antes de
-chmod; no afirmar syscall activo. Capturas/handlers internos, no input SO.
-Detalles y fallos iniciales preservados en FILE-PROPERTIES.md y evidence/properties.
-READY ahora exige repintado posterior al comando; los controles recortados no
-reciben hits. Recursos/startup NOT_MEASURED por freeze; no gate global ni tag.
+341 Rust (115 core/37 helper/189 UI), Clippy workspace all-targets -Dwarnings and
+release PASS. properties-ui-1793049068223979012 functional PASS: two processes,
+real fixture modes/bytes, rejection of a stale observation, a read-only symlink,
+Reload and close 0 after ACK. Closing right after submit cancelled before
+chmod; do not claim an active syscall. Captures/internal handlers, not OS input.
+Details and the initial failures preserved in FILE-PROPERTIES.md and evidence/properties.
+READY now requires a repaint after the command; clipped controls do not
+receive hits. Resources/startup NOT_MEASURED because of the freeze; no global gate nor tag.
 
 ## open directo y trazabilidad de cierre — 0.0.4, 2026-10-26
 
