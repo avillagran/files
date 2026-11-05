@@ -1,48 +1,48 @@
-# Renombrar y crear (0.0.3)
+# Rename and create (0.0.3)
 
-F2 o Renombrar del inspector abre un formulario propio con vista antes/después.
-Selecciona varios elementos con Ctrl/Shift; el lote incluye también seleccionados
-ocultos por el filtro y se ordena naturalmente. Antes de clonar nombres, la UI
-rechaza más de100000 seleccionados, nombres>4096B o suma>8MiB. No trunca el lote.
-Crear archivo/carpeta no copia la selección. Ajustes expone crear, deshacer y
-rehacer; atajos Ctrl+N, F7/Ctrl+Shift+N, Ctrl+Z/Ctrl+Shift+Z.
+F2 or the inspector's Rename opens its own form with a before/after view.
+Select several items with Ctrl/Shift; the batch also includes selected items
+hidden by the filter and is sorted naturally. Before cloning names, the UI
+rejects more than 100000 selected items, names >4096 B or a total >8 MiB. It does not truncate the batch.
+Create file/folder does not copy the selection. Settings exposes create, undo and
+redo; shortcuts Ctrl+N, F7/Ctrl+Shift+N, Ctrl+Z/Ctrl+Shift+Z.
 
-Patrones: `{name}`, `{ext}`, `{dotext}`, `{n}`, `{n:03}`, llaves escapadas; inicio y
-paso, reemplazo literal y caso conservar/minúsculas/mayúsculas. Prefijos/sufijos y
-extensión se expresan en el patrón. **Regex, fechas y edición avanzada siguen
-pendientes**. No hay normalización/casefold exacto del filesystem. Nombres noUTF8
-seleccionados se rechazan sin pérdida; todos los DirEntry cuentan hacia el límite,
-incluidos los noUTF8 no seleccionados. El plan se calcula en un trabajador único,
-con cancelación entre entradas y fases; nunca se aplica automáticamente.
+Patterns: `{name}`, `{ext}`, `{dotext}`, `{n}`, `{n:03}`, escaped braces; start and
+step, literal replacement and case keep/lower/upper. Prefixes/suffixes and
+extension are expressed in the pattern. **Regex, dates and advanced editing are still
+pending**. There is no exact filesystem normalization/casefold. Selected non-UTF-8
+names are rejected without loss; every DirEntry counts toward the limit,
+including unselected non-UTF-8 ones. The plan is computed on a single worker,
+with cancellation between entries and phases; it is never applied automatically.
 
-Aplicar revalida identidades y usa staging exclusivo + renameat2 NOREPLACE en
-Linux. Ciclos, case-only y directorios no vacíos tienen pruebas del motor. Rollback
-se ejecuta sin cancelarse entre sus pasos: Cancelar solicita detener la operación,
-no matar el hilo. El cierre/exit-after solicita cancelación y espera ACK final antes
-de salir, incluso si se descartan preferencias espaciales. Errores, rutas verificadas
-de rescate, antiguas no verificadas y contadores omitidos se muestran en informe
-copiable. El informe no convierte rutas anteriores en ubicaciones actuales seguras.
+Apply revalidates identities and uses exclusive staging + renameat2 NOREPLACE on
+Linux. Cycles, case-only changes and non-empty directories have engine tests. Rollback
+runs without being cancelled between its steps: Cancel asks to stop the operation,
+it does not kill the thread. Close/exit-after requests cancellation and waits for the final ACK before
+exiting, even if spatial preferences are discarded. Errors, verified rescue
+paths, unverified old ones and omitted counters are shown in a copyable
+report. The report does not turn old paths into safe current locations.
 
-Se conserva un token de historial; deshacer/rehacer revalida y puede cancelarse.
-Un Crear fallido conserva sus indicadores. Un Crear exitoso invalida ese historial;
-**deshacer creación sigue pendiente**. Crear usa validación portable compartida y
-límite255B, mkdirat/openat O_EXCL anclados al directorio; no sobrescribe.
+A history token is kept; undo/redo revalidates and can be cancelled.
+A failed Create keeps its indicators. A successful Create invalidates that history;
+**undoing a creation is still pending**. Create uses shared portable validation and a
+255 B limit, with mkdirat/openat O_EXCL anchored to the directory; it never overwrites.
 
-No hay journal durable ni recuperación frente a kill/power loss: cierre normal
-esperando rollback no equivale a atomicidad ante crash. Tampoco se migra aún la
-identidad espacial path+dev+ino al renombrar/mover una carpeta; su disposición puede
-no recuperarse con el nuevo nombre. Windows/macOS y syscall remoto bloqueado no
-están validados. El árbol de UI+planner+plan no tiene todavía presupuesto integrado
-para100k/8MiB; benchmark del planner aislado no lo demuestra.
+There is no durable journal or recovery against kill/power loss: a normal close
+waiting for rollback is not atomicity against a crash. The spatial
+path+dev+ino identity is not yet migrated when renaming/moving a folder either; its layout may
+not be recovered under the new name. Windows/macOS and a blocked remote syscall are not
+validated. The UI+planner+plan tree does not yet have an integrated budget
+for 100k/8 MiB; the isolated planner benchmark does not prove it.
 
-`python3 scripts/rename-check.py --capture` recorre lote2 desde handlers internos,
-comprueba contenido/nombres antes de aplicar, después de aplicar/deshacer/rehacer,
-crea archivo/carpeta y captura framebuffer. `python3 scripts/rename-check.py` hace
-la misma secuencia con sampler de árbol y sin capturas. Incluye cierre con Apply
-pendiente mediante estado normal de cierre, salida0 y ausencia de staging. Puede
-cancelar antes de mover o competir con finalización; no prueba por sí solo cierre
-en cada instrucción del motor. Los tests del núcleo inyectan fallos en cada paso
-de staging/rollback; las pruebas UI comprueban bloqueo hasta ACK, no power loss.
+`python3 scripts/rename-check.py --capture` walks batch 2 from internal handlers,
+checks content/names before applying, after apply/undo/redo,
+creates a file/folder and captures the framebuffer. `python3 scripts/rename-check.py` runs
+the same sequence with a tree sampler and no captures. It includes closing with a pending Apply
+through the normal close state, exit 0 and no staging left. It may
+cancel before moving or race with completion; on its own it does not test closing
+at every engine instruction. The core tests inject failures at every
+staging/rollback step; the UI tests check blocking until ACK, not power loss.
 
-Ejecutar sólo tras build, con Cargo/capturas/benchmarks mutuamente excluyentes.
-Evidencia funcional/recursos de lote2 en VALIDATION; no acredita lote100k ni PASS global.
+Run only after a build, with Cargo/captures/benchmarks mutually exclusive.
+Functional/resource evidence for batch 2 is in VALIDATION; it does not prove a 100k batch or a global PASS.
