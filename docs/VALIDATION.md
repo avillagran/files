@@ -1,319 +1,318 @@
-# Validación del checkpoint files0.0.2
+# Validation of the files 0.0.2 checkpoint
 
-2026-10-26 · Linux aarch64/Apple M2 Pro, Hyprland/Wayland nativo.
-Checkpoint funcional; **no PASS global**: arranque estricto y varios escenarios
-ampliados siguen pendientes. Fuente UI:6fc0fe7, readiness1785d41, NaturalKeyRef7a62cdc,
-du22cef80/1cb4880. Shadersab3e3ba son fixtures independientes, no efectos en app.
+2026-10-26 · Linux aarch64/Apple M2 Pro, native Hyprland/Wayland.
+Functional checkpoint; **no global PASS**: strict startup and several extended
+scenarios are still pending. UI source: 6fc0fe7, readiness 1785d41, NaturalKeyRef 7a62cdc,
+du 22cef80/1cb4880. Shaders ab3e3ba are independent fixtures, not effects in the app.
 
-## Memoria con árbol y escena realmente cargada
+## Memory with the tree and a truly loaded scene
 
-10k/100k bajo `~/.cache/files-test`, ventana960×540 lógica/output2=1920×1080 físico,
-FLTK scale1, efectos OFF. Intervalo solicitado25ms, cinco segundos tras geometría
-**y** señal de loaded/view/count/stats o layout; estable mediana del segundo siguiente.
-TreeSampler identifica PID+starttime y descendientes/reparentados ya observados;
-PSS+SwapPss total, nunca RSS. `complete` verifica lecturas de identidades supervivientes
-legibles: **no garantiza lifetimes completos ni snapshot simultáneo**. Salidas
-confirmadas durante lectura generan eventos con identidad/fase/motivo y memoria
-no disponible; PermissionError/parse corrupto/vivo no legible invalidan.
+10k/100k under `~/.cache/files-test`, a 960×540 logical window/output 2 = 1920×1080 physical,
+FLTK scale 1, effects OFF. Requested interval 25 ms, five seconds after the geometry
+**and** the loaded/view/count/stats or layout signal; steady = the median of the following second.
+TreeSampler identifies PID+starttime and descendants/reparented processes already observed;
+total PSS+SwapPss, never RSS. `complete` verifies reads of readable surviving
+identities: **it does not guarantee complete lifetimes nor a simultaneous snapshot**. Exits
+confirmed during a read generate events with identity/phase/reason and memory
+unavailable; PermissionError/corrupt parse/an unreadable live process invalidate.
 
-| Escenario | Pico muestreado MiB | Pico MB decimal | Estable PSS+Swap KiB | Estado |
+| Scenario | Sampled peak MiB | Peak MB decimal | Steady PSS+Swap KiB | Status |
 |---|---:|---:|---:|---|
-| Base10k checkpoint final | 40.807 | 42.789 | 29320 | FAIL umbral de análisis40MiB; sin PASS global |
-| Base10k tras du visible (anterior) | 33.980 | 35.631 | 30309 | PASS gate base; objetivo35MiB cumplido en esta corrida |
-| Espacial10k | 34.267 | 35.931 | 29305 | PASS muestreado con advertencia: salida durante lectura con memoria no disponible |
-| Grupos100k, metadatos completos | 53.015 | 55.590 | 54241 | PASS techo; objetivo50MB NO cumplido |
-| Espacial100k, layout cargado | 47.152 | 49.443 | 42076 | PASS gate muestreado/objetivo50MB |
-| du100k, principal+helper | 33.481 | 35.108 | 33543 | PASS escenario propio; geometría no valida baseline1080p |
+| Base 10k final checkpoint | 40.807 | 42.789 | 29320 | FAIL on the 40 MiB analysis threshold; no global PASS |
+| Base 10k after visible du (earlier) | 33.980 | 35.631 | 30309 | PASS base gate; 35 MiB goal met in this run |
+| Spatial 10k | 34.267 | 35.931 | 29305 | Sampled PASS with a warning: an exit during a read with memory unavailable |
+| Groups 100k, complete metadata | 53.015 | 55.590 | 54241 | PASS ceiling; 50 MB goal NOT met |
+| Spatial 100k, layout loaded | 47.152 | 49.443 | 42076 | PASS sampled gate/50 MB goal |
+| du 100k, main+helper | 33.481 | 35.108 | 33543 | PASS own scenario; the geometry does not validate the 1080p baseline |
 
-Datos: `evidence/0.0.2/memory-*-ready-*.json`, `memory-baseline-after-du.json` y
-`evidence/du/memory-100000.json`. Casos100k previos al botón du, cuya regresión10k
-sí usa el binario integrado. El primer baseline listo dio39,730MiB de pico y28,388MiB
-estable; se conserva junto al último, sin sustituir el peor por la mediana.
+Data: `evidence/0.0.2/memory-*-ready-*.json`, `memory-baseline-after-du.json` and
+`evidence/du/memory-100000.json`. The 100k cases predate the du button, whose 10k regression
+does use the integrated binary. The first ready baseline gave a 39.730 MiB peak and 28.388 MiB
+steady; it is kept together with the last one, without replacing the worst with the median.
 
-Base tras du: máximo13FD/5hilos/1proceso observado; estable11FD/5hilos, CPU idle
-mediana/max0%, Swap0 en esa corrida. du100k: máximo20FD/7hilos/2procesos observados,
-helper identificado por PID/start/exe y recogido, estable un proceso. Máximo SwapPss
-independiente3168KiB; **no equivale a Swap0 ni se suma a otro pico temporal de PSS**.
-CPU al instante de máximo de memoria77,93% de un núcleo; no es máximo global de carga.
-Memoria GPU excluida de /proc; no hay contexto de efectos en estas corridas.
+Base after du: at most 13 FD/5 threads/1 process observed; steady 11 FD/5 threads, idle CPU
+median/max 0%, Swap 0 in that run. du 100k: at most 20 FD/7 threads/2 processes observed,
+the helper identified by PID/start/exe and reaped, steady one process. Independent maximum SwapPss
+3168 KiB; **it is not equivalent to Swap 0 nor is it added to another temporal PSS peak**.
+CPU at the moment of the memory maximum 77.93% of one core; it is not the global load maximum.
+GPU memory is excluded from /proc; there is no effects context in these runs.
 
-Se conservan `memory-before-save-ack.json` FAIL53,36MiB y `memory-spatial-10k.json`
-UNVALIDATED. `geometry()` antes forzaba resize cada observación, causando trabajo
-transitorio; ahora sólo pide cambio si falta. El baseline tras esa corrección dio
-37,657MiB. Las primeras corridas no atestiguaban loaded/count: se conservan con
-esa limitación. El objetivo35MiB difiere del stop40MiB y hard60MiB base; en escenarios
-modernos50MB es ideal,150MB techo absoluto, o presupuesto específico explícito.
+`memory-before-save-ack.json` FAIL 53.36 MiB and `memory-spatial-10k.json`
+UNVALIDATED are kept. `geometry()` used to force a resize on every observation, causing transient
+work; now it only requests a change if one is missing. The baseline after that fix gave
+37.657 MiB. The first runs did not attest loaded/count: they are kept with
+that limitation. The 35 MiB goal differs from the base stop 40 MiB and hard 60 MiB; in modern
+scenarios 50 MB is the ideal, 150 MB the absolute ceiling, or an explicit specific budget.
 
-## Arranque
+## Startup
 
-- Sin sampler: **81.419ms p50, 111.423ms p95/max,
-  9/10<100ms, FAIL** (`evidence/0.0.2/startup-timing-only.json`).
-- Con sampler:87,508ms p50,198,730ms máximo,7/10<100ms, FAIL
-  (`startup-tree.json`). Incluye intervalos incompletos de salida que no se ocultan;
-  fixes de ESRCH/fin esperado posteriores se probaron con fixtures, todavía no
-  tienen nueva serie del binario. El coste /proc puede retrasar recepción del marcador.
-- Se solicita `POSIX_FADV_DONTNEED` del ejecutable, sin vaciar cachés globales de
-  fuentes/bibliotecas/SO. No es latencia de presentación física del compositor.
-- Selectors no bloqueantes/deadline monotónico incluso stderr abierto tras el marcador;
-  cualquier ejecución>=100ms falla, no sólo la mediana. Falta estabilizar el máximo.
+- Without the sampler: **81.419 ms p50, 111.423 ms p95/max,
+  9/10 <100 ms, FAIL** (`evidence/0.0.2/startup-timing-only.json`).
+- With the sampler: 87.508 ms p50, 198.730 ms maximum, 7/10 <100 ms, FAIL
+  (`startup-tree.json`). It includes incomplete exit intervals that are not hidden;
+  later ESRCH/expected-end fixes were tested with fixtures and do not yet
+  have a new series for the binary. The /proc cost may delay receiving the marker.
+- `POSIX_FADV_DONTNEED` is requested for the executable, without dropping global caches of
+  fonts/libraries/OS. It is not the compositor's physical presentation latency.
+- Non-blocking selectors/a monotonic deadline even with stderr open after the marker;
+  any run >=100 ms fails, not just the median. The maximum still has to be stabilized.
 
-## Aceptación funcional y límites
+## Functional acceptance and limits
 
-- Cargo workspace integrado:95 tests (71core,16UI,8helper), incluidos23copier y20rename.
-  Los motores exportados son preparación de las próximas interfaces, no features UI
-  completas ni throughput/PSS validados. Logs en evidence/0.0.2/cargo-test.log.
-- du UI16tests/Clippy/release; helpertexto8fixtures ydu6fixtures. TextoCLI aún sinSpace,
-  selección ni resaltado;256KiB/2000LF,UTF8/UTF16BOM; ver TEXT-PREVIEW yDU-HELPER.
-- Python32 tests del sampler/gates/timeout/readiness/exits. No equivalen a benchmark.
-- `spatial-check.json`: handlers de puntero sobre hit targets pintados; posición72/48
-  y zoom1,15 recuperados en nueva instancia. Cierre normal tras ACK; selección/rango,
-  cola llena/fallo/retry/cierre, alias, drag multícono atómico, TOML incompatible preservado.
-- `ui-check.json`: temas Hackerman/Tokyo, TOML parcial/symlink/replacement, bordes y
-  conservación de effects/future en config; Grupos/Lista/riel/Espacial.
-- Nerd FiraCode confirmado; revisión sin tofu evidente1x/2x/resize. FLTK captura
-  coordenadas lógicas1000×650 aun cuando el compositor observa4000×2600 físicos:
-  prueba de layout/escala, **no nitidez nativa de todos los píxeles2x**.
-- du visible recursivo aparente, sin seguir symlinks, cancel/reap al cambiar selección,
-  navegar, ocultar/cerrar. du10k UNVALIDATED: helper demasiado rápido para ser observado.
-  Treemap, adaptadores y cancelación de syscall del SO todavía pendientes.
-- CUA no enumera la ventana; **eventos SO siguen sin comprobar**, no se improvisan
-  clicks alternativos. Navegación offline usa como máximo4workers y primer lote antes
-  de statvfs; syscalls bloqueadas aún requieren aislamiento/recuperación posterior.
-- Falta navegación repetida/multitab/multipanel, latencia de eventos SO, CPU carga
-  global, futuros previews/operaciones/red/shaders y plataformas de la matriz.
+- Integrated Cargo workspace: 95 tests (71 core, 16 UI, 8 helper), including 23 copier and 20 rename.
+  The exported engines prepare the next interfaces; they are not complete UI
+  features nor validated throughput/PSS. Logs in evidence/0.0.2/cargo-test.log.
+- du UI 16 tests/Clippy/release; text helper 8 fixtures and du 6 fixtures. The text CLI still has no Space,
+  selection nor highlighting; 256 KiB/2000 LF, UTF-8/UTF-16 BOM; see TEXT-PREVIEW and DU-HELPER.
+- Python 32 tests of the sampler/gates/timeout/readiness/exits. They are not equivalent to a benchmark.
+- `spatial-check.json`: pointer handlers on painted hit targets; position 72/48
+  and zoom 1.15 recovered in a new instance. Normal close after ACK; selection/range,
+  full queue/failure/retry/close, aliases, atomic multi-icon drag, incompatible TOML preserved.
+- `ui-check.json`: Hackerman/Tokyo themes, partial TOML/symlink/replacement, corners and
+  preservation of effects/future keys in config; Groups/List/rail/Spatial.
+- Nerd FiraCode confirmed; review without evident tofu at 1x/2x/resize. FLTK captures
+  1000×650 logical coordinates even when the compositor observes 4000×2600 physical:
+  a test of layout/scale, **not native sharpness of every 2x pixel**.
+- Visible apparent recursive du, without following symlinks, cancel/reap when the selection changes,
+  navigating, hiding/closing. du 10k UNVALIDATED: the helper is too fast to be observed.
+  Treemap, adapters and OS syscall cancellation are still pending.
+- CUA does not enumerate the window; **OS events remain unchecked**, alternative
+  clicks are not improvised. Offline navigation uses at most 4 workers and the first batch before
+  statvfs; blocked syscalls still need later isolation/recovery.
+- Missing: repeated navigation/multi-tab/multi-pane, OS event latency, global load
+  CPU, future previews/operations/network/shaders and the matrix's platforms.
 
-Binario `files` tras du UI (SHA256): `7bd0fe159f2c724beb9fd01620d1aaf9866d908f223725bd52cfe0ee1ec5ca7b`.
-La tabla100k se refiere al candidato anterior; conservar hashes/escenarios, no
-reetiquetar sus datos como medidas del nuevo binario.
+Binary `files` after the du UI (SHA256): `7bd0fe159f2c724beb9fd01620d1aaf9866d908f223725bd52cfe0ee1ec5ca7b`.
+The 100k table refers to the earlier candidate; keep hashes/scenarios, do not
+relabel its data as measurements of the new binary.
 
 ---
 
-# Validación de files 0.0.1
+# Validation of files 0.0.1
 
-2026-10-26 · Linux aarch64 (Apple M2/Asahi), Hyprland 0.56.2, Wayland nativo.
+2026-10-26 · Linux aarch64 (Apple M2/Asahi), Hyprland 0.56.2, native Wayland.
 
-## Memoria
+## Memory
 
-Carpeta sintética de **10.000 archivos**, sin widgets por entrada. Se comprueba
-la geometría y se espera cinco segundos antes de leer `/proc/<pid>/smaps_rollup`.
-Ventana: **960×540 lógicos × output scale 2 = 1920×1080 físicos**. La escala de
-interfaz de FLTK se fija en 1 para hacer reproducible el contenido.
+A synthetic folder with **10,000 files**, without per-entry widgets. The geometry is
+checked and five seconds pass before reading `/proc/<pid>/smaps_rollup`.
+Window: **960×540 logical × output scale 2 = 1920×1080 physical**. FLTK's interface
+scale is set to 1 to make the content reproducible.
 
-| Preferencia | PSS real | SwapPss |
+| Preference | Real PSS | SwapPss |
 |---|---:|---:|
-| Seguir Omarchy (rounding 0) | 29.03 MiB | 0.00 MiB |
-| Redondeados interiores | 34.13 MiB | 0.00 MiB |
+| Follow Omarchy (rounding 0) | 29.03 MiB | 0.00 MiB |
+| Inner rounded corners | 34.13 MiB | 0.00 MiB |
 
-Ambas mediciones quedan bajo el objetivo de 35 MiB. El gate de análisis falla
-sobre 40 MiB y el límite solicitado permanece en 60 MiB. Se usa PSS, nunca RSS.
-Mediciones previas oscilaron entre 26,40 y 33,39 MiB; una tuvo 4 MiB de SwapPss.
-Las lecturas dependen de la residencia/compartición de páginas y del tamaño físico.
-La prueba principal no captura imágenes ni activa recorte nativo de ventana.
+Both measurements are under the 35 MiB goal. The analysis gate fails
+above 40 MiB and the requested limit stays at 60 MiB. PSS is used, never RSS.
+Earlier measurements ranged between 26.40 and 33.39 MiB; one had 4 MiB of SwapPss.
+The readings depend on page residency/sharing and on the physical size.
+The main test does not capture images nor enable native window clipping.
 
-Datos: [memory.json](evidence/memory.json), [memory-rounded.json](evidence/memory-rounded.json).
-Reproducir: `make memcheck`. Los temporales se eliminan al salir y viven bajo
-`~/.cache/files-test`; no se usa `/tmp` para compilar o generar fixtures.
+Data: [memory.json](evidence/memory.json), [memory-rounded.json](evidence/memory-rounded.json).
+Reproduce: `make memcheck`. Temporaries are removed on exit and live under
+`~/.cache/files-test`; `/tmp` is not used to build or generate fixtures.
 
-## Arranque
+## Startup
 
-Diez procesos nuevos, solicitando `POSIX_FADV_DONTNEED` sólo para las páginas del
-binario antes de cada lanzamiento. **No se vacían globalmente las cachés de fuentes,
-bibliotecas ni del SO**. El reloj externo empieza antes de crear el proceso y termina
-cuando llega la señal emitida al finalizar el primer callback de dibujo completo.
-No mide el instante físico de presentación del compositor ni la finalización del listado.
+Ten new processes, requesting `POSIX_FADV_DONTNEED` only for the
+binary's pages before each launch. **The font, library and OS caches are not
+globally dropped**. The external clock starts before creating the process and ends
+when the signal emitted at the end of the first complete draw callback arrives.
+It does not measure the compositor's physical presentation instant nor the end of the listing.
 
-- Serie final: **84.59 ms de mediana**, **111.85 ms máximo**;
-  **8/10** ejecuciones bajo 100 ms.
-- Una serie anterior con la misma arquitectura sin decoración de cliente obtuvo
-  89,83 ms de mediana y 95,02 ms máximo (10/10 bajo 100 ms).
-- **El objetivo estricto de todos los arranques bajo 100 ms sigue pendiente**:
-  hay variación en esta sesión compartida. No se presenta la mediana como un límite.
+- Final series: **84.59 ms median**, **111.85 ms maximum**;
+  **8/10** runs under 100 ms.
+- An earlier series with the same architecture without client decoration got
+  an 89.83 ms median and a 95.02 ms maximum (10/10 under 100 ms).
+- **The strict goal of every startup under 100 ms is still pending**:
+  there is variation in this shared session. The median is not presented as a limit.
 
-Datos completos: [startup.json](evidence/startup.json).
-Reproducir: `python3 scripts/startup-check.py`.
+Full data: [startup.json](evidence/startup.json).
+Reproduce: `python3 scripts/startup-check.py`.
 
-## Pruebas y límites
+## Tests and limits
 
-- `cargo test --workspace`: seis pruebas aprobadas, incluido streaming de 10k
-  entradas sin stat inicial, formatos, MIME y reemplazos atómicos del watcher.
-- `cargo clippy --workspace --all-targets -- -D warnings`: aprobado.
-- `cargo fmt --all --check`: aprobado.
-- `cargo build --release`: aprobado, sin warnings.
-- Protocolo del helper: respuesta JSONL `unsupported` correlacionada por ID,
-  límite de petición de 64 KiB; `du` continúa sin implementación.
-- `python3 scripts/ui-check.py`: escenarios Grupos, Lista, riel expandido,
-  bordes persistidos; tema Hackerman → TOML inválido conservado → Tokyo Night por
-  cambio de symlink → reemplazo atómico en el nuevo destino. Todo aprobado.
-- Capturas del framebuffer de la **ventana Wayland real**: no mockups ni HTML.
-  La captura se habilita sólo con `--ui-smoke` + `FILES_TEST_CAPTURE`; no forma parte
-  de la medición de memoria. Se usa para excluir ventanas ajenas superpuestas.
-- CUA no descubre estas ventanas; los escenarios aplican acciones internas al modelo.
-  **La entrega de eventos físicos de teclado/ratón queda sin verificar por controlador**.
-- **Contorno exterior gestionado por Hyprland**. La preferencia de bordes modifica
-  la UI interior; el recorte propio se dejó fuera por el límite de anti-aliasing
-  de FLTK y validación incompleta de su coste. Detalle en Hallazgos del diseño.
-- Windows/macOS y X11 no se han compilado ni ejecutado en esta sesión.
+- `cargo test --workspace`: six tests passed, including streaming of 10k
+  entries without an initial stat, formats, MIME and the watcher's atomic replacements.
+- `cargo clippy --workspace --all-targets -- -D warnings`: passed.
+- `cargo fmt --all --check`: passed.
+- `cargo build --release`: passed, without warnings.
+- Helper protocol: a JSONL `unsupported` response correlated by ID,
+  a 64 KiB request limit; `du` still has no implementation.
+- `python3 scripts/ui-check.py`: Groups, List, expanded rail and persisted corners
+  scenarios; Hackerman theme → invalid TOML kept → Tokyo Night through a
+  symlink change → atomic replacement at the new target. All passed.
+- Framebuffer captures of the **real Wayland window**: not mockups nor HTML.
+  Capture is only enabled with `--ui-smoke` + `FILES_TEST_CAPTURE`; it is not part
+  of the memory measurement. It is used to exclude overlapping foreign windows.
+- CUA does not discover these windows; the scenarios apply internal actions to the model.
+  **Delivery of physical keyboard/mouse events remains unverified through a driver**.
+- **The outer outline is managed by Hyprland**. The corners preference modifies
+  the inner UI; own clipping was left out because of FLTK's anti-aliasing limit
+  and the incomplete validation of its cost. Detail in the design Findings.
+- Windows/macOS and X11 have not been built nor run in this session.
 
-Binario validado (SHA-256):
+Validated binary (SHA-256):
 `78c296c932c65fea11c831b6c49a917dc8615eaa03115c625ab284010179ebbd`.
 
-## Diagnóstico posterior y suspensión de medidas
+## Later diagnosis and suspension of measurements
 
-`memory-checkpoint-final.json` conserva el FAIL de pico41786KiB=40,8066MiB,
-PSS39434KiB+SwapPss2352KiB al mismo instante; estable29320KiB, con Swap incluido.
-Primera pintura interna138,447ms. No se sustituye este pico por la mediana ni por
-el PASS anterior. Su binario incluye helpertexto y motores exportados, anterior a
-la integración UI del renombrador. Esta última todavía no tiene gate de memoria.
+`memory-checkpoint-final.json` keeps the peak FAIL 41786 KiB = 40.8066 MiB,
+PSS 39434 KiB + SwapPss 2352 KiB at the same instant; steady 29320 KiB, Swap included.
+First internal paint 138.447 ms. This peak is not replaced with the median nor with
+the earlier PASS. Its binary includes the text helper and the exported engines, before
+the UI integration of the renamer. The latter has no memory gate yet.
 
-`memory-mappings-diagnostic.json`, `memory-mappings-geometry.json` y
-`memory-mappings-static-mmap.json` son **diagnósticos acceptance=false**: lecturas
-no simultáneas, instrumentación distinta, no gates ni optimización demostrada.
-En el primero, heap32144KiB permanece constante, mientras memfd:libdecor desciende
-25384→7112KiB; delta18272KiB próximo a la caída de árbol18173KiB, sin probar causalidad.
-La corrida corregida registra geometría inicial854×1065 lógica y final960×540;
-Size de un mmap no equivale a PSS. Fijar el umbral mmap de malloc en otra corrida
-no demostró mejora concluyente, por lo que no se adoptó como arreglo.
+`memory-mappings-diagnostic.json`, `memory-mappings-geometry.json` and
+`memory-mappings-static-mmap.json` are **acceptance=false diagnostics**: non-simultaneous
+reads, different instrumentation, not gates nor a proven optimization.
+In the first, heap 32144 KiB stays constant, while memfd:libdecor drops
+25384→7112 KiB; a delta of 18272 KiB close to the tree's drop of 18173 KiB, without proving causality.
+The corrected run records an initial logical geometry of 854×1065 and a final one of 960×540;
+the Size of an mmap is not equivalent to PSS. Setting malloc's mmap threshold in another run
+did not show a conclusive improvement, so it was not adopted as a fix.
 
-Revisión estática de FLTK1.5.23: `create_shm_buffer` reserva por defecto10000000B,
-o2×framebytes si éste supera ese tamaño; pueden coexistir pools. `buffer_release`
-libera draw_buffer, difiere wl_buffer en uso; `do_buffer_release` sólo desmonta
-pool vacío distinto de current_pool. Esto permite retención del último pool grande,
-pero no atribuye por sí solo el pico observado. No se parcheó registro Cargo ni
-backend global. La optimización permanece pendiente, manteniendo el FAIL.
+Static review of FLTK 1.5.23: `create_shm_buffer` reserves 10000000 B by default,
+or 2×frame bytes if that exceeds this size; pools can coexist. `buffer_release`
+frees draw_buffer, defers a wl_buffer in use; `do_buffer_release` only tears down
+an empty pool other than current_pool. This allows retaining the last large pool,
+but it does not by itself attribute the observed peak. The Cargo registry and the global
+backend were not patched. The optimization remains pending, keeping the FAIL.
 
-El usuario suspendió nuevas mediciones/capturas0.0.2 y pidió continuar0.0.3.
-El checkpoint es funcional con límites conocidos, **no una aprobación global de
-rendimiento**. Pruebas Rust posteriores de integración se registran aparte.
+The user suspended new 0.0.2 measurements/captures and asked to continue with 0.0.3.
+The checkpoint is functional with known limits, **not a global performance
+approval**. Later Rust integration tests are recorded separately.
 
-## 0.0.3: renombrador y creación visibles
+## 0.0.3: visible renamer and creation
 
-`c462fa1` integra formulario propio F2, patrones/secuencia/literal/caso, preview
-antes/después, Apply/undo/redo y crear archivo/carpeta exclusivo. Aviso de éxito
-compacto con Undo; errores/rescate conservan informe grande copiable. Generaciones
-únicas descartan previews tardíos; cierre/exit-after cancela y drena ACK aun con
-preferencias descartadas.106tests Cargo (73core/25UI/8helper), Clippy y release limpios.
+`c462fa1` integrates its own F2 form, patterns/sequence/literal/case, a before/after
+preview, Apply/undo/redo and exclusive file/folder creation. A compact success notice
+with Undo; errors/rescue keep a large copyable report. Unique generations
+discard late previews; close/exit-after cancels and drains the ACK even with
+discarded preferences. 106 Cargo tests (73 core/25 UI/8 helper), Clippy and release clean.
 
-- `evidence/0.0.3/rename-ui.json`: PASS funcional; bytes/nombres comprobados en
-  fixture lote2+untouched, preview no modifica, apply→undo→redo, creación y ausencia
-  de staging; salida0 con ACK exacto de Apply-close. Framebuffer/handlers internos,
-  **no eventos SO**. Capturas `*-compact.png` muestran resultado ya recargado.
-- `initial-modal/` conserva la primera UI, luego corregida por bloquear tras éxito.
-  `rename-preview.png` publicado conserva su ruta histórica. Captura sin sampler
-  acredita salida de raíz; su cleanup no demuestra árbol de descendientes.
-- `rename-resources.json`: **UNVALIDATED**, pico observado42,402816MB; observación
-  root-dead final invalidó el instrumento. `goal_met=true` en este archivo histórico
-  sólo expresa estar bajo50MB observado, no validez: debe leerse desconocido para
-  aceptación. Se conserva sin modificar.
-- `rename-resources-normal-exit.json`: PASS gate de escenario, pico árbol34239KiB
-  =35,060736MB (33,4365MiB). Ciclo pico34159KiB, estable30531KiB; cierre pendiente
-  Apply pico34239KiB, estable30415KiB. Swap máximo independiente64KiB, incluido en
-  cada suma temporal. Máximo observado14FD/6hilos/1proceso, cleanup PID/starttime
-  completo tras salida0. Ventana estable [since,until) postcreación: CPU mediana0%,
-  máximo27,15%; **no acredita idle asentado**, puede incluir recarga del listado.
-  Cierre usa ventana de preview previa a Apply; CPU mediana/máximo0% allí.
-- Lectura terminal vacía/sin errores se difiere explícitamente hasta confirmar
-  exit0+cleanup, sin convertir memoria de un proceso ilegible vivo en cero. Eventos
-  se guardan en terminal_exit_observations. Picos/errores conservan toda la corrida;
-  stable_until limita sólo medianas/CPU estable. No garantiza lifetimes completos.
-- `memory-10k.json`: nueva base0.0.3 loaded10000/1080p, PASS muestreado con advertencia
-  de hijo salido durante lectura. Pico36715KiB=35,8545MiB=37,59616MB; estable28335KiB
-  =27,6709MiB, PSS26607+Swap1728. Objetivo35MiB **no cumplido**; umbral40MiB no
-  superado en esta corrida. CPU estable0%; máximo13FD/5hilos/1proceso concurrente
-  observado, dos identidades durante vida; hueco del hijo documentado. No elimina
-  FAIL anterior0.0.2 ni prueba ausencia de picos entre muestras.
-- `startup-timing-only.json`: nueva serie0.0.3 **FAIL**,8/10<100ms, externo p50
-  87,449927ms/p95 y máximo150,310623ms; interno máximo137,918ms. No se atribuye
-  causalmente la variación a rename ni se oculta con mediana. Sigue pendiente.
+- `evidence/0.0.3/rename-ui.json`: functional PASS; bytes/names checked in the
+  batch 2 + untouched fixture, the preview does not modify, apply→undo→redo, creation and absence
+  of staging; exit 0 with the exact ACK of Apply-close. Framebuffer/internal handlers,
+  **not OS events**. The `*-compact.png` captures show the already reloaded result.
+- `initial-modal/` keeps the first UI, later fixed because it blocked after a success.
+  The published `rename-preview.png` keeps its historical path. A capture without a sampler
+  proves the root's exit; its cleanup does not prove the tree of descendants.
+- `rename-resources.json`: **UNVALIDATED**, observed peak 42.402816 MB; a final
+  root-dead observation invalidated the instrument. `goal_met=true` in this historical file
+  only expresses being under an observed 50 MB, not validity: it must be read as unknown for
+  acceptance. It is kept unmodified.
+- `rename-resources-normal-exit.json`: scenario gate PASS, tree peak 34239 KiB
+  = 35.060736 MB (33.4365 MiB). Cycle peak 34159 KiB, steady 30531 KiB; close with a pending
+  Apply peak 34239 KiB, steady 30415 KiB. Independent maximum Swap 64 KiB, included in
+  each temporal sum. Maximum observed 14 FD/6 threads/1 process, complete PID/starttime cleanup
+  after exit 0. Steady window [since,until) after creation: CPU median 0%,
+  maximum 27.15%; **it does not prove settled idle**, it may include the listing reload.
+  Close uses the preview window before Apply; CPU median/maximum 0% there.
+- An empty/error-free terminal read is explicitly deferred until exit 0+cleanup are
+  confirmed, without turning the memory of an unreadable live process into zero. Events
+  are saved in terminal_exit_observations. Peaks/errors keep the whole run;
+  stable_until only limits the medians/steady CPU. It does not guarantee complete lifetimes.
+- `memory-10k.json`: new 0.0.3 base loaded 10000/1080p, sampled PASS with a warning
+  about a child that exited during a read. Peak 36715 KiB = 35.8545 MiB = 37.59616 MB; steady 28335 KiB
+  = 27.6709 MiB, PSS 26607 + Swap 1728. The 35 MiB goal **not met**; the 40 MiB threshold not
+  exceeded in this run. Steady CPU 0%; at most 13 FD/5 threads/1 concurrent process
+  observed, two identities during its life; the child's gap documented. It does not remove the
+  earlier 0.0.2 FAIL nor prove the absence of peaks between samples.
+- `startup-timing-only.json`: new 0.0.3 series **FAIL**, 8/10 <100 ms, external p50
+  87.449927 ms/p95 and maximum 150.310623 ms; internal maximum 137.918 ms. The variation is not causally
+  attributed to rename nor hidden behind the median. It is still pending.
 
-Build/capturas/recursos/base/arranque fueron serializados. SHA del binario después
-de cleanup: `5c54617793ef7dc20a32bb9632b59fe82a0b6ca4707f2aa616f1289ca70cadec`.
-Escena de lote2 no cubre100k/8MiB de UI+Arc+planner+PreparedRename simultáneos;
-latencia y cancelación de ese lote grande quedan pendientes. Regex/fechas,
-undo de creación, journal crash durable y migración de layouts de carpetas siguen
-pendientes. El checkpoint funcional **no es PASS global**.
+Build/captures/resources/base/startup were serialized. SHA of the binary after
+cleanup: `5c54617793ef7dc20a32bb9632b59fe82a0b6ca4707f2aa616f1289ca70cadec`.
+The batch 2 scene does not cover 100k/8 MiB of simultaneous UI+Arc+planner+PreparedRename;
+the latency and cancellation of that large batch remain pending. Regex/dates,
+undoing a creation, a durable crash journal and migrating folder layouts are still
+pending. The functional checkpoint **is not a global PASS**.
 
-## 0.0.4 parcial: Space texto y contrato FLTK wait
+## 0.0.4 partial: Space text and the FLTK wait contract
 
-Implementación992fe04: Space/Vista previa con helper único cancel/drain, texto sólo
-visible, selección por width real+mapa byte→display para TAB/control, CRLF/UTF8
-originales, código plano; Markdown/HTML siguen siendo fuente.126tests Rust, Clippy
-workspace/release aprobados. Error/truncado/cambioA→B→C/cierre normal drenado tienen
-framebuffer/handlers internos, sin teclas/clics SO. Capturas en evidence/0.0.4.
-**Hito no cerrado ni etiquetado**: clipboard externo sigue FAIL por fixture sin foco
-Wayland, serial0; user conserva restricción CUA/jev. No usar wl-copy para simularlo.
+Implementation 992fe04: Space/Preview with a single cancel/drain helper, only visible
+text, selection by real width + a byte→display map for TAB/control characters, original CRLF/UTF-8,
+plain code; Markdown/HTML are still source. 126 Rust tests, Clippy
+workspace/release passed. Error/truncation/change A→B→C/a normal drained close have
+framebuffer/internal handlers, without OS keys/clicks. Captures in evidence/0.0.4.
+**Milestone not closed nor tagged**: the external clipboard is still FAIL because the fixture has no Wayland
+focus, serial 0; the user keeps the CUA/jev restriction. Do not use wl-copy to simulate it.
 
-- wait-contract.json: dos pipes legibles→raw2/callbacks2/errno0. Rustwrapper1.5.23
-  rechazaría≥2; reemplazo local del contrato C acepta≥0, retry sóloEINTR con pausa,
-  otros errores conservados y drain de operaciones/helpers antes de salida1.
-- Capturas nuevas registran raw4/3/2 exitosos, por tanto confirman ocurrencia del caso
-  válido multFD en la escena corregida. Original carecía de raw; no se atribuye
-  causalidad exacta retrospectiva. FAIL originales se conservan.
-- text-ui.json: functional_gate FAIL/clipboard FAIL, contenido seleccionado exacto
-  Unicode+TAB+CRLF y app::copy invocado; wl-paste no obtiene oferta. Ventana activa
-  de compositor distinta de fixture, traza muestra set_selection serial0 sin enter.
-  Foco nativo sigue pendiente, sin improvisar control alternativo. Resto de fixtures
-  y salida0 trasPREVIEW_DRAINED comprobados; no equivalen a clipboard aprobado.
-- text-resources.json: **resource UNVALIDATED y functional FAIL**. Pico observado
- 34858KiB=35,694592MB (34,0410MiB), estable34858KiB; Swap observado0. Máximo17FD,
- 6hilos/2procesos observados; CPU de ventana truncada mediana/máximo0%. Árbol
- superviviente legible y cleanup observado completo; helper_identities_verified
- vacío, helpers demasiado breves para identificarlos/medirlos en esta corrida.
- No es presupuesto completo de preview ni helper=0. Salida de hijo durante lectura
- conserva memoria no disponible. Cadencia solicitada5ms, intervalo máximo91,20ms
- por instrumentación/proceso/acciones; campo heredado25ms corregido con nota de
- metadata, sin cambiar muestras. No se usa este resultado como PASS.
-- Secuencia build/captura/recurso separada. Hashes principal/helper en JSON después
- de cleanup; benchmark no ejecuta wl-paste ni captura. No nuevos benchmarks0.0.2.
+- wait-contract.json: two readable pipes→raw 2/callbacks 2/errno 0. The Rust wrapper 1.5.23
+  would reject ≥2; the local replacement of the C contract accepts ≥0, retries only on EINTR with a pause,
+  keeps other errors and drains operations/helpers before exit 1.
+- New captures record successful raw 4/3/2, so they confirm that the valid
+  multi-FD case occurs in the corrected scene. The original lacked raw; no exact
+  retrospective causality is attributed. The original FAILs are kept.
+- text-ui.json: functional_gate FAIL/clipboard FAIL, the selected content exact
+  Unicode+TAB+CRLF and app::copy invoked; wl-paste gets no offer. The compositor's active window
+  differs from the fixture, the trace shows set_selection serial 0 without enter.
+  Native focus is still pending, without improvising an alternative control. The rest of the fixtures
+  and exit 0 after PREVIEW_DRAINED checked; they are not equivalent to an approved clipboard.
+- text-resources.json: **resource UNVALIDATED and functional FAIL**. Observed peak
+  34858 KiB = 35.694592 MB (34.0410 MiB), steady 34858 KiB; observed Swap 0. At most 17 FD,
+  6 threads/2 processes observed; CPU of the truncated window median/maximum 0%. The readable surviving
+  tree and the observed cleanup complete; helper_identities_verified
+  empty, helpers too short-lived to identify/measure them in this run.
+  It is not a complete preview budget nor helper=0. A child exiting during a read
+  keeps memory unavailable. Requested cadence 5 ms, maximum interval 91.20 ms
+  because of instrumentation/process/actions; the inherited 25 ms field corrected with a
+  metadata note, without changing samples. This result is not used as a PASS.
+- Build/capture/resource sequence separate. Main/helper hashes in the JSON after
+  cleanup; the benchmark does not run wl-paste nor captures. No new 0.0.2 benchmarks.
 
-Continúa copia UI mientras foco/clipboard queda pendiente, según instrucción del
-usuario. Falta ventana horizontal completa de líneas>4096B, syntax highlighting,
-render Markdown/HTML y resto previews; no se infla el alcance de Space texto actual.
+Copy UI continues while focus/clipboard stays pending, per the user's
+instruction. Missing: the full horizontal window for lines >4096 B, syntax highlighting,
+Markdown/HTML rendering and the other previews; the scope of the current Space text is not inflated.
 
-# Copia visible y recarga (0.0.4 parcial, 2026-10-26)
+# Visible copy and reload (0.0.4 partial, 2026-10-26)
 
-171 Rust tests (73core/8helper/90UI),36 Python, Clippy all-targets -Dwarnings y
-release PASS. Worker reutilizable/generaciones/capacidad4FS, snapshot de selección
-acotado8MiB, recargas consecutivas, bloqueo visible de selección mientras recarga,
-rechazo sin pérdida y reintento al reducir el lote. Sin serializar la suite para
-ocultar la contención original; fallos previos conservados en copy-initial/.
+171 Rust tests (73 core/8 helper/90 UI), 36 Python, Clippy all-targets -Dwarnings and
+release PASS. A reusable worker/generations/4 FS capacity, a selection snapshot
+bounded to 8 MiB, consecutive reloads, a visible selection block while reloading,
+rejection without loss and a retry when the batch is reduced. The suite was not serialized to
+hide the original contention; earlier failures kept in copy-initial/.
 
-Copia F5/inspector, destino, ocho pendientes/uno activo, pausa/reanudar/cancelar,
-conflicto sin overwrite, diagnóstico/rescate completo acotado y cierre con ACK.
-Captura corregida copy-ui-1793025091272455448.json: handlers internos/framebuffer
-real, no input SO. Origen/bytes/SHA256/rwx/mtime/symlink y ausencia de staging,
-cancelación activa tras3120archivos y cierre pausado antes de trabajar. La primera
-captura tenía toast sobre controles y conflicto de copia sobre sí misma; se conserva.
+Copy with F5/inspector, destination, eight pending/one active, pause/resume/cancel,
+a conflict without overwrite, full bounded diagnostics/rescue and close with ACK.
+Corrected capture copy-ui-1793025091272455448.json: internal handlers/real framebuffer,
+not OS input. Source/bytes/SHA256/rwx/mtime/symlink and absence of staging,
+active cancellation after 3120 files and a paused close before working. The first
+capture had the toast over the controls and a copy conflict onto itself; it is kept.
 
-Recurso separado copy-resources.json: pico34671KiB (33.8584MiB/35.503104MB),
-estable32542KiB (33.323008MB), Swap observado0, máximo19FD/6hilos/1proceso legible
-simultáneo. PASS muestreado/objetivo50MB para16MiB+directorio10karchivos+symlink,
-ventana1000×650lógica, no baseline10kfilas/1080p. Una identidad hija conocida salió
-mientras se leía smaps: memoria no disponible; complete sólo verifica supervivientes,
-no lifetimes.125muestras, máximo intervalo104.188ms frente a10ms solicitado.
-CPU ventana postcopia mediana0/máximo118.82%; no idle asentado. Cancelación tras
-3280archivos, raíz no publicada limpiada, cierre0 tras ACK5 y árbol observado recogido.
+Separate resource copy-resources.json: peak 34671 KiB (33.8584 MiB/35.503104 MB),
+steady 32542 KiB (33.323008 MB), observed Swap 0, at most 19 FD/6 threads/1 readable
+simultaneous process. Sampled PASS/50 MB goal for 16 MiB + a directory of 10k files + a symlink,
+a 1000×650 logical window, not the 10k-row/1080p baseline. A known child identity exited
+while smaps was being read: memory unavailable; complete only verifies survivors,
+not lifetimes. 125 samples, maximum interval 104.188 ms against 10 ms requested.
+Post-copy window CPU median 0/maximum 118.82%; not settled idle. Cancellation after
+3280 files, the unpublished root cleaned, close 0 after ACK 5 and the observed tree reaped.
 
-**Baseline nuevo FAIL**, no reemplazado por copiaPASS: copy-baseline-10k.json,
-loaded10000/metadatos completos,1080p verificado; pico55414KiB (56.743936MB),
-estable40484KiB (41.455616MB). Se supera análisis40MiB, por debajo del hard60MiB.
-Al pico sólo raíz55382PSS+32Swap,5hilos/12FD, ~407ms desde PIDstart; no atribuido a
-helper. Diagnóstico posterior acceptance=false copy-baseline-mappings.json tiene
-otra distribución: máximo42001KiB a90ms (anon16016/memfdlibdecor14224), estable
-30705KiB (heap12272/memfd7112/anon1952); geometría inicial854×1065→960×540. No
-reproduce el gate ni prueba causa/optimización/PASS. Lecturas no simultáneas y
-coste de instrumentación distinto; retención/transición FLTK sigue hipótesis de
-fuente y candidato de investigación, no un diagnóstico causal concluido.
+**New baseline FAIL**, not replaced by the copy PASS: copy-baseline-10k.json,
+loaded 10000/complete metadata, 1080p verified; peak 55414 KiB (56.743936 MB),
+steady 40484 KiB (41.455616 MB). The 40 MiB analysis threshold is exceeded, below the hard 60 MiB.
+At the peak only the root 55382 PSS + 32 Swap, 5 threads/12 FD, ~407 ms from PID start; not attributed to the
+helper. The later diagnostic acceptance=false copy-baseline-mappings.json has
+another distribution: maximum 42001 KiB at 90 ms (anon 16016/memfd libdecor 14224), steady
+30705 KiB (heap 12272/memfd 7112/anon 1952); initial geometry 854×1065→960×540. It does not
+reproduce the gate nor prove cause/optimization/PASS. Non-simultaneous reads and a
+different instrumentation cost; FLTK retention/transition remains a source hypothesis and
+a research candidate, not a concluded causal diagnosis.
 
-Arranque sin sampler nuevo: p50externo90.644308ms, p95/max151.978267ms,7/10<100,
-**FAIL**. Interno máximo120.429ms. No es presentación física del compositor;
-cachés globales no se evictan. Evidencia copy-startup-timing-only.json.
+New startup without a sampler: external p50 90.644308 ms, p95/max 151.978267 ms, 7/10 <100,
+**FAIL**. Internal maximum 120.429 ms. It is not the compositor's physical presentation;
+global caches are not evicted. Evidence copy-startup-timing-only.json.
 
-Throughput separado64MiB/1000archivos/tres repeticiones y smoke16MiB pasan integridad;
-ver COPY-BENCH. No se generaliza superioridad ni se convierte reflink en throughput
-físico. files SHA d8f2934638a56d069428e55a2209948db1df1a562c1eef8a012dd010e4059c40.
-No etiqueta0.0.4 ni PASSglobal: Space clipboardFAIL/recursosUNVALIDATED siguen
-preservados, y faltan movimiento/journal/resume, plataformas y resto ROADMAP.
-
+Separate throughput 64 MiB/1000 files/three repetitions and a 16 MiB smoke pass integrity;
+see COPY-BENCH. No superiority is generalized nor is reflink turned into physical
+throughput. files SHA d8f2934638a56d069428e55a2209948db1df1a562c1eef8a012dd010e4059c40.
+No 0.0.4 tag nor global PASS: the Space clipboard FAIL/resources UNVALIDATED remain
+preserved, and move/journal/resume, platforms and the rest of the ROADMAP are missing.
 ## Imágenes acotadas, checkpoint0335e21
 
 188Rusttests,36Python, Clippy/release y regresiones release helpertexto8/du6PASS.
