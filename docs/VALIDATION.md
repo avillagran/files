@@ -1062,253 +1062,253 @@ do not extrapolate the incidental PSS of captures nor promise inode-conditional 
 protection against a hostile actor. No global PASS/0.0.4 tag.
 
 
-## M25 — EXDEV single-file y recuperación visible (2026-10-27)
+## M25 — single-file EXDEV and visible recovery (2026-10-27)
 
-586Rust (193core/67helper/326UI), tres coreignored privados/opt-in delimitados,
-Clippy workspace/all-targets-Dwarnings y release limpios. Logs finales
+586 Rust (193 core/67 helper/326 UI), three private/opt-in core ignored ones delimited,
+Clippy workspace/all-targets -Dwarnings and release clean. Final logs
 exdev-workspace-final-test, exdev-workspace-final-clippy, exdev-resize-release;
-se conservan primeros FAIL compilación/FD assertion/Clippy. Core realdev63→75 y
-tres pares de procesos gap publish/delete/restore ejecutados aparte (exit73 sin
-Drop → proceso nuevo0); no SIGKILL/powerloss/fallo syscall fsync real.
+the first compile/FD assertion/Clippy FAILs are kept. Core real dev 63→75 and
+three process pairs with a publish/delete/restore gap run separately (exit 73 without
+Drop → new process 0); no SIGKILL/power loss/real fsync syscall failure.
 
-exdev-ui-1793122272433112203 PASS: tres casos dev63→75, review/pausa no mutantes,
-bytes/metadata exactos, tabs refrescadas, recuperación catálogo explícito, normal
-exit0 tras ACK y stages ausentes. Diez PNG IHDR coinciden capture_dimensions.
-Ventana INICIAL440×440 acredita controles separados/completos; diagnósticos y
-título largos recortados, no lectura completa/clipboard SO. Handlers/Actions y
-framebuffer FLTK; no eventos SO. Scope archivo regular nlink1, no árboles/lotes.
+exdev-ui-1793122272433112203 PASS: three cases dev 63→75, non-mutating review/pause,
+exact bytes/metadata, tabs refreshed, explicit catalog recovery, normal
+exit 0 after ACK and stages absent. Ten PNG IHDR match capture_dimensions.
+The INITIAL 440×440 window proves separate/complete controls; long diagnostics and
+title clipped, no full readability/OS clipboard. Handlers/Actions and the
+FLTK framebuffer; no OS events. Scope: a regular nlink 1 file, not trees/batches.
 
-Preservados: 1793121684715864566 FAIL socket Hyprland obsoleto;
-1793121723013735005 PASS funcional con sidecar que corrige supuesto resize440
-(captura1000×650); 1793122169103469951 FAIL guard dimensiones detectó oscilación
-440↔1000. Escena final usa instancia inicial440; LiveResize UNVALIDATED, no se
-rebajó la aserción. No nuevas medidas recursos/startup: NOT_MEASURED por freeze,
-baseline/arranque FAIL históricos siguen activos; pie PSS incidental no es gate.
-Sin PASS global ni etiqueta0.0.4. Nuevas previews pausadas; sigue funciones/UI.
-
-
-## M26 — Columnas/Miller (2026-10-27)
-
-596Rust194core/67helper/335UI y3coreignored delimitados, Clippyworkspacealltargets
--Dwarnings, release/fmt PASS. columns-checkpoint-validation.json conserva logs:
-compilación inicial (match/borrow), fixture de presupuesto errónea, primer
-workspace WouldBlock recovery, regresión FDduplicado RED y GREEN; FAIL enfocado
-intermitente entrada A ausente sin contexto suficiente no reproducido en exacto,
-fixture luego con creación exclusiva/ID atómico/diagnóstico y suite final PASS.
-No atribución causal exacta inventada. JournalDrop libera explícitamente flock
-sólo en PIDcreador; no descarga owner al rechazar Request ni salta IntentProof.
-
-columns-ui-1793124416464738573 PASS6PNG IHDR y captura_dimensions coinciden,
-cinco1000×650+initial800×440. Cadena y podaA/B, copiar desde columna enfocada
-(A/nested frente a mismo nombre B), bytes exactos/datos originales intactos,
-filtro/raw y renombrador payload; dos normal0 tras ACK. Flechas y pasos rápidos
-por métodos Model; filas/selector/confirmación por handlers de puntero visibles.
-No eventos SO/clipboard externo/liveResize, ni sesiones de cadena completa.
-Regresiones adicionales unitarias:12niveles/máximo8retenidas, foco antesDone/
-Statsstale, Ctrl/Shift al activar, menú derecho diferido+cancelable, migra tag3
-sin geometría y guarda tag5 conscroll. Nombres largos/ancestros parcialmente
-recortados por scroll/clipping; no alegar lectura completa. Recursos/startup
-NOT_MEASURED freeze y FAILs históricos activos; PSS incidental footer no cuenta.
+Preserved: 1793121684715864566 FAIL stale Hyprland socket;
+1793121723013735005 functional PASS with a sidecar that corrects an assumed resize to 440
+(capture 1000×650); 1793122169103469951 FAIL the dimension guard detected an oscillation
+440↔1000. The final scene uses an initial 440 instance; live resize UNVALIDATED, the
+assertion was not weakened. No new resource/startup measurements: NOT_MEASURED because of the freeze,
+the historical baseline/startup FAILs are still active; the incidental PSS footer is not a gate.
+No global PASS nor 0.0.4 tag. New previews paused; features/UI continue.
 
 
-## M27 — doble panel MC, 2026-10-27
+## M26 — Columns/Miller (2026-10-27)
 
-DUAL-PANE-CONTRACT y `evidence/0.0.4/dual-checkpoint-validation.json`:603Rust
-(194core/67helper/342UI),3ignored preexistentes, Clippy/all-targets-Dwarnings,
-release/fmt PASS. Últimos dos cambios sólo labels de renderer; framebuffer final
-confirma filtros por panel y basename antes del contexto de ruta.
-`dual-ui-1793126826929914048.json` funcional PASS, ocho PNG con dimensiones IHDR
-exactas,2procesos exit0trasACK. Copy/move raw0xFF→ruta0xFE con bytes/nombres reales,
-review/paused no mutante, job termina tras foco/panel cerrado, selección/query
-B preservados. Unitarios contextual/budgetconjunto/rename+Undo amboslistados y
-worker único con backend bloqueado. No input SO/clipboard/liveResize ni metrics.
-V07 parcial: persistencia ambos paneles/otros SO/otras vistas/gates pendientes.
-Métricas NOT_MEASURED por freeze y FAILs previos conservados; no PASSglobal.
+596 Rust 194 core/67 helper/335 UI and 3 delimited core ignored, Clippy workspace all targets
+-Dwarnings, release/fmt PASS. columns-checkpoint-validation.json keeps the logs:
+the initial build (match/borrow), a wrong budget fixture, the first
+workspace WouldBlock recovery, a duplicated-FD regression RED and GREEN; an intermittent focused
+FAIL of a missing input A without enough context, not reproduced exactly,
+the fixture later with exclusive creation/an atomic ID/diagnostics and the final suite PASS.
+No exact causal attribution invented. JournalDrop explicitly releases the flock
+only in the creating PID; it does not drop the owner when a Request is rejected nor skip the IntentProof.
 
-
-Corrección de reporte M27: `dual-title-fmt.log` era FAIL de una única línea por
-wrapping, aunque se había descrito PASS. Original preservado. Formato aplicado
-sin cambio funcional y `dual-format-correction.log` registra fmt--check exit0.
-Clippy/release/escena/hashes instalados previos siguen válidos; no se reconstruye
-ni instala M28 WIP por esta corrección sólo de whitespace.
-
-
-## M28 — clipboard interno, 2026-10-27
-
-624Rust203/67/354 PASS (3coreignored), Clippy all-targets-Dwarnings, release sin
-warnings y fmt exit0 verificados en clipboard-checkpoint-validation.json.
-clipboard-ui1793130549985863820 funcional scoped PASS8FB IHDRexactos/2root0ACK.
-Copy raw, Cut2 parcial/retry/cancel/rechazo reemplazo/ACKviejo sobrebuffer nuevo,
-menús800×440 sin toast y callbacktexto propio inmediato+eventloop exactos.
-FLTKconst canónica true frente RustCString false demuestra causa del preflight
-anterior, no pérdida de foco/selección. FAILs1793129984528710931/1793130010623243148/
-1793130118639376044/1793130164558745696 y PASSfuncional1793130287088020335 con
-sidecar visual Acciones preservados. Menú contextual sólo dejaba franja de toast
-fuera de rect sin tapar controles; su supresión es limpieza opcional.
-Handlers/framebuffer, no eventosSO, compositorownership/clipboard MIME externo,
-liveResize ni procesoárbol independiente. Recursos/PSS+Swap/CPU/arranque
-NOT_MEASURED por freeze; footer principal incidental NO presupuesto. O06 parcial,
-no tag0.0.4/PASSglobal. Instalar sólo app/helper/HTML coincidentes con esta escena.
+columns-ui-1793124416464738573 PASS 6 PNG IHDR and capture_dimensions match,
+five 1000×650 + initial 800×440. Chain and A/B pruning, copy from the focused column
+(A/nested versus the same name in B), exact bytes/original data intact,
+filter/raw and the renamer payload; two normal 0 after ACK. Arrows and quick steps
+through Model methods; rows/selector/confirmation through visible pointer handlers.
+No OS events/external clipboard/live resize, nor full-chain sessions.
+Additional unit regressions: 12 levels/at most 8 retained, focus before Done/
+stale Stats, Ctrl/Shift on activation, a deferred + cancellable right-click menu, tag 3 migrates
+without geometry and tag 5 saves with scroll. Long names/ancestors partially
+clipped by scroll/clipping; do not claim full readability. Resources/startup
+NOT_MEASURED freeze and the historical FAILs active; the footer's incidental PSS does not count.
 
 
-## M29a — clipboard nativo parcial, 2026-10-27
+## M27 — MC dual pane, 2026-10-27
 
-637Rust(208core/67helper/362UI),3ignored, Clippy all-targets-Dwarnings, fmt y
-release exit0: native-transfer-checkpoint-validation.json. Primer FAIL C++
-reading_epoch preservado. Escena clipboard-ui1793133638367792338 scopedPASS:
-9PNG con dimensiones exactas,2rootexit0ACK. Regresión M28raw/cutparcial/retry/
-cancel/reemplazo/ACKviejo/texto propio; menú800×440 muestra Pegar del sistema y
-handler SIN gesto real rechaza sin operación/fallback ni cambio de generación.
-
-isolate-input mantiene bridge deshabilitado: NO prueba registry/data_device
-activo, serial/foco real, ownership, envío/recepción MIME entre aplicaciones ni
-DnD. Unit State inyecta callbacks; pipe es privado. M29/O06 siguen abiertos,
-KDE/multi-origen/DnD pendientes. OtrosSO/inputSO/liveResize sin validar. Recursos
-y arranque NOT_MEASURED por freeze, footer principal incidental NO presupuesto.
-
-
-## M29b — receptor DnD parcial, 2026-10-27
-
-642Rust (208core/67helper/367UI),3ignored, Clippy workspace/all-targets
--Dwarnings, fmt--check y release exit0. `native-dnd-receiver-final-test.log`
-ejercita la TU C++ real con proxies simulados: busy→source_actions, drop_epoch
-obsoleto antes pipe, ACKfalse sin finish y COPYfinish. El test no es protocolo SO.
-Rust cubre Lease completo antes ACK, target cambiado/filtrado, cancel/cierre y
-pipe privado→AuxIo→Source→revisión→cola/copia bytes sin tocar origen.
-
-`clipboard-ui-1793135944759735086.json` scoped PASS:12PNG dimensiones reales,
-2rootexit0ACK; hover, revisión, cancelar y copia real de fixture raw, selección
-conservada. Escena isolate-input con handlers/pipe/ACK privados: bridge del
-compositor, serial, negociación, recepción externa e inputSO UNVALIDATED.
-Hook pinned FLTK tiene fuente/parche/licencia propios y guard fuerte por hash;
-FAILs de integración anteriores preservados. No se infiere disponibilidad real
-de DnD del fixture. Sender, KDE, multipadre, otros SO y O06 siguen pendientes.
-Recursos/startup NOT_MEASURED por freeze; footer PSS incidental no gate.
+DUAL-PANE-CONTRACT and `evidence/0.0.4/dual-checkpoint-validation.json`: 603 Rust
+(194 core/67 helper/342 UI), 3 pre-existing ignored, Clippy/all-targets -Dwarnings,
+release/fmt PASS. The last two changes are renderer labels only; the final framebuffer
+confirms per-pane filters and the basename before the path context.
+`dual-ui-1793126826929914048.json` functional PASS, eight PNG with exact IHDR
+dimensions, 2 processes exit 0 after ACK. Copy/move raw 0xFF→path 0xFE with real bytes/names,
+non-mutating review/paused, the job finishes after focus/a closed pane, B's selection/query
+preserved. Unit tests for context menu/joint budget/rename+Undo in both listings and
+a single worker with a blocked backend. No OS input/clipboard/live resize nor metrics.
+V07 partial: persistence of both panes/other OSes/other views/gates pending.
+Metrics NOT_MEASURED because of the freeze and the earlier FAILs kept; no global PASS.
 
 
-## M29c — emisor DnD parcial, 2026-10-27
-
-Emisor COPY en ventana propia: guarda el permiso del press original, espera un
-umbral de 8 px, captura nombres raw al pulsar y verifica Source/codifica en
-AuxIo. Antes de solicitar `start_drag` comprueba ventana/seat/epoch/serial
-original, expiración y botón izquierdo; liberar o cancelar invalida antes de
-tomar Model. Una selección múltiple conserva su lote al arrastrar y el clic
-sin arrastre se resuelve al soltar. La reserva conjunta incluye clipboard
-deseado, prueba, payload y fuente publicada; se mantiene hasta ACK o cleanup
-(delimitado también por plazo). La fuente anuncia sólo COPY; `finished` o
-`cancelled` nunca borran archivos ni consumen Cut. El drop propio reutiliza
-revisión y cola existentes.
-
-648 tests workspace (208 core, 67 helper, 373 UI; 3 ignorados), Clippy/fmt/
-release PASS. Fixture C++ usa proxies simulados: COPY/serial/surface en helper
-ya admitido, rechazos de permiso/epoch/plazo y `finished` marca cleanup; no
-acredita grab/foco del compositor ni teardown completo. Escena
-`clipboard-ui-1793136958438850356.json` PASS acotado: 13 framebuffers, Source
-y AuxIo reales, despacho final simulado, Cut conservado y dos cierres con ACK.
-No hay input SO ni interop Wayland probado; O06, KDE, multipadre y adaptadores
-siguen abiertos. Primera escena `clipboard-ui-1793136933634122245.json` FAIL:
-pegado de texto propio tras event loop no llegó. Repetición PASS no explica ni
-borra el fallo; clipboard estable global sigue sin acreditar. Recursos y
-arranque NOT_MEASURED (freeze); previews nuevas pausadas.
+M27 report correction: `dual-title-fmt.log` was a FAIL on a single line because of
+wrapping, even though it had been described as PASS. Original preserved. Formatting applied
+with no functional change and `dual-format-correction.log` records fmt --check exit 0.
+The earlier Clippy/release/scene/installed hashes remain valid; M28 WIP is not rebuilt
+or installed for this whitespace-only correction.
 
 
-## M29d — KDE correlacionado, 2026-10-27
+## M28 — internal clipboard, 2026-10-27
 
-La importación KDE solicita `text/uri-list` y `application/x-kde-cutselection`
-de la misma oferta y época, con un ACK único tras validar intención, Source y
-destino. Dos pipes se drenan concurrentemente con plazo común de 3 s; URI
-limitada a 1 MiB y metadata exactamente un byte `0` o `1` con EOF. Error,
-cancelación, límite o cambio de oferta rechazan todo sin convertir Cut en Copy.
-El máximo por fase del puente es 8 FD: cuatro envíos más cuatro extremos
-transitorios; tras abrir quedan dos lectores, que se cierran antes de capturar
-Source. Otros workers mantienen reservas independientes.
+624 Rust 203/67/354 PASS (3 core ignored), Clippy all-targets -Dwarnings, release without
+warnings and fmt exit 0 verified in clipboard-checkpoint-validation.json.
+clipboard-ui 1793130549985863820 scoped functional PASS 8 FB exact IHDR/2 root 0 ACK.
+Raw Copy, partial Cut 2/retry/cancel/replacement rejection/an old ACK over a new buffer,
+menus 800×440 without a toast and an own-text callback immediately + after the event loop exact.
+The canonical FLTK constant true versus the Rust CString false shows the cause of the earlier
+preflight, not a loss of focus/selection. FAILs 1793129984528710931/1793130010623243148/
+1793130118639376044/1793130164558745696 and the functional PASS 1793130287088020335 with the
+Actions visual sidecar preserved. The context menu only left a toast strip
+outside the rect without covering controls; suppressing it is optional cleanup.
+Handlers/framebuffer, no OS events, compositor ownership/external MIME clipboard,
+live resize nor an independent process tree. Resources/PSS+Swap/CPU/startup
+NOT_MEASURED because of the freeze; the incidental main footer is NOT a budget. O06 partial,
+no 0.0.4 tag/global PASS. Install only an app/helper/HTML matching this scene.
 
-652 tests workspace (208 core, 67 helper, 377 UI; 3 ignorados), Clippy/fmt/
-release PASS. Fixture C++ con proxies simulados verifica dos MIME de una oferta
-y rechazo al cambiar selección entre EOFs. Siete tests de transporte incluyen
-ambos órdenes, metadata inválida, límite, deadline y cancelación después de EOF
-URI. Escena `clipboard-ui-1793137466717410666.json` PASS acotado: dos pipes
-privados, ACK simulado, Cut abre revisión Mover, cancelar conserva origen, dos
-framebuffers y salida0 tras ACK. Input/interop KDE reales siguen UNVALIDATED;
-multipadre, DnD real y O06 siguen abiertos. El FAIL intermitente de texto
-`clipboard-ui-1793136933634122245.json` permanece sin explicación. Recursos y
-arranque NOT_MEASURED por freeze, previews nuevas pausadas.
 
-## Tema lib-fltk-omarchy v0.0.1 — 2026-10-28
+## M29a — partial native clipboard, 2026-10-27
 
-Primera build debug PASS con guard de `config.h` y `FL/fl_config.h`; evidencia
-`docs/evidence/0.0.4/fltk-omarchy-first-build-headers.json` registra hashes y
-comparación normalizada (se excluyen sólo rutas de instalación). Cargo.lock
-contiene una copia de fltk y fltk-sys 1.5.23 y toolkit git `50a42927`.
+637 Rust (208 core/67 helper/362 UI), 3 ignored, Clippy all-targets -Dwarnings, fmt and
+release exit 0: native-transfer-checkpoint-validation.json. The first C++
+reading_epoch FAIL preserved. Scene clipboard-ui 1793133638367792338 scoped PASS:
+9 PNG with exact dimensions, 2 root exit 0 ACK. M28 regression raw/partial cut/retry/
+cancel/replacement/old ACK/own text; the 800×440 menu shows Paste from the system and the
+handler WITHOUT a real gesture rejects with no operation/fallback nor a generation change.
 
-`toolkit-theme-ui-1793181381907414143.json`: PASS acotado, dos capturas FLTK
-1000×650 y conteo de píxeles del fondo antes/después de sustituir el symlink,
-lectura de font.base del shell y Corners square retenido; cierre normal. No
-comprueba input SO, ni aplicación de escala tipográfica a Painter. 668 tests
-workspace PASS (222 core/67 helper/379 UI; 3 core ignorados), Clippy/fmt y
-release PASS. Recursos y arranque NOT_MEASURED. Componentes toolkit restantes,
-paridad global y multipadre no están terminados; se mantiene FAIL anterior de
-clipboard y limitación de Wayland nativo.
+isolate-input keeps the bridge disabled: it does NOT test an active registry/data_device,
+a real serial/focus, ownership, sending/receiving MIME between applications nor
+DnD. The State unit test injects callbacks; the pipe is private. M29/O06 remain open,
+KDE/multi-source/DnD pending. Other OSes/OS input/live resize not validated. Resources
+and startup NOT_MEASURED because of the freeze, the incidental main footer is NOT a budget.
 
-Ajuste posterior: el watcher existente de Files valida colores y shell antes
-de invocar la recarga del toolkit v0.0.1; la validación y lectura del toolkit
-pueden sufrir una carrera ante escritura simultánea. Escena
-`toolkit-theme-ui-1793181731296656632.json` PASS: tres framebuffers, TOML
-truncado rechazado con color anterior visible, symlink cambiado y salida0.
-669 pruebas workspace PASS (223/67/379, 3 ignoradas), Clippy/fmt/release PASS.
-[Issue #5](https://github.com/avillagran/lib-fltk-omarchy/issues/5) solicita al
-toolkit validación y conservación de su propio último tema válido. NOT_MEASURED
-para recursos/arranque; sin input SO.
 
-## Elipsis de ayuda inferior — 2026-10-28
+## M29b — partial DnD receiver, 2026-10-27
 
-La pausa inicial de la marquesina indica truncamiento con `…`, calculando el
-ancho con Painter y conservando límites UTF-8; durante el desplazamiento se
-mantiene el texto completo. `toolkit-theme-ui-1793181920822762898.json` ofrece
-framebuffer real 1000×650, sin input SO. 670 pruebas workspace y Clippy/fmt/
-release PASS en la repetición; 3 ignoradas. La primera suite
-`target/status-tip-ellipsis-test.log` falló en la prueba existente
-`kde_active_cancel_after_uri_eof_closes_both_readers`: el worker devolvió
-Interrupted pero un write al pipe aún tuvo éxito. La prueba aislada y la suite
-posterior pasaron; causa no determinada, no se declara corregido ese fallo.
-Recursos y arranque NOT_MEASURED.
+642 Rust (208 core/67 helper/367 UI), 3 ignored, Clippy workspace/all-targets
+-Dwarnings, fmt --check and release exit 0. `native-dnd-receiver-final-test.log`
+exercises the real C++ TU with simulated proxies: busy→source_actions, an obsolete
+drop_epoch before the pipe, ACK false without finish and COPY finish. The test is not the OS protocol.
+Rust covers the complete Lease before ACK, a changed/filtered target, cancel/close and
+private pipe→AuxIo→Source→review→queue/byte copy without touching the source.
 
-## Pin lib-fltk-omarchy v0.0.2 — 2026-10-28
+`clipboard-ui-1793135944759735086.json` scoped PASS: 12 PNG with real dimensions,
+2 root exit 0 ACK; hover, review, cancel and a real copy of the raw fixture, selection
+kept. An isolate-input scene with private handlers/pipe/ACK: the compositor's
+bridge, serial, negotiation, external reception and OS input UNVALIDATED.
+The pinned FLTK hook has its own source/patch/license and a strong guard by hash;
+earlier integration FAILs preserved. Real DnD availability is not inferred
+from the fixture. Sender, KDE, multi-parent, other OSes and O06 are still pending.
+Resources/startup NOT_MEASURED because of the freeze; the incidental PSS footer is not a gate.
 
-Primera build `target/fltk-omarchy-v002-first-build.log`: guard de headers PASS;
-`fltk-omarchy-v002-headers.json` confirma una copia de fltk/fltk-sys y hashes
-normalizados de headers. Workspace: 670 tests PASS (223/67/380), tres core
-ignorados, Clippy/fmt/release PASS. `toolkit-theme-ui-1793212312149703731.json`
-valida tema/rename/rechazo parcial en framebuffer de Files, sin input SO.
-`toolkit-v002-focus-fixture.png` muestra un anillo de ButtonGroup en una
-ventana aislada del toolkit mediante `focus::press`; no es un anillo en Files.
-El router de Files, sus pruebas de Tab, foco y entradas reales quedan abiertos
-según `FLTK-OMARCHY-KEYBOARD-MIGRATION.md`; no reemplaza el comportamiento actual.
-Freeze recursos/arranque NOT_MEASURED. Fallos anteriores conservados.
 
-## Pin toolkit v0.0.7 — 2026-10-28
+## M29c — partial DnD sender, 2026-10-27
 
-Cambio de dependencia aislado: `3f5978a3836e42eca4940ae5007fe21ec66d9c3e`, GPU
-apagada. Primera build/guard y `fltk-omarchy-v007-headers.json` PASS: headers
-normalizados y una sola copia fltk/fltk-sys 1.5.23. 670 pruebas (223/67/380),
-3 ignoradas; Clippy/fmt/release PASS. Escena
-`toolkit-theme-ui-1793227096202584809.json` PASS para tema existente, framebuffer
-real y handlers internos; no verifica PopupMenu, KeyboardPanel ni input SO.
-Recursos y arranque NOT_MEASURED. Migración posterior y W02 descritos en
+A COPY sender on its own window: it keeps the permission of the original press, waits for an
+8 px threshold, captures raw names on press and verifies the Source/encodes in
+AuxIo. Before requesting `start_drag` it checks window/seat/epoch/original serial,
+expiry and the left button; releasing or cancelling invalidates before
+taking the Model. A multiple selection keeps its batch when dragging and a click
+without a drag is resolved on release. The joint reservation includes the desired
+clipboard, proof, payload and published source; it is held until ACK or cleanup
+(also bounded by a deadline). The source announces only COPY; `finished` or
+`cancelled` never delete files nor consume a Cut. The own drop reuses the
+existing review and queue.
+
+648 workspace tests (208 core, 67 helper, 373 UI; 3 ignored), Clippy/fmt/
+release PASS. A C++ fixture uses simulated proxies: COPY/serial/surface in an
+already admitted helper, permission/epoch/deadline rejections and `finished` marks cleanup; it does not
+prove the compositor's grab/focus nor a complete teardown. Scene
+`clipboard-ui-1793136958438850356.json` bounded PASS: 13 framebuffers, real Source
+and AuxIo, a simulated final dispatch, Cut kept and two closes with ACK.
+There is no OS input nor proven Wayland interop; O06, KDE, multi-parent and adapters
+remain open. The first scene `clipboard-ui-1793136933634122245.json` FAIL:
+pasting own text after the event loop did not arrive. The PASS repeat neither explains nor
+erases the failure; a stable global clipboard is still not proven. Resources and
+startup NOT_MEASURED (freeze); new previews paused.
+
+
+## M29d — correlated KDE, 2026-10-27
+
+The KDE import requests `text/uri-list` and `application/x-kde-cutselection`
+from the same offer and epoch, with a single ACK after validating intent, Source and
+destination. Two pipes are drained concurrently with a common 3 s deadline; the URI list is
+limited to 1 MiB and the metadata to exactly one byte `0` or `1` with EOF. An error,
+cancellation, limit or offer change rejects everything without turning Cut into Copy.
+The bridge's per-phase maximum is 8 FDs: four sends plus four transient
+ends; after opening, two readers remain, which are closed before capturing the
+Source. Other workers keep independent reservations.
+
+652 workspace tests (208 core, 67 helper, 377 UI; 3 ignored), Clippy/fmt/
+release PASS. A C++ fixture with simulated proxies verifies two MIME types of one offer
+and rejection when the selection changes between EOFs. Seven transport tests include
+both orders, invalid metadata, the limit, the deadline and cancellation after the URI
+EOF. Scene `clipboard-ui-1793137466717410666.json` bounded PASS: two private
+pipes, a simulated ACK, Cut opens the Move review, cancel keeps the source, two
+framebuffers and exit 0 after ACK. Real KDE input/interop are still UNVALIDATED;
+multi-parent, real DnD and O06 remain open. The intermittent text FAIL
+`clipboard-ui-1793136933634122245.json` remains unexplained. Resources and
+startup NOT_MEASURED because of the freeze, new previews paused.
+
+## lib-fltk-omarchy v0.0.1 theme — 2026-10-28
+
+First debug build PASS with the `config.h` and `FL/fl_config.h` guard; the evidence
+`docs/evidence/0.0.4/fltk-omarchy-first-build-headers.json` records hashes and a
+normalized comparison (only installation paths are excluded). Cargo.lock
+contains one copy of fltk and fltk-sys 1.5.23 and the toolkit git `50a42927`.
+
+`toolkit-theme-ui-1793181381907414143.json`: bounded PASS, two FLTK captures
+1000×650 and a count of background pixels before/after replacing the symlink,
+reading the shell's font.base and square Corners retained; normal close. It does not
+check OS input, nor the application of the typographic scale to Painter. 668
+workspace tests PASS (222 core/67 helper/379 UI; 3 core ignored), Clippy/fmt and
+release PASS. Resources and startup NOT_MEASURED. The remaining toolkit components,
+global parity and multi-parent are not finished; the earlier clipboard FAIL and the
+native Wayland limitation are kept.
+
+Later adjustment: Files' existing watcher validates colors and shell before
+invoking the toolkit v0.0.1 reload; the toolkit's validation and read
+can race against a simultaneous write. Scene
+`toolkit-theme-ui-1793181731296656632.json` PASS: three framebuffers, truncated
+TOML rejected with the earlier color visible, the symlink changed and exit 0.
+669 workspace tests PASS (223/67/379, 3 ignored), Clippy/fmt/release PASS.
+[Issue #5](https://github.com/avillagran/lib-fltk-omarchy/issues/5) asks the
+toolkit to validate and keep its own last valid theme. NOT_MEASURED
+for resources/startup; no OS input.
+
+## Bottom help ellipsis — 2026-10-28
+
+The marquee's initial pause signals truncation with `…`, computing the
+width with Painter and keeping UTF-8 boundaries; while scrolling, the full
+text is kept. `toolkit-theme-ui-1793181920822762898.json` provides a
+real 1000×650 framebuffer, without OS input. 670 workspace tests and Clippy/fmt/
+release PASS in the repeat; 3 ignored. The first suite
+`target/status-tip-ellipsis-test.log` failed in the existing test
+`kde_active_cancel_after_uri_eof_closes_both_readers`: the worker returned
+Interrupted but a write to the pipe still succeeded. The isolated test and the later
+suite passed; cause not determined, that failure is not declared fixed.
+Resources and startup NOT_MEASURED.
+
+## lib-fltk-omarchy v0.0.2 pin — 2026-10-28
+
+First build `target/fltk-omarchy-v002-first-build.log`: header guard PASS;
+`fltk-omarchy-v002-headers.json` confirms one copy of fltk/fltk-sys and normalized
+header hashes. Workspace: 670 tests PASS (223/67/380), three core
+ignored, Clippy/fmt/release PASS. `toolkit-theme-ui-1793212312149703731.json`
+validates theme/rename/partial rejection in Files' framebuffer, without OS input.
+`toolkit-v002-focus-fixture.png` shows a ButtonGroup ring in an
+isolated toolkit window through `focus::press`; it is not a ring in Files.
+Files' router, its Tab, focus and real input tests remain open
+according to `FLTK-OMARCHY-KEYBOARD-MIGRATION.md`; it does not replace the current behavior.
+Resource/startup freeze NOT_MEASURED. Earlier failures kept.
+
+## Toolkit v0.0.7 pin — 2026-10-28
+
+Isolated dependency change: `3f5978a3836e42eca4940ae5007fe21ec66d9c3e`, GPU
+off. First build/guard and `fltk-omarchy-v007-headers.json` PASS: normalized
+headers and a single copy of fltk/fltk-sys 1.5.23. 670 tests (223/67/380),
+3 ignored; Clippy/fmt/release PASS. Scene
+`toolkit-theme-ui-1793227096202584809.json` PASS for the existing theme, the real
+framebuffer and internal handlers; it does not verify PopupMenu, KeyboardPanel nor OS input.
+Resources and startup NOT_MEASURED. The later migration and W02 are described in
 `FLTK-OMARCHY-KEYBOARD-MIGRATION.md`.
 
-## Tema estricto del toolkit v0.0.7 — 2026-10-28
+## Toolkit v0.0.7 strict theme — 2026-10-28
 
-Files usa `Theme::try_load` en el arranque y `reload`/`last_error` en cambios;
-se retiró su validación TOML duplicada. El watcher de Files conserva el override
-`FILES_THEME`. Escena `toolkit-theme-ui-1793227227928691866.json` PASS: cinco
-framebuffers, colores truncados, archivo de colores ausente y shell malformado
-mantienen la última paleta; `last_error` comunica cada rechazo y un rename
-válido recupera el tema. Cierre normal; handlers internos, no input SO.
-669 tests (222 core/67 helper/380 UI; 3 ignorados), Clippy/fmt/release y guard
-headers PASS. Una copia FLTK/fltk-sys 1.5.23, toolkit `3f5978a`, GPU off;
-recursos y arranque NOT_MEASURED. Se eliminó una prueba de la validación local
-retirada; los casos están cubiertos por esta escena real.
+Files uses `Theme::try_load` at startup and `reload`/`last_error` on changes;
+its duplicated TOML validation was removed. Files' watcher keeps the
+`FILES_THEME` override. Scene `toolkit-theme-ui-1793227227928691866.json` PASS: five
+framebuffers, truncated colors, a missing colors file and a malformed shell
+keep the last palette; `last_error` reports each rejection and a valid rename
+recovers the theme. Normal close; internal handlers, not OS input.
+669 tests (222 core/67 helper/380 UI; 3 ignored), Clippy/fmt/release and the header
+guard PASS. One copy of FLTK/fltk-sys 1.5.23, toolkit `3f5978a`, GPU off;
+resources and startup NOT_MEASURED. A test of the removed local validation
+was deleted; its cases are covered by this real scene.
 
 ## 2026-10-30 — Local search / keyboard / directory-size slice
 
@@ -2267,7 +2267,7 @@ Installed source `e58f576`, report `evidence/0.0.4/installed-checkpoint-17934582
 
 ### 2026-10-31 — Captured local search calendar
 
-F8/Nerd calendar: Hoy/Ayer/hoy y seis días previos, process-local calendar resolved
+F8/Nerd calendar: Today/Yesterday/today and the six previous days, process-local calendar resolved
 once on existing AuxIo with reference captured on choice. Dates populate fixed
 UTC bounds and require explicit Search. Date-only UTC syntax unchanged; strict
 YYYY-MM-DDTHH:MM:SSZ extension, mixed bounds compare instants. Latest/epoch/close/
