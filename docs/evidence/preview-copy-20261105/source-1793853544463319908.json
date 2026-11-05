@@ -1,0 +1,33 @@
+{
+  "functional_gate": "PASS",
+  "label": "source",
+  "binary_sha256": "984616b49223580b2d6d925020c642cede0dcd56f0823fbf244f07986d4b3985",
+  "method": "private nested Hyprland on a hidden special workspace; virtual pointer + wtype on the nested socket; nested clipboard only",
+  "checks": {
+    "empty_selection_keeps_clipboard": "previo",
+    "double_click_word": "segunda",
+    "triple_click_line": "segunda línea con más texto aquí\n",
+    "drag_ctrl_c": "primera línea del archivo de prueba\nsegunda línea",
+    "copy_button_after_hover": "primera",
+    "notices": [
+      "FILES_PREVIEW_COPY bytes=0 notice=Nada seleccionado: arrastra, doble clic (palabra), triple clic (línea) o Ctrl+A",
+      "FILES_PREVIEW_COPY bytes=7 notice=Copiado: 7 caracteres",
+      "FILES_PREVIEW_COPY bytes=36 notice=Copiado: 33 caracteres",
+      "FILES_PREVIEW_COPY bytes=51 notice=Copiado: 49 caracteres",
+      "FILES_PREVIEW_COPY bytes=7 notice=Copiado: 7 caracteres"
+    ]
+  },
+  "captures": [
+    "/home/node/Work/files/docs/evidence/preview-copy-20261105/source-empty-selection-notice-1793853549959086455.png",
+    "/home/node/Work/files/docs/evidence/preview-copy-20261105/source-copied-notice-1793853554424646179.png"
+  ],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "parent_socket": "wayland-1",
+  "nested": {
+    "socket": "wayland-2",
+    "pid": [
+      "1442546"
+    ]
+  }
+}

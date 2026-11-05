@@ -1,0 +1,21 @@
+{
+  "functional_gate": "FAIL",
+  "label": "installed-before",
+  "binary_sha256": "d68d35c46b41074b9d80eee1cbd088f8a09a5b08b2e13420b6eff141d7e9ac4c",
+  "method": "private nested Hyprland on a hidden special workspace; virtual pointer + wtype on the nested socket; nested clipboard only",
+  "checks": {
+    "empty_selection_keeps_clipboard": ""
+  },
+  "captures": [],
+  "resource_gate": "NOT_MEASURED",
+  "startup_gate": "NOT_MEASURED",
+  "parent_socket": "wayland-1",
+  "nested": {
+    "socket": "wayland-2",
+    "pid": [
+      "1443145"
+    ]
+  },
+  "error": "AssertionError('')",
+  "nested_stopped": true
+}

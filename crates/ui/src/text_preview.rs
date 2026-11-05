@@ -43,6 +43,11 @@ impl Model {
         }
     }
     pub fn preview_pointer_down(&mut self, x: i32, y: i32, shift: bool) {
+        self.preview_pointer_press(x, y, shift, 0);
+    }
+    /// `clicks` is FLTK's extra-click count: double click selects a word,
+    /// triple click a line, in text, Markdown and HTML previews.
+    pub fn preview_pointer_press(&mut self, x: i32, y: i32, shift: bool, clicks: i32) {
         if let View::Ready(ready) = self.preview.view()
             && let Some(audio) = &ready.audio
             && audio.timeline.contains(x, y)
@@ -70,14 +75,8 @@ impl Model {
             && ready.rendered.viewport.body.contains(x, y)
         {
             let offset = ready.rendered.offset_at(&mut FltkPainter, x, y);
-            ready.rendered.document.move_to(offset, shift);
-            let selected = ready.rendered.document.selection_range();
             ready.rendered.viewport.selection_anchor =
-                if ready.rendered.document.caret() == selected.start {
-                    selected.end
-                } else {
-                    selected.start
-                };
+                ready.rendered.document.click(offset, shift, clicks);
             ready.rendered.viewport.dragging = true;
             return;
         }
@@ -85,14 +84,8 @@ impl Model {
             && let View::Html(ready) = self.preview.view_mut()
         {
             let offset = ready.rendered.offset_at(&mut FltkPainter, x, y);
-            ready.rendered.document.move_to(offset, shift);
-            let range = ready.rendered.document.selection_range();
-            self.text_viewport.selection_anchor = if ready.rendered.document.caret() == range.start
-            {
-                range.end
-            } else {
-                range.start
-            };
+            self.text_viewport.selection_anchor =
+                ready.rendered.document.click(offset, shift, clicks);
             self.text_viewport.dragging = true;
             return;
         }
@@ -102,13 +95,7 @@ impl Model {
             let offset = self
                 .text_viewport
                 .offset_at(&mut FltkPainter, &ready.document, x, y);
-            ready.document.move_to(offset, shift);
-            let selected = ready.document.selection_range();
-            self.text_viewport.selection_anchor = if ready.document.caret() == selected.start {
-                selected.end
-            } else {
-                selected.start
-            };
+            self.text_viewport.selection_anchor = ready.document.click(offset, shift, clicks);
             self.text_viewport.dragging = true;
         }
     }
@@ -163,10 +150,26 @@ impl Model {
             false
         }
     }
-    pub fn copy_preview(&self) {
-        if let Some(document) = self.preview.document() {
-            app::copy(document.selected_text());
-        }
+    /// Copies the selected text. An empty selection never replaces the
+    /// clipboard (it used to publish "" and wipe what the user had copied).
+    pub fn copy_preview(&mut self) {
+        let Some(document) = self.preview.document() else {
+            return;
+        };
+        let text = document.selected_text();
+        let notice = if text.is_empty() {
+            "Nada seleccionado: arrastra, doble clic (palabra), triple clic (línea) o Ctrl+A"
+                .to_string()
+        } else {
+            app::copy(text);
+            let chars = text.chars().count();
+            format!(
+                "Copiado: {chars} {}",
+                if chars == 1 { "carácter" } else { "caracteres" }
+            )
+        };
+        eprintln!("FILES_PREVIEW_COPY bytes={} notice={notice}", text.len());
+        self.text_viewport.copy_notice = Some(notice);
     }
 }
 fn inline_notice(text: &str) -> String {
@@ -545,6 +548,9 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
         }
         View::Closed => return,
     };
+    if let Some(notice) = &m.text_viewport.copy_notice {
+        footer = format!("{notice} · {footer}");
+    }
     if let Some(viewport) = m.preview.bitmap_viewport_mut()
         && viewport.quarter_turns() != 0
     {
@@ -784,20 +790,23 @@ pub fn paint(p: &mut dyn Painter, m: &mut Model, w: i32, h: i32) {
         button(
             p,
             m,
-            Rect::new(x + width - 260, y + height - 34, 120, 25),
+            Rect::new(x + width - 290, y + height - 34, 124, 25),
             "Todo · Ctrl+A",
             Action::SelectPreview,
         );
         button(
             p,
             m,
-            Rect::new(x + width - 132, y + height - 34, 114, 25),
+            Rect::new(x + width - 158, y + height - 34, 140, 25),
             "Copiar · Ctrl+C",
             Action::CopyPreview,
         );
     }
 }
 pub fn event(m: &mut Model, ev: Event) -> bool {
+    if matches!(ev, Event::Push | Event::KeyDown | Event::Shortcut) {
+        m.text_viewport.copy_notice = None;
+    }
     let ctrl = app::event_state().intersects(Shortcut::Ctrl | Shortcut::Meta);
     let shift = app::event_state().intersects(Shortcut::Shift);
     match ev {
@@ -813,7 +822,7 @@ pub fn event(m: &mut Model, ev: Event) -> bool {
             {
                 m.action(action);
             } else if !(ctrl && m.follow_preview_link(x, y)) {
-                m.preview_pointer_down(x, y, shift);
+                m.preview_pointer_press(x, y, shift, app::event_clicks_num());
             }
         }
         Event::Drag => m.preview_pointer_drag(app::event_x(), app::event_y()),

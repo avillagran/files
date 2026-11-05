@@ -100,6 +100,16 @@ fn floor_command(m: &mut Model, action: &str) -> Option<Result<(), String>> {
         m.action(Action::LinkCopied);
         return Some(Ok(()));
     }
+    if let Some(name) = action.strip_prefix("nf-preview:") {
+        return Some(open(m, name));
+    }
+    if action == "nf-preview-copy-all" {
+        m.action(Action::SelectPreview);
+        m.action(Action::CopyPreview);
+        let n = m.preview.document().map_or(0, |d| d.selected_text().len());
+        eprintln!("FILES_PREVIEW_COPY selected_bytes={n}");
+        return Some(Ok(()));
+    }
     if action == "nf-folder-with" {
         m.action(Action::FolderWithSelection);
         return Some(Ok(()));

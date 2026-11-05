@@ -14,6 +14,8 @@ pub struct Viewport {
     pub dragging: bool,
     pub body: Rect,
     pub selection_anchor: usize,
+    /// Result of the last copy, shown in the footer until the next input.
+    pub copy_notice: Option<String>,
 }
 fn visible_prefix(text: &str) -> &str {
     let mut n = text.len().min(MAX_PAINT_BYTES);

@@ -103,6 +103,69 @@ impl TextDocument {
         self.anchor = self.boundary(anchor);
         self.caret = self.boundary(caret);
     }
+    /// Double click: the run of word characters (letters, digits, `_`), of
+    /// blanks or of punctuation around `offset`, never crossing a line end.
+    pub fn word_range(&self, offset: usize) -> Range<usize> {
+        fn class(c: char) -> u8 {
+            if c.is_alphanumeric() || c == '_' {
+                0
+            } else if c.is_whitespace() {
+                1
+            } else {
+                2
+            }
+        }
+        let offset = self.boundary(offset);
+        let line = self
+            .line_range(self.position(offset).0)
+            .expect("existing line");
+        let text = &self.text[line.clone()];
+        let at = offset.clamp(line.start, line.end) - line.start;
+        let Some(target) = text[at..]
+            .chars()
+            .next()
+            .or_else(|| text[..at].chars().next_back())
+        else {
+            return offset..offset;
+        };
+        let kind = class(target);
+        let start = text[..at]
+            .char_indices()
+            .rev()
+            .take_while(|(_, c)| class(*c) == kind)
+            .last()
+            .map_or(at, |(i, _)| i);
+        let end = text[at..]
+            .char_indices()
+            .find(|(_, c)| class(*c) != kind)
+            .map_or(text.len(), |(i, _)| at + i);
+        line.start + start..line.start + end
+    }
+    /// Triple click: the whole line with its original line ending.
+    pub fn line_span(&self, offset: usize) -> Range<usize> {
+        let line = self.position(offset).0;
+        let start = self.starts[line];
+        start..self.starts.get(line + 1).copied().unwrap_or(self.text.len())
+    }
+    /// A pointer press with FLTK's extra-click count (0 single, 1 double,
+    /// 2+ triple). Returns the anchor a following drag extends from.
+    pub fn click(&mut self, offset: usize, extend: bool, clicks: i32) -> usize {
+        let range = match clicks {
+            1 => self.word_range(offset),
+            2.. => self.line_span(offset),
+            _ => {
+                self.move_to(offset, extend);
+                let range = self.selection_range();
+                return if self.caret == range.start {
+                    range.end
+                } else {
+                    range.start
+                };
+            }
+        };
+        self.select(range.start, range.end);
+        range.start
+    }
     pub fn select_all(&mut self) {
         self.select(0, self.text.len());
     }
@@ -156,6 +219,34 @@ impl TextDocument {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn double_and_triple_click_select_word_and_line() {
+        let mut doc = TextDocument::new("hola mundo_2, área\r\nsegunda línea\nfin".into()).unwrap();
+        assert_eq!(doc.click(7, false, 1), 5);
+        assert_eq!(doc.selected_text(), "mundo_2");
+        doc.click(16, false, 1);
+        assert_eq!(doc.selected_text(), "área");
+        // At the end of a line the word before it is chosen, not the CRLF.
+        doc.click(doc.line_range(0).unwrap().end, false, 1);
+        assert_eq!(doc.selected_text(), "área");
+        doc.click(12, false, 1);
+        assert_eq!(doc.selected_text(), ",");
+        doc.click(4, false, 1);
+        assert_eq!(doc.selected_text(), " ");
+        doc.click(25, false, 2);
+        assert_eq!(doc.selected_text(), "segunda línea\n");
+        doc.click(0, false, 3);
+        assert_eq!(doc.selected_text(), "hola mundo_2, área\r\n");
+        let end = doc.text().len();
+        doc.click(end, false, 2);
+        assert_eq!(doc.selected_text(), "fin");
+        // A single click collapses; Shift+click extends from the old anchor.
+        assert_eq!(doc.click(2, false, 0), 2);
+        assert!(doc.selected_text().is_empty());
+        doc.click(10, true, 0);
+        assert_eq!(doc.selected_text(), "la mundo");
+        assert!(TextDocument::new(String::new()).unwrap().word_range(0).is_empty());
+    }
     #[test]
     fn lines_borrow_source_and_copy_preserves_original_endings() {
         let mut doc = TextDocument::new("área\r\n漢字\nlast".into()).unwrap();
