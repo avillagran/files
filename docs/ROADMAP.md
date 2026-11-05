@@ -302,197 +302,197 @@ resources/startup NOT_MEASURED because of the freeze. M24 installed intact.
 
 ## M25 — visible checkpoint, 2026-10-27
 
-Sustituye el WIP anterior para EXDEV de un archivo regular nlink1 y recuperación
-explícita. 586Rust193/67/326, Clippy/release limpios; escena
-exdev-ui-1793122272433112203 PASS3casos FS63→75/10FB/close0ACK/stages ausentes.
-Catálogo legible origen→destino, prueba de intención y ownership hasta admisión;
-controles en ventana inicial440×440 completos, textos largos recortados. Live
-resize UNVALIDATED y FAILs/sidecar preservados. EXDEV-JOURNAL-CONTRACT incluye
-contabilidad local, no medición global. Recursos/startup NOT_MEASURED freeze.
+It replaces the earlier WIP for EXDEV of a regular nlink 1 file and explicit
+recovery. 586 Rust 193/67/326, Clippy/release clean; scene
+exdev-ui-1793122272433112203 PASS 3 cases FS 63→75/10 FB/close 0 ACK/stages absent.
+A readable source→destination catalog, intent proof and ownership until admission;
+complete controls in the initial 440×440 window, long texts clipped. Live
+resize UNVALIDATED and the FAILs/sidecar preserved. EXDEV-JOURNAL-CONTRACT includes
+local accounting, not a global measurement. Resources/startup NOT_MEASURED freeze.
 
-Prioridad explícita del usuario: PAUSAR ampliaciones de previews/medios, conservar
-lo instalado y continuar funciones/UI. Siguiente unidad visible: doble panel,
-después cortar/pegar y DnD sobre cola global, ampliar operaciones y SFTP como
-montaje del SO. Shaders app, i18n y demás matriz permanecen abiertos. No cerrar
-O01/O03/X02 por este scope single-file; árboles/hardlinks/lotes requieren ledger.
-
-
-## M26 — Columnas sustituye Espacial, 2026-10-27
-
-Prioridad explícita usuario ejecutada: Ctrl+3/selector/--columns y alias--spatial
-→ Miller/Finder; Espacio/treemap permanece. Un Model +worker activo y otro worker
-lookahead reutilizable, cachés sin motores. Ocho listados retenidos con ventana
-deslizante (no límite de profundidad), poda por ancestro y foco/origen separados.
-Tag3 legado migra sin zoom/pan/scroll de iconos, tag5 nuevo conserva scroll.
-Layouts antiguos no borrados. V06 parcial verificado, V08 sustituida por decisión.
-596Rust194/67/335+Clippy/release/fmt y escena1793124416464738573 PASS6FB/copia bytes/
-poda/normal0ACK/initial800×440. Menú inactivo diferido y cancelable con prueba de
-nombre raw/generación; payloads/modificadores/profundidad12/migración en tests.
-FAILs previos conservados; lock journal owner explicitunlock sóloPIDcreador con
-regresión FDduplicado RED→GREEN. No inputSO/liveResize/recursos/startup/globalPASS.
-Doble panel siguiente: F9/Tab, origen capturado, F5/F6 destino opuesto revisado,
-cola/journal/supervisores únicos. Previews nuevas pausadas y freeze intacto.
+Explicit user priority: PAUSE extensions of previews/media, keep
+what is installed and continue with features/UI. Next visible unit: dual pane,
+then cut/paste and DnD on the global queue, extend operations and SFTP as an
+OS mount. App shaders, i18n and the rest of the matrix remain open. Do not close
+O01/O03/X02 because of this single-file scope; trees/hardlinks/batches need a ledger.
 
 
-## M27 — doble panel MC visible, 2026-10-27
+## M26 — Columns replaces Spatial, 2026-10-27
 
-F9/Tab y navegación independiente con origen/destino capturados F5/F6. Un Model
-activo+Browser movible, una cola/journal/media/AuxIo; worker secundario compartido
-por transferencia exclusiva con Columnas. Grupos Tabs con IDs(panel,tab),3MiB
-metadata conjunto incluido oculto, datos32MiB locales sin PSSclaim. F9off libera
-listados invisibles; cierre panel no cancela cola. Sesión sólo grupo enfocado
-con aviso explícito, persistencia dual pendiente.603Rust194/67/342+Clippy/release/
-fmt y dual-ui1793126826929914048 PASS8FB/copia y move raw/normal0ACK/initial800×440.
-No inputSO/liveResize/recursos/startup/globalPASS. Previews nuevas pausadas.
-Sigue cortar/pegar y DnD sobre motores existentes, ampliar operaciones y SFTP
-montado; EXDEV árboles/hardlinks/lotes, shaders app/i18n y resto siguen abiertos.
-
-
-## M28 — Copiar/Cortar/Pegar visible, 2026-10-27
-
-CtrlC/X/V contextual/Acciones y destino raw revisable sobre cola única. Captura
-AuxIo/Source FD + tokens efectivos Native/EXDEV, subset original para retry,
-Control vivo y cancelación tipada; Cut consume sólo confirmados por generación.
-Presupuesto conjunto clipboard2MiB/FDs conjuntos locales, no claim de PSS.
-624Rust203/67/354+Clippy/release/fmt, escena1793130549985863820 PASS8FB/2normal0ACK,
-Copy0xFF→dest0xFE, Cut2 parcial/retry/cancel/reemplazo, buffer nuevo conserva ACK.
-Const MIME FLTK canónica corrige consulta Rust falsa por puntero: texto propio
-inmediato y tras eventloop exactos, NO prueba de foco/serial ni clipboard externo.
-Menús inicial800×440 sin toast; FAILs previos/sidecar preservados. O06 parcial:
-M29 MIME nativo/DnD con gesto/serial real y bytes bounded, contrato antes wiring.
-No data-control como fallback de foco. Previews pausadas y freeze intactos.
+Explicit user priority carried out: Ctrl+3/selector/--columns and the --spatial alias
+→ Miller/Finder; Space/treemap stays. One Model + active worker and another reusable
+lookahead worker, caches without engines. Eight retained listings with a sliding
+window (no depth limit), pruning by ancestor and separate focus/source.
+The legacy tag 3 migrates without icon zoom/pan/scroll, the new tag 5 keeps scroll.
+Old layouts not deleted. V06 partially verified, V08 replaced by decision.
+596 Rust 194/67/335 + Clippy/release/fmt and scene 1793124416464738573 PASS 6 FB/byte copy/
+pruning/normal 0 ACK/initial 800×440. A deferred, cancellable inactive menu with a
+raw name/generation proof; payloads/modifiers/depth 12/migration in tests.
+Earlier FAILs kept; the journal lock owner does an explicit unlock only in the creating PID, with a
+duplicated-FD regression RED→GREEN. No OS input/live resize/resources/startup/global PASS.
+Dual pane next: F9/Tab, captured source, F5/F6 to the reviewed opposite destination,
+single queue/journal/supervisors. New previews paused and freeze intact.
 
 
-## M29 — MIME/DnD nativos activo, contrato previo
+## M27 — visible MC dual pane, 2026-10-27
 
-Contrato NATIVE-TRANSFER-CONTRACT.md: wl_data_device/puente con gesto+serialreal,
-proxies/listeners propios coexistiendo con FLTK, offers/tokens y FD bounded antes
-alloc; no FL_PASTE URItexto ni data-control para foco. Codec raw exactuna vez,
-destino capturado, cola/proofs existentes. DnD externo inicialmente COPY negociado;
-finished no autoriza borrar ni duplica delete, Move interno por ACK propio.
-M29a WIP: codec/bridge clipboard/AuxIo/revisión implementados,637Rust+Clippy/fmt
-aprobados; eventos/MIME SO no validados. Un padre común; KDE/multi-origen y DnD
-externo pendientes (FLTK negocia en paralelo; requiere hook opt-in reproducible).
-M28 privado no cierra O06. Previews nuevas pausadas/freeze intactos, resto ROADMAP no abandonado.
-
-
-## M29b — receptor DnD en integración, 2026-10-27
-
-Hook FLTK1.5.23 opt-in por ventana propia, patch reproducible y guard de enlace
-por hash; receptor COPY/URI y destino por panel/columna sin robar foco. 642Rust
-(208/67/367),3ignored; Clippy/fmt/release exit0. Test C++ proxies simulados y
-clipboard-ui1793135944759735086 scoped PASS12PNG/2root0ACK: pipe privado→
-AuxIo→revisión→cancel/retry→cola/copia raw; origen/selección conservados.
-Native Wayland/inputSO/interop UNVALIDATED, sender/KDE/multi-padre/otrosSO
-pendientes; O06 sigue parcial. Freeze recursos/startup y pausa previews intactos.
+F9/Tab and independent navigation with source/destination captured by F5/F6. One active
+Model + a movable Browser, one queue/journal/media/AuxIo; a secondary worker shared
+through exclusive transfer with Columns. Tab groups with IDs (pane, tab), 3 MiB
+shared metadata including the hidden one, 32 MiB of local data without a PSS claim. F9 off frees
+invisible listings; closing a pane does not cancel the queue. The session covers only the focused group
+with an explicit notice, dual persistence pending. 603 Rust 194/67/342 + Clippy/release/
+fmt and dual-ui 1793126826929914048 PASS 8 FB/raw copy and move/normal 0 ACK/initial 800×440.
+No OS input/live resize/resources/startup/global PASS. New previews paused.
+Next: cut/paste and DnD on the existing engines, extend operations and mounted
+SFTP; EXDEV trees/hardlinks/batches, app shaders/i18n and the rest remain open.
 
 
-## M29c — emisor DnD parcial, 2026-10-27
+## M28 — visible Copy/Cut/Paste, 2026-10-27
 
-Emisor COPY en ventana propia: guarda el permiso del press original, espera un
-umbral de 8 px, captura nombres raw al pulsar y verifica Source/codifica en
-AuxIo. Antes de solicitar `start_drag` comprueba ventana/seat/epoch/serial
-original, expiración y botón izquierdo; liberar o cancelar invalida antes de
-tomar Model. Una selección múltiple conserva su lote al arrastrar y el clic
-sin arrastre se resuelve al soltar. La reserva conjunta incluye clipboard
-deseado, prueba, payload y fuente publicada; se mantiene hasta ACK o cleanup
-(delimitado también por plazo). La fuente anuncia sólo COPY; `finished` o
-`cancelled` nunca borran archivos ni consumen Cut. El drop propio reutiliza
-revisión y cola existentes.
-
-648 tests workspace (208 core, 67 helper, 373 UI; 3 ignorados), Clippy/fmt/
-release PASS. Fixture C++ usa proxies simulados: COPY/serial/surface en helper
-ya admitido, rechazos de permiso/epoch/plazo y `finished` marca cleanup; no
-acredita grab/foco del compositor ni teardown completo. Escena
-`clipboard-ui-1793136958438850356.json` PASS acotado: 13 framebuffers, Source
-y AuxIo reales, despacho final simulado, Cut conservado y dos cierres con ACK.
-No hay input SO ni interop Wayland probado; O06, KDE, multipadre y adaptadores
-siguen abiertos. Primera escena `clipboard-ui-1793136933634122245.json` FAIL:
-pegado de texto propio tras event loop no llegó. Repetición PASS no explica ni
-borra el fallo; clipboard estable global sigue sin acreditar. Recursos y
-arranque NOT_MEASURED (freeze); previews nuevas pausadas.
+Ctrl+C/X/V, context menu/Actions and a reviewable raw destination on the single queue. Capture
+through AuxIo/Source FD + effective Native/EXDEV tokens, the original subset for retry,
+a live Control and typed cancellation; Cut only consumes what is confirmed per generation.
+Joint clipboard budget of 2 MiB/joint local FDs, no PSS claim.
+624 Rust 203/67/354 + Clippy/release/fmt, scene 1793130549985863820 PASS 8 FB/2 normal 0 ACK,
+Copy 0xFF→dest 0xFE, Cut 2 partial/retry/cancel/replacement, a new buffer survives the ACK.
+The canonical FLTK MIME constant fixes the false Rust query caused by a pointer: own text
+immediately and after the event loop exact, NOT a test of focus/serial nor the external clipboard.
+Initial menus 800×440 without a toast; earlier FAILs/sidecar preserved. O06 partial:
+M29 native MIME/DnD with a real gesture/serial and bounded bytes, contract before wiring.
+No data-control as a focus fallback. Previews paused and freeze intact.
 
 
-## M29d — KDE correlacionado, 2026-10-27
+## M29 — native MIME/DnD active, prior contract
 
-La importación KDE solicita `text/uri-list` y `application/x-kde-cutselection`
-de la misma oferta y época, con un ACK único tras validar intención, Source y
-destino. Dos pipes se drenan concurrentemente con plazo común de 3 s; URI
-limitada a 1 MiB y metadata exactamente un byte `0` o `1` con EOF. Error,
-cancelación, límite o cambio de oferta rechazan todo sin convertir Cut en Copy.
-El máximo por fase del puente es 8 FD: cuatro envíos más cuatro extremos
-transitorios; tras abrir quedan dos lectores, que se cierran antes de capturar
-Source. Otros workers mantienen reservas independientes.
+NATIVE-TRANSFER-CONTRACT.md contract: wl_data_device/bridge with gesture + real serial,
+own proxies/listeners coexisting with FLTK, offers/tokens and bounded FDs before
+alloc; no FL_PASTE URI text nor data-control for focus. A raw codec exactly once,
+captured destination, existing queue/proofs. External DnD initially negotiated as COPY;
+finished does not authorize deleting nor duplicates a delete, internal Move through its own ACK.
+M29a WIP: codec/clipboard bridge/AuxIo/review implemented, 637 Rust + Clippy/fmt
+passed; OS events/MIME not validated. One common parent; KDE/multi-source and external
+DnD pending (FLTK negotiates in parallel; needs a reproducible opt-in hook).
+The private M28 does not close O06. New previews paused/freeze intact, the rest of the ROADMAP not abandoned.
 
-652 tests workspace (208 core, 67 helper, 377 UI; 3 ignorados), Clippy/fmt/
-release PASS. Fixture C++ con proxies simulados verifica dos MIME de una oferta
-y rechazo al cambiar selección entre EOFs. Siete tests de transporte incluyen
-ambos órdenes, metadata inválida, límite, deadline y cancelación después de EOF
-URI. Escena `clipboard-ui-1793137466717410666.json` PASS acotado: dos pipes
-privados, ACK simulado, Cut abre revisión Mover, cancelar conserva origen, dos
-framebuffers y salida0 tras ACK. Input/interop KDE reales siguen UNVALIDATED;
-multipadre, DnD real y O06 siguen abiertos. El FAIL intermitente de texto
-`clipboard-ui-1793136933634122245.json` permanece sin explicación. Recursos y
-arranque NOT_MEASURED por freeze, previews nuevas pausadas.
 
-## Adopción lib-fltk-omarchy — tema, 2026-10-28
+## M29b — DnD receiver in integration, 2026-10-27
 
-`lib-fltk-omarchy` v0.0.1 (`50a42927`) alimenta los colores del Painter,
-la preferencia Corners y el radio de badges. El watcher de Files valida los archivos antes de pedir la recarga al toolkit;
-el override de fixtures `FILES_THEME` conserva el comportamiento anterior. La fuente Nerd Font resuelta se reaplica al
-recargar. No se usa AppWindow: se conserva el puente nativo libdecor de Files.
-Los colores específicos de superficies aún usan valores de Files; escala
-Tipográfica/espaciado y estados del toolkit no están aplicados a todo Painter.
-PopupMenu, OperationToast, TabBar y ShortcutHelp siguen pendientes de adopción
-con paridad visual y funcional. Multipadre sigue WIP en `e9ebdcd`.
+Opt-in FLTK 1.5.23 hook per own window, a reproducible patch and a link guard
+by hash; a COPY/URI receiver and destination per pane/column without stealing focus. 642 Rust
+(208/67/367), 3 ignored; Clippy/fmt/release exit 0. C++ test with simulated proxies and
+clipboard-ui 1793135944759735086 scoped PASS 12 PNG/2 root 0 ACK: private pipe→
+AuxIo→review→cancel/retry→queue/raw copy; source/selection kept.
+Native Wayland/OS input/interop UNVALIDATED, sender/KDE/multi-parent/other OSes
+pending; O06 still partial. Resource/startup freeze and the preview pause intact.
 
-Primera compilación: headers normalizados coherentes y una sola copia de
+
+## M29c — partial DnD sender, 2026-10-27
+
+A COPY sender on its own window: it keeps the permission of the original press, waits for an
+8 px threshold, captures raw names on press and verifies the Source/encodes in
+AuxIo. Before requesting `start_drag` it checks window/seat/epoch/original serial,
+expiry and the left button; releasing or cancelling invalidates before
+taking the Model. A multiple selection keeps its batch when dragging and a click
+without a drag is resolved on release. The joint reservation includes the desired
+clipboard, proof, payload and published source; it is held until ACK or cleanup
+(also bounded by a deadline). The source announces only COPY; `finished` or
+`cancelled` never delete files nor consume a Cut. The own drop reuses the
+existing review and queue.
+
+648 workspace tests (208 core, 67 helper, 373 UI; 3 ignored), Clippy/fmt/
+release PASS. A C++ fixture uses simulated proxies: COPY/serial/surface in an
+already admitted helper, permission/epoch/deadline rejections and `finished` marks cleanup; it does not
+prove the compositor's grab/focus nor a complete teardown. Scene
+`clipboard-ui-1793136958438850356.json` bounded PASS: 13 framebuffers, real Source
+and AuxIo, a simulated final dispatch, Cut kept and two closes with ACK.
+There is no OS input nor proven Wayland interop; O06, KDE, multi-parent and adapters
+remain open. The first scene `clipboard-ui-1793136933634122245.json` FAIL:
+pasting own text after the event loop did not arrive. The PASS repeat neither explains nor
+erases the failure; a stable global clipboard is still not proven. Resources and
+startup NOT_MEASURED (freeze); new previews paused.
+
+
+## M29d — correlated KDE, 2026-10-27
+
+The KDE import requests `text/uri-list` and `application/x-kde-cutselection`
+from the same offer and epoch, with a single ACK after validating intent, Source and
+destination. Two pipes are drained concurrently with a common 3 s deadline; the URI list is
+limited to 1 MiB and the metadata to exactly one byte `0` or `1` with EOF. An error,
+cancellation, limit or offer change rejects everything without turning Cut into Copy.
+The bridge's per-phase maximum is 8 FDs: four sends plus four transient
+ends; after opening, two readers remain, which are closed before capturing the
+Source. Other workers keep independent reservations.
+
+652 workspace tests (208 core, 67 helper, 377 UI; 3 ignored), Clippy/fmt/
+release PASS. A C++ fixture with simulated proxies verifies two MIME types of one offer
+and rejection when the selection changes between EOFs. Seven transport tests include
+both orders, invalid metadata, the limit, the deadline and cancellation after the URI
+EOF. Scene `clipboard-ui-1793137466717410666.json` bounded PASS: two private
+pipes, a simulated ACK, Cut opens the Move review, cancel keeps the source, two
+framebuffers and exit 0 after ACK. Real KDE input/interop are still UNVALIDATED;
+multi-parent, real DnD and O06 remain open. The intermittent text FAIL
+`clipboard-ui-1793136933634122245.json` remains unexplained. Resources and
+startup NOT_MEASURED because of the freeze, new previews paused.
+
+## lib-fltk-omarchy adoption — theme, 2026-10-28
+
+`lib-fltk-omarchy` v0.0.1 (`50a42927`) feeds the Painter colors,
+the Corners preference and the badge radius. Files' watcher validates the files before asking the toolkit to reload;
+the `FILES_THEME` fixture override keeps the earlier behavior. The resolved Nerd Font is reapplied on
+reload. AppWindow is not used: Files' native libdecor bridge is kept.
+Surface-specific colors still use Files values; the toolkit's typographic scale/
+spacing and states are not applied to all of Painter.
+PopupMenu, OperationToast, TabBar and ShortcutHelp are still pending adoption
+with visual and functional parity. Multi-parent is still WIP in `e9ebdcd`.
+
+First build: consistent normalized headers and a single copy of
 fltk/fltk-sys 1.5.23 (`docs/evidence/0.0.4/fltk-omarchy-first-build-headers.json`).
-Escena framebuffer con acciones internas y tema privado: recarga por rename,
-font.base leído y Corners square conservado; input SO no probado. 668 pruebas
-workspace aprobadas, 3 ignoradas; Clippy/fmt/release PASS. Recursos y arranque
-NOT_MEASURED por freeze.
+A framebuffer scene with internal actions and a private theme: reload by rename,
+font.base read and square Corners kept; OS input not tested. 668 workspace
+tests passed, 3 ignored; Clippy/fmt/release PASS. Resources and startup
+NOT_MEASURED because of the freeze.
 
-### Choques de componentes toolkit v0.0.1
+### Toolkit v0.0.1 component clashes
 
-Se conserva el menú Painter actual hasta que PopupMenu limite y desplace filas
-cuando no caben y exponga cierre/foco: [issue #1](https://github.com/avillagran/lib-fltk-omarchy/issues/1), [issue #4](https://github.com/avillagran/lib-fltk-omarchy/issues/4).
-TabBar, ShortcutHelp y OperationToast mantienen las implementaciones existentes
-por scroll de pestañas, límites/Home/End de ayuda y etiquetas/localización de
-toast: [issue #2](https://github.com/avillagran/lib-fltk-omarchy/issues/2).
-Selección múltiple, tablas/árboles virtuales, PopupCard, animación y gesto nativo
-se solicitaron en [issue #3](https://github.com/avillagran/lib-fltk-omarchy/issues/3).
-No se sustituye el puente libdecor por IPC Hyprland. Estos son pendientes de
-paridad del toolkit; no se declararon componentes adoptados.
+The current Painter menu is kept until PopupMenu limits and scrolls rows
+when they do not fit and exposes close/focus: [issue #1](https://github.com/avillagran/lib-fltk-omarchy/issues/1), [issue #4](https://github.com/avillagran/lib-fltk-omarchy/issues/4).
+TabBar, ShortcutHelp and OperationToast keep the existing implementations
+because of tab scrolling, help limits/Home/End and toast labels/localization:
+[issue #2](https://github.com/avillagran/lib-fltk-omarchy/issues/2).
+Multiple selection, virtual tables/trees, PopupCard, animation and the native gesture
+were requested in [issue #3](https://github.com/avillagran/lib-fltk-omarchy/issues/3).
+The libdecor bridge is not replaced with Hyprland IPC. These are toolkit parity
+pending items; no components were declared adopted.
 
-### Recarga del toolkit y escritura parcial
+### Toolkit reload and partial writes
 
-Hasta que [issue #5](https://github.com/avillagran/lib-fltk-omarchy/issues/5)
-permita al toolkit rechazar TOML inválido, Files mantiene su watcher y valida
-los archivos antes de solicitar `theme::reload`. La última paleta dibujada se
-conserva si la lectura o el parseo fallan. La validación y la lectura interna
-del toolkit no son atómicas frente a un escritor concurrente. La escena
-`toolkit-theme-ui-1793181731296656632.json` verifica escritura truncada,
-framebuffer retenido y posterior reemplazo de tema; no valida eventos SO.
-669 tests (223 core/67 helper/379 UI; 3 ignorados), Clippy/fmt/release PASS;
-recursos y arranque NOT_MEASURED.
+Until [issue #5](https://github.com/avillagran/lib-fltk-omarchy/issues/5)
+lets the toolkit reject invalid TOML, Files keeps its watcher and validates
+the files before requesting `theme::reload`. The last drawn palette is
+kept if reading or parsing fails. The validation and the toolkit's internal read
+are not atomic against a concurrent writer. The scene
+`toolkit-theme-ui-1793181731296656632.json` verifies a truncated write,
+a retained framebuffer and a later theme replacement; it does not validate OS events.
+669 tests (223 core/67 helper/379 UI; 3 ignored), Clippy/fmt/release PASS;
+resources and startup NOT_MEASURED.
 
 ## lib-fltk-omarchy v0.0.2 — 2026-10-28
 
-Pin git `210e0d64`, FLTK/fltk-sys únicos 1.5.23 con features existentes;
-guard de headers y evidencia `fltk-omarchy-v002-headers.json` PASS. Tema y
-validación de TOML siguen; libdecor permanece. 670 pruebas workspace, tres
-ignoradas, Clippy/fmt/release PASS. Escena de tema en framebuffer PASS y
-`toolkit-v002-focus-fixture.png` prueba el anillo con `focus::press` en una
-ventana **aislada de prueba del toolkit**, no en Files ni con teclado SO.
+Git pin `210e0d64`, single FLTK/fltk-sys 1.5.23 with the existing features;
+the header guard and evidence `fltk-omarchy-v002-headers.json` PASS. Theme and
+TOML validation stay; libdecor remains. 670 workspace tests, three
+ignored, Clippy/fmt/release PASS. The framebuffer theme scene PASS and
+`toolkit-v002-focus-fixture.png` tests the ring with `focus::press` in an
+**isolated toolkit test window**, not in Files nor with the OS keyboard.
 
-El router del toolkit aún no está activado en Files: un solo canvas contiene
-ambos paneles y el Tab existente; se requieren controles enfocables de panel y
-cursor virtual antes de retirar esa ruta sin perder atajos. Migración y choque
-con omnibar, vistas y menús: `FLTK-OMARCHY-KEYBOARD-MIGRATION.md`, issue #3.
-PopupMenu sigue sin scroll para filas que exceden viewport y sin API pública
-de cierre/aviso; foco previo sí se restaura en v0.0.2. Issues #1/#4 comentados;
-menús previos conservados. Recursos/arranque NOT_MEASURED; no PASS global.
+The toolkit's router is not yet enabled in Files: a single canvas contains
+both panes and the existing Tab; focusable pane controls and a
+virtual cursor are needed before removing that path without losing shortcuts. Migration and clashes
+with the omnibar, views and menus: `FLTK-OMARCHY-KEYBOARD-MIGRATION.md`, issue #3.
+PopupMenu still has no scroll for rows that exceed the viewport and no public
+close/notice API; the previous focus is restored in v0.0.2. Issues #1/#4 commented on;
+earlier menus kept. Resources/startup NOT_MEASURED; no global PASS.
 
 ## 2026-10-30 — Usability, local search and directory sizes
 
@@ -902,7 +902,7 @@ Installed source `e58f576`, report `evidence/0.0.4/installed-checkpoint-17934582
 
 ### 2026-10-31 — Captured local search calendar
 
-F8/Nerd calendar: Hoy/Ayer/hoy y seis días previos, process-local calendar resolved
+F8/Nerd calendar: Today/Yesterday/today and the six previous days, process-local calendar resolved
 once on existing AuxIo with reference captured on choice. Dates populate fixed
 UTC bounds and require explicit Search. Date-only UTC syntax unchanged; strict
 YYYY-MM-DDTHH:MM:SSZ extension, mixed bounds compare instants. Latest/epoch/close/
@@ -1149,10 +1149,10 @@ explicit actions remains a separate audit.
   no default copy source; per-pane edit/clear controls and visible/loaded counters
   for mouse/keyboard workflows.1138Rust +3ignored/Clippy PASS. Full goal open.
 
-- 2026-11-01: Terminal aquí (U02 parcial) en Actions/contexto/paleta: ruta actual
-  capturada, broker uwsm servicio + helper ASCIIhex→cwd raw→xdg-terminal-exec;
-  mismo slot de aperturas, no shelltext/defaultchange/daemonpropio. Otrasplataformas
-  pendientes; aceptación/instalación se registra en TERMINAL-HERE y VALIDATION.
+- 2026-11-01: Terminal here (U02 partial) in Actions/context menu/palette: current path
+  captured, uwsm service broker + helper ASCII hex→raw cwd→xdg-terminal-exec;
+  same open slot, no shell text/default change/own daemon. Other platforms
+  pending; acceptance/installation are recorded in TERMINAL-HERE and VALIDATION.
 
 ## Capture audit follow-up (NODE)
 
@@ -1174,17 +1174,17 @@ reader identities gone/reused passed. INSTALADOcb74513/appff8b0c38b940,
 anomaly and remaining path surfaces/full-name clipping remain open.
 
 
-- NODE 2026-11-01: propiedades muestra rutas solicitada/verificada y destino raw
-  completos en líneas desplazables; nueve permisos y tres acciones caben a440×440.
-  X11/Wayland funcional PASS31 capturas cada uno y regresión de rechazo/ACK PASS.
-  Ver FILE-PROPERTIES.md y evidence/properties-layout. Copiar informe, metadatos
-  restantes, entrada SO/AT-SPI/2× y el resto del objetivo completo siguen pendientes.
+- NODE 2026-11-01: properties shows the full requested/verified paths and raw target
+  in scrollable lines; nine permissions and three actions fit at 440×440.
+  X11/Wayland functional PASS 31 captures each and the rejection/ACK regression PASS.
+  See FILE-PROPERTIES.md and evidence/properties-layout. Copy report, the remaining
+  metadata, OS input/AT-SPI/2× and the rest of the complete goal are still pending.
 
 
-- NODE 2026-11-01: etiquetas escapadas comunes en copia/movimiento/ZIP y revisión
-  de renombrado; original de copia distingue byte raw y escape literal sin tocar
-  editores/targets. Copy X11/Wayland PASS13 capturas cadauno, rename raw-parent
-  PASS. Clipping de cabeceras/columnas y selección/copia de rutas siguen pendientes.
+- NODE 2026-11-01: common escaped labels in copy/move/ZIP and the rename
+  review; the copy original distinguishes a raw byte from a literal escape without touching
+  editors/targets. Copy X11/Wayland PASS 13 captures each, rename raw-parent
+  PASS. Clipping of headers/columns and selecting/copying paths are still pending.
 
 
 - NODE 2026-11-01: S02 regex foundation SOURCE ONLY, core::search_regex bounded
@@ -1310,79 +1310,79 @@ anomaly and remaining path surfaces/full-name clipping remain open.
   Next real command-availability parity Map keyboard/inspector/menu/palette/MC;
   fullgoal and original anomalies/native/2x/offline/resource gates stay pending.
 
-- NODE 2026-11-01 acciones de Espacio 6d9c5dd/fixture924f8d4 INSTALADAS
-  record1793558033383070484: disponibilidad compartida mapa para MC/paleta/menú/
-  inspector/dispatch; validación de marcas antes de sanear sin fallback; revisión
-  concurrente con copia en cola, F5 reservado y CtrlR ActionRefresh; previa existente
-  en paleta, propiedades de una marca.1301Rust447/105/749+3ignored/Clippy/fmt/release
-  PASS. SourceWayland/XvfbX11+installed cada29FB4normalexits15knownhelpers.
-  Fixture XDG-data padre faltante causó dos FAIL28FB; mismo binario tras mkdirPASS;
-  producción Trash intacta.5+5hashes app2cae3b73db4e. SPACE-MAP-ACTIONS.md.
-  Next paridad de revisión con cola activa fuera deMap; CopyPath noUTF8 textual
-  aún to_string_lossy (no losslessClipboardclaim). Fullgoal/freeze/gates pendientes.
+- NODE 2026-11-01 Space actions 6d9c5dd/fixture 924f8d4 INSTALLED
+  record 1793558033383070484: shared map availability for MC/palette/menu/
+  inspector/dispatch; mark validation before sanitizing without fallback; review
+  concurrent with a queued copy, F5 reserved and Ctrl+R Action Refresh; the existing preview
+  in the palette, properties of one mark. 1301 Rust 447/105/749 + 3 ignored/Clippy/fmt/release
+  PASS. Source Wayland/Xvfb X11 + installed each 29 FB 4 normal exits 15 known helpers.
+  A missing XDG-data parent in the fixture caused two FAIL 28 FB; the same binary after mkdir PASS;
+  production Trash intact. 5+5 hashes app 2cae3b73db4e. SPACE-MAP-ACTIONS.md.
+  Next: review parity with an active queue outside Map; textual non-UTF-8 CopyPath
+  still to_string_lossy (no lossless clipboard claim). Full goal/freeze/gates pending.
 
-- NODE 2026-11-01 QueueReview9ddd253 INSTALADO1793560331250393795: revisión Copy/
-  Move/ZIP disponible con copia activa desde MC/paleta/menú/inspector/Action;
-  validate antes de sanear impide fallback de marcas filtradas/ocultas/obsoletas;
-  cola llena retiene formulario; cargos/IDs/ACK/admisión intactos. Progreso sobre
-  MC y controles en2filas estrechos; último resultado sobre aviso compacto.
-  1306Rust447/105/754+3ignored/Clippy/fmt/releasePASS. SourceWayland/XvfbX11+installed
-  cada35FB5normalroots; Mapregression29FB4roots15helpers en cada backend. Wrapper
-  Xvfb inicial cleanupFAIL con reciboPASS conservado; solo mismo binario exit0.
-  Cinco backups+hashes appa715c17069d6. QUEUE-REVIEW.md.
-  Nuevo pendiente observado: Dual440+lateral expandida tiene NameWidth0, control
-  wide1000normal; priorizar nombre/metadatos adaptables y revisar List estrecho.
-  No cierre de anomalía X11 ancha original. CopyPath noUTF8/native/2x/fullgoal/
-  freeze y el resto de ROADMAP siguen pendientes.
+- NODE 2026-11-01 QueueReview 9ddd253 INSTALLED 1793560331250393795: Copy/
+  Move/ZIP review available with an active copy from MC/palette/menu/inspector/Action;
+  validate before sanitizing prevents a fallback from filtered/hidden/stale marks;
+  a full queue keeps the form; charges/IDs/ACK/admission intact. Progress above
+  MC and controls in 2 narrow rows; the last result above the compact notice.
+  1306 Rust 447/105/754 + 3 ignored/Clippy/fmt/release PASS. Source Wayland/Xvfb X11 + installed
+  each 35 FB 5 normal roots; Map regression 29 FB 4 roots 15 helpers on each backend. The initial
+  Xvfb wrapper cleanup FAIL with a PASS receipt is kept; the same binary alone exit 0.
+  Five backups+hashes app a715c17069d6. QUEUE-REVIEW.md.
+  New pending item observed: Dual 440 + expanded sidebar has NameWidth 0, the control
+  at wide 1000 normal; prioritize the name/adaptive metadata and review narrow List.
+  The original wide X11 anomaly is not closed. CopyPath non-UTF-8/native/2x/full goal/
+  freeze and the rest of the ROADMAP are still pending.
 
-- NODE 2026-11-01 NarrowNames f6a735f/fixture031aa00 INSTALADO1793562789004828933:
-  celdas nombre primero, tamaño/fecha opcionales según ancho, sin formatear datos
-  omitidos; List/Dual min440+sidebar con nombres legibles, tres sorttargets y raw
-  focus/marks/owner intactos.1309Rust447/105/757+3ignored/Clippy/fmt/releasePASS;
-  sourceWayland/XvfbX11+installed cada27FB2normalroots; queue regression35FB5roots.
-  InicialFAIL expectativa1000×650 vs helper/PNG1000×560, corregida mismo binario;
-  linthex fixture corregido sin suppress/serialización.5+5hashes app8f88cc804da3.
-  NARROW-NAMES.md. Nombres arbitrariamente largos aún pueden recortarse; no cierre
-  de anomalía X11 ancha original. Next CopyPath textual noUTF8 lossless policy;
-  fullgoal/native/2x/otrosSO/offline/resources y freeze continúan.
+- NODE 2026-11-01 NarrowNames f6a735f/fixture 031aa00 INSTALLED 1793562789004828933:
+  name cells first, size/date optional depending on width, without formatting omitted
+  data; List/Dual min 440 + sidebar with readable names, three sort targets and raw
+  focus/marks/owner intact. 1309 Rust 447/105/757 + 3 ignored/Clippy/fmt/release PASS;
+  source Wayland/Xvfb X11 + installed each 27 FB 2 normal roots; queue regression 35 FB 5 roots.
+  Initial FAIL expecting 1000×650 vs helper/PNG 1000×560, fixed with the same binary;
+  the fixture hex lint fixed without suppress/serialization. 5+5 hashes app 8f88cc804da3.
+  NARROW-NAMES.md. Arbitrarily long names can still be clipped; the original wide
+  X11 anomaly is not closed. Next: a lossless policy for textual non-UTF-8 CopyPath;
+  full goal/native/2x/other OSes/offline/resources and the freeze continue.
 
 
-## Reconciliación NODE — 2026-11-01
+## NODE reconciliation — 2026-11-01
 
-Las filas y entradas antiguas son historial, no prueba de que un pendiente siga
-abierto. Se contrastaron fuentes antes de escoger C02: regex guiada ya existe
-(`search_ui/state`, GUIDED-REGEX-CONTRACT); TerminalHere ya existe (`open_job`,
-TERMINAL-HERE); informes SFTP y de operaciones ya tienen navegación/copia
-(`sftp_report_ui`, `mutations`, SFTP-REPORT). No se reimplementan por una nota vieja.
-No se han auditado ni cerrado todas las capacidades de esta matriz.
+The old rows and entries are history, not proof that a pending item is still
+open. Sources were checked before choosing C02: guided regex already exists
+(`search_ui/state`, GUIDED-REGEX-CONTRACT); TerminalHere already exists (`open_job`,
+TERMINAL-HERE); SFTP and operation reports already have navigation/copy
+(`sftp_report_ui`, `mutations`, SFTP-REPORT). They are not reimplemented because of an old note.
+Not every capability in this matrix has been audited or closed.
 
-| Avance reciente | Evidencia vigente | Límite de la afirmación |
+| Recent progress | Current evidence | Limit of the claim |
 |---|---|---|
-| Acciones de Espacio/selección MC y revisión durante copia activa | SPACE-MAP-ACTIONS.md, QUEUE-REVIEW.md | Disponibilidad y handlers/operaciones propios; gates nativos/globales abiertos |
-| Nombres en List/Dual estrecho | NARROW-NAMES.md | Nombre priorizado sobre metadatos; no arreglo causal de la anomalía X11 ancha histórica |
-| Copiar ruta y URI local sin pérdida raw | COPY-PATH.md, evidence/copy-path/assessment.json, aceptación84469ac | Instalado5c258f3a8d21,1311pruebas; sink aislado no entrega nativa de clipboard |
-| Comparar árboles C02 | DIRECTORY-COMPARE-CONTRACT.md, core/directory_compare.rs | Foundation solamente; sin helper/UI ni instalación de esta capacidad |
+| Space actions/MC selection and review during an active copy | SPACE-MAP-ACTIONS.md, QUEUE-REVIEW.md | Availability and own handlers/operations; native/global gates open |
+| Names in narrow List/Dual | NARROW-NAMES.md | Name prioritized over metadata; not a causal fix of the historical wide X11 anomaly |
+| Copy path and local URI without raw loss | COPY-PATH.md, evidence/copy-path/assessment.json, acceptance 84469ac | Installed 5c258f3a8d21, 1311 tests; an isolated sink is not native clipboard delivery |
+| Compare trees C02 | DIRECTORY-COMPARE-CONTRACT.md, core/directory_compare.rs | Foundation only; no helper/UI nor installation of this capability |
 
-FULL objetivo, sincronización y todos los demás pendientes se conservan.
-Freeze absoluto PSS/Swap/CPU/startup y previews nuevas pausadas; ningún nuevo
-resultado de esta reconciliación acredita métricas, otras plataformas, inputSO,
-clipboard, AT-SPI,2x, lifetimes completos ni ausencia de bloqueo offline.
-
-
-- C02 NODE: transporte/helper de comparación y supervisor verificados en
-  evidence/directory-compare-wire/assessment.json; aún sin panel visible ni
-  instalación. No confundir el job público de transporte con admisión/cierre de
-  Model, ni sus observaciones con permiso de sincronización.
+The FULL goal, synchronization and every other pending item are kept.
+Absolute PSS/Swap/CPU/startup freeze and new previews paused; no new
+result of this reconciliation proves metrics, other platforms, OS input,
+clipboard, AT-SPI, 2x, complete lifetimes nor the absence of offline blocking.
 
 
-- C02 NODE: comparación visible integrada por directory_compare_ui; Acciones /
-  paleta / menú de fondo, raíces reversibles y filtro de observaciones retenidas.
-  Los diagnósticos sin informe no inventan veredicto ni borran el error. La
-  admisión/cierre espera ACK; Pan conserva los demás nombres legibles.
-  DIRECTORY-COMPARE-UI.md y su assessment contienen recibos finales/instalación.
-  El fallo de tamaño de una regresión QueueReview con dos fixtures Wayland
-  simultáneas está retenido; misma versión aisladaPASS, causa exacta sin confirmar.
-  No arreglo causal de anomalías nativas ni PASSglobal; sincronización sigue abierta.
+- C02 NODE: comparison transport/helper and supervisor verified in
+  evidence/directory-compare-wire/assessment.json; still without a visible panel nor
+  installation. Do not confuse the public transport job with Model admission/close,
+  nor its observations with permission to synchronize.
+
+
+- C02 NODE: visible comparison integrated through directory_compare_ui; Actions /
+  palette / background menu, reversible roots and a filter of retained observations.
+  Diagnostics without a report do not invent a verdict nor erase the error. The
+  admission/close waits for the ACK; Pan keeps the other names readable.
+  DIRECTORY-COMPARE-UI.md and its assessment contain the final receipts/installation.
+  The size failure of a QueueReview regression with two simultaneous Wayland fixtures
+  is retained; the same version isolated PASS, exact cause unconfirmed.
+  No causal fix of native anomalies nor global PASS; synchronization stays open.
 
 - C02 NODE: `directory_sync` source-only fresh review preparation adds Update and
   Mirror in either direction plus bidirectional Merge without inferred deletions
@@ -1397,18 +1397,18 @@ clipboard, AT-SPI,2x, lifetimes completos ni ausencia de bloqueo offline.
   Missing-name copies alone do not meet C02. Full goal and resource/preview freeze
   remain active; comparison UI is still the installed checkpoint.
 
-- C02 NODE: preparación de sincronización ahora tiene helper
-  `prepare_directory_sync` + Intentversion1 y Job supervisado SOURCE ONLY.
-  Modoversión/ID/roots/budget, ledger comparación estricto reutilizado,
-  propuestas/choicesPending derivadas localmente, stream23400576B sólo para este
-  comando; ordinarios4MiB intactos.1388Rust489/112/787+3ignored/Clippy/fmt/helperdebug
-  PASS,17tests nuevos y18CLIhelper reales incluyendo ambos inventarios completos
-  de8192nombres-control porlado (>4MiB) sin truncar ni cambios enfixtures.
-  EOF/exit0/reap antes de resultado, nozeroexit/EOFsinexit/cancel postterminal
-  rechazan y recogen hijos propios. Aún sin Model/admisión/rootcloseACK/UI visible
-  ni Apply/manifestFD/journal/recovery/instalación sync. Próximo dryrun visible;
-  DIRECTORY-SYNC-CONTRACT y evidence/directory-sync-wire documentan alcance.
-  FULL objetivo/freezes y comparación instalada permanecen; no PASSglobal.
+- C02 NODE: synchronization preparation now has the helper
+  `prepare_directory_sync` + Intent version 1 and a supervised Job, SOURCE ONLY.
+  Mode version/ID/roots/budget, the strict comparison ledger reused,
+  proposals/Pending choices derived locally, a 23400576 B stream only for this
+  command; the ordinary 4 MiB intact. 1388 Rust 489/112/787 + 3 ignored/Clippy/fmt/helper debug
+  PASS, 17 new tests and 18 real helper CLI runs including both full inventories
+  of 8192 control-character names per side (>4 MiB) without truncating nor changes in fixtures.
+  EOF/exit 0/reap before the result; a non-zero exit/EOF without exit/cancel after terminal
+  reject and reap own children. Still without Model/admission/root close ACK/visible UI
+  nor Apply/FD manifest/journal/recovery/sync installation. Next: a visible dry run;
+  DIRECTORY-SYNC-CONTRACT and evidence/directory-sync-wire document the scope.
+  The FULL goal/freezes and the installed comparison remain; no global PASS.
 
 - C02 NODE: `directory_sync_manifest` SOURCE ONLY fresh pinned evidence reuses
   EXDEV inventory without changing FLMOVE/Entry wire format or legacy bounds.
