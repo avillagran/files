@@ -1,135 +1,135 @@
-# files — diseño v0 (2026-10-26)
+# files — design v0 (2026-10-26)
 
-Navegador de archivos liviano, multiplataforma, inicialmente para Omarchy.
+A lightweight, cross-platform file browser, initially for Omarchy.
 
-## 1. Por qué los demás pesan tanto (medido en esta máquina, una ventana, ~/)
+## 1. Why the others are so heavy (measured on this machine, one window, ~/)
 
-| App | RSS | PSS (lo que realmente cuesta) | Stack |
+| App | RSS | PSS (what it really costs) | Stack |
 |---|---|---|---|
-| Nautilus | 221 MB | 167 MB | GTK4 (render GPU) + libadwaita + GIO/GVFS |
-| Flea | 236–251 MB | 143–153 MB | **Quickshell = Qt Quick/QML** (UI) + backend Rust (`flea --backend`, 4 MB) |
+| Nautilus | 221 MB | 167 MB | GTK4 (GPU render) + libadwaita + GIO/GVFS |
+| Flea | 236–251 MB | 143–153 MB | **Quickshell = Qt Quick/QML** (UI) + Rust backend (`flea --backend`, 4 MB) |
 
-Conclusión clave: Flea **no es Rust en la parte que pesa**. El binario Rust usa 4 MB.
-Los 150 MB son el motor QML (JS engine + scene graph) y el contexto GPU. QML sirve
-para prototipar visualmente, pero no para construir.
+Key conclusion: Flea **is not Rust in the part that weighs**. The Rust binary uses 4 MB.
+The 150 MB are the QML engine (JS engine + scene graph) and the GPU context. QML is good
+for visual prototyping, but not for building.
 
-De dónde salen los MB en un gestor "moderno":
-1. **Contexto GPU** (Mesa/Vulkan/GL): 30–80 MB anónimos solo por existir.
-2. **Motor declarativo** (QML/JS, GTK4 render nodes, WebView): 40–100 MB.
-3. **Iconos SVG** rasterizados en 5 tamaños × tema completo al arrancar: 10–30 MB.
-4. **Thumbnails** y decodificadores (libjpeg, librsvg, gdk-pixbuf) residentes: 10–50 MB.
-5. **Modelos no virtualizados**: un objeto/widget por archivo, 10k archivos = 10k widgets.
-6. Daemons/indexers (tracker, gvfsd) que la app arrastra.
+Where the MB come from in a "modern" file manager:
+1. **GPU context** (Mesa/Vulkan/GL): 30–80 MB of anonymous memory just for existing.
+2. **Declarative engine** (QML/JS, GTK4 render nodes, WebView): 40–100 MB.
+3. **SVG icons** rasterized in 5 sizes × the whole theme at startup: 10–30 MB.
+4. Resident **thumbnails** and decoders (libjpeg, librsvg, gdk-pixbuf): 10–50 MB.
+5. **Non-virtualized models**: one object/widget per file, 10k files = 10k widgets.
+6. Daemons/indexers (tracker, gvfsd) that the app drags along.
 
-## 2. Presupuesto objetivo (PSS, ventana 1920×1080, carpeta de 10k archivos)
+## 2. Target budget (PSS, 1920×1080 window, folder with 10k files)
 
-| Subsistema | Presupuesto |
+| Subsystem | Budget |
 |---|---|
-| Toolkit + libs (parte file-backed) | ≤ 12 MB |
-| Framebuffers (2 × 1920×1080×4, software, wl_shm) | ~16 MB (inevitable; escala con la ventana) |
-| Modelo de directorio (10k entradas × ~120 B) | ~1.5 MB |
-| Iconos (atlas único, rasterizado por tamaño en uso) | ≤ 2 MB |
-| Caché de thumbnails (LRU con tope duro) | ≤ 8 MB, configurable, 0 si se apaga |
-| Fuentes (FreeType, 2 caras cargadas) | ~3 MB |
-| Heap restante | ~8 MB |
-| **Total** | **~50 MB** ✅ · > 150 MB = herejía |
+| Toolkit + libs (file-backed part) | ≤ 12 MB |
+| Framebuffers (2 × 1920×1080×4, software, wl_shm) | ~16 MB (unavoidable; scales with the window) |
+| Directory model (10k entries × ~120 B) | ~1.5 MB |
+| Icons (single atlas, rasterized for the size in use) | ≤ 2 MB |
+| Thumbnail cache (LRU with a hard cap) | ≤ 8 MB, configurable, 0 if turned off |
+| Fonts (FreeType, 2 faces loaded) | ~3 MB |
+| Remaining heap | ~8 MB |
+| **Total** | **~50 MB** ✅ · > 150 MB = heresy |
 
-Nota honesta: en la pantalla 2370×2122 de esta máquina los dos framebuffers solos son
-~40 MB. El presupuesto se define en 1080p y se mide con un test automático.
+Honest note: on this machine's 2370×2122 screen the two framebuffers alone are
+~40 MB. The budget is defined at 1080p and measured with an automated test.
 
-## 3. Reglas de ingeniería (no negociables)
+## 3. Engineering rules (non-negotiable)
 
-- **Render por software** (CPU) por defecto. Sin GL/Vulkan. Repintado solo del área dañada.
-- **Todo virtualizado**: solo existen las filas visibles (+1 pantalla de margen).
-- **stat() perezoso**: `readdir` primero (nombre + tipo), `stat` solo de lo visible o al ordenar por tamaño/fecha.
-- **Nada residente que pueda ser proceso hijo**: thumbnails, extracción, búsqueda profunda → helper que arranca, hace, muere.
-- **MIME por extensión** (tabla propia, ~300 entradas); libmagic solo bajo demanda.
-- **Iconos**: un set propio pequeño (~48 glifos) en formato vectorial simple, rasterizado al tamaño pedido y cacheado. Sin cargar el tema de iconos del sistema al inicio (opcional después).
-- **Test de memoria en CI**: abrir ~/ con 10k entradas, medir PSS, fallar si > 60 MB.
-- **Arranque < 100 ms** en frío.
+- **Software rendering** (CPU) by default. No GL/Vulkan. Repaint only the damaged area.
+- **Everything virtualized**: only the visible rows exist (+1 screen of margin).
+- **Lazy stat()**: `readdir` first (name + type), `stat` only for what is visible or when sorting by size/date.
+- **Nothing resident that could be a child process**: thumbnails, extraction, deep search → a helper that starts, does the work, dies.
+- **MIME by extension** (own table, ~300 entries); libmagic only on demand.
+- **Icons**: a small own set (~48 glyphs) in a simple vector format, rasterized to the requested size and cached. The system icon theme is not loaded at startup (optional later).
+- **Memory test in CI**: open ~/ with 10k entries, measure PSS, fail if > 60 MB.
+- **Startup < 100 ms** cold.
 
-## 4. Stack: opciones evaluadas
+## 4. Stack: options evaluated
 
-| Opción | PSS típico | Multiplataforma | Veredicto |
+| Option | Typical PSS | Cross-platform | Verdict |
 |---|---|---|---|
-| QML / Qt Quick, GTK4, Tauri, Electron, Flutter | 120–300 MB | sí | ❌ descartados por peso |
-| Qt6 Widgets (C++, sin QML) | 45–70 MB | excelente, look nativo | ⚠️ justo en el límite |
-| GTK3 (C) | 35–60 MB | pobre en Win/mac | ⚠️ no multiplataforma real |
-| **FLTK 1.4** (C++ o Rust via fltk-rs) | **10–25 MB** | Linux (X11+Wayland), Windows, macOS | ✅ **recomendado** |
-| SDL3 + UI propia (C/Zig) + FreeType/HarfBuzz | 20–35 MB | sí (SDL3 trae clipboard, DnD, IME, diálogos nativos) | ✅ alternativa, 3× más trabajo |
+| QML / Qt Quick, GTK4, Tauri, Electron, Flutter | 120–300 MB | yes | ❌ discarded because of weight |
+| Qt6 Widgets (C++, no QML) | 45–70 MB | excellent, native look | ⚠️ right at the limit |
+| GTK3 (C) | 35–60 MB | poor on Win/mac | ⚠️ not really cross-platform |
+| **FLTK 1.4** (C++ or Rust via fltk-rs) | **10–25 MB** | Linux (X11+Wayland), Windows, macOS | ✅ **recommended** |
+| SDL3 + own UI (C/Zig) + FreeType/HarfBuzz | 20–35 MB | yes (SDL3 brings clipboard, DnD, IME, native dialogs) | ✅ alternative, 3× more work |
 
-**Recomendación: FLTK 1.4.** Da ventana, eventos, texto (Pango/Cairo en Linux, nativo en
-Win/mac), clipboard, DnD, HiDPI, diálogos nativos, y widgets base (árbol, tabla, menús,
-input) en ~1 MB de biblioteca. Toda la vista de archivos la dibujamos nosotros (como en
-cualquier opción), así que el look Omarchy no depende del toolkit.
+**Recommendation: FLTK 1.4.** It provides a window, events, text (Pango/Cairo on Linux, native on
+Win/mac), clipboard, DnD, HiDPI, native dialogs, and base widgets (tree, table, menus,
+input) in a ~1 MB library. We draw the whole file view ourselves (as with
+any option), so the Omarchy look does not depend on the toolkit.
 
-Lenguaje: **Rust + fltk-rs** (núcleo FS seguro, hilos para I/O) o **C++17 + FLTK**
-(cero capas intermedias). Decisión pendiente del usuario.
+Language: **Rust + fltk-rs** (safe FS core, threads for I/O) or **C++17 + FLTK**
+(zero intermediate layers). Decision pending from the user.
 
-## 5. Arquitectura
+## 5. Architecture
 
 ```
 files/
-  core/      sin dependencias de UI
-    fs/      listado streaming, stat perezoso, sort, filtro, watcher (inotify/kqueue/RDCW)
-    ops/     copiar/mover/renombrar/papelera, cola con progreso, cancelación, deshacer
-    mime/    tabla extensión→tipo, apps por defecto (xdg / registro / LaunchServices)
-    places/  XDG dirs, montajes, favoritos, recientes
-    theme/   lee ~/.config/omarchy/current/theme (colors) y config propia (TOML)
-  ui/        FLTK: ventana, barra de ruta, sidebar, vistas, panel dual, diálogos
-  helpers/   thumbnailer (proceso aparte, cap de RAM), buscador recursivo
-  tests/     memoria (PSS), rendimiento (100k archivos), ops
+  core/      no UI dependencies
+    fs/      streaming listing, lazy stat, sort, filter, watcher (inotify/kqueue/RDCW)
+    ops/     copy/move/rename/trash, queue with progress, cancellation, undo
+    mime/    extension→type table, default apps (xdg / registry / LaunchServices)
+    places/  XDG dirs, mounts, favorites, recents
+    theme/   reads ~/.config/omarchy/current/theme (colors) and its own config (TOML)
+  ui/        FLTK: window, path bar, sidebar, views, dual pane, dialogs
+  helpers/   thumbnailer (separate process, RAM cap), recursive search
+  tests/     memory (PSS), performance (100k files), ops
 ```
 
-## 6. UI (ver mockups/v1.html)
+## 6. UI (see mockups/v1.html)
 
-Tomado de cada referencia:
-- **Flea / Omarchy**: tema del sistema, tipografía mono, sidebar Lugares + Dispositivos, vistas lista/columnas/grilla, barra de estado con FS y espacio libre.
-- **Finder**: columnas Miller, barra de ruta (breadcrumb) clicable y editable, "Ir a carpeta".
-- **Windows**: acceso rápido / carpetas frecuentes, fijar favoritos, vista de inicio.
-- **MC**: panel dual (F-tecla), barra de teclas F1–F10, filtro rápido al escribir, operar sin ratón.
-- **Nautilus**: estrellas/favoritos, "N elementos" en carpetas, vista de recientes.
+Taken from each reference:
+- **Flea / Omarchy**: system theme, mono typography, Places + Devices sidebar, list/columns/grid views, status bar with FS and free space.
+- **Finder**: Miller columns, clickable and editable path bar (breadcrumb), "Go to folder".
+- **Windows**: quick access / frequent folders, pin favorites, a home view.
+- **MC**: dual pane (F key), F1–F10 key bar, quick filter while typing, working without a mouse.
+- **Nautilus**: stars/favorites, "N items" on folders, a recents view.
 
-Vistas: Lista · Grilla · Columnas · Doble panel. Siempre virtualizadas.
-Teclado: `Ctrl+L` ruta, `/` o escribir = filtro, `j/k` o flechas, `Enter` abrir,
-`Backspace` arriba, `F5/F6/F7/F8` copiar/mover/mkdir/borrar, `F9` doble panel, `Tab` cambia panel,
-`Ctrl+1/2/3` vistas, `Ctrl+T` terminal aquí, `Space` vista previa (helper externo).
+Views: List · Grid · Columns · Dual pane. Always virtualized.
+Keyboard: `Ctrl+L` path, `/` or typing = filter, `j/k` or arrows, `Enter` open,
+`Backspace` up, `F5/F6/F7/F8` copy/move/mkdir/delete, `F9` dual pane, `Tab` switches pane,
+`Ctrl+1/2/3` views, `Ctrl+T` terminal here, `Space` preview (external helper).
 
-## 7. Fases
+## 7. Phases
 
-1. **0.0.1 núcleo + lista**: abrir, navegar, ordenar, filtro, sidebar, breadcrumb, tema Omarchy, test PSS.
-2. **0.0.2 operaciones**: copiar/mover/papelera/renombrar con progreso y deshacer, DnD, clipboard, watcher.
-3. **0.0.3 vistas**: grilla, columnas, doble panel, teclas F.
-4. **0.0.4 extras**: thumbnails (helper), búsqueda, abrir con, montajes, favoritos.
-5. **0.0.5 Windows/macOS**: papelera nativa, apps por defecto, instaladores.
+1. **0.0.1 core + list**: open, navigate, sort, filter, sidebar, breadcrumb, Omarchy theme, PSS test.
+2. **0.0.2 operations**: copy/move/trash/rename with progress and undo, DnD, clipboard, watcher.
+3. **0.0.3 views**: grid, columns, dual pane, F keys.
+4. **0.0.4 extras**: thumbnails (helper), search, open with, mounts, favorites.
+5. **0.0.5 Windows/macOS**: native trash, default apps, installers.
 
 ---
 
-# Adenda 0.0.1 (2026-10-26, segunda ronda)
+# Addendum 0.0.1 (2026-10-26, second round)
 
-## A. ¿QML "optimizado"? Medido
+## A. "Optimized" QML? Measured
 
-App QML mínima (una ListView de 10k filas, sin lógica), Qt 6.12, esta máquina:
+Minimal QML app (one ListView with 10k rows, no logic), Qt 6.12, this machine:
 
-| Modo | RSS | PSS | Anon |
+| Mode | RSS | PSS | Anon |
 |---|---|---|---|
-| Qt Quick con GPU (default) | 146 MB | 90 MB | 41 MB |
+| Qt Quick with GPU (default) | 146 MB | 90 MB | 41 MB |
 | Qt Quick `QT_QUICK_BACKEND=software` | 104 MB | 51 MB | 19 MB |
 
-Es decir: **QML vacío ya está en el límite de 50 MB** con render por software, y en
-90 MB con GPU. Cualquier función real (iconos, thumbnails, modelo, diálogos) lo lleva a
-70–100 MB. Qt Quick Compiler reduce JS pero no quita el motor V4 ni el scene graph.
-Conclusión: QML queda **descartado como runtime**. Sirve solo para bocetar.
+That is: **empty QML is already at the 50 MB limit** with software rendering, and at
+90 MB with GPU. Any real feature (icons, thumbnails, model, dialogs) takes it to
+70–100 MB. Qt Quick Compiler reduces JS but does not remove the V4 engine nor the scene graph.
+Conclusion: QML is **discarded as a runtime**. It is only useful for sketching.
 
-## B. Alternativa "QML sin el peso": Slint (Rust)
+## B. "QML without the weight" alternative: Slint (Rust)
 
-Slint ofrece lo que gusta de QML (lenguaje declarativo `.slint`, propiedades reactivas,
-previsualización en vivo) pero **compila el `.slint` a Rust nativo** en build: sin motor
-JS, sin intérprete. Renderer por software incluido. Linux (Wayland/X11), Windows, macOS.
-Licencia: GPLv3 **o** Royalty‑Free (gratis para apps de escritorio, sin copyleft) o comercial.
+Slint offers what people like about QML (the declarative `.slint` language, reactive properties,
+live preview) but **compiles the `.slint` into native Rust** at build time: no JS
+engine, no interpreter. A software renderer included. Linux (Wayland/X11), Windows, macOS.
+License: GPLv3 **or** Royalty-Free (free for desktop apps, no copyleft) or commercial.
 
-**Medido** (misma prueba que QML: ListView de 10k filas, ventana 900×600, Slint 1.x,
-`backend-winit-wayland` + `renderer-software`, binario estático de 12.8 MB que solo enlaza
+**Measured** (same test as QML: ListView with 10k rows, 900×600 window, Slint 1.x,
+`backend-winit-wayland` + `renderer-software`, a 12.8 MB static binary that only links
 fontconfig/freetype):
 
 | | RSS | PSS | Anon | Shmem (framebuffers) |
@@ -138,298 +138,298 @@ fontconfig/freetype):
 | QML software | 104 MB | 51 MB | 19 MB | 7 MB |
 | QML GPU | 146 MB | 90 MB | 41 MB | 0 |
 
-Slint vacío cuesta **2.7× menos que QML** en el mismo modo, y deja ~30 MB de margen
-para la app real dentro del presupuesto de 50 MB.
+Empty Slint costs **2.7× less than QML** in the same mode, and leaves ~30 MB of margin
+for the real app within the 50 MB budget.
 
-## C. Decisión de stack (propuesta cerrada, falta tu OK)
+## C. Stack decision (closed proposal, waiting for your OK)
 
-**Rust + Slint (software renderer)** como camino principal:
-- Rust es tan multiplataforma como C++ para esto (winit/Wayland/X11/Win32/Cocoa vía Slint).
-- El núcleo FS en Rust puro (sin UI) es reutilizable si algún día cambia el toolkit.
-- Plan B: **Rust + fltk-rs** (10–25 MB) si Slint tropieza en algo funcional (DnD, IME, diálogos nativos).
-- C++ queda como opción solo si se quiere Qt Widgets (45–70 MB, justo en el límite).
+**Rust + Slint (software renderer)** as the main path:
+- Rust is as cross-platform as C++ for this (winit/Wayland/X11/Win32/Cocoa through Slint).
+- The pure Rust FS core (no UI) is reusable if the toolkit ever changes.
+- Plan B: **Rust + fltk-rs** (10–25 MB) if Slint stumbles on something functional (DnD, IME, native dialogs).
+- C++ remains an option only if Qt Widgets are wanted (45–70 MB, right at the limit).
 
-## D. Tema Omarchy en tiempo real (verificado en este sistema)
+## D. Live Omarchy theme (verified on this system)
 
-- Fuente canónica: `~/.local/state/omarchy/current/theme/colors.toml`
-  (es lo que lee `omarchy-theme-color`). También existe `~/.config/omarchy/theme.json`
-  con `{"theme":"Hackerman"}` y `~/.config/omarchy/themes/<nombre>/`.
-- Al cambiar tema, Omarchy ejecuta `~/.config/omarchy/hooks/theme-set.d/*` con el nombre
-  del tema. **No necesitamos hook**: basta un watcher (inotify) sobre el directorio
-  `current/theme` y releer `colors.toml` cuando cambie el symlink. Cero daemons.
-- Fuera de Omarchy: el mismo parser lee un `colors.toml` propio en
-  `~/.config/files/theme.toml`; en Windows/macOS se puede seguir el modo claro/oscuro del SO.
+- Canonical source: `~/.local/state/omarchy/current/theme/colors.toml`
+  (it is what `omarchy-theme-color` reads). There is also `~/.config/omarchy/theme.json`
+  with `{"theme":"Hackerman"}` and `~/.config/omarchy/themes/<name>/`.
+- When the theme changes, Omarchy runs `~/.config/omarchy/hooks/theme-set.d/*` with the
+  theme's name. **We do not need a hook**: a watcher (inotify) on the
+  `current/theme` directory that rereads `colors.toml` when the symlink changes is enough. Zero daemons.
+- Outside Omarchy: the same parser reads its own `colors.toml` at
+  `~/.config/files/theme.toml`; on Windows/macOS the OS light/dark mode can be followed.
 
-Mapa semántico `colors.toml` → UI:
+Semantic `colors.toml` → UI map:
 
-| Clave | Uso en files |
+| Key | Use in files |
 |---|---|
-| `background` | fondo de la ventana / área de contenido |
-| `darker_background` | riel, inspector, omnibar, toasts |
-| `lighter_background` | tarjetas de carpeta, hover, chips de ruta |
-| `selection` | fila/tarjeta seleccionada |
-| `muted` | bordes (con alpha), separadores |
-| `foreground` / `bright_foreground` | texto normal / nombres |
-| `dark_foreground` | metadatos, placeholders, iconos inactivos |
-| `accent` | segmento actual de ruta, foco, progreso, botón primario |
-| `blue` carpetas · `magenta` imágenes · `cyan` texto · `green` scripts · `yellow` comprimidos · `red` destructivo |
+| `background` | window background / content area |
+| `darker_background` | rail, inspector, omnibar, toasts |
+| `lighter_background` | folder cards, hover, path chips |
+| `selection` | selected row/card |
+| `muted` | borders (with alpha), separators |
+| `foreground` / `bright_foreground` | normal text / names |
+| `dark_foreground` | metadata, placeholders, inactive icons |
+| `accent` | current path segment, focus, progress, primary button |
+| `blue` folders · `magenta` images · `cyan` text · `green` scripts · `yellow` archives · `red` destructive |
 
-## E. UI v2 — "fuera de la caja" (mockups/v2.html)
+## E. UI v2 — "outside the box" (mockups/v2.html)
 
-Qué cambia respecto a Flea/Nautilus:
-1. **Omnibar única**: la ruta son fichas clicables, y el mismo campo filtra al escribir,
-   ejecuta comandos con `>` y salta a lugares con `:`. Desaparecen la barra de dirección,
-   la caja de búsqueda y el breadcrumb separados.
-2. **Riel colapsado** de 52 px que se expande al pasar el mouse, en lugar de sidebar fija.
-3. **Vista Grupos** por defecto: carpetas como tarjetas con conteo, tamaño y "hace 2 h";
-   archivos agrupados por fecha (Hoy / Esta semana / Antes) con badge de tipo coloreado.
-4. **Inspector** a la derecha: vista previa, metadatos y acciones. Reemplaza el menú
-   contextual para quien usa mouse. `F9` lo convierte en **segundo panel** (modo MC).
-5. **Vista Espacio**: treemap de tamaños calculado por un helper que muere al terminar.
-6. **Operaciones como toast** con progreso, pausa, cancelar y deshacer. Sin diálogos modales.
-7. **Atajos bajo demanda** (`?`), no barra F permanente; las F de MC siguen funcionando.
-8. Tipografía proporcional (sans), filas de 40 px, esquinas 10–14 px. Mono solo en `kbd`.
+What changes compared to Flea/Nautilus:
+1. **A single omnibar**: the path is clickable chips, and the same field filters while typing,
+   runs commands with `>` and jumps to places with `:`. The separate address bar,
+   search box and breadcrumb disappear.
+2. **A collapsed 52 px rail** that expands on mouse hover, instead of a fixed sidebar.
+3. **Groups view** by default: folders as cards with count, size and "2 h ago";
+   files grouped by date (Today / This week / Earlier) with a colored type badge.
+4. **Inspector** on the right: preview, metadata and actions. It replaces the context
+   menu for mouse users. `F9` turns it into a **second pane** (MC mode).
+5. **Space view**: a size treemap computed by a helper that dies when it finishes.
+6. **Operations as a toast** with progress, pause, cancel and undo. No modal dialogs.
+7. **Shortcuts on demand** (`?`), not a permanent F bar; MC's F keys still work.
+8. Proportional typography (sans), 40 px rows, 10–14 px corners. Mono only in `kbd`.
 
 ---
 
-# Adenda 0.0.2 (2026-10-26, tercera ronda): licencia MIT y bordes
+# Addendum 0.0.2 (2026-10-26, third round): MIT license and corners
 
-## F. Restricción nueva: open source permisivo (MIT ideal)
+## F. New constraint: permissive open source (MIT ideally)
 
-Slint queda fuera: su licencia es GPLv3 o "Royalty-Free" propietaria, ninguna permisiva.
-Se midieron las alternativas permisivas con la misma prueba (10k filas, ventana 900×600):
+Slint is out: its license is GPLv3 or a proprietary "Royalty-Free" one, neither of them permissive.
+The permissive alternatives were measured with the same test (10k rows, 900×600 window):
 
-| Stack | Licencia | PSS | RSS | Observación |
+| Stack | License | PSS | RSS | Note |
 |---|---|---|---|---|
-| Slint (referencia, descartado) | GPLv3 / propietaria | 19 MB | 31 MB | |
-| **fltk-rs** | MIT (FLTK: LGPL con excepción de enlace estático) | **27 MB** | 44 MB | binario 1.6 MB; dibuja con Cairo/Pango en Wayland |
-| iced + tiny-skia | MIT | 142 MB | 159 MB | sin lista virtualizada en la librería: instancia 10k widgets; descartado |
-| winit + softbuffer + tiny-skia + cosmic-text | MIT / Apache-2.0 / BSD-3 | 41 MB | 57 MB | UI 100 % propia; cosmic-text carga la base de fuentes del sistema (~20 MB anon) y softbuffer usa 14 MB de shmem. Optimizable, pero hoy pierde contra FLTK |
-| QML software (referencia) | LGPL | 51 MB | 104 MB | |
+| Slint (reference, discarded) | GPLv3 / proprietary | 19 MB | 31 MB | |
+| **fltk-rs** | MIT (FLTK: LGPL with a static-linking exception) | **27 MB** | 44 MB | 1.6 MB binary; draws with Cairo/Pango on Wayland |
+| iced + tiny-skia | MIT | 142 MB | 159 MB | no virtualized list in the library: it instantiates 10k widgets; discarded |
+| winit + softbuffer + tiny-skia + cosmic-text | MIT / Apache-2.0 / BSD-3 | 41 MB | 57 MB | 100% own UI; cosmic-text loads the system font database (~20 MB anon) and softbuffer uses 14 MB of shmem. It could be optimized, but today it loses to FLTK |
+| QML software (reference) | LGPL | 51 MB | 104 MB | |
 
-## G. Decisión de stack (0.0.2)
+## G. Stack decision (0.0.2)
 
-**Rust + fltk-rs**, usando FLTK solo como capa de plataforma: ventana, eventos, texto,
-portapapeles, arrastrar y soltar, HiDPI, diálogos nativos. **Toda la interfaz visible se
-dibuja a mano** sobre el canvas de FLTK (`draw()` propios), igual que haríamos en cualquier
-opción, así el look del mockup no depende de los widgets de FLTK.
+**Rust + fltk-rs**, using FLTK only as a platform layer: window, events, text,
+clipboard, drag and drop, HiDPI, native dialogs. **The whole visible interface is
+drawn by hand** on the FLTK canvas (own `draw()`), just as we would with any
+option, so the mockup's look does not depend on FLTK's widgets.
 
-Regla de arquitectura: la capa de dibujo expone una interfaz mínima (`fill_rounded_rect`,
-`text`, `clip`, `image`). Si FLTK estorba, se cambia por tiny-skia + softbuffer sin tocar
-las vistas. Esa es la salida de emergencia. Medido, el stack raw hoy cuesta 41 MB sin optimizar, así que FLTK es la opción más barata **y** la más madura entre las permisivas.
+Architecture rule: the drawing layer exposes a minimal interface (`fill_rounded_rect`,
+`text`, `clip`, `image`). If FLTK gets in the way, it is swapped for tiny-skia + softbuffer without touching
+the views. That is the emergency exit. Measured, the raw stack costs 41 MB today without optimizing, so FLTK is the cheapest **and** the most mature option among the permissive ones.
 
-## H. Bordes: seguir a Omarchy, con preferencia propia
+## H. Corners: follow Omarchy, with an own preference
 
-- Fuente viva: `hyprctl getoption decoration:rounding -j` → `{"int": 0}` en esta máquina
-  (Omarchy por defecto usa 0; el toggle sin gaps también fuerza 0). Se consulta al arrancar
-  y al recibir el hook de tema; sin daemons.
-- Preferencia en la app: `corners = "omarchy" | "square" | "rounded"`. "omarchy" mapea
-  `rounding = 0` a cuadrado y `rounding > 0` a redondeado escalando un factor `r` (0 → 1).
-- Todo radio de la UI se expresa como `base_px × r`: ventana, omnibar, fichas de ruta,
-  tarjetas, filas, botones, toasts, barra de progreso.
-- **Excepción fija**: thumbnails, badges de tipo y la vista previa del inspector conservan
-  siempre su radio (6–10 px). El usuario los quiere curvos aunque el resto sea cuadrado.
+- Live source: `hyprctl getoption decoration:rounding -j` → `{"int": 0}` on this machine
+  (Omarchy uses 0 by default; the no-gaps toggle also forces 0). It is queried at startup
+  and when the theme hook arrives; no daemons.
+- In-app preference: `corners = "omarchy" | "square" | "rounded"`. "omarchy" maps
+  `rounding = 0` to square and `rounding > 0` to rounded, scaling a factor `r` (0 → 1).
+- Every radius in the UI is expressed as `base_px × r`: window, omnibar, path chips,
+  cards, rows, buttons, toasts, progress bar.
+- **Fixed exception**: thumbnails, type badges and the inspector's preview always keep
+  their radius (6–10 px). The user wants them rounded even if everything else is square.
 
-## I. Ajustes del mockup v3 (mockups/v3.html)
+## I. Mockup v3 adjustments (mockups/v3.html)
 
-- Cabeceras de sección más pequeñas (10 px, peso 500, menos espacio vertical).
-- Columna de tamaño con numerales tabulares y unidad alineada en su propia subcolumna,
-  para que "774 kB" y "1.2 MB" queden en línea.
-- Filas 2 px más compactas.
-- Selector "Bordes: Seguir Omarchy / Cuadrados / Redondeados" como demostración de la preferencia.
+- Smaller section headers (10 px, weight 500, less vertical space).
+- Size column with tabular numerals and the unit aligned in its own sub-column,
+  so that "774 kB" and "1.2 MB" line up.
+- Rows 2 px more compact.
+- A "Corners: Follow Omarchy / Square / Rounded" selector as a demonstration of the preference.
 
 ---
 
-# Adenda 0.0.3 (2026-10-26, cuarta ronda): ¿GPU?
+# Addendum 0.0.3 (2026-10-26, fourth round): GPU?
 
-Misma prueba (10k filas, 900×600), esta máquina (Asahi, Apple M2 AGX; OpenGL por hardware
-vía Mesa/asahi; **sin ICD Vulkan de hardware instalado**, solo lavapipe por software):
+Same test (10k rows, 900×600), this machine (Asahi, Apple M2 AGX; hardware OpenGL
+through Mesa/asahi; **no hardware Vulkan ICD installed**, only the software lavapipe):
 
-| Stack | Render | Licencia | PSS | RSS | Δ vs mismo stack en software |
+| Stack | Render | License | PSS | RSS | Δ vs the same stack in software |
 |---|---|---|---|---|---|
 | fltk-rs | software (Cairo) | MIT | 27 MB | 44 MB | — |
-| fltk-rs + GlWindow | OpenGL (EGL, contexto vivo, sin dibujar) | MIT | 42 MB | 57 MB | **+15 MB solo por el contexto GL** |
+| fltk-rs + GlWindow | OpenGL (EGL, live context, not drawing) | MIT | 42 MB | 57 MB | **+15 MB just for the GL context** |
 | egui/eframe + glow | OpenGL (EGL/asahi) | MIT/Apache | 62 MB | 71 MB | |
-| egui/eframe + wgpu | Vulkan → cayó a **lavapipe (CPU)** | MIT/Apache | 68 MB | 78 MB | |
+| egui/eframe + wgpu | Vulkan → fell back to **lavapipe (CPU)** | MIT/Apache | 68 MB | 78 MB | |
 | QML Qt Quick (ref.) | GPU | LGPL | 90 MB | 146 MB | +39 MB vs QML software |
 
-Lecturas:
-1. **El contexto GPU cuesta 15–40 MB antes de dibujar un píxel** (driver, shaders, pools de
-   buffers). Es la mitad del presupuesto total.
-2. Los toolkits GPU-first permisivos (egui, iced-wgpu, Floem, Xilem/Vello, GPUI, Makepad)
-   parten de 60–70 MB. Ninguno baja de 50 MB con una ventana vacía.
-3. wgpu es realmente multiplataforma (Vulkan/Metal/DX12/GL), pero en una máquina sin
-   Vulkan por hardware cae a lavapipe: **render en CPU con el coste en RAM de la GPU**.
-4. Un gestor de archivos no necesita GPU: el compositor ya compone en GPU; nosotros
-   repintamos por software solo la región dañada. Las "animaciones" del mockup (hover,
-   riel que se expande, toasts) son interpolaciones de 150–250 ms que la CPU dibuja sobrada.
+Takeaways:
+1. **The GPU context costs 15–40 MB before drawing a single pixel** (driver, shaders, buffer
+   pools). That is half of the total budget.
+2. The permissive GPU-first toolkits (egui, iced-wgpu, Floem, Xilem/Vello, GPUI, Makepad)
+   start at 60–70 MB. None goes below 50 MB with an empty window.
+3. wgpu is truly cross-platform (Vulkan/Metal/DX12/GL), but on a machine without
+   hardware Vulkan it falls back to lavapipe: **rendering on the CPU with the GPU's RAM cost**.
+4. A file manager does not need a GPU: the compositor already composites on the GPU; we
+   repaint only the damaged region in software. The mockup's "animations" (hover,
+   an expanding rail, toasts) are 150–250 ms interpolations that the CPU draws with ease.
 
-**Decisión 0.0.3: sin GPU en v1.** La capa de dibujo queda abstraída (`Painter` con
-`rect`, `rounded_rect`, `text`, `image`, `clip`) y se añade un backend GL/wgpu **opcional**
-solo si aparece un caso real (p. ej. grilla de miles de thumbnails con zoom fluido), siempre
-activable por preferencia y nunca por defecto. Objetivo de la v1 con FLTK software: ≤ 35 MB
-PSS con 10k archivos, para dejar margen a thumbnails y operaciones.
+**Decision 0.0.3: no GPU in v1.** The drawing layer stays abstracted (`Painter` with
+`rect`, `rounded_rect`, `text`, `image`, `clip`) and an **optional** GL/wgpu backend is added
+only if a real case appears (e.g. a grid of thousands of thumbnails with smooth zoom), always
+enabled through a preference and never by default. v1 goal with software FLTK: ≤ 35 MB
+PSS with 10k files, leaving room for thumbnails and operations.
 
 ---
 
-# Adenda 0.0.4 (2026-10-26): shaders opcionales, estilo omarchy-t3
+# Addendum 0.0.4 (2026-10-26): optional shaders, omarchy-t3 style
 
-Referencia: `~/Work/omarchy-t3-code/ui/assets/shaders/` (GLSL compilado a `.qsb` para Qt):
-- `threadaura.frag` — aura por fila: cometa orbitando el borde (working), borde que respira
-  con destellos (attention), estrella fugaz al cambiar de estado (burst). Varios estilos.
-- `reveal.frag` — transición mostrar/ocultar por región con `progress` 0..1: nebulosa,
-  warp con separación RGB, pliegue de acordeón.
-- `starfield.frag` — fondo procedural de estrellas con paralaje, titileo y meteoros.
-- `activity.frag` — brillo gaussiano para texto de actividad.
+Reference: `~/Work/omarchy-t3-code/ui/assets/shaders/` (GLSL compiled to `.qsb` for Qt):
+- `threadaura.frag` — a per-row aura: a comet orbiting the border (working), a breathing border
+  with flashes (attention), a shooting star on state changes (burst). Several styles.
+- `reveal.frag` — a show/hide transition per region with `progress` 0..1: nebula,
+  warp with RGB separation, accordion fold.
+- `starfield.frag` — a procedural star background with parallax, twinkling and meteors.
+- `activity.frag` — a Gaussian glow for activity text.
 
-Patrón común: **fragment shader por región rectangular**, uniformes `time/clock`,
-`progress`, `style`, colores del tema y coordenadas del panel; opcionalmente un `sampler2D`
-con el contenido ya pintado debajo (`source`).
+Common pattern: **a fragment shader per rectangular region**, `time/clock` uniforms,
+`progress`, `style`, theme colors and the panel's coordinates; optionally a `sampler2D`
+with the content already painted underneath (`source`).
 
-## Cómo encaja en files sin pagar GPU por defecto
+## How it fits in files without paying for the GPU by default
 
 ```
-trait Painter {                      // backend software (FLTK/Cairo) y backend GPU (futuro)
+trait Painter {                      // software backend (FLTK/Cairo) and GPU backend (future)
     fn rect / rounded_rect / text / image / clip ...
-    fn effect(&mut self, region: Rect, id: EffectId, u: &Uniforms) -> bool; // false = no soportado
-    fn capture(&mut self, region: Rect) -> Option<TextureId>;             // `source` para shaders
+    fn effect(&mut self, region: Rect, id: EffectId, u: &Uniforms) -> bool; // false = not supported
+    fn capture(&mut self, region: Rect) -> Option<TextureId>;             // `source` for shaders
 }
 ```
 
-- **Backend software**: `effect()` devuelve `false`. Cada efecto declara un **fallback CPU**
-  barato: aura → borde con color de acento; reveal → fade+slide 180 ms; starfield → nada
-  (fondo plano); activity → sin brillo. La app es completa sin GPU.
-- **Backend GPU** (opcional, preferencia `effects = off | on`, por defecto `off`):
-  wgpu o GL. Toda la UI pintada por CPU se sube como textura una vez por frame dañado y
-  los efectos se dibujan como pases de fragment shader sobre/bajo esa textura. Los shaders
-  se escriben en WGSL o GLSL (portables: `.frag` → `naga` los traduce), y **rust-gpu es
-  viable aquí** si se prefiere escribirlos en Rust, aislado en el crate del backend GPU.
-- Coste esperado al activar efectos: +15–40 MB (contexto). Aceptable porque es opt-in y
-  se muestra en la barra de estado ("RAM 58 MB · efectos").
-- Mismo set de uniformes que omarchy-t3 (`time`, `progress`, `style`, colores de
-  `colors.toml`) para poder portar `threadaura` y `reveal` casi tal cual.
+- **Software backend**: `effect()` returns `false`. Each effect declares a cheap **CPU fallback**:
+  aura → border in the accent color; reveal → fade+slide 180 ms; starfield → nothing
+  (flat background); activity → no glow. The app is complete without a GPU.
+- **GPU backend** (optional, preference `effects = off | on`, `off` by default):
+  wgpu or GL. The whole UI painted by the CPU is uploaded as a texture once per damaged frame and
+  the effects are drawn as fragment shader passes over/under that texture. The shaders
+  are written in WGSL or GLSL (portable: `.frag` → `naga` translates them), and **rust-gpu is
+  viable here** if writing them in Rust is preferred, isolated in the GPU backend crate.
+- Expected cost when enabling effects: +15–40 MB (context). Acceptable because it is opt-in and
+  shown in the status bar ("RAM 58 MB · effects").
+- The same set of uniforms as omarchy-t3 (`time`, `progress`, `style`, colors from
+  `colors.toml`) so `threadaura` and `reveal` can be ported almost as they are.
 
-Casos de uso previstos: aura en operaciones en curso (fila copiándose = comet working;
-conflicto = attention), reveal al abrir inspector/segundo panel, starfield opcional en el
-fondo de la vista Grupos cuando la carpeta está vacía.
+Planned use cases: an aura on operations in progress (a row being copied = working comet;
+a conflict = attention), reveal when opening the inspector/second pane, an optional starfield in the
+background of the Groups view when the folder is empty.
 
 ---
 
-# Adenda 0.0.5 (2026-10-26): vista previa, red, copia, búsqueda
+# Addendum 0.0.5 (2026-10-26): preview, network, copy, search
 
-Regla transversal: **el proceso principal nunca carga decodificadores, pilas de red, modelos
-ni índices**. Todo eso vive en `files-helper <subcomando>`, un segundo binario del mismo
-repo que arranca bajo demanda, habla con la app por stdio (JSON por líneas + blobs por
-memoria compartida/archivo temporal) y muere al terminar o tras N segundos ocioso.
+Cross-cutting rule: **the main process never loads decoders, network stacks, models
+nor indices**. All of that lives in `files-helper <subcommand>`, a second binary in the same
+repo that starts on demand, talks to the app over stdio (JSON lines + blobs through
+shared memory/a temporary file) and dies when it finishes or after N idle seconds.
 
-## J. Vista previa (Space)
+## J. Preview (Space)
 
-- `Space` abre un panel flotante sobre la ventana (sin diálogo modal); `Space` o `Esc` lo
-  cierra; flechas navegan sin cerrarlo. Tecla `i` sigue siendo el inspector fijo.
-- Lo renderiza `files-helper preview <ruta>` y entrega un bitmap por memoria compartida
-  (o texto ya formateado). Al cerrar, el helper muere: **0 MB residentes** por previsualizar.
-- Tipos v1: imágenes (crates `image`/`zune-*`, downscale al tamaño del panel, nunca la
-  imagen completa en RAM), texto y código (resaltado ligero, primeras 2 000 líneas), Markdown,
-  PDF (página N via `mutool draw` si existe, si no `pdfium-render` opcional), vídeo (frame +
-  duración via `ffmpeg` si existe), audio (metadatos), archivos comprimidos (listado),
-  carpetas (conteo + tamaño). Office: primero texto extraído; render fiel después.
-- Multiplataforma: la lista de renderizadores se resuelve en runtime según herramientas
-  presentes; sin dependencia dura de ninguna.
+- `Space` opens a floating panel over the window (no modal dialog); `Space` or `Esc`
+  closes it; arrows navigate without closing it. The `i` key is still the fixed inspector.
+- It is rendered by `files-helper preview <path>`, which delivers a bitmap through shared memory
+  (or already formatted text). When it closes, the helper dies: **0 MB resident** for previewing.
+- v1 types: images (`image`/`zune-*` crates, downscaled to the panel size, never the
+  full image in RAM), text and code (light highlighting, first 2,000 lines), Markdown,
+  PDF (page N through `mutool draw` if available, otherwise the optional `pdfium-render`), video (frame +
+  duration through `ffmpeg` if available), audio (metadata), archives (listing),
+  folders (count + size). Office: extracted text first; faithful rendering later.
+- Cross-platform: the list of renderers is resolved at runtime according to the tools
+  present; no hard dependency on any of them.
 
-## K. Red (SMB, SFTP, WebDAV, FTP, NFS)
+## K. Network (SMB, SFTP, WebDAV, FTP, NFS)
 
-- Capa `Vfs` en `core`: `list`, `stat`, `open_read`, `open_write`, `rename`, `remove`,
-  `mkdir`, `watch?`. Backends: `local` (en proceso) y los de red, **todos en
-  `files-helper net`**, para que TLS, SSH y libsmbclient no vivan en el principal.
-- SMB: libsmbclient via FFI (LGPL, enlace dinámico; en Windows se usa UNC nativo, en macOS
-  `smb://` del sistema como alternativa). SFTP: `russh` + `russh-sftp` (Apache/MIT, puro
-  Rust). WebDAV: `reqwest`. FTP: `suppaftp`. NFS: montaje del sistema, no cliente propio.
-- Descubrimiento opcional: mDNS (`mdns-sd`) y WS-Discovery para SMB. Credenciales en el
-  llavero del sistema (`keyring` crate: Secret Service / Keychain / Credential Manager).
-- URLs en la omnibar: `smb://nas/fotos`, `sftp://user@host/ruta`. Aparecen en el riel bajo
-  "Red" con estado de conexión. Las operaciones de copia pasan por el mismo motor (sección L)
-  con streaming, sin descargar a temporal salvo que el destino lo exija.
-- Sin GVFS ni KIO: son daemons permanentes y solo Linux.
+- A `Vfs` layer in `core`: `list`, `stat`, `open_read`, `open_write`, `rename`, `remove`,
+  `mkdir`, `watch?`. Backends: `local` (in-process) and the network ones, **all in
+  `files-helper net`**, so that TLS, SSH and libsmbclient do not live in the main process.
+- SMB: libsmbclient through FFI (LGPL, dynamic linking; on Windows native UNC is used, on macOS
+  the system's `smb://` as an alternative). SFTP: `russh` + `russh-sftp` (Apache/MIT, pure
+  Rust). WebDAV: `reqwest`. FTP: `suppaftp`. NFS: a system mount, not an own client.
+- Optional discovery: mDNS (`mdns-sd`) and WS-Discovery for SMB. Credentials in the
+  system keyring (`keyring` crate: Secret Service / Keychain / Credential Manager).
+- URLs in the omnibar: `smb://nas/fotos`, `sftp://user@host/path`. They appear in the rail under
+  "Network" with a connection status. Copy operations go through the same engine (section L)
+  with streaming, without downloading to a temporary file unless the destination requires it.
+- No GVFS nor KIO: they are permanent daemons and Linux-only.
 
-## L. Copia hiper-optimizada
+## L. Hyper-optimized copy
 
-Motor `ops` en el proceso principal (hilos, no helper): necesita progreso fino y cancelación
-inmediata; su memoria es un pool fijo de buffers (máx. 4 × 4 MB).
+The `ops` engine in the main process (threads, not a helper): it needs fine-grained progress and immediate
+cancellation; its memory is a fixed pool of buffers (max 4 × 4 MB).
 
-Orden de intentos por archivo:
-1. **Clonación CoW** cuando origen y destino están en el mismo FS que la soporte:
+Order of attempts per file:
+1. **CoW cloning** when source and destination are on the same FS that supports it:
    Linux `FICLONE` (btrfs, XFS, bcachefs), macOS `clonefile`/`copyfile(COPYFILE_CLONE)`
-   (APFS), Windows ReFS block clone. Instantáneo y sin ocupar espacio extra.
-2. **Copia en kernel** sin pasar por espacio de usuario: Linux `copy_file_range`
-   (también entre FS en kernels modernos), macOS `fcopyfile`, Windows `CopyFileEx`.
-3. **Streaming** con buffers de 1–4 MB, lectura adelantada y, para archivos grandes,
-   `posix_fadvise(SEQUENTIAL)`/`O_DIRECT` opcional; io_uring en Linux cuando esté disponible
-   (feature opcional).
-- Paralelismo adaptativo: muchos archivos pequeños → N workers (N = cores, tope 8);
-  pocos grandes → un stream por dispositivo destino. Se mide el throughput y se ajusta.
-- Archivos dispersos (`SEEK_HOLE/SEEK_DATA`), xattrs, tiempos, permisos, enlaces simbólicos.
-- Mismo dispositivo → `rename` (mover es instantáneo). Entre dispositivos → copia + verificación
-  opcional (xxhash) + borrado.
-- Reanudable, pausable, cancelable; cola única visible en el toast; deshacer (mover → mover
-  de vuelta; copiar → borrar lo copiado; borrar → papelera propia según spec freedesktop /
+   (APFS), Windows ReFS block clone. Instant and without using extra space.
+2. **In-kernel copy** without going through user space: Linux `copy_file_range`
+   (also across FSs on modern kernels), macOS `fcopyfile`, Windows `CopyFileEx`.
+3. **Streaming** with 1–4 MB buffers, read-ahead and, for large files,
+   optional `posix_fadvise(SEQUENTIAL)`/`O_DIRECT`; io_uring on Linux when available
+   (optional feature).
+- Adaptive parallelism: many small files → N workers (N = cores, cap 8);
+  few large ones → one stream per destination device. Throughput is measured and adjusted.
+- Sparse files (`SEEK_HOLE/SEEK_DATA`), xattrs, times, permissions, symbolic links.
+- Same device → `rename` (moving is instant). Across devices → copy + optional
+  verification (xxhash) + delete.
+- Resumable, pausable, cancellable; a single queue visible in the toast; undo (move → move
+  back; copy → delete what was copied; delete → own trash per the freedesktop spec /
   Recycle Bin / macOS Trash).
-- Métrica objetivo: igualar `cp --reflink=auto` y superar a Nautilus en árboles de muchos
-  archivos pequeños (donde el paralelismo manda).
+- Target metric: match `cp --reflink=auto` and beat Nautilus on trees with many
+  small files (where parallelism rules).
 
-## M. Búsqueda
+## M. Search
 
-Tres niveles, todos desde la omnibar con prefijo, resultados fusionados en una sola lista:
+Three levels, all from the omnibar with a prefix, results merged into a single list:
 
-| Prefijo | Qué | Cómo | Dónde corre |
+| Prefix | What | How | Where it runs |
 |---|---|---|---|
-| (nada) | filtro instantáneo de la carpeta actual | en memoria, fuzzy (`nucleo`) | principal |
-| `/texto` | nombres en todo el árbol o el disco | índice propio (ver abajo) o `plocate`/`fd` si existen | `files-helper find` |
-| `?texto` | contenido literal/regex | motor de `ripgrep` (`grep` crates, MIT) con límites | `files-helper grep` |
-| `~frase` | semántico, "la factura del notebook de septiembre" | embeddings + índice vectorial | `files-helper semantic` |
+| (none) | instant filter of the current folder | in memory, fuzzy (`nucleo`) | main |
+| `/text` | names across the whole tree or the disk | own index (see below) or `plocate`/`fd` if available | `files-helper find` |
+| `?text` | literal/regex content | the `ripgrep` engine (`grep` crates, MIT) with limits | `files-helper grep` |
+| `~phrase` | semantic, "the notebook invoice from September" | embeddings + vector index | `files-helper semantic` |
 
-Índice de nombres: solo para raíces que el usuario marca (Home por defecto). Archivo en
-disco (`~/.local/share/files/index/`), estructura trigramas + tabla de rutas; actualización
-incremental por inotify/FSEvents/ReadDirectoryChangesW mientras la app está abierta y
-re-escaneo al arrancar. Nunca se carga entero en RAM: mmap y consulta por páginas.
+Name index: only for roots the user marks (Home by default). A file on
+disk (`~/.local/share/files/index/`), a trigram structure + path table; incremental
+updates through inotify/FSEvents/ReadDirectoryChangesW while the app is open and a
+rescan at startup. It is never fully loaded into RAM: mmap and paged queries.
 
-Semántico (EmbeddingGemma):
-- Modelo: **EmbeddingGemma 300M** (Google), formato GGUF, ejecutado por `llama.cpp`
-  (`llama-server --embedding` o `llama-embedding`), que ya está en esta máquina y corre en
-  Linux/macOS (Metal)/Windows. Alternativa sin llama.cpp: `candle`/`ort` dentro del helper.
-- El modelo **no se distribuye con la app**: se descarga bajo demanda al activar la función
-  (licencia Gemma Terms of Use, no es MIT; aceptación explícita en Preferencias).
-- Pipeline en `files-helper semantic`: extraer texto (txt/md/código/pdf via `mutool`/
-  `pdf-extract`/office via `zip`+XML), trocear ~512 tokens con solape, embeber, guardar en
-  índice vectorial en disco (`usearch` o HNSW propio; Apache). Consulta: embeber la frase,
-  top‑k por coseno, re-ordenar con nombre/fecha. Las carpetas indexadas se eligen en
-  Preferencias; el helper muere al terminar y el modelo sale de RAM con él.
-- Coste: ~400–700 MB de RAM **solo mientras indexa o consulta**, en otro proceso. El principal
-  sigue en su presupuesto. Se muestra en la barra de estado mientras ocurre.
+Semantic (EmbeddingGemma):
+- Model: **EmbeddingGemma 300M** (Google), GGUF format, run by `llama.cpp`
+  (`llama-server --embedding` or `llama-embedding`), which is already on this machine and runs on
+  Linux/macOS (Metal)/Windows. Alternative without llama.cpp: `candle`/`ort` inside the helper.
+- The model **is not distributed with the app**: it is downloaded on demand when the feature is enabled
+  (Gemma Terms of Use license, not MIT; explicit acceptance in Preferences).
+- Pipeline in `files-helper semantic`: extract text (txt/md/code/pdf through `mutool`/
+  `pdf-extract`/office through `zip`+XML), chunk into ~512 tokens with overlap, embed, store in an
+  on-disk vector index (`usearch` or an own HNSW; Apache). Query: embed the phrase,
+  top-k by cosine, re-rank by name/date. The indexed folders are chosen in
+  Preferences; the helper dies when it finishes and the model leaves RAM with it.
+- Cost: ~400–700 MB of RAM **only while indexing or querying**, in another process. The main process
+  stays within its budget. It is shown in the status bar while it happens.
 
-## N. Helpers (resumen)
+## N. Helpers (summary)
 
-`files-helper {preview|thumb|du|net|find|grep|semantic}` — un binario, varios procesos.
-Protocolo: una línea JSON por petición/respuesta; bitmaps y blobs por `memfd`/archivo
-temporal. Cada helper tiene tope de RAM (`RLIMIT_AS` en Linux, job objects en Windows) y
-tiempo de vida ocioso configurable (por defecto 30 s).
+`files-helper {preview|thumb|du|net|find|grep|semantic}` — one binary, several processes.
+Protocol: one JSON line per request/response; bitmaps and blobs through `memfd`/a temporary
+file. Each helper has a RAM cap (`RLIMIT_AS` on Linux, job objects on Windows) and a
+configurable idle lifetime (30 s by default).
 
-## Fases (actualizadas)
+## Phases (updated)
 
-1. 0.0.1 núcleo + vista Grupos + tema vivo + test PSS.
-2. 0.0.2 operaciones con motor de copia (clonación, kernel copy, paralelismo), papelera, deshacer.
-3. 0.0.3 vistas restantes, inspector, segundo panel, vista previa con Space (helper).
-4. 0.0.4 búsqueda: filtro, `/` índice de nombres, `?` contenido.
-5. 0.0.5 red: SFTP y SMB primero, WebDAV/FTP después.
-6. 0.0.6 semántico con EmbeddingGemma; thumbnails; vista Espacio.
-7. 0.0.7 Windows y macOS; efectos GPU opcionales.
+1. 0.0.1 core + Groups view + live theme + PSS test.
+2. 0.0.2 operations with the copy engine (cloning, kernel copy, parallelism), trash, undo.
+3. 0.0.3 remaining views, inspector, second pane, preview with Space (helper).
+4. 0.0.4 search: filter, `/` name index, `?` content.
+5. 0.0.5 network: SFTP and SMB first, WebDAV/FTP later.
+6. 0.0.6 semantic with EmbeddingGemma; thumbnails; Space view.
+7. 0.0.7 Windows and macOS; optional GPU effects.
 
 ---
 
-# Nota de versionado (2026-10-26)
+# Versioning note (2026-10-26)
 
-Regla global del usuario: las versiones avanzan lento (0.0.1, 0.0.2, …, 0.0.25, …). Las
-fases llamadas aquí 0.0.1…0.0.7 se leen como hitos **0.0.1, 0.0.2, …**; el número exacto lo
-fija cada entrega. Cualquier salto a 0.1.0 o 1.0.0 se propone y lo autoriza el usuario.
+The user's global rule: versions advance slowly (0.0.1, 0.0.2, …, 0.0.25, …). The
+phases called 0.0.1…0.0.7 here are read as milestones **0.0.1, 0.0.2, …**; the exact number is
+set by each delivery. Any jump to 0.1.0 or 1.0.0 is proposed and authorized by the user.
 
 # Hallazgos de implementación (0.0.1, 2026-10-26)
 
