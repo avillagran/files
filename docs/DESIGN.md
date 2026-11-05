@@ -431,262 +431,262 @@ The user's global rule: versions advance slowly (0.0.1, 0.0.2, …, 0.0.25, …)
 phases called 0.0.1…0.0.7 here are read as milestones **0.0.1, 0.0.2, …**; the exact number is
 set by each delivery. Any jump to 0.1.0 or 1.0.0 is proposed and authorized by the user.
 
-# Hallazgos de implementación (0.0.1, 2026-10-26)
+# Implementation findings (0.0.1, 2026-10-26)
 
-- **Grupos implica ordenar por fecha.** El `readdir` inicial conserva sólo nombre y
-  tipo; un trabajador carga los metadatos para clasificar por fecha después de la
-  primera pintura. Mientras tanto hay un grupo transitorio «Por fechar». En Lista
-  por nombre sólo se consultan las entradas visibles; ordenar por tamaño/fecha
-  solicita el resto. No se crean widgets por entrada.
-- Las tarjetas muestran conteo de hijos inmediatos y suma de tamaños de archivos
-  inmediatos. No representan tamaño recursivo: `du` sigue como protocolo sin
-  implementación. Los enlaces simbólicos no se recorren durante el conteo.
-- **FLTK sólo dibuja por software**, sin `enable-glwindow`, con `no-images` para no
-  incorporar decodificadores de thumbnails a la UI. Las bibliotecas de texto del
-  sistema sí enlazan libpng de forma transitiva (Cairo/FreeType); no se decodifican
-  imágenes de archivos en este hito. La barra de estado se invalida por su región;
-  los cambios de navegación/layout invalidan el lienzo. No hay animaciones continuas.
-- Linux usa una ventana sin decoración de cliente, de acuerdo con el mockup. Evita
-  el trabajo y la superficie de libdecor por ventana; dejó diez arranques consecutivos
-  bajo 100 ms en la medición guardada. El compositor sigue administrando mover,
-  redimensionar y cerrar. No se modificaron reglas persistentes de Hyprland.
-- **Límite de FLTK/Wayland en el contorno exterior:** su máscara nativa usa Cairo
-  A1 (un bit, sin anti-aliasing alfa fino). La prueba experimental mostró picos de
-  48–54 MiB durante redimensionados; también hubo una carrera al fijar la geometría
-  desde Hyprland, por lo que ese pico no permite atribuir un coste aislado al recorte.
-  No se incorpora esa ruta experimental en 0.0.1; falta resolver anti-aliasing y
-  validar su presupuesto de forma aislada. **El contorno exterior lo administra
-  Hyprland**; la preferencia square/rounded/omarchy se aplica a la geometría interior.
-  Los badges y el recuadro del inspector conservan radios fijos. Es una limitación
-  explícita para revisar con otro backend o una corrección upstream.
-- El watcher observa `current/theme`, sus padres y el destino resuelto. Tras cambios
-  atómicos vuelve a adjuntar las vigilancias; debounce de 100 ms, cola acotada de una
-  notificación y conservación de la última paleta válida ante escritura parcial.
-- Licencias CC0/ISC/Unicode-3.0: excepciones específicas autorizadas por el usuario;
-  ver `DEPENDENCIES.md`. No se amplió la política para otras dependencias.
-- CUA 0.28.2 no descubre ventanas en este Hyprland 0.56.2 (`Found 0 windows`;
-  identificador Wayland rechazado como `stale`). Las escenas verifican el modelo de
-  UI dentro de una ventana Wayland real. No equivalen a prueba de entrega de clics
-  del SO. Las capturas finales salen del framebuffer real de FLTK, sin superponer
-  otras ventanas ni incorporar su contenido.
-- DnD, portapapeles de archivos, thumbnails, vista previa de contenido, operaciones,
-  red, búsqueda recursiva y helper `du` real siguen fuera de este hito. El inspector
-  muestra tipo/metadatos y apertura; su recuadro representa el tipo, sin decodificar.
-- Compilación y prueba de escritorio realizadas en Linux aarch64/Wayland. Windows,
-  macOS, X11 y entrega de eventos de ratón por controlador nativo quedan sin probar.
+- **Groups implies sorting by date.** The initial `readdir` keeps only name and
+  type; a worker loads the metadata to classify by date after the
+  first paint. Meanwhile there is a transient «Undated» group. In List
+  sorted by name, only the visible entries are queried; sorting by size/date
+  requests the rest. No widgets are created per entry.
+- Cards show the count of immediate children and the sum of the sizes of immediate
+  files. They do not represent a recursive size: `du` is still a protocol without an
+  implementation. Symbolic links are not walked during the count.
+- **FLTK only draws in software**, without `enable-glwindow`, with `no-images` so as not
+  to bring thumbnail decoders into the UI. The system text libraries do link
+  libpng transitively (Cairo/FreeType); no file images are decoded
+  in this milestone. The status bar is invalidated by its region;
+  navigation/layout changes invalidate the canvas. There are no continuous animations.
+- Linux uses a window without client decoration, in line with the mockup. It avoids
+  the work and surface of libdecor per window; it gave ten consecutive startups
+  under 100 ms in the saved measurement. The compositor still manages moving,
+  resizing and closing. No persistent Hyprland rules were modified.
+- **FLTK/Wayland limit on the outer outline:** its native mask uses Cairo
+  A1 (one bit, without fine alpha anti-aliasing). The experimental test showed peaks of
+  48–54 MiB during resizes; there was also a race when setting the geometry
+  from Hyprland, so that peak does not allow attributing an isolated cost to the clipping.
+  That experimental path is not included in 0.0.1; anti-aliasing has yet to be solved and
+  its budget validated in isolation. **The outer outline is managed by
+  Hyprland**; the square/rounded/omarchy preference applies to the inner geometry.
+  Badges and the inspector's box keep fixed radii. It is an explicit
+  limitation to revisit with another backend or an upstream fix.
+- The watcher observes `current/theme`, its parents and the resolved target. After atomic
+  changes it re-attaches the watches; a 100 ms debounce, a bounded queue of one
+  notification and the last valid palette kept on a partial write.
+- CC0/ISC/Unicode-3.0 licenses: specific exceptions authorized by the user;
+  see `DEPENDENCIES.md`. The policy was not extended to other dependencies.
+- CUA 0.28.2 does not discover windows on this Hyprland 0.56.2 (`Found 0 windows`;
+  the Wayland identifier rejected as `stale`). The scenes verify the UI model
+  inside a real Wayland window. They are not equivalent to a test of OS click
+  delivery. The final captures come from FLTK's real framebuffer, without overlaying
+  other windows nor including their content.
+- DnD, the file clipboard, thumbnails, content preview, operations,
+  network, recursive search and a real `du` helper remain outside this milestone. The inspector
+  shows type/metadata and opening; its box represents the type, without decoding.
+- Build and desktop test done on Linux aarch64/Wayland. Windows,
+  macOS, X11 and mouse event delivery through a native driver remain untested.
 
-# Actualización explícita del usuario (2026-10-26): alcance y Nerd Fonts
+# Explicit user update (2026-10-26): scope and Nerd Fonts
 
-El alcance posterior a 0.0.1 incluye todo el plan y capacidades modernas, shaders
-reales opt-in incluidos; la matriz y aceptación observable están en ROADMAP.md.
-La tipografía sans proporcional anterior queda sustituida por **Nerd Fonts** en
-toda la UI, también toolbar/riel/inspector/espacial. Se resuelve la fuente monospace
-Nerd de Omarchy mediante una consulta acotada fontconfig, con fallback legible fuera
-de Omarchy, sin enumerar/rasterizar el catálogo y sin cambiar configuración global.
-El techo de 150 MB comprende principal y helpers; 50 MB es objetivo, no permiso
-para omitir coste de hijos/GPU. El modo EmbeddingGemma de 400–700 MB permanece
-bloqueado por incompatibilidad de presupuesto, sin frenar otras capacidades.
-
-
-## Hallazgos de implementación0.0.2 (2026-10-26)
-
-- Nerd Fonts reemplaza la sans previa por instrucción explícita. Se resuelve la
-  familia monospace del host con una consulta fontconfig; glifos rasterizados en
-  framebuffer real. Fixtures aíslan sólo FILES_CONFIG_DIR para conservar ese mapping.
-- Persistencia espacial y bordes: límites previos a asignación, validación de datos
-  anteriores, temp exclusivo+rename/sync, snapshots Arc coalescidos hasta ACK. Fallos
-  sobreviven navegación/cierre; aliases usan identidad canónica resuelta fuera UI.
-  Mover/renombrar carpeta requiere futura migración de identidad path+dev+ino.
-- El cierre espera guardar o descarte explícito, y cancelar/recoger helper. Esto no
-  aporta journal durable frente a kill/power loss ni aislamiento de escritores hostiles.
-- El sampler mide árbol PSS+Swap y registra salidas confirmadas durante lectura.
-  Completo significa lecturas verificables de supervivientes, no cobertura de lifetimes;
-  máximos muestreados siguen siendo límites inferiores, sin GPU. Detalle VALIDATION.
-- Calcular tamaño usa helper du efímero FD/no-follow con límites y supervisor; muestra
-  tamaño aparente por nombre, no bloques físicos ni snapshot. Treemap sigue pendiente.
-- La geometría observada2x y captura FLTK lógica acreditan layout, no toda la nitidez
-  física del compositor. El contorno exterior y eventos SO conservan límites anteriores.
-- GLES3 hardware Apple M2 Pro comprobado; cuatro shaders MIT portados/dibujados en
-  fixtures. Aún no hay efectos reales integrados en Painter ni presupuesto ON/OFF app.
-- Arranque estricto sigue FAIL(max111,423ms sin sampler); no se oculta con mediana.
-  Objetivo ideal50MB incumplido en Grupos100k(55,59MB), no techo150MB ampliado.
-
-- Regresión final0.0.2: baseline árbol+Swap40,81MiB pico,28,63MiB estable; FAIL del
-  umbral de análisis40MiB. Se conserva evidencia anterior. Lectura estática FLTK
-  Wayland1.5.23 permite pools simultáneos y retención de current_pool grande
-  (10MB mínimo o2×framebytes), pero no prueba causalidad. Diagnósticos de mappings
-  tienen acceptance=false; Size no es PSS. Sin parche global ni supuesto ahorro.
-  Usuario suspende nuevas mediciones0.0.2 y autoriza continuar integración0.0.3;
-  rendimiento pendiente no se convierte en PASS por cerrar checkpoint.
-
-## Hallazgos de implementación0.0.4 (2026-10-26)
-
-- fltk-rs1.5.23 `app::wait_for` convierte retorno de C a i32 y acepta sólo0/1;
-  backend Unix devuelve número de FD listos de poll, legítimamente>=2. Fixture
-  aislada de dos pipes: raw2/callbacks2/errno0, wrapper Rust lo rechazaría. UI ahora
-  llama la misma función C enlazada mediante wrapper local, acepta raw finito>=0,
-  captura errno inmediato, reintenta sóloEINTR con pausa1ms y conserva errores reales.
-  Error fatal cancela/drena operaciones/helpers antes de devolver fallo al binario.
-  Sin parche de registry ni dependencia nueva. Traza en escena confirma raw4/3
-  exitosos; retorno del fallo original no se instrumentó y no se inventa causalidad.
-- Clipboard de Wayland necesita foco/serial de compositor. Fixture sin foco publica
-  set_selection serial0 y wl-paste devuelve Nothing is copied; selección interna
-  exacta no equivale a clipboard externo probado. Se conserva FAIL y falta repetir
-  con foco real de la fixture, sin sustituir app::copy por proceso externo.
-- Preview de texto dibuja fuente con primitiva literal de Painter y mapa byte→display
-  para tabs/controles; preserva selección/copias de bytes originales. Sólo documento
-  activo acotado, sólo líneas visibles; render por línea limitado4096B con aviso.
-  HTML/Markdown fuente no se considera preview renderizado, que continúa pendiente.
-
-- P05 experimental: litehtml/Gumbo nativo entrega comandos limitados a Painter,
-  sin browser/JS/red. No se usa código UC/Sun strtod fuera de allowlist; bridge
-  MIT aislado. document_container se llama después de que Gumbo crea su árbol:
-  cap de callbacks NO es cap previo de parser. RLIMIT_AS64MiB de UI no es PSS.
-  Métricas escalares0.6×size muestran recorte CJK/celdas; no se declara shaping ni
-  preview HTML completo. Falta allocator/recursos/contraste/packaging y presupuesto.
-  Fase actual sólo integración/capturas: sin nuevas mediciones hasta liberación.
-
-## Decisión explícita de ventana (2026-10-26, 0.0.4)
-
-Usuario sustituye el borderless Linux forzado por Normal por defecto, gestionada
-por el compositor sin imponer flotante/panel/overlay. Preferencias y Acciones
-separados con Nerd Fonts; modos normal/pantalla completa persistidos
-independientes de corners/tema. Header libre y grips interiores24px solicitan
-move/resize Wayland con serial real, sin robar controles ni tocar config global.
-
-Hallazgo: fltk-rs no expone resize interactivo Wayland. Adaptador C++ local contra
-headers privados del pin FLTK usa libdecor, validando foco/ventana/evento/serial;
-no se parchea registry. Build sin metadata de headers exige discovery acotado de
-la fuente fijada y configs idénticas o override explícito. No prueba de gesto SO
-ni accesibilidad AT-SPI; límites y verificación en WINDOW-MODES.md. Se mantiene
-freeze de recursos/startup y ningún PASSglobal de0.0.4.
-
-### Prioridad explícita del usuario — 2026-10-26
-Tras Propiedades: investigar cierre Super+W en bind efectivo/compositor/libdecor,
-sin modificar configuración global; apertura por comando `open` del sistema con
-argv directo, sin shell ni fallback xdg-open (alternativa pendiente si falta).
-Integrar después Espacio `#v-map` como treemap proporcional de bytes reales con
-helper cancelable, selección/inspector y navegación: distinto de Espacial y du.
-No reproducir el texto ficticio «0 MB residentes» del mockup. Freeze de recursos y
-arranque continúa; sólo integración, pruebas funcionales y capturas en esta fase.
-
-### Ocultos globales y Espacio — decisión explícita 2026-10-26
-
-Ocultos por prefijo punto desactivados por defecto. Espacio, Preferencias y Ctrl+H
-controlan el MISMO estado global persistido; sin overrides de carpeta/sesión.
-Selección/operaciones excluyen elementos ocultados. Treemap normaliza áreas entre
-hijos visibles; total aparente y carpetas incluyen descendientes ocultos y se indica.
-Estilo se acerca a v3 mediante bloques de tema contiguos y header compacto.
-Frame label nativo vacío elimina ayuda detrás del contenido; tips pasan a bottom
-bar con clip/repaint regional/pausas. Contextual real B3 usa Actions existentes.
-Detalles, límites de foco/minimización y evidencia en HIDDEN-CONTEXT-AND-STATUS.md.
-Freeze recursos/startup continúa, sin nuevas métricas ni PASSglobal de0.0.4.
+The scope after 0.0.1 includes the whole plan and modern capabilities, real opt-in
+shaders included; the matrix and the observable acceptance are in ROADMAP.md.
+The earlier proportional sans typography is replaced by **Nerd Fonts** across
+the whole UI, also toolbar/rail/inspector/spatial. Omarchy's monospace Nerd font
+is resolved through a bounded fontconfig query, with a readable fallback outside
+Omarchy, without enumerating/rasterizing the catalog and without changing the global configuration.
+The 150 MB ceiling covers the main process and the helpers; 50 MB is a goal, not permission
+to leave out the cost of children/GPU. The 400–700 MB EmbeddingGemma mode stays
+blocked because it is incompatible with the budget, without holding back other capabilities.
 
 
-### Medios bajo demanda: publicación e invalidación (2026-10-26)
+## Implementation findings 0.0.2 (2026-10-26)
 
-Prioridad explícita del usuario: previews/miniaturas antes de más funciones
-periféricas. MEDIA-LIFECYCLE conserva stack y motores: firma dev/ino/size/mtime/
-ctime del FD real, petición imagen checked y source efectivo, generación UI,
-watch de padre con época monotónica y reconciliación fuera UI. O_NOFOLLOW final
-no confina symlinks de padres. Un worker readonly atascado no se reemplaza por
-más hilos ni se join en UI; ACK de esa sonda se distingue de helpers reap. Kernel
-ininterrumpible puede demorar terminación; offline sigue pendiente. M1 Linux
-seleccionado verificado funcionalmente; LRU/miniaturas/embedded/otrosSO y métricas
-siguen abiertos, sin disco nuevo ni ampliación de presupuesto.
+- Nerd Fonts replaces the earlier sans by explicit instruction. The host's
+  monospace family is resolved with a fontconfig query; glyphs rasterized in the
+  real framebuffer. Fixtures isolate only FILES_CONFIG_DIR to keep that mapping.
+- Spatial persistence and corners: limits before allocation, validation of earlier
+  data, exclusive temp+rename/sync, Arc snapshots coalesced until ACK. Failures
+  survive navigation/close; aliases use the canonical identity resolved outside the UI.
+  Moving/renaming a folder requires a future path+dev+ino identity migration.
+- Close waits for a save or an explicit discard, and for the helper to be cancelled/reaped. This does not
+  provide a durable journal against kill/power loss nor isolation from hostile writers.
+- The sampler measures the PSS+Swap tree and records confirmed exits during a read.
+  Complete means verifiable reads of survivors, not lifetime coverage;
+  sampled maximums are still lower bounds, without GPU. Detail in VALIDATION.
+- Calculate size uses an ephemeral FD/no-follow du helper with limits and a supervisor; it shows
+  the apparent size by name, not physical blocks nor a snapshot. The treemap is still pending.
+- The observed 2x geometry and the logical FLTK capture prove the layout, not the compositor's whole
+  physical sharpness. The outer outline and OS events keep their earlier limits.
+- Hardware GLES 3 on Apple M2 Pro checked; four MIT shaders ported/drawn in
+  fixtures. There are still no real effects integrated into Painter nor an ON/OFF app budget.
+- Strict startup is still FAIL (max 111.423 ms without a sampler); it is not hidden behind the median.
+  The ideal 50 MB goal is missed in Groups 100k (55.59 MB); the 150 MB ceiling is not extended.
 
+- Final 0.0.2 regression: baseline tree+Swap 40.81 MiB peak, 28.63 MiB steady; FAIL of the
+  40 MiB analysis threshold. Earlier evidence is kept. A static reading of FLTK
+  Wayland 1.5.23 allows simultaneous pools and retaining a large current_pool
+  (10 MB minimum or 2×frame bytes), but it does not prove causality. Mapping diagnostics
+  have acceptance=false; Size is not PSS. No global patch nor assumed savings.
+  The user suspends new 0.0.2 measurements and authorizes continuing the 0.0.3 integration;
+  pending performance is not turned into a PASS by closing the checkpoint.
 
-### Miniaturas y superficie eliminada (2026-10-26)
+## Implementation findings 0.0.4 (2026-10-26)
 
-M2: mismo motor imagen/vídeo a160px, caché owning con préstamos Grilla/inspector,
-capacity+reserva antesdecode,32entradas y demanda visible acotada; sin disco nuevo.
-Radio8px CPU sobre imagen real (incluido letterbox), independiente de corners.
-WidgetTracker FLTK eliminado produjo un panic aislado sin backtrace: causa abierta,
-no atribuir a cleanup. Guardas al volver del wait/flush detectan ventana/canvas
-eliminados y cancelan/drenan por salida de fallo sin usar su puntero. Fixture de
-C++destrucción propia/helpervivo verifica esa ruta, NO Super+W/inputSO ni causa del
-fallooriginal. No parche registry, no cambio stack. MEDIA-THUMBNAILS distingue
-cachelocal de presupuesto global/PSS y mantiene freeze y pendientes.
+- fltk-rs 1.5.23 `app::wait_for` converts the C return value to i32 and only accepts 0/1;
+  the Unix backend returns poll's number of ready FDs, legitimately >=2. An isolated
+  two-pipe fixture: raw 2/callbacks 2/errno 0, which the Rust wrapper would reject. The UI now
+  calls the same linked C function through a local wrapper, accepts a finite raw >=0,
+  captures errno immediately, retries only on EINTR with a 1 ms pause and keeps real errors.
+  A fatal error cancels/drains operations/helpers before returning a failure to the binary.
+  No registry patch nor new dependency. The trace in the scene confirms successful raw 4/3;
+  the return value of the original failure was not instrumented and no causality is invented.
+- The Wayland clipboard needs the compositor's focus/serial. A fixture without focus publishes
+  set_selection with serial 0 and wl-paste returns Nothing is copied; an exact internal
+  selection is not equivalent to a tested external clipboard. The FAIL is kept and it has yet to be
+  repeated with the fixture's real focus, without replacing app::copy with an external process.
+- The text preview draws the source with a literal Painter primitive and a byte→display map
+  for tabs/control characters; it keeps selection/copies of the original bytes. Only the bounded
+  active document, only the visible lines; per-line rendering limited to 4096 B with a notice.
+  HTML/Markdown source is not considered a rendered preview, which is still pending.
 
-### Recursos incrustados ligados al FD (2026-10-27, 0.0.4)
+- Experimental P05: native litehtml/Gumbo delivers bounded commands to Painter,
+  without a browser/JS/network. No UC/Sun strtod code outside the allowlist is used; an isolated
+  MIT bridge. document_container is called after Gumbo creates its tree:
+  the callback cap is NOT a cap before the parser. The UI's RLIMIT_AS 64 MiB is not PSS.
+  Scalar 0.6×size metrics show CJK/cell clipping; neither shaping nor a
+  complete HTML preview is declared. Allocator/resources/contrast/packaging and a budget are missing.
+  Current phase is integration/captures only: no new measurements until it is lifted.
 
-RELATIVE-SOURCE/DOCUMENT-MEDIA: rootFD/fileFD esperado antesdelectura yefectivo
-enrespuesta; candidatoMDoculto hasta watcher/probefinal/token/época estables.
-Un solo worker readonly existente,32directorios/8recursos, intencionesausentes
-para reconciliar recreaciónsinRGBviejo. Watchopcionales pueden recurrir a1s
-reconcile ysu diagnósticoUIindividual queda pendiente. Rootaliasdirectopreservado,
-contextorelativoNOFOLLOW, no sandbox ni snapshotatómico. StopreadonlysinjoinUI
-se distingue dereaphelpers; stopACKfalse se conserva. Métricasfreeze intacto,
-sin ampliarobjetivo/techo ni declararP09global/otrosformatos completos.
+## Explicit window decision (2026-10-26, 0.0.4)
 
-2026-10-27 — Hallazgo de audio en Space: el prototipo ffplay devuelve exit0
-incluso ante cierto fallo de dispositivo, y su EOF nativo tras seek agotó timeout
-mientras dummy pasó; causa interna no atribuida sólo por esa diferencia. La
-salida actual usa ffmpeg/Pulse del SO, mismoFD/supervisor, stderr acotado estricto
-y controles propios. Pulse no creó contexto bajo AS512MiB y el fixture sí pasó
-con AS768MiB (como vídeo), sin cambiar el techo REAL150MB ni medir PSS. Evidencia
-funcional silencio/EOF/cancel/ACK en AUDIO-PLAYBACK; recursos/startup congelados.
+The user replaces the forced borderless Linux window with Normal by default, managed
+by the compositor without imposing floating/panel/overlay. Preferences and Actions
+are separate, with Nerd Fonts; normal/fullscreen modes persisted
+independently of corners/theme. A free header and 24 px inner grips request a
+Wayland move/resize with a real serial, without stealing controls nor touching the global config.
 
+Finding: fltk-rs does not expose interactive Wayland resize. A local C++ adapter against
+the FLTK pin's private headers uses libdecor, validating focus/window/event/serial;
+the registry is not patched. A build without header metadata requires a bounded discovery of
+the pinned source and identical configs or an explicit override. No test of an OS gesture
+nor AT-SPI accessibility; limits and verification in WINDOW-MODES.md. The
+resource/startup freeze is kept and there is no global 0.0.4 PASS.
 
-2026-10-27 — Vídeo audio opt-in: mismo ffmpeg directo con outputs RGB/Pulse,
-muted por defecto. Contexto Pulse con AV falló mmap bajoAS768MiB/arenasdefault;
-MALLOC_ARENA_MAX2 sóloenchild permite contexto conservandoAS768. Contrato
-funcional no equivale a PSS/CPU/techo150MB. Source failure tipado exige nuevo
-watch/probe, error de salida conserva frame verificado y permite mute/retry.
-VIDEO-PREVIEW documenta evidencia y límites; freeze sin nuevas mediciones.
+### Explicit user priority — 2026-10-26
+After Properties: investigate the Super+W close in the effective bind/compositor/libdecor,
+without modifying the global configuration; open through the system `open` command with
+a direct argv, without a shell nor an xdg-open fallback (alternative pending if it is missing).
+Then integrate Space `#v-map` as a treemap proportional to real bytes with a
+cancellable helper, selection/inspector and navigation: different from Spatial and du.
+Do not reproduce the mockup's fake «0 MB resident» text. The resource and
+startup freeze continues; only integration, functional tests and captures in this phase.
 
+### Global hidden files and Space — explicit decision 2026-10-26
 
-## Decisión del usuario — Columnas sustituye Espacial (2026-10-27)
-
-El usuario indica que Espacial no agrega valor y pide reemplazarla por Columnas
-Miller tipo Finder. Espacio/treemap permanece. Selector Ctrl+3/ayuda/CLI pasan a
-Columnas, --spatial conserva alias compatible. Sesión tag3 legado → Columns con
-zoom/pan/scroll de iconos descartados; tag5 nuevo conserva scroll de Columnas.
-Layouts anteriores se conservan sin borrar ni reutilizar coordenadas como
-columnas. COLUMNS-CONTRACT detalla origen de operaciones en columna enfocada,
-virtualización y ventana deslizante de hasta8 listados sin límite de profundidad.
-Previews nuevas pausadas, métricas congeladas; doble panel queda siguiente.
-
-
-## Implementación M27 — doble panel MC (2026-10-27)
-
-F9 convierte inspector en segunda lista viva y Tab cambia foco fuera de inputs.
-Un Model + Browser movible, dos listados virtualizados y un worker secundario
-transferido exclusivamente desde/hacia Columnas. Una cola/journal/medios/AuxIo.
-F5/F6 capturan destino raw opuesto revisable; IDs (panel,tab), selección/query/
-historial/scroll independientes. F9off libera datos invisibles; snapshots3MiB
-conjunto y listado32MiB local, sin PSSclaim. Persistir ambas mitades, input SO y
-gates reales siguen pendientes; DUAL-PANE-CONTRACT delimita la entrega.
-
-
-### 2026-10-27 — M28 clipboard privado y frontera MIME
-
-CtrlC/X/V archivos usa captura raw/FD en AuxIo, diálogo revisable y cola existente;
-Cut parcial consume sólo publicaciones confirmadas por generación y subset.
-Primera entrega interna a ventana, O06 parcial: no sustituye MIME SO/DnD. En
-Linux fijado la consulta Rust text/plain pasaba CString pero Wayland compara
-punteros; puente local usa Fl::clipboard_plain_text sin tocar registry. Escena
-texto propio inmediato y tras eventloop verifica callback; foco/serial externo
-sigue sin validar. Para M29 sólo gesto/ventana propia y serial real; no data-control
-para sortear foco ni leer/apropiar clipboard sin acción. Freeze/previews pausadas.
-
-
-### 2026-10-27 — M29a clipboard nativo y coexistencia DnD (parcial)
-
-Bridge propio wl_data_device/listeners, GesturePermit de serial/foco reales y
-epoch invalidada antes de borrow Model; transporte FD bounded en AuxIo. Capas
-codec/pipe/State/UIrechazo verificadas; MIME SO NO validado, sin data-control ni
-fabricar foco. FLTK1.5.23 Wayland negocia DnD/roundtrip en callbacks ajenos aun
-con handler false; no adoptar doble-device como prueba de coexistencia. Estudiar
-hook opt-in reproducible bajo repo antes enter/motion/drop, default y cleanup
-ajenos preservados. M29/O06 siguen abiertos, KDE y multi-origen pendientes.
-Previews pausadas, métricas congeladas; NATIVE-TRANSFER-CONTRACT.md delimita caps.
+Dot-prefixed hidden files disabled by default. Space, Preferences and Ctrl+H
+control the SAME persisted global state; no per-folder/session overrides.
+Selection/operations exclude hidden items. The treemap normalizes areas across
+visible children; the apparent total and folders include hidden descendants, and this is stated.
+The style moves closer to v3 through contiguous theme blocks and a compact header.
+An empty native Frame label removes the help behind the content; tips move to the bottom
+bar with clip/regional repaint/pauses. A real B3 context menu uses the existing Actions.
+Details, focus/minimization limits and evidence in HIDDEN-CONTEXT-AND-STATUS.md.
+The resource/startup freeze continues, with no new metrics nor a global 0.0.4 PASS.
 
 
-### 2026-10-27 — hook FLTK y receptor DnD parcial
+### On-demand media: publication and invalidation (2026-10-26)
 
-Patch opt-in de la TU Wayland pinned, fuente+licencia FLTK y guard fuerte de
-enlace por hash, sin editar registry; receptor COPY y destino raw fijado con
-revisión antes cola. 642tests y fixture privado/verificación visual aprobados
-en alcance; no hay prueba de compositor ni DnD entre apps. Sender/KDE/varios
-padres/O06 completos siguen pendientes. Ver NATIVE-TRANSFER-CONTRACT.md.
+Explicit user priority: previews/thumbnails before more peripheral
+features. MEDIA-LIFECYCLE keeps the stack and engines: a dev/ino/size/mtime/
+ctime signature of the real FD, a checked image request and an effective source, UI generation,
+a parent watch with a monotonic epoch and reconciliation outside the UI. The final O_NOFOLLOW
+does not confine parent symlinks. A stuck readonly worker is not replaced with
+more threads nor joined on the UI; the ACK of that probe is distinguished from the helpers' reap. An
+uninterruptible kernel state can delay termination; offline is still pending. M1 Linux
+selected functionally verified; LRU/thumbnails/embedded/other OSes and metrics
+remain open, with no new disk nor an extended budget.
+
+
+### Thumbnails and a removed surface (2026-10-26)
+
+M2: the same image/video engine at 160 px, an owning cache with Grid/inspector borrows,
+capacity+reservation before decode, 32 entries and bounded visible demand; no new disk.
+An 8 px CPU radius on the real image (including letterbox), independent of corners.
+A removed FLTK WidgetTracker produced an isolated panic without a backtrace: the cause is open,
+do not attribute it to cleanup. Guards when returning from wait/flush detect a removed
+window/canvas and cancel/drain through the failure exit without using its pointer. A
+C++ fixture with own destruction/a live helper verifies that path, NOT Super+W/OS input nor the cause of the
+original failure. No registry patch, no stack change. MEDIA-THUMBNAILS distinguishes
+the local cache from the global budget/PSS and keeps the freeze and the pending items.
+
+### Embedded resources bound to the FD (2026-10-27, 0.0.4)
+
+RELATIVE-SOURCE/DOCUMENT-MEDIA: expected root FD/file FD before reading and effective
+in the response; a hidden MD candidate until watcher/final probe/token/epoch are stable.
+A single existing readonly worker, 32 directories/8 resources, absent intents
+to reconcile recreation without old RGB. Optional watches can fall back on the 1 s
+reconcile and their individual UI diagnostic is pending. A direct root alias preserved,
+a NOFOLLOW relative context, not a sandbox nor an atomic snapshot. A readonly stop without a UI join
+is distinguished from the helpers' reap; a false stop ACK is kept. Metrics freeze intact,
+without extending the goal/ceiling nor declaring global P09/other formats complete.
+
+2026-10-27 — Audio finding in Space: the ffplay prototype returns exit 0
+even on a certain device failure, and its native EOF after seek hit the timeout
+while the dummy passed; the internal cause is not attributed just from that difference. The
+current output uses the OS's ffmpeg/Pulse, the same FD/supervisor, a strictly bounded stderr
+and own controls. Pulse did not create a context under AS 512 MiB and the fixture did pass
+with AS 768 MiB (like video), without changing the REAL 150 MB ceiling nor measuring PSS. Functional
+evidence for silence/EOF/cancel/ACK in AUDIO-PLAYBACK; resources/startup frozen.
+
+
+2026-10-27 — Opt-in video audio: the same direct ffmpeg with RGB/Pulse outputs,
+muted by default. The Pulse context with AV failed mmap under AS 768 MiB/default arenas;
+MALLOC_ARENA_MAX 2 only in the child allows the context while keeping AS 768. The functional
+contract is not equivalent to PSS/CPU/the 150 MB ceiling. A typed source failure requires a new
+watch/probe, an output error keeps the verified frame and allows mute/retry.
+VIDEO-PREVIEW documents evidence and limits; freeze without new measurements.
+
+
+## User decision — Columns replaces Spatial (2026-10-27)
+
+The user says Spatial adds no value and asks to replace it with Finder-style Miller
+Columns. Space/treemap stays. The Ctrl+3 selector/help/CLI move to
+Columns, --spatial keeps a compatible alias. The legacy tag 3 session → Columns with
+icon zoom/pan/scroll discarded; the new tag 5 keeps the Columns scroll.
+Earlier layouts are kept without deleting them nor reusing coordinates as
+columns. COLUMNS-CONTRACT details the operation source in the focused column,
+virtualization and the sliding window of up to 8 listings without a depth limit.
+New previews paused, metrics frozen; dual pane comes next.
+
+
+## M27 implementation — MC dual pane (2026-10-27)
+
+F9 turns the inspector into a second live list and Tab changes focus outside inputs.
+One Model + a movable Browser, two virtualized listings and a secondary worker
+transferred exclusively from/to Columns. One queue/journal/media/AuxIo.
+F5/F6 capture the reviewable raw opposite destination; IDs (pane, tab), independent selection/query/
+history/scroll. F9 off frees invisible data; 3 MiB of shared
+snapshots and a local 32 MiB listing, without a PSS claim. Persisting both halves, OS input and
+real gates are still pending; DUAL-PANE-CONTRACT delimits the delivery.
+
+
+### 2026-10-27 — M28 private clipboard and the MIME boundary
+
+Ctrl+C/X/V for files uses a raw/FD capture in AuxIo, a reviewable dialog and the existing queue;
+a partial Cut consumes only publications confirmed per generation and subset.
+The first delivery is internal to the window, O06 partial: it does not replace OS MIME/DnD. On
+pinned Linux the Rust text/plain query passed a CString but Wayland compares
+pointers; a local bridge uses Fl::clipboard_plain_text without touching the registry. A scene
+with own text immediately and after the event loop verifies the callback; external focus/serial
+remains unvalidated. For M29, only a gesture/own window and a real serial; no data-control
+to get around focus nor read/take over the clipboard without an action. Freeze/previews paused.
+
+
+### 2026-10-27 — M29a native clipboard and DnD coexistence (partial)
+
+Own wl_data_device/listeners bridge, a GesturePermit with real serial/focus and an
+epoch invalidated before the Model borrow; bounded FD transport in AuxIo. The
+codec/pipe/State/UI rejection layers verified; OS MIME NOT validated, no data-control nor
+fabricated focus. FLTK 1.5.23 Wayland negotiates DnD/roundtrip in foreign callbacks even
+with a false handler; do not adopt a double device as proof of coexistence. Study a
+reproducible opt-in hook in the repo before enter/motion/drop, preserving the default and the
+foreign cleanup. M29/O06 remain open, KDE and multi-source pending.
+Previews paused, metrics frozen; NATIVE-TRANSFER-CONTRACT.md delimits the caps.
+
+
+### 2026-10-27 — FLTK hook and partial DnD receiver
+
+An opt-in patch of the pinned Wayland TU, FLTK source+license and a strong link guard
+by hash, without editing the registry; a COPY receiver and a pinned raw destination with
+review before the queue. 642 tests and a private fixture/visual verification passed
+within scope; there is no compositor test nor DnD between apps. Sender/KDE/several
+parents/complete O06 are still pending. See NATIVE-TRANSFER-CONTRACT.md.
