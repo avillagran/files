@@ -1,28 +1,28 @@
-# Toolkit lib-fltk-omarchy 1ff1adf en Files
+# lib-fltk-omarchy toolkit 1ff1adf in Files
 
-2026-11-04, pedido del hilo del toolkit. Export exacto de los archivos
-trackeados de `1ff1adfcf4589a490c8f08423df7b6bc1361e3ee` (GitHub main, sin
-tag; incluye glass ff3d315 y pixels_per_unit a967007) en
-`vendor/lib-fltk-omarchy`. Files compila sin cambios de código; el lockfile
-suma `unicode-bidi` y `unicode-segmentation` (MIT/Apache, ver
+2026-11-04, requested by the toolkit thread. Exact export of the tracked
+files of `1ff1adfcf4589a490c8f08423df7b6bc1361e3ee` (GitHub main, no
+tag; includes glass ff3d315 and pixels_per_unit a967007) into
+`vendor/lib-fltk-omarchy`. Files builds without code changes; the lockfile
+adds `unicode-bidi` and `unicode-segmentation` (MIT/Apache, see
 DEPENDENCIES.md).
 
-Recibe: tooltips Omarchy dibujados por el toolkit (tooltips.json en vivo,
-tema/esquinas, arreglo de `#000000`), animaciones según el sistema
-(Hyprland `animations:enabled`; `OMARCHY_FLTK_ANIM=on|off`) con fundido de
-menús/popups/diálogos, capa de plataforma, i18n, RichText, ListModel, RTL,
-editores y el arreglo de FL_SHORTCUT con first_window() nulo.
+It brings: Omarchy tooltips drawn by the toolkit (live tooltips.json,
+theme/corners, `#000000` fix), animations that follow the system
+(Hyprland `animations:enabled`; `OMARCHY_FLTK_ANIM=on|off`) with fades for
+menus/popups/dialogs, a platform layer, i18n, RichText, ListModel, RTL,
+editors and the FL_SHORTCUT fix for a null first_window().
 
-Verificación (`scripts/toolkit-visual-check.py`, workspace oculto Wayland y
-Xvfb X11 privado, sin input SO): tooltip «Preferencias» del engranaje
-pintado por el toolkit; menú de Preferencias con fundido (primer fotograma
-≠ final) con animaciones, idéntico sin ellas. Los checks que comparan
-píxeles de menús (toolkit-input, toolkit-menu, popup-media) fijan
-`OMARCHY_FLTK_ANIM=off`. 1640 pruebas (Xvfb), Clippy.
+Verification (`scripts/toolkit-visual-check.py`, hidden Wayland workspace and
+private Xvfb X11, no OS input): the gear's «Preferencias» tooltip
+painted by the toolkit; the Preferences menu fades (first frame
+≠ last) with animations, identical without them. The checks that compare
+menu pixels (toolkit-input, toolkit-menu, popup-media) set
+`OMARCHY_FLTK_ANIM=off`. 1640 tests (Xvfb), Clippy.
 
-Fixtures corregidos en la misma entrega (no son API del toolkit):
-`toolkit-menu-ui-check` ya no supone la posición de Renombrar (el menú tiene
-secciones desde el bloque 1): Files informa índice y pulsaciones; y los
-scripts de los bloques comprobaban `'REV' in línea`, que «PREVIEW» siempre
-cumple, de modo que nunca reintentaban ante la recarga del listado (un FAIL
-intermitente de video conservado como evidencia).
+Fixtures fixed in the same delivery (they are not toolkit API):
+`toolkit-menu-ui-check` no longer assumes where Rename is (the menu has had
+sections since block 1): Files reports the index and the key presses; and the
+block scripts checked `'REV' in line`, which «PREVIEW» always
+satisfies, so they never retried when the listing reloaded (an intermittent
+video FAIL kept as evidence).
