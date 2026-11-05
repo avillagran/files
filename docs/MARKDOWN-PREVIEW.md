@@ -1,156 +1,156 @@
-# Markdown nativo, 0.0.4 en desarrollo
+# Native Markdown, 0.0.4 in development
 
-Space reconoce `.md` y `.markdown`. El texto se lee con el helper acotado,
-se recoge el hijo y se parsea/proyecta en el mismo hilo supervisor. La UI recibe
-texto visible con estilos, sin copiar delimitadores ni metadatos de lenguaje del
-bloque de código a la selección. No intervienen WebView, servidor, scripts ni red.
+Space recognizes `.md` and `.markdown`. The text is read with the bounded helper,
+the child is reaped and it is parsed/projected on the same supervisor thread. The UI receives
+visible text with styles, without copying delimiters or the code block's language
+metadata into the selection. No WebView, server, scripts or network are involved.
 
-El renderer propio dibuja títulos, negrita, énfasis, tachado, listas ordenadas y
-anidadas, tareas, citas, código, reglas y tablas con alineación por columna.
-Los estilos usan las caras regular/bold/italic de la misma Nerd Font resuelta
-para Omarchy. El backend Cairo/FLTK interpreta sus sufijos mediante Pango;
-fuera de este host la evidencia visual de caras queda pendiente.
+The own renderer draws headings, bold, emphasis, strikethrough, ordered and
+nested lists, tasks, quotes, code, rules and tables with per-column alignment.
+The styles use the regular/bold/italic faces of the same Nerd Font resolved
+for Omarchy. The Cairo/FLTK backend interprets their suffixes through Pango;
+outside this host the visual evidence for the faces is pending.
 
-El layout refluye al cambiar el ancho y conserva selección por offsets UTF8 del
-texto visible. Cada paso cede después de aproximadamente4ms entre fragmentos
-acotados. Una llamada de shaping no se puede interrumpir; `step_max_us` registra
-el mayor paso observado, sin prometer4ms como peor caso. El tick deja de pedir
-redibujos al completarse. Sólo los fragmentos que intersectan viewport se pintan.
-Hay anclas de filas vacías/finales para caret y navegación.
+The layout reflows when the width changes and keeps the selection by UTF-8 offsets of the
+visible text. Each step yields after roughly 4 ms between bounded
+fragments. A shaping call cannot be interrupted; `step_max_us` records
+the largest observed step, without promising 4 ms as the worst case. The tick stops requesting
+redraws when complete. Only the fragments that intersect the viewport are painted.
+There are anchors for empty/final rows for the caret and navigation.
 
-Los tabs se expanden a columnas8 y controles a notación visible, con el mismo
-mapa para dibujar y medir; el texto seleccionado conserva sus bytes. Movimiento
-por escalares y anchos de prefijos **no acredita navegación por grafemas ni
-shaping ZWJ correcto**. El fixture conserva combining/ZWJ completos en la selección
-comprobada, sin convertirlo en una prueba general de shaping.
+Tabs expand to 8 columns and control characters to a visible notation, with the same
+map for drawing and measuring; the selected text keeps its bytes. Movement
+by scalars and prefix widths **does not prove grapheme navigation nor correct ZWJ
+shaping**. The fixture keeps complete combining/ZWJ sequences in the checked
+selection, without turning it into a general shaping test.
 
-## Enlaces y recursos
+## Links and resources
 
-Ctrl+clic sobre un enlace permitido navega dentro de Space. Los fragmentos
-buscan slugs de títulos (alfanuméricos Unicode en minúscula, espacios a guiones).
-Las rutas Markdown relativas se abren por `preview_relative_text`: raíz abierta
-en helper, componentes por `openat` sin symlinks, archivo regular, prefijo acotado
-y decoder UTF8/UTF16 compartido. Cada petición fija su FD de raíz durante la
-lectura; reabrir la raíz en otra petición no equivale a un snapshot permanente.
+Ctrl+click on an allowed link navigates inside Space. Fragments
+look up heading slugs (lowercase Unicode alphanumerics, spaces to hyphens).
+Relative Markdown paths are opened through `preview_relative_text`: a root opened
+in the helper, components through `openat` without symlinks, a regular file, a bounded prefix
+and the shared UTF-8/UTF-16 decoder. Each request pins its root FD during the
+read; reopening the root in another request is not a permanent snapshot.
 
-No hay apertura automática de otra app ni de URLs. Destinos externos, absolutos,
-autoridades, controles, queries y escapes léxicos quedan bloqueados. La política ahora conserva padres pendientes al parsear y los resuelve contra
-el documento actual relativo a su raíz ANTES del helper. `../` puede regresar
-desde una subcarpeta, pero cruzar la raíz se rechaza sin lanzar una carga.
-No hay segunda decodificación URL; el helper sigue rechazando ParentDir crudo. Mountpoints/hardlinks e in-place writes no están
-confinados; esta política de recursos no es un sandbox del proceso.
+There is no automatic opening of another app nor of URLs. External and absolute destinations,
+authorities, control characters, queries and lexical escapes are blocked. The policy now keeps pending parents when parsing and resolves them against
+the current document relative to its root BEFORE the helper. `../` can go back
+from a subfolder, but crossing the root is rejected without launching a load.
+There is no second URL decoding; the helper still rejects a raw ParentDir. Mountpoints/hardlinks and in-place writes are not
+confined; this resource policy is not a process sandbox.
 
-El primer bloque7dcc037 mostraba alt/estado sin bitmap. El bloque posterior
-integra bitmaps locales según la sección de incrustadas inferior; P04 sigue sin
-presupuesto validado ni LRU entre documentos. HTML incrustado queda literal y no implementa
-la vista HTML P05. Están pendientes recursos de imagen, LRU, fuentes/rendering de
-otros SO y accesibilidad del documento enriquecido.
+The first block 7dcc037 showed alt/status without a bitmap. The later block
+integrates local bitmaps as described in the embedded section below; P04 still has no
+validated budget nor an LRU across documents. Embedded HTML stays literal and does not implement
+the P05 HTML view. Image resources, LRU, fonts/rendering on
+other OSes and accessibility of the rich document are pending.
 
-## Límites
+## Limits
 
-- Entrada Markdown256KiB; helper2000LF y UTF8/UTF16 con truncado explícito.
-- IR8192eventos, profundidad64, columnas64, destinos agregados64KiB.
-- Texto visible384KiB/2001líneas,16384spans,32768fragmentos de layout.
-- Fragmentos de medición hasta259bytes UTF8 y tabs/control expandidos localmente.
-- Tabla demasiado ancha produce error visible, no columnas inaccesibles ocultas.
-- Un helper de preview a la vez; cambios conservan sólo último destino y drenan
-  el anterior. Cierre sigue pump hasta ACK; Drop sólo cancela.
+- Markdown input 256 KiB; helper 2000 LF and UTF-8/UTF-16 with explicit truncation.
+- IR 8192 events, depth 64, columns 64, destinations 64 KiB in total.
+- Visible text 384 KiB/2001 lines, 16384 spans, 32768 layout fragments.
+- Measurement fragments up to 259 UTF-8 bytes, with tabs/control characters expanded locally.
+- A table that is too wide produces a visible error, not hidden inaccessible columns.
+- One preview helper at a time; changes keep only the last destination and drain
+  the previous one. Close keeps pumping until ACK; Drop only cancels.
 
-Estos límites acotan representaciones retenidas; no son un límite de PSS total
-ni del parser. Medir principal+helpers+Swap por separado del build/capturas.
+These limits bound the retained representations; they are not a total PSS limit
+nor a parser limit. Measure main+helpers+Swap separately from the build/captures.
 
-## Reproducción y evidencia
+## Reproduction and evidence
 
-`python3 scripts/markdown-ui-check.py --capture` usa fixtures propios y handlers
-internos con framebuffer real. No prueba input SO ni clipboard Wayland. Cada
-READY exige revisión fresca y layout terminado al ancho comprobado; resize espera
-el nuevo ancho antes de capturar. Capturas nuevas tienen nombres únicos.
+`python3 scripts/markdown-ui-check.py --capture` uses its own fixtures and internal
+handlers with the real framebuffer. It does not test OS input nor the Wayland clipboard. Each
+READY requires a fresh revision and a finished layout at the checked width; resize waits for
+the new width before capturing. New captures have unique names.
 
-`python3 scripts/markdown-ui-check.py` mide otro proceso sin capturas/compilación.
-El gate exige identidad PID/start+exe y memoria de todos los helpers registrados,
-samples completos y cleanup normal del árbol observado. Si faltan lecturas,
-UNVALIDATED; un pico observado sobre50MB sigue demostrando incumplimiento ideal.
-150MB es techo del escenario, no reemplaza el gate baseline10k ni el objetivo50MB.
+`python3 scripts/markdown-ui-check.py` measures another process without captures/building.
+The gate requires PID/start+exe identity and the memory of every registered helper,
+complete samples and normal cleanup of the observed tree. If readings are missing,
+UNVALIDATED; an observed peak above 50 MB still shows the ideal is not met.
+150 MB is the scenario's ceiling; it does not replace the 10k baseline gate nor the 50 MB goal.
 
-Estado de capturas/recursos se añade al completar la corrida. Baseline10k y
-arranque previos FAIL, clipboard de Space FAIL sin foco y P02 progresivo parcial
-permanecen abiertos; este documento no constituye PASS global.
+The capture/resource status is added when the run completes. The earlier 10k baseline and
+startup FAILs, the Space clipboard FAIL without focus and partial progressive P02
+remain open; this document is not a global PASS.
 
-## Resultado verificado del primer bloque visible
+## Verified result of the first visible block
 
-230Rust tests (73core/33helper/124UI), Clippyworkspace/all-targets con-Dwarnings y
-release sinwarnings: logs en `docs/evidence/0.0.4/markdown-logs/`.
+230 Rust tests (73 core/33 helper/124 UI), Clippy workspace/all-targets with -Dwarnings and
+release without warnings: logs in `docs/evidence/0.0.4/markdown-logs/`.
 
-`markdown-ui-1793032850488569491.json`: escenario funcional PASS, revisión y ancho
-frescos, títulos/estilos/tablas/listas,54bytes Unicode seleccionados, resize800×500
-conserva selección, guía local/retorno, error real de symlink, READY truncado de
-2000LF, documento201033bytes y cierre normal drenado. Framebuffer1000×650/800×500,
-escala1. InputOS, shapingZWJ general yclipboard NOvalidados. HTMLliteral e imágenes
-alt no equivalen a sus respectivos renderers completos.
+`markdown-ui-1793032850488569491.json`: functional scenario PASS, fresh revision and
+width, headings/styles/tables/lists, 54 Unicode bytes selected, resize to 800×500
+keeps the selection, local guide/return, a real symlink error, a truncated READY at
+2000 LF, a 201033-byte document and a normal drained close. Framebuffer 1000×650/800×500,
+scale 1. OS input, general ZWJ shaping and clipboard NOT validated. Literal HTML and
+alt-text images are not equivalent to their respective full renderers.
 
-La primera captura `markdown-ui-1793032403245429423.json` y el reporte de recursos
-contienen PASS funcional original cuyo assert de error era demasiado amplio:
-`too-many.md` fue READYtruncated, no rechazo. Ambos originales quedan byteporbyte;
-sus sidecars `*-correction.json` invalidan esa afirmación. La captura corregida
-comprueba el comportamiento real; no se repitió memoria para buscarPASS.
+The first capture `markdown-ui-1793032403245429423.json` and the resource report
+contain an original functional PASS whose error assert was too broad:
+`too-many.md` was READY truncated, not a rejection. Both originals stay byte for byte;
+their `*-correction.json` sidecars invalidate that claim. The corrected capture
+checks the real behavior; memory was not repeated to hunt for a PASS.
 
-`markdown-resources-1793032456170456020.json`: **UNVALIDATED**, sólo2/8helpers
-registrados tienen muestra de memoria+exe. Pico observado42166KiB=41.177734MiB=
-43.177984MB; mediana postReady36809KiB=35.946289MiB=37.692416MB, Swapobservado0.
-368samples, intervalo máximo74.675593ms,19FD/7threads/2procesos; CPU postReady
-mediana0/max162.718%, noidle asegurado.3070eventos de salida corresponden10identidades,
-no3070hijos. Cleanup de identidades observadas completo. No presupuesto de lifetimes
-completos ni deGPU. Ideal50MB no acreditado por cobertura incompleta.
+`markdown-resources-1793032456170456020.json`: **UNVALIDATED**, only 2/8 registered helpers
+have a memory+exe sample. Observed peak 42166 KiB = 41.177734 MiB =
+43.177984 MB; post-Ready median 36809 KiB = 35.946289 MiB = 37.692416 MB, observed Swap 0.
+368 samples, maximum interval 74.675593 ms, 19 FD/7 threads/2 processes; post-Ready CPU
+median 0/max 162.718%, idle not assured. 3070 exit events correspond to 10 identities,
+not 3070 children. Cleanup of the observed identities complete. No budget for full
+lifetimes nor GPU. The 50 MB ideal is not proven because of incomplete coverage.
 
-Parse/layout ready observado del documento201033bytes:634.649ms en la corrida de
-recursos,908.578ms en captura corregida. Reflow incremental mantiene callbacks;
-un paso individual alcanzó18.306ms (recursos),27.564ms (captura corregida),60.543ms
-en primera captura preservada. No garantía4ms. Primera pintura interna92.329ms en
-recursos/193.599ms en captura; NOserie cold-start externa ni sustituto del FAIL
-previo p95/max151.978ms. AppSHA240ce31875b282dfc25321c4982b11eabf66433d28637da0494f284b11327417,
-helperSHA9f225bf85dbb3a264f961dbcde7db07751565a3993112978f3dfc5b530c5ae86.
+Observed parse/layout ready for the 201033-byte document: 634.649 ms in the resource
+run, 908.578 ms in the corrected capture. Incremental reflow keeps callbacks;
+a single step reached 18.306 ms (resources), 27.564 ms (corrected capture), 60.543 ms
+in the preserved first capture. No 4 ms guarantee. First internal paint 92.329 ms in
+resources/193.599 ms in capture; NOT an external cold-start series nor a replacement for the earlier
+p95/max 151.978 ms FAIL. App SHA 240ce31875b282dfc25321c4982b11eabf66433d28637da0494f284b11327417,
+helper SHA 9f225bf85dbb3a264f961dbcde7db07751565a3993112978f3dfc5b530c5ae86.
 
-## Incrustadas y navegación contextual, segundo bloque
+## Embedded images and contextual navigation, second block
 
-Se integran482393f/7504a93(helperrelative_text/image) y3676855(resolvercontextual).
-PNG/JPEG/WebP locales usan los mismos límites de codec ya documentados. Los
-helpers se ejecutan secuencialmente en el supervisor del documento: reaped uno
-antes del siguiente, cancelación y tope10s del conjunto (cada hijo hasta5s).
+482393f/7504a93 (helper relative_text/image) and 3676855 (contextual resolver) are integrated.
+Local PNG/JPEG/WebP use the same codec limits already documented. The
+helpers run sequentially in the document's supervisor: one is reaped
+before the next, with cancellation and a 10 s cap for the whole set (each child up to 5 s).
 
-Hasta8referencias locales se procesan; destinos externos/fragmentos/escape,
-symlinks, errores y límites se muestran junto al alt. El footer cuenta imágenes
-**no disponibles**, no cargas que siguen esperando. La selección copia el alt
-estable, no un texto de 'pendiente' que se vuelva falso al completar el bitmap.
+Up to 8 local references are processed; external destinations/fragments/escapes,
+symlinks, errors and limits are shown next to the alt text. The footer counts **unavailable**
+images, not loads that are still waiting. The selection copies the stable alt
+text, not a 'pending' text that would become false once the bitmap completes.
 
-RGB retenido:4MiB agregado, cobrando `Vec::capacity`, `String::capacity`,
-Bitmap yArc. Rutas normalizadas dentro de un documento compartenArc/RGB; no
-se clona un bitmap por aparición. Antes de un decode se reserva por ledger
-otro máximo4MiB para wire/RGB transiente, y se omiten nuevas cargas si ya está
-lleno. Este ledger NO incluye todo el proceso/helper y NO acredita suPSS.
-Un solo buffer software640×320 máximo se reutiliza entre imágenes visibles,
-invalida key al cambiar bitmap y registra capacity real. No Nbuffers por imagen.
+Retained RGB: 4 MiB in total, charging `Vec::capacity`, `String::capacity`,
+Bitmap and Arc. Normalized paths inside one document share Arc/RGB; a
+bitmap is not cloned per occurrence. Before a decode the ledger reserves
+another 4 MiB at most for transient wire/RGB, and new loads are skipped if it is already
+full. This ledger does NOT include the whole process/helper and does NOT prove its PSS.
+A single software buffer of at most 640×320 is reused across visible images,
+invalidates its key when the bitmap changes and records its real capacity. Not N buffers per image.
 
-No LRU entre documentos todavía: se vuelve a leer al navegar para evitar una
-caché sin invalidación segura. P09 sigue pendiente. Current-root path se abre
-porFD en cada petición; no se afirma snapshot ni confinamiento ante hardlinks/
-mountpoints. Los escapes contextuales se rechazan antes del syscallhelper.
+No LRU across documents yet: it is read again on navigation to avoid a
+cache without safe invalidation. P09 is still pending. The current-root path is opened
+by FD on each request; no snapshot nor confinement against hardlinks/
+mountpoints is claimed. Contextual escapes are rejected before the helper syscall.
 
-242Rust(73core/33helper/136UI),Clippyalltargets-Dwarnings y release sinwarnings.
-`markdown-embedded-ui-1793034469432638103.json` escenario funcionalPASS:
-5apariciones/2recursosretenidos,3164572bytes ledger; tres franjas reales en
-framebuffer (5792/5611/5611píxeles), bitmapadmitido320×320 con102400píxeles
-exactos; otro bitmap rechazado por4MiB. Navegaciónroot→subdir→nested→subdir→root,
-fragments, tres escapes bloqueados sin nuevohelper/revisión y cierre0trasACK.
-Capturas anteriores1793034242503041636 intactas; labelsfinalesnodisponibles.
+242 Rust (73 core/33 helper/136 UI), Clippy all targets -Dwarnings and release without warnings.
+`markdown-embedded-ui-1793034469432638103.json` functional scenario PASS:
+5 occurrences/2 retained resources, 3164572 ledger bytes; three real stripes in the
+framebuffer (5792/5611/5611 pixels), an admitted 320×320 bitmap with exactly 102400
+pixels; another bitmap rejected because of the 4 MiB. Navigation root→subdir→nested→subdir→root,
+fragments, three escapes blocked without a new helper/revision and close 0 after ACK.
+The earlier captures 1793034242503041636 are intact; final labels unavailable.
 
-**Recursos NOT_MEASURED por instrucción explícita del usuario: sólo integración
-ycaptura en esta fase; no más recursos/startup hasta liberar la fase.**
-El intento1793034332264805450 se bloqueó enpreflight antes de lanzar la app al
-ver compiladores; `markdown-resource-blocked-1793034332264805450.json` tiene
-UNVALIDATED/NOT_RUN, sin lecturas de memoria nuevas. No se usa elPSSdel footer
-como presupuesto. La corridaMDanterior43.177984MBUNVALIDATED no mide estebinario.
+**Resources NOT_MEASURED by the user's explicit instruction: only integration
+and capture in this phase; no more resources/startup until the phase is lifted.**
+Attempt 1793034332264805450 was blocked in preflight before launching the app because
+compilers were running; `markdown-resource-blocked-1793034332264805450.json` has
+UNVALIDATED/NOT_RUN, with no new memory readings. The footer's PSS is not used
+as a budget. The earlier MD run 43.177984 MB UNVALIDATED does not measure this binary.
 
-AppSHA16cd4565e50b40f20ed21eed3665cfaf085726f75f65d38f704b2a42f8dc1d80,
-helperSHA9f225bf85dbb3a264f961dbcde7db07751565a3993112978f3dfc5b530c5ae86.
-NoinputSO/clipboard/graphemeshapinggeneral, no0.0.4tag niPASSglobal.
-SiguienteP05HTMLreal, luego vídeo/restoROADMAP; no contar probeHTML como feature.
+App SHA 16cd4565e50b40f20ed21eed3665cfaf085726f75f65d38f704b2a42f8dc1d80,
+helper SHA 9f225bf85dbb3a264f961dbcde7db07751565a3993112978f3dfc5b530c5ae86.
+No OS input/clipboard/general grapheme shaping, no 0.0.4 tag nor global PASS.
+Next: real P05 HTML, then video/the rest of the ROADMAP; do not count the HTML probe as a feature.

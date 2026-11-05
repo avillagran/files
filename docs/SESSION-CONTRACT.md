@@ -1,152 +1,152 @@
-# Sesión durable — contrato M23
+# Durable session — M23 contract
 
-Estado: M23 aceptado funcionalmente e integrado; sesión de pestañas versionada.
-527 Rust (141 core/67 helper/319 UI) y Clippy workspace/all-targets -D warnings
-PASS, release/fmt PASS. Escena `tabs-session-ui-1793111266679001110.json` PASS
-con ocho procesos de app y seis capturas reales; instalación registrada aparte.
-M22 instalado se conserva hasta aceptar este bloque. Freeze de recursos/startup
-vigente: NOT_MEASURED. No reanuda operaciones ni medios automáticamente.
+Status: M23 functionally accepted and integrated; versioned tab session.
+527 Rust (141 core/67 helper/319 UI) and Clippy workspace/all-targets -D warnings
+PASS, release/fmt PASS. Scene `tabs-session-ui-1793111266679001110.json` PASS
+with eight app processes and six real captures; installation recorded separately.
+The installed M22 is kept until this block is accepted. Resource/startup freeze
+in effect: NOT_MEASURED. It does not resume operations nor media automatically.
 
-## Arranque y propiedad
+## Startup and ownership
 
-- Sin ruta en argv: restaurar sesión compatible si existe; si no, Home. Una ruta
-  explícita, incluso después de `--`, abre sólo esa ruta y no aplica ni autoguarda
-  la sesión. Sólo la acción visible Guardar sesión habilita un intento de ownership
-  en esa instancia, sin restaurar el archivo existente.
-  `--no-session` desactiva lectura y escritura de sesión para esa instancia;
-  escenas smoke quedan aisladas salvo activación explícita de su fixture.
-- La primera instancia que adquiere lock interproceso no bloqueante del archivo
-  `session.lock` es dueña de escritura **hasta salir**. El descriptor permanece
-  abierto en AuxIo y el lock se mantiene durante validación, temp/fsync/rename y
-  sync del directorio. No se usa CONFIG_UPDATE como exclusión interproceso.
-- Otra ventana puede leer la última sesión completa pero no guardarla; muestra
-  aviso persistente de sólo lectura de sesión. No reclama ownership automáticamente
-  cuando desaparece la primera: evita que su snapshot antiguo reemplace uno nuevo.
-  Sus preferencias globales conservan el alcance actual, sin nueva promesa CAS.
-- El lock no se elimina al cerrar; se libera por FD. Verificar identidad del
-  pathname del lock antes de guardar. Reemplazo externo o conflicto => bloquear
-  guardado y error recuperable, nunca sobreescribir silenciosamente.
+- No path in argv: restore a compatible session if one exists; otherwise Home. An
+  explicit path, even after `--`, opens only that path and neither applies nor autosaves
+  the session. Only the visible Save session action enables an ownership attempt
+  in that instance, without restoring the existing file.
+  `--no-session` disables session reading and writing for that instance;
+  smoke scenes stay isolated unless their fixture explicitly enables it.
+- The first instance that acquires a non-blocking inter-process lock on the
+  `session.lock` file owns writing **until it exits**. The descriptor stays
+  open in AuxIo and the lock is held during validation, temp/fsync/rename and the
+  directory sync. CONFIG_UPDATE is not used as inter-process exclusion.
+- Another window can read the last complete session but not save it; it shows a
+  persistent session read-only notice. It does not claim ownership automatically
+  when the first one goes away: this prevents its old snapshot from replacing a new one.
+  Its global preferences keep their current scope, with no new CAS promise.
+- The lock is not deleted on close; it is released through the FD. Verify the identity of the
+  lock's pathname before saving. An external replacement or a conflict => block
+  saving with a recoverable error, never silently overwrite.
 
-La respuesta inicial de AuxIo lleva token/generación de arranque. Si el usuario
-navegó, cambió pestaña/editó destino o inició cierre, se puede conservar el
-resultado de ownership/diagnóstico pero **no aplicar** el documento tardío ni
-arrancar listados/helpers por él. No hay I/O síncrono en UI ni bloqueo de entrada.
-Regresión determinista: respuesta tardía tras navegación y tras Closing no cambia
-ruta/generación ni revive previews.
+AuxIo's initial response carries a startup token/generation. If the user
+navigated, switched tabs/edited a destination or started closing, the ownership/diagnostic
+result can be kept but the late document is **not applied** nor are listings/helpers
+started because of it. There is no synchronous I/O on the UI nor input blocking.
+Deterministic regression: a late response after navigation and after Closing does not change
+path/generation nor revive previews.
 
-## Formato y límites
+## Format and limits
 
-Archivo privado `session.bin`, esquema versionado y tag de plataforma. Rutas y
-nombres raw, sin conversión con pérdida ni I/O en draw. Unix raw bytes; soporte
-Windows/macOS se distingue de evidencia Linux. Máximo ocho activas y ocho cerradas,
-misma selección/historial/vista/sort/descending/query/scroll/grid_zoom/pan y
-anchor/foco que M22. Mostrar ocultos sigue GLOBAL, no se serializa por pestaña.
-IDs nuevos al reconstruir; no restaurar hits, índices, workers, bitmaps ni helpers.
+Private `session.bin` file, versioned schema and a platform tag. Raw paths and
+names, without lossy conversion nor I/O in draw. Unix raw bytes; Windows/macOS
+support is distinguished from the Linux evidence. At most eight active and eight closed,
+the same selection/history/view/sort/descending/query/scroll/grid_zoom/pan and
+anchor/focus as M22. Show hidden stays GLOBAL and is not serialized per tab.
+New IDs when rebuilding; hits, indices, workers, bitmaps and helpers are not restored.
 
-Máximo4MiB de archivo antes de parsear; longitudes/counts se validan contra bytes
-restantes y límites de M22 antes de reservar/copiar. Preflight de tamaño de salida
-antes de construir buffer. Sin truncamiento silencioso. Restauración primero
-valida todo y presupuestos agregados, después publica el conjunto coherente;
-selección raw se intersecta con hidden/query sólo tras Done de generación final.
+At most 4 MiB of file before parsing; lengths/counts are validated against the remaining bytes
+and the M22 limits before reserving/copying. Output size preflight
+before building the buffer. No silent truncation. Restoration first
+validates everything and the aggregate budgets, then publishes the coherent set;
+the raw selection is intersected with hidden/query only after the final generation's Done.
 
-Archivo inválido, truncado, plataforma incompatible o versión futura se preserva
-byte a byte: error visible, sesión deshabilitada para escritura en esa instancia.
-No se transforma automáticamente al guardar. Para recuperar se puede cerrar sin
-guardar y renombrar/restaurar ese archivo explícitamente fuera de esta unidad.
+An invalid, truncated, platform-incompatible or future-version file is preserved
+byte for byte: a visible error, and the session is disabled for writing in that instance.
+It is not transformed automatically on save. To recover, you can close without
+saving and explicitly rename/restore that file outside this unit.
 
-## Guardado y cierre
+## Saving and closing
 
-Reusar AuxIo/canal acotado existente; una petición outstanding de sesión, ACK con
-revisión exacta. Snapshot/buffer retenido hasta ACK, Full conserva pendiente,
-desconexión/error nunca equivale a éxito. Guardado al cierre normal y acción
-explícita de guardar sesión; no capturar/clonar estado en cada draw/gesto.
-Cambiar de pestaña no hace I/O síncrono. Guardar no interrumpe cola global confirmada.
+Reuse the existing bounded AuxIo/channel; one outstanding session request, ACK with
+the exact revision. Snapshot/buffer retained until ACK, Full keeps it pending,
+a disconnect/error is never equivalent to success. Saved on normal close and through the explicit
+save session action; state is not captured/cloned on every draw/gesture.
+Switching tabs does no synchronous I/O. Saving does not interrupt the confirmed global queue.
 
-El cierre drena operaciones/previews/du/layout/config y sesión. Error permanece
-visible con Reintentar, Seguir trabajando o Cerrar sin guardar pendientes. Si
-rename ya publicó pero sync del directorio falla, el resultado distingue
-**publicado, durabilidad no confirmada**; reintento bajo mismo lock valida el
-estado efectivo y no supone baseline anterior. No se afirma atomicidad entre
-config/layout/sesión ni recuperación de tareas tras kill/power loss.
+Close drains operations/previews/du/layout/config and the session. An error stays
+visible with Retry, Keep working or Close without saving pending items. If
+rename already published but the directory sync fails, the result distinguishes
+**published, durability not confirmed**; a retry under the same lock validates the
+effective state and does not assume an earlier baseline. No atomicity across
+config/layout/session nor task recovery after kill/power loss is claimed.
 
-## Aceptación de este bloque
+## Acceptance for this block
 
-Suite/Clippy/release/fmt serializados, luego dos procesos consecutivos con el
-mismo perfil privado save→restore: historial/vista/filtro/selección raw y scroll;
-argv explícito ignora restore; inválido/futuro queda intacto y error visible;
-segunda ventana no pisa estado nuevo del dueño. Capturas de instancia restaurada
-y error recuperable. Handler/framebuffer no equivale a eventos SO; sin benchmarks.
-Sólo tras evidencia funcional instalar app/helper/HTML coherentes con backup/hashes.
-
-
-## Implementación y reservas locales
-
-`session_codec` hace una pasada prestada de validación de todo el documento antes
-de copiar rutas/historial/nombres; `validate` se usa en Store sin materializar
-sesiones descartables. Encode usa el mismo cargo conservador y cuenta todo el
-wire antes del Vec de salida. Activa <=1MiB; inactivas+cerradas <=3MiB, selección
-<=256KiB de cargo/100000 nombres y cada campo <=4096B; hasta64 rutas de History
-por record. Se rechazan NaN/infinito/zoom fuera0.65..1.8/scroll o pan fuera rango.
-Guardar/reintentar no confía en `Saved.charge` importado: recalcula por contenido.
-
-Durante captura puede coexistir snapshot activo <=256KiB con wire <=4MiB. AuxIo
-puede retener además lectura anterior <=4MiB (capacidad acotada, regular-only por
-FD O_NOFOLLOW|O_NONBLOCK|CLOEXEC); validate no construye History/selecciones. Load
-puede coexistir wire <=4MiB y estado decodificado <=4MiB de cargo más contenedores
-pequeños acotados, hasta aplicar y soltar archivo. Son reservas adicionales al
-listado y cachés existentes; no son un límite PSS del árbol ni sustituyen gates.
-No buffer nuevo por tick ni múltiples buffers sesión en cola.
-
-Fallo de captura/encode bloquea reintentos automáticos del cierre hasta Retry;
-Full conserva buffer exacto y ACK obsoleto no lo libera. Se prueba sync de
-directorio fallido después de rename: archivo nuevo ya visible, resultado
-Unsynced y reintento verifica archivo efectivo bajo mismo lock.
-
-Fixtures de arranque con FILES_TEST_SESSION usan smoke sólo observacional tras
-startup resuelto y paint; no llaman smoke_test mutador. M22 conserva su smoke
-estándar. La escena existente tabs-ui-check.py --sessions comprueba save→restore,
-argv, --no-session, otro writer e inválido/futuro sin instrumentar recursos.
-Windows raw/ownership siguen Unsupported; Unix codec no implica evidencia macOS.
-El lock es advisory entre instancias cooperantes; no confina padres de config
-ni detiene un editor externo que deliberadamente ignore/reemplace el lock.
+Serialized suite/Clippy/release/fmt, then two consecutive processes with the
+same private profile save→restore: history/view/filter/raw selection and scroll;
+explicit argv ignores restore; invalid/future stays intact with a visible error;
+a second window does not overwrite the owner's new state. Captures of the restored instance
+and of the recoverable error. Handler/framebuffer is not equivalent to OS events; no benchmarks.
+Only after functional evidence, install a consistent app/helper/HTML with backup/hashes.
 
 
-## Evidencia M23, 2026-10-27
+## Implementation and local reservations
 
-`session-final-test.log`: 527 Rust =141 core/67 helper/319 UI.
-`session-observational-clippy.log`, `session-release.log` y
-`session-final-fmt-check.log` PASS; copias en session-checkpoint-validation.json.
-El primer FAIL de tests fue un receptor descartado por el fixture (Disconnected),
-corregido reteniendo binding; ambos FAIL Clippy fueron estilo. Logs intactos.
+`session_codec` makes one borrowed validation pass over the whole document before
+copying paths/history/names; `validate` is used in Store without materializing
+disposable sessions. Encode uses the same conservative charge and counts the whole
+wire before the output Vec. Active <=1 MiB; inactive+closed <=3 MiB, selection
+<=256 KiB of charge/100000 names and each field <=4096 B; up to 64 History paths
+per record. NaN/infinity/zoom outside 0.65..1.8/scroll or pan out of range are rejected.
+Save/retry does not trust the imported `Saved.charge`: it recomputes from the content.
 
-`tabs-session-ui-1793111266679001110.json`: archivo propio566B, save→restore en
-procesos consecutivos, A Grid125%/scroll120/pan48/orden descendente/querykeep/2
-seleccionados/anchor/foco y B List/querysame/historialback independiente; pestaña
-cerrada raw0xFF restaurada al reabrir. Ruta explícita abrió sólo B y no guardó al
-cerrar; --no-session rechazó guardar. Otra ventana quedó readonly y no tomó
-ownership al salir la dueña ni pisó sus bytes nuevos. Inválido y versión99
-permanecieron byte a byte. Ocho salidas normales0 posteriores al drenaje/ACK.
+During capture an active snapshot <=256 KiB can coexist with a wire <=4 MiB. AuxIo
+can also retain an earlier read <=4 MiB (bounded capacity, regular-only through an
+O_NOFOLLOW|O_NONBLOCK|CLOEXEC FD); validate does not build History/selections. Load
+can have a wire <=4 MiB and a decoded state <=4 MiB of charge plus small bounded
+containers coexisting, until it is applied and the file is dropped. These are reservations on top of the
+listing and existing caches; they are not a PSS limit for the tree nor do they replace gates.
+No new buffer per tick and no multiple session buffers in the queue.
 
-Seis framebuffer lógicos1000×650, acciones/handlers internos sin input SO ni
-clipboard. No operación/medio reanudado, ni promesa de recuperación de tareas
-tras crash. Recursos/startup NOT_MEASURED; PSS del pie no acredita presupuesto.
-V10 continúa parcial por evidencia multiplataforma/input SO y gates congelados;
-las pestañas/sesión de instancia ya no se enumeran como sin implementar.
+A capture/encode failure blocks automatic close retries until Retry;
+Full keeps the exact buffer and a stale ACK does not free it. A failed directory
+sync after rename is tested: the new file is already visible, the result is
+Unsynced and a retry verifies the effective file under the same lock.
+
+Startup fixtures with FILES_TEST_SESSION use an observational-only smoke after
+startup is resolved and painted; they do not call the mutating smoke_test. M22 keeps its standard
+smoke. The existing scene tabs-ui-check.py --sessions checks save→restore,
+argv, --no-session, another writer and invalid/future without instrumenting resources.
+Windows raw/ownership are still Unsupported; the Unix codec does not imply macOS evidence.
+The lock is advisory between cooperating instances; it does not confine config parents
+nor stop an external editor that deliberately ignores/replaces the lock.
 
 
-M26 compatibilidad de vista: tag3 Spatial legado se decodifica Columnas, con
-scroll/zoom/pan reiniciados (geometría de iconos incompatible); ruta, historial,
-filtro, selección/foco/anchor raw conservados. Nuevo tag5 Columnas conserva
-scroll vertical. No cambia VERSION ni borra layouts antiguos; lectores antiguos
-que desconocen tag5 rechazan/preservan archivo. No persiste toda la cadena.
-Regresión encodelegacy→decode y tag5roundtrip PASS; sin nuevo gate de recursos.
+## M23 evidence, 2026-10-27
+
+`session-final-test.log`: 527 Rust = 141 core/67 helper/319 UI.
+`session-observational-clippy.log`, `session-release.log` and
+`session-final-fmt-check.log` PASS; copies in session-checkpoint-validation.json.
+The first test FAIL was a receiver dropped by the fixture (Disconnected),
+fixed by keeping the binding; both Clippy FAILs were style. Logs intact.
+
+`tabs-session-ui-1793111266679001110.json`: own 566 B file, save→restore in
+consecutive processes, A Grid 125%/scroll 120/pan 48/descending order/query keep/2
+selected/anchor/focus and B List/query same/independent back history; a closed
+raw 0xFF tab restored when reopening. An explicit path opened only B and did not save on
+close; --no-session refused to save. Another window stayed read-only and did not take
+ownership when the owner exited nor overwrite its new bytes. Invalid and version 99
+remained byte for byte. Eight normal exits 0 after drain/ACK.
+
+Six logical framebuffers 1000×650, internal actions/handlers without OS input nor
+clipboard. No operation/media resumed, and no promise of task recovery
+after a crash. Resources/startup NOT_MEASURED; the footer's PSS does not prove a budget.
+V10 stays partial because of cross-platform/OS input evidence and the frozen gates;
+instance tabs/session are no longer listed as unimplemented.
 
 
-M27 doble panel no cambia formato ni promete persistir ambas mitades: Guardar
-sesión y cierre capturan sólo Tabs del grupo enfocado. Preferencias muestra
-«Guardar sólo este grupo» en modo dual. Metadata del grupo secundario/oculto sigue
-acotada conjuntamente con snapshots3MiB, pero no se serializa en M23. Operaciones
-y medios nunca se reanudan por restore. Persistencia de ambos paneles pendiente.
+M26 view compatibility: the legacy Spatial tag 3 is decoded as Columns, with
+scroll/zoom/pan reset (incompatible icon geometry); path, history,
+filter, raw selection/focus/anchor kept. The new Columns tag 5 keeps the
+vertical scroll. VERSION does not change and old layouts are not deleted; old readers
+that do not know tag 5 reject/preserve the file. The whole chain is not persisted.
+Regression encode legacy→decode and tag 5 round trip PASS; no new resource gate.
+
+
+M27 dual pane does not change the format nor promise to persist both halves: Save
+session and close capture only the Tabs of the focused group. Preferences shows
+«Guardar sólo este grupo» (save only this group) in dual mode. The secondary/hidden group's metadata stays
+bounded jointly with the 3 MiB snapshots, but it is not serialized in M23. Operations
+and media are never resumed through restore. Persisting both panes is pending.
 
 ## Descriptor ownership on normal release
 
@@ -154,5 +154,5 @@ OWNER-LOCK-RELEASE.md records the creator-PID explicit flock release added in
 source ebfbd46. A child retaining an inherited descriptor no longer extends
 normal owner lifetime; dropping a child copy cannot unlock the active creator.
 Nonblocking acquisition, genuine busy/read-only/CAS behavior and formats remain
-unchanged. Linux fork repros failed before and passed after;1290workspace tests
+unchanged. Linux fork repros failed before and passed after; 1290 workspace tests
 and corresponding source/installed UI checks passed, with scoped limitations.
