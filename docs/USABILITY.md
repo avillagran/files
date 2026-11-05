@@ -160,13 +160,13 @@ identity and per-row/field epochs avoid stale paste or source rename. Duplicate
 names/invalid components reject before queue admission. COPY-NAMES.md distinguishes
 Copy from pending Move/replace/automatic suffix work and documents FD proof.
 
-Gestor de tamaños: botón Nerd de orden o S alterna Cola/Mayor/Nombre. Mayor usa sólo totales terminados; el progreso parcial no se confunde con tamaño final. La selección se mantiene por fila, flechas/Home/End recorren orden visible, sin cambiar la cola de cálculo.
+Size manager: the Nerd sort button or S cycles Queue/Largest/Name. Largest only uses finished totals; partial progress is never confused with a final size. The selection is kept per row, arrows/Home/End walk the visible order, without changing the calculation queue.
 
-Ctrl+L → `>comando` o `:lugar` → Enter abre el catálogo filtrado. Elige luego la acción/destino; no se ejecuta la primera coincidencia automáticamente. `./>nombre` y `./:nombre` siguen siendo rutas literales. Véase docs/OMNIBAR-CATALOGS.md.
+Ctrl+L → `>command` or `:place` → Enter opens the filtered catalog. Then choose the action/destination; the first match is never run automatically. `./>name` and `./:name` remain literal paths. See docs/OMNIBAR-CATALOGS.md.
 
-Búsqueda recursiva: las coincidencias aparecen durante el recorrido con etiqueta PROVISIONAL. Puedes abrir/localizar una observación explícitamente; cancelación, error o consulta nueva retiran candidatos. El informe final valida la raíz y conserva el archivo seleccionado. Límite500 explícito, sin índice ni nueva cache. Ver docs/SEARCH-BATCHES.md.
+Recursive search: matches appear during the walk labeled PROVISIONAL. You can explicitly open/locate an observation; cancellation, an error or a new query withdraws candidates. The final report validates the root and keeps the selected file. Explicit 500 limit, no index and no new cache. See docs/SEARCH-BATCHES.md.
 
-El buscador de contenido muestra un fragmento observado de hasta256 bytes con el match marcado, también mientras busca. Elipsis señalan recortes; espacios/controles se normalizan sólo al mostrar. No se abre una previsualización ni se vuelve a leer el archivo. Ver docs/SEARCH-SNIPPETS.md.
+The content search shows an observed snippet of up to 256 bytes with the match highlighted, also while searching. Ellipses mark truncation; whitespace/control characters are normalized only for display. No preview is opened and the file is not read again. See docs/SEARCH-SNIPPETS.md.
 
 ## Copy conflicts: Keep Both
 
