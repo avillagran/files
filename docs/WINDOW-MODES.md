@@ -1,91 +1,91 @@
-# Ventana y menús (0.0.4)
+# Window and menus (0.0.4)
 
-Prioridad explícita del usuario, 2026-10-26. Sustituye la ventana Linux sin borde
-forzada: **Normal** es ahora la preferencia por defecto y usa una ventana estándar
-con decoraciones FLTK/libdecor, administrada por el compositor. No se solicita
-flotante, panel, overlay, always-on-top ni una regla global. Un compositor con
-layout tiled puede decidir que no procede mover/redimensionar esa ventana.
+Explicit user priority, 2026-10-26. It replaces the forced borderless Linux
+window: **Normal** is now the default preference and uses a standard window
+with FLTK/libdecor decorations, managed by the compositor. Floating, panel, overlay,
+always-on-top or a global rule are not requested. A compositor with a
+tiled layout may decide that moving/resizing that window does not apply.
 
-Preferencias (botón Nerd Font engranaje, Ctrl+,) y Acciones (botón Nerd Font rayo,
-F10) son menús distintos y excluyentes. Sus nombres semánticos y tooltips son
-«Preferencias» y «Acciones». El canvas tiene una etiqueta con ambos atajos; esto
-no acredita un árbol AT-SPI/screen reader nativo, pendiente en accesibilidad.
-Acciones sólo contiene abrir/preview/copiar/renombrar/crear/deshacer/rehacer.
-Preferencias contiene modo de ventana, bordes de interfaz y tema; las vistas
-siguen accesibles en el header y Ctrl+1/2/3. Esc cierra cualquiera de los menús.
+Preferences (Nerd Font gear button, Ctrl+,) and Actions (Nerd Font bolt button,
+F10) are separate, mutually exclusive menus. Their semantic names and tooltips are
+«Preferencias» and «Acciones». The canvas has a label with both shortcuts; this
+does not prove a native AT-SPI/screen reader tree, which is pending under accessibility.
+Actions only contains open/preview/copy/rename/create/undo/redo.
+Preferences contains window mode, interface corners and theme; the views
+are still reachable in the header and with Ctrl+1/2/3. Esc closes either menu.
 
-Modos soportados por FLTK:
+Modes supported by FLTK:
 
-| Clave config.toml | Etiqueta | Comportamiento solicitado |
+| config.toml key | Label | Requested behavior |
 |---|---|---|
-| normal | Normal | Decorada, sin maximizar ni pantalla completa; compositor decide placement |
-| fullscreen | Pantalla completa | Pantalla completa nativa; conserva Preferencias para salir |
+| normal | Normal | Decorated, not maximized nor fullscreen; the compositor decides placement |
+| fullscreen | Fullscreen | Native fullscreen; keeps Preferences to get out |
 
-Sólo una elección explícita modifica `window_mode`; redimensionar/reubicar desde
-el compositor no reescribe esa elección. Modo y `corners` se guardan juntos en
-una única escritura atómica en el trabajador existente, conservando campos/tablas
-desconocidos. ACK por revisión, reintento tras error y drenaje al cierre. Cambios
-mientras hay escritura pendiente coalescen al último snapshot de preferencias.
-El tema sigue independiente, al igual que el factor visual de bordes.
+Only an explicit choice changes `window_mode`; resizing/moving from
+the compositor does not rewrite that choice. Mode and `corners` are saved together in
+a single atomic write on the existing worker, keeping unknown fields/tables.
+ACK per revision, retry after an error and drain on close. Changes
+made while a write is pending coalesce into the latest preferences snapshot.
+The theme stays independent, as does the visual corner factor.
 
-## Header y grips
+## Header and grips
 
-Normal tiene cuatro targets interiores de 24×24px y mínimo de ventana 700×440.
-Los controles del header y las fichas/edición de ruta siempre ganan el hit test.
-El resto libre de sus primeros 58px solicita movimiento; el contenido de archivos
-nunca es zona de ventana. Diagonales NW/SE y NE/SW para grips; `grab`/`grabbing`
-del tema de cursor Wayland si existen, con fallback Hand/Move de FLTK. Overlays,
-menús, diálogo, selección espacial en arrastre o cierre bloquean estos gestos.
+Normal has four inner 24×24 px targets and a minimum window of 700×440.
+Header controls and path chips/editing always win the hit test.
+The rest of its first 58 px, when free, requests a move; file content
+is never a window zone. NW/SE and NE/SW diagonals for the grips; the Wayland cursor theme's
+`grab`/`grabbing` if they exist, falling back to FLTK's Hand/Move. Overlays,
+menus, dialogs, a spatial selection being dragged or closing block these gestures.
 
-El puente C++ propio usa las estructuras reales de **FLTK fijado 1.5.23/API1.4.5,
-ABI1.4.0**; no adivina offsets ni modifica registry. Comprueba backend Wayland,
-ventana mostrada propia, FL_PUSH izquierdo, belowmouse de esa ventana, foco de
-puntero/seat/serial actuales antes de `libdecor_frame_move/resize`. No conserva
-ni fabrica seriales. Limpia pushed/estado como el driver FLTK tras la solicitud;
-los configure nativos aplican el resize y anclaje de esquina opuesta. No hay bucle
-de geometría ni fallback Hyprland. El compositor coalesce los configure, sin
-transportar el timer QML50ms del panel de referencia.
+The own C++ bridge uses the real structures of the **pinned FLTK 1.5.23/API 1.4.5,
+ABI 1.4.0**; it does not guess offsets or modify the registry. It checks the Wayland backend,
+its own shown window, a left FL_PUSH, belowmouse of that window, and the current
+pointer/seat/serial focus before `libdecor_frame_move/resize`. It does not keep
+or fabricate serials. It clears pushed/state like the FLTK driver after the request;
+the native configure events apply the resize and the opposite-corner anchoring. There is no
+geometry loop and no Hyprland fallback. The compositor coalesces the configure events, without
+carrying over the reference panel's 50 ms QML timer.
 
-Los cursores comprueban foco propio antes de tocar el seat. Un retorno exitoso
-significa solicitud enviada, **no** que el compositor la haya aceptado. En otros
-backends el gesto custom informa capacidad no disponible; los modos y decoraciones
-estándar siguen vía FLTK. Movimiento/resize nativos fuera de Linux pendientes.
+The cursors check their own focus before touching the seat. A successful return
+means the request was sent, **not** that the compositor accepted it. On other
+backends the custom gesture reports the capability as unavailable; the standard modes and decorations
+still go through FLTK. Native move/resize outside Linux is pending.
 
-## Compilar el adaptador
+## Building the adapter
 
-`cc` MIT/Apache ya presente en lockfile pasa a build-dependency directa. fltk-sys
-idéntico también es build-dependency sólo para ordenar generación de headers;
-no nuevo backend/runtime. FLTK no exporta metadata Cargo de include/source:
-`build.rs` localiza su fuente de versión fijada ya descargada por Cargo y sus
-headers generados en este perfil; rechaza fuentes ambiguas o configuraciones
-que difieran en config.h **o** FL/fl_config.h (sólo se excluyen los dos strings
-FLTK_DATADIR/FLTK_DOCDIR, que cambian con la ruta del artefacto host/target). Override para vendor/entornos
-especiales: `FILES_FLTK_SOURCE_DIR` (raíz cfltk/fltk) y `FILES_FLTK_CONFIG_DIR`
-(raíz generada con ambos headers). No descarga ni edita dependencias.
-Este acoplamiento privado debe revisarse al actualizar FLTK; no se declara
-compatibilidad con un FLTK instalado arbitrario ni cross-build Linux validado.
+`cc` (MIT/Apache), already in the lockfile, becomes a direct build-dependency. The identical
+fltk-sys is also a build-dependency only to order header generation;
+no new backend/runtime. FLTK does not export Cargo include/source metadata:
+`build.rs` locates its pinned-version source already downloaded by Cargo and its
+headers generated in this profile; it rejects ambiguous sources or configurations
+that differ in config.h **or** FL/fl_config.h (only the two strings
+FLTK_DATADIR/FLTK_DOCDIR are excluded, as they change with the host/target artifact path). Overrides for vendor/special
+environments: `FILES_FLTK_SOURCE_DIR` (cfltk/fltk root) and `FILES_FLTK_CONFIG_DIR`
+(generated root with both headers). It does not download or edit dependencies.
+This private coupling must be reviewed when updating FLTK; compatibility with an
+arbitrary installed FLTK or a validated Linux cross-build is not claimed.
 
-## Evidencia
+## Evidence
 
-`scripts/window-ui-check.py` usa targets/handlers internos y framebuffer real;
-lee hyprctl clients para observar modos, nunca lo usa para mover/flotar/resize.
-Comprueba default, persistencia entre procesos, campos desconocidos, exclusión
-de menús, zonas de controles/header/cuatro esquinas, cierre normal tras ACK.
-La fixture no llama el puente de gestos: input SO/move/resize/cursores reales
-siguen pendientes por controlador CUA sin ventanas. Recursos/startup NOT_MEASURED
-por freeze; no se extrapola el pie PSS principal de capturas a árbol/presupuesto.
+`scripts/window-ui-check.py` uses internal targets/handlers and the real framebuffer;
+it reads hyprctl clients to observe modes and never uses it to move/float/resize.
+It checks the default, persistence across processes, unknown fields, menu
+exclusion, control/header/four-corner zones and normal close after ACK.
+The fixture does not call the gesture bridge: real OS input/move/resize/cursors
+are still pending because the CUA controller sees no windows. Resources/startup NOT_MEASURED
+because of the freeze; the main PSS footer of captures is not extrapolated to the tree/budget.
 
-La primera escena falló al esperar Maximizada: la regla real de Omarchy
-`default/hypr/windows.lua` suprime eventos maximize para todas las apps.
-El adaptador FLTK marcaba maximize_active, pero hyprctl seguía fullscreen=0.
-Ese estado cliente no acredita el modo compositor. Se retiró el modo extra
-antes de la entrega; sólo se exponen Normal/Pantalla completa verificados.
-No se cambió la regla ni se usó un dispatcher sobre la ventana activa. Se
-conserva window-ui-failure-1793041926965059030.json y sus capturas.
+The first scene failed waiting for Maximized: Omarchy's real rule
+`default/hypr/windows.lua` suppresses maximize events for every app.
+The FLTK adapter set maximize_active, but hyprctl still reported fullscreen=0.
+That client state does not prove the compositor mode. The extra mode was removed
+before delivery; only the verified Normal/Fullscreen modes are exposed.
+The rule was not changed and no dispatcher was used on the active window. The
+window-ui-failure-1793041926965059030.json report and its captures are kept.
 
-Aceptación funcional: window-ui-1793042474907145360.json PASS en tres procesos,
-unknown fields preservados y salidas0 ACK. Capturas finales: window-preferences-
+Functional acceptance: window-ui-1793042474907145360.json PASS in three processes,
+unknown fields preserved and exits 0 with ACK. Final captures: window-preferences-
 1793042473963081012.png, window-actions-1793042474075297111.png, window-normal-
-restored-1793042474691886649.png. Dimensiones cliente845×1061/1728×1117, no
-decoración exterior capturada ni inputSO. Fallo fixtureclosing anterior preservado
-en window-ui-failure-1793042207114132046.json y corregido sin relajar lifecycle.
+restored-1793042474691886649.png. Client dimensions 845×1061/1728×1117, no
+outer decoration captured and no OS input. The earlier fixture closing failure is preserved
+in window-ui-failure-1793042207114132046.json and fixed without relaxing the lifecycle.

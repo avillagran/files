@@ -1,90 +1,90 @@
-# Metadatos de audio en Space
+# Audio metadata in Space
 
-0.0.4, parcial. Space sobre FLAC, WAV y otros formatos admitidos muestra título,
-autor, álbum, duración, códec, frecuencia, canales y tasa de bits declarada.
-La vista permite seleccionar el texto y reproducir/pausar/buscar con ffmpeg/Pulse
-a demanda; ver AUDIO-PLAYBACK para evidencia y límites. El clipboard Wayland
-sigue pendiente de validación con foco.
+0.0.4, partial. Space on FLAC, WAV and other supported formats shows title,
+artist, album, duration, codec, sample rate, channels and declared bit rate.
+The view lets you select the text and play/pause/seek with ffmpeg/Pulse
+on demand; see AUDIO-PLAYBACK for evidence and limits. The Wayland clipboard
+is still pending validation with focus.
 
-## Proceso y límites
+## Process and limits
 
-Usa ffprobe opcional del sistema como un hijo directo. No se enlaza ni se
-distribuye su biblioteca, no hay daemon ni decodificador en la UI. El worker
-abre un archivo regular final con O_NOFOLLOW/O_NONBLOCK y conserva su FD
-a través de exec. Ruta absoluta de hasta 4096 B, fuente de hasta 8 GiB.
-Los padres y mounts siguen la navegación normal del SO; no es un sandbox ni
-un snapshot si el contenido cambia in-place.
+It uses the system's optional ffprobe as a direct child. Its library is not linked
+or distributed; there is no daemon and no decoder in the UI. The worker
+opens a final regular file with O_NOFOLLOW/O_NONBLOCK and keeps its FD
+across exec. Absolute path up to 4096 B, source up to 8 GiB.
+Parents and mounts follow normal OS navigation; it is not a sandbox nor
+a snapshot if the content changes in place.
 
-Demuxers forzados por extensión: mp3, wav, flac, ogg/opus, mov para m4a, aac
-y aiff. Sólo protocolos file/pipe y códecs de audio permitidos; referencias
-externas MOV desactivadas. Metadatos JSON hasta 64 KiB antes de parsear;
-duración finita hasta siete días, frecuencia hasta 384 kHz y hasta 32 canales.
+Demuxers forced by extension: mp3, wav, flac, ogg/opus, mov for m4a, aac
+and aiff. Only file/pipe protocols and allowed audio codecs; external
+MOV references disabled. JSON metadata up to 64 KiB before parsing;
+finite duration up to seven days, sample rate up to 384 kHz and up to 32 channels.
 
-Cada etiqueta se recorta a 2048 B en límite UTF-8 y sanea controles/bidi antes
-de insertar una fila. Documento hasta 16 KiB y 256 líneas, con recorte visible.
-No se interpreta HTML ni se abre una URL de las etiquetas. Una etiqueta que
-exceda el wire completo puede causar rechazo antes de producir la vista.
+Each tag is cut to 2048 B at a UTF-8 boundary and control/bidi characters are sanitized before
+inserting a row. Document up to 16 KiB and 256 lines, with a visible cut.
+HTML is not interpreted and no URL from the tags is opened. A tag that
+exceeds the whole wire can cause a rejection before the view is produced.
 
-Timeout de 5 s, CPU de 3 s, AS virtual de 256 MiB y FD acotados. Estos límites
-no prueban PSS ni autorizan exceder el techo de 150 MB. State cancela y recoge
-el job anterior antes de lanzar el último destino. Cierre distingue fase con
-hijo (kill/reap obligatorio) de I/O sólo lectura aún sin ACK: ver actualización
-siguiente. El timeout del supervisor no interrumpe una syscall FS atascada.
+5 s timeout, 3 s CPU, 256 MiB virtual AS and bounded FDs. These limits
+do not prove PSS nor authorize exceeding the 150 MB ceiling. State cancels and reaps
+the previous job before launching the latest destination. Close distinguishes the phase with a
+child (kill/reap mandatory) from read-only I/O still without ACK: see the following
+update. The supervisor's timeout does not interrupt a stuck FS syscall.
 
-## Evidencia y pendientes
+## Evidence and pending work
 
-276 tests Rust (73 core, 33 helper, 170 UI), Clippy workspace all-targets con
--D warnings y release limpios. audio-ui-1793039367932469197.json pasa la escena
-funcional: FLAC/WAV propios, campos reales y selección Unicode, etiqueta larga
-recortada, cambios rápidos, archivo inválido/symlink y cierre normal tras ACK.
-Método: handlers internos y framebuffer de una ventana real, sin input del SO.
-Cierre antes del nuevo spawn registrado no prueba cancelación de ffprobe vivo.
+276 Rust tests (73 core, 33 helper, 170 UI), Clippy workspace all-targets with
+-D warnings and release clean. audio-ui-1793039367932469197.json passes the functional
+scene: own FLAC/WAV files, real fields and Unicode selection, long tag
+cut, quick changes, invalid file/symlink and normal close after ACK.
+Method: internal handlers and the framebuffer of a real window, without OS input.
+Closing before the recorded new spawn does not prove cancellation of a live ffprobe.
 
-Recursos y arranque NOT_MEASURED por la fase explícita del usuario. No se
-extrapolan presupuestos de otros previews. Reproducción, waveform, carátulas,
-otros formatos y plataformas continúan pendientes; P08 y P09 no están completos.
+Resources and startup NOT_MEASURED because of the user's explicit phase. Budgets
+from other previews are not extrapolated. Playback, waveform, cover art,
+other formats and platforms are still pending; P08 and P09 are not complete.
 
-## Identidad y publicación — 2026-10-27
+## Identity and publication — 2026-10-27
 
-El watcher existente de medios cubre ahora audio seleccionado, además de imagen
-y vídeo. Adjunta directorio antes de verificar, token/epoch invalidan callbacks
-y resultados viejos, y reconciliación visible periódica detecta eventos perdidos.
-No hay watcher por archivo ni I/O en draw/UI. Audio queda fuera de thumbnails:
-se separa el predicado de imagen/vídeo del conjunto de fuentes vigiladas.
+The existing media watcher now also covers selected audio, in addition to images
+and video. It attaches the directory before verifying, token/epoch invalidate stale callbacks
+and results, and a periodic visible reconciliation detects lost events.
+There is no per-file watcher and no I/O in draw/UI. Audio stays out of thumbnails:
+the image/video predicate is separated from the set of watched sources.
 
-AudioJob exige expected Revision; abre el FD regular mediante media_source::open,
-compara antes de ffprobe, hereda ese FD, y revalida descriptor y nombre después
-del parseo. Devuelve la Revision efectiva junto al documento. State acepta sólo
-con generación activa y firma esperada coincidentes; Ready conserva esa firma.
-No se atribuye identidad a una ruta comprobada en otra apertura.
+AudioJob requires an expected Revision; it opens the regular FD through media_source::open,
+compares before ffprobe, inherits that FD, and revalidates descriptor and name after
+parsing. It returns the effective Revision together with the document. State only accepts
+with a matching active generation and expected signature; Ready keeps that signature.
+Identity is never attributed to a path checked in another open.
 
-Reemplazo/modificación/borrado/rename ocultan metadatos y cancelan el job antes de
-publicar de nuevo. No es hash ni snapshot atómico, ni confinamiento total:
-O_NOFOLLOW final no impide symlinks en padres/mounts. Recuperación del padre usa
-watcher/reprobe; no se promete invalidación instantánea sin evento ni cuando la
-app está apagada. No hay caché de audio persistente ni temporales de producto.
+Replacement/modification/deletion/rename hide the metadata and cancel the job before
+publishing again. It is not a hash nor an atomic snapshot, nor total confinement:
+the final O_NOFOLLOW does not prevent symlinks in parents/mounts. Parent recovery uses
+watcher/reprobe; instant invalidation is not promised without an event or while the
+app is off. There is no persistent audio cache and no product temporaries.
 
-AudioJob tiene gate ReadOnly/Helper/Stopped. Cierre marca closing bajo el mismo
-mutex que admite spawn; permiso para abandonar ReadOnly impide cualquier hijo
-futuro, mientras Helper exige reap. State.exit_allowed no altera is_drained:
-si falta ACK se emite PREVIEW_EXIT_ALLOWED drained=false, nunca PREVIEW_DRAINED.
-No join de syscall FS en UI; no se promete terminación instantánea de kernelD.
-Tests controlados de fase/controller no sustituyen un montaje realmente atascado,
-que sigue pendiente. Cambiar selección mantiene single-flight hasta ACK, sin
-acumular threads o lanzar un reemplazo mientras el anterior está bloqueado.
+AudioJob has a ReadOnly/Helper/Stopped gate. Close sets closing under the same
+mutex that admits spawns; permission to leave ReadOnly prevents any future
+child, while Helper requires reap. State.exit_allowed does not change is_drained:
+if the ACK is missing it emits PREVIEW_EXIT_ALLOWED drained=false, never PREVIEW_DRAINED.
+No join on an FS syscall in the UI; instant termination of kernel D-state is not promised.
+Controlled phase/controller tests do not replace a truly stuck mount,
+which is still pending. Changing selection keeps single-flight until ACK, without
+piling up threads or launching a replacement while the previous one is blocked.
 
-458Rust141/58/259, Clippyworkspace-Dwarnings y releasePASS. Pruebas deterministas
-A→replaceB antes de abrir, nombre cambiado después de probe, ReadyA tardío y
-ReadyA bajo generación B, close readonly sin falso ACK y gate que rechaza spawn.
+458 Rust 141/58/259, Clippy workspace -Dwarnings and release PASS. Deterministic tests:
+A→replace B before opening, name changed after probe, a late Ready A and
+Ready A under generation B, readonly close without a fake ACK and a gate that rejects spawn.
 
-`audio-ui-1793083931390323451.json` PASS funcional con callbacks notify suprimidos:
-8framebuffers1000×650; FLAC/WAV/Unicode/selección/límites/errores/rapid y fuente
-same path+size+mtime reemplazada, modificación con mtime restaurado, delete/recreate,
-rename away/back y padre reemplazado. Firma efectiva se compara con stat del
-fixture fuera de UI; al borrar desaparecen los metadatos del framebuffer.
-Preview cerrado no lanza helpers en la espera de reconciliación. Rootexit0/ACK,
-11PID/start helpers registrados ausentes/reutilizados, Zmismoidentity rechazado;
-no cobertura de lifetimes ni cancelación de ffprobe vivo demostrada al cierre.
-Sólo handlers internos/framebuffer; no inputSO ni prueba de nitidez nativa2x.
-Recursos/startupNOT_MEASURED por freeze; footer no usado. Audio sigue SIN
-reproducción, y P08/P09global/otrosSO/clipboard y fallosbase siguen pendientes.
+`audio-ui-1793083931390323451.json` functional PASS with notify callbacks suppressed:
+8 framebuffers 1000×650; FLAC/WAV/Unicode/selection/limits/errors/rapid and a source
+with the same path+size+mtime replaced, a modification with mtime restored, delete/recreate,
+rename away/back and a replaced parent. The effective signature is compared with the fixture's
+stat outside the UI; on delete the metadata disappears from the framebuffer.
+A closed preview launches no helpers while waiting for reconciliation. Root exit 0/ACK,
+11 registered helper PID/start identities absent/reused, Z with the same identity rejected;
+no lifetime coverage and no cancellation of a live ffprobe shown at close.
+Internal handlers/framebuffer only; no OS input and no native 2x sharpness test.
+Resources/startup NOT_MEASURED because of the freeze; footer not used. Audio still has NO
+playback, and global P08/P09/other OSes/clipboard and the baseline failures are still pending.

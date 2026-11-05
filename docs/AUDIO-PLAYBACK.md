@@ -1,92 +1,92 @@
-# Reproducción de audio — 0.0.4 (parcial)
+# Audio playback — 0.0.4 (partial)
 
-La salida actual ffmpeg/Pulse está verificada funcionalmente en Linux.
-Recursos/startup NOT_MEASURED; audibilidad y posición PCM no validadas.
+The current ffmpeg/Pulse output is functionally verified on Linux.
+Resources/startup NOT_MEASURED; audibility and PCM position not validated.
 
-## Prototipo conservado (histórico)
+## Kept prototype (historical)
 
-Prototipo ffplay: controles reales P/Reproducir/Pausar/seek, sin autoplay,
-sourceFD esperado y gate/helper único de AUDIO-PREVIEW. Documento/selección
-conservados al buscar; cancelación/ACK antes de reemplazo, ocultar libera child.
-Common supervisor tiene clock de spawn y stderr estricto8KiB/diagnóstico4KiB:
-ffplay puede devolver exit0 ante audio-open-failed (fixture SDL disk con parent
-privado inexistente, sin generar audio en disco). No se acepta ese estado comoEOF.
+ffplay prototype: real P/Play/Pause/seek controls, no autoplay,
+expected source FD and the single gate/helper of AUDIO-PREVIEW. Document/selection
+kept when seeking; cancellation/ACK before replacement, hiding frees the child.
+The common supervisor has a spawn clock and strict stderr 8 KiB/diagnostic 4 KiB:
+ffplay can return exit 0 on audio-open-failed (SDL disk fixture with a
+nonexistent private parent, without generating audio on disk). That state is not accepted as EOF.
 
-463Rust141/58/264, Clippyworkspace-Dwarnings/releasePASS.
-UI1793085963942149325PASS sólo SDL dummy/silencio:14loggedhelpersgone, play/pause/
-seek requested/EOF/delete/callback activo. NO prueba audio audible ni posiciónPCM.
-Sistema nativo1793085882916399311FAIL: play/pause/seek llegan, EOFtrasseek vence
-timeout. La diferencia con dummy no identifica por sí sola la causa en SDL/driver.
-NO se instala esta unidad ni se presenta como reproducción nativa completa.
-Instalado sigue metadataFDca8e41fd10be (1c06920).
+463 Rust 141/58/264, Clippy workspace -Dwarnings/release PASS.
+UI 1793085963942149325 PASS only with the SDL dummy/silence: 14 logged helpers gone, play/pause/
+seek requested/EOF/delete/active callback. It does NOT prove audible audio or PCM position.
+Native system 1793085882916399311 FAIL: play/pause/seek arrive, EOF after seek hits the
+timeout. The difference with the dummy does not by itself identify the cause in SDL/the driver.
+This unit is NOT installed nor presented as complete native playback.
+The installed one is still metadata FD ca8e41fd10be (1c06920).
 
-FAIL1793085547229903243porfirmaHyprlandheredada obsoleta conservado+sidecar;
-fixture selecciona instancia única para suWAYLAND_DISPLAY, sin foco/configglobal.
-FAIL1793085633746085621argv -infbuf0trataba0comoarchivo; corregido-noinfbuf.
-Ambos históricos/imagenes inmutables.
+FAIL 1793085547229903243 because of an inherited obsolete Hyprland signature, kept + sidecar;
+the fixture selects the single instance for its WAYLAND_DISPLAY, without focus/global config.
+FAIL 1793085633746085621: the argv -infbuf 0 treated 0 as a file; fixed to -noinfbuf.
+Both are historical/images immutable.
 
-Siguiente adaptación usa salida Pulse del ffmpeg del sistema ya requerido para
-vídeo, conservando supervisor/FD/controles. Sin nuevo decoder enlazado, daemon,
-archivo cache ni paquete instalado. Recursos/startupNOT_MEASUREDfreeze.
+The next adaptation uses the Pulse output of the system ffmpeg already required for
+video, keeping the supervisor/FD/controls. No new linked decoder, daemon,
+cache file or installed package. Resources/startup NOT_MEASURED freeze.
 
-## Salida actual: ffmpeg → Pulse
+## Current output: ffmpeg → Pulse
 
-La producción conserva el controlador y reemplaza sólo la salida del prototipo
-por un ffmpeg directo, con Pulse del SO (compatible con PipeWire-Pulse en Linux).
-No usa ffplay/SDL ni crea otra ventana. Sin daemon propio, dependencia Cargo
-nueva, shell ni cache PCM en disco. Fuente FD pinneado/esperado, demuxer/códec
-permitidos, MOV sin referencias externas, salida forzada Pulse, estéreo s16/48kHz
-y volumen0.5. No acepta destinos de archivo arbitrarios. El null muxer existe
-sólo con dos flags explícitos de fixture; no es fallback de producto.
+Production keeps the controller and only replaces the prototype's output
+with a direct ffmpeg, using the OS's Pulse (compatible with PipeWire-Pulse on Linux).
+It does not use ffplay/SDL nor create another window. No own daemon, new Cargo
+dependency, shell or on-disk PCM cache. Pinned/expected FD source, allowed
+demuxer/codec, MOV without external references, forced Pulse output, stereo s16/48 kHz
+and volume 0.5. It does not accept arbitrary file destinations. The null muxer exists
+only with two explicit fixture flags; it is not a product fallback.
 
-Pausa/seek cancela y recoge antes de reiniciar desde posición solicitada; no
-son control de un reloj PCM ni seek sample-exact. Timeline no roba selección.
-Pausa/EOF conserva metadatos, error de dispositivo permite reintentar; fuente
-inválida destruye los metadatos previos. Cerrar/ocultar cancela, no autoplay al
-volver. El reloj UI empieza al spawn y es estimado; no acredita sonido audible.
+Pause/seek cancels and reaps before restarting from the requested position; they are
+not control of a PCM clock nor a sample-exact seek. The timeline does not steal the selection.
+Pause/EOF keeps the metadata, a device error allows retrying; an
+invalid source destroys the previous metadata. Closing/hiding cancels, no autoplay when
+returning. The UI clock starts at spawn and is estimated; it does not prove audible sound.
 
-Se conserva stderr error-only8KiB y texto saneado4KiB, drena exceso y exigeEOF
-en ambos pipes más reap. Ningún exit0 con diagnóstico se presenta como éxito.
-ChildCPU2×restante+10s(hasta1día), wallrestante+10s, entrada8GiB, max_alloc32MiB,
-AS virtual768MiB como vídeo. Probe funcional silencioso512MiB falla creando
-contexto Pulse/mmap y768MiB acepta; eso NO es PSS ni modifica ideal50MB/techo150MB
-del árbol. Sin nuevos PSS/Swap/CPU/startup porfreeze; aceptación de recursos
-pendiente. No aceptar una reproducción larga que exceda el techo cuando se mida.
+stderr error-only 8 KiB and sanitized text 4 KiB are kept, excess is drained and EOF is required
+on both pipes plus reap. No exit 0 with a diagnostic is presented as success.
+Child CPU 2× remaining+10 s (up to 1 day), wall remaining+10 s, input 8 GiB, max_alloc 32 MiB,
+virtual AS 768 MiB like video. A silent functional probe at 512 MiB fails creating the
+Pulse/mmap context and 768 MiB accepts it; that is NOT PSS and does not change the tree's 50 MB ideal/150 MB
+ceiling. No new PSS/Swap/CPU/startup because of the freeze; resource acceptance
+is pending. Do not accept a long playback that exceeds the ceiling once measured.
 
-Waveform, carátulas, volumen UI, posiciónPCM/latencia, otros formatos y SO,
-crash/kernelD/offline y P09global continúan pendientes.
+Waveform, cover art, UI volume, PCM position/latency, other formats and OSes,
+crash/kernel D-state/offline and global P09 are still pending.
 
-## Evidencia de la salida actual
+## Evidence for the current output
 
-463Rust141core/58helper/264UI, Clippyworkspace-Dwarnings/releasePASS.
-`audio-ui-1793086873981565834.json` PASS con salida Pulse real del sistema y
-fuente PCM nula de6s:9framebuffers1000×650, metadatos/UTF8/recorte/errores/rapid,
-P/play-pausa solicitado por Action, seek por handler de puntero sin robar la
-selección, reanudar y EOF después del seek. No hay eventos de teclado/punteroSO,
-no grabación audible ni lectura de muestras a la salida. Posición UI estimada.
+463 Rust 141 core/58 helper/264 UI, Clippy workspace -Dwarnings/release PASS.
+`audio-ui-1793086873981565834.json` PASS with the system's real Pulse output and a
+6 s null PCM source: 9 framebuffers 1000×650, metadata/UTF-8/cut/errors/rapid,
+P/play-pause requested through the Action, seek through the pointer handler without stealing the
+selection, resume and EOF after the seek. There are no OS keyboard/pointer events,
+no audible recording and no reading of samples at the output. UI position estimated.
 
-Ocultar recoge player y no reinicia; borrar durante playback oculta metadatos y
-cancela/recoge; restaurar obtiene pruebaFD nueva y permite reproducir. Callback
-FLTK propio con PID/start deplayer observado vivo→ACK→exit0;14identidades
-registradas ausentes/reutilizadas, Zmismoidentity noaceptado. No cobertura de
-lifetimes completos ni prueba de Super+W, kernelD/offline o nitidez nativa2x.
+Hiding reaps the player and does not restart; deleting during playback hides the metadata and
+cancels/reaps; restoring gets a new FD proof and allows playing. Own FLTK
+callback with the player's PID/start observed alive→ACK→exit 0; 14 registered
+identities absent/reused, Z with the same identity not accepted. No coverage of
+full lifetimes and no test of Super+W, kernel D-state/offline or native 2x sharpness.
 
-FAILPulse1793086437393143500 mantiene OOM/mmap con AS512; contrato silencioso
-512/768 y sidecar registran cambio virtual, no ampliación del presupuesto real.
-FAILnativoffplay yPASSdummy del prototipo quedan inmutables como antecedentes;
-no se reutilizan para aceptar el backend actual. No nueva medición de memoria,
-CPU, arranque ni GPU; todos los fallos históricos del proyecto permanecen.
-
-
-2026-10-27 M11: validación Info/codec y construcción de salida Pulse compartidas
-con vídeo opt-in, sin duplicar player. Regresión standalone
- audio-ui-1793092217283190449 PASS9FB1000×650/14loggedhelpersgone strictZfalse/
-callbackplayeractivo0ACK, SHA app52cde7a05957/helper187c939eb981. Fuente silenciosa:
-no audibilidad/PCM/recursos. Ver VIDEO-PREVIEW para el gate de dos outputs.
+FAIL Pulse 1793086437393143500 keeps the OOM/mmap with AS 512; the silent contract
+512/768 and the sidecar record a virtual change, not an increase of the real budget.
+The prototype's native ffplay FAIL and dummy PASS remain immutable as background;
+they are not reused to accept the current backend. No new measurement of memory,
+CPU, startup or GPU; all the project's historical failures remain.
 
 
-M15 2026-10-27: AUDIO-PCM añade evidencia de señal real (no sólo zeroPCM):
-1793096793305882328PASS sinkprivado localUnix/440Hz, pausaRMS0 yvídeo880optin,
-2FB/8loggedhelpersgone/callbackstreamvivo0ACK/recorderreap/moduleabsent/defaultigual.
-481Rust+4Python+Clippy/releasePASS. Physicalspeakers/A-Vsync/PCMclock no verificados;
-fallos históricos incluida rutaIDinicialdesconocida preservados. FreezeNOT_MEASURED.
+2026-10-27 M11: Info/codec validation and the Pulse output construction shared
+with opt-in video, without duplicating the player. Standalone regression
+audio-ui-1793092217283190449 PASS 9 FB 1000×650/14 logged helpers gone strict Z false/
+active player callback 0 ACK, SHA app 52cde7a05957/helper 187c939eb981. Silent source:
+no audibility/PCM/resources. See VIDEO-PREVIEW for the two-output gate.
+
+
+M15 2026-10-27: AUDIO-PCM adds real-signal evidence (not only zero PCM):
+1793096793305882328 PASS private local Unix sink/440 Hz, pause RMS 0 and opt-in video 880,
+2 FB/8 logged helpers gone/live stream callback 0 ACK/recorder reaped/module absent/default unchanged.
+481 Rust + 4 Python + Clippy/release PASS. Physical speakers/A-V sync/PCM clock not verified;
+historical failures, including the unknown initial route ID, preserved. Freeze NOT_MEASURED.
